@@ -1,0 +1,1411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1608C4E41939988600CC1E53 /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3E93585E1920343C0091408E /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex */; };
+		1608C4EA1939A12100CC1E53 /* NoItemsRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1608C4E81939A12100CC1E53 /* NoItemsRowViewController.swift */; };
+		1608C4EB1939A12100CC1E53 /* NoItemsRowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1608C4E91939A12100CC1E53 /* NoItemsRowViewController.xib */; };
+		162BD21F1922BA5700848FF6 /* ListerOSX.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 162BD21E1922BA5700848FF6 /* ListerOSX.entitlements */; };
+		162CB9E81936F0AF00F2586B /* ListerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE5954192016410052916A /* ListerKit.framework */; };
+		162CB9EB1936F0DE00F2586B /* CheckBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CB9EA1936F0DE00F2586B /* CheckBoxCell.swift */; };
+		1674D9AD18F729CA0019FF77 /* ListDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674D9AC18F729CA0019FF77 /* ListDocumentsViewController.swift */; };
+		1674D9E118F752960019FF77 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674D9E018F752960019FF77 /* ListViewController.swift */; };
+		1682F5F818F8ACD9000B87A6 /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1682F5F718F8ACD9000B87A6 /* ListItemCell.swift */; };
+		1686A96318FCBA9900112572 /* NewListDocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1686A96218FCBA9900112572 /* NewListDocumentController.swift */; };
+		16A9851D1936EEA5007B7F37 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168178BA19100ED6008B46DC /* NotificationCenter.framework */; };
+		16A985221936EEA7007B7F37 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A985211936EEA7007B7F37 /* TodayViewController.swift */; };
+		16A985241936EEA7007B7F37 /* Today.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A985231936EEA7007B7F37 /* Today.storyboard */; };
+		16A985271936EEA7007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16A9851C1936EEA5007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex */; };
+		16AC5BA01932525300937EF4 /* ListInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674D9AE18F72B7F0019FF77 /* ListInfo.swift */; };
+		16B6970619332B9800B1CA09 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AF5213191FF94B0088ED08 /* CheckBox.swift */; };
+		16CBDAAF18F6EE3A00233D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CBDAAE18F6EE3A00233D3C /* AppDelegate.swift */; };
+		16CBDAB718F6EE3A00233D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CBDAB518F6EE3A00233D3C /* Main.storyboard */; };
+		16CBDAB918F6EE3A00233D3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CBDAB818F6EE3A00233D3C /* Images.xcassets */; };
+		16DAC8AD18F9BB5400251E9D /* ListColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DAC8AC18F9BB5400251E9D /* ListColorCell.swift */; };
+		16DAC8AF18F9DAA800251E9D /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DAC8AE18F9DAA800251E9D /* ListCell.swift */; };
+		16ED48651925420100759D5E /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED4863192526DA00759D5E /* ListCoordinator.swift */; };
+		16EE5969192016430052916A /* ListerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE5954192016410052916A /* ListerKit.framework */; };
+		16EE596A192016430052916A /* ListerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE5954192016410052916A /* ListerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		16EE5974192019C40052916A /* ListDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16480E2718F860360068456A /* ListDocument.swift */; };
+		16EE5975192019CD0052916A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16480E2918F866990068456A /* List.swift */; };
+		16EE5976192019D30052916A /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16480E2B18F866A80068456A /* ListItem.swift */; };
+		16EE5977192019DC0052916A /* ListColorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9A18FB08C90012B60F /* ListColorUI.swift */; };
+		3E06D14E1935E516008F5D81 /* ListDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E497FCC18FAFA2400B32837 /* ListDocument.swift */; };
+		3E339D061923471600309AF6 /* ListerKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E93587D1920355C0091408E /* ListerKitOSX.framework */; };
+		3E339D071923471600309AF6 /* ListerKitOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E93587D1920355C0091408E /* ListerKitOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3E3D094C19313A8400D21A98 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D094A193139BB00D21A98 /* AppConfiguration.swift */; };
+		3E3D094D19313A8500D21A98 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D094A193139BB00D21A98 /* AppConfiguration.swift */; };
+		3E3F3980191066AF005813D6 /* TableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F397F191066AF005813D6 /* TableRowView.swift */; };
+		3E497FCB18FAFA2400B32837 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E497FCA18FAFA2400B32837 /* main.swift */; };
+		3E497FD218FAFA2400B32837 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E497FD118FAFA2400B32837 /* Images.xcassets */; };
+		3E5F97EC1920377B00723004 /* ListColorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9A18FB08C90012B60F /* ListColorUI.swift */; };
+		3E5F97ED1920378000723004 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16480E2B18F866A80068456A /* ListItem.swift */; };
+		3E5F97EE1920378300723004 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16480E2918F866990068456A /* List.swift */; };
+		3E5F97EF1920378A00723004 /* ListFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED9F75C190B9FDD0041A573 /* ListFormatting.swift */; };
+		3E5F97F0192037A600723004 /* NSColor+AppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9D18FB08C90012B60F /* NSColor+AppSpecific.swift */; };
+		3E5F97F1192037AA00723004 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC414F519195E3D002B3B98 /* CheckBox.swift */; };
+		3E6B618C1935D12C00F7C4BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6B618B1935D12C00F7C4BA /* Main.storyboard */; };
+		3E8576E219205618004FF442 /* ListerKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E93587D1920355C0091408E /* ListerKitOSX.framework */; };
+		3E91952319351DC60045CDCC /* CheckBoxLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADCB8919351AC30057204C /* CheckBoxLayer.swift */; };
+		3E91952419351DFB0045CDCC /* CheckBoxLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADCB8919351AC30057204C /* CheckBoxLayer.swift */; };
+		3E93585F1920343C0091408E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168178BA19100ED6008B46DC /* NotificationCenter.framework */; };
+		3E9358641920343C0091408E /* ListerTodayOSX.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 3E9358631920343C0091408E /* ListerTodayOSX.entitlements */; };
+		3E9358671920343C0091408E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E9358651920343C0091408E /* InfoPlist.strings */; };
+		3E9358691920343C0091408E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9358681920343C0091408E /* TodayViewController.swift */; };
+		3E93586B1920343C0091408E /* ListRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93586A1920343C0091408E /* ListRowViewController.swift */; };
+		3EA0250E19204ACE0090F6DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA0250D19204ACE0090F6DB /* AppDelegate.swift */; };
+		3EA0251019204BCF0090F6DB /* TodayListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA0250F19204BCF0090F6DB /* TodayListManager.swift */; };
+		3EA02514192052590090F6DB /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EA02511192052590090F6DB /* TodayViewController.xib */; };
+		3EA02515192052590090F6DB /* ListRowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EA02512192052590090F6DB /* ListRowViewController.xib */; };
+		3EA02516192052590090F6DB /* OpenListerRowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EA02513192052590090F6DB /* OpenListerRowViewController.xib */; };
+		3EBB36C6192045BE0021C954 /* ListRowRepresentedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB36C5192045BE0021C954 /* ListRowRepresentedObject.swift */; };
+		3EBB36C8192048970021C954 /* OpenListerRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB36C7192048970021C954 /* OpenListerRowViewController.swift */; };
+		3EC2F3F219369F1400B0BD12 /* Groceries.list in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2F3F119369F1400B0BD12 /* Groceries.list */; };
+		3EC2F3F419369F2900B0BD12 /* Tech Toys.list in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2F3F319369F2900B0BD12 /* Tech Toys.list */; };
+		3EC2F3F719369F9200B0BD12 /* Today.list in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2F3F519369F4800B0BD12 /* Today.list */; };
+		3EC2F3F819369F9600B0BD12 /* Today.list in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2F3F519369F4800B0BD12 /* Today.list */; };
+		3ECADE11192D0B1500BC9826 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECADE10192D0B1500BC9826 /* AddItemViewController.swift */; };
+		3ECADE13192D0B2000BC9826 /* ListWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECADE12192D0B2000BC9826 /* ListWindowController.swift */; };
+		3ECADE15192D0B2800BC9826 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECADE14192D0B2800BC9826 /* ListViewController.swift */; };
+		3ECADE17192D0B3400BC9826 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ECADE16192D0B3400BC9826 /* Storyboard.storyboard */; };
+		3ED831D81932FC2B00F69A6E /* ListerDocumentIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3ED831D71932FC2B00F69A6E /* ListerDocumentIcon.icns */; };
+		3ED831D91932FC3000F69A6E /* ListerDocumentIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3ED831D71932FC2B00F69A6E /* ListerDocumentIcon.icns */; };
+		3EFC7D9F18FB08C90012B60F /* ColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9718FB08C90012B60F /* ColorPaletteView.swift */; };
+		3EFC7DA318FB08C90012B60F /* ListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9B18FB08C90012B60F /* ListTableView.swift */; };
+		3EFC7DA418FB08C90012B60F /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9C18FB08C90012B60F /* ListItemView.swift */; };
+		3EFC7DA618FB08C90012B60F /* ResizingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9E18FB08C90012B60F /* ResizingTextField.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1608C4E51939988600CC1E53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16CBDA9F18F6EE3A00233D3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E93585D1920343C0091408E;
+			remoteInfo = ListerTodayOSX;
+		};
+		16A985251936EEA7007B7F37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16CBDA9F18F6EE3A00233D3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16A9851B1936EEA5007B7F37;
+			remoteInfo = ListerToday;
+		};
+		16A985281936EEA7007B7F37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16CBDA9F18F6EE3A00233D3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16A9851B1936EEA5007B7F37;
+			remoteInfo = ListerToday;
+		};
+		16EE5967192016430052916A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16CBDA9F18F6EE3A00233D3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16EE5953192016410052916A;
+			remoteInfo = ListerKit;
+		};
+		16EE596B192016430052916A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16CBDA9F18F6EE3A00233D3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16EE5953192016410052916A;
+			remoteInfo = ListerKit;
+		};
+		3E339D081923471600309AF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16CBDA9F18F6EE3A00233D3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E93587C1920355C0091408E;
+			remoteInfo = ListerKitOSX;
+		};
+		3E9358941920355C0091408E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16CBDA9F18F6EE3A00233D3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E93587C1920355C0091408E;
+			remoteInfo = ListerKitOSX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1608C4E71939988600CC1E53 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1608C4E41939988600CC1E53 /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16A9852D1936EEA7007B7F37 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				16A985271936EEA7007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16AF5211191FF8F70088ED08 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				16EE596A192016430052916A /* ListerKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E339D0B1923471700309AF6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3E339D071923471600309AF6 /* ListerKitOSX.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1608C4E81939A12100CC1E53 /* NoItemsRowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoItemsRowViewController.swift; sourceTree = "<group>"; };
+		1608C4E91939A12100CC1E53 /* NoItemsRowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoItemsRowViewController.xib; sourceTree = "<group>"; };
+		162BD21E1922BA5700848FF6 /* ListerOSX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ListerOSX.entitlements; sourceTree = "<group>"; };
+		162CB9E71936EF8A00F2586B /* com.example.apple-samplecode.Lister.ListerToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "com.example.apple-samplecode.Lister.ListerToday.entitlements"; sourceTree = "<group>"; };
+		162CB9EA1936F0DE00F2586B /* CheckBoxCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxCell.swift; sourceTree = "<group>"; };
+		16480E2718F860360068456A /* ListDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDocument.swift; sourceTree = "<group>"; };
+		16480E2918F866990068456A /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = ../Common/List.swift; sourceTree = "<group>"; };
+		16480E2B18F866A80068456A /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItem.swift; path = ../Common/ListItem.swift; sourceTree = "<group>"; };
+		1674D9AC18F729CA0019FF77 /* ListDocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ListDocumentsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1674D9AE18F72B7F0019FF77 /* ListInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListInfo.swift; path = ListerKit/ListInfo.swift; sourceTree = SOURCE_ROOT; };
+		1674D9B618F745670019FF77 /* Lister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Lister.entitlements; sourceTree = "<group>"; };
+		1674D9E018F752960019FF77 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ListViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		168178BA19100ED6008B46DC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		1682F5F718F8ACD9000B87A6 /* ListItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemCell.swift; sourceTree = "<group>"; };
+		1686A96218FCBA9900112572 /* NewListDocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NewListDocumentController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		16A9851C1936EEA5007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "com.example.apple-samplecode.Lister.ListerToday.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16A985201936EEA7007B7F37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16A985211936EEA7007B7F37 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		16A985231936EEA7007B7F37 /* Today.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Today.storyboard; sourceTree = "<group>"; };
+		16AF5213191FF94B0088ED08 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		16CBDAA718F6EE3A00233D3C /* Lister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lister.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16CBDAAB18F6EE3A00233D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16CBDAAE18F6EE3A00233D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		16CBDAB618F6EE3A00233D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		16CBDAB818F6EE3A00233D3C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		16DAC8AC18F9BB5400251E9D /* ListColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListColorCell.swift; sourceTree = "<group>"; };
+		16DAC8AE18F9DAA800251E9D /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		16ED4863192526DA00759D5E /* ListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
+		16EE5954192016410052916A /* ListerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ListerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16EE5957192016430052916A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E3885E718FC8A87008173F6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3E3D094A193139BB00D21A98 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppConfiguration.swift; path = ../Common/AppConfiguration.swift; sourceTree = "<group>"; };
+		3E3F397F191066AF005813D6 /* TableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowView.swift; sourceTree = "<group>"; };
+		3E497FC618FAFA2400B32837 /* ListerOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListerOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E497FC918FAFA2400B32837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E497FCA18FAFA2400B32837 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3E497FCC18FAFA2400B32837 /* ListDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListDocument.swift; path = ../ListerOSX/ListDocument.swift; sourceTree = "<group>"; };
+		3E497FD118FAFA2400B32837 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3E6B618B1935D12C00F7C4BA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3E93585E1920343C0091408E /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "com.example.apple-samplecode.Lister.ListerTodayOSX.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E9358621920343C0091408E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E9358631920343C0091408E /* ListerTodayOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ListerTodayOSX.entitlements; sourceTree = "<group>"; };
+		3E9358661920343C0091408E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3E9358681920343C0091408E /* TodayViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
+		3E93586A1920343C0091408E /* ListRowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowViewController.swift; sourceTree = "<group>"; };
+		3E93587D1920355C0091408E /* ListerKitOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ListerKitOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E9358801920355C0091408E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EA0250D19204ACE0090F6DB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3EA0250F19204BCF0090F6DB /* TodayListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayListManager.swift; sourceTree = "<group>"; };
+		3EA02511192052590090F6DB /* TodayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayViewController.xib; sourceTree = "<group>"; };
+		3EA02512192052590090F6DB /* ListRowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListRowViewController.xib; sourceTree = "<group>"; };
+		3EA02513192052590090F6DB /* OpenListerRowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenListerRowViewController.xib; sourceTree = "<group>"; };
+		3EADCB8919351AC30057204C /* CheckBoxLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxLayer.swift; sourceTree = "<group>"; };
+		3EBB36C5192045BE0021C954 /* ListRowRepresentedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRowRepresentedObject.swift; sourceTree = "<group>"; };
+		3EBB36C7192048970021C954 /* OpenListerRowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenListerRowViewController.swift; sourceTree = "<group>"; };
+		3EC2F3F119369F1400B0BD12 /* Groceries.list */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Groceries.list; sourceTree = "<group>"; };
+		3EC2F3F319369F2900B0BD12 /* Tech Toys.list */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Tech Toys.list"; sourceTree = "<group>"; };
+		3EC2F3F519369F4800B0BD12 /* Today.list */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Today.list; sourceTree = "<group>"; };
+		3EC414F519195E3D002B3B98 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckBox.swift; path = ../ListerOSX/CheckBox.swift; sourceTree = "<group>"; };
+		3ECADE10192D0B1500BC9826 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		3ECADE12192D0B2000BC9826 /* ListWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWindowController.swift; sourceTree = "<group>"; };
+		3ECADE14192D0B2800BC9826 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		3ECADE16192D0B3400BC9826 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		3ED831D71932FC2B00F69A6E /* ListerDocumentIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ListerDocumentIcon.icns; sourceTree = "<group>"; };
+		3ED9F75C190B9FDD0041A573 /* ListFormatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListFormatting.swift; path = ../ListerOSX/ListFormatting.swift; sourceTree = "<group>"; };
+		3EFC7D9718FB08C90012B60F /* ColorPaletteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPaletteView.swift; sourceTree = "<group>"; };
+		3EFC7D9A18FB08C90012B60F /* ListColorUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListColorUI.swift; path = Common/ListColorUI.swift; sourceTree = SOURCE_ROOT; };
+		3EFC7D9B18FB08C90012B60F /* ListTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableView.swift; sourceTree = "<group>"; };
+		3EFC7D9C18FB08C90012B60F /* ListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
+		3EFC7D9D18FB08C90012B60F /* NSColor+AppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSColor+AppSpecific.swift"; path = "../ListerOSX/NSColor+AppSpecific.swift"; sourceTree = "<group>"; };
+		3EFC7D9E18FB08C90012B60F /* ResizingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizingTextField.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16A985191936EEA5007B7F37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				162CB9E81936F0AF00F2586B /* ListerKit.framework in Frameworks */,
+				16A9851D1936EEA5007B7F37 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16CBDAA418F6EE3A00233D3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16EE5969192016430052916A /* ListerKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16EE5950192016410052916A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E497FC218FAFA2400B32837 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E339D061923471600309AF6 /* ListerKitOSX.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E93585B1920343C0091408E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E8576E219205618004FF442 /* ListerKitOSX.framework in Frameworks */,
+				3E93585F1920343C0091408E /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E9358791920355C0091408E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		161DD32918F792FF00DAD559 /* DefaultLists */ = {
+			isa = PBXGroup;
+			children = (
+				3EC2F3F519369F4800B0BD12 /* Today.list */,
+				3EC2F3F119369F1400B0BD12 /* Groceries.list */,
+				3EC2F3F319369F2900B0BD12 /* Tech Toys.list */,
+			);
+			path = DefaultLists;
+			sourceTree = "<group>";
+		};
+		162CB9E91936F0C800F2586B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				162CB9EA1936F0DE00F2586B /* CheckBoxCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1674D9AB18F7299E0019FF77 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				16480E2918F866990068456A /* List.swift */,
+				16480E2B18F866A80068456A /* ListItem.swift */,
+				3EFC7D9A18FB08C90012B60F /* ListColorUI.swift */,
+				3EADCB8919351AC30057204C /* CheckBoxLayer.swift */,
+				3E3D094A193139BB00D21A98 /* AppConfiguration.swift */,
+				3EADCB8B19351AC80057204C /* Resources */,
+			);
+			name = Common;
+			path = Lister;
+			sourceTree = "<group>";
+		};
+		168178B919100ED6008B46DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				168178BA19100ED6008B46DC /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16A9851E1936EEA5007B7F37 /* ListerToday */ = {
+			isa = PBXGroup;
+			children = (
+				162CB9E71936EF8A00F2586B /* com.example.apple-samplecode.Lister.ListerToday.entitlements */,
+				16A985211936EEA7007B7F37 /* TodayViewController.swift */,
+				162CB9E91936F0C800F2586B /* Views */,
+				16A985231936EEA7007B7F37 /* Today.storyboard */,
+				16A9851F1936EEA7007B7F37 /* Supporting Files */,
+			);
+			path = ListerToday;
+			sourceTree = "<group>";
+		};
+		16A9851F1936EEA7007B7F37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16A985201936EEA7007B7F37 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16AC5B9F1932524600937EF4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1674D9AE18F72B7F0019FF77 /* ListInfo.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		16CBDA9E18F6EE3A00233D3C = {
+			isa = PBXGroup;
+			children = (
+				3E3885E718FC8A87008173F6 /* README.md */,
+				16CBDAA918F6EE3A00233D3C /* Lister */,
+				16A9851E1936EEA5007B7F37 /* ListerToday */,
+				16EE5955192016410052916A /* ListerKit */,
+				1674D9AB18F7299E0019FF77 /* Common */,
+				3E497FC718FAFA2400B32837 /* ListerOSX */,
+				3E93587E1920355C0091408E /* ListerKitOSX */,
+				3E9358601920343C0091408E /* ListerTodayOSX */,
+				168178B919100ED6008B46DC /* Frameworks */,
+				16CBDAA818F6EE3A00233D3C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16CBDAA818F6EE3A00233D3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16CBDAA718F6EE3A00233D3C /* Lister.app */,
+				3E497FC618FAFA2400B32837 /* ListerOSX.app */,
+				16EE5954192016410052916A /* ListerKit.framework */,
+				3E93585E1920343C0091408E /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex */,
+				3E93587D1920355C0091408E /* ListerKitOSX.framework */,
+				16A9851C1936EEA5007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16CBDAA918F6EE3A00233D3C /* Lister */ = {
+			isa = PBXGroup;
+			children = (
+				1674D9B618F745670019FF77 /* Lister.entitlements */,
+				16CBDAAE18F6EE3A00233D3C /* AppDelegate.swift */,
+				16EE597919201D390052916A /* View Controllers */,
+				16EE597A19201D580052916A /* Views */,
+				16AC5B9F1932524600937EF4 /* Models */,
+				16EE597B19201D760052916A /* UI */,
+				16CBDAAA18F6EE3A00233D3C /* Supporting Files */,
+				16CBDAB818F6EE3A00233D3C /* Images.xcassets */,
+			);
+			path = Lister;
+			sourceTree = "<group>";
+		};
+		16CBDAAA18F6EE3A00233D3C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16CBDAAB18F6EE3A00233D3C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16EE5955192016410052916A /* ListerKit */ = {
+			isa = PBXGroup;
+			children = (
+				16480E2718F860360068456A /* ListDocument.swift */,
+				16ED4863192526DA00759D5E /* ListCoordinator.swift */,
+				16AF5213191FF94B0088ED08 /* CheckBox.swift */,
+				16EE5956192016430052916A /* Supporting Files */,
+			);
+			path = ListerKit;
+			sourceTree = "<group>";
+		};
+		16EE5956192016430052916A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16EE5957192016430052916A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16EE597919201D390052916A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1674D9AC18F729CA0019FF77 /* ListDocumentsViewController.swift */,
+				1686A96218FCBA9900112572 /* NewListDocumentController.swift */,
+				1674D9E018F752960019FF77 /* ListViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		16EE597A19201D580052916A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				16DAC8AE18F9DAA800251E9D /* ListCell.swift */,
+				1682F5F718F8ACD9000B87A6 /* ListItemCell.swift */,
+				16DAC8AC18F9BB5400251E9D /* ListColorCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		16EE597B19201D760052916A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				16CBDAB518F6EE3A00233D3C /* Main.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		3E497FC718FAFA2400B32837 /* ListerOSX */ = {
+			isa = PBXGroup;
+			children = (
+				3EA0250D19204ACE0090F6DB /* AppDelegate.swift */,
+				3EDCB8F0193A5548003B5830 /* Window Controllers */,
+				3EDCB8F1193A5557003B5830 /* View Controllers */,
+				3EDCB8F2193A5561003B5830 /* Views */,
+				3ECADE16192D0B3400BC9826 /* Storyboard.storyboard */,
+				3E6B618B1935D12C00F7C4BA /* Main.storyboard */,
+				3E497FD118FAFA2400B32837 /* Images.xcassets */,
+				3E497FC818FAFA2400B32837 /* Supporting Files */,
+			);
+			path = ListerOSX;
+			sourceTree = "<group>";
+		};
+		3E497FC818FAFA2400B32837 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E497FC918FAFA2400B32837 /* Info.plist */,
+				162BD21E1922BA5700848FF6 /* ListerOSX.entitlements */,
+				3E497FCA18FAFA2400B32837 /* main.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E9358601920343C0091408E /* ListerTodayOSX */ = {
+			isa = PBXGroup;
+			children = (
+				3E9358681920343C0091408E /* TodayViewController.swift */,
+				3EBB36C7192048970021C954 /* OpenListerRowViewController.swift */,
+				3E93586A1920343C0091408E /* ListRowViewController.swift */,
+				3EBB36C5192045BE0021C954 /* ListRowRepresentedObject.swift */,
+				1608C4E81939A12100CC1E53 /* NoItemsRowViewController.swift */,
+				3EA02511192052590090F6DB /* TodayViewController.xib */,
+				3EA02513192052590090F6DB /* OpenListerRowViewController.xib */,
+				3EA02512192052590090F6DB /* ListRowViewController.xib */,
+				1608C4E91939A12100CC1E53 /* NoItemsRowViewController.xib */,
+				3E9358611920343C0091408E /* Supporting Files */,
+			);
+			path = ListerTodayOSX;
+			sourceTree = "<group>";
+		};
+		3E9358611920343C0091408E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E9358621920343C0091408E /* Info.plist */,
+				3E9358631920343C0091408E /* ListerTodayOSX.entitlements */,
+				3E9358651920343C0091408E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E93587E1920355C0091408E /* ListerKitOSX */ = {
+			isa = PBXGroup;
+			children = (
+				3EA0250F19204BCF0090F6DB /* TodayListManager.swift */,
+				3E497FCC18FAFA2400B32837 /* ListDocument.swift */,
+				3ED9F75C190B9FDD0041A573 /* ListFormatting.swift */,
+				3EC414F519195E3D002B3B98 /* CheckBox.swift */,
+				3EFC7D9D18FB08C90012B60F /* NSColor+AppSpecific.swift */,
+				3E93587F1920355C0091408E /* Supporting Files */,
+			);
+			path = ListerKitOSX;
+			sourceTree = "<group>";
+		};
+		3E93587F1920355C0091408E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E9358801920355C0091408E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3EADCB8B19351AC80057204C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				161DD32918F792FF00DAD559 /* DefaultLists */,
+				3ED831D71932FC2B00F69A6E /* ListerDocumentIcon.icns */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3EDCB8F0193A5548003B5830 /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3ECADE12192D0B2000BC9826 /* ListWindowController.swift */,
+			);
+			name = "Window Controllers";
+			sourceTree = "<group>";
+		};
+		3EDCB8F1193A5557003B5830 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3ECADE14192D0B2800BC9826 /* ListViewController.swift */,
+				3ECADE10192D0B1500BC9826 /* AddItemViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3EDCB8F2193A5561003B5830 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3EFC7D9718FB08C90012B60F /* ColorPaletteView.swift */,
+				3EFC7D9B18FB08C90012B60F /* ListTableView.swift */,
+				3EFC7D9C18FB08C90012B60F /* ListItemView.swift */,
+				3E3F397F191066AF005813D6 /* TableRowView.swift */,
+				3EFC7D9E18FB08C90012B60F /* ResizingTextField.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		16EE5951192016410052916A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E497FC318FAFA2400B32837 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E93587A1920355C0091408E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		16A9851B1936EEA5007B7F37 /* ListerToday */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16A9852A1936EEA7007B7F37 /* Build configuration list for PBXNativeTarget "ListerToday" */;
+			buildPhases = (
+				16A985181936EEA5007B7F37 /* Sources */,
+				16A985191936EEA5007B7F37 /* Frameworks */,
+				16A9851A1936EEA5007B7F37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ListerToday;
+			productName = ListerToday;
+			productReference = 16A9851C1936EEA5007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		16CBDAA618F6EE3A00233D3C /* Lister */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16CBDAC818F6EE3A00233D3C /* Build configuration list for PBXNativeTarget "Lister" */;
+			buildPhases = (
+				16CBDAA318F6EE3A00233D3C /* Sources */,
+				16CBDAA418F6EE3A00233D3C /* Frameworks */,
+				16CBDAA518F6EE3A00233D3C /* Resources */,
+				16AF5211191FF8F70088ED08 /* Embed Frameworks */,
+				16A9852D1936EEA7007B7F37 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16EE5968192016430052916A /* PBXTargetDependency */,
+				16EE596C192016430052916A /* PBXTargetDependency */,
+				16A985261936EEA7007B7F37 /* PBXTargetDependency */,
+				16A985291936EEA7007B7F37 /* PBXTargetDependency */,
+			);
+			name = Lister;
+			productName = Lister;
+			productReference = 16CBDAA718F6EE3A00233D3C /* Lister.app */;
+			productType = "com.apple.product-type.application";
+		};
+		16EE5953192016410052916A /* ListerKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16EE596D192016430052916A /* Build configuration list for PBXNativeTarget "ListerKit" */;
+			buildPhases = (
+				16EE594F192016410052916A /* Sources */,
+				16EE5950192016410052916A /* Frameworks */,
+				16EE5951192016410052916A /* Headers */,
+				16EE5952192016410052916A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ListerKit;
+			productName = ListerKit;
+			productReference = 16EE5954192016410052916A /* ListerKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3E497FC518FAFA2400B32837 /* ListerOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E497FE218FAFA2400B32837 /* Build configuration list for PBXNativeTarget "ListerOSX" */;
+			buildPhases = (
+				3E497FC118FAFA2400B32837 /* Sources */,
+				3E497FC218FAFA2400B32837 /* Frameworks */,
+				3E497FC318FAFA2400B32837 /* Headers */,
+				3E497FC418FAFA2400B32837 /* Resources */,
+				3E339D0B1923471700309AF6 /* Embed Frameworks */,
+				1608C4E71939988600CC1E53 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E9358951920355C0091408E /* PBXTargetDependency */,
+				3E339D091923471600309AF6 /* PBXTargetDependency */,
+				1608C4E61939988600CC1E53 /* PBXTargetDependency */,
+			);
+			name = ListerOSX;
+			productName = ListerOSX;
+			productReference = 3E497FC618FAFA2400B32837 /* ListerOSX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3E93585D1920343C0091408E /* ListerTodayOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E9358771920343C0091408E /* Build configuration list for PBXNativeTarget "ListerTodayOSX" */;
+			buildPhases = (
+				3E93585A1920343C0091408E /* Sources */,
+				3E93585B1920343C0091408E /* Frameworks */,
+				3E93585C1920343C0091408E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ListerTodayOSX;
+			productName = ListerTodayOSX;
+			productReference = 3E93585E1920343C0091408E /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		3E93587C1920355C0091408E /* ListerKitOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E9358961920355C0091408E /* Build configuration list for PBXNativeTarget "ListerKitOSX" */;
+			buildPhases = (
+				3E9358781920355C0091408E /* Sources */,
+				3E9358791920355C0091408E /* Frameworks */,
+				3E93587A1920355C0091408E /* Headers */,
+				3E93587B1920355C0091408E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ListerKitOSX;
+			productName = ListerKitOSX;
+			productReference = 3E93587D1920355C0091408E /* ListerKitOSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16CBDA9F18F6EE3A00233D3C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Apple Inc.";
+				TargetAttributes = {
+					16A9851B1936EEA5007B7F37 = {
+						CreatedOnToolsVersion = 6.0;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+					16CBDAA618F6EE3A00233D3C = {
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					16EE5953192016410052916A = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					3E93585D1920343C0091408E = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					3E93587C1920355C0091408E = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
+			};
+			buildConfigurationList = 16CBDAA218F6EE3A00233D3C /* Build configuration list for PBXProject "Lister" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 16CBDA9E18F6EE3A00233D3C;
+			productRefGroup = 16CBDAA818F6EE3A00233D3C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16CBDAA618F6EE3A00233D3C /* Lister */,
+				3E497FC518FAFA2400B32837 /* ListerOSX */,
+				16EE5953192016410052916A /* ListerKit */,
+				3E93587C1920355C0091408E /* ListerKitOSX */,
+				16A9851B1936EEA5007B7F37 /* ListerToday */,
+				3E93585D1920343C0091408E /* ListerTodayOSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16A9851A1936EEA5007B7F37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16A985241936EEA7007B7F37 /* Today.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16CBDAA518F6EE3A00233D3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16CBDAB918F6EE3A00233D3C /* Images.xcassets in Resources */,
+				16CBDAB718F6EE3A00233D3C /* Main.storyboard in Resources */,
+				3EC2F3F219369F1400B0BD12 /* Groceries.list in Resources */,
+				3EC2F3F719369F9200B0BD12 /* Today.list in Resources */,
+				3ED831D81932FC2B00F69A6E /* ListerDocumentIcon.icns in Resources */,
+				3EC2F3F419369F2900B0BD12 /* Tech Toys.list in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16EE5952192016410052916A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E497FC418FAFA2400B32837 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E497FD218FAFA2400B32837 /* Images.xcassets in Resources */,
+				3E6B618C1935D12C00F7C4BA /* Main.storyboard in Resources */,
+				3ED831D91932FC3000F69A6E /* ListerDocumentIcon.icns in Resources */,
+				3ECADE17192D0B3400BC9826 /* Storyboard.storyboard in Resources */,
+				162BD21F1922BA5700848FF6 /* ListerOSX.entitlements in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E93585C1920343C0091408E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EA02514192052590090F6DB /* TodayViewController.xib in Resources */,
+				3EA02516192052590090F6DB /* OpenListerRowViewController.xib in Resources */,
+				3E9358641920343C0091408E /* ListerTodayOSX.entitlements in Resources */,
+				3E9358671920343C0091408E /* InfoPlist.strings in Resources */,
+				3EA02515192052590090F6DB /* ListRowViewController.xib in Resources */,
+				1608C4EB1939A12100CC1E53 /* NoItemsRowViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E93587B1920355C0091408E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EC2F3F819369F9600B0BD12 /* Today.list in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16A985181936EEA5007B7F37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				162CB9EB1936F0DE00F2586B /* CheckBoxCell.swift in Sources */,
+				16A985221936EEA7007B7F37 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16CBDAA318F6EE3A00233D3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16DAC8AF18F9DAA800251E9D /* ListCell.swift in Sources */,
+				16AC5BA01932525300937EF4 /* ListInfo.swift in Sources */,
+				1674D9AD18F729CA0019FF77 /* ListDocumentsViewController.swift in Sources */,
+				1686A96318FCBA9900112572 /* NewListDocumentController.swift in Sources */,
+				1682F5F818F8ACD9000B87A6 /* ListItemCell.swift in Sources */,
+				16DAC8AD18F9BB5400251E9D /* ListColorCell.swift in Sources */,
+				16CBDAAF18F6EE3A00233D3C /* AppDelegate.swift in Sources */,
+				1674D9E118F752960019FF77 /* ListViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16EE594F192016410052916A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16EE5974192019C40052916A /* ListDocument.swift in Sources */,
+				16ED48651925420100759D5E /* ListCoordinator.swift in Sources */,
+				3E91952419351DFB0045CDCC /* CheckBoxLayer.swift in Sources */,
+				16EE5976192019D30052916A /* ListItem.swift in Sources */,
+				16B6970619332B9800B1CA09 /* CheckBox.swift in Sources */,
+				16EE5975192019CD0052916A /* List.swift in Sources */,
+				3E3D094C19313A8400D21A98 /* AppConfiguration.swift in Sources */,
+				16EE5977192019DC0052916A /* ListColorUI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E497FC118FAFA2400B32837 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EFC7DA318FB08C90012B60F /* ListTableView.swift in Sources */,
+				3ECADE13192D0B2000BC9826 /* ListWindowController.swift in Sources */,
+				3EFC7DA618FB08C90012B60F /* ResizingTextField.swift in Sources */,
+				3EA0250E19204ACE0090F6DB /* AppDelegate.swift in Sources */,
+				3ECADE15192D0B2800BC9826 /* ListViewController.swift in Sources */,
+				3E3F3980191066AF005813D6 /* TableRowView.swift in Sources */,
+				3ECADE11192D0B1500BC9826 /* AddItemViewController.swift in Sources */,
+				3E497FCB18FAFA2400B32837 /* main.swift in Sources */,
+				3EFC7DA418FB08C90012B60F /* ListItemView.swift in Sources */,
+				3EFC7D9F18FB08C90012B60F /* ColorPaletteView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E93585A1920343C0091408E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E9358691920343C0091408E /* TodayViewController.swift in Sources */,
+				1608C4EA1939A12100CC1E53 /* NoItemsRowViewController.swift in Sources */,
+				3E93586B1920343C0091408E /* ListRowViewController.swift in Sources */,
+				3EBB36C8192048970021C954 /* OpenListerRowViewController.swift in Sources */,
+				3EBB36C6192045BE0021C954 /* ListRowRepresentedObject.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E9358781920355C0091408E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E5F97EC1920377B00723004 /* ListColorUI.swift in Sources */,
+				3E91952319351DC60045CDCC /* CheckBoxLayer.swift in Sources */,
+				3E5F97EF1920378A00723004 /* ListFormatting.swift in Sources */,
+				3E3D094D19313A8500D21A98 /* AppConfiguration.swift in Sources */,
+				3E06D14E1935E516008F5D81 /* ListDocument.swift in Sources */,
+				3E5F97F0192037A600723004 /* NSColor+AppSpecific.swift in Sources */,
+				3E5F97ED1920378000723004 /* ListItem.swift in Sources */,
+				3E5F97EE1920378300723004 /* List.swift in Sources */,
+				3E5F97F1192037AA00723004 /* CheckBox.swift in Sources */,
+				3EA0251019204BCF0090F6DB /* TodayListManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1608C4E61939988600CC1E53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E93585D1920343C0091408E /* ListerTodayOSX */;
+			targetProxy = 1608C4E51939988600CC1E53 /* PBXContainerItemProxy */;
+		};
+		16A985261936EEA7007B7F37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16A9851B1936EEA5007B7F37 /* ListerToday */;
+			targetProxy = 16A985251936EEA7007B7F37 /* PBXContainerItemProxy */;
+		};
+		16A985291936EEA7007B7F37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16A9851B1936EEA5007B7F37 /* ListerToday */;
+			targetProxy = 16A985281936EEA7007B7F37 /* PBXContainerItemProxy */;
+		};
+		16EE5968192016430052916A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16EE5953192016410052916A /* ListerKit */;
+			targetProxy = 16EE5967192016430052916A /* PBXContainerItemProxy */;
+		};
+		16EE596C192016430052916A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16EE5953192016410052916A /* ListerKit */;
+			targetProxy = 16EE596B192016430052916A /* PBXContainerItemProxy */;
+		};
+		3E339D091923471600309AF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E93587C1920355C0091408E /* ListerKitOSX */;
+			targetProxy = 3E339D081923471600309AF6 /* PBXContainerItemProxy */;
+		};
+		3E9358951920355C0091408E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E93587C1920355C0091408E /* ListerKitOSX */;
+			targetProxy = 3E9358941920355C0091408E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		16CBDAB518F6EE3A00233D3C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16CBDAB618F6EE3A00233D3C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3E9358651920343C0091408E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E9358661920343C0091408E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		16A9852B1936EEA7007B7F37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "ListerToday/com.example.apple-samplecode.Lister.ListerToday.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ListerToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "com.example.apple-samplecode.Lister.$(TARGET_NAME:rfc1034identifier)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		16A9852C1936EEA7007B7F37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "ListerToday/com.example.apple-samplecode.Lister.ListerToday.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = ListerToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "com.example.apple-samplecode.Lister.$(TARGET_NAME:rfc1034identifier)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		16CBDAC618F6EE3A00233D3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		16CBDAC718F6EE3A00233D3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16CBDAC918F6EE3A00233D3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Lister/Lister.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Lister/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		16CBDACA18F6EE3A00233D3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Lister/Lister.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Lister/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		16EE596E192016430052916A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_ASSIGN_ENUM = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ListerKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		16EE596F192016430052916A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_ASSIGN_ENUM = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = ListerKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3E497FE318FAFA2400B32837 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ListerOSX/ListerOSX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ListerOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				SWIFT_INCLUDE_PATHS = "";
+			};
+			name = Debug;
+		};
+		3E497FE418FAFA2400B32837 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ListerOSX/ListerOSX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = ListerOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				SWIFT_INCLUDE_PATHS = "";
+			};
+			name = Release;
+		};
+		3E9358751920343C0091408E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_ASSIGN_ENUM = NO;
+				CODE_SIGN_ENTITLEMENTS = ListerTodayOSX/ListerTodayOSX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ListerTodayOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "com.example.apple-samplecode.Lister.$(TARGET_NAME:rfc1034identifier)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "i386 x86_64 x86_64h";
+			};
+			name = Debug;
+		};
+		3E9358761920343C0091408E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_ASSIGN_ENUM = NO;
+				CODE_SIGN_ENTITLEMENTS = ListerTodayOSX/ListerTodayOSX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = ListerTodayOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "com.example.apple-samplecode.Lister.$(TARGET_NAME:rfc1034identifier)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "i386 x86_64 x86_64h";
+			};
+			name = Release;
+		};
+		3E9358971920355C0091408E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_ASSIGN_ENUM = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ListerKitOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3E9358981920355C0091408E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_ASSIGN_ENUM = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ListerKitOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16A9852A1936EEA7007B7F37 /* Build configuration list for PBXNativeTarget "ListerToday" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16A9852B1936EEA7007B7F37 /* Debug */,
+				16A9852C1936EEA7007B7F37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16CBDAA218F6EE3A00233D3C /* Build configuration list for PBXProject "Lister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16CBDAC618F6EE3A00233D3C /* Debug */,
+				16CBDAC718F6EE3A00233D3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16CBDAC818F6EE3A00233D3C /* Build configuration list for PBXNativeTarget "Lister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16CBDAC918F6EE3A00233D3C /* Debug */,
+				16CBDACA18F6EE3A00233D3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16EE596D192016430052916A /* Build configuration list for PBXNativeTarget "ListerKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16EE596E192016430052916A /* Debug */,
+				16EE596F192016430052916A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E497FE218FAFA2400B32837 /* Build configuration list for PBXNativeTarget "ListerOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E497FE318FAFA2400B32837 /* Debug */,
+				3E497FE418FAFA2400B32837 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E9358771920343C0091408E /* Build configuration list for PBXNativeTarget "ListerTodayOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E9358751920343C0091408E /* Debug */,
+				3E9358761920343C0091408E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E9358961920355C0091408E /* Build configuration list for PBXNativeTarget "ListerKitOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E9358971920355C0091408E /* Debug */,
+				3E9358981920355C0091408E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16CBDA9F18F6EE3A00233D3C /* Project object */;
+}
