@@ -2,12 +2,21 @@
 [最新内容](https://github.com/Lax/iOS-Swift-Demos/wiki)
 
 
-## 官方文档及实例
+## 官方文档及示例
 
-*    [The Swift Programming Language](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/)
+### 官方文档
+
+*    《[The Swift Programming Language](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/)》
 *    EPUB 和 PDF版本 http://pan.baidu.com/s/1mg8zHR6
 
-## 例子
+### 非官方文档（英文）
+
+### 博客与翻译（中文）
+
+*    《来自苹果的编程语言——Swift简介》http://zh.lucida.me/blog/an-introduction-to-swift/
+*    《Apple Swift编程语言入门教程》 http://gashero.iteye.com/blog/2075324
+
+### 官方示例代码
 
 *    Lister: A Productivity App Built in Swift
 [apple](https://developer.apple.com/library/prerelease/ios/samplecode/Lister-Swift/Introduction/Intro.html#//apple_ref/doc/uid/TP40014512)
@@ -21,16 +30,13 @@
 [apple](https://developer.apple.com/library/prerelease/ios/samplecode/Adventure-Swift/Introduction/Intro.html#//apple_ref/doc/uid/TP40014639)
 [github](https://github.com/Lax/iOS-Swift-Demos/tree/master/AdventureBuildingaSpriteKitgameusingSwift)
 
-## 中文博客与翻译
 
-*    《来自苹果的编程语言——Swift简介》http://zh.lucida.me/blog/an-introduction-to-swift/
-*    《Apple Swift编程语言入门教程》 http://gashero.iteye.com/blog/2075324
-
-## 项目分享
+### 非官方示例代码分享
 
 *    [FlappySwift](https://github.com/fullstackio/FlappySwift)  用Swift实现的FlappyBird
 
-## xcode 6 beta 下载
+## 开发工具
+### xcode 6 beta 下载
 
 ```xcode 6 beta安装系统要求为MacOSX 10.9.3+```
 
