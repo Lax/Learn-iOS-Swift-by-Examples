@@ -1,17 +1,11 @@
 # [Swift学习资源](https://github.com/Lax/iOS-Swift-Demos/wiki)
 [最新内容](https://github.com/Lax/iOS-Swift-Demos/wiki)
 
-## xcode 6 beta 下载
-
-*    http://pan.baidu.com/s/1pJug2xX 密码: e6q2 
-*    http://pan.baidu.com/s/1bAgz0  不用提取码
-
-*    http://adcdownload.apple.com//wwdc_2014/xcode_6_beta_ie8g3n/xcode_6_beta.dmg 使用迅雷离线更快
 
 ## 官方文档及实例
 
 *    [The Swift Programming Language](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/)
-*    EPUB 和 PDF版本 http://pan.baidu.com/s/1jGkNoBO
+*    EPUB 和 PDF版本 http://pan.baidu.com/s/1mg8zHR6
 
 ## 例子
 
@@ -35,3 +29,12 @@
 ## 项目分享
 
 *    [FlappySwift](https://github.com/fullstackio/FlappySwift)  用Swift实现的FlappyBird
+
+## xcode 6 beta 下载
+
+```xcode 6 beta安装系统要求为MacOSX 10.9.3+```
+
+*    http://pan.baidu.com/s/1pJug2xX 密码: e6q2 
+*    http://pan.baidu.com/s/1bAgz0  不用提取码
+
+*    http://adcdownload.apple.com//wwdc_2014/xcode_6_beta_ie8g3n/xcode_6_beta.dmg 使用迅雷离线更快
