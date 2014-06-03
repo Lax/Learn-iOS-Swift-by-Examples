@@ -1,0 +1,1011 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16A18239189988A000E7758D /* GraphicsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A57D1891E6650091825F /* GraphicsUtilities.swift */; };
+		16F418AD189976EF00710C70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16F418AB189976EF00710C70 /* InfoPlist.strings */; };
+		16F418B1189976EF00710C70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F418B0189976EF00710C70 /* AppDelegate.swift */; };
+		16F418B9189976EF00710C70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F418B8189976EF00710C70 /* ViewController.swift */; };
+		16F418C51899794C00710C70 /* Archer_Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA75188223390017B9D2 /* Archer_Attack.atlas */; };
+		16F418C61899794C00710C70 /* Archer_Death.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA76188223390017B9D2 /* Archer_Death.atlas */; };
+		16F418C71899794C00710C70 /* Archer_GetHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA77188223390017B9D2 /* Archer_GetHit.atlas */; };
+		16F418C81899794C00710C70 /* Archer_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA78188223390017B9D2 /* Archer_Idle.atlas */; };
+		16F418C91899794C00710C70 /* Archer_Walk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA79188223390017B9D2 /* Archer_Walk.atlas */; };
+		16F418CA1899794C00710C70 /* Boss_Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA7B188223390017B9D2 /* Boss_Attack.atlas */; };
+		16F418CB1899794C00710C70 /* Boss_Death.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA7C188223390017B9D2 /* Boss_Death.atlas */; };
+		16F418CC1899794C00710C70 /* Boss_GetHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA7D188223390017B9D2 /* Boss_GetHit.atlas */; };
+		16F418CD1899794C00710C70 /* Boss_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA7E188223390017B9D2 /* Boss_Idle.atlas */; };
+		16F418CE1899794C00710C70 /* Boss_Walk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA7F188223390017B9D2 /* Boss_Walk.atlas */; };
+		16F418CF1899794C00710C70 /* Goblin_Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA82188223390017B9D2 /* Goblin_Attack.atlas */; };
+		16F418D01899794C00710C70 /* Goblin_Death.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA83188223390017B9D2 /* Goblin_Death.atlas */; };
+		16F418D11899794C00710C70 /* Goblin_GetHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA84188223390017B9D2 /* Goblin_GetHit.atlas */; };
+		16F418D21899794C00710C70 /* Goblin_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA85188223390017B9D2 /* Goblin_Idle.atlas */; };
+		16F418D31899794C00710C70 /* Goblin_Walk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA86188223390017B9D2 /* Goblin_Walk.atlas */; };
+		16F418D41899794C00710C70 /* Warrior_Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA88188223390017B9D2 /* Warrior_Attack.atlas */; };
+		16F418D51899794C00710C70 /* Warrior_Death.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA89188223390017B9D2 /* Warrior_Death.atlas */; };
+		16F418D61899794C00710C70 /* Warrior_GetHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA8A188223390017B9D2 /* Warrior_GetHit.atlas */; };
+		16F418D71899794C00710C70 /* Warrior_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA8B188223390017B9D2 /* Warrior_Idle.atlas */; };
+		16F418D81899794C00710C70 /* Warrior_Walk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA8C188223390017B9D2 /* Warrior_Walk.atlas */; };
+		16F418D91899794C00710C70 /* Environment.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA80188223390017B9D2 /* Environment.atlas */; };
+		16F418DA1899794C00710C70 /* Tiles.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38C4413A18806ACA0069ECE4 /* Tiles.atlas */; };
+		2277D59D18998F9800986F85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2277D59C18998F9800986F85 /* Main.storyboard */; };
+		380C6FA818999AF200AE7608 /* button_archer.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C6C1884CCF500646ED4 /* button_archer.png */; };
+		380C6FA918999AF200AE7608 /* button_warrior.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C6D1884CCF500646ED4 /* button_warrior.png */; };
+		380C6FAA18999AF200AE7608 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C6E1884CCF500646ED4 /* Default-568h@2x.png */; };
+		380C6FAB18999AF200AE7608 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C6F1884CCF500646ED4 /* Default.png */; };
+		380C6FAC18999AF200AE7608 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C701884CCF500646ED4 /* Default@2x.png */; };
+		380C6FAD18999AF200AE7608 /* iconWarrior_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C711884CCF500646ED4 /* iconWarrior_blue.png */; };
+		380C6FAE18999AF200AE7608 /* iconWarrior_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C721884CCF500646ED4 /* iconWarrior_green.png */; };
+		380C6FAF18999AF200AE7608 /* iconWarrior_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C731884CCF500646ED4 /* iconWarrior_pink.png */; };
+		380C6FB018999AF200AE7608 /* iconWarrior_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C741884CCF500646ED4 /* iconWarrior_red.png */; };
+		380C6FB118999AF200AE7608 /* lives.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C751884CCF500646ED4 /* lives.png */; };
+		380C6FB218999AF200AE7608 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C761884CCF500646ED4 /* logo.png */; };
+		380C6FB418999B0E00AE7608 /* ArcherProjectile.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E331884B3890017B525 /* ArcherProjectile.sks */; };
+		380C6FB518999B0E00AE7608 /* BossDamage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E341884B3890017B525 /* BossDamage.sks */; };
+		380C6FB618999B0E00AE7608 /* CaveDamage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E351884B3890017B525 /* CaveDamage.sks */; };
+		380C6FB718999B0E00AE7608 /* CaveDeathSmoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E361884B3890017B525 /* CaveDeathSmoke.sks */; };
+		380C6FB818999B0E00AE7608 /* CaveFire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E371884B3890017B525 /* CaveFire.sks */; };
+		380C6FB918999B0E00AE7608 /* CaveFireSmoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E381884B3890017B525 /* CaveFireSmoke.sks */; };
+		380C6FBA18999B0E00AE7608 /* Damage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E391884B3890017B525 /* Damage.sks */; };
+		380C6FBB18999B0E00AE7608 /* Death.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3A1884B3890017B525 /* Death.sks */; };
+		380C6FBC18999B0E00AE7608 /* hardCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3B1884B3890017B525 /* hardCircle.png */; };
+		380C6FBD18999B0E00AE7608 /* leaf_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3C1884B3890017B525 /* leaf_00.png */; };
+		380C6FBE18999B0E00AE7608 /* leaf_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3D1884B3890017B525 /* leaf_02.png */; };
+		380C6FBF18999B0E00AE7608 /* Leaves_01.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3E1884B3890017B525 /* Leaves_01.sks */; };
+		380C6FC018999B0E00AE7608 /* Leaves_02.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3F1884B3890017B525 /* Leaves_02.sks */; };
+		380C6FC118999B0E00AE7608 /* ProjectileSplat.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E401884B3890017B525 /* ProjectileSplat.sks */; };
+		380C6FC218999B0E00AE7608 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 38280E411884B3890017B525 /* spark.png */; };
+		380C6FC318999B0E00AE7608 /* Spawn.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E421884B3890017B525 /* Spawn.sks */; };
+		380C6FC418999B0E00AE7608 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 38280E431884B3890017B525 /* star.png */; };
+		380C6FC518999B0E00AE7608 /* WarriorProjectile.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E441884B3890017B525 /* WarriorProjectile.sks */; };
+		3820DF30189990600082333B /* Assets - iOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C6A1884CCF500646ED4 /* Assets - iOS.xcassets */; };
+		38280E451884B3890017B525 /* ArcherProjectile.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E331884B3890017B525 /* ArcherProjectile.sks */; };
+		38280E461884B3890017B525 /* BossDamage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E341884B3890017B525 /* BossDamage.sks */; };
+		38280E471884B3890017B525 /* CaveDamage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E351884B3890017B525 /* CaveDamage.sks */; };
+		38280E481884B3890017B525 /* CaveDeathSmoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E361884B3890017B525 /* CaveDeathSmoke.sks */; };
+		38280E491884B3890017B525 /* CaveFire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E371884B3890017B525 /* CaveFire.sks */; };
+		38280E4A1884B3890017B525 /* CaveFireSmoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E381884B3890017B525 /* CaveFireSmoke.sks */; };
+		38280E4B1884B3890017B525 /* Damage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E391884B3890017B525 /* Damage.sks */; };
+		38280E4C1884B3890017B525 /* Death.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3A1884B3890017B525 /* Death.sks */; };
+		38280E4D1884B3890017B525 /* hardCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3B1884B3890017B525 /* hardCircle.png */; };
+		38280E4E1884B3890017B525 /* leaf_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3C1884B3890017B525 /* leaf_00.png */; };
+		38280E4F1884B3890017B525 /* leaf_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3D1884B3890017B525 /* leaf_02.png */; };
+		38280E501884B3890017B525 /* Leaves_01.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3E1884B3890017B525 /* Leaves_01.sks */; };
+		38280E511884B3890017B525 /* Leaves_02.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E3F1884B3890017B525 /* Leaves_02.sks */; };
+		38280E521884B3890017B525 /* ProjectileSplat.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E401884B3890017B525 /* ProjectileSplat.sks */; };
+		38280E531884B3890017B525 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 38280E411884B3890017B525 /* spark.png */; };
+		38280E541884B3890017B525 /* Spawn.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E421884B3890017B525 /* Spawn.sks */; };
+		38280E551884B3890017B525 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 38280E431884B3890017B525 /* star.png */; };
+		38280E561884B3890017B525 /* WarriorProjectile.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38280E441884B3890017B525 /* WarriorProjectile.sks */; };
+		3837387D1884C4AE008A03B2 /* EnemyCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3837387C1884C4AE008A03B2 /* EnemyCharacter.swift */; };
+		383738801884C4FA008A03B2 /* ArtificialIntelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3837387F1884C4FA008A03B2 /* ArtificialIntelligence.swift */; };
+		383738821884C616008A03B2 /* Cave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383738811884C616008A03B2 /* Cave.swift */; };
+		386E5476188352DB009BBDC0 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E5475188352DB009BBDC0 /* Tree.swift */; };
+		389842C318999B4A00FBCB05 /* magicmissile.caf in Resources */ = {isa = PBXBuildFile; fileRef = 38A86E3418871BDB00D300AB /* magicmissile.caf */; };
+		389842C418999B5400FBCB05 /* map_level.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E91D301880C8E4006CA729 /* map_level.png */; };
+		389842C518999B5400FBCB05 /* map_trees.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E91D311880C8E4006CA729 /* map_trees.png */; };
+		389842C618999F8000FBCB05 /* AdventureScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997C03187F7B2800FAAB91 /* AdventureScene.swift */; };
+		389842C718999F8000FBCB05 /* LayeredCharacterScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997C0518805E6E00FAAB91 /* LayeredCharacterScene.swift */; };
+		389842C818999F8000FBCB05 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB1985188232F2008CC889 /* Player.swift */; };
+		389842C918999F8400FBCB05 /* ParallaxSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FCBAA3188223B40017B9D2 /* ParallaxSprite.swift */; };
+		389842CA18999F8400FBCB05 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E5475188352DB009BBDC0 /* Tree.swift */; };
+		389842CB18999F8400FBCB05 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FCBAA51882276F0017B9D2 /* Character.swift */; };
+		389842CC18999F8400FBCB05 /* HeroCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB1983188232C3008CC889 /* HeroCharacter.swift */; };
+		389842CD18999F8400FBCB05 /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB198718823580008CC889 /* Warrior.swift */; };
+		389842CE18999F8400FBCB05 /* Archer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5761891E5540091825F /* Archer.swift */; };
+		389842CF18999F8400FBCB05 /* EnemyCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3837387C1884C4AE008A03B2 /* EnemyCharacter.swift */; };
+		389842D018999F8400FBCB05 /* Goblin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5721891E4F00091825F /* Goblin.swift */; };
+		389842D118999F8400FBCB05 /* Cave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383738811884C616008A03B2 /* Cave.swift */; };
+		389842D218999F8400FBCB05 /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5741891E51D0091825F /* Boss.swift */; };
+		389842D31899A20F00FBCB05 /* ArtificialIntelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3837387F1884C4FA008A03B2 /* ArtificialIntelligence.swift */; };
+		389842D41899A20F00FBCB05 /* ChaseAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5781891E59E0091825F /* ChaseAI.swift */; };
+		389842D51899A20F00FBCB05 /* SpawnAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A57A1891E5B90091825F /* SpawnAI.swift */; };
+		389842D71899A29E00FBCB05 /* LayeredCharacterSceneOSXEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389842D61899A29E00FBCB05 /* LayeredCharacterSceneOSXEvents.swift */; };
+		38997BEE187F688800FAAB91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 38997BEC187F688800FAAB91 /* InfoPlist.strings */; };
+		38997BF0187F688800FAAB91 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997BEF187F688800FAAB91 /* main.swift */; };
+		38997BF2187F688800FAAB91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997BF1187F688800FAAB91 /* AppDelegate.swift */; };
+		38997BF5187F688800FAAB91 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38997BF3187F688800FAAB91 /* MainMenu.xib */; };
+		38997C04187F7B2800FAAB91 /* AdventureScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997C03187F7B2800FAAB91 /* AdventureScene.swift */; };
+		38997C0618805E6E00FAAB91 /* LayeredCharacterScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997C0518805E6E00FAAB91 /* LayeredCharacterScene.swift */; };
+		38A86E3518871BDB00D300AB /* magicmissile.caf in Resources */ = {isa = PBXBuildFile; fileRef = 38A86E3418871BDB00D300AB /* magicmissile.caf */; };
+		38A9A5731891E4F00091825F /* Goblin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5721891E4F00091825F /* Goblin.swift */; };
+		38A9A5751891E51D0091825F /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5741891E51D0091825F /* Boss.swift */; };
+		38A9A5771891E5540091825F /* Archer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5761891E5540091825F /* Archer.swift */; };
+		38A9A5791891E59E0091825F /* ChaseAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5781891E59E0091825F /* ChaseAI.swift */; };
+		38A9A57B1891E5B90091825F /* SpawnAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A57A1891E5B90091825F /* SpawnAI.swift */; };
+		38A9A57E1891E6650091825F /* GraphicsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A57D1891E6650091825F /* GraphicsUtilities.swift */; };
+		38C22DBA1899E5CC007C9837 /* iOSLayeredCharacterSceneEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C22DB91899E5CC007C9837 /* iOSLayeredCharacterSceneEvents.swift */; };
+		38C4413B18806ACA0069ECE4 /* Tiles.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38C4413A18806ACA0069ECE4 /* Tiles.atlas */; };
+		38CB1984188232C3008CC889 /* HeroCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB1983188232C3008CC889 /* HeroCharacter.swift */; };
+		38CB1986188232F2008CC889 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB1985188232F2008CC889 /* Player.swift */; };
+		38CB198818823580008CC889 /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB198718823580008CC889 /* Warrior.swift */; };
+		38E91D321880C8E4006CA729 /* map_level.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E91D301880C8E4006CA729 /* map_level.png */; };
+		38E91D331880C8E4006CA729 /* map_trees.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E91D311880C8E4006CA729 /* map_trees.png */; };
+		38FCBA8D188223390017B9D2 /* Archer_Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA75188223390017B9D2 /* Archer_Attack.atlas */; };
+		38FCBA8E188223390017B9D2 /* Archer_Death.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA76188223390017B9D2 /* Archer_Death.atlas */; };
+		38FCBA8F188223390017B9D2 /* Archer_GetHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA77188223390017B9D2 /* Archer_GetHit.atlas */; };
+		38FCBA90188223390017B9D2 /* Archer_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA78188223390017B9D2 /* Archer_Idle.atlas */; };
+		38FCBA91188223390017B9D2 /* Archer_Walk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA79188223390017B9D2 /* Archer_Walk.atlas */; };
+		38FCBA92188223390017B9D2 /* Boss_Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA7B188223390017B9D2 /* Boss_Attack.atlas */; };
+		38FCBA93188223390017B9D2 /* Boss_Death.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA7C188223390017B9D2 /* Boss_Death.atlas */; };
+		38FCBA94188223390017B9D2 /* Boss_GetHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA7D188223390017B9D2 /* Boss_GetHit.atlas */; };
+		38FCBA95188223390017B9D2 /* Boss_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA7E188223390017B9D2 /* Boss_Idle.atlas */; };
+		38FCBA96188223390017B9D2 /* Boss_Walk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA7F188223390017B9D2 /* Boss_Walk.atlas */; };
+		38FCBA97188223390017B9D2 /* Environment.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA80188223390017B9D2 /* Environment.atlas */; };
+		38FCBA98188223390017B9D2 /* Goblin_Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA82188223390017B9D2 /* Goblin_Attack.atlas */; };
+		38FCBA99188223390017B9D2 /* Goblin_Death.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA83188223390017B9D2 /* Goblin_Death.atlas */; };
+		38FCBA9A188223390017B9D2 /* Goblin_GetHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA84188223390017B9D2 /* Goblin_GetHit.atlas */; };
+		38FCBA9B188223390017B9D2 /* Goblin_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA85188223390017B9D2 /* Goblin_Idle.atlas */; };
+		38FCBA9C188223390017B9D2 /* Goblin_Walk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA86188223390017B9D2 /* Goblin_Walk.atlas */; };
+		38FCBA9D188223390017B9D2 /* Warrior_Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA88188223390017B9D2 /* Warrior_Attack.atlas */; };
+		38FCBA9E188223390017B9D2 /* Warrior_Death.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA89188223390017B9D2 /* Warrior_Death.atlas */; };
+		38FCBA9F188223390017B9D2 /* Warrior_GetHit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA8A188223390017B9D2 /* Warrior_GetHit.atlas */; };
+		38FCBAA0188223390017B9D2 /* Warrior_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA8B188223390017B9D2 /* Warrior_Idle.atlas */; };
+		38FCBAA1188223390017B9D2 /* Warrior_Walk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38FCBA8C188223390017B9D2 /* Warrior_Walk.atlas */; };
+		38FCBAA4188223B40017B9D2 /* ParallaxSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FCBAA3188223B40017B9D2 /* ParallaxSprite.swift */; };
+		38FCBAA61882276F0017B9D2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FCBAA51882276F0017B9D2 /* Character.swift */; };
+		38FE6C781884CCF500646ED4 /* Assets - OS X.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C6B1884CCF500646ED4 /* Assets - OS X.xcassets */; };
+		38FE6C791884CCF500646ED4 /* button_archer.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C6C1884CCF500646ED4 /* button_archer.png */; };
+		38FE6C7A1884CCF500646ED4 /* button_warrior.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C6D1884CCF500646ED4 /* button_warrior.png */; };
+		38FE6C7B1884CCF500646ED4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C6E1884CCF500646ED4 /* Default-568h@2x.png */; };
+		38FE6C7C1884CCF500646ED4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C6F1884CCF500646ED4 /* Default.png */; };
+		38FE6C7D1884CCF500646ED4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C701884CCF500646ED4 /* Default@2x.png */; };
+		38FE6C7E1884CCF500646ED4 /* iconWarrior_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C711884CCF500646ED4 /* iconWarrior_blue.png */; };
+		38FE6C7F1884CCF500646ED4 /* iconWarrior_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C721884CCF500646ED4 /* iconWarrior_green.png */; };
+		38FE6C801884CCF500646ED4 /* iconWarrior_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C731884CCF500646ED4 /* iconWarrior_pink.png */; };
+		38FE6C811884CCF500646ED4 /* iconWarrior_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C741884CCF500646ED4 /* iconWarrior_red.png */; };
+		38FE6C821884CCF500646ED4 /* lives.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C751884CCF500646ED4 /* lives.png */; };
+		38FE6C831884CCF500646ED4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 38FE6C761884CCF500646ED4 /* logo.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		16F418A7189976EF00710C70 /* Adventure iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adventure iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16F418AA189976EF00710C70 /* Adventure iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Adventure iOS-Info.plist"; sourceTree = "<group>"; };
+		16F418AC189976EF00710C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		16F418B0189976EF00710C70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		16F418B8189976EF00710C70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		16F418C01899778F00710C70 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/SpriteKit.framework; sourceTree = DEVELOPER_DIR; };
+		16F418C21899779900710C70 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		2277D59418997FC000986F85 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CoreImage.framework; sourceTree = DEVELOPER_DIR; };
+		2277D59C18998F9800986F85 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		38280E331884B3890017B525 /* ArcherProjectile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ArcherProjectile.sks; sourceTree = "<group>"; };
+		38280E341884B3890017B525 /* BossDamage.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BossDamage.sks; sourceTree = "<group>"; };
+		38280E351884B3890017B525 /* CaveDamage.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CaveDamage.sks; sourceTree = "<group>"; };
+		38280E361884B3890017B525 /* CaveDeathSmoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CaveDeathSmoke.sks; sourceTree = "<group>"; };
+		38280E371884B3890017B525 /* CaveFire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CaveFire.sks; sourceTree = "<group>"; };
+		38280E381884B3890017B525 /* CaveFireSmoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CaveFireSmoke.sks; sourceTree = "<group>"; };
+		38280E391884B3890017B525 /* Damage.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Damage.sks; sourceTree = "<group>"; };
+		38280E3A1884B3890017B525 /* Death.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Death.sks; sourceTree = "<group>"; };
+		38280E3B1884B3890017B525 /* hardCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hardCircle.png; sourceTree = "<group>"; };
+		38280E3C1884B3890017B525 /* leaf_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaf_00.png; sourceTree = "<group>"; };
+		38280E3D1884B3890017B525 /* leaf_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaf_02.png; sourceTree = "<group>"; };
+		38280E3E1884B3890017B525 /* Leaves_01.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Leaves_01.sks; sourceTree = "<group>"; };
+		38280E3F1884B3890017B525 /* Leaves_02.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Leaves_02.sks; sourceTree = "<group>"; };
+		38280E401884B3890017B525 /* ProjectileSplat.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ProjectileSplat.sks; sourceTree = "<group>"; };
+		38280E411884B3890017B525 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		38280E421884B3890017B525 /* Spawn.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spawn.sks; sourceTree = "<group>"; };
+		38280E431884B3890017B525 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		38280E441884B3890017B525 /* WarriorProjectile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WarriorProjectile.sks; sourceTree = "<group>"; };
+		3837387C1884C4AE008A03B2 /* EnemyCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyCharacter.swift; sourceTree = "<group>"; };
+		3837387F1884C4FA008A03B2 /* ArtificialIntelligence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtificialIntelligence.swift; sourceTree = "<group>"; };
+		383738811884C616008A03B2 /* Cave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cave.swift; sourceTree = "<group>"; };
+		386E5475188352DB009BBDC0 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		389842D61899A29E00FBCB05 /* LayeredCharacterSceneOSXEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayeredCharacterSceneOSXEvents.swift; sourceTree = "<group>"; };
+		38997BE7187F688800FAAB91 /* Adventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adventure.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38997BEB187F688800FAAB91 /* Adventure-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Adventure-Info.plist"; sourceTree = "<group>"; };
+		38997BED187F688800FAAB91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		38997BEF187F688800FAAB91 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		38997BF1187F688800FAAB91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		38997BF4187F688800FAAB91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		38997BFD187F695B00FAAB91 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		38997BFF187F7A3800FAAB91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		38997C03187F7B2800FAAB91 /* AdventureScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventureScene.swift; sourceTree = "<group>"; };
+		38997C0518805E6E00FAAB91 /* LayeredCharacterScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayeredCharacterScene.swift; sourceTree = "<group>"; };
+		38A86E3418871BDB00D300AB /* magicmissile.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = magicmissile.caf; sourceTree = "<group>"; };
+		38A9A5721891E4F00091825F /* Goblin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goblin.swift; sourceTree = "<group>"; };
+		38A9A5741891E51D0091825F /* Boss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boss.swift; sourceTree = "<group>"; };
+		38A9A5761891E5540091825F /* Archer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Archer.swift; sourceTree = "<group>"; };
+		38A9A5781891E59E0091825F /* ChaseAI.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ChaseAI.swift; sourceTree = "<group>"; tabWidth = 4; };
+		38A9A57A1891E5B90091825F /* SpawnAI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpawnAI.swift; sourceTree = "<group>"; };
+		38A9A57D1891E6650091825F /* GraphicsUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsUtilities.swift; sourceTree = "<group>"; };
+		38C22DB91899E5CC007C9837 /* iOSLayeredCharacterSceneEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSLayeredCharacterSceneEvents.swift; sourceTree = "<group>"; };
+		38C4413A18806ACA0069ECE4 /* Tiles.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Tiles.atlas; sourceTree = "<group>"; };
+		38CB1983188232C3008CC889 /* HeroCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroCharacter.swift; sourceTree = "<group>"; };
+		38CB1985188232F2008CC889 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		38CB198718823580008CC889 /* Warrior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
+		38E91D301880C8E4006CA729 /* map_level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_level.png; sourceTree = "<group>"; };
+		38E91D311880C8E4006CA729 /* map_trees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_trees.png; sourceTree = "<group>"; };
+		38FCBA75188223390017B9D2 /* Archer_Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Archer_Attack.atlas; sourceTree = "<group>"; };
+		38FCBA76188223390017B9D2 /* Archer_Death.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Archer_Death.atlas; sourceTree = "<group>"; };
+		38FCBA77188223390017B9D2 /* Archer_GetHit.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Archer_GetHit.atlas; sourceTree = "<group>"; };
+		38FCBA78188223390017B9D2 /* Archer_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Archer_Idle.atlas; sourceTree = "<group>"; };
+		38FCBA79188223390017B9D2 /* Archer_Walk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Archer_Walk.atlas; sourceTree = "<group>"; };
+		38FCBA7B188223390017B9D2 /* Boss_Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Boss_Attack.atlas; sourceTree = "<group>"; };
+		38FCBA7C188223390017B9D2 /* Boss_Death.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Boss_Death.atlas; sourceTree = "<group>"; };
+		38FCBA7D188223390017B9D2 /* Boss_GetHit.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Boss_GetHit.atlas; sourceTree = "<group>"; };
+		38FCBA7E188223390017B9D2 /* Boss_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Boss_Idle.atlas; sourceTree = "<group>"; };
+		38FCBA7F188223390017B9D2 /* Boss_Walk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Boss_Walk.atlas; sourceTree = "<group>"; };
+		38FCBA80188223390017B9D2 /* Environment.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Environment.atlas; sourceTree = "<group>"; };
+		38FCBA82188223390017B9D2 /* Goblin_Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Goblin_Attack.atlas; sourceTree = "<group>"; };
+		38FCBA83188223390017B9D2 /* Goblin_Death.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Goblin_Death.atlas; sourceTree = "<group>"; };
+		38FCBA84188223390017B9D2 /* Goblin_GetHit.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Goblin_GetHit.atlas; sourceTree = "<group>"; };
+		38FCBA85188223390017B9D2 /* Goblin_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Goblin_Idle.atlas; sourceTree = "<group>"; };
+		38FCBA86188223390017B9D2 /* Goblin_Walk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Goblin_Walk.atlas; sourceTree = "<group>"; };
+		38FCBA88188223390017B9D2 /* Warrior_Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Warrior_Attack.atlas; sourceTree = "<group>"; };
+		38FCBA89188223390017B9D2 /* Warrior_Death.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Warrior_Death.atlas; sourceTree = "<group>"; };
+		38FCBA8A188223390017B9D2 /* Warrior_GetHit.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Warrior_GetHit.atlas; sourceTree = "<group>"; };
+		38FCBA8B188223390017B9D2 /* Warrior_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Warrior_Idle.atlas; sourceTree = "<group>"; };
+		38FCBA8C188223390017B9D2 /* Warrior_Walk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Warrior_Walk.atlas; sourceTree = "<group>"; };
+		38FCBAA3188223B40017B9D2 /* ParallaxSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxSprite.swift; sourceTree = "<group>"; };
+		38FCBAA51882276F0017B9D2 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		38FE6C6A1884CCF500646ED4 /* Assets - iOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets - iOS.xcassets"; sourceTree = "<group>"; };
+		38FE6C6B1884CCF500646ED4 /* Assets - OS X.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets - OS X.xcassets"; sourceTree = "<group>"; };
+		38FE6C6C1884CCF500646ED4 /* button_archer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_archer.png; sourceTree = "<group>"; };
+		38FE6C6D1884CCF500646ED4 /* button_warrior.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_warrior.png; sourceTree = "<group>"; };
+		38FE6C6E1884CCF500646ED4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		38FE6C6F1884CCF500646ED4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		38FE6C701884CCF500646ED4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		38FE6C711884CCF500646ED4 /* iconWarrior_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconWarrior_blue.png; sourceTree = "<group>"; };
+		38FE6C721884CCF500646ED4 /* iconWarrior_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconWarrior_green.png; sourceTree = "<group>"; };
+		38FE6C731884CCF500646ED4 /* iconWarrior_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconWarrior_pink.png; sourceTree = "<group>"; };
+		38FE6C741884CCF500646ED4 /* iconWarrior_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconWarrior_red.png; sourceTree = "<group>"; };
+		38FE6C751884CCF500646ED4 /* lives.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lives.png; sourceTree = "<group>"; };
+		38FE6C761884CCF500646ED4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16F418A4189976EF00710C70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38997BE4187F688800FAAB91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16F418A8189976EF00710C70 /* Adventure iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2277D59C18998F9800986F85 /* Main.storyboard */,
+				16F418B0189976EF00710C70 /* AppDelegate.swift */,
+				16F418B8189976EF00710C70 /* ViewController.swift */,
+				38C22DB91899E5CC007C9837 /* iOSLayeredCharacterSceneEvents.swift */,
+				16F418A9189976EF00710C70 /* Supporting Files */,
+			);
+			path = "Adventure iOS";
+			sourceTree = "<group>";
+		};
+		16F418A9189976EF00710C70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16F418AA189976EF00710C70 /* Adventure iOS-Info.plist */,
+				16F418AB189976EF00710C70 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38280E321884B3890017B525 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				38280E331884B3890017B525 /* ArcherProjectile.sks */,
+				38280E341884B3890017B525 /* BossDamage.sks */,
+				38280E351884B3890017B525 /* CaveDamage.sks */,
+				38280E361884B3890017B525 /* CaveDeathSmoke.sks */,
+				38280E371884B3890017B525 /* CaveFire.sks */,
+				38280E381884B3890017B525 /* CaveFireSmoke.sks */,
+				38280E391884B3890017B525 /* Damage.sks */,
+				38280E3A1884B3890017B525 /* Death.sks */,
+				38280E3B1884B3890017B525 /* hardCircle.png */,
+				38280E3C1884B3890017B525 /* leaf_00.png */,
+				38280E3D1884B3890017B525 /* leaf_02.png */,
+				38280E3E1884B3890017B525 /* Leaves_01.sks */,
+				38280E3F1884B3890017B525 /* Leaves_02.sks */,
+				38280E401884B3890017B525 /* ProjectileSplat.sks */,
+				38280E411884B3890017B525 /* spark.png */,
+				38280E421884B3890017B525 /* Spawn.sks */,
+				38280E431884B3890017B525 /* star.png */,
+				38280E441884B3890017B525 /* WarriorProjectile.sks */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
+		3837387E1884C4DD008A03B2 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				3837387F1884C4FA008A03B2 /* ArtificialIntelligence.swift */,
+				38A9A5781891E59E0091825F /* ChaseAI.swift */,
+				38A9A57A1891E5B90091825F /* SpawnAI.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
+		38997BDE187F688800FAAB91 = {
+			isa = PBXGroup;
+			children = (
+				38997C01187F7AF600FAAB91 /* Adventure Shared */,
+				38997BE9187F688800FAAB91 /* Adventure - OS X */,
+				16F418A8189976EF00710C70 /* Adventure iOS */,
+				38C4413818806ACA0069ECE4 /* Assets */,
+				38F8DAC418998CD7001F4201 /* Frameworks */,
+				38997BE8187F688800FAAB91 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		38997BE8187F688800FAAB91 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38997BE7187F688800FAAB91 /* Adventure.app */,
+				16F418A7189976EF00710C70 /* Adventure iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38997BE9187F688800FAAB91 /* Adventure - OS X */ = {
+			isa = PBXGroup;
+			children = (
+				38997BF1187F688800FAAB91 /* AppDelegate.swift */,
+				389842D61899A29E00FBCB05 /* LayeredCharacterSceneOSXEvents.swift */,
+				38997BF3187F688800FAAB91 /* MainMenu.xib */,
+				38997BEA187F688800FAAB91 /* Supporting Files */,
+			);
+			name = "Adventure - OS X";
+			path = Adventure;
+			sourceTree = "<group>";
+		};
+		38997BEA187F688800FAAB91 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				38997BEB187F688800FAAB91 /* Adventure-Info.plist */,
+				38997BEC187F688800FAAB91 /* InfoPlist.strings */,
+				38997BEF187F688800FAAB91 /* main.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38997C01187F7AF600FAAB91 /* Adventure Shared */ = {
+			isa = PBXGroup;
+			children = (
+				38997C02187F7B0700FAAB91 /* Scene */,
+				38FCBAA2188223730017B9D2 /* Sprites */,
+				3837387E1884C4DD008A03B2 /* AI */,
+				38A9A57C1891E5FD0091825F /* Utilities */,
+			);
+			name = "Adventure Shared";
+			path = "Adventure/Adventure Shared";
+			sourceTree = "<group>";
+		};
+		38997C02187F7B0700FAAB91 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				38997C03187F7B2800FAAB91 /* AdventureScene.swift */,
+				38997C0518805E6E00FAAB91 /* LayeredCharacterScene.swift */,
+				38CB1985188232F2008CC889 /* Player.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		38A86E3318871BDB00D300AB /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				38A86E3418871BDB00D300AB /* magicmissile.caf */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		38A9A57C1891E5FD0091825F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				38A9A57D1891E6650091825F /* GraphicsUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		38C4413818806ACA0069ECE4 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				38A86E3318871BDB00D300AB /* Sounds */,
+				38FE6C691884CCF500646ED4 /* UI */,
+				38280E321884B3890017B525 /* Particles */,
+				38E91D2F1880C8E4006CA729 /* Environment */,
+				38C4413918806ACA0069ECE4 /* Texture Atlases */,
+			);
+			name = Assets;
+			path = Adventure/Assets;
+			sourceTree = "<group>";
+		};
+		38C4413918806ACA0069ECE4 /* Texture Atlases */ = {
+			isa = PBXGroup;
+			children = (
+				38FCBA74188223390017B9D2 /* Archer */,
+				38FCBA7A188223390017B9D2 /* Boss */,
+				38FCBA81188223390017B9D2 /* Goblin */,
+				38FCBA87188223390017B9D2 /* Warrior */,
+				38FCBA80188223390017B9D2 /* Environment.atlas */,
+				38C4413A18806ACA0069ECE4 /* Tiles.atlas */,
+			);
+			path = "Texture Atlases";
+			sourceTree = "<group>";
+		};
+		38E91D2F1880C8E4006CA729 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				38E91D301880C8E4006CA729 /* map_level.png */,
+				38E91D311880C8E4006CA729 /* map_trees.png */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		38F8DAC418998CD7001F4201 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38997BFF187F7A3800FAAB91 /* QuartzCore.framework */,
+				38997BFD187F695B00FAAB91 /* SpriteKit.framework */,
+				2277D59418997FC000986F85 /* CoreImage.framework */,
+				16F418C21899779900710C70 /* QuartzCore.framework */,
+				16F418C01899778F00710C70 /* SpriteKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		38FCBA74188223390017B9D2 /* Archer */ = {
+			isa = PBXGroup;
+			children = (
+				38FCBA75188223390017B9D2 /* Archer_Attack.atlas */,
+				38FCBA76188223390017B9D2 /* Archer_Death.atlas */,
+				38FCBA77188223390017B9D2 /* Archer_GetHit.atlas */,
+				38FCBA78188223390017B9D2 /* Archer_Idle.atlas */,
+				38FCBA79188223390017B9D2 /* Archer_Walk.atlas */,
+			);
+			path = Archer;
+			sourceTree = "<group>";
+		};
+		38FCBA7A188223390017B9D2 /* Boss */ = {
+			isa = PBXGroup;
+			children = (
+				38FCBA7B188223390017B9D2 /* Boss_Attack.atlas */,
+				38FCBA7C188223390017B9D2 /* Boss_Death.atlas */,
+				38FCBA7D188223390017B9D2 /* Boss_GetHit.atlas */,
+				38FCBA7E188223390017B9D2 /* Boss_Idle.atlas */,
+				38FCBA7F188223390017B9D2 /* Boss_Walk.atlas */,
+			);
+			path = Boss;
+			sourceTree = "<group>";
+		};
+		38FCBA81188223390017B9D2 /* Goblin */ = {
+			isa = PBXGroup;
+			children = (
+				38FCBA82188223390017B9D2 /* Goblin_Attack.atlas */,
+				38FCBA83188223390017B9D2 /* Goblin_Death.atlas */,
+				38FCBA84188223390017B9D2 /* Goblin_GetHit.atlas */,
+				38FCBA85188223390017B9D2 /* Goblin_Idle.atlas */,
+				38FCBA86188223390017B9D2 /* Goblin_Walk.atlas */,
+			);
+			path = Goblin;
+			sourceTree = "<group>";
+		};
+		38FCBA87188223390017B9D2 /* Warrior */ = {
+			isa = PBXGroup;
+			children = (
+				38FCBA88188223390017B9D2 /* Warrior_Attack.atlas */,
+				38FCBA89188223390017B9D2 /* Warrior_Death.atlas */,
+				38FCBA8A188223390017B9D2 /* Warrior_GetHit.atlas */,
+				38FCBA8B188223390017B9D2 /* Warrior_Idle.atlas */,
+				38FCBA8C188223390017B9D2 /* Warrior_Walk.atlas */,
+			);
+			path = Warrior;
+			sourceTree = "<group>";
+		};
+		38FCBAA2188223730017B9D2 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				38FCBAA3188223B40017B9D2 /* ParallaxSprite.swift */,
+				386E5475188352DB009BBDC0 /* Tree.swift */,
+				38FCBAA51882276F0017B9D2 /* Character.swift */,
+				38CB1983188232C3008CC889 /* HeroCharacter.swift */,
+				38CB198718823580008CC889 /* Warrior.swift */,
+				38A9A5761891E5540091825F /* Archer.swift */,
+				3837387C1884C4AE008A03B2 /* EnemyCharacter.swift */,
+				38A9A5721891E4F00091825F /* Goblin.swift */,
+				383738811884C616008A03B2 /* Cave.swift */,
+				38A9A5741891E51D0091825F /* Boss.swift */,
+			);
+			path = Sprites;
+			sourceTree = "<group>";
+		};
+		38FE6C691884CCF500646ED4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				38FE6C6A1884CCF500646ED4 /* Assets - iOS.xcassets */,
+				38FE6C6B1884CCF500646ED4 /* Assets - OS X.xcassets */,
+				38FE6C6C1884CCF500646ED4 /* button_archer.png */,
+				38FE6C6D1884CCF500646ED4 /* button_warrior.png */,
+				38FE6C6E1884CCF500646ED4 /* Default-568h@2x.png */,
+				38FE6C6F1884CCF500646ED4 /* Default.png */,
+				38FE6C701884CCF500646ED4 /* Default@2x.png */,
+				38FE6C711884CCF500646ED4 /* iconWarrior_blue.png */,
+				38FE6C721884CCF500646ED4 /* iconWarrior_green.png */,
+				38FE6C731884CCF500646ED4 /* iconWarrior_pink.png */,
+				38FE6C741884CCF500646ED4 /* iconWarrior_red.png */,
+				38FE6C751884CCF500646ED4 /* lives.png */,
+				38FE6C761884CCF500646ED4 /* logo.png */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16F418A6189976EF00710C70 /* Adventure iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16F418BC189976EF00710C70 /* Build configuration list for PBXNativeTarget "Adventure iOS" */;
+			buildPhases = (
+				16F418A3189976EF00710C70 /* Sources */,
+				16F418A4189976EF00710C70 /* Frameworks */,
+				16F418A5189976EF00710C70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Adventure iOS";
+			productName = "Adventure iOS";
+			productReference = 16F418A7189976EF00710C70 /* Adventure iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		38997BE6187F688800FAAB91 /* Adventure */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38997BFA187F688800FAAB91 /* Build configuration list for PBXNativeTarget "Adventure" */;
+			buildPhases = (
+				38997BE3187F688800FAAB91 /* Sources */,
+				38997BE4187F688800FAAB91 /* Frameworks */,
+				38997BE5187F688800FAAB91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Adventure;
+			productName = Adventure;
+			productReference = 38997BE7187F688800FAAB91 /* Adventure.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		38997BDF187F688800FAAB91 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Apple;
+			};
+			buildConfigurationList = 38997BE2187F688800FAAB91 /* Build configuration list for PBXProject "Adventure" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 38997BDE187F688800FAAB91;
+			productRefGroup = 38997BE8187F688800FAAB91 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				38997BE6187F688800FAAB91 /* Adventure */,
+				16F418A6189976EF00710C70 /* Adventure iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16F418A5189976EF00710C70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				389842C418999B5400FBCB05 /* map_level.png in Resources */,
+				389842C518999B5400FBCB05 /* map_trees.png in Resources */,
+				389842C318999B4A00FBCB05 /* magicmissile.caf in Resources */,
+				380C6FB418999B0E00AE7608 /* ArcherProjectile.sks in Resources */,
+				16F418D81899794C00710C70 /* Warrior_Walk.atlas in Resources */,
+				380C6FC418999B0E00AE7608 /* star.png in Resources */,
+				380C6FB618999B0E00AE7608 /* CaveDamage.sks in Resources */,
+				2277D59D18998F9800986F85 /* Main.storyboard in Resources */,
+				16F418C51899794C00710C70 /* Archer_Attack.atlas in Resources */,
+				16F418DA1899794C00710C70 /* Tiles.atlas in Resources */,
+				16F418D31899794C00710C70 /* Goblin_Walk.atlas in Resources */,
+				380C6FA818999AF200AE7608 /* button_archer.png in Resources */,
+				380C6FAA18999AF200AE7608 /* Default-568h@2x.png in Resources */,
+				16F418CE1899794C00710C70 /* Boss_Walk.atlas in Resources */,
+				16F418CC1899794C00710C70 /* Boss_GetHit.atlas in Resources */,
+				380C6FBC18999B0E00AE7608 /* hardCircle.png in Resources */,
+				16F418D01899794C00710C70 /* Goblin_Death.atlas in Resources */,
+				16F418D21899794C00710C70 /* Goblin_Idle.atlas in Resources */,
+				380C6FBE18999B0E00AE7608 /* leaf_02.png in Resources */,
+				380C6FB718999B0E00AE7608 /* CaveDeathSmoke.sks in Resources */,
+				380C6FC518999B0E00AE7608 /* WarriorProjectile.sks in Resources */,
+				380C6FC218999B0E00AE7608 /* spark.png in Resources */,
+				380C6FC018999B0E00AE7608 /* Leaves_02.sks in Resources */,
+				380C6FB118999AF200AE7608 /* lives.png in Resources */,
+				16F418CB1899794C00710C70 /* Boss_Death.atlas in Resources */,
+				16F418C91899794C00710C70 /* Archer_Walk.atlas in Resources */,
+				380C6FAC18999AF200AE7608 /* Default@2x.png in Resources */,
+				16F418D11899794C00710C70 /* Goblin_GetHit.atlas in Resources */,
+				16F418C61899794C00710C70 /* Archer_Death.atlas in Resources */,
+				16F418D41899794C00710C70 /* Warrior_Attack.atlas in Resources */,
+				16F418D61899794C00710C70 /* Warrior_GetHit.atlas in Resources */,
+				380C6FB918999B0E00AE7608 /* CaveFireSmoke.sks in Resources */,
+				16F418D91899794C00710C70 /* Environment.atlas in Resources */,
+				380C6FAB18999AF200AE7608 /* Default.png in Resources */,
+				380C6FA918999AF200AE7608 /* button_warrior.png in Resources */,
+				16F418AD189976EF00710C70 /* InfoPlist.strings in Resources */,
+				16F418CF1899794C00710C70 /* Goblin_Attack.atlas in Resources */,
+				16F418D51899794C00710C70 /* Warrior_Death.atlas in Resources */,
+				380C6FC318999B0E00AE7608 /* Spawn.sks in Resources */,
+				16F418C81899794C00710C70 /* Archer_Idle.atlas in Resources */,
+				380C6FC118999B0E00AE7608 /* ProjectileSplat.sks in Resources */,
+				3820DF30189990600082333B /* Assets - iOS.xcassets in Resources */,
+				380C6FBA18999B0E00AE7608 /* Damage.sks in Resources */,
+				380C6FBD18999B0E00AE7608 /* leaf_00.png in Resources */,
+				16F418CA1899794C00710C70 /* Boss_Attack.atlas in Resources */,
+				16F418C71899794C00710C70 /* Archer_GetHit.atlas in Resources */,
+				380C6FB018999AF200AE7608 /* iconWarrior_red.png in Resources */,
+				380C6FAF18999AF200AE7608 /* iconWarrior_pink.png in Resources */,
+				380C6FB218999AF200AE7608 /* logo.png in Resources */,
+				380C6FAE18999AF200AE7608 /* iconWarrior_green.png in Resources */,
+				380C6FBB18999B0E00AE7608 /* Death.sks in Resources */,
+				380C6FB818999B0E00AE7608 /* CaveFire.sks in Resources */,
+				380C6FAD18999AF200AE7608 /* iconWarrior_blue.png in Resources */,
+				380C6FBF18999B0E00AE7608 /* Leaves_01.sks in Resources */,
+				380C6FB518999B0E00AE7608 /* BossDamage.sks in Resources */,
+				16F418D71899794C00710C70 /* Warrior_Idle.atlas in Resources */,
+				16F418CD1899794C00710C70 /* Boss_Idle.atlas in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38997BE5187F688800FAAB91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38280E4C1884B3890017B525 /* Death.sks in Resources */,
+				38280E4B1884B3890017B525 /* Damage.sks in Resources */,
+				38280E4D1884B3890017B525 /* hardCircle.png in Resources */,
+				38FCBAA0188223390017B9D2 /* Warrior_Idle.atlas in Resources */,
+				38FE6C7D1884CCF500646ED4 /* Default@2x.png in Resources */,
+				38FCBAA1188223390017B9D2 /* Warrior_Walk.atlas in Resources */,
+				38E91D321880C8E4006CA729 /* map_level.png in Resources */,
+				38FE6C7C1884CCF500646ED4 /* Default.png in Resources */,
+				38FCBA9E188223390017B9D2 /* Warrior_Death.atlas in Resources */,
+				38FCBA97188223390017B9D2 /* Environment.atlas in Resources */,
+				38280E501884B3890017B525 /* Leaves_01.sks in Resources */,
+				38280E551884B3890017B525 /* star.png in Resources */,
+				38FE6C7E1884CCF500646ED4 /* iconWarrior_blue.png in Resources */,
+				38FE6C811884CCF500646ED4 /* iconWarrior_red.png in Resources */,
+				38FE6C831884CCF500646ED4 /* logo.png in Resources */,
+				38FCBA92188223390017B9D2 /* Boss_Attack.atlas in Resources */,
+				38280E541884B3890017B525 /* Spawn.sks in Resources */,
+				38280E461884B3890017B525 /* BossDamage.sks in Resources */,
+				38FCBA98188223390017B9D2 /* Goblin_Attack.atlas in Resources */,
+				38280E511884B3890017B525 /* Leaves_02.sks in Resources */,
+				38280E521884B3890017B525 /* ProjectileSplat.sks in Resources */,
+				38280E4E1884B3890017B525 /* leaf_00.png in Resources */,
+				38A86E3518871BDB00D300AB /* magicmissile.caf in Resources */,
+				38FE6C821884CCF500646ED4 /* lives.png in Resources */,
+				38FE6C801884CCF500646ED4 /* iconWarrior_pink.png in Resources */,
+				38280E4F1884B3890017B525 /* leaf_02.png in Resources */,
+				38FE6C791884CCF500646ED4 /* button_archer.png in Resources */,
+				38FCBA9C188223390017B9D2 /* Goblin_Walk.atlas in Resources */,
+				38FCBA90188223390017B9D2 /* Archer_Idle.atlas in Resources */,
+				38FE6C7B1884CCF500646ED4 /* Default-568h@2x.png in Resources */,
+				38280E471884B3890017B525 /* CaveDamage.sks in Resources */,
+				38FCBA95188223390017B9D2 /* Boss_Idle.atlas in Resources */,
+				38FE6C7A1884CCF500646ED4 /* button_warrior.png in Resources */,
+				38FCBA8D188223390017B9D2 /* Archer_Attack.atlas in Resources */,
+				38E91D331880C8E4006CA729 /* map_trees.png in Resources */,
+				38280E481884B3890017B525 /* CaveDeathSmoke.sks in Resources */,
+				38280E4A1884B3890017B525 /* CaveFireSmoke.sks in Resources */,
+				38280E491884B3890017B525 /* CaveFire.sks in Resources */,
+				38280E451884B3890017B525 /* ArcherProjectile.sks in Resources */,
+				38FCBA9D188223390017B9D2 /* Warrior_Attack.atlas in Resources */,
+				38FCBA9A188223390017B9D2 /* Goblin_GetHit.atlas in Resources */,
+				38FCBA96188223390017B9D2 /* Boss_Walk.atlas in Resources */,
+				38997BEE187F688800FAAB91 /* InfoPlist.strings in Resources */,
+				38280E531884B3890017B525 /* spark.png in Resources */,
+				38FE6C7F1884CCF500646ED4 /* iconWarrior_green.png in Resources */,
+				38FCBA91188223390017B9D2 /* Archer_Walk.atlas in Resources */,
+				38FCBA93188223390017B9D2 /* Boss_Death.atlas in Resources */,
+				38FCBA99188223390017B9D2 /* Goblin_Death.atlas in Resources */,
+				38FCBA9B188223390017B9D2 /* Goblin_Idle.atlas in Resources */,
+				38FCBA94188223390017B9D2 /* Boss_GetHit.atlas in Resources */,
+				38FE6C781884CCF500646ED4 /* Assets - OS X.xcassets in Resources */,
+				38FCBA8F188223390017B9D2 /* Archer_GetHit.atlas in Resources */,
+				38FCBA9F188223390017B9D2 /* Warrior_GetHit.atlas in Resources */,
+				38997BF5187F688800FAAB91 /* MainMenu.xib in Resources */,
+				38C4413B18806ACA0069ECE4 /* Tiles.atlas in Resources */,
+				38FCBA8E188223390017B9D2 /* Archer_Death.atlas in Resources */,
+				38280E561884B3890017B525 /* WarriorProjectile.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16F418A3189976EF00710C70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16F418B9189976EF00710C70 /* ViewController.swift in Sources */,
+				389842CE18999F8400FBCB05 /* Archer.swift in Sources */,
+				389842C818999F8000FBCB05 /* Player.swift in Sources */,
+				389842D018999F8400FBCB05 /* Goblin.swift in Sources */,
+				16F418B1189976EF00710C70 /* AppDelegate.swift in Sources */,
+				389842D118999F8400FBCB05 /* Cave.swift in Sources */,
+				389842C618999F8000FBCB05 /* AdventureScene.swift in Sources */,
+				389842D31899A20F00FBCB05 /* ArtificialIntelligence.swift in Sources */,
+				389842CC18999F8400FBCB05 /* HeroCharacter.swift in Sources */,
+				389842CF18999F8400FBCB05 /* EnemyCharacter.swift in Sources */,
+				389842D41899A20F00FBCB05 /* ChaseAI.swift in Sources */,
+				38C22DBA1899E5CC007C9837 /* iOSLayeredCharacterSceneEvents.swift in Sources */,
+				389842D51899A20F00FBCB05 /* SpawnAI.swift in Sources */,
+				389842D218999F8400FBCB05 /* Boss.swift in Sources */,
+				389842C718999F8000FBCB05 /* LayeredCharacterScene.swift in Sources */,
+				389842C918999F8400FBCB05 /* ParallaxSprite.swift in Sources */,
+				389842CA18999F8400FBCB05 /* Tree.swift in Sources */,
+				389842CB18999F8400FBCB05 /* Character.swift in Sources */,
+				16A18239189988A000E7758D /* GraphicsUtilities.swift in Sources */,
+				389842CD18999F8400FBCB05 /* Warrior.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38997BE3187F688800FAAB91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38997C04187F7B2800FAAB91 /* AdventureScene.swift in Sources */,
+				38CB1984188232C3008CC889 /* HeroCharacter.swift in Sources */,
+				38CB1986188232F2008CC889 /* Player.swift in Sources */,
+				38997C0618805E6E00FAAB91 /* LayeredCharacterScene.swift in Sources */,
+				389842D71899A29E00FBCB05 /* LayeredCharacterSceneOSXEvents.swift in Sources */,
+				383738821884C616008A03B2 /* Cave.swift in Sources */,
+				383738801884C4FA008A03B2 /* ArtificialIntelligence.swift in Sources */,
+				38A9A5731891E4F00091825F /* Goblin.swift in Sources */,
+				38FCBAA4188223B40017B9D2 /* ParallaxSprite.swift in Sources */,
+				38A9A5751891E51D0091825F /* Boss.swift in Sources */,
+				38A9A57B1891E5B90091825F /* SpawnAI.swift in Sources */,
+				386E5476188352DB009BBDC0 /* Tree.swift in Sources */,
+				38A9A5771891E5540091825F /* Archer.swift in Sources */,
+				38FCBAA61882276F0017B9D2 /* Character.swift in Sources */,
+				38CB198818823580008CC889 /* Warrior.swift in Sources */,
+				38A9A57E1891E6650091825F /* GraphicsUtilities.swift in Sources */,
+				38A9A5791891E59E0091825F /* ChaseAI.swift in Sources */,
+				38997BF2187F688800FAAB91 /* AppDelegate.swift in Sources */,
+				3837387D1884C4AE008A03B2 /* EnemyCharacter.swift in Sources */,
+				38997BF0187F688800FAAB91 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		16F418AB189976EF00710C70 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16F418AC189976EF00710C70 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		38997BEC187F688800FAAB91 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38997BED187F688800FAAB91 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		38997BF3187F688800FAAB91 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38997BF4187F688800FAAB91 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		16F418BD189976EF00710C70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Adventure iOS/Adventure iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		16F418BE189976EF00710C70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Adventure iOS/Adventure iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		38997BF8187F688800FAAB91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		38997BF9187F688800FAAB91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		38997BFB187F688800FAAB91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = "Adventure/Adventure-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		38997BFC187F688800FAAB91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Adventure/Adventure-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16F418BC189976EF00710C70 /* Build configuration list for PBXNativeTarget "Adventure iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16F418BD189976EF00710C70 /* Debug */,
+				16F418BE189976EF00710C70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38997BE2187F688800FAAB91 /* Build configuration list for PBXProject "Adventure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38997BF8187F688800FAAB91 /* Debug */,
+				38997BF9187F688800FAAB91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38997BFA187F688800FAAB91 /* Build configuration list for PBXNativeTarget "Adventure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38997BFB187F688800FAAB91 /* Debug */,
+				38997BFC187F688800FAAB91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 38997BDF187F688800FAAB91 /* Project object */;
+}
