@@ -26,6 +26,7 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 
 有网友第一时间开始了官方文档的翻译工作，相信近期将由更多文档和教程出现。
 
+*    《关于 Swift 的一点初步看法》http://onevcat.com/2014/06/my-opinion-about-swift/
 *    《Swift编程语言》（翻译）http://numbbbbb.github.io/the-swift-programming-language-in-chinese/
 *    《来自苹果的编程语言——Swift简介》http://zh.lucida.me/blog/an-introduction-to-swift/
 *    《Apple Swift编程语言入门教程》 http://gashero.iteye.com/blog/2075324
