@@ -7,7 +7,7 @@
 ### 官方文档
 
 *    《[The Swift Programming Language](https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/)》
-*    EPUB 和 PDF版本 http://pan.baidu.com/s/1mg8zHR6
+*    Kindle, EPUB 和 PDF版本 http://pan.baidu.com/s/1sjO4Ab7
 
 ### 非官方文档（英文）
 
@@ -44,3 +44,7 @@
 *    http://pan.baidu.com/s/1bAgz0  不用提取码
 
 *    http://adcdownload.apple.com//wwdc_2014/xcode_6_beta_ie8g3n/xcode_6_beta.dmg 使用迅雷离线更快
+
+## 其它
+
+*    [iOS Developer Library](https://developer.apple.com/library/prerelease/ios/navigation/)
