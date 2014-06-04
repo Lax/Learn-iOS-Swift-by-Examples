@@ -1,5 +1,5 @@
 # [Swift学习资源](https://github.com/Lax/iOS-Swift-Demos/wiki)
-[最新内容](https://github.com/Lax/iOS-Swift-Demos/wiki)
+[最新内容请查看Wiki](https://github.com/Lax/iOS-Swift-Demos/wiki)
 
 
 苹果公司在WWDC 2014上宣布了他们将会推出一款新的编程语言，面向iOS和OS X系统的开发人员，这个新的语言被命名为Swift。
@@ -66,3 +66,11 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 ## 其它
 
 *    [iOS Developer Library](https://developer.apple.com/library/prerelease/ios/navigation/)
+
+### 因为重名躺枪的Swift
+*    [Swift Lang](http://swift-lang.org) 一门很专业的并行编程语言，有苹果在Swift页面的链接，肯定带过去很多访问量。
+*    [OpenStack Swift](https://github.com/openstack/swift) OpenStack Object Storage (Swift)
+*    [Swift聊天工具](http://swift.im) 基于XMPP的聊天工具及服务端SDK。
+
+### 讨论区
+*    【iOS开发者-开始Swift】QQ交流群32958950 申请时请说明身份。
