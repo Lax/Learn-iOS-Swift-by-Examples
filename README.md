@@ -121,8 +121,10 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 ### 因为重名躺枪的Swift
 
 *    [Swift Lang](http://swift-lang.org) 一门很专业的并行编程语言，有苹果在Swift页面的链接，肯定带过去很多访问量。
-*    [OpenStack Swift](https://github.com/openstack/swift) OpenStack Object Storage (Swift)
+*    [OpenStack Swift](https://github.com/openstack/swift) OpenStack Object Storage (Swift)。
 *    [Swift聊天工具](http://swift.im) 基于XMPP的聊天工具及服务端SDK。
+
+*    [Taylor Swift](http://en.wikipedia.org/wiki/Taylor_Swift) 美国乡村音乐女創作歌手、吉他歌手、演员。这位1989年出生的美女获得过数不清的格莱美奖及其它排行榜大奖。2014/05/30刚举办了泰勒•斯威夫特“红”巡演上海演唱会。WWDC2014之后三天，她从Google搜索结果首页被挤出，很受伤，歌迷们也很受伤。去[脸盆网](https://www.facebook.com/TaylorSwift)关注她，去音悦台[听她的歌](http://www.yinyuetai.com/fanclub/122)。
 
 
 ### 讨论区
