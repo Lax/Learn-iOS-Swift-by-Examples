@@ -127,6 +127,7 @@ class ListCoordinator: NSObject {
             else {
                 // In your app, handle this gracefully.
                 NSLog("Couldn't move file: \(sourceURL.absoluteString) to: \(destinationURL.absoluteString). Error: \(moveError.description).")
+                abort()
             }
         }
     }
