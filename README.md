@@ -73,19 +73,24 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 
 *    Lister: A Productivity App Built in Swift
-[apple](https://developer.apple.com/library/prerelease/ios/samplecode/Lister-Swift/Introduction/Intro.html#//apple_ref/doc/uid/TP40014512)
+[apple](https://developer.apple.com/library/prerelease/ios/samplecode/Lister-Swift/Introduction/Intro.html)
 /
 [github](https://github.com/Lax/iOS-Swift-Demos/tree/master/ListerAProductivityAppBuiltinSwift)
 
 *    UICatalog: Creating and Customizing UIKit Controls in Swift
-[apple](https://developer.apple.com/library/prerelease/ios/samplecode/UICatalog-Swift/Introduction/Intro.html#//apple_ref/doc/uid/TP40014577)
+[apple](https://developer.apple.com/library/prerelease/ios/samplecode/UICatalog-Swift/Introduction/Intro.html)
 /
 [github](https://github.com/Lax/iOS-Swift-Demos/tree/master/UICatalog:CreatingandCustomizingUIKitControlsinSwift)
 
 *    Adventure: Building a SpriteKit Game Using Swift
-[apple](https://developer.apple.com/library/prerelease/ios/samplecode/Adventure-Swift/Introduction/Intro.html#//apple_ref/doc/uid/TP40014639)
+[apple](https://developer.apple.com/library/prerelease/ios/samplecode/Adventure-Swift/Introduction/Intro.html)
 /
 [github](https://github.com/Lax/iOS-Swift-Demos/tree/master/AdventureBuildingaSpriteKitgameusingSwift)
+
+*    GestureRecognizers: Using standard UIGestureRecognizers in Swift
+[apple](https://developer.apple.com/library/prerelease/ios/samplecode/GestureRecognizers/Introduction/Intro.html)
+/
+[github](https://github.com/Lax/iOS-Swift-Demos/tree/master/GestureRecognizersUsingstandardUIGestureRecognizers)
 
 
 ### 非官方代码分享
