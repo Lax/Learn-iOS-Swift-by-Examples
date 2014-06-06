@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="6154.4" systemVersion="14A238h" targetRuntime="iOS.CocoaTouch.iPad" variant="6xAndEarlier" propertyAccessControl="none" promptedForUpgradeToXcode5="NO" initialViewController="9fJ-Hq-vKO">
+    <dependencies>
+        <development version="4600" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.2"/>
+    </dependencies>
+    <scenes>
+        <!--TtC24 Simple Gesture Recognizers14 View Controller-->
+        <scene sceneID="FEC-rJ-OLO">
+            <objects>
+                <viewController id="9fJ-Hq-vKO" customClass="ViewController" customModule="SimpleGestureRecognizers" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VaA-8F-GZv">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="gUq-Wh-AsH">
+                                <rect key="frame" x="144" y="482" width="490" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Enable Left Swipes"/>
+                                    <segment title="Disable Left Swipes"/>
+                                </segments>
+                                <connections>
+                                    <action selector="takeLeftSwipeRecognitionEnabledFrom:" destination="9fJ-Hq-vKO" eventType="valueChanged" id="Urz-OD-AZd"/>
+                                </connections>
+                            </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="center" id="aiW-xt-h9G">
+                                <rect key="frame" x="292" y="287" width="288" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7Or-NK-7ec" appends="YES" id="hlH-rE-g0F"/>
+                            <outletCollection property="gestureRecognizers" destination="ski-HX-e39" appends="YES" id="S2m-us-Lt0"/>
+                            <outletCollection property="gestureRecognizers" destination="ZmL-Fe-bFt" appends="YES" id="khD-xN-PsF"/>
+                            <outletCollection property="gestureRecognizers" destination="VQA-BS-WO1" appends="YES" id="Jpu-EK-Uqb"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="aiW-xt-h9G" id="S1q-rH-Cls"/>
+                        <outlet property="segmentedControl" destination="gUq-Wh-AsH" id="NoJ-UD-D6y"/>
+                        <outlet property="swipeLeftRecognizer" destination="ski-HX-e39" id="7SG-Un-b6h"/>
+                        <outlet property="tapRecognizer" destination="7Or-NK-7ec" id="9q5-Ji-Ixf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="urV-Ki-4ke" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7Or-NK-7ec">
+                    <connections>
+                        <action selector="showGestureForTapRecognizer:" destination="9fJ-Hq-vKO" id="M7W-Dm-rkH"/>
+                        <outlet property="delegate" destination="9fJ-Hq-vKO" id="TSW-SS-xCi"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="ski-HX-e39" userLabel="Left Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="showGestureForSwipeRecognizer:" destination="9fJ-Hq-vKO" id="ygv-LR-vYh"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="ZmL-Fe-bFt" userLabel="Right Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="showGestureForSwipeRecognizer:" destination="9fJ-Hq-vKO" id="l3g-Ou-HzJ"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <rotationGestureRecognizer id="VQA-BS-WO1">
+                    <connections>
+                        <action selector="showGestureForRotationRecognizer:" destination="9fJ-Hq-vKO" id="tov-90-F2U"/>
+                    </connections>
+                </rotationGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="254" y="-373"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
