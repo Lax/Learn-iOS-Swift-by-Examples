@@ -80,7 +80,7 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 *    UICatalog: Creating and Customizing UIKit Controls in Swift
 [apple](https://developer.apple.com/library/prerelease/ios/samplecode/UICatalog-Swift/Introduction/Intro.html)
 /
-[github](https://github.com/Lax/iOS-Swift-Demos/tree/master/UICatalog:CreatingandCustomizingUIKitControlsinSwift)
+[github](https://github.com/Lax/iOS-Swift-Demos/tree/master/UICatalogCreatingandCustomizingUIKitControlsinSwift)
 
 *    Adventure: Building a SpriteKit Game Using Swift
 [apple](https://developer.apple.com/library/prerelease/ios/samplecode/Adventure-Swift/Introduction/Intro.html)
