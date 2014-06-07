@@ -101,6 +101,11 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 *    [Game of Life](https://github.com/yonbergman/swift-gameoflife) 一个游戏
 *    [swift-alarm](https://github.com/ChrisChares/swift-alarm.git) 基于地理位置的提醒工具 [blog](http://chares.ghost.io/lets-make-a-swift-app-part-1/)
 *    [SwiftNote](https://github.com/mslathrop/SwiftNote.git)
+*    [翻翻看](https://github.com/geek5nan/FanFanSwift) 游戏翻翻看Swift版
+*    [HackerNews](https://github.com/amitburst/HackerNews) HackerNews网站的第三方客户端
+
+*    [UIImageView-BetterFace-Swift](https://github.com/croath/UIImageView-BetterFace-Swift) 展示图片是加入面部识别，改善展示效果
+*    [YYHRequest-Swift](https://github.com/yayuhh/YYHRequest-Swift) 异步HTTP请求类
 
 
 
