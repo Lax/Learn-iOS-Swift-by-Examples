@@ -47,11 +47,13 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 *    https://www.v2ex.com/go/swift
 *    http://swift.sh
 *    http://swift-china.org
+*    CocoaChina的[Swift讨论区](http://www.cocoachina.com/bbs/thread.php?fid=57)
 
 
 #### 评论
 
 *    《[关于 Swift 的一点初步看法](http://onevcat.com/2014/06/my-opinion-about-swift/)》 by onevcat
+*    《[行走于 Swift 的世界中](http://onevcat.com/2014/06/walk-in-swift/)》 by onevcat 更详细的一篇评论
 *    《[来自苹果的编程语言——Swift简介](http://zh.lucida.me/blog/an-introduction-to-swift/)》
 
 
@@ -64,6 +66,7 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 
 #### 课程
 
+*    《[SwiftV课堂](http://www.swiftv.cn/)》 免费Swift学习视频
 *    《[Apple Swift语言基础教程](http://www.jikexueyuan.com/course/92.html)》极客学院
 
 
@@ -108,7 +111,6 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 *    [YYHRequest-Swift](https://github.com/yayuhh/YYHRequest-Swift) 异步HTTP请求类
 
 
-
 ## 开发工具
 
 ### xcode 6 beta 下载
@@ -118,7 +120,7 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 *    http://pan.baidu.com/s/1pJug2xX 密码: e6q2 
 *    http://pan.baidu.com/s/1bAgz0  不用提取码
 
-*    官方下载地址 http://adcdownload.apple.com//wwdc_2014/xcode_6_beta_ie8g3n/xcode_6_beta.dmg 使用迅雷离线更快
+*    [官方下载地址](http://adcdownload.apple.com//wwdc_2014/xcode_6_beta_ie8g3n/xcode_6_beta.dmg) 使用迅雷离线更快
 
 
 
