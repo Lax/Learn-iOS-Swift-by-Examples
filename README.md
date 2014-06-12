@@ -19,6 +19,8 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 
 *    Swift介绍 [Introducing Swift](https://developer.apple.com/swift/)
 
+*    [WWDC2014 Videos](https://developer.apple.com/videos/wwdc/2014/)
+
 ### 非官方文档与社区（英文）
 
 *    [StackOverflow上的Swift讨论](http://stackoverflow.com/questions/tagged/swift-language)
@@ -31,6 +33,7 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 *    [Developing iOS Apps Using Swift Tutorial](http://jamesonquave.com/blog/developing-ios-apps-using-swift-tutorial/)
 *    [7 thoughts on “Swift: Not quite there, but too far gone too”](http://studentf.wordpress.com/2014/06/03/swift-not-quite-there-but-too-far-gone-too/)
 *    [Swift Language Highlights: An Objective-C Developer’s Perspective](http://www.raywenderlich.com/73997/swift-language-highlights)
+*    [Swift Impressions](http://www.evanmiller.org/swift-impressions.html) by Evan Miller
 
 
 *    http://www.weheartswift.com
@@ -128,6 +131,9 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 
 *    [iOS Developer Library](https://developer.apple.com/library/prerelease/ios/navigation/)
 *    [Chris Lattner](http://nondot.org/sabre/) Swift设计者
+
+*    [iOS 7.1 to iOS 8.0 API Differences](https://developer.apple.com/library/prerelease/ios/releasenotes/General/iOS80APIDiffs/index.html)
+*    [App Extensions Increase Your Impact](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/ExtensibilityPG/index.html)
 
 
 ### 因为重名躺枪的Swift
