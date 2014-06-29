@@ -1,4 +1,4 @@
-# [Swift学习资源](https://github.com/Lax/iOS-Swift-Demos/wiki)
+# [Swift学习资源](http://blog.liulantao.com/SwiftBeginnersGuide/)
 [最新内容请查看Wiki](https://github.com/Lax/iOS-Swift-Demos/wiki)
 
 
@@ -27,7 +27,7 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 *    github上的swift内容 [search结果](https://github.com/search?l=Swift&q=swift&ref=cmdform&type=Repositories)
 *    [Swift Cheatsheet](http://cdn2.raywenderlich.com/wp-content/uploads/2014/06/RW-Swift-Cheatsheet-0_3.pdf)
 *    [Swift & Cocoapods](https://medium.com/swift-programming/swift-cocoapods-da09d8ba6dd2) How to integrate Cocoapods into a vanilla Swift project
-
+*    [Swift Toolbox](http://www.swifttoolbox.io)
 
 
 *    [Developing iOS Apps Using Swift Tutorial](http://jamesonquave.com/blog/developing-ios-apps-using-swift-tutorial/)
@@ -51,6 +51,15 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 *    http://swift.sh
 *    http://swift-china.org
 *    CocoaChina的[Swift讨论区](http://www.cocoachina.com/bbs/thread.php?fid=57)
+*    QQ群
+     *     iOS开发者-开始Swift，群号：32958950，申请时请说明身份。
+
+
+#### 翻译
+
+*    [《The Swift Programming Language》中文版](http://www.swiftguide.cn) （[协作翻译](http://numbbbbb.github.io/the-swift-programming-language-in-chinese/))）第一份完整的中文翻译
+
+*    《[Apple Swift编程语言入门教程](http://gashero.iteye.com/blog/2075324)》比较早期的一篇翻译，最近没有更新
 
 
 #### 评论
@@ -58,13 +67,6 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 *    《[关于 Swift 的一点初步看法](http://onevcat.com/2014/06/my-opinion-about-swift/)》 by onevcat
 *    《[行走于 Swift 的世界中](http://onevcat.com/2014/06/walk-in-swift/)》 by onevcat 更详细的一篇评论
 *    《[来自苹果的编程语言——Swift简介](http://zh.lucida.me/blog/an-introduction-to-swift/)》
-
-
-#### 翻译
-
-*    《[Swift编程语言](http://numbbbbb.github.io/the-swift-programming-language-in-chinese/)》（协作翻译）
-*    《[Apple Swift编程语言入门教程](http://gashero.iteye.com/blog/2075324)》
-*    《[Apple Swift编程语言入门教程](http://swiftlang.com.cn/start)》和上面的重名了，目前还没什么实际内容-20140605
 
 
 #### 课程
@@ -101,6 +103,8 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 
 ### 非官方代码分享
 
+*    [Swift Trending](https://github.com/trending?l=swift&since=monthly)
+
 *    [FlappySwift](https://github.com/fullstackio/FlappySwift)  用Swift实现的FlappyBird
 *    [swift-2048](https://github.com/austinzheng/swift-2048)
 *    [PNChart-Swift](https://github.com/kevinzhow/PNChart-Swift) 可以创建图表的库
@@ -123,8 +127,8 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 *    http://pan.baidu.com/s/1pJug2xX 密码: e6q2 
 *    http://pan.baidu.com/s/1bAgz0  不用提取码
 
-*    [官方下载地址](http://adcdownload.apple.com//wwdc_2014/xcode_6_beta_ie8g3n/xcode_6_beta.dmg) 使用迅雷离线更快
-
+*    [官方下载地址xcode_6_beta.dmg](http://adcdownload.apple.com//wwdc_2014/xcode_6_beta_ie8g3n/xcode_6_beta.dmg) 使用迅雷离线更快
+*    [官方下载地址xcode_6_beta_2.dmg](http://adcdownload.apple.com//Developer_Tools/xcode_6_beta_2_i8z2ly/xcode_6_beta_2.dmg) 使用迅雷离线更快
 
 
 ## 其它
@@ -134,7 +138,7 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 
 *    [iOS 7.1 to iOS 8.0 API Differences](https://developer.apple.com/library/prerelease/ios/releasenotes/General/iOS80APIDiffs/index.html)
 *    [App Extensions Increase Your Impact](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/ExtensibilityPG/index.html)
-
+*    [Swift学习资源](http://blog.liulantao.com/SwiftBeginnersGuide/) 新手的Swift学习资料汇总，比较详细总结了常用的资源。
 
 ### 因为重名躺枪的Swift
 
