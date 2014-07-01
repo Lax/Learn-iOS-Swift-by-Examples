@@ -1,4 +1,4 @@
-Sample code project: Adventure: Building a SpriteKit game using Swift
+Sample code project: Adventure: Building a SpriteKit Game Using Swift
 Version: 1.0
 
 IMPORTANT:  This Apple software is supplied to you by Apple
