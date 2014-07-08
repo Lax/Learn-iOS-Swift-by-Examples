@@ -166,15 +166,15 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 
 ## 开发工具
 
-### xcode 6 beta 下载
+### xcode 6 下载
 
 ```xcode 6 beta安装系统要求为MacOSX 10.9.3+```
 
-*    http://pan.baidu.com/s/1pJug2xX 密码: e6q2 
-*    http://pan.baidu.com/s/1bAgz0  不用提取码
+*    xcode_6_beta_3.dmg [http://pan.baidu.com/s/1nt0WS8T](http://pan.baidu.com/s/1nt0WS8T)
 
 *    [官方下载地址xcode_6_beta.dmg](http://adcdownload.apple.com//wwdc_2014/xcode_6_beta_ie8g3n/xcode_6_beta.dmg) 使用迅雷离线更快
 *    [官方下载地址xcode_6_beta_2.dmg](http://adcdownload.apple.com//Developer_Tools/xcode_6_beta_2_i8z2ly/xcode_6_beta_2.dmg) 使用迅雷离线更快
+*    [官方下载地址xcode_6_beta_3.dmg](http://adcdownload.apple.com//Developer_Tools/xcode_6_beta_3_lpw27r/xcode_6_beta_3.dmg) 使用迅雷离线更快
 
 
 ## 其它
