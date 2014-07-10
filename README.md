@@ -49,7 +49,7 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 
 *    [We ❤ Swift](http://www.weheartswift.com)
 *    [LEARNABLE PROGRAMMING](http://worrydream.com/#!/LearnableProgramming) Designing a programming system for understanding programs
-
+*    [把《The Swift Programming Language》读薄](http://hawstein.com/posts/make-thiner-tspl.html) by [Hawstein](http://hawstein.com)
 
 #### 深入话题
 
