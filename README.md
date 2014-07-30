@@ -1,4 +1,7 @@
 # [Swift学习资源](http://blog.liulantao.com/SwiftBeginnersGuide/)
+
+![Swift](https://devimages.apple.com.edgekey.net/home/images/home-hero-swift-hero.png)
+
 [最新内容请查看Wiki](https://github.com/Lax/iOS-Swift-Demos/wiki)
 
 
