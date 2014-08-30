@@ -14,10 +14,31 @@ class AlertControllerViewController : UITableViewController {
     // MARK: Properties
 
     weak var secureTextAlertAction: UIAlertAction?
+    
+    // A matrix of closures that should be invoked based on which table view cell is
+    // tapped (index by section, row).
+    var actionMap: [[Void -> Void]] {
+        return [
+            // Alert style alerts.
+            [
+                self.showSimpleAlert,
+                self.showOkayCancelAlert,
+                self.showOtherAlert,
+                self.showTextEntryAlert,
+                self.showSecureTextEntryAlert
+            ],
+            // Action sheet style alerts.
+            [
+                self.showOkayCancelActionSheet,
+                self.showOtherActionSheet
+            ]
+        ]
+    }
+
 
     // MARK: UIAlertControllerStyleAlert Style Alerts
 
-    // Show an alert with an "Okay" button.
+    /// Show an alert with an "Okay" button.
     func showSimpleAlert() {
         let title = NSLocalizedString("A Short Title is Best", comment: "")
         let message = NSLocalizedString("A message should be a short, complete sentence.", comment: "")
@@ -36,7 +57,7 @@ class AlertControllerViewController : UITableViewController {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
-    // Show an alert with an "Okay" and "Cancel" button.
+    /// Show an alert with an "Okay" and "Cancel" button.
     func showOkayCancelAlert() {
         let title = NSLocalizedString("A Short Title is Best", comment: "")
         let message = NSLocalizedString("A message should be a short, complete sentence.", comment: "")
@@ -61,7 +82,7 @@ class AlertControllerViewController : UITableViewController {
         presentViewController(alertCotroller, animated: true, completion: nil)
     }
 
-    // Show an alert with two custom buttons.
+    /// Show an alert with two custom buttons.
     func showOtherAlert() {
         let title = NSLocalizedString("A Short Title is Best", comment: "")
         let message = NSLocalizedString("A message should be a short, complete sentence.", comment: "")
@@ -92,7 +113,7 @@ class AlertControllerViewController : UITableViewController {
         presentViewController(alertController, animated: true, completion: nil)
     }
 
-    // Show a text entry alert with two custom buttons.
+    /// Show a text entry alert with two custom buttons.
     func showTextEntryAlert() {
         let title = NSLocalizedString("A Short Title is Best", comment: "")
         let message = NSLocalizedString("A message should be a short, complete sentence.", comment: "")
@@ -122,7 +143,7 @@ class AlertControllerViewController : UITableViewController {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
-    // Show a secure text entry alert with two custom buttons.
+    /// Show a secure text entry alert with two custom buttons.
     func showSecureTextEntryAlert() {
         let title = NSLocalizedString("A Short Title is Best", comment: "")
         let message = NSLocalizedString("A message should be a short, complete sentence.", comment: "")
@@ -141,11 +162,11 @@ class AlertControllerViewController : UITableViewController {
             textField.secureTextEntry = true
         }
         
-        // Stop listening for text change notifications on the text field. This func will be called in the two action handlers.
-        func removeTextFieldObserver() {
-            NSNotificationCenter.defaultCenter().removeObserver(self, name: UITextFieldTextDidChangeNotification, object: alertController.textFields[0])
+        // Stop listening for text change notifications on the text field. This closure will be called in the two action handlers.
+        let removeTextFieldObserver: Void -> Void = {
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UITextFieldTextDidChangeNotification, object: alertController.textFields.first)
         }
-        
+
         // Create the actions.
         let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .Cancel) { action in
             NSLog("The \"Secure Text Entry\" alert's cancel action occured.")
@@ -174,7 +195,7 @@ class AlertControllerViewController : UITableViewController {
     
     // MARK: UIAlertControllerStyleActionSheet Style Alerts
     
-    // Show a dialog with an "Okay" and "Cancel" button.
+    /// Show a dialog with an "Okay" and "Cancel" button.
     func showOkayCancelActionSheet() {
         let cancelButtonTitle = NSLocalizedString("Cancel", comment: "OK")
         let destructiveButtonTitle = NSLocalizedString("OK", comment: "")
@@ -197,7 +218,7 @@ class AlertControllerViewController : UITableViewController {
         presentViewController(alertController, animated: true, completion: nil)
     }
 
-    // Show a dialog with two custom buttons.
+    /// Show a dialog with two custom buttons.
     func showOtherActionSheet() {
         let destructiveButtonTitle = NSLocalizedString("Destructive Choice", comment: "")
         let otherButtonTitle = NSLocalizedString("Safe Choice", comment: "")
@@ -226,30 +247,12 @@ class AlertControllerViewController : UITableViewController {
         let textField = notification.object as UITextField
 
         // Enforce a minimum length of >= 5 for secure text alerts.
-        secureTextAlertAction!.enabled = textField.text.utf16count >= 5
+        secureTextAlertAction!.enabled = textField.text.utf16Count >= 5
     }
     
     // MARK: UITableViewDelegate
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // A matrix of closures that should be invoked based on which table view cell is
-        // tapped (index by section, row).
-        let actionMap: Array<Array<() -> Void>> = [
-            // Alert style alerts.
-            [
-                showSimpleAlert,
-                showOkayCancelAlert,
-                showOtherAlert,
-                showTextEntryAlert,
-                showSecureTextEntryAlert
-            ],
-            // Action sheet style alerts.
-            [
-                showOkayCancelActionSheet,
-                showOtherActionSheet
-            ]
-        ]
-
         let action = actionMap[indexPath.section][indexPath.row]
         
         action()

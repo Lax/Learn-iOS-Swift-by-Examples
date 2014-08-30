@@ -13,10 +13,10 @@ import UIKit
 class TextViewController: UIViewController, UITextViewDelegate {
     // MARK: Properties
     
-    @IBOutlet var textView: UITextView
+    @IBOutlet weak var textView: UITextView!
     
-    // Used to adjust the text view's height when the keyboard hides and shows.
-    @IBOutlet var textViewBottomLayoutGuideConstraint: NSLayoutConstraint
+    /// Used to adjust the text view's height when the keyboard hides and shows.
+    @IBOutlet weak var textViewBottomLayoutGuideConstraint: NSLayoutConstraint!
 
     // MARK: View Life Cycle
 
@@ -56,8 +56,8 @@ class TextViewController: UIViewController, UITextViewDelegate {
     // MARK: Convenience
 
     func keyboardWillChangeFrameWithNotification(notification: NSNotification, showsKeyboard: Bool) {
-        let userInfo = notification.userInfo
-        
+        let userInfo = notification.userInfo!
+
         let animationDuration: NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber).doubleValue
         
         // Convert the keyboard frame from screen to view coordinates.
@@ -124,8 +124,8 @@ class TextViewController: UIViewController, UITextViewDelegate {
         let textAttachment = NSTextAttachment()
         let image = UIImage(named: "text_view_attachment")
         textAttachment.image = image
-
         textAttachment.bounds = CGRect(origin: CGPointZero, size: image.size)
+
         let textAttachmentString = NSAttributedString(attachment: textAttachment)
         attributedText.appendAttributedString(textAttachmentString)
 

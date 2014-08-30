@@ -13,11 +13,15 @@ import UIKit
 class TextFieldViewController: UITableViewController, UITextFieldDelegate {
     // MARK: Properties
 
-    @IBOutlet var textField: UITextField
-    @IBOutlet var tintedTextField: UITextField
-    @IBOutlet var secureTextField: UITextField
-    @IBOutlet var specificKeyboardTextField: UITextField
-    @IBOutlet var customTextField: UITextField
+    @IBOutlet weak var textField: UITextField!
+    
+    @IBOutlet weak var tintedTextField: UITextField!
+    
+    @IBOutlet weak var secureTextField: UITextField!
+    
+    @IBOutlet weak var specificKeyboardTextField: UITextField!
+    
+    @IBOutlet weak var customTextField: UITextField!
 
     // Mark: View Life Cycle
 
@@ -57,9 +61,9 @@ class TextFieldViewController: UITableViewController, UITextFieldDelegate {
         secureTextField.clearButtonMode = .Always
     }
 
-    // There are many different types of keyboards that you may choose to use.
-    // The different types of keyboards are defined in the UITextInputTraits interface.
-    // This example shows how to display a keyboard to help enter email addresses.
+    /// There are many different types of keyboards that you may choose to use.
+    /// The different types of keyboards are defined in the UITextInputTraits interface.
+    /// This example shows how to display a keyboard to help enter email addresses.
     func configureSpecificKeyboardTextField() {
         specificKeyboardTextField.keyboardType = .EmailAddress
 

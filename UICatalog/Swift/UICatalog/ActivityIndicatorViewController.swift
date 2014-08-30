@@ -13,8 +13,9 @@ import UIKit
 class ActivityIndicatorViewController: UITableViewController {
     // MARK: Properties
 
-    @IBOutlet var grayStyleActivityIndicatorView: UIActivityIndicatorView
-    @IBOutlet var tintedActivityIndicatorView: UIActivityIndicatorView
+    @IBOutlet weak var grayStyleActivityIndicatorView: UIActivityIndicatorView!
+    
+    @IBOutlet weak var tintedActivityIndicatorView: UIActivityIndicatorView!
     
     // MARK: View Life Cycle
 

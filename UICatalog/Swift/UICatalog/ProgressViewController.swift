@@ -19,24 +19,23 @@ class ProgressViewController: UITableViewController {
     
     // MARK: Properties
     
-    @IBOutlet var defaultStyleProgressView: UIProgressView
-    @IBOutlet var barStyleProgressView: UIProgressView
-    @IBOutlet var tintedProgressView: UIProgressView
+    @IBOutlet weak var defaultStyleProgressView: UIProgressView!
+    
+    @IBOutlet weak var barStyleProgressView: UIProgressView!
+    
+    @IBOutlet weak var tintedProgressView: UIProgressView!
 
     let operationQueue = NSOperationQueue()
 
     var completedProgress: Int = 0 {
-        didSet {
-            let fractionalProgress = Float(completedProgress)/Float(Constants.maxProgress)
+        didSet(oldValue) {
+            let fractionalProgress = Float(completedProgress) / Float(Constants.maxProgress)
 
-            // We only want to animate the progress if we're in the process of updating progress.
-            let animated = completedProgress != 0
+            let animated = oldValue != 0
             
-            defaultStyleProgressView.setProgress(fractionalProgress, animated: animated)
-
-            barStyleProgressView.setProgress(fractionalProgress, animated: animated)
-
-            tintedProgressView.setProgress(fractionalProgress, animated: animated)
+            for progressView in [defaultStyleProgressView, barStyleProgressView, tintedProgressView] {
+                progressView.setProgress(fractionalProgress, animated: animated)
+            }
         }
     }
 
@@ -44,9 +43,6 @@ class ProgressViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // All progress views should initially have zero progress.
-        completedProgress = 0
 
         configureDefaultStyleProgressView()
         configureBarStyleProgressView()
@@ -80,7 +76,7 @@ class ProgressViewController: UITableViewController {
         for _ in 0...Constants.maxProgress {
             operationQueue.addOperationWithBlock {
                 // Delay the system for a random number of seconds.
-                // This code is _not_ intended for production purposes. The "sleep" call is meant to simulate work done in another subsystem.
+                // This code is not intended for production purposes. The "sleep" call is meant to simulate work done in another subsystem.
                 sleep(arc4random_uniform(10))
 
                 NSOperationQueue.mainQueue().addOperationWithBlock {

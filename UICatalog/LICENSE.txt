@@ -1,5 +1,5 @@
-Sample code project: UICatalog: Creating and Customizing UIKit Controls in Swift
-Version: 1.0
+Sample code project: UICatalog: Creating and Customizing UIKit Controls (Obj-C and Swift)
+Version: 10.0
 
 IMPORTANT:  This Apple software is supplied to you by Apple
 Inc. ("Apple") in consideration of your agreement to the following

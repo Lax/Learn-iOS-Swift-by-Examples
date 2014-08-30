@@ -13,7 +13,7 @@ import UIKit
 class DefaultToolbarViewController: UIViewController {
     // MARK: Properties
 
-    @IBOutlet var toolbar: UIToolbar
+    @IBOutlet weak var toolbar: UIToolbar!
 
     // MARK: View Life Cycle
     

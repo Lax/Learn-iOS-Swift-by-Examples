@@ -13,11 +13,12 @@ import UIKit
 class DatePickerController: UIViewController {
     // MARK: Properties
 
-    @IBOutlet var datePicker: UIDatePicker
-    @IBOutlet var dateLabel: UILabel
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var dateLabel: UILabel!
 
-    // Use a date formatter to format the "date" property of "datePicker".
-    @lazy var dateFormatter: NSDateFormatter = {
+    /// A date formatter to format the `date` property of `datePicker`.
+    lazy var dateFormatter: NSDateFormatter = {
         let dateFormatter = NSDateFormatter()
         
         dateFormatter.dateStyle = .MediumStyle
@@ -52,8 +53,7 @@ class DatePickerController: UIViewController {
         let sevenDaysFromNow = currentCalendar.dateByAddingComponents(dateComponents, toDate: now, options: nil)
         datePicker.maximumDate = sevenDaysFromNow
 
-        // Display the "minutes" interval by increments of 1 minute (this is the default).
-        datePicker.minuteInterval = 1
+        datePicker.minuteInterval = 2
 
         datePicker.addTarget(self, action: "updateDatePickerLabel", forControlEvents: .ValueChanged)
 

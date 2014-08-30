@@ -13,11 +13,11 @@ import UIKit
 class PageControlViewController: UIViewController {
     // MARK: Properties
 
-    @IBOutlet var pageControl: UIPageControl
+    @IBOutlet weak var pageControl: UIPageControl!
 
-    @IBOutlet var colorView: UIView
+    @IBOutlet weak var colorView: UIView!
 
-    // Colors that correspond to the selected page. Used as the background color for "colorView".
+    /// Colors that correspond to the selected page. Used as the background color for "colorView".
     let colors = [
         UIColor.blackColor(),
         UIColor.grayColor(),

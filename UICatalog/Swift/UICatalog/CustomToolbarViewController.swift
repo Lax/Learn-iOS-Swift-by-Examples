@@ -13,7 +13,7 @@ import UIKit
 class CustomToolbarViewController: UIViewController {
     // MARK: Properties
 
-    @IBOutlet var toolbar: UIToolbar
+    @IBOutlet weak var toolbar: UIToolbar!
 
     // MARK: View Life Cycle
     
@@ -40,7 +40,8 @@ class CustomToolbarViewController: UIViewController {
     // MARK: UIBarButtonItem Creation and Configuration
 
     var customImageBarButtonItem: UIBarButtonItem {
-        let customImageBarButtonItem = UIBarButtonItem(image: UIImage(named: "tools_icon"), style: .Plain, target: self, action: "barButtonItemClicked:")
+        let customBarButtonItemImage = UIImage(named: "tools_icon")
+        let customImageBarButtonItem = UIBarButtonItem(image: customBarButtonItemImage, style: .Plain, target: self, action: "barButtonItemClicked:")
 
         customImageBarButtonItem.tintColor = UIColor.applicationPurpleColor()
 
@@ -58,7 +59,9 @@ class CustomToolbarViewController: UIViewController {
         let backgroundImage = UIImage(named: "WhiteButton")
         barButtonItem.setBackgroundImage(backgroundImage, forState: .Normal, barMetrics: .Default)
 
-        let attributes = [NSForegroundColorAttributeName: UIColor.applicationPurpleColor()]
+        let attributes = [
+            NSForegroundColorAttributeName: UIColor.applicationPurpleColor()
+        ]
         barButtonItem.setTitleTextAttributes(attributes, forState: .Normal)
 
         return barButtonItem

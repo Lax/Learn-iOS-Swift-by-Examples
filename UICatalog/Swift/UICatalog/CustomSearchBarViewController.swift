@@ -13,7 +13,7 @@ import UIKit
 class CustomSearchBarViewController: UIViewController, UISearchBarDelegate {
     // MARK: Properties
 
-    @IBOutlet var searchBar: UISearchBar
+    @IBOutlet weak var searchBar: UISearchBar!
 
     // MARK: View Life Cycle
     
@@ -42,6 +42,7 @@ class CustomSearchBarViewController: UIViewController, UISearchBarDelegate {
     }
 
     // MARK: UISearchBarDelegate
+
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         NSLog("The custom search bar keyboard search button was tapped: \(searchBar).")
         

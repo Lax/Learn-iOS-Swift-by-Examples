@@ -15,27 +15,28 @@ class ImageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        configureImageView()
+    }
+    
+    // MARK: Configuration
+    
+    func configureImageView() {
         // The root view of the view controller set in Interface Builder is a UIImageView.
         let imageView = view as UIImageView
-
-        imageView.animationImages = [
-            UIImage(named: "image_animal_1"),
-            UIImage(named: "image_animal_2"),
-            UIImage(named: "image_animal_3"),
-            UIImage(named: "image_animal_4"),
-            UIImage(named: "image_animal_5")
-        ]
+        
+        // Fetch the images (each image is of the format image_animal_number).
+        imageView.animationImages = (1...5).map { UIImage(named: "image_animal_\($0)") }
 
         // We want the image to be scaled to the correct aspect ratio within imageView's bounds.
         imageView.contentMode = .ScaleAspectFit
-
+        
         // If the image does not have the same aspect ratio as imageView's bounds, then imageView's backgroundColor will be applied to the "empty" space.
         imageView.backgroundColor = UIColor.whiteColor()
-
+        
         imageView.animationDuration = 5
         imageView.startAnimating()
-
+        
         imageView.isAccessibilityElement = true
         imageView.accessibilityLabel = NSLocalizedString("Animated", comment: "")
     }

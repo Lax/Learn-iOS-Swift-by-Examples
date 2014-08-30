@@ -13,7 +13,7 @@ import UIKit
 class DefaultSearchBarViewController: UIViewController, UISearchBarDelegate {
     // MARK: Properties
 
-    @IBOutlet var searchBar: UISearchBar
+    @IBOutlet weak var searchBar: UISearchBar!
 
     // MARK: View Life Cycle
     
@@ -37,7 +37,7 @@ class DefaultSearchBarViewController: UIViewController, UISearchBarDelegate {
 
     // MARK: UISearchBarDelegate
 
-    func searchBar(_: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         NSLog("The default search selected scope button index changed to \(selectedScope).")
     }
 

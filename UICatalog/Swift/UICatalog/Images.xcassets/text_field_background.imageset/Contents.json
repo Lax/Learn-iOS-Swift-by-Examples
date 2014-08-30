@@ -1,6 +1,9 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "resizing" : {
         "mode" : "3-part-horizontal",
         "center" : {

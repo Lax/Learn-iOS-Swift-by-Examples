@@ -13,11 +13,15 @@ import UIKit
 class ButtonViewController: UITableViewController {
     // MARK: Properties
 
-    @IBOutlet var systemTextButton: UIButton
-    @IBOutlet var systemContactAddButton: UIButton
-    @IBOutlet var systemDetailDisclosureButton: UIButton
-    @IBOutlet var imageButton: UIButton
-    @IBOutlet var attributedTextButton: UIButton
+    @IBOutlet weak var systemTextButton: UIButton!
+    
+    @IBOutlet weak var systemContactAddButton: UIButton!
+    
+    @IBOutlet weak var systemDetailDisclosureButton: UIButton!
+    
+    @IBOutlet weak var imageButton: UIButton!
+    
+    @IBOutlet weak var attributedTextButton: UIButton!
 
     // MARK: View Life Cycle
 
@@ -35,7 +39,9 @@ class ButtonViewController: UITableViewController {
     // MARK: Configuration
 
     func configureSystemTextButton() {
-        systemTextButton.setTitle(NSLocalizedString("Button", comment: ""), forState: .Normal)
+        let buttonTitle = NSLocalizedString("Button", comment: "")
+
+        systemTextButton.setTitle(buttonTitle, forState: .Normal)
 
         systemTextButton.addTarget(self, action: "buttonClicked:", forControlEvents: .TouchUpInside)
     }
@@ -60,7 +66,8 @@ class ButtonViewController: UITableViewController {
 
         imageButton.tintColor = UIColor.applicationPurpleColor()
 
-        imageButton.setImage(UIImage(named: "x_icon"), forState: .Normal)
+        let imageButtonNormalImage = UIImage(named: "x_icon")
+        imageButton.setImage(imageButtonNormalImage, forState: .Normal)
 
         // Add an accessibility label to the image.
         imageButton.accessibilityLabel = NSLocalizedString("X Button", comment: "")
@@ -69,12 +76,22 @@ class ButtonViewController: UITableViewController {
     }
 
     func configureAttributedTextSystemButton() {
-        let titleAttributes = [NSForegroundColorAttributeName: UIColor.applicationBlueColor(), NSStrikethroughStyleAttributeName: NSUnderlineStyle.StyleSingle.toRaw()]
-        let attributedTitle = NSAttributedString(string: NSLocalizedString("Button", comment: ""), attributes: titleAttributes)
-        attributedTextButton.setAttributedTitle(attributedTitle, forState: .Normal)
+        let buttonTitle = NSLocalizedString("Button", comment: "")
+        
+        // Set the button's title for normal state.
+        let normalTitleAttributes = [
+            NSForegroundColorAttributeName: UIColor.applicationBlueColor(),
+            NSStrikethroughStyleAttributeName: NSUnderlineStyle.StyleSingle.toRaw()
+        ]
+        let normalAttributedTitle = NSAttributedString(string: buttonTitle, attributes: normalTitleAttributes)
+        attributedTextButton.setAttributedTitle(normalAttributedTitle, forState: .Normal)
 
-        let highlightedTitleAttributes = [NSForegroundColorAttributeName: UIColor.greenColor(), NSStrikethroughStyleAttributeName: NSUnderlineStyle.StyleThick.toRaw()]
-        let highlightedAttributedTitle = NSAttributedString(string: NSLocalizedString("Button", comment: ""), attributes: highlightedTitleAttributes)
+        // Set the button's title for highlighted state.
+        let highlightedTitleAttributes = [
+            NSForegroundColorAttributeName: UIColor.greenColor(),
+            NSStrikethroughStyleAttributeName: NSUnderlineStyle.StyleThick.toRaw()
+        ]
+        let highlightedAttributedTitle = NSAttributedString(string: buttonTitle, attributes: highlightedTitleAttributes)
         attributedTextButton.setAttributedTitle(highlightedAttributedTitle, forState: .Highlighted)
 
         attributedTextButton.addTarget(self, action: "buttonClicked:", forControlEvents: .TouchUpInside)

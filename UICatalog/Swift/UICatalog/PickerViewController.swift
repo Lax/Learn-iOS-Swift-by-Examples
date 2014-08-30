@@ -29,12 +29,11 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 
     // MARK: Properties
 
-    @IBOutlet var pickerView: UIPickerView
-    @IBOutlet var colorSwatchView: UIView
+    @IBOutlet weak var pickerView: UIPickerView!
+    
+    @IBOutlet weak var colorSwatchView: UIView!
 
-    var numberOfColorValuesPerComponent: Int {
-        return (Int(RGB.max) / Int(RGB.offset)) + 1
-    }
+    lazy var numberOfColorValuesPerComponent: Int = (Int(RGB.max) / Int(RGB.offset)) + 1
 
     var redColor: CGFloat = RGB.min {
         didSet {
@@ -59,9 +58,6 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Show that a given row is selected. This is off by default.
-        pickerView.showsSelectionIndicator = true
-
         configurePickerView()
     }
 
@@ -74,12 +70,15 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     // MARK: Configuration
     
     func configurePickerView() {
+        // Show that a given row is selected. This is off by default.
+        pickerView.showsSelectionIndicator = true
+
         // Set the default selected rows (the desired rows to initially select will vary from app to app).
-        let selectedRows: Dictionary<ColorComponent, Int> = [.Red: 13, .Green: 41, .Blue: 24]
+        let selectedRows: [ColorComponent: Int] = [.Red: 13, .Green: 41, .Blue: 24]
 
         for (colorComponent, selectedRow) in selectedRows {
             // Note that the delegate method on UIPickerViewDelegate is not triggered when manually
-            // calling UIPickerView.selectRow(:inComponent:animated:). To do this, we fire off delegate
+            // calling UIPickerView.selectRow(_:inComponent:animated:). To do this, we fire off delegate
             // method manually.
             pickerView.selectRow(selectedRow, inComponent: colorComponent.toRaw(), animated: true)
             pickerView(pickerView, didSelectRow: selectedRow, inComponent: colorComponent.toRaw())
@@ -88,17 +87,17 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 
     // MARK: UIPickerViewDataSource
 
-    func numberOfComponentsInPickerView(_: UIPickerView) -> Int {
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return ColorComponent.count
     }
 
-    func pickerView(_: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return numberOfColorValuesPerComponent
     }
 
     // MARK: UIPickerViewDelegate
 
-    func pickerView(_: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString {
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString {
         let colorValue = CGFloat(row) * RGB.offset
 
         let value = CGFloat(colorValue) / RGB.max
@@ -113,20 +112,21 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 greenColorComponent = value
             case .Blue:
                 blueColorComponent = value
-            default:
-                NSLog("Invalid row/component combination for picker view.")
         }
 
         let foregroundColor = UIColor(red: redColorComponent, green: greenColorComponent, blue: blueColorComponent, alpha: 1)
 
         // Set the foreground color for the entire attributed string.
-        let attributes = [NSForegroundColorAttributeName: foregroundColor]
+        let attributes = [
+            NSForegroundColorAttributeName: foregroundColor
+        ]
+
         let title = NSMutableAttributedString(string: "\(Int(colorValue))", attributes: attributes)
 
         return title
     }
 
-    func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let colorComponentValue = RGB.offset * CGFloat(row) / RGB.max
 
         switch ColorComponent.fromRaw(component)! {
@@ -141,7 +141,7 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 
     // MARK: UIPickerViewAccessibilityDelegate
 
-    func pickerView(_: UIPickerView, accessibilityLabelForComponent component: Int) -> NSString {
+    func pickerView(pickerView: UIPickerView, accessibilityLabelForComponent component: Int) -> NSString {
         switch ColorComponent.fromRaw(component)! {
             case .Red:
                 return NSLocalizedString("Red color component value", comment: "")

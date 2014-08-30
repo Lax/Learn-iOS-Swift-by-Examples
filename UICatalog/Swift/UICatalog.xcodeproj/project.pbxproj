@@ -32,8 +32,12 @@
 		221D43D418BF15EF00B9E8C9 /* UIColor+ApplicationSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221D43D318BF15EF00B9E8C9 /* UIColor+ApplicationSpecific.swift */; };
 		228DB9FA18BC53F1002BA12A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 228DB9F818BC53F1002BA12A /* InfoPlist.strings */; };
 		228DBA0818BC53F1002BA12A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228DBA0718BC53F1002BA12A /* Images.xcassets */; };
-		22B7BB9B18BC60EE006C4AD5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 22B7BB9A18BC60EE006C4AD5 /* README.md */; };
-		3E72909D1933FA4B0040D4DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E72909C1933FA4B0040D4DB /* Main.storyboard */; };
+		3E5C084E1974991E00969DD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5C08501974991E00969DD7 /* Main.storyboard */; };
+		3E6AE850196B20240062A3E1 /* SearchControllerBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6AE84F196B20240062A3E1 /* SearchControllerBaseViewController.swift */; };
+		3E6AE852196B39110062A3E1 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6AE851196B39110062A3E1 /* SearchResultsViewController.swift */; };
+		3E6AE854196B39350062A3E1 /* SearchShowResultsInSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6AE853196B39350062A3E1 /* SearchShowResultsInSourceViewController.swift */; };
+		3E6AE856196B3B490062A3E1 /* SearchPresentOverNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6AE855196B3B490062A3E1 /* SearchPresentOverNavigationBarViewController.swift */; };
+		3E6AE85A196B3BBC0062A3E1 /* SearchBarEmbeddedInNavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6AE859196B3BBC0062A3E1 /* SearchBarEmbeddedInNavigationBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,8 +68,13 @@
 		228DB9F718BC53F1002BA12A /* UICatalog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UICatalog-Info.plist"; sourceTree = "<group>"; };
 		228DB9F918BC53F1002BA12A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		228DBA0718BC53F1002BA12A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		22B7BB9A18BC60EE006C4AD5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		3E72909C1933FA4B0040D4DB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3E5C084A19748EAA00969DD7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		3E5C084F1974991E00969DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3E6AE84F196B20240062A3E1 /* SearchControllerBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchControllerBaseViewController.swift; sourceTree = "<group>"; };
+		3E6AE851196B39110062A3E1 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		3E6AE853196B39350062A3E1 /* SearchShowResultsInSourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchShowResultsInSourceViewController.swift; sourceTree = "<group>"; };
+		3E6AE855196B3B490062A3E1 /* SearchPresentOverNavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPresentOverNavigationBarViewController.swift; sourceTree = "<group>"; };
+		3E6AE859196B3BBC0062A3E1 /* SearchBarEmbeddedInNavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarEmbeddedInNavigationBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +91,7 @@
 		228DB9EA18BC53F1002BA12A = {
 			isa = PBXGroup;
 			children = (
-				22B7BB9A18BC60EE006C4AD5 /* README.md */,
+				3E5C084A19748EAA00969DD7 /* README.md */,
 				228DB9F518BC53F1002BA12A /* UICatalog */,
 				228DB9F418BC53F1002BA12A /* Products */,
 			);
@@ -117,13 +126,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		22B7BB9718BC601D006C4AD5 /* Search Bar View Controllers */ = {
+		22B7BB9718BC601D006C4AD5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				2200542518BC54EC002A6E8B /* DefaultSearchBarViewController.swift */,
-				2200542218BC54EC002A6E8B /* CustomSearchBarViewController.swift */,
+				3E6AE84D196B1FC10062A3E1 /* Search Bar */,
+				3E6AE84C196B1FB30062A3E1 /* Search Controllers */,
 			);
-			name = "Search Bar View Controllers";
+			name = Search;
 			sourceTree = "<group>";
 		};
 		22B7BB9818BC6024006C4AD5 /* Toolbar View Controllers */ = {
@@ -154,7 +163,7 @@
 				2200543818BC54F5002A6E8B /* TextFieldViewController.swift */,
 				2200543918BC54F5002A6E8B /* TextViewController.swift */,
 				2200543B18BC54F5002A6E8B /* WebViewController.swift */,
-				22B7BB9718BC601D006C4AD5 /* Search Bar View Controllers */,
+				22B7BB9718BC601D006C4AD5 /* Search */,
 				22B7BB9818BC6024006C4AD5 /* Toolbar View Controllers */,
 			);
 			name = "View Controllers";
@@ -165,9 +174,38 @@
 			children = (
 				2200541C18BC54E8002A6E8B /* AppDelegate.swift */,
 				221D43D318BF15EF00B9E8C9 /* UIColor+ApplicationSpecific.swift */,
-				3E72909C1933FA4B0040D4DB /* Main.storyboard */,
+				3E5C08501974991E00969DD7 /* Main.storyboard */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		3E6AE84C196B1FB30062A3E1 /* Search Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3E6AE84E196B200D0062A3E1 /* Base View Controllers */,
+				3E6AE855196B3B490062A3E1 /* SearchPresentOverNavigationBarViewController.swift */,
+				3E6AE859196B3BBC0062A3E1 /* SearchBarEmbeddedInNavigationBarViewController.swift */,
+				3E6AE853196B39350062A3E1 /* SearchShowResultsInSourceViewController.swift */,
+			);
+			name = "Search Controllers";
+			sourceTree = "<group>";
+		};
+		3E6AE84D196B1FC10062A3E1 /* Search Bar */ = {
+			isa = PBXGroup;
+			children = (
+				2200542518BC54EC002A6E8B /* DefaultSearchBarViewController.swift */,
+				2200542218BC54EC002A6E8B /* CustomSearchBarViewController.swift */,
+			);
+			name = "Search Bar";
+			sourceTree = "<group>";
+		};
+		3E6AE84E196B200D0062A3E1 /* Base View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3E6AE84F196B20240062A3E1 /* SearchControllerBaseViewController.swift */,
+				3E6AE851196B39110062A3E1 /* SearchResultsViewController.swift */,
+			);
+			name = "Base View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,9 +261,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2200543D18BC54F5002A6E8B /* Localizable.strings in Resources */,
-				3E72909D1933FA4B0040D4DB /* Main.storyboard in Resources */,
+				3E5C084E1974991E00969DD7 /* Main.storyboard in Resources */,
 				228DBA0818BC53F1002BA12A /* Images.xcassets in Resources */,
-				22B7BB9B18BC60EE006C4AD5 /* README.md in Resources */,
 				228DB9FA18BC53F1002BA12A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,14 +275,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2200544018BC54F5002A6E8B /* PickerViewController.swift in Sources */,
+				3E6AE852196B39110062A3E1 /* SearchResultsViewController.swift in Sources */,
 				2200543F18BC54F5002A6E8B /* PageControlViewController.swift in Sources */,
+				3E6AE85A196B3BBC0062A3E1 /* SearchBarEmbeddedInNavigationBarViewController.swift in Sources */,
 				2200544918BC54F5002A6E8B /* TintedToolbarViewController.swift in Sources */,
 				2200544318BC54F5002A6E8B /* SliderViewController.swift in Sources */,
 				2200544218BC54F5002A6E8B /* SegmentedControlViewController.swift in Sources */,
+				3E6AE856196B3B490062A3E1 /* SearchPresentOverNavigationBarViewController.swift in Sources */,
 				2200544A18BC54F5002A6E8B /* WebViewController.swift in Sources */,
 				2200542018BC54E8002A6E8B /* AppDelegate.swift in Sources */,
 				2200541F18BC54E8002A6E8B /* AlertControllerViewController.swift in Sources */,
 				2200542C18BC54EC002A6E8B /* DefaultToolbarViewController.swift in Sources */,
+				3E6AE854196B39350062A3E1 /* SearchShowResultsInSourceViewController.swift in Sources */,
 				2200543C18BC54F5002A6E8B /* ImageViewController.swift in Sources */,
 				2200541E18BC54E8002A6E8B /* ActivityIndicatorViewController.swift in Sources */,
 				221D43D418BF15EF00B9E8C9 /* UIColor+ApplicationSpecific.swift in Sources */,
@@ -255,6 +296,7 @@
 				2200544818BC54F5002A6E8B /* TextViewController.swift in Sources */,
 				2200542B18BC54EC002A6E8B /* DefaultSearchBarViewController.swift in Sources */,
 				2200544518BC54F5002A6E8B /* StepperViewController.swift in Sources */,
+				3E6AE850196B20240062A3E1 /* SearchControllerBaseViewController.swift in Sources */,
 				2200542818BC54EC002A6E8B /* CustomSearchBarViewController.swift in Sources */,
 				2200542918BC54EC002A6E8B /* CustomToolbarViewController.swift in Sources */,
 				2200542A18BC54EC002A6E8B /* DatePickerController.swift in Sources */,
@@ -271,6 +313,14 @@
 				228DB9F918BC53F1002BA12A /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3E5C08501974991E00969DD7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E5C084F1974991E00969DD7 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

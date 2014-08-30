@@ -13,8 +13,9 @@ import UIKit
 class WebViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
     // MARK: Properties
     
-    @IBOutlet var webView: UIWebView
-    @IBOutlet var addressTextField: UITextField
+    @IBOutlet weak var webView: UIWebView!
+    
+    @IBOutlet weak var addressTextField: UITextField!
 
     // MARK: View Life Cycle
 
@@ -28,9 +29,7 @@ class WebViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegat
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
 
-        if UIApplication.sharedApplication().networkActivityIndicatorVisible {
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        }
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
 
     // MARK: Convenience
@@ -51,11 +50,11 @@ class WebViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegat
 
     // MARK: UIWebViewDelegate
 
-    func webViewDidStartLoad(_: UIWebView) {
+    func webViewDidStartLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
 
-    func webViewDidFinishLoad(_: UIWebView) {
+    func webViewDidFinishLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
 
@@ -72,9 +71,10 @@ class WebViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegat
 
     // MARK: UITextFieldDelegate
 
-    // This helps dismiss the keyboard when the "Done" button is clicked.
+    /// Dismisses the keyboard when the "Done" button is clicked.
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+
         loadAddressURL()
 
         return true

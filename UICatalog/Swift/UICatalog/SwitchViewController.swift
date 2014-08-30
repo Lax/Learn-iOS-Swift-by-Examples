@@ -13,8 +13,9 @@ import UIKit
 class SwitchViewController: UITableViewController {
     // MARK: Properties
 
-    @IBOutlet var defaultSwitch: UISwitch
-    @IBOutlet var tintedSwitch: UISwitch
+    @IBOutlet weak var defaultSwitch: UISwitch!
+    
+    @IBOutlet weak var tintedSwitch: UISwitch!
 
     // MARK: View Life Cycle
     

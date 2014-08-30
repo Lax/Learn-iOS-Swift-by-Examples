@@ -13,9 +13,11 @@ import UIKit
 class SliderViewController: UITableViewController {
     // MARK: Properties
 
-    @IBOutlet var defaultSlider: UISlider
-    @IBOutlet var tintedSlider: UISlider
-    @IBOutlet var customSlider: UISlider
+    @IBOutlet weak var defaultSlider: UISlider!
+
+    @IBOutlet weak var tintedSlider: UISlider!
+    
+    @IBOutlet weak var customSlider: UISlider!
 
     // MARK: View Life Cycle
 
