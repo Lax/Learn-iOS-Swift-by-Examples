@@ -4,14 +4,14 @@
     
     Abstract:
     
-                An NSTableCellView subclass that has a few controls that represent the state of a ListItem object.
+                The `ListItemView` class is an NSTableCellView subclass that has a few controls that represent the state of a ListItem object.
             
 */
 
 import Cocoa
 import ListerKitOSX
 
-// Delegate protocol to let other objects know about changes to the text field and completion state.
+/// Delegate protocol to let other objects know about changes to the text field and completion state.
 @objc protocol ListItemViewDelegate {
     func listItemViewDidToggleCompletionState(listItemView: ListItemView)
     func listItemViewTextDidEndEditing(listItemView: ListItemView)
@@ -20,7 +20,7 @@ import ListerKitOSX
 class ListItemView: NSTableCellView, NSTextFieldDelegate {
     // MARK: Properties
 
-    @IBOutlet var statusCheckBox: CheckBox
+    @IBOutlet weak var statusCheckBox: CheckBox!
     
     weak var delegate: ListItemViewDelegate?
     

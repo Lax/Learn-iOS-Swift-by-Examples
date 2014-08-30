@@ -4,7 +4,7 @@
     
     Abstract:
     
-                A subclass of NSTextField that maintains its intrinsicContentSize property based on the size of its text.
+                The `ResizingTextField` class is a subclass of the NSTextField class that maintains its intrinsic content size based on the size of its text.
             
 */
 
@@ -19,13 +19,12 @@ class ResizingTextField: NSTextField {
     
     override var intrinsicContentSize: NSSize {
         // Change the auto layout constraint width to be the drawn size of the text.
-        let maximumSize = NSMakeSize(CGFLOAT_MAX, NSHeight(frame))
+        let maximumSize = NSMakeSize(CGFloat.max, NSHeight(frame))
         
-        // Need to cast stringValue to an NSString in order to call boundingRectWithSize(_:options:attributes:).
-        let string = stringValue as NSString
-        let boundingSize = string.boundingRectWithSize(maximumSize, options: nil, attributes: [NSFontAttributeName: font])
+        // Find the size that the string occupies when displayed with the given font.
+        let boundingSize = stringValue.boundingRectWithSize(maximumSize, options: nil, attributes: [NSFontAttributeName: font])
 
-        let roundedWidth = CGFloat(Int(NSWidth(boundingSize)) + 10)
+        let roundedWidth = CGFloat(NSWidth(boundingSize) + 10)
 
         return NSSize(width: roundedWidth, height: NSHeight(frame))
     }

@@ -4,7 +4,7 @@
     
     Abstract:
     
-                A color palette view that allows the user to select a color defined in the List.Color enumeration.
+                The `ColorPaletteView` class is a view that allows the user to select a color defined in the List.Color enumeration.
             
 */
 
@@ -12,7 +12,7 @@ import Cocoa
 import ListerKitOSX
 import QuartzCore
 
-// Delegate protocol to let other objects know about changes to the selected color.
+/// Delegate protocol to let other objects know about changes to the selected color.
 @objc protocol ColorPaletteViewDelegate {
     func colorPaletteViewDidChangeSelectedColor(colorPaletteView: ColorPaletteView)
 }
@@ -27,23 +27,29 @@ class ColorPaletteView: NSView {
 
     // MARK: Properties
 
-    @IBOutlet var delegate: ColorPaletteViewDelegate
+    @IBOutlet weak var delegate: ColorPaletteViewDelegate!
     
-    @IBOutlet var grayButton: NSButton
-    @IBOutlet var blueButton: NSButton
-    @IBOutlet var greenButton: NSButton
-    @IBOutlet var yellowButton: NSButton
-    @IBOutlet var orangeButton: NSButton
-    @IBOutlet var redButton: NSButton
-    
-    @IBOutlet var overlayButton: NSButton
+    @IBOutlet weak var grayButton: NSButton!
 
-    @IBOutlet var overlayView: NSView
-    @IBOutlet var overlayLayoutConstraint: NSLayoutConstraint
+    @IBOutlet weak var blueButton: NSButton!
+    
+    @IBOutlet weak var greenButton: NSButton!
+    
+    @IBOutlet weak var yellowButton: NSButton!
+    
+    @IBOutlet weak var orangeButton: NSButton!
+    
+    @IBOutlet weak var redButton: NSButton!
+    
+    @IBOutlet weak var overlayButton: NSButton!
+
+    @IBOutlet weak var overlayView: NSView!
+    
+    @IBOutlet weak var overlayLayoutConstraint: NSLayoutConstraint!
 
     var selectedColor: List.Color = .Gray {
         didSet {
-            overlayView.layer.backgroundColor = selectedColor.colorValue.CGColor
+            overlayView.layer!.backgroundColor = selectedColor.colorValue.CGColor
         }
     }
 
@@ -61,8 +67,8 @@ class ColorPaletteView: NSView {
         
         // Make the background of the color palette view white.
         layer = CALayer()
-        layer.backgroundColor = NSColor.whiteColor().CGColor
-        
+        layer!.backgroundColor = NSColor.whiteColor().CGColor
+
         // Make the overlay view color (i.e. `selectedColor`) gray by default.
         overlayView.layer = CALayer()
         selectedColor = .Gray
@@ -72,12 +78,12 @@ class ColorPaletteView: NSView {
         hideOverlayWithSelectedColor(selectedColor, animated: false)
         
         // Set the background color for each button.
-        let buttons: NSButton[] = [grayButton, blueButton, greenButton, yellowButton, orangeButton, redButton]
+        let buttons = [grayButton, blueButton, greenButton, yellowButton, orangeButton, redButton]
         for button in buttons {
             button.layer = CALayer()
 
             let buttonColor = List.Color.fromRaw(button.tag)!
-            button.layer.backgroundColor = buttonColor.colorValue.CGColor
+            button.layer!.backgroundColor = buttonColor.colorValue.CGColor
         }
     }
     

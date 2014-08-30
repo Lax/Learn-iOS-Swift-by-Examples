@@ -4,7 +4,7 @@
     
     Abstract:
     
-                An NSViewController subclass responsible for providing a row in the NCWidgetListViewController to allow the user to open the Today document in Lister.
+                The `OpenListerRowViewController` class is an NSViewController subclass that provides a row in the NCWidgetListViewController to allow the user to open the Today document in Lister.
             
 */
 

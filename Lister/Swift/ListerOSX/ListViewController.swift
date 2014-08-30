@@ -4,7 +4,7 @@
     
     Abstract:
     
-                The view controller responsible for displaying the contents of a list document.
+                The `ListViewController` class displays the contents of a list document.
             
 */
 
@@ -28,12 +28,13 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
     
     // MARK: Properties
     
-    @IBOutlet var tableView: NSTableView
-    @IBOutlet var colorPaletteView: ColorPaletteView
+    @IBOutlet weak var tableView: NSTableView!
+    
+    @IBOutlet weak var colorPaletteView: ColorPaletteView!
     
     weak var document: ListDocument! {
         didSet {
-            if !document { return }
+            if document == nil { return }
 
             document.delegate = self
 
@@ -62,7 +63,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
     // MARK: NSTableViewDelegate
 
     func numberOfRowsInTableView(NSTableView) -> Int {
-        if !list { return 0 }
+        if list == nil { return 0 }
 
         return list.isEmpty ? 1 : list.count
     }
@@ -105,7 +106,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
                 if let listItems = listItemsWithListerPasteboardType(pasteboard) {
                     
                     // Only allow a move if there's a single item being moved, and the list allows it.
-                    if listItems.count == 1 && list.canMoveItem(listItems[0], toIndex: row, inclusive: true) {
+                    if listItems.count == 1 && list.canMoveItem(listItems.first!, toIndex: row, inclusive: true) {
                         result = .Move
                     }
                 }
@@ -129,16 +130,16 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         
         if info.draggingSource() === tableView {
             let listItems = listItemsWithListerPasteboardType(pasteboard)
-            
-            assert(listItems && listItems!.count == 1, "There must be exactly one moved item.")
-            
-            moveItem(listItems![0], toIndex: row)
+
+            assert(listItems!.count == 1, "There must be exactly one moved item.")
+
+            moveItem(listItems!.first!, toIndex: row)
         }
         else {
             let listItems = listItemsWithStringPasteboardType(pasteboard)
             
-            assert(listItems, "'items' must not be nil")
-            
+            assert(listItems != nil, "'items' must not be nil")
+
             let range = NSRange(location: row, length: listItems!.count)
             let indexes = NSIndexSet(indexesInRange: range)
 
@@ -162,21 +163,21 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
     
     // MARK: NSPasteboard Convenience
     
-    func listItemsWithListerPasteboardType(pasteboard: NSPasteboard, refreshesItemIdentities: Bool = false) -> ListItem[]? {
+    func listItemsWithListerPasteboardType(pasteboard: NSPasteboard, refreshesItemIdentities: Bool = false) -> [ListItem]? {
         if pasteboard.canReadItemWithDataConformingToTypes([TableViewConstants.pasteboardType]) {
-            for pasteboardItem in pasteboard.pasteboardItems as NSPasteboardItem[] {
-                var allItems = ListItem[]()
+            for pasteboardItem in pasteboard.pasteboardItems as [NSPasteboardItem] {
+                var allItems = [ListItem]()
 
                 let itemsData = pasteboardItem.dataForType(TableViewConstants.pasteboardType)
                 
-                let pasteboardListItems = NSKeyedUnarchiver.unarchiveObjectWithData(itemsData) as ListItem[]
+                let pasteboardListItems = NSKeyedUnarchiver.unarchiveObjectWithData(itemsData) as [ListItem]
 
                 for item in pasteboardListItems {
                     if refreshesItemIdentities {
                         item.refreshIdentity()
                     }
 
-                    allItems += item
+                    allItems += [item]
                 }
                 
                 return allItems
@@ -186,11 +187,11 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         return nil
     }
     
-    func listItemsWithStringPasteboardType(pasteboard: NSPasteboard) -> ListItem[]? {
+    func listItemsWithStringPasteboardType(pasteboard: NSPasteboard) -> [ListItem]? {
         if pasteboard.canReadItemWithDataConformingToTypes([NSPasteboardTypeString]) {
-            var allItems = ListItem[]()
+            var allItems = [ListItem]()
 
-            for pasteboardItem in pasteboard.pasteboardItems as NSPasteboardItem[] {
+            for pasteboardItem in pasteboard.pasteboardItems as [NSPasteboardItem] {
                 let targetType = pasteboardItem.availableTypeFromArray([NSPasteboardTypeString])
 
                 let pasteboardString = pasteboardItem.stringForType(targetType)
@@ -204,11 +205,11 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         return nil
     }
     
-    func writeItems(items: ListItem[], toPasteboard pasteboard: NSPasteboard) {
+    func writeItems(items: [ListItem], toPasteboard pasteboard: NSPasteboard) {
         pasteboard.declareTypes([TableViewConstants.dragType, NSPasteboardTypeString], owner: self)
 
         // Save `items` as data.
-        let data = NSKeyedArchiver.archivedDataWithRootObject(items) as NSData
+        let data = NSKeyedArchiver.archivedDataWithRootObject(items)
         pasteboard.setData(data, forType: TableViewConstants.pasteboardType)
 
         // Save `items` as a string.
@@ -219,17 +220,17 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
     // MARK: Item Rearrangement
 
     func moveItem(item: ListItem, toIndex: Int) {
-        let (fromIndex, actualToIndex) = list.moveItem(item, toIndex: toIndex)
+        let indexes = list.moveItem(item, toIndex: toIndex)
         
-        tableView.moveRowAtIndex(fromIndex, toIndex: actualToIndex)
-        
-        undoManager.prepareWithInvocationTarget(self).undoMoveItem(item, toPriorIndex: fromIndex)
+        tableView.moveRowAtIndex(indexes.fromIndex, toIndex: indexes.toIndex)
+
+        undoManager.prepareWithInvocationTarget(self).undoMoveItem(item, toPriorIndex: indexes.fromIndex)
         
         updateWidget()
     }
     
-    // This method is used for undo purposes to undo a moveItem(_:toIndex:) call.
-    // If an item is moved from the top to bottom, then the reverse target index must be normalized.
+    /// This method is used for undo purposes to undo a moveItem(_:toIndex:) call.
+    /// If an item is moved from the top to bottom, then the reverse target index must be normalized.
     func undoMoveItem(item: ListItem, toPriorIndex priorIndex: Int) {
         let currentItemIndex = list.indexOfItem(item)
         
@@ -268,7 +269,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         updateWidget()
     }
     
-    func insertItems(items: ListItem[], withPreferredIndexes preferredIndexes: NSIndexSet? = nil) {
+    func insertItems(items: [ListItem], withPreferredIndexes preferredIndexes: NSIndexSet? = nil) {
         // Ignore the insertion if `items` is empty.
         if items.isEmpty {
             return
@@ -308,12 +309,13 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         updateWidget()
     }
     
-    // Toggle the completion state of an item, and move it's associated row.
+    /// Toggle the completion state of an item, and move it's associated row.
     func toggleItem(item: ListItem, withPreferredDestinationIndex preferredDestinationIndex: Int? = nil) {
         tableView.beginUpdates()
         
         let itemIndex = list.indexOfItem(item)
-        let listItemView = tableView.viewAtColumn(0, row: itemIndex, makeIfNecessary: true) as ListItemView
+
+        let listItemView = tableView.viewAtColumn(0, row: itemIndex!, makeIfNecessary: true) as ListItemView
         
         let (fromIndex, toIndex) = list.toggleItem(item, preferredTargetIndex: preferredDestinationIndex)
         
@@ -328,7 +330,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         updateWidget()
     }
 
-    // To use NSUndoManager, only types representable in ObjC can be used as parameters.
+    /// To use NSUndoManager, only types representable in ObjC can be used as parameters.
     @objc func toggleItem(item: ListItem, withPreferredDestinationIndexForUndo preferredDestinationIndex: Int) {
         toggleItem(item, withPreferredDestinationIndex: preferredDestinationIndex == NSNotFound ? nil : preferredDestinationIndex)
     }
@@ -359,7 +361,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         let indexOfItem = list.indexOfItem(item)
         
         tableView.beginUpdates()
-        let listItemView = tableView.viewAtColumn(0, row: indexOfItem, makeIfNecessary: true) as ListItemView
+        let listItemView = tableView.viewAtColumn(0, row: indexOfItem!, makeIfNecessary: true) as ListItemView
         listItemView.stringValue = text
         tableView.endUpdates()
 
@@ -402,19 +404,17 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         var listItems = listItemsWithListerPasteboardType(NSPasteboard.generalPasteboard(), refreshesItemIdentities: true)
         
         // If there were no pasted items that are of the Lister pasteboard type, see if there are any String contents on the pasteboard.
-        if !listItems {
+        if listItems != nil {
             listItems = listItemsWithStringPasteboardType(NSPasteboard.generalPasteboard())
         }
 
         // Only copy/paste if items were inserted.
-        if listItems && listItems!.count > 0 {
+        if listItems != nil && listItems!.count > 0 {
             insertItems(listItems!)
         }
     }
     
     override func keyDown(event: NSEvent) {
-        let keyboardCharacter = event.charactersIgnoringModifiers.utf16[0]
-
         // Only handle delete keyboard event.
         if event.charactersIgnoringModifiers == String(Character(UnicodeScalar(NSDeleteCharacter))) {
             deleteRowsAtIndexes(tableView.selectedRowIndexes)

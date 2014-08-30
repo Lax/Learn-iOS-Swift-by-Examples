@@ -4,7 +4,7 @@
     
     Abstract:
     
-                Provides an abstraction suitable for adapting the details of a list item to the requirements of NCWidgetListViewController. It is composed of an item's text and list color.
+                The `ListRowRepresentedObject` class provides an abstraction suitable for adapting the details of a list item to the requirements of the NCWidgetListViewController class. It is composed of an item's text and list color.
             
 */
 

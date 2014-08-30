@@ -10,56 +10,132 @@
 
 import Foundation
 
-class AppConfiguration {
-    struct Defaults {
+public class AppConfiguration {
+    private struct Defaults {
         static let firstLaunchKey = "AppConfiguration.Defaults.firstLaunchKey"
         static let storageOptionKey = "AppConfiguration.Defaults.storageOptionKey"
         static let storedUbiquityIdentityToken = "AppConfiguration.Defaults.storedUbiquityIdentityToken"
     }
 
-    struct Notifications {
-        struct StorageOptionDidChange {
-            static let name = "AppConfiguration.Notifications.StorageOptionDidChange"
-        }
-    }
-    
-    struct Extensions {
+    public struct Extensions {
         #if os(iOS)
-        static let widgetBundleIdentifier = "com.example.apple-samplecode.Lister.ListerToday"
+        public static let widgetBundleIdentifier = "com.example.apple-samplecode.Lister.ListerToday"
         #elseif os(OSX)
-        static let widgetBundleIdentifier = "com.example.apple-samplecode.Lister.ListerTodayOSX"
+        public static let widgetBundleIdentifier = "com.example.apple-samplecode.Lister.ListerTodayOSX"
         #endif
     }
-    
-    enum Storage: Int {
+
+    public enum Storage: Int {
         case NotSet = 0, Local, Cloud
     }
     
-    struct SharedInstances {
-        static let sharedAppConfiguration = AppConfiguration()
+    public class var sharedConfiguration: AppConfiguration {
+        struct Singleton {
+            static let sharedAppConfiguration = AppConfiguration()
+        }
+
+        return Singleton.sharedAppConfiguration
     }
     
-    class var sharedConfiguration: AppConfiguration {
-        return SharedInstances.sharedAppConfiguration
+    public class var listerUTI: String {
+        return "com.example.apple-samplecode.Lister"
     }
     
-    class var listerFileExtension: String {
+    public class var listerFileExtension: String {
         return "list"
     }
     
-    class var defaultListerDraftName: String {
+    public class var defaultListerDraftName: String {
         return NSLocalizedString("List", comment: "")
     }
     
-    class var localizedTodayDocumentName: String {
+    public class var localizedTodayDocumentName: String {
         return NSLocalizedString("Today", comment: "The name of the Today list")
     }
     
-    class var localizedTodayDocumentNameAndExtension: String {
+    public class var localizedTodayDocumentNameAndExtension: String {
         return "\(localizedTodayDocumentName).\(listerFileExtension)"
     }
     
-    var storedIdentityToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? {
+    public func runHandlerOnFirstLaunch(firstLaunchHandler: Void -> Void) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        #if os(iOS)
+        let defaultOptions: [NSObject: AnyObject] = [
+            Defaults.firstLaunchKey: true,
+            Defaults.storageOptionKey: Storage.NotSet.toRaw()
+        ]
+        #elseif os(OSX)
+        let defaultOptions: [NSObject: AnyObject] = [
+            Defaults.firstLaunchKey: true
+        ]
+        #endif
+        
+        defaults.registerDefaults(defaultOptions)
+
+        if defaults.boolForKey(Defaults.firstLaunchKey) {
+            defaults.setBool(false, forKey: Defaults.firstLaunchKey)
+
+            firstLaunchHandler()
+        }
+    }
+    
+    public var isCloudAvailable: Bool {
+        return NSFileManager.defaultManager().ubiquityIdentityToken != nil
+    }
+    
+    #if os(iOS)
+    public var storageOption: Storage {
+        get {
+            let value = NSUserDefaults.standardUserDefaults().integerForKey(Defaults.storageOptionKey)
+            
+            return Storage.fromRaw(value)!
+        }
+
+        set {
+            NSUserDefaults.standardUserDefaults().setInteger(newValue.toRaw(), forKey: Defaults.storageOptionKey)
+        }
+    }
+
+    // MARK: Ubiquity Identity Token Handling (Account Change Info)
+    
+    public func hasAccountChanged() -> Bool {
+        var hasChanged = false
+        
+        let currentToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? = NSFileManager.defaultManager().ubiquityIdentityToken
+        let storedToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? = storedUbiquityIdentityToken
+        
+        let currentTokenNilStoredNonNil = currentToken == nil && storedToken != nil
+        let storedTokenNilCurrentNonNil = currentToken != nil && storedToken == nil
+        
+        // Compare the tokens.
+        let currentNotEqualStored = currentToken != nil && storedToken != nil && !currentToken!.isEqual(storedToken!)
+        
+        if currentTokenNilStoredNonNil || storedTokenNilCurrentNonNil || currentNotEqualStored {
+            persistAccount()
+            
+            hasChanged = true
+        }
+        
+        return hasChanged
+    }
+
+    private func persistAccount() {
+        var defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let token = NSFileManager.defaultManager().ubiquityIdentityToken {
+            let ubiquityIdentityTokenArchive = NSKeyedArchiver.archivedDataWithRootObject(token)
+            
+            defaults.setObject(ubiquityIdentityTokenArchive, forKey: Defaults.storedUbiquityIdentityToken)
+        }
+        else {
+            defaults.removeObjectForKey(Defaults.storedUbiquityIdentityToken)
+        }
+    }
+    
+    // MARK: Convenience
+
+    private var storedUbiquityIdentityToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? {
         var storedToken: protocol<NSCoding, NSCopying, NSObjectProtocol>?
         
         // Determine if the logged in iCloud account has changed since the user last launched the app.
@@ -74,79 +150,5 @@ class AppConfiguration {
         return storedToken
     }
 
-    func runHandlerOnFirstLaunch(handler: Void -> Void) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        defaults.registerDefaults([
-            Defaults.firstLaunchKey: true,
-            Defaults.storageOptionKey: Storage.NotSet.toRaw()
-        ])
-
-        if defaults.boolForKey(Defaults.firstLaunchKey) {
-            defaults.setBool(false, forKey: Defaults.firstLaunchKey)
-            handler()
-        }
-    }
-    
-    var storageOption: Storage {
-        get {
-            let value = NSUserDefaults.standardUserDefaults().integerForKey(Defaults.storageOptionKey)
-            
-            return Storage.fromRaw(value)!
-        }
-
-        set {
-            NSUserDefaults.standardUserDefaults().setInteger(newValue.toRaw(), forKey: Defaults.storageOptionKey)
-
-            NSNotificationCenter.defaultCenter().postNotificationName(Notifications.StorageOptionDidChange.name, object: self, userInfo: nil)
-        }
-    }
-    
-    var isCloudAvailable: Bool {
-        return NSFileManager.defaultManager().ubiquityIdentityToken != nil
-    }
-
-    // Convenience property to fetch the 3 cloud related states.
-    var storageState: (storageOption: Storage, accountDidChange: Bool, cloudAvailable: Bool) {
-        return (storageOption: storageOption, accountDidChange: hasUbiquityIdentityChanged, cloudAvailable: isCloudAvailable)
-    }
-    
-    // MARK: Identity
-    
-    var hasUbiquityIdentityChanged: Bool {
-        if storageOption != .Cloud {
-            return false
-        }
-
-        var hasChanged = false
-        
-        let currentToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? = NSFileManager.defaultManager().ubiquityIdentityToken
-        let storedToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? = storedIdentityToken
-
-        let currentTokenNilStoredNonNil = !currentToken && storedToken
-        let storedTokenNilCurrentNonNil = currentToken && !storedToken
-        // Need to compare the tokens use isEqual(_:) since we only know that they conform to NSObjectProtocol.
-        let currentNotEqualStored = currentToken && storedToken && !currentToken!.isEqual(storedToken!)
-
-        if currentTokenNilStoredNonNil || storedTokenNilCurrentNonNil || currentNotEqualStored {
-            handleUbiquityIdentityChange()
-            hasChanged = true
-        }
-
-        return hasChanged
-    }
-    
-    func handleUbiquityIdentityChange() {
-        var defaults = NSUserDefaults.standardUserDefaults()
-
-        if let token = NSFileManager.defaultManager().ubiquityIdentityToken {
-            NSLog("The user signed into a different iCloud account.")
-            let ubiquityIdentityTokenArchive = NSKeyedArchiver.archivedDataWithRootObject(token)
-            defaults.setObject(ubiquityIdentityTokenArchive, forKey: Defaults.storedUbiquityIdentityToken)
-        }
-        else {
-            NSLog("The user signed out of iCloud.")
-            defaults.removeObjectForKey(Defaults.storedUbiquityIdentityToken)
-        }
-    }
+    #endif
 }

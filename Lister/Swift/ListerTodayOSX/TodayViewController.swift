@@ -4,7 +4,7 @@
     
     Abstract:
     
-                Handles display of the Today view. It leverages iCloud for seamless interaction between devices.
+                The `TodayViewController` class handles display of the Today view. It leverages iCloud for seamless interaction between devices.
             
 */
 
@@ -12,23 +12,28 @@ import Cocoa
 import NotificationCenter
 import ListerKitOSX
 
-@objc(TodayViewController) class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListViewDelegate, ListRowViewControllerDelegate, ListDocumentDelegate {
+class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListViewDelegate, ListRowViewControllerDelegate, ListDocumentDelegate {
     // MARK: Types
     
-    struct TableViewConstants {
+    private struct TableViewConstants {
         static let openListRow = 0
     }
     
     // MARK: Properties
 
-    @IBOutlet var listViewController: NCWidgetListViewController
-    
+    @IBOutlet var listViewController: NCWidgetListViewController!
+
     var document: ListDocument!
     
     var list: List {
         return document.list
     }
     
+    // Override the nib name to make sure that the view controller opens the correct nib.
+    override var nibName: String {
+        return "TodayViewController"
+    }
+
     // MARK: View Life Cycle
 
     override func viewDidLoad()  {
@@ -50,7 +55,7 @@ import ListerKitOSX
     
     // MARK: NCWidgetProviding
 
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: NCUpdateResult -> Void) {
         updateWidgetContents(completionHandler)
     }
     
@@ -108,7 +113,7 @@ import ListerKitOSX
         
         let item = list[indexOfListRowViewController - 1]
         list.toggleItem(item)
-        
+
         document.updateChangeCount(.ChangeDone)
         
         // Make sure the rows are reordered appropriately.
@@ -123,39 +128,41 @@ import ListerKitOSX
     
     // MARK: Convenience
 
-    func listRowRepresentedObjectsForList(aList: List) -> AnyObject[] {
-        var representedObjects = AnyObject[]()
+    func listRowRepresentedObjectsForList(aList: List) -> [AnyObject] {
+        var representedObjects = [AnyObject]()
 
         let listColor = list.color.colorValue
         
         // The "Open in Lister" has a representedObject as an NSColor, representing the text color.
-        representedObjects += listColor
-        
+        representedObjects += [listColor]
+
         for item in aList.items {
-            representedObjects += ListRowRepresentedObject(item: item, color: listColor)
+            representedObjects += [ListRowRepresentedObject(item: item, color: listColor)]
         }
         
         // Add a sentinel NSNull value to represent the "No Items" represented object.
-        if (list.isEmpty) {
+        if list.isEmpty {
             // No items in the list.
-            representedObjects += NSNull()
+            representedObjects += [NSNull()]
         }
         
         return representedObjects
     }
     
-    func updateWidgetContents(completionHandler: ((NCUpdateResult) -> Void)? = nil) {
+    func updateWidgetContents(completionHandler: (NCUpdateResult -> Void)? = nil) {
         TodayListManager.fetchTodayDocumentURLWithCompletionHandler { todayDocumentURL in
-            if !todayDocumentURL {
+            if todayDocumentURL == nil {
                 completionHandler?(.Failed)
+
                 return
             }
             
             dispatch_async(dispatch_get_main_queue()) {
                 var error: NSError?
+
                 let newDocument = ListDocument(contentsOfURL: todayDocumentURL!, makesCustomWindowControllers: false, error: &error)
-                
-                if error {
+
+                if error != nil {
                     completionHandler?(.Failed)
                 }
                 else {

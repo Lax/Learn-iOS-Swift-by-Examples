@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A238w" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="m9F-rr-hPg">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="14A298e" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="m9F-rr-hPg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6154.17"/>
+        <deployment defaultVersion="101000" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.11"/>
     </dependencies>
     <scenes>
-        <!--List Window Controller - Lister-->
+        <!--Lister-->
         <scene sceneID="1AJ-xb-VBh">
             <objects>
                 <windowController id="m9F-rr-hPg" customClass="ListWindowController" customModule="ListerOSX" sceneMemberID="viewController">
@@ -12,8 +13,8 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="1865" y="-79" width="500" height="450"/>
-                        <rect key="screenRect" x="1440" y="-540" width="2560" height="1418"/>
+                        <rect key="contentRect" x="475" y="275" width="500" height="450"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <view key="contentView" id="zLK-Z0-8ND">
                             <rect key="frame" x="0.0" y="0.0" width="500" height="450"/>
                             <autoresizingMask key="autoresizingMask"/>
@@ -213,8 +214,8 @@ QQJEAkkAAAAAAAACAQAAAAAAAABFAAAAAAAAAAAAAAAAAAACSw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <customView wantsLayer="YES" appearanceType="aqua" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfG-pz-iv8" customClass="ColorPaletteView" customModule="ListerOSX">
-                                <rect key="frame" x="-1" y="425" width="503" height="25"/>
+                            <customView wantsLayer="YES" appearanceType="aqua" translatesAutoresizingMaskIntoConstraints="NO" id="bfG-pz-iv8" customClass="ColorPaletteView" customModule="ListerOSX">
+                                <rect key="frame" x="-2" y="425" width="503" height="25"/>
                                 <subviews>
                                     <button wantsLayer="YES" tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="aIl-z7-HA8">
                                         <rect key="frame" x="467" y="3" width="28" height="18"/>

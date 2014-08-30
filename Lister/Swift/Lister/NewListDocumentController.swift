@@ -4,60 +4,40 @@
     
     Abstract:
     
-                Allows users to create a new list document with a name and preferred color.
+                The `NewListDocumentController` class allows users to create a new list document with a name and preferred color.
             
 */
 
 import UIKit
 import ListerKit
 
-// Provides the ability to send a delegate a message about newly created list info objects.
-@class_protocol protocol NewListDocumentControllerDelegate {
-    func newListDocumentController(newListDocumentController: NewListDocumentController, didCreateDocumentWithListInfo listInfo: ListInfo)
-}
-
 class NewListDocumentController: UIViewController, UITextFieldDelegate {
     // MARK: Properties
 
-    @IBOutlet var grayButton: UIButton
-    @IBOutlet var blueButton: UIButton
-    @IBOutlet var greenButton: UIButton
-    @IBOutlet var yellowButton: UIButton
-    @IBOutlet var orangeButton: UIButton
-    @IBOutlet var redButton: UIButton
-    @IBOutlet var saveButton: UIBarButtonItem
-    @IBOutlet var toolbar: UIToolbar
-    @IBOutlet var titleLabel: UILabel
+    @IBOutlet weak var grayButton: UIButton!
+    
+    @IBOutlet weak var blueButton: UIButton!
+    
+    @IBOutlet weak var greenButton: UIButton!
+    
+    @IBOutlet weak var yellowButton: UIButton!
+    
+    @IBOutlet weak var orangeButton: UIButton!
+
+    @IBOutlet weak var redButton: UIButton!
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var toolbar: UIToolbar!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     weak var selectedButton: UIButton?
     
-    // Lets the delegate know about new list info objects that are created.
-    var delegate: NewListDocumentControllerDelegate?
-    
     var selectedColor = List.Color.Gray
     var selectedTitle: String?
-    
-    var fileURL: NSURL? {
-        if selectedTitle {
-            return ListCoordinator.sharedListCoordinator.documentURLForName(selectedTitle!)
-        }
-        
-        return nil
-    }
-    
-    // MARK: UITextFieldDelegate
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        if ListCoordinator.sharedListCoordinator.isValidDocumentName(textField.text) {
-            saveButton.enabled = true
-            selectedTitle = textField.text
-        }
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+
+    var listController: ListController!
     
     // MARK: IBActions
     
@@ -78,24 +58,30 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func save(sender: AnyObject) {
-        let listInfo = ListInfo(provider: fileURL!)
-        listInfo.color = selectedColor
+        let list = List()
+        list.color = selectedColor
         
-        listInfo.createAndSaveWithCompletionHandler { success in
-            if success {
-                self.delegate?.newListDocumentController(self, didCreateDocumentWithListInfo: listInfo)
-            }
-            else {
-                // In your app, you should handle this error gracefully.
-                NSLog("Unable to save document to URL: \(self.fileURL!.absoluteString).")
-                abort()
-            }
-        }
+        listController.createListInfoForList(list, withName: selectedTitle!)
         
-        dismissModalViewControllerAnimated(true)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func cancel(sender: AnyObject) {
-        dismissModalViewControllerAnimated(true)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if listController.canCreateListInfoWithName(textField.text) {
+            saveButton.enabled = true
+            selectedTitle = textField.text
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+
+        return true
     }
 }

@@ -4,7 +4,7 @@
     
     Abstract:
     
-                An NSTableView subclass that ensures that the text field is always the first responder for an event.
+                The `ListTableView` class is an NSTableView subclass that ensures that the text field is always the first responder for an event.
             
 */
 

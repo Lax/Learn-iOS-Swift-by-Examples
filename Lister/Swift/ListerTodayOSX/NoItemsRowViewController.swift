@@ -4,7 +4,7 @@
     
     Abstract:
     
-                An NSViewController subclass responsible for displaying the "No Items" row in the app extension.
+                The `NoItemsRowViewController` class is an NSViewController subclass that displays the "No Items" row in the app extension.
             
 */
 

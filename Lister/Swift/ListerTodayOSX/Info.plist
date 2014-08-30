@@ -27,7 +27,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widget-extension</string>
 		<key>NSExtensionPrincipalClass</key>
-		<string>TodayViewController</string>
+		<string>${PRODUCT_MODULE_NAME}.TodayViewController</string>
 		<key>com.apple.notificationcenter.widget.description</key>
 		<string>Lister</string>
 	</dict>

@@ -4,7 +4,7 @@
     
     Abstract:
     
-                A custom cell used for displaying list documents.
+                A custom cell used to display a list document.
             
 */
 
@@ -13,13 +13,7 @@ import UIKit
 class ListCell: UITableViewCell {
     // MARK: Properties
 
-    @IBOutlet var label: UILabel
-    @IBOutlet var listColor: UIView
-    
-    // MARK: Reuse
-    
-    override func prepareForReuse() {
-        label.text = ""
-        listColor.backgroundColor = UIColor.clearColor()
-    }
+    @IBOutlet weak var label: UILabel!
+
+    @IBOutlet weak var listColorView: UIView!
 }

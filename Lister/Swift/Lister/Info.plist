@@ -26,6 +26,18 @@
 	<true/>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSUbiquitousContainers</key>
+	<dict>
+		<key>com.example.apple-samplecode.Lister</key>
+		<dict>
+			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
+			<true/>
+			<key>NSUbiquitousContainerSupportedFolderLevels</key>
+			<string>Any</string>
+			<key>NSUbiquitousContainerName</key>
+			<string>Lister</string>
+		</dict>
+	</dict>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -48,10 +60,10 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-         <key>LSHandlerRank</key>
-         <string>Owner</string>
-         <key>CFBundleTypeRole</key>
-         <string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleTypeIconFiles</key>
 			<array/>
 			<key>CFBundleTypeName</key>
@@ -80,10 +92,10 @@
 					<string>list</string>
 				</array>
 			</dict>
-         <key>UTTypeConformsTo</key>
-         <array>
-            <string>public.data</string>
-         </array>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
 		</dict>
 	</array>
 	<key>CFBundleURLTypes</key>

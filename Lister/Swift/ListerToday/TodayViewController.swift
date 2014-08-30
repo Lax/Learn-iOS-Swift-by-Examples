@@ -4,7 +4,7 @@
     
     Abstract:
     
-                Handles display of the Today view. It leverages iCloud for seamless interaction between devices.
+                The `TodayViewController` class displays the Today view. It uses iCloud for seamless interaction between devices.
             
 */
 
@@ -12,7 +12,7 @@ import UIKit
 import NotificationCenter
 import ListerKit
 
-class TodayViewController: UITableViewController, NCWidgetProviding  {
+class TodayViewController: UITableViewController, ListControllerDelegate, NCWidgetProviding  {
     // MARK: Types
     
     struct TableViewConstants {
@@ -44,10 +44,8 @@ class TodayViewController: UITableViewController, NCWidgetProviding  {
     }
 
     var isTodayAvailable: Bool {
-        return isCloudAvailable && document && list
+        return isCloudAvailable && document != nil && list != nil
     }
-
-    var documentMetadataQuery: NSMetadataQuery?
 
     var preferredViewHeight: CGFloat {
         let itemCount = isTodayAvailable && list!.count > 0 ? list!.count : 1
@@ -57,6 +55,8 @@ class TodayViewController: UITableViewController, NCWidgetProviding  {
         return CGFloat(Double(rowCount) * TableViewConstants.todayRowHeight)
     }
     
+    var listController: ListController!
+    
     // MARK: View Life Cycle
     
     override func viewDidLoad() {
@@ -65,7 +65,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding  {
         tableView.backgroundColor = UIColor.clearColor()
         
         if isCloudAvailable {
-            startQuery()
+            let listCoordinator = CloudListCoordinator(lastPathComponent: AppConfiguration.localizedTodayDocumentNameAndExtension)
+            listController = ListController(listCoordinator: listCoordinator) { $0.name < $1.name }
+            listController.delegate = self
         }
 
         resetContentSize()
@@ -91,54 +93,51 @@ class TodayViewController: UITableViewController, NCWidgetProviding  {
         completionHandler?(.NewData)
     }
     
-    // MARK: Query Management
+    // MARK: ListControllerDelegate
     
-    func startQuery() {
-        if !documentMetadataQuery {
-            let metadataQuery = NSMetadataQuery()
-            documentMetadataQuery = metadataQuery
-            documentMetadataQuery!.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope]
-            documentMetadataQuery!.predicate = NSPredicate(format: "(%K = %@)", argumentArray: [NSMetadataItemFSNameKey, AppConfiguration.localizedTodayDocumentNameAndExtension])
-            
-            // observe the query
-            let notificationCenter = NSNotificationCenter.defaultCenter()
-            
-            notificationCenter.addObserver(self, selector: "handleMetadataQueryUpdates:", name: NSMetadataQueryDidFinishGatheringNotification, object: metadataQuery)
-            notificationCenter.addObserver(self, selector: "handleMetadataQueryUpdates:", name: NSMetadataQueryDidUpdateNotification, object: metadataQuery)
-        }
-        
-        documentMetadataQuery!.startQuery()
+    func listControllerWillChangeContent(listController: ListController) {
+        // Nothing to do here.
     }
     
-    func handleMetadataQueryUpdates(NSNotification) {
-        documentMetadataQuery!.disableUpdates()
-        
-        processMetadataItems()
-        
-        documentMetadataQuery!.enableUpdates()
+    func listController(listController: ListController, didInsertListInfo listInfo: ListInfo, atIndex index: Int) {
+        // We only expect a single result to be returned, so we will treat this listInfo as the Today document.
+        processListInfoAsTodayDocument(listInfo)
     }
     
-    func processMetadataItems() {
-        let metadataItems = documentMetadataQuery!.results as NSMetadataItem[]
-        
-        // We only expect a single result to be returned by our NSMetadataQuery since we query for a specific file.
-        if metadataItems.count == 1 {
-            let url = metadataItems[0].valueForAttribute(NSMetadataItemURLKey) as NSURL
-
-            document = ListDocument(fileURL: url)
-
-            document!.openWithCompletionHandler { success in
-                if !success {
-                    NSLog("Couldn't open document: \(self.document!.fileURL.absoluteString)")
-                    return
-                }
-                
-                var preferredSize = self.preferredContentSize
-                preferredSize.height = self.preferredViewHeight
-                self.preferredContentSize = preferredSize
-                
-                self.tableView.reloadData()
+    func listController(listController: ListController, didRemoveListInfo listInfo: ListInfo, atIndex index: Int) {
+        fatalError("listController(_:, didRemoveListInfo:, atIndex:) should never be called from the Today widget!")
+    }
+    
+    func listController(listController: ListController, didUpdateListInfo listInfo: ListInfo, atIndex index: Int) {
+        // We only expect a single result to be returned, so we will treat this listInfo as the Today document.
+        processListInfoAsTodayDocument(listInfo)
+    }
+    
+    func listControllerDidChangeContent(listController: ListController) {
+        // Nothing to do here.
+    }
+    
+    func listController(listController: ListController, didFailCreatingListInfo listInfo: ListInfo, withError error: NSError) {
+        fatalError("listController(_:, didFailCreatingListInfo:, withError:) should never be called from the Today widget!")
+    }
+    
+    func listController(listController: ListController, didFailRemovingListInfo listInfo: ListInfo, withError error: NSError) {
+        fatalError("listController(_:, didFailRemovingListInfo:, withError:) should never be called from the Today widget!")
+    }
+    
+    func processListInfoAsTodayDocument(listInfo: ListInfo) {
+        document = ListDocument(fileURL: listInfo.URL)
+        document!.openWithCompletionHandler { success in
+            if !success {
+                println("Couldn't open document: \(self.document?.fileURL),")
+                return
             }
+            
+            var preferredSize = self.preferredContentSize
+            preferredSize.height = self.preferredViewHeight
+            self.preferredContentSize = preferredSize
+            
+            self.tableView.reloadData()
         }
     }
     
@@ -160,7 +159,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding  {
             return cell
         }
         
-        if list!.count > 0 {
+        if list?.count > 0 {
             if !showingAll && indexPath.row == TableViewConstants.baseRowCount &&  list!.count != TableViewConstants.baseRowCount + 1 {
                 let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.CellIdentifiers.message, forIndexPath: indexPath) as UITableViewCell
 
@@ -197,8 +196,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding  {
     func configureListItemCell(itemCell: CheckBoxCell, usingColor color: List.Color, item: ListItem) {
         itemCell.checkBox.tintColor = color.colorValue
         itemCell.checkBox.isChecked = item.isComplete
-        itemCell.label.text = item.text
+        itemCell.checkBox.hidden = false
 
+        itemCell.label.text = item.text
         itemCell.label.textColor = UIColor.whiteColor()
         
         // Configure a completed list item cell.
@@ -219,11 +219,8 @@ class TodayViewController: UITableViewController, NCWidgetProviding  {
             let indexPathForRemoval = NSIndexPath(forRow: TableViewConstants.baseRowCount, inSection: 0)
             tableView.deleteRowsAtIndexPaths([indexPathForRemoval], withRowAnimation: .Fade)
 
-            var insertedIndexPaths = NSIndexPath[]()
-
-            for idx in TableViewConstants.baseRowCount..list!.count {
-                insertedIndexPaths += NSIndexPath(forRow: idx, inSection: 0)
-            }
+            let insertedIndexPathRange = TableViewConstants.baseRowCount..<list!.count
+            var insertedIndexPaths = insertedIndexPathRange.map { NSIndexPath(forRow: $0, inSection: 0) }
 
             tableView.insertRowsAtIndexPaths(insertedIndexPaths, withRowAnimation: .Fade)
 

@@ -4,91 +4,66 @@
     
     Abstract:
     
-                ListInfo is an abstraction to contain information about list documents such as their color.
+                The `ListInfo` class is a caching abstraction over a `List` object that contains information about lists (e.g. color and name).
             
 */
 
 import UIKit
-import ListerKit
 
-// A ListInfoProvider needs to provide a URL for the ListInfo object to query.
-@class_protocol protocol ListInfoProvider {
-    var URL: NSURL { get }
-}
-
-// Make NSURL a ListInfoProvider, since it's by default an NSURL.
-extension NSURL: ListInfoProvider {
-    var URL: NSURL {
-        return self
-    }
-}
-
-// Make NSMetadataItem a ListInfoProvider and return its value for the NSMetadataItemURLKey attribute.
-extension NSMetadataItem: ListInfoProvider {
-    var URL: NSURL {
-        return valueForAttribute(NSMetadataItemURLKey) as NSURL
-    }
-}
-
-class ListInfo: Equatable {
+public class ListInfo: NSObject {
     // MARK: Properties
 
-    let provider: ListInfoProvider
+    public let URL: NSURL
     
-    var color: List.Color?
-    var name: String?
-    
-    var isLoaded: Bool {
-        return color && name
+    public var color: List.Color?
+
+    public var name: String {
+        let displayName = NSFileManager.defaultManager().displayNameAtPath(URL.path!)
+
+        return displayName.stringByDeletingPathExtension
     }
-    
-    var URL: NSURL {
-        return provider.URL
-    }
-    
+
+    private let fetchQueue = dispatch_queue_create("com.example.apple-samplecode.listinfo", DISPATCH_QUEUE_SERIAL)
+
     // MARK: Initializers
 
-    init(provider: ListInfoProvider) {
-        self.provider = provider
+    public init(URL: NSURL) {
+        self.URL = URL
     }
 
-    // MARK: Methods
+    // MARK: Fetch Methods
 
-    func fetchInfoWithCompletionHandler(completionHandler: () -> Void) {
-        if isLoaded {
-            completionHandler()
-            return
-        }
-        
-        let document = ListDocument(fileURL: URL)
-        document.openWithCompletionHandler { success in
-            if success {
-                self.color = document.list.color
-                self.name = document.localizedName
-                
+    public func fetchInfoWithCompletionHandler(completionHandler: Void -> Void) {
+        dispatch_async(fetchQueue) {
+            // If the color hasn't been set yet, the info hasn't been fetched.
+            if self.color != nil {
                 completionHandler()
                 
-                document.closeWithCompletionHandler(nil)
+                return
             }
-            else {
-                fatalError("Your attempt to open the document failed.")
+            
+            ListUtilities.readListAtURL(self.URL) { list, error in
+                dispatch_async(self.fetchQueue) {
+                    if let list = list {
+                        self.color = list.color
+                    }
+                    else {
+                        self.color = .Gray
+                    }
+                    
+                    completionHandler()
+                }
             }
         }
     }
     
-    func createAndSaveWithCompletionHandler(completionHandler: Bool -> Void) {
-        let list = List()
-        
-        list.color = color ? color! : .Gray
-        
-        let document = ListDocument(fileURL: URL)
-        document.list = list
-        
-        document.saveToURL(URL, forSaveOperation: .ForCreating, completionHandler: completionHandler)
-    }
-}
+    // MARK: NSObject
+    
+    override public func isEqual(object: AnyObject?) -> Bool {
+        if let listInfo = object as? ListInfo {
+            return listInfo.URL == URL
+        }
 
-// Equality operator to compare two ListInfo objects.
-func ==(lhs: ListInfo, rhs: ListInfo) -> Bool {
-    return lhs.URL == rhs.URL
+        return false
+    }
 }

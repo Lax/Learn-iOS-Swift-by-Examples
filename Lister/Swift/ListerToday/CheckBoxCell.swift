@@ -13,17 +13,8 @@ import ListerKit
 
 class CheckBoxCell: UITableViewCell {
     // MARK: Properties
+
+    @IBOutlet weak var label: UILabel!
     
-    @IBOutlet var label: UILabel
-    @IBOutlet var checkBox: CheckBox
-    
-    // MARK: Reuse
-    
-    override func prepareForReuse() {
-        textLabel.text = ""
-        textLabel.textColor = UIColor.whiteColor()
-        checkBox.isChecked = false
-        checkBox.hidden = false
-        checkBox.tintColor = UIColor.clearColor()
-    }
+    @IBOutlet weak var checkBox: CheckBox!
 }

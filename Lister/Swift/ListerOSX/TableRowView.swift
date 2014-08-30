@@ -4,7 +4,7 @@
     
     Abstract:
     
-                An NSTableRowView subclass that draws a specific background color. The table view creates these row views automatically because the NSTableViewRowViewKey key is set on one of the ListViewController object's rows in the storyboard.
+                The `TableRowView` class is an NSTableRowView subclass that draws a specific background color. The table view creates these row views automatically because the NSTableViewRowViewKey key is set on one of the ListViewController object's rows in the storyboard.
             
 */
 

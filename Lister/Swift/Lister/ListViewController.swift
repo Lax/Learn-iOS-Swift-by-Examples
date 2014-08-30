@@ -4,7 +4,7 @@
     
     Abstract:
     
-                Displays the contents of a list document, allows a user to create, update, and delete items, change the color of the list, or delete the list.
+                The `ListViewController` class displays the contents of a list document. It also allows the user to create, update, and delete items, change the color of the list, or delete the list.
             
 */
 
@@ -12,31 +12,25 @@ import UIKit
 import NotificationCenter
 import ListerKit
 
-@objc protocol ListViewControllerDelegate {
-    func listViewControllerDidDeleteList(listViewController: ListViewController)
-}
-
 class ListViewController: UITableViewController, UITextFieldDelegate, ListColorCellDelegate, ListDocumentDelegate {
     // MARK: Types
-
-    struct Notifications {
-        struct ListColorDidChange {
-            static let name = "ListDidUpdateColorNotification"
-            static let colorUserInfoKey = "ListDidUpdateColorUserInfoKey"
-            static let URLUserInfoKey = "ListDidUpdateURLUserInfoKey"
-        }
-    }
     
     struct MainStoryboard {
         struct TableViewCellIdentifiers {
-            static let listItemCell = "listItemCell" // used for normal items and the add item cell
-            static let listColorCell = "listColorCell" // used in edit mode to allow the user to change colors
+            // Used for normal items and the add item cell.
+            static let listItemCell = "listItemCell"
+            
+            // Used in edit mode to allow the user to change colors.
+            static let listColorCell = "listColorCell"
         }
     }
     
     // MARK: Properties
-
-    weak var delegate: ListViewControllerDelegate?
+    
+    var listController: ListController!
+    
+    /// Set in `configureWithListInfo(_:)`. `nil` otherwise.
+    var listInfo: ListInfo?
     
     var document: ListDocument!
     
@@ -44,20 +38,26 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         return document.fileURL
     }
     
-    var list: List {
+    var list: List! {
         return document.list
     }
     
-    // Lazily load and cache the toolbar items since they are used in edit mode (possibly more than once).
-    @lazy var listToolbarItems: UIBarButtonItem[] = {
+    // Return the toolbar items since they are used in edit mode.
+    var listToolbarItems: [UIBarButtonItem] {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
         
         let title = NSLocalizedString("Delete List", comment: "The title of the button to delete the current list.")
         let deleteList = UIBarButtonItem(title: title, style: .Plain, target: self, action: "deleteList:")
+        
+        // Disable the delete list button if this is the Today document.
+        if documentURL.lastPathComponent == AppConfiguration.localizedTodayDocumentNameAndExtension {
+            deleteList.enabled = false
+        }
+            
         return [flexibleSpace, deleteList, flexibleSpace]
-    }()
-    
-    var textAttributes: Dictionary<String, AnyObject> = [:] {
+    }
+
+    var textAttributes: [String: AnyObject] = [:] {
         didSet {
             if isViewLoaded() {
                 updateInterfaceWithTextAttributes()
@@ -66,6 +66,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     }
     
     // MARK: View Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,21 +83,27 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         document.openWithCompletionHandler { success in
             if !success {
                 // In your app you should handle this gracefully.
-                NSLog("Couldn't open document: \(self.documentURL.absoluteString).")
+                println("Couldn't open document: \(self.documentURL).")
                 abort()
             }
             
             self.tableView.reloadData()
-            
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleDocumentStateChangedNotification:", name: UIDocumentStateChangedNotification, object: self.document)
+            self.textAttributes = [
+                NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline),
+                NSForegroundColorAttributeName: self.document.list.color.colorValue
+            ]
+
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleDocumentStateChangedNotification:", name: UIDocumentStateChangedNotification, object: self.document)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
+
+        document.delegate = nil
         document.closeWithCompletionHandler(nil)
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIDocumentStateChangedNotification, object: document)
@@ -107,33 +114,27 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     
     // MARK: Setup
 
-    func configureWithListInfo(listInfo: ListInfo) {
-        listInfo.fetchInfoWithCompletionHandler { [weak self] in
-            if let strongSelf = self {
-                strongSelf.document = ListDocument(fileURL: listInfo.URL)
-                strongSelf.document.delegate = self
+    func configureWithListInfo(aListInfo: ListInfo) {
+        listInfo = aListInfo
+
+        document = ListDocument(fileURL: aListInfo.URL)
+        document.delegate = self
                 
-                strongSelf.navigationItem.title = listInfo.name
+        navigationItem.title = aListInfo.name
                 
-                strongSelf.textAttributes = [
-                    NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline),
-                    NSForegroundColorAttributeName: listInfo.color!.colorValue
-                ]
-            }
-        }
+        textAttributes = [
+            NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline),
+            NSForegroundColorAttributeName: aListInfo.color?.colorValue ?? UIColor.blackColor()
+        ]
     }
     
     // MARK: Notifications
 
-    func handleDocumentStateChangedNotification(_: NSNotification) {
-        let state = document.documentState
-
-        if state & .InConflict {
+    func handleDocumentStateChangedNotification(notification: NSNotification) {
+        if document.documentState & .InConflict == .InConflict {
             resolveConflicts()
         }
-        
-        // Passing `tableView.reloadData` passes the table view's reloadData method as a () -> Void closure
-        // to the dispatch_async method.
+
         dispatch_async(dispatch_get_main_queue(), tableView.reloadData)
     }
 
@@ -145,7 +146,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         // Prevent navigating back in edit mode.
         navigationItem.setHidesBackButton(editing, animated: animated)
         
-        // Reload the first row to switch from "Add Item" to "Change Color"
+        // Reload the first row to switch from "Add Item" to "Change Color".
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
@@ -153,12 +154,14 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         if !editing {
             // Notify the document of a change.
             document.updateChangeCount(.Done)
-            
-            NSNotificationCenter.defaultCenter().postNotificationName(Notifications.ListColorDidChange.name, object: nil, userInfo: [
-                Notifications.ListColorDidChange.colorUserInfoKey: list.color.toRaw(),
-                Notifications.ListColorDidChange.URLUserInfoKey: documentURL
-            ])
-            
+
+            // If the list info doesn't already exist (but it should), then create a new one.
+            if listInfo == nil {
+                listInfo = ListInfo(URL: documentURL)
+            }
+            listInfo!.color = list.color
+            listController!.setListInfoHasNewContents(listInfo!)
+
             triggerNewDataForWidget()
         }
         
@@ -168,18 +171,18 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     
     // MARK: UITableViewDataSource
     
-    override func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Don't show anything if the document hasn't been loaded.
-        if !document {
+        if document == nil {
             return 0
         }
-        
-        // We show the items in a list, plus a separate row that lets users enter a new item.
+
+        // Show the items in a list, plus a separate row that lets users enter a new item.
         return list.count + 1
     }
     
-    override func tableView(_: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 0 && editing {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if editing && indexPath.row == 0 {
             let colorCell = tableView.dequeueReusableCellWithIdentifier(MainStoryboard.TableViewCellIdentifiers.listColorCell, forIndexPath: indexPath) as ListColorCell
             
             colorCell.configure()
@@ -196,24 +199,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         }
     }
     
-    func configureListItemCell(itemCell: ListItemCell, usingColor color: List.Color, forRow row: Int) {
-        itemCell.textField.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-        itemCell.textField.delegate = self
-        
-        if row == 0 {
-            // Configure an "Add Item" list item cell.
-            itemCell.textField.placeholder = NSLocalizedString("Add Item", comment: "")
-            itemCell.checkBox.hidden = true
-        }
-        else {
-            let item = list[row - 1]
-            
-            itemCell.isComplete = item.isComplete
-            itemCell.textField.text = item.text
-        }
-    }
-    
-    override func tableView(_: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // The initial row is reserved for adding new items so it can't be deleted or edited.
         if indexPath.row == 0 {
             return false
@@ -221,8 +207,8 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         
         return true
     }
-    
-    override func tableView(_: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // The initial row is reserved for adding new items so it can't be moved.
         if indexPath.row == 0 {
             return false
@@ -231,7 +217,7 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         return true
     }
     
-    override func tableView(_: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle != .Delete {
             return
         }
@@ -247,31 +233,31 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         document.updateChangeCount(.Done)
     }
     
-    override func tableView(_: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         let item = list[fromIndexPath.row - 1]
         list.moveItem(item, toIndex: toIndexPath.row - 1)
-        
+
         // Notify the document of a change.
         document.updateChangeCount(.Done)
     }
     
     // MARK: UITableViewDelegate
     
-    override func tableView(_: UITableView, willBeginEditingRowAtIndexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath: NSIndexPath) {
         // When the user swipes to show the delete confirmation, don't enter editing mode.
         // UITableViewController enters editing mode by default so we override without calling super.
     }
     
-    override func tableView(_: UITableView, didEndEditingRowAtIndexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didEndEditingRowAtIndexPath: NSIndexPath) {
         // When the user swipes to hide the delete confirmation, no need to exit edit mode because we didn't enter it.
         // UITableViewController enters editing mode by default so we override without calling super.
     }
     
-    override func tableView(_: UITableView, targetIndexPathForMoveFromRowAtIndexPath fromIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath {
+    override func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath fromIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath {
         let item = list[fromIndexPath.row - 1]
         
         if proposedIndexPath.row == 0 {
-            let row = item.isComplete ? list.indexOfFirstCompletedItem + 1 : 1
+            let row = item.isComplete ? list.indexOfFirstCompletedItem! + 1 : 1
             
             return NSIndexPath(forRow: row, inSection: 0)
         }
@@ -279,10 +265,10 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
             return proposedIndexPath
         }
         else if item.isComplete {
-            return NSIndexPath(forRow: list.indexOfFirstCompletedItem + 1, inSection: 0)
+            return NSIndexPath(forRow: list.indexOfFirstCompletedItem! + 1, inSection: 0)
         }
         else {
-            return NSIndexPath(forRow: list.indexOfFirstCompletedItem, inSection: 0)
+            return NSIndexPath(forRow: list.indexOfFirstCompletedItem!, inSection: 0)
         }
     }
     
@@ -291,10 +277,10 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     func textFieldDidEndEditing(textField: UITextField) {
         let indexPath = indexPathForView(textField)
         
-        if indexPath.row > 0 {
+        if indexPath != nil && indexPath!.row > 0 {
             // Edit the item in place.
-            let item = list[indexPath.row - 1]
-            
+            let item = list[indexPath!.row - 1]
+
             // If the contents of the text field at the end of editing is the same as it started, don't trigger an update.
             if item.text != textField.text {
                 item.text = textField.text
@@ -330,11 +316,12 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        let indexPath = indexPathForView(textField)
+        let indexPath = indexPathForView(textField)!
 
         // An item must have text to dismiss the keyboard.
         if !textField.text.isEmpty || indexPath.row == 0 {
             textField.resignFirstResponder()
+
             return true
         }
         
@@ -356,19 +343,17 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     }
 
     // MARK: IBActions
-    
-    func deleteList(UIBarButtonItem) {
-        delegate?.listViewControllerDidDeleteList(self)
 
-        if splitViewController?.collapsed {
-            navigationController?.popViewControllerAnimated(true)
-        }
+    @IBAction func deleteList(_: UIBarButtonItem) {
+        listController.removeListInfo(listInfo!)
+
+        hideViewControllerAfterListWasDeleted()
     }
     
     @IBAction func checkBoxTapped(sender: CheckBox) {
-        let indexPath = indexPathForView(sender)
-        
-        // This ~= operator ensures that indexPath.row is found in the range on the right.
+        let indexPath = indexPathForView(sender)!
+
+        // Check to see if the tapped row is within the list item rows.
         if 1...list.count ~= indexPath.row {
             let item = list[indexPath.row - 1]
             
@@ -378,8 +363,9 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
                 tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             }
             else {
-                // Animate the row up or down depending on whether it was complete/incomplete.
+                // Animate the row up or down depending on whether it was complete / incomplete.
                 let targetRow = NSIndexPath(forRow: toIndex + 1, inSection: 0)
+
                 tableView.beginUpdates()
                 tableView.moveRowAtIndexPath(indexPath, toIndexPath: targetRow)
                 tableView.endUpdates()
@@ -396,37 +382,72 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     // MARK: ListDocumentDelegate
     
     func listDocumentWasDeleted(listDocument: ListDocument) {
-        dismissViewControllerAnimated(true, completion: nil)
+        hideViewControllerAfterListWasDeleted()
     }
     
     // MARK: Convenience
+    
+    func updateInterfaceWithTextAttributes() {
+        navigationController.navigationBar.titleTextAttributes = textAttributes
+        navigationController.navigationBar.tintColor = textAttributes[NSForegroundColorAttributeName] as UIColor
+        navigationController.toolbar.tintColor = textAttributes[NSForegroundColorAttributeName] as UIColor
+
+        tableView.tintColor = textAttributes[NSForegroundColorAttributeName] as UIColor
+    }
+
+    func hideViewControllerAfterListWasDeleted() {
+        if splitViewController != nil && splitViewController!.collapsed {
+            navigationController?.popViewControllerAnimated(true)
+        }
+        else {
+            let emptyViewController = storyboard.instantiateViewControllerWithIdentifier(AppDelegate.MainStoryboard.Identifiers.emptyViewController) as UIViewController
+
+            splitViewController.viewControllers = [splitViewController.viewControllers.first!, emptyViewController]
+        }
+    }
+    
+    func configureListItemCell(itemCell: ListItemCell, usingColor color: List.Color, forRow row: Int) {
+        itemCell.checkBox.isChecked = false
+        itemCell.checkBox.hidden = false
+        
+        itemCell.textField.text = ""
+        itemCell.textField.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        itemCell.textField.delegate = self
+        itemCell.textField.textColor = UIColor.darkTextColor()
+        itemCell.textField.enabled = true
+        
+        if row == 0 {
+            // Configure an "Add Item" list item cell.
+            itemCell.textField.placeholder = NSLocalizedString("Add Item", comment: "")
+            itemCell.checkBox.hidden = true
+        }
+        else {
+            let item = list[row - 1]
+            
+            itemCell.isComplete = item.isComplete
+            itemCell.textField.text = item.text
+        }
+    }
     
     func triggerNewDataForWidget() {
         if document.localizedName == AppConfiguration.localizedTodayDocumentName {
             NCWidgetController.widgetController().setHasContent(true, forWidgetWithBundleIdentifier: AppConfiguration.Extensions.widgetBundleIdentifier)
         }
     }
-    
-    func updateInterfaceWithTextAttributes() {
-        navigationController.navigationBar.titleTextAttributes = textAttributes
-        navigationController.navigationBar.tintColor = textAttributes[NSForegroundColorAttributeName] as UIColor
-        navigationController.toolbar.tintColor = textAttributes[NSForegroundColorAttributeName] as UIColor
-        tableView.tintColor = textAttributes[NSForegroundColorAttributeName] as UIColor
-    }
 
     func resolveConflicts() {
         // Any automatic merging logic or presentation of conflict resolution UI should go here.
         // For Lister we'll pick the current version and mark the conflict versions as resolved.
-        NSFileVersion.removeOtherVersionsOfItemAtURL(self.documentURL, error: nil)
-        
-        let conflictVersions = NSFileVersion.unresolvedConflictVersionsOfItemAtURL(documentURL) as NSFileVersion[]
+        NSFileVersion.removeOtherVersionsOfItemAtURL(documentURL, error: nil)
+
+        let conflictVersions = NSFileVersion.unresolvedConflictVersionsOfItemAtURL(documentURL) as [NSFileVersion]
         
         for fileVersion in conflictVersions {
             fileVersion.resolved = true
         }
     }
     
-    func indexPathForView(view: UIView) -> NSIndexPath {
+    func indexPathForView(view: UIView) -> NSIndexPath? {
         let viewOrigin = view.bounds.origin
         
         let viewLocation = tableView.convertPoint(viewOrigin, fromView: view)

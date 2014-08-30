@@ -11,15 +11,15 @@
 import Cocoa
 
 extension NSColor {
-    struct SharedColors {
+    private struct SharedColors {
         static let completeItemTextColor = NSColor(red: 0.70, green: 0.70, blue: 0.70, alpha: 1)
     }
 
-    class func completeItemTextColor() -> NSColor {
+    public class func completeItemTextColor() -> NSColor {
         return SharedColors.completeItemTextColor
     }
     
-    class func incompleteItemTextColor() -> NSColor {
+    public class func incompleteItemTextColor() -> NSColor {
         return NSColor.blackColor()
     }
 }

@@ -1,5 +1,5 @@
-Sample code project: Lister: A Productivity App Built in Swift
-Version: 1.0
+Sample code project: Lister: A Productivity App (Obj-C and Swift)
+Version: 1.2
 
 IMPORTANT:  This Apple software is supplied to you by Apple
 Inc. ("Apple") in consideration of your agreement to the following

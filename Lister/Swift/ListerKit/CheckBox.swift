@@ -4,16 +4,16 @@
     
     Abstract:
     
-                A custom check box for use in the lists, it supports designing live in IB.
+                A custom check box used in the lists. It supports designing live in Interface Builder.
             
 */
 
 import UIKit
 
-@IBDesignable class CheckBox: UIControl {
+@IBDesignable public class CheckBox: UIControl {
     // MARK: Properties
     
-    @IBInspectable var isChecked: Bool {
+    @IBInspectable public var isChecked: Bool {
         get {
             return checkBoxLayer.isChecked
         }
@@ -23,7 +23,7 @@ import UIKit
         }
     }
 
-    @IBInspectable var strokeFactor: CGFloat {
+    @IBInspectable public var strokeFactor: CGFloat {
         set {
             checkBoxLayer.strokeFactor = newValue
         }
@@ -33,7 +33,7 @@ import UIKit
         }
     }
     
-    @IBInspectable var insetFactor: CGFloat {
+    @IBInspectable public var insetFactor: CGFloat {
         set {
             checkBoxLayer.insetFactor = newValue
         }
@@ -43,7 +43,7 @@ import UIKit
         }
     }
     
-    @IBInspectable var markInsetFactor: CGFloat {
+    @IBInspectable public var markInsetFactor: CGFloat {
         set {
             checkBoxLayer.markInsetFactor = newValue
         }
@@ -55,11 +55,11 @@ import UIKit
     
     // MARK: Overrides
 
-    override class func layerClass() -> AnyClass {
+    override public class func layerClass() -> AnyClass {
         return CheckBoxLayer.self
     }
     
-    override func tintColorDidChange() {
+    override public func tintColorDidChange() {
         super.tintColorDidChange()
         
         checkBoxLayer.tintColor = tintColor.CGColor

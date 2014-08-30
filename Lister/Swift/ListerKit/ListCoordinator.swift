@@ -4,163 +4,143 @@
     
     Abstract:
     
-                The ListCoordinator handles file operations and tracking based on the users storage choice (local vs. cloud).
+                The `ListCoordinator` and `ListCoordinatorDelegate` protocols provide the infrastructure to send updates to a `ListController` object, abstracting away the need to worry about the underlying storage mechanism.
             
 */
 
-import UIKit
+import Foundation
 
-class ListCoordinator: NSObject {
-    // MARK: Types
+/**
+    An instance that conforms to the `ListCoordinator` protocol is responsible for implementing
+    entry points in order to communicate with a `ListCoordinatorDelegate`. In the case of Lister, this
+    is the `ListController` instance. The main responsibility of a `ListCoordinator` is to track
+    different `NSURL` instances that are important. For example, in Lister there are two types of
+    storage mechanisms: local and iCloud based storage. The iCloud coordinator is responsible for making
+    sure that the `ListController` knows about the current set of iCloud documents that are available.
+    
+    There are also other responsibilities that a `ListCoordinator` must have that are specific to the
+    underlying storage mechanism of the coordinator. A `ListCoordinator` determines whether or not a
+    new list can be created with a specific name, it removes URLs tied to a specific list, and it is
+    also responsible for listening for updates to any changes that occur at a specific URL (e.g. a
+    list document is updated on another device, etc.).
 
-    struct Notifications {
-        struct StorageDidChange {
-            static let name = "storageChoiceDidChangeNotification"
-        }
-    }
-    
-    struct SingleInstance {
-        static let sharedListCoordinator: ListCoordinator = {
-            let listCoordinator = ListCoordinator()
-            
-            NSNotificationCenter.defaultCenter().addObserver(listCoordinator, selector: "updateDocumentStorageContainerURL", name: AppConfiguration.Notifications.StorageOptionDidChange.name, object: nil)
-            
-            return listCoordinator
-        }()
-    }
-    
-    // MARK: Class Properties
-
-    class var sharedListCoordinator: ListCoordinator {
-        return SingleInstance.sharedListCoordinator
-    }
-    
+    Instances of `ListCoordinator` can search for URLs in an asynchronous way. When a new `NSURL`
+    instance is found, removed, or updated, the `ListCoordinator` instance must make its delegate aware
+    of the updates. If a failure occured in removing or creating an `NSURL` for a given list, it must
+    make its delegate aware by calling one of the appropriate error methods defined in the
+    `ListCoordinatorDelegate` protocol.
+*/
+@objc public protocol ListCoordinator {
     // MARK: Properties
     
-    var documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0] as NSURL
+    /**
+        The delegate responsible for handling inserts, removes, updates, and errors when the
+        `ListCoordinator` instance determines such events occured.
+    */
+    weak var delegate: ListCoordinatorDelegate? { get set }
     
-    var todayDocumentURL: NSURL {
-        return documentsDirectory.URLByAppendingPathComponent(AppConfiguration.localizedTodayDocumentNameAndExtension)
-    }
+    // MARK: Methods
     
-    // MARK: Document Management
+    /**
+        Starts observing changes to the important `NSURL` instances. For example, if a `ListCoordinator`
+        conforming class has the responsibility to manage iCloud documents, the `startQuery()` method
+        would start observing an `NSMetadataQuery`. This method is called on the `ListCoordinator` once
+        the coordinator is set on the `ListController`.
+    */
+    func startQuery()
     
-    func copyInitialDocuments() {
-        let defaultListURLs = NSBundle.mainBundle().URLsForResourcesWithExtension(AppConfiguration.listerFileExtension, subdirectory: "") as NSURL[]
-        
-        for url in defaultListURLs {
-            copyFileToDocumentsDirectory(url)
-        }
-    }
+    /**
+        Stops observing changes to the important `NSURL` instances. For example, if a `ListCoordinator`
+        conforming class has the responsibility to manage iCloud documents, the stopQuery() method
+        would stop observing changes to the `NSMetadataQuery`. This method is called on the `ListCoordinator`
+        once a new `ListCoordinator` has been set on the `ListController`.
+    */
+    func stopQuery()
     
-    func updateDocumentStorageContainerURL() {
-        let oldDocumentsDirectory = documentsDirectory
-        
-        let fileManager = NSFileManager.defaultManager()
-
-        if AppConfiguration.sharedConfiguration.storageOption != .Cloud {
-            documentsDirectory = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0] as NSURL
-
-            NSNotificationCenter.defaultCenter().postNotificationName(Notifications.StorageDidChange.name, object: self)
-        }
-        else {
-            let defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-            dispatch_async(defaultQueue) {
-                // The call to URLForUbiquityContainerIdentifier should be on a background queue.
-                let cloudDirectory = fileManager.URLForUbiquityContainerIdentifier(nil)
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.documentsDirectory = cloudDirectory.URLByAppendingPathComponent("Documents")
-                    
-                    let localDocuments = fileManager.contentsOfDirectoryAtURL(oldDocumentsDirectory, includingPropertiesForKeys: nil, options: .SkipsPackageDescendants, error: nil) as NSURL[]?
-                    
-                    if let localDocuments = localDocuments {
-                        for url in localDocuments {
-                            if url.pathExtension == AppConfiguration.listerFileExtension {
-                                self.makeItemUbiquitousAtURL(url)
-                            }
-                        }
-                    }
-                    
-                    NSNotificationCenter.defaultCenter().postNotificationName(Notifications.StorageDidChange.name, object: self)
-                }
-            }
-        }
-    }
+    /**
+        Removes `URL` from the list of tracked `NSURL` instances. For example, an iCloud-specific
+        `ListCoordinator` would implement this method by deleting the underlying document that `URL`
+        represents. When `URL` is removed, the coordinator object is responsible for informing the
+        delegate by calling `listCoordinatorDidUpdateContents(insertedURLs:removedURLs:updatedURLs:)`
+        with the removed `NSURL`. If a failure occurs when removing `URL`, the coordinator object is
+        responsible for informing the delegate by calling the `listCoordinatorDidFailRemovingListAtURL(_:withError:)`
+        method. The `ListController` is the only object that should be calling this method directly.
+        The "remove" is intended to be called on the `ListController` instance with a `ListInfo` object
+        whose URL would be forwarded down to the coordinator through this method.
     
-    func makeItemUbiquitousAtURL(sourceURL: NSURL) {
-        let destinationFileName = sourceURL.lastPathComponent
-        let destinationURL = documentsDirectory.URLByAppendingPathComponent(destinationFileName)
-        
-        // Upload the file to iCloud on a background queue.
-        var defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-        dispatch_async(defaultQueue) {
-            let fileManager = NSFileManager()
+        :param: URL The `NSURL` instance to remove from the list of important instances.
+    */
+    func removeListAtURL(URL: NSURL)
 
-            let success = fileManager.setUbiquitous(true, itemAtURL: sourceURL, destinationURL: destinationURL, error: nil)
-            
-            // If the move wasn't successful, try removing the item locally since the document may already exist in the cloud.
-            if !success {
-                fileManager.removeItemAtURL(sourceURL, error: nil)
-            }
-        }
-    }
-
-    // MARK: Convenience
-
-    func copyFileToDocumentsDirectory(fromURL: NSURL) {
-        let toURL = documentsDirectory.URLByAppendingPathComponent(fromURL.lastPathComponent)
-
-        let coordinator = NSFileCoordinator()
-
-        coordinator.coordinateWritingItemAtURL(fromURL, options: .ForMoving, writingItemAtURL: toURL, options: .ForReplacing, error: nil) { sourceURL, destinationURL in
-            let fileManager = NSFileManager()
-            var moveError: NSError?
-
-            let success = fileManager.copyItemAtURL(sourceURL, toURL: destinationURL, error: &moveError)
-            
-            if success {
-                fileManager.setAttributes([ NSFileExtensionHidden: true ], ofItemAtPath: destinationURL.path, error: nil)
-
-                NSLog("Moved file: \(sourceURL.absoluteString) to: \(destinationURL.absoluteString).")
-            }
-            else {
-                // In your app, handle this gracefully.
-                NSLog("Couldn't move file: \(sourceURL.absoluteString) to: \(destinationURL.absoluteString). Error: \(moveError.description).")
-                abort()
-            }
-        }
-    }
+    /**
+        Creates an `NSURL` object representing `list` with the provided name. Callers of this method
+        (which should only be the `ListController` object) should first check to see if a list can be
+        created with the provided name via the `canCreateListWithName(_:)` method. If the creation was
+        successful, then this method should call the delegate's update method that passes the newly
+        tracked `NSURL` as an inserted URL. If the creation was not successful, this method should 
+        inform the delegate of the failure by calling its `listCoordinatorDidFailCreatingListAtURL(_:withError:)`
+        method. The "create" is intended to be called on the `ListController` instance with a `ListInfo`
+        object whose URL would be forwarded down to the coordinator through this method.
     
-    func deleteFileAtURL(fileURL: NSURL) {
-        let fileCoordinator = NSFileCoordinator()
-        var error: NSError?
-        
-        fileCoordinator.coordinateWritingItemAtURL(fileURL, options: .ForDeleting, error: &error) { writingURL in
-            let fileManager = NSFileManager()
-            fileManager.removeItemAtURL(writingURL, error: &error)
-        }
+        :param: list The list to create a backing `NSURL` for.
+        :param: name The new name for the list.
+    */
+    func createURLForList(list: List, withName name: String)
+    
+    /**
+        Checks to see if a list can be created with a given name. As an example, if a `ListCoordinator`
+        instance was responsible for storing its lists locally as a document, the coordinator would
+        check to see if there are any other documents on the file system that have the same name. If
+        they do, the method would return `false`. Otherwise, it would return `true`. This method should only
+        be called by the `ListController` instance. Normally you would call the users will call the
+        `canCreateListWithName(_:)` method on `ListController`, which will forward down to the current
+        `ListCoordinator` instance.
+    
+        :param: name The name to use when checking to see if a list can be created.
+    
+        :returns: `true` if the list can be created with the given name, `false` otherwise.
+    */
+    func canCreateListWithName(name: String) -> Bool
+}
 
-        if error {
-            // In your app, handle this gracefully.
-            NSLog("Couldn't delete file at URL \(fileURL.absoluteString). Error: \(error.description).")
-            abort()
-        }
-    }
+
+/**
+    The `ListCoordinatorDelegate` protocol exists to allow `ListCoordinator` instances to forward
+    events. These events include a `ListCoordinator` removing, inserting, and updating their important,
+    tracked `NSURL` instances. The `ListCoordinatorDelegate` also allows a `ListCoordinator` to notify
+    its delegate of any errors that occured when removing or creating a list for a given URL.
+*/
+@objc public protocol ListCoordinatorDelegate {
+    /**
+        Notifies the `ListCoordinatorDelegate` instance of any changes to the tracked URLs of the
+        `ListCoordinator`. For more information about when this method should be called, see the
+        description for the other `ListCoordinator` methods mentioned above that manipulate the tracked
+        `NSURL` instances.
     
-    // MARK: Document Name Helper Methods
+        :param: insertedURLs The `NSURL` instances that are newly tracked.
+        :param: removedURLs The `NSURL` instances that have just been untracked.
+        :param: updatedURLs The `NSURL` instances that have had their underlying model updated.
+    */
+     func listCoordinatorDidUpdateContents(#insertedURLs: [NSURL], removedURLs: [NSURL], updatedURLs: [NSURL])
     
-    func documentURLForName(name: String) -> NSURL {
-        return documentsDirectory.URLByAppendingPathComponent(name).URLByAppendingPathExtension(AppConfiguration.listerFileExtension)
-    }
+    /**
+        Notifies a `ListCoordinatorDelegate` instance of an error that occured when a coordinator
+        tried to remove a specific URL from the tracked `NSURL` instances. For more information about
+        when this method should be called, see the description for the `removeListAtURL(_:)` method
+        on `ListCoordinator`.
     
-    func isValidDocumentName(name: String) -> Bool {
-        if name.isEmpty {
-            return false
-        }
-        
-        let proposedDocumentPath = documentURLForName(name).path
-        
-        return !NSFileManager.defaultManager().fileExistsAtPath(proposedDocumentPath)
-    }
+        :param: URL The `NSURL` instance that failed to be removed.
+        :param: error The error that describes why the remove failed.
+    */
+    func listCoordinatorDidFailRemovingListAtURL(URL: NSURL, withError error: NSError)
+
+    /**
+        Notifies a `ListCoordinatorDelegate` instance of an error that occured when a coordinator
+        tried to create a list at a given URL. For more information about when this method should be
+        called, see the description for the `createURLForList(_:withName:)` method on `ListCoordinator`.
+    
+        :param: URL The `NSURL` instance that couldn't be created for a list.
+        :param: error The error the describes why the create failed.
+    */
+    func listCoordinatorDidFailCreatingListAtURL(URL: NSURL, withError error: NSError)
 }

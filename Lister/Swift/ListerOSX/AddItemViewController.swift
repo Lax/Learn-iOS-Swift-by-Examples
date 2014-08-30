@@ -4,7 +4,7 @@
     
     Abstract:
     
-                Controls the logic for displaying the UI for creating a new list item for the table view.
+                The `AddItemViewController` class displays the user interface for creating a new list item in the table view.
             
 */
 
@@ -29,7 +29,7 @@ class AddItemViewController: NSViewController {
             delegate?.addItemViewController(self, didCreateNewItemWithText: cleansedString)
         }
 
-        // It's a known issue that presentingViewController currently returns nil. To work around this, you can use the escape key instead of the enter key to close the popover / create a new item.
+        // Tell the presenting view controller to dismiss the popover.
         presentingViewController?.dismissViewController(self)
     }
 }

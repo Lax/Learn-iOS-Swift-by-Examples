@@ -4,7 +4,7 @@
     
     Abstract:
     
-                A custom cell used for displaying list items, and the row allowing for the creation of new items.
+                A custom cell used to display a list item or the row used to create a new item.
             
 */
 
@@ -14,8 +14,9 @@ import ListerKit
 class ListItemCell: UITableViewCell {
     // MARK: Properties
 
-    @IBOutlet var textField: UITextField
-    @IBOutlet var checkBox: CheckBox
+    @IBOutlet weak var textField: UITextField!
+    
+    @IBOutlet weak var checkBox: CheckBox!
     
     var isComplete: Bool = false {
         didSet {
@@ -24,15 +25,5 @@ class ListItemCell: UITableViewCell {
             
             textField.textColor = isComplete ? UIColor.lightGrayColor() : UIColor.darkTextColor()
         }
-    }
-    
-    // MARK: Reuse
-
-    override func prepareForReuse() {
-        textField.text = ""
-        textField.textColor = UIColor.darkTextColor()
-        textField.enabled = true
-        checkBox.isChecked = false
-        checkBox.hidden = false
     }
 }

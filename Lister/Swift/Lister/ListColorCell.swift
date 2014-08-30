@@ -11,7 +11,7 @@
 import UIKit
 import ListerKit
 
-// Provides the ability to send a delegate a message about newly created list info objects.
+/// Provides the ability to send a delegate a message about newly created list info objects.
 @objc protocol ListColorCellDelegate {
     func listColorCellDidChangeSelectedColor(listColorCell: ListColorCell)
 }
@@ -19,41 +19,48 @@ import ListerKit
 class ListColorCell: UITableViewCell {
     // MARK: Properties
 
-    @IBOutlet var gray: UIView
-    @IBOutlet var blue: UIView
-    @IBOutlet var green: UIView
-    @IBOutlet var yellow: UIView
-    @IBOutlet var orange: UIView
-    @IBOutlet var red: UIView
+    @IBOutlet weak var gray: UIView!
+
+    @IBOutlet weak var blue: UIView!
+    
+    @IBOutlet weak var green: UIView!
+    
+    @IBOutlet weak var yellow: UIView!
+    
+    @IBOutlet weak var orange: UIView!
+    
+    @IBOutlet weak var red: UIView!
 
     weak var delegate: ListColorCellDelegate?
     
     var selectedColor: List.Color = .Gray
 
-    // MARK: Reuse
+    // MARK: Configuration
 
     func configure() {
-        // Setup a gesture recognizer to track taps on color views in the cell.
+        // Set up a gesture recognizer to track taps on color views in the cell.
         let colorGesture = UITapGestureRecognizer(target: self, action: "colorTap:")
         colorGesture.numberOfTapsRequired = 1
         colorGesture.numberOfTouchesRequired = 1
-        self.addGestureRecognizer(colorGesture)
+        
+        addGestureRecognizer(colorGesture)
     }
     
     // MARK: UITapGestureRecognizer Handling
     
-    func colorTap(tapGestureRecognizer: UITapGestureRecognizer) {
+    @IBAction func colorTap(tapGestureRecognizer: UITapGestureRecognizer) {
         if tapGestureRecognizer.state != .Ended {
             return
         }
         
         let tapLocation = tapGestureRecognizer.locationInView(contentView)
-        let view = contentView!.hitTest(tapLocation, withEvent: nil)
-        
+
         // If the user tapped on a color (identified by its tag), notify the delegate.
-        if let color = List.Color.fromRaw(view.tag) {
-            selectedColor = color
-            delegate?.listColorCellDidChangeSelectedColor(self)
+        if let view = contentView.hitTest(tapLocation, withEvent: nil) {
+            if let color = List.Color.fromRaw(view.tag) {
+                selectedColor = color
+                delegate?.listColorCellDidChangeSelectedColor(self)
+            }
         }
     }
 }

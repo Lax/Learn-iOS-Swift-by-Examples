@@ -4,7 +4,7 @@
     
     Abstract:
     
-                An NSViewController subclass that handles displaying list items in a NCWidgetListViewController. Bindings are used to link the represented object to the view controller.
+                The `ListRowViewController` class is an NSViewController subclass that displays list items in a NCWidgetListViewController. Bindings are used to link the represented object to the view controller.
             
 */
 
@@ -19,8 +19,8 @@ import ListerKitOSX
 class ListRowViewController: NSViewController {
     // MARK: Properties
 
-    @IBOutlet var checkBox: CheckBox
-    
+    @IBOutlet weak var checkBox: CheckBox!
+
     weak var delegate: ListRowViewControllerDelegate?
     
     override var nibName: String {

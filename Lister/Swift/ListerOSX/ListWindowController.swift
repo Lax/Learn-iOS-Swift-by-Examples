@@ -4,7 +4,7 @@
     
     Abstract:
     
-                A window controller that displays a single list document. Handles interaction with the "share" button and the "plus" button (for creating a new item).
+                The `ListWindowController` class is a window controller that displays a single list document. It also handles interaction with the "share" button and the "plus" button (for creating a new item).
             
 */
 
@@ -20,7 +20,7 @@ class ListWindowController: NSWindowController {
     
     // MARK: IBOutlets
 
-    @IBOutlet var shareButton: NSButton
+    @IBOutlet weak var shareButton: NSButton!
     
     // MARK: View Life Cycle
 
@@ -32,15 +32,15 @@ class ListWindowController: NSWindowController {
     }
 
     // MARK: Overrides
-
-    override func setDocument(document: NSDocument!) {
-        super.setDocument(document)
-
-        let listViewController = window.contentViewController as ListViewController
-        listViewController.document = document as? ListDocument
+    
+    override var document: AnyObject! {
+        didSet {
+            let listViewController = window.contentViewController as ListViewController
+            listViewController.document = document as? ListDocument
+        }
     }
     
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject!) {
+    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == SegueIdentifiers.showAddItemViewController {
             let listViewController = window.contentViewController as ListViewController
             
@@ -53,12 +53,12 @@ class ListWindowController: NSWindowController {
     // MARK: IBActions
 
     @IBAction func shareDocument(sender: NSButton) {
-        if let listDocument = document() as? ListDocument {
+        if let listDocument = document as? ListDocument {
             let listContents = ListFormatting.stringFromListItems(listDocument.list.items)
             
             let sharingServicePicker = NSSharingServicePicker(items: [listContents])
-
-            let preferredEdge = NSRectEdge(CGRectEdge.MinYEdge.toRaw())
+            
+            let preferredEdge =  NSRectEdge(CGRectEdge.MinYEdge.toRaw())
             sharingServicePicker.showRelativeToRect(NSZeroRect, ofView: sender, preferredEdge: preferredEdge)
         }
     }
