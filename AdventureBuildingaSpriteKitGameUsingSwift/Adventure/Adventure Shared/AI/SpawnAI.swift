@@ -11,7 +11,7 @@
 import SpriteKit
 
 class SpawnAI: ArtificialIntelligence {
-    init(character: Character, target: Character?) {
+    override init(character: Character, target: Character?) {
         super.init(character: character, target: target)
     }
 

@@ -17,11 +17,11 @@ let kArcherProjectileSpeed = 8.0
 
 var sSharedArcherProjectile = SKSpriteNode()
 var sSharedArcherProjectileEmitter = SKEmitterNode()
-var sSharedArcherIdleAnimationFrames = SKTexture[]()
-var sSharedArcherWalkAnimationFrames = SKTexture[]()
-var sSharedArcherAttackAnimationFrames = SKTexture[]()
-var sSharedArcherGetHitAnimationFrames = SKTexture[]()
-var sSharedArcherDeathAnimationFrames = SKTexture[]()
+var sSharedArcherIdleAnimationFrames = [SKTexture]()
+var sSharedArcherWalkAnimationFrames = [SKTexture]()
+var sSharedArcherAttackAnimationFrames = [SKTexture]()
+var sSharedArcherGetHitAnimationFrames = [SKTexture]()
+var sSharedArcherDeathAnimationFrames = [SKTexture]()
 var sSharedArcherDamageAction = SKAction()
 
 var kLoadSharedArcherAssetsOnceToken: dispatch_once_t = 0
@@ -72,23 +72,23 @@ class Archer: HeroCharacter {
         return sSharedArcherProjectileEmitter
     }
 
-    override func idleAnimationFrames() -> SKTexture[] {
+    override func idleAnimationFrames() -> [SKTexture] {
         return sSharedArcherIdleAnimationFrames
     }
 
-    override func walkAnimationFrames() -> SKTexture[] {
+    override func walkAnimationFrames() -> [SKTexture] {
         return sSharedArcherWalkAnimationFrames
     }
 
-    override func attackAnimationFrames() -> SKTexture[] {
+    override func attackAnimationFrames() -> [SKTexture] {
         return sSharedArcherAttackAnimationFrames
     }
 
-    override func getHitAnimationFrames() -> SKTexture[] {
+    override func getHitAnimationFrames() -> [SKTexture] {
         return sSharedArcherGetHitAnimationFrames
     }
 
-    override func deathAnimationFrames() -> SKTexture[] {
+    override func deathAnimationFrames() -> [SKTexture] {
         return sSharedArcherDeathAnimationFrames
     }
 

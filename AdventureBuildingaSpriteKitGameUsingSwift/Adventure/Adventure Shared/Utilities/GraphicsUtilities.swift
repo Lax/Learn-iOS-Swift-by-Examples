@@ -14,7 +14,7 @@ func createCGImageFromFile(path: String) -> CGImage {
 #if os(iOS)
     let image = UIImage(contentsOfFile: path)
         
-    return CGImageRetain(image.CGImage)
+    return image.CGImage
 #else
     let nsimage = NSImage(contentsOfFile: path)
     let destRect = NSZeroRect
@@ -38,7 +38,7 @@ func getCGImageNamed(name: String) -> CGImage {
         var newName = name.lastPathComponent
         let fileExtension = newName.pathExtension
         newName = newName.stringByDeletingPathExtension
-        path = NSBundle.mainBundle().pathForResource(newName, ofType: fileExtension, inDirectory: directory)
+        path = NSBundle.mainBundle().pathForResource(newName, ofType: fileExtension, inDirectory: directory)!
     }
     return createCGImageFromFile(path)
 #endif
@@ -46,12 +46,14 @@ func getCGImageNamed(name: String) -> CGImage {
 
 extension SKEmitterNode {
     class func emitterNodeWithName(name: String) -> SKEmitterNode {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(NSBundle.mainBundle().pathForResource(name, ofType: "sks")) as SKEmitterNode
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(NSBundle.mainBundle().pathForResource(name, ofType: "sks")!) as SKEmitterNode
     }
 }
 
 func unitRandom() -> CGFloat {
-    return CGFloat(arc4random()) / (0x100000000 as CGFloat)
+    let quotient = Double(arc4random()) / Double(UInt32.max)
+
+    return CGFloat(quotient)
 }
 
 func createARGBBitmapContext(inImage: CGImage) -> CGContext {
@@ -73,7 +75,7 @@ func createARGBBitmapContext(inImage: CGImage) -> CGContext {
     return context
 }
 
-func createDataMap(mapName: String) -> COpaquePointer {
+func createDataMap(mapName: String) -> UnsafeMutablePointer<Void> {
     let inImage = getCGImageNamed(mapName)
     let cgContext = createARGBBitmapContext(inImage)
 
@@ -111,10 +113,6 @@ extension CGPoint : Equatable {
     }
 }
 
-func ==(point1: CGPoint, point2: CGPoint) -> Bool {
-    return CGPointEqualToPoint(point1, point2)
-}
-
 func runOneShotEmitter(emitter: SKEmitterNode, withDuration duration: CGFloat) {
     let waitAction = SKAction.waitForDuration(NSTimeInterval(duration))
     let birthRateSet = SKAction.runBlock { emitter.particleBirthRate = 0.0 }
@@ -124,21 +122,3 @@ func runOneShotEmitter(emitter: SKEmitterNode, withDuration duration: CGFloat) {
     var sequence = [ waitAction, birthRateSet, waitAction2, removeAction]
     emitter.runAction(SKAction.sequence(sequence))
 }
-
-#if arch(arm) || arch(i386)
-func sin(x: CGFloat) -> CGFloat {
-    return sinf(x)
-}
-
-func cos(x: CGFloat) -> CGFloat {
-    return cosf(x)
-}
-func hypot(x: CGFloat, y: CGFloat) -> CGFloat {
-    return hypotf(x, y)
-}
-
-func atan2(x: CGFloat, y: CGFloat) -> CGFloat {
-    return atan2f(x, y)
-}
-#endif
-

@@ -11,12 +11,17 @@
 import SpriteKit
 
 class ViewController: UIViewController {
-    @IBOutlet var skView: SKView
-    @IBOutlet var imageView: UIImageView
-    @IBOutlet var gameLogo: UIImageView
-    @IBOutlet var loadingProgressIndicator: UIActivityIndicatorView
-    @IBOutlet var archerButton: UIButton
-    @IBOutlet var warriorButton: UIButton
+    @IBOutlet weak var skView: SKView!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var gameLogo: UIImageView!
+    
+    @IBOutlet weak var loadingProgressIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var archerButton: UIButton!
+    
+    @IBOutlet weak var warriorButton: UIButton!
     
     var scene: AdventureScene!
 

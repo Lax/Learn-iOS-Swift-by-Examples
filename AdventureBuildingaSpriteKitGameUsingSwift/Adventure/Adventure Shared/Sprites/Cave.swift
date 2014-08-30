@@ -13,10 +13,10 @@ import SpriteKit
 var kLoadSharedCaveAssetsOnceToken: dispatch_once_t = 0
 
 class Cave: EnemyCharacter {
-    var smokeEmitter: SKEmitterNode? = .None
+    var smokeEmitter: SKEmitterNode?
     var timeUntilNextGenerate: CGFloat = 5000.0
-    var activeGoblins = Goblin[]()
-    var inactiveGoblins = Goblin[]()
+    var activeGoblins = [Goblin]()
+    var inactiveGoblins = [Goblin]()
 
     init(atPosition position: CGPoint) {
         let sprites = [sSharedCaveBase.copy() as SKSpriteNode, sSharedCaveTop.copy() as SKSpriteNode]
@@ -24,7 +24,7 @@ class Cave: EnemyCharacter {
 
         timeUntilNextGenerate = 5.0 + 5.0 * unitRandom()
 
-        for _ in 0..caveCapacity {
+        for _ in 0..<caveCapacity {
             var goblin = Goblin(atPosition: position)
             goblin.cave = self
             inactiveGoblins.append(goblin)
@@ -109,13 +109,13 @@ class Cave: EnemyCharacter {
         updateSmokeForHealth()
 
         // show damage on parallax stacks
-        for node in children as SKNode[] {
+        for node in children as [SKNode] {
             node.runAction(sSharedCaveDamageAction)
         }
     }
 
     func updateSmokeForHealth() {
-        if health > 75.0 || smokeEmitter {
+        if health > 75.0 || smokeEmitter != nil {
             return
         }
 

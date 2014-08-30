@@ -4,7 +4,7 @@
   
   Abstract:
   
-        Defines the class for goblin enemies
+        Defines the class for goblin enemies.
       
 */
 
@@ -22,15 +22,15 @@ let kGoblinGetHitFrames = 25
 let kDefaultNumberOfIdleFrames = 28
 let kDefaultNumberOfWalkFrames = 28
 
-var sSharedGetHitAnimationFrames = SKTexture[]()
-var sSharedDeathAnimationFrames = SKTexture[]()
+var sSharedGetHitAnimationFrames = [SKTexture]()
+var sSharedDeathAnimationFrames = [SKTexture]()
 
-var kLoadSharedGoblinAssetsOnceToken : dispatch_once_t = 0
+var kLoadSharedGoblinAssetsOnceToken: dispatch_once_t = 0
 
 class Goblin: EnemyCharacter, Equatable {
-	var cave: Cave? = .None
+	var cave: Cave?
 
-  init(atPosition position: CGPoint) {
+    init(atPosition position: CGPoint) {
         let atlas = SKTextureAtlas(named: "Goblin_Idle")
 		let atlasTexture = atlas.textureNamed("goblin_idle_0001.png")
 
@@ -159,23 +159,23 @@ class Goblin: EnemyCharacter, Equatable {
         return sSharedGoblinDamageAction
     }
 
-    override func idleAnimationFrames() -> SKTexture[] {
+    override func idleAnimationFrames() -> [SKTexture] {
         return sSharedGoblinIdleAnimationFrames
     }
 
-    override func walkAnimationFrames() -> SKTexture[] {
+    override func walkAnimationFrames() -> [SKTexture] {
         return sSharedGoblinWalkAnimationFrames
     }
 
-    override func attackAnimationFrames() -> SKTexture[] {
+    override func attackAnimationFrames() -> [SKTexture] {
         return sSharedGoblinAttackAnimationFrames
     }
 
-    override func getHitAnimationFrames() -> SKTexture[] {
+    override func getHitAnimationFrames() -> [SKTexture] {
         return sSharedGoblinGetHitAnimationFrames
     }
 
-    override func deathAnimationFrames() -> SKTexture[] {
+    override func deathAnimationFrames() -> [SKTexture] {
         return sSharedGoblinDeathAnimationFrames
     }
 
@@ -194,8 +194,8 @@ var sSharedGoblinDeathSplort = SKSpriteNode()
 var sSharedGoblinDamageEmitter = SKEmitterNode()
 var sSharedGoblinDeathEmitter = SKEmitterNode()
 var sSharedGoblinDamageAction = SKAction()
-var sSharedGoblinIdleAnimationFrames = SKTexture[]()
-var sSharedGoblinWalkAnimationFrames = SKTexture[]()
-var sSharedGoblinAttackAnimationFrames = SKTexture[]()
-var sSharedGoblinGetHitAnimationFrames = SKTexture[]()
-var sSharedGoblinDeathAnimationFrames = SKTexture[]()
+var sSharedGoblinIdleAnimationFrames = [SKTexture]()
+var sSharedGoblinWalkAnimationFrames = [SKTexture]()
+var sSharedGoblinAttackAnimationFrames = [SKTexture]()
+var sSharedGoblinGetHitAnimationFrames = [SKTexture]()
+var sSharedGoblinDeathAnimationFrames = [SKTexture]()

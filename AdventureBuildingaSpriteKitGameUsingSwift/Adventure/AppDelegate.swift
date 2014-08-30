@@ -51,9 +51,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         warriorButton.alphaValue = 0.0
     }
 
-    @IBOutlet var skView: SKView
-    @IBOutlet var loadingProgressIndicator: NSProgressIndicator
-    @IBOutlet var gameLogo: NSImageView
-    @IBOutlet var archerButton : NSButton
-    @IBOutlet var warriorButton : NSButton
+    @IBOutlet weak var skView: SKView!
+    
+    @IBOutlet weak var loadingProgressIndicator: NSProgressIndicator!
+    
+    @IBOutlet weak var gameLogo: NSImageView!
+    
+    @IBOutlet weak var archerButton : NSButton!
+    
+    @IBOutlet weak var warriorButton : NSButton!
 }

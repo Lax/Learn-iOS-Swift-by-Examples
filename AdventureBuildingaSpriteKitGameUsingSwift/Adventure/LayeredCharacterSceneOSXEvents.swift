@@ -13,7 +13,7 @@ import SpriteKit
 extension LayeredCharacterScene {
     // EVENT HANDLING
     func handleKeyEvent(event: NSEvent, keyDown downOrUp: Bool) {
-        if event.modifierFlags & .NumericPadKeyMask {
+        if event.modifierFlags & .NumericPadKeyMask == .NumericPadKeyMask {
             for keyChar in event.charactersIgnoringModifiers.unicodeScalars {
                 switch UInt32(keyChar) {
                     case 0xF700:

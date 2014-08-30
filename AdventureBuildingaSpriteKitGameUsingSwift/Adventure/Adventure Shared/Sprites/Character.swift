@@ -39,27 +39,26 @@ class Character: ParallaxSprite {
     var characterScene: LayeredCharacterScene {
         return self.scene as LayeredCharacterScene
     }
-
-
+    
     var shadowBlob = SKSpriteNode()
 
-    func idleAnimationFrames() -> SKTexture[] {
+    func idleAnimationFrames() -> [SKTexture] {
         return []
     }
 
-    func walkAnimationFrames() -> SKTexture[] {
+    func walkAnimationFrames() -> [SKTexture] {
         return []
     }
 
-    func attackAnimationFrames() -> SKTexture[] {
+    func attackAnimationFrames() -> [SKTexture] {
         return []
     }
 
-    func getHitAnimationFrames() -> SKTexture[] {
+    func getHitAnimationFrames() -> [SKTexture] {
         return []
     }
 
-    func deathAnimationFrames() -> SKTexture[] {
+    func deathAnimationFrames() -> [SKTexture] {
         return []
     }
 
@@ -71,17 +70,21 @@ class Character: ParallaxSprite {
         return SKAction()
     }
 
-    init(sprites: SKSpriteNode[], atPosition position: CGPoint, usingOffset offset: CGFloat) {
+    init(sprites: [SKSpriteNode], atPosition position: CGPoint, usingOffset offset: CGFloat) {
         super.init(sprites: sprites, usingOffset: offset)
 
         sharedInitAtPosition(position)
     }
 
     init(texture: SKTexture?, atPosition position: CGPoint) {
-        let size = texture ? texture!.size() : CGSize(width: 0, height: 0)
+        let size = texture != nil ? texture!.size() : CGSize(width: 0, height: 0)
         super.init(texture: texture, color: SKColor.whiteColor(), size: size)
 
         sharedInitAtPosition(position)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
     func sharedInitAtPosition(position: CGPoint) {
@@ -177,7 +180,7 @@ class Character: ParallaxSprite {
         requestedAnimation = dying ? .Death : .Idle
     }
 
-    func animationFramesAndKeyForState(state: AnimationState) -> (SKTexture[], String) {
+    func animationFramesAndKeyForState(state: AnimationState) -> ([SKTexture], String) {
         switch state {
             case .Walk:
                return (walkAnimationFrames(), "anim_walk")
@@ -196,7 +199,7 @@ class Character: ParallaxSprite {
         }
     }
 
-    func fireAnimationForState(animationState: AnimationState, usingTextures frames: SKTexture[], withKey key: String) {
+    func fireAnimationForState(animationState: AnimationState, usingTextures frames: [SKTexture], withKey key: String) {
         var animAction = actionForKey(key)
 
         if animAction != nil || frames.count < 1 {
@@ -247,7 +250,7 @@ class Character: ParallaxSprite {
 
 // Movement
     func move(direction: MoveDirection, withTimeInterval timeInterval: NSTimeInterval) {
-        var action: SKAction
+        var action: SKAction!
 
         switch direction {
             case .Forward:

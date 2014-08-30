@@ -12,7 +12,7 @@ import SpriteKit
 
 class EnemyCharacter: Character {
     // Subclasses always set the intelligence in their initializers.
-    var intelligence: ArtificialIntelligence! = nil
+    var intelligence: ArtificialIntelligence!
 
     override func updateWithTimeSinceLastUpdate(interval: NSTimeInterval) {
         super.updateWithTimeSinceLastUpdate(interval)

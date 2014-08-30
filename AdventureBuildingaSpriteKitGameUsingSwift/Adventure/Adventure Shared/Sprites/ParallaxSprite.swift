@@ -15,15 +15,19 @@ class ParallaxSprite: SKSpriteNode {
     var virtualZRotation = CGFloat(0)
     var parallaxOffset = CGFloat(0)
 
-    convenience init () {
+    convenience override init () {
       self.init(texture: nil, color: SKColor.whiteColor(), size: CGSize(width: 0, height: 0))
     }
 
-    init(texture: SKTexture?, color: SKColor?, size: CGSize) {
+    override init(texture: SKTexture?, color: SKColor?, size: CGSize) {
       super.init(texture: texture, color:color, size:size)
     }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
-    init(sprites: SKSpriteNode[], usingOffset offset: CGFloat) {
+    init(sprites: [SKSpriteNode], usingOffset offset: CGFloat) {
         super.init(texture: nil, color: SKColor.whiteColor(), size: CGSize(width: 0, height: 0))
 
         usesParallaxEffect = true
@@ -61,7 +65,7 @@ class ParallaxSprite: SKSpriteNode {
             if rotation > 0.0 {
                 super.zRotation = 0.0
 
-                for child in children as SKNode[] {
+                for child in children as [SKNode] {
                     child.zRotation = rotation
                 }
 
@@ -82,7 +86,7 @@ class ParallaxSprite: SKSpriteNode {
 
         let delta = parallaxOffset / CGFloat(children.count)
 
-        for (childNumber, child) in enumerate(children as SKNode[]) {
+        for (childNumber, child) in enumerate(children as [SKNode]) {
             child.position = CGPoint(x: offsetX * delta * CGFloat(childNumber), y: offsetY * delta * CGFloat(childNumber))
         }
 

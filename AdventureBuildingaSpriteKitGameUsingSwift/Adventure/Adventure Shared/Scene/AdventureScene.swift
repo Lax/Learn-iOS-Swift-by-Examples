@@ -19,21 +19,24 @@ enum CharacterClass {
 }
 
 class AdventureScene: LayeredCharacterScene, SKPhysicsContactDelegate {
-
     var levelMap = UnsafePointer<SpriteLocation>(createDataMap("map_level.png"))
-    var treeMap = UnsafePointer<TreeLocation>(createDataMap("map_trees.png"))
-    var parallaxSprites = ParallaxSprite[]()
-    var trees = Tree[]()
-    var particleSystems = SKEmitterNode[]()
-    var goblinCaves = Cave[]()
-    var levelBoss: Boss? = nil
+    var treeMap = UnsafeMutablePointer<TreeLocation>(createDataMap("map_trees.png"))
+    var parallaxSprites = [ParallaxSprite]()
+    var trees = [Tree]()
+    var particleSystems = [SKEmitterNode]()
+    var goblinCaves = [Cave]()
+    var levelBoss: Boss?
     
-    init(size: CGSize) {
+    override init(size: CGSize) {
         super.init(size: size)
 
         buildWorld()
 
         centerWorldOnPosition(defaultSpawnPoint)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
 // WORLD BUILDING
@@ -55,8 +58,8 @@ class AdventureScene: LayeredCharacterScene, SKPhysicsContactDelegate {
     }
 
     func addSpawnPoints() {
-        for y in 0..kLevelMapSize {
-            for x in 0..kLevelMapSize {
+        for y in 0..<kLevelMapSize {
+            for x in 0..<kLevelMapSize {
                 let location = CGPoint(x: x, y: y)
                 let spot = queryLevelMap(location)
 
@@ -78,8 +81,8 @@ class AdventureScene: LayeredCharacterScene, SKPhysicsContactDelegate {
     }
 
     func addTrees() {
-        for y in 0..kLevelMapSize {
-            for x in 0..kLevelMapSize {
+        for y in 0..<kLevelMapSize {
+            for x in 0..<kLevelMapSize {
                 let location = CGPoint(x: x, y: y)
                 let spot = queryTreeMap(location)
                 let treePos = convertLevelMapPointToWorldPoint(location)
@@ -119,12 +122,12 @@ class AdventureScene: LayeredCharacterScene, SKPhysicsContactDelegate {
     }
 
     func addCollisionWalls() {
-        var filled = UInt8[](count: kLevelMapSize * kLevelMapSize, repeatedValue: 0)
+        var filled = [UInt8](count: kLevelMapSize * kLevelMapSize, repeatedValue: 0)
 
         var numVolumes = 0, numBlocks = 0
 
-        for y in 0..kLevelMapSize {
-            for x in 0..kLevelMapSize {
+        for y in 0..<kLevelMapSize {
+            for x in 0..<kLevelMapSize {
                 let location = CGPoint(x: x, y: y)
                 let spot = queryLevelMap(location)
 
@@ -153,8 +156,8 @@ class AdventureScene: LayeredCharacterScene, SKPhysicsContactDelegate {
                     }
 
                     var wallHeight = verticalDistanceFromTop - y
-                    for j in y..verticalDistanceFromTop {
-                        for i in x..horizontalDistanceFromLeft {
+                    for j in y..<verticalDistanceFromTop {
+                        for i in x..<horizontalDistanceFromLeft {
                             filled[(j * kLevelMapSize) + i] = 255
                             numBlocks++
                         }
@@ -166,8 +169,8 @@ class AdventureScene: LayeredCharacterScene, SKPhysicsContactDelegate {
             }
         }
 
-        for x in 0..kLevelMapSize {
-            for y in 0..kLevelMapSize {
+        for x in 0..<kLevelMapSize {
+            for y in 0..<kLevelMapSize {
                 let location = CGPoint(x: x, y: y)
                 let spot = queryLevelMap(location)
 
@@ -195,8 +198,8 @@ class AdventureScene: LayeredCharacterScene, SKPhysicsContactDelegate {
                     }
 
                     let wallLength = horizontalDistanceFromLeft - x
-                    for j in y..verticalDistanceFromTop {
-                        for i in x..horizontalDistanceFromLeft {
+                    for j in y..<verticalDistanceFromTop {
+                        for i in x..<horizontalDistanceFromLeft {
                             filled[(j * kLevelMapSize) + i] = 255
                             numBlocks++
                         }
@@ -393,8 +396,8 @@ class AdventureScene: LayeredCharacterScene, SKPhysicsContactDelegate {
     class func loadBackgroundTiles() {
         var tileAtlas = SKTextureAtlas(named: "Tiles")
 
-        for y in 0..kWorldTileDivisor {
-            for x in 0..kWorldTileDivisor {
+        for y in 0..<kWorldTileDivisor {
+            for x in 0..<kWorldTileDivisor {
                 let tileNumber = (y * kWorldTileDivisor) + x
                 let tileNode = SKSpriteNode(texture: tileAtlas.textureNamed("tile\(tileNumber).png"))
 
@@ -414,9 +417,9 @@ class AdventureScene: LayeredCharacterScene, SKPhysicsContactDelegate {
 }
 
 
-var sBackgroundTiles = SKSpriteNode[]()
-var sSharedSmallTree = Tree(sprites: SKSpriteNode[](), usingOffset: 0.0)
-var sSharedBigTree = Tree(sprites: SKSpriteNode[](), usingOffset: 0.0)
+var sBackgroundTiles = [SKSpriteNode]()
+var sSharedSmallTree = Tree(sprites: [SKSpriteNode](), usingOffset: 0.0)
+var sSharedBigTree = Tree(sprites: [SKSpriteNode](), usingOffset: 0.0)
 var sSharedLeafEmitterA = SKEmitterNode()
 var sSharedLeafEmitterB = SKEmitterNode()
 var sSharedProjectileSparkEmitter = SKEmitterNode()

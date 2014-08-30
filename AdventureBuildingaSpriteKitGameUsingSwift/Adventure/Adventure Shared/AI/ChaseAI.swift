@@ -17,7 +17,7 @@ class ChaseAI: ArtificialIntelligence {
 	var maxAlertRadius: CGFloat = kEnemyAlertRadius * 2.0
 
 	// Initialization
-    init(character: Character, target: Character?) {
+    override init(character: Character, target: Character?) {
         super.init(character: character, target: target)
     }
 
@@ -29,7 +29,7 @@ class ChaseAI: ArtificialIntelligence {
 
 		let position = character.position
 
-		var closestHeroDistance = CGFLOAT_MAX
+		var closestHeroDistance = CGFloat.max
 
 		for hero in character.characterScene.heroes {
 			let distance = position.distanceTo(hero.position)

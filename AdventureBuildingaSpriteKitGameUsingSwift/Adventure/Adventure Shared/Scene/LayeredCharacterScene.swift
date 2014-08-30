@@ -13,7 +13,7 @@ import SpriteKit
 
 /// The location of a sprite encoded as a 32-bit integer on disk.
 struct SpriteLocation {
-    var fullLocation : UInt32
+    var fullLocation: UInt32
 
     var bossLocation: UInt8 {
       return UInt8(fullLocation & 0x000000FF) 
@@ -34,7 +34,7 @@ struct SpriteLocation {
 
 /// The location of a tree encoded as a 32-bit integer on disk.
 struct TreeLocation {
-    var fullLocation : UInt32
+    var fullLocation: UInt32
 
     var bigTreeLocation: UInt8 {
         return UInt8((fullLocation & 0x0000FF00) >> 8)
@@ -56,9 +56,9 @@ let kMinHeroToEdgeDistance: CGFloat = 256.0                // minimum distance b
 
 class LayeredCharacterScene: SKScene {
     var world = SKNode()
-    var layers = SKNode[]()
+    var layers = [SKNode]()
 
-    var heroes = HeroCharacter[]()
+    var heroes = [HeroCharacter]()
 
     var defaultSpawnPoint = CGPointZero
     var worldMovedForUpdate = false
@@ -66,18 +66,18 @@ class LayeredCharacterScene: SKScene {
     var defaultPlayer = Player()
 
     // HUD
-    var hudAvatar: SKSpriteNode! = nil
-    var hudLabel: SKLabelNode! = nil
-    var hudScore: SKLabelNode! = nil
-    var hudLifeHearts = SKSpriteNode[]()
+    var hudAvatar: SKSpriteNode!
+    var hudLabel: SKLabelNode!
+    var hudScore: SKLabelNode!
+    var hudLifeHearts = [SKSpriteNode]()
 
     var lastUpdateTimeInterval = NSTimeInterval(0)
 
-    init(size: CGSize) {
+    override init(size: CGSize) {
         super.init(size: size)
 
         world.name = "world"
-        for i in 0..kWorldLayerCount {
+        for i in 0..<kWorldLayerCount {
             let layer = SKNode()
             layer.zPosition = CGFloat(i - kWorldLayerCount)
             world.addChild(layer)
@@ -88,6 +88,10 @@ class LayeredCharacterScene: SKScene {
         
         buildHUD()
         updateHUDForPlayer(defaultPlayer)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
     func addNode(node: SKNode, atWorldLayer layer: WorldLayer) {
@@ -142,7 +146,7 @@ class LayeredCharacterScene: SKScene {
         
         #if os(iOS)
         // Disable touch movement, otherwise new hero will try to move to previously-touched location.
-        player.moveRequested = false;
+        player.moveRequested = false
         #endif
     
         --player.livesLeft
@@ -181,7 +185,7 @@ class LayeredCharacterScene: SKScene {
         hudLabel = SKLabelNode(fontNamed: fontName)
         hudLabel.text = "ME"
         hudLabel.fontColor = color
-        hudLabel.fontSize = 16;
+        hudLabel.fontSize = 16
         hudLabel.horizontalAlignmentMode = .Left
         hudLabel.position = CGPoint(x: hudX + (hudAvatar.size.width * 1.0), y: hudY + 10 )
         hud.addChild(hudLabel)
@@ -191,20 +195,22 @@ class LayeredCharacterScene: SKScene {
         hudScore.text = "SCORE: 0"
         hudScore.fontColor = color
         hudScore.fontSize = 16
-        hudScore.horizontalAlignmentMode = .Left;
+        hudScore.horizontalAlignmentMode = .Left
         hudScore.position = CGPoint(x: hudX + (hudAvatar.size.width * 1.0), y: hudY - 40 )
         hud.addChild(hudScore)
     
         // Add the life hearts.
-        for j in 0..kStartLives {
+        for j in 0..<kStartLives {
             let heart = SKSpriteNode(imageNamed: "lives.png")
             heart.setScale(0.4)
-            heart.position = CGPoint(x: hudX + (hudAvatar.size.width * 1.0) + 18 + ((heart.size.width + 5) * CGFloat(j)), y: hudY - 10)
+            let x = hudX + (hudAvatar.size.width * 1.0) + 18 + ((heart.size.width + 5) * CGFloat(j))
+            let y = hudY - 10
+            heart.position = CGPoint(x: x, y: y)
             hudLifeHearts.append(heart)
             hud.addChild(heart)
         }
-    
-        self.addChild(hud)
+
+        addChild(hud)
     }
 
     func updateHUDForPlayer(player: Player) {
@@ -213,7 +219,7 @@ class LayeredCharacterScene: SKScene {
 
     func updateHUDAfterHeroDeathForPlayer(player: Player) {
         // Fade out the relevant heart - one-based livesLeft has already been decremented.
-        let heartNumber = player.livesLeft;
+        let heartNumber = player.livesLeft
         
         let heart = hudLifeHearts[heartNumber]
         heart.runAction(SKAction.fadeAlphaTo(0.0, duration: 3.0))
@@ -221,7 +227,7 @@ class LayeredCharacterScene: SKScene {
 
     func addToScore(amount: Int, afterEnemyKillWithProjectile projectile: SKNode) {
         let player = projectile.userData[kPlayer] as Player
-        player.score += amount;
+        player.score += amount
         updateHUDForPlayer(player)
     }
 
@@ -238,7 +244,7 @@ class LayeredCharacterScene: SKScene {
 
         updateWithTimeSinceLastUpdate(timeSinceLast)
 
-        if !defaultPlayer.hero {
+        if defaultPlayer.hero == nil {
             return
         }
 
@@ -322,7 +328,7 @@ class LayeredCharacterScene: SKScene {
 
 // ASSET LOADING
     class func loadSceneAssetsWithCompletionHandler(completionHandler: () -> Void) {
-        let queue = dispatch_get_current_queue()
+        let queue = dispatch_get_main_queue()
 
         let backgroundQueue = dispatch_get_global_queue(CLong(DISPATCH_QUEUE_PRIORITY_HIGH), 0)
         dispatch_async(backgroundQueue) {

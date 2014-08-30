@@ -21,11 +21,11 @@ let kBossChaseRadius: CGFloat = kBossCollisionRadius * 4.0
 
 var kLoadSharedBossAssetsOnceToken: dispatch_once_t = 0
 
-var sSharedBossIdleAnimationFrames = SKTexture[]()
-var sSharedBossWalkAnimationFrames = SKTexture[]()
-var sSharedBossAttackAnimationFrames = SKTexture[]()
-var sSharedBossGetHitAnimationFrames = SKTexture[]()
-var sSharedBossDeathAnimationFrames = SKTexture[]()
+var sSharedBossIdleAnimationFrames = [SKTexture]()
+var sSharedBossWalkAnimationFrames = [SKTexture]()
+var sSharedBossAttackAnimationFrames = [SKTexture]()
+var sSharedBossGetHitAnimationFrames = [SKTexture]()
+var sSharedBossDeathAnimationFrames = [SKTexture]()
 var sSharedBossDamageEmitter = SKEmitterNode()
 var sSharedBossDamageAction = SKAction()
 
@@ -139,23 +139,23 @@ class Boss: EnemyCharacter {
         return sSharedBossDamageAction
     }
 
-    override func idleAnimationFrames() -> SKTexture[] {
+    override func idleAnimationFrames() -> [SKTexture] {
         return sSharedBossIdleAnimationFrames
     }
 
-    override func walkAnimationFrames() -> SKTexture[] {
+    override func walkAnimationFrames() -> [SKTexture] {
         return sSharedBossWalkAnimationFrames
     }
 
-    override func attackAnimationFrames() -> SKTexture[] {
+    override func attackAnimationFrames() -> [SKTexture] {
         return sSharedBossAttackAnimationFrames
     }
 
-    override func getHitAnimationFrames() -> SKTexture[] {
+    override func getHitAnimationFrames() -> [SKTexture] {
         return sSharedBossGetHitAnimationFrames
     }
 
-    override func deathAnimationFrames() -> SKTexture[] {
+    override func deathAnimationFrames() -> [SKTexture] {
         return sSharedBossDeathAnimationFrames
     }
 }

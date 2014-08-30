@@ -23,8 +23,8 @@ class Player {
     var fireAction = false
 
     #if os(iOS)
-    var movementTouch: UITouch? = .None
-    var targetLocation: CGPoint = CGPointZero
-    var moveRequested: Bool = false
+    var movementTouch: UITouch? = nil
+    var targetLocation = CGPointZero
+    var moveRequested = false
     #endif
 }

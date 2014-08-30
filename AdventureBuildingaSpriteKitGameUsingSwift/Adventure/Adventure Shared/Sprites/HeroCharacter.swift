@@ -16,7 +16,7 @@ let kHeroProjectileLifetime: NSTimeInterval = 1.0
 let kHeroProjectileFadeOutTime: NSTimeInterval = 0.6
 
 class HeroCharacter: Character {
-    var player: Player
+    var player: Player!
 
     init(atPosition position: CGPoint, withTexture texture: SKTexture? = nil, player: Player) {
         self.player = player
@@ -25,6 +25,10 @@ class HeroCharacter: Character {
         zRotation = CGFloat(M_PI)
         zPosition = -0.25
         name = "Hero"
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
     override func configurePhysicsBody() {

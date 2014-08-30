@@ -16,7 +16,7 @@ extension LayeredCharacterScene {
             return
         }
 
-        if defaultPlayer.movementTouch {
+        if defaultPlayer.movementTouch != nil {
             return
         }
 
@@ -29,7 +29,7 @@ extension LayeredCharacterScene {
 
         let targetCategoryBitmask = ColliderType.GoblinOrBoss.toRaw() | ColliderType.Cave.toRaw()
 
-        for node in nodes as SKNode[] {
+        for node in nodes as [SKNode] {
             // There are multiple values for ColliderType. Need to check if we want to attack.
             if let body = node.physicsBody {
                 if body.categoryBitMask & targetCategoryBitmask > 0 {
@@ -66,7 +66,7 @@ extension LayeredCharacterScene {
         
         if let touch = defaultPlayer.movementTouch {
             if touches.containsObject(touch) {
-                defaultPlayer.movementTouch = .None
+                defaultPlayer.movementTouch = nil
                 defaultPlayer.fireAction = false
             }
         }
