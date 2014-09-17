@@ -42,7 +42,7 @@ class DatePickerController: UIViewController {
 
         // Set min/max date for the date picker.
         // As an example we will limit the date between now and 7 days from now.
-        let now = NSDate.date()
+        let now = NSDate()
         datePicker.minimumDate = now
 
         let currentCalendar = NSCalendar.currentCalendar()

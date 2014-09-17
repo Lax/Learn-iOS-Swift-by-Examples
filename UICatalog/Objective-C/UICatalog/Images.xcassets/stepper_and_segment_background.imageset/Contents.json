@@ -1,6 +1,9 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x",
       "filename" : "stepper_and_segment_background_1x.png"
@@ -9,6 +12,11 @@
       "idiom" : "universal",
       "scale" : "2x",
       "filename" : "stepper_and_segment_background_2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "stepper_and_segment_background_3x.png"
     }
   ],
   "info" : {

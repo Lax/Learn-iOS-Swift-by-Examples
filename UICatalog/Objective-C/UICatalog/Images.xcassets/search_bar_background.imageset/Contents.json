@@ -1,6 +1,9 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x",
       "filename" : "search_bar_bg_1x.png"
@@ -9,6 +12,11 @@
       "idiom" : "universal",
       "scale" : "2x",
       "filename" : "search_bar_bg_2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "search_bar_background_3x.png"
     }
   ],
   "info" : {

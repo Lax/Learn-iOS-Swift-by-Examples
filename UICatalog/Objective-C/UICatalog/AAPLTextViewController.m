@@ -123,17 +123,6 @@
     self.textView.attributedText = attributedText;
 }
 
-#pragma mark - UITextView Adjustment
-
-- (void)adjustTextViewSelection:(UITextView *)textView {
-    // Ensure that the text view is visible by making the text view frame smaller as text can be slightly cropped at the bottom.
-    // Note that this is a workwaround to a bug in iOS.
-    [textView layoutIfNeeded];
-    
-    CGRect caretRect = [textView caretRectForPosition:textView.selectedTextRange.end];
-    caretRect.size.height += textView.textContainerInset.bottom;
-    [textView scrollRectToVisible:caretRect animated:NO];
-}
 
 #pragma mark - UITextViewDelegate
 
@@ -142,12 +131,6 @@
     UIBarButtonItem *doneBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneBarButtonItemClicked)];
 
     [self.navigationItem setRightBarButtonItem:doneBarButtonItem animated:YES];
-
-    [self adjustTextViewSelection:textView];
-}
-
-- (void)textViewDidChangeSelection:(UITextView *)textView {
-    [self adjustTextViewSelection:textView];
 }
 
 

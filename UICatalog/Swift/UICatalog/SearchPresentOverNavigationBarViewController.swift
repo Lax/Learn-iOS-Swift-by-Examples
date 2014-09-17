@@ -20,7 +20,7 @@ class SearchPresentOverNavigationBarViewController: SearchControllerBaseViewCont
     
     @IBAction func searchButtonClicked(button: UIBarButtonItem) {
         // Create the search results view controller and use it for the UISearchController.
-        let searchResultsController = storyboard.instantiateViewControllerWithIdentifier(SearchResultsViewController.StoryboardConstants.identifier) as SearchResultsViewController
+        let searchResultsController = storyboard!.instantiateViewControllerWithIdentifier(SearchResultsViewController.StoryboardConstants.identifier) as SearchResultsViewController
 
         // Create the search controller and make it perform the results updating.
         searchController = UISearchController(searchResultsController: searchResultsController)

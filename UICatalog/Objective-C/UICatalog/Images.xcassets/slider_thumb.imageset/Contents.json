@@ -1,6 +1,9 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x",
       "filename" : "slider_thumb_1x.png"
@@ -9,6 +12,11 @@
       "idiom" : "universal",
       "scale" : "2x",
       "filename" : "slider_thumb_2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "slider_thumb_3x.png"
     }
   ],
   "info" : {

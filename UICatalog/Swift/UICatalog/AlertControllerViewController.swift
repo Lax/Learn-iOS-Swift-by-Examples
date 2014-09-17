@@ -87,7 +87,7 @@ class AlertControllerViewController : UITableViewController {
         let title = NSLocalizedString("A Short Title is Best", comment: "")
         let message = NSLocalizedString("A message should be a short, complete sentence.", comment: "")
         let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
-        let otherButtonTitleOne = NSLocalizedString("Coice One", comment: "")
+        let otherButtonTitleOne = NSLocalizedString("Choice One", comment: "")
         let otherButtonTitleTwo = NSLocalizedString("Choice Two", comment: "")
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
@@ -164,7 +164,7 @@ class AlertControllerViewController : UITableViewController {
         
         // Stop listening for text change notifications on the text field. This closure will be called in the two action handlers.
         let removeTextFieldObserver: Void -> Void = {
-            NSNotificationCenter.defaultCenter().removeObserver(self, name: UITextFieldTextDidChangeNotification, object: alertController.textFields.first)
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UITextFieldTextDidChangeNotification, object: alertController.textFields!.first)
         }
 
         // Create the actions.

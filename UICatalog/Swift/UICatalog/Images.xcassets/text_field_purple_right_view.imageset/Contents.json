@@ -12,6 +12,11 @@
       "idiom" : "universal",
       "scale" : "2x",
       "filename" : "text_field_purple_right_view_2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "text_field_purple_right_view_3x.png"
     }
   ],
   "info" : {

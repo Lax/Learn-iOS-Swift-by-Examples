@@ -1,6 +1,9 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "resizing" : {
         "mode" : "3-part-horizontal",
         "center" : {
@@ -31,6 +34,11 @@
       "idiom" : "universal",
       "filename" : "text_field_background_2x.png",
       "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "text_field_background_3x.png"
     }
   ],
   "info" : {

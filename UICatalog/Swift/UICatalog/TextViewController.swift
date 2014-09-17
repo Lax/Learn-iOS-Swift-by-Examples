@@ -95,10 +95,10 @@ class TextViewController: UIViewController, UITextViewDelegate {
         // Let's modify some of the attributes of the attributed string.
         // You can modify these attributes yourself to get a better feel for what they do.
         // Note that the initial text is visible in the storyboard.
-        let attributedText = NSMutableAttributedString(attributedString: textView.attributedText)
+        let attributedText = NSMutableAttributedString(attributedString: textView.attributedText!)
 
         // Use NSString so the result of rangeOfString is an NSRange, not Range<String.Index>.
-        let text = textView.text as NSString
+        let text = textView.text! as NSString
 
         // Find the range of each element to modify.
         let boldRange = text.rangeOfString(NSLocalizedString("bold", comment: ""))
@@ -131,19 +131,6 @@ class TextViewController: UIViewController, UITextViewDelegate {
 
         textView.attributedText = attributedText
     }
-    
-    // MARK: UITextView Adjustment
-
-    func adjustTextViewSelection(textView: UITextView) {
-        // Ensure that the text view is visible by making the text view frame smaller as text can be slightly cropped at the bottom.
-        // Note that this is a workwaround to a bug in iOS.
-
-        textView.layoutIfNeeded()
-        
-        var caretRect = textView.caretRectForPosition(textView.selectedTextRange.end)
-        caretRect.size.height += textView.textContainerInset.bottom
-        textView.scrollRectToVisible(caretRect, animated: false)
-    }
 
     // MARK: UITextViewDelegate
 
@@ -152,12 +139,6 @@ class TextViewController: UIViewController, UITextViewDelegate {
         let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "doneBarButtonItemClicked")
 
         navigationItem.setRightBarButtonItem(doneBarButtonItem, animated: true)
-        
-        adjustTextViewSelection(textView)
-    }
-
-    func textViewDidChangeSelection(textView: UITextView) {
-        adjustTextViewSelection(textView)
     }
     
     // MARK: Actions
