@@ -32,10 +32,11 @@ class HeroCharacter: Character {
     }
 
     override func configurePhysicsBody() {
+        // Assign the physics body; unwrap the physics body to configure it.
         physicsBody = SKPhysicsBody(circleOfRadius: kCharacterCollisionRadius)
-        physicsBody.categoryBitMask = ColliderType.Hero.toRaw()
-        physicsBody.collisionBitMask = ColliderType.GoblinOrBoss.toRaw() | ColliderType.Hero.toRaw() | ColliderType.Wall.toRaw() | ColliderType.Cave.toRaw()
-        physicsBody.contactTestBitMask = ColliderType.GoblinOrBoss.toRaw()
+        physicsBody!.categoryBitMask = ColliderType.Hero.toRaw()
+        physicsBody!.collisionBitMask = ColliderType.GoblinOrBoss.toRaw() | ColliderType.Hero.toRaw() | ColliderType.Wall.toRaw() | ColliderType.Cave.toRaw()
+        physicsBody!.contactTestBitMask = ColliderType.GoblinOrBoss.toRaw()
     }
 
     override func collidedWith(other: SKPhysicsBody) {
@@ -78,7 +79,7 @@ class HeroCharacter: Character {
         projectile.zRotation = zRotation
 
         let emitter = projectileEmitter()!.copy() as SKEmitterNode
-        emitter.targetNode = scene.childNodeWithName("world")
+        emitter.targetNode = scene!.childNodeWithName("world")
         projectile.addChild(emitter)
 
         characterScene.addNode(projectile, atWorldLayer: .Character)

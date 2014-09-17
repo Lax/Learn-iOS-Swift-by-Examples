@@ -41,10 +41,12 @@ class Archer: HeroCharacter {
         dispatch_once(&kLoadSharedArcherAssetsOnceToken) {
             sSharedArcherProjectile = SKSpriteNode(color: SKColor.whiteColor(), size: CGSize(width: 2.0, height: 24.0))
             sSharedArcherProjectile.name = "Projectile"
+            
+            // Assign the physics body; unwrap the physics body to configure it.
             sSharedArcherProjectile.physicsBody = SKPhysicsBody(circleOfRadius: kProjectileCollisionRadius)
-            sSharedArcherProjectile.physicsBody.categoryBitMask = ColliderType.Projectile.toRaw()
-            sSharedArcherProjectile.physicsBody.collisionBitMask = ColliderType.Wall.toRaw()
-            sSharedArcherProjectile.physicsBody.contactTestBitMask = sSharedArcherProjectile.physicsBody.collisionBitMask
+            sSharedArcherProjectile.physicsBody!.categoryBitMask = ColliderType.Projectile.toRaw()
+            sSharedArcherProjectile.physicsBody!.collisionBitMask = ColliderType.Wall.toRaw()
+            sSharedArcherProjectile.physicsBody!.contactTestBitMask = sSharedArcherProjectile.physicsBody!.collisionBitMask
 
             sSharedArcherProjectileEmitter = SKEmitterNode.emitterNodeWithName("ArcherProjectile")
 

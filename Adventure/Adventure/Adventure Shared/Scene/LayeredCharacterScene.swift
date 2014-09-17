@@ -226,9 +226,10 @@ class LayeredCharacterScene: SKScene {
     }
 
     func addToScore(amount: Int, afterEnemyKillWithProjectile projectile: SKNode) {
-        let player = projectile.userData[kPlayer] as Player
-        player.score += amount
-        updateHUDForPlayer(player)
+        if let player = projectile.userData?[kPlayer] as? Player {
+            player.score += amount
+            updateHUDForPlayer(player)
+        }
     }
 
 

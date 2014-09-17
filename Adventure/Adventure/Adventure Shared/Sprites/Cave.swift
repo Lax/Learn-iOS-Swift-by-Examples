@@ -38,15 +38,15 @@ class Cave: EnemyCharacter {
     }
 
     override func configurePhysicsBody() {
+        // Assign the physics body; unwrap the physics body to configure it.
         physicsBody = SKPhysicsBody(circleOfRadius: 90)
-        physicsBody.dynamic = false
-
+        physicsBody!.dynamic = false
+        physicsBody!.categoryBitMask = ColliderType.Cave.toRaw()
+        physicsBody!.collisionBitMask = ColliderType.Projectile.toRaw() | ColliderType.Hero.toRaw()
+        physicsBody!.contactTestBitMask = ColliderType.Projectile.toRaw()
+        
         animated = false
         zPosition = -0.85
-
-        physicsBody.categoryBitMask = ColliderType.Cave.toRaw()
-        physicsBody.collisionBitMask = ColliderType.Projectile.toRaw() | ColliderType.Hero.toRaw()
-        physicsBody.contactTestBitMask = ColliderType.Projectile.toRaw()
     }
 
     override func reset() {
@@ -94,7 +94,7 @@ class Cave: EnemyCharacter {
         if health > 0.0 {
             if (other.categoryBitMask & ColliderType.Projectile.toRaw()) == ColliderType.Projectile.toRaw() {
                 let damage = 10.0
-                applyCaveDamage(damage, projectile: other.node)
+                applyCaveDamage(damage, projectile: other.node!)
             }
         }
     }

@@ -46,11 +46,13 @@ class Warrior: HeroCharacter {
             sSharedWarriorDeathAnimationFrames = loadFramesFromAtlasWithName("Warrior_Death", baseFileName: "warrior_death_", numberOfFrames: 90)
 
             sSharedProjectile = SKSpriteNode(texture: atlas.textureNamed("warrior_throw_hammer.png"))
-            sSharedProjectile.physicsBody = SKPhysicsBody(circleOfRadius: kProjectileCollisionRadius)
             sSharedProjectile.name = "Projectile"
-            sSharedProjectile.physicsBody.categoryBitMask = ColliderType.Projectile.toRaw()
-            sSharedProjectile.physicsBody.collisionBitMask = ColliderType.Wall.toRaw()
-            sSharedProjectile.physicsBody.contactTestBitMask = ColliderType.Wall.toRaw()
+            
+            // Assign the physics body; unwrap the physics body to configure it.
+            sSharedProjectile.physicsBody = SKPhysicsBody(circleOfRadius: kProjectileCollisionRadius)
+            sSharedProjectile.physicsBody!.categoryBitMask = ColliderType.Projectile.toRaw()
+            sSharedProjectile.physicsBody!.collisionBitMask = ColliderType.Wall.toRaw()
+            sSharedProjectile.physicsBody!.contactTestBitMask = ColliderType.Wall.toRaw()
 
             sSharedProjectileEmitter = NSKeyedUnarchiver.unarchiveObjectWithFile(NSBundle.mainBundle().pathForResource("WarriorProjectile", ofType: "sks")!) as SKEmitterNode
         }

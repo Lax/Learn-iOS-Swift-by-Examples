@@ -215,10 +215,12 @@ class AdventureScene: LayeredCharacterScene, SKPhysicsContactDelegate {
         let size = CGSize(width: width, height: height)
         let wallNode = SKNode()
         wallNode.position = CGPoint(x: worldPoint.x + size.width * 0.5, y: worldPoint.y - size.height * 0.5)
+        
+        // Assign the physics body; unwrap the physics body to configure it.
         wallNode.physicsBody = SKPhysicsBody(rectangleOfSize: size)
-        wallNode.physicsBody.dynamic = false
-        wallNode.physicsBody.categoryBitMask = ColliderType.Wall.toRaw()
-        wallNode.physicsBody.collisionBitMask = 0
+        wallNode.physicsBody!.dynamic = false
+        wallNode.physicsBody!.categoryBitMask = ColliderType.Wall.toRaw()
+        wallNode.physicsBody!.collisionBitMask = 0
 
         addNode(wallNode, atWorldLayer: .Ground)
     }
@@ -345,16 +347,17 @@ class AdventureScene: LayeredCharacterScene, SKPhysicsContactDelegate {
             character.collidedWith(contact.bodyA)
         }
 
-        if contact.bodyA.categoryBitMask & 4 > 0 || contact.bodyB.categoryBitMask & 4 > 0 {
-            let projectile = (contact.bodyA.categoryBitMask & 4) > 0 ? contact.bodyA.node : contact.bodyB.node
+        let rawProjectileType = ColliderType.Projectile.toRaw()
+        if contact.bodyA.categoryBitMask & rawProjectileType == rawProjectileType || contact.bodyB.categoryBitMask & rawProjectileType == rawProjectileType {
+            if let projectile = (contact.bodyA.categoryBitMask & rawProjectileType) == rawProjectileType ? contact.bodyA.node : contact.bodyB.node {
+                projectile.runAction(SKAction.removeFromParent())
 
-            projectile.runAction(SKAction.removeFromParent())
+                let emitter = sSharedProjectileSparkEmitter.copy() as SKEmitterNode
+                addNode(emitter, atWorldLayer: .AboveCharacter)
+                emitter.position = projectile.position
 
-            let emitter = sSharedProjectileSparkEmitter.copy() as SKEmitterNode
-            addNode(emitter, atWorldLayer: .AboveCharacter)
-            emitter.position = projectile.position
-
-            runOneShotEmitter(emitter, withDuration: 0.15)
+                runOneShotEmitter(emitter, withDuration: 0.15)
+            }
         }
     }
 

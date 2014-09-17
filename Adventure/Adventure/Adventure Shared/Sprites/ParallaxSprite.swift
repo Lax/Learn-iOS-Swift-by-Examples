@@ -79,10 +79,10 @@ class ParallaxSprite: SKSpriteNode {
             return
         }
 
-        let scenePos = scene.convertPoint(position, fromNode: parent)
+        let scenePos = scene!.convertPoint(position, fromNode: parent!)
 
-        let offsetX = -1.0 + (2.0 * (scenePos.x / scene.size.width))
-        let offsetY = -1.0 + (2.0 * (scenePos.y / scene.size.height))
+        let offsetX = -1.0 + (2.0 * (scenePos.x / scene!.size.width))
+        let offsetY = -1.0 + (2.0 * (scenePos.y / scene!.size.height))
 
         let delta = parallaxOffset / CGFloat(children.count)
 

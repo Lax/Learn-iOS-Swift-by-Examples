@@ -52,16 +52,17 @@ class Boss: EnemyCharacter {
 
 	// Overidden Methods
 	override func configurePhysicsBody() {
+        // Assign the physics body; unwrap the physics body to configure it.
         physicsBody = SKPhysicsBody(circleOfRadius: kBossCollisionRadius)
 
 	    // Our object type for collisions.
-		physicsBody.categoryBitMask = ColliderType.GoblinOrBoss.toRaw()
+		physicsBody!.categoryBitMask = ColliderType.GoblinOrBoss.toRaw()
 
 	    // Collides with these objects.
-		physicsBody.collisionBitMask = ColliderType.GoblinOrBoss.toRaw() | ColliderType.Hero.toRaw() | ColliderType.Projectile.toRaw() | ColliderType.Wall.toRaw()
+		physicsBody!.collisionBitMask = ColliderType.GoblinOrBoss.toRaw() | ColliderType.Hero.toRaw() | ColliderType.Projectile.toRaw() | ColliderType.Wall.toRaw()
 
 	    // We want notifications for colliding with these objects.
-	    physicsBody.contactTestBitMask = ColliderType.Projectile.toRaw()
+	    physicsBody!.contactTestBitMask = ColliderType.Projectile.toRaw()
 	}
 
   override

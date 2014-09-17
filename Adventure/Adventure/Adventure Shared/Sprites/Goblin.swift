@@ -46,13 +46,11 @@ class Goblin: EnemyCharacter, Equatable {
 
     // Overridden methods
     override func configurePhysicsBody() {
+        // Assign the physics body; unwrap the physics body to configure it.
         physicsBody = SKPhysicsBody(circleOfRadius: kGoblinCollisionRadius)
-
-        physicsBody.categoryBitMask = ColliderType.GoblinOrBoss.toRaw()
-
-        physicsBody.collisionBitMask = ColliderType.GoblinOrBoss.toRaw() | ColliderType.Hero.toRaw() | ColliderType.Projectile.toRaw() | ColliderType.Wall.toRaw() | ColliderType.Cave.toRaw()
-
-        physicsBody.contactTestBitMask = ColliderType.Projectile.toRaw()
+        physicsBody!.categoryBitMask = ColliderType.GoblinOrBoss.toRaw()
+        physicsBody!.collisionBitMask = ColliderType.GoblinOrBoss.toRaw() | ColliderType.Hero.toRaw() | ColliderType.Projectile.toRaw() | ColliderType.Wall.toRaw() | ColliderType.Cave.toRaw()
+        physicsBody!.contactTestBitMask = ColliderType.Projectile.toRaw()
     }
 
     override func reset() {
@@ -99,7 +97,7 @@ class Goblin: EnemyCharacter, Equatable {
 
             var killed = applyDamage(damage, projectile: otherBody.node)
             if killed {
-                characterScene.addToScore(10, afterEnemyKillWithProjectile: otherBody.node as SKNode)
+                characterScene.addToScore(10, afterEnemyKillWithProjectile: otherBody.node!)
             }
         }
     }
@@ -117,9 +115,9 @@ class Goblin: EnemyCharacter, Equatable {
 
         super.performDeath()
 
-        physicsBody.collisionBitMask = 0
-        physicsBody.contactTestBitMask = 0
-        physicsBody.categoryBitMask = 0
+        physicsBody?.collisionBitMask = 0
+        physicsBody?.contactTestBitMask = 0
+        physicsBody?.categoryBitMask = 0
         physicsBody = nil
     }
 

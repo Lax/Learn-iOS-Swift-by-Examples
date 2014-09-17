@@ -22,7 +22,7 @@ class EnemyCharacter: Character {
 
     override func animationDidComplete(animationState: AnimationState) {
         if animationState == AnimationState.Attack {
-            intelligence.target?.collidedWith(physicsBody)
+            intelligence.target?.collidedWith(physicsBody!)
         }
     }
 }
