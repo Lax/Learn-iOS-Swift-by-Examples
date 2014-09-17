@@ -1,48 +1,76 @@
 # Lister
 
+Important: This is a preliminary sample application that includes descriptions and applications of OS X Yosemite technology that are currently in development. This information is subject to change, and software implemented according to this sample application should be tested with final operating system software.
+
 ## Version
 
 1.2
 
 ## Build and Runtime Requirements
-+ Xcode 6
-+ iOS 8.0
-+ OS X 10.10
++ Xcode 6.0 or later
++ iOS 8.0 or later
++ OS X v10.10 or later
 + iCloud–enabled provisioning profile
-
 
 ## Configuring the Project
 
-Configuring your Xcode project and your Mac requires a few steps in the iOS and OS X Provisioning Portals, as well as in Xcode. 
+Configuring the Xcode project requires a few steps in Xcode to get up and running with iCloud capabilities. 
 
 1) Configure each Mac and iOS device you plan to test with an iCloud account. Create or use an existing Apple ID account that supports iCloud.
 
-2) Configure the team for the targets within the project.
+2) Configure the Team for each target within the project.
 
-Navigate to the project in the project navigator within Xcode and select each of the targets. Set the Team on the General tab to the team associated with your developer account.
+Open the project in the Project navigator within Xcode and select each of the targets. Set the Team on the General tab to the team associated with your developer account.
 
-3) Change the Xcode project Entitlements to match your Team ID.
+3) Change the Bundle Identifier.
 
-An entitlements file in this sample project includes the key com.apple.developer.ubiquity-container-identifiers. For your own app you will need to use a different value to match your Team ID (or company/organization ID). The following container identifier is shared among all apps included in the Lister sample:
+With the project's General tab still open, update the Bundle Identifier value. The project's Lister target ships with the value:
 
-$(TeamIdentifierPrefix)com.example.apple-samplecode.Lister
+com.example.apple-samplecode.Lister
 
-Where $(TeamIdentifierPrefix) is a placeholder that will be replaced during the build process with the Team ID found on the Provisioning Portal. The remainder is a unique identifier to be shared among all apps that will share documents through iCloud—this identifier must be changed in order to use iCloud.
+You should modify the reverse DNS portion to match the format that you use:
 
-4) Allow Xcode to generate provisioning profiles to match your needs. 
+com.yourdomain.Lister
 
-On each device that you will test with, update the bundle identifier on the Target > Info tab to a valid value for your organization. It is recommended that you use a reverse DNS identifier. The bundle identifier defined on your Xcode project's Target > Info tab needs to match the App ID in the iCloud provisioning profile. To generate provisioning profiles, build the project and accept the Fix Issue option that Xcode provides. When you run the iOS app, a provisioning profile is created for the iOS app. Similarly, running the OS X app creates a provisioning profile for the OS X app.
+Repeat this process for the following targets:
 
-Note: If your provisioning profile's App ID is $(TeamIdentifierPrefix).com.example.apple-samplecode.Lister, then the bundle identifier of your app must be com.example.apple-samplecode.Lister. 
+- Lister
+- ListerKit
+- ListerToday
+- ListerOSX
+- ListerKitOSX
+- ListerOSXToday
 
-5) For both iOS and OS X targets, assign the new profile to your Debug > Code Signing Identities in your Xcode project Target > Build Settings.
+4) Change the iCloud Capability's container name.
 
-6) Set your code signing identity in your Xcode project to match your particular App ID.
+With the project still open, select the Capabilities tab for the Lister target. Under the iCloud capability there will be an area marked Containers, click the + button in this area to add a new container name. Accept Xcode's proposed name (noting the expanded value). Finally, remove the container name provided with the project (iCloud.com.example.apple-samplecode.Lister.Documents) by unchecking the checkbox beside that container name.
+
+Now update the iCloud capability for the remaing targets by setting up their containers to match the Lister target. The capability from the Lister target should appear in the container list allowing you to simply click its checkbox and uncheck the one that shipped with the sample. If you do have to add it manually, make sure to type in the expanded value from the Lister target rather than the one Xcode proposes. Only these targets require changes:
+
+- ListerToday
+- ListerOSX
+- ListerOSXToday
+
+5) Ensure Automatic is chosen for the Provisioning Profile setting in the Code Signing section of Target > Build Settings for the following Targets:
+
+- Lister
+- ListerToday
+- ListerOSX
+- ListerOSXToday
+
+6) Ensure iOS Developer is chosen for the Code Signing Identity setting in the Code Signing section of Target > Build Settings for the following Targets:
+
+- Lister
+- ListerToday
+
+And that Mac Developer is chosen for the Code Signing Identity setting in the Code Signing section of Target > Build Settings for the following Targets:
+
+- ListerOSX
+- ListerOSXToday
 
 ## About Lister
 
 Lister is a Cocoa productivity sample code project for iOS and OS X. In this sample, the user can create lists, add items to lists, and track the progress of items in the lists.
-
 
 ## Written in Objective-C and Swift
 
@@ -55,7 +83,6 @@ Note: The List class in Swift is conceptually equivalent to the AAPLList class i
 
 The Lister project includes iOS and OS X app targets, iOS and OS X app extensions, and frameworks containing shared code.
 
-
 ### OS X
 
 Lister for OS X is a document-based application with a single window per document. To organize the implementation of the app, Lister takes a modular design approach. Three main controllers are each responsible for different portions of the user interface and document interaction: {AAPL}ListWindowController manages a single window and owns the document associated with the window. The window controller also implements interactions with the window’s toolbar such as sharing. The window controller is also responsible for presenting an {AAPL}AddItemViewController object that allows the user to quickly add an item to the list. The {AAPL}ListViewController class is responsible for displaying each item in a table view in the window.
@@ -67,7 +94,6 @@ Although much of the view layer is implemented with built–in AppKit views and 
 Document storage in Lister is implemented in the {AAPL}ListDocument class, a subclass of NSDocument. Documents are stored as keyed archives. {AAPL}ListDocument reuses much of the same model code shared between the OS X and iOS apps. Additionally, the {AAPL}ListDocument class enables Auto Save and Versions, undo management, and more. With the {AAPL}ListFormatting class, the user can copy and paste items between Lister and other apps, and even share items.
 
 The Lister app manages a Today list that it stores in iCloud document storage. The {AAPL}TodayListManager class is responsible for creating, locating, and retrieving the today {AAPL}ListDocument object from the user's iCloud container. Open the Today list with the Command-T key combination.
-
 
 ### iOS
 
@@ -87,6 +113,9 @@ Archiving and unarchiving are specifically designed and implemented so that mode
 
 In addition to model code, by subclassing CALayer (a class shared by iOS and OS X), Lister shares check box drawing code with both platforms. The project includes a control class for each platform with user interface framework–specific code. These {AAPL}CheckBox classes use the designable and inspectable attributes so that the custom drawing code is viewable and adjustable live in Interface Builder.
 
+### iOS and OS X Today Widget
+
+Lister Today widgets are available on both iOS and OS X. Lister shares much of the same model, controller, and drawing code between the app extensions and apps by using a shared framework. This is also very valuable because it centralizes the core code into a single location. See the "Shared" Code section above for more info on the details of the code sharing. Both iOS and OS X implement a view controller subclass called {AAPL}TodayViewController; this can be found in the ListerToday target for iOS and ListerTodayOSX for OS X.
 
 ## Swift Features
 
@@ -112,9 +141,9 @@ The List class provides access to its ListItem objects through indexed subscript
 
 List is responsible for managing the order of its ListItem objects. When an item is moved from one row to another, the list returns a lightweight tuple that contains both the "from" and "to" indices. This tuple is used in a few different methods in the List class.
 
-
 ## Unit Tests
 
 Lister has unit tests written for the {AAPL}List and {AAPL}ListItem classes. These tests are in the ListerKitTests group. The same tests can be run on an iOS or Mac target to ensure that the cross-platform code works as expected. To run the unit tests, select either the ListerKit (for iOS) or ListerKitOSX (for OS X) scheme in the Scheme menu. Then hold the Run button down and select the "Test" option, or press Command+u to run the tests.
 
 Copyright (C) 2014 Apple Inc. All rights reserved.
+

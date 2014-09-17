@@ -21,6 +21,9 @@
 NSString *const AAPLListDocumentsViewControllerListDocumentCellIdentifier = @"listDocumentCell";
 
 @interface AAPLListDocumentsViewController () <AAPLListControllerDelegate, UIDocumentMenuDelegate, UIDocumentPickerDelegate>
+
+@property (nonatomic,strong) NSUserActivity *pendingUserActivity;
+
 @end
 
 
@@ -30,8 +33,6 @@ NSString *const AAPLListDocumentsViewControllerListDocumentCellIdentifier = @"li
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self setNeedsStatusBarAppearanceUpdate];
     
     self.navigationController.navigationBar.titleTextAttributes = @{
         NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline],
@@ -55,6 +56,16 @@ NSString *const AAPLListDocumentsViewControllerListDocumentCellIdentifier = @"li
     self.tableView.tintColor = grayListColor;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (self.pendingUserActivity) {
+        [self restoreUserActivityState:self.pendingUserActivity];
+    }
+    
+    self.pendingUserActivity = nil;
+}
+
 #pragma mark - Property Overrides
 
 - (void)setListController:(AAPLListController *)listController {
@@ -70,36 +81,28 @@ NSString *const AAPLListDocumentsViewControllerListDocumentCellIdentifier = @"li
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIContentSizeCategoryDidChangeNotification object:nil];
 }
 
-#pragma mark - Setup
+#pragma mark - UIResponder
 
-- (void)selectListWithListInfo:(AAPLListInfo *)listInfo {
-    if (!self.splitViewController) {
+- (void)restoreUserActivityState:(NSUserActivity *)activity {
+    /**
+     If there is a list currently displayed; pop to the root view controller (this controller) and
+     continue the activity from there. Otherwise, continue the activity directly.
+     */
+    if ([self.navigationController.topViewController isKindOfClass:[UINavigationController class]]) {
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        self.pendingUserActivity = activity;
         return;
     }
     
-    // A local configuration block to reuse for list selection.
-    void (^configureListViewController)(AAPLListViewController *listViewController) = ^(AAPLListViewController *listViewController) {
-        listViewController.listController = self.listController;
-        [listViewController configureWithListInfo:listInfo];
-    };
+    NSURL *activityURL = activity.userInfo[NSUserActivityDocumentURLKey];
     
-    if (self.splitViewController.isCollapsed) {
-        AAPLListViewController *listViewController = [self.storyboard instantiateViewControllerWithIdentifier:AAPLAppDelegateMainStoryboardListViewControllerIdentifier];
+    if (activityURL != nil) {
+        AAPLListInfo *activityListInfo = [[AAPLListInfo alloc] initWithURL:activityURL];
         
-        configureListViewController(listViewController);
+        NSNumber *listInfoColorNumber = activity.userInfo[AAPLAppConfigurationUserActivityListColorUserInfoKey];
+        activityListInfo.color = (AAPLListColor)listInfoColorNumber.integerValue;
 
-        [self showViewController:listViewController sender:self];
-    }
-    else {
-        UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:AAPLAppDelegateMainStoryboardListNavigationViewControllerIdentifier];
-        
-        AAPLListViewController *listViewController = (AAPLListViewController *)navigationController.topViewController;
-        
-        configureListViewController(listViewController);
-        
-        self.splitViewController.viewControllers = @[self.splitViewController.viewControllers.firstObject, [[UIViewController alloc] init]];
-
-        [self showDetailViewController:navigationController sender:self];
+        [self performSegueWithIdentifier:AAPLAppDelegateMainStoryboardListDocumentsViewControllerContinueUserActivityToListViewControllerSegueIdentifier sender:activityListInfo];
     }
 }
 
@@ -111,7 +114,7 @@ NSString *const AAPLListDocumentsViewControllerListDocumentCellIdentifier = @"li
  * entitlements correctly, an exception when this method is invoked (i.e. when the "+" button is
  * clicked).
  */
-- (IBAction)pickDocument {
+- (IBAction)pickDocument:(UIBarButtonItem *)barButtonItem {
     UIDocumentMenuViewController *documentMenu = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:@[AAPLAppConfigurationListerFileUTI] inMode:UIDocumentPickerModeImport];
     documentMenu.delegate = self;
     
@@ -122,6 +125,7 @@ NSString *const AAPLListDocumentsViewControllerListDocumentCellIdentifier = @"li
     }];
     
     documentMenu.modalInPopover = UIModalPresentationPopover;
+    documentMenu.popoverPresentationController.barButtonItem = barButtonItem;
     
     [self presentViewController:documentMenu animated:YES completion:nil];
 }
@@ -233,33 +237,31 @@ NSString *const AAPLListDocumentsViewControllerListDocumentCellIdentifier = @"li
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AAPLListCell *cell = [tableView dequeueReusableCellWithIdentifier:AAPLListDocumentsViewControllerListDocumentCellIdentifier forIndexPath:indexPath];
-    
-    AAPLListInfo *listInfo = self.listController[indexPath.row];
+    return [tableView dequeueReusableCellWithIdentifier:AAPLListDocumentsViewControllerListDocumentCellIdentifier forIndexPath:indexPath];
+}
 
-    cell.label.text = listInfo.name;
-    cell.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    cell.listColorView.backgroundColor = [UIColor clearColor];
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Assert if attempting to configure an unknown or unsupported cell type.
+    NSParameterAssert([cell isKindOfClass:[AAPLListCell class]]);
+    
+    AAPLListCell *listCell = (AAPLListCell *)cell;
+    AAPLListInfo *listInfo = self.listController[indexPath.row];
+    
+    listCell.label.text = listInfo.name;
+    listCell.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    listCell.listColorView.backgroundColor = [UIColor clearColor];
     
     // Once the list info has been loaded, update the associated cell's properties.
     [listInfo fetchInfoWithCompletionHandler:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             // Make sure that the list info is still visible once the color has been fetched.
             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
-                cell.listColorView.backgroundColor = AAPLColorFromListColor(listInfo.color);
+                listCell.listColorView.backgroundColor = AAPLColorFromListColor(listInfo.color);
             }
         });
     }];
-    
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AAPLListInfo *listInfo = self.listController[indexPath.row];
-    
-    [self selectListWithListInfo:listInfo];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -277,6 +279,24 @@ NSString *const AAPLListDocumentsViewControllerListDocumentCellIdentifier = @"li
         AAPLNewListDocumentController *newListController = segue.destinationViewController;
 
         newListController.listController = self.listController;
+    }
+    else if ([segue.identifier isEqualToString:AAPLAppDelegateMainStoryboardListDocumentsViewControllerToListViewControllerSegueIdentifier] ||
+             [segue.identifier isEqualToString:AAPLAppDelegateMainStoryboardListDocumentsViewControllerContinueUserActivityToListViewControllerSegueIdentifier]) {
+        UINavigationController *listNavigationController = (UINavigationController *)segue.destinationViewController;
+        AAPLListViewController *listViewController = (AAPLListViewController *)listNavigationController.topViewController;
+        listViewController.listController = self.listController;
+        
+        listViewController.navigationItem.leftBarButtonItem = [self.splitViewController displayModeButtonItem];
+        listViewController.navigationItem.leftItemsSupplementBackButton = YES;
+        
+        if ([segue.identifier isEqualToString:AAPLAppDelegateMainStoryboardListDocumentsViewControllerToListViewControllerSegueIdentifier]) {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            [listViewController configureWithListInfo:self.listController[indexPath.row]];
+        }
+        else if ([segue.identifier isEqualToString:AAPLAppDelegateMainStoryboardListDocumentsViewControllerContinueUserActivityToListViewControllerSegueIdentifier]) {
+            AAPLListInfo *userActivityListInfo = sender;
+            [listViewController configureWithListInfo:userActivityListInfo];
+        }
     }
 }
 

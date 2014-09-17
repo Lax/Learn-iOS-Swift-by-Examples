@@ -83,4 +83,11 @@ public class ListDocument: NSDocument {
     override public func dataOfType(typeName: String, error outError: NSErrorPointer) -> NSData? {
         return NSKeyedArchiver.archivedDataWithRootObject(list)
     }
+    
+    // MARK: Handoff
+    
+    override public func updateUserActivityState(userActivity: NSUserActivity) {
+        super.updateUserActivityState(userActivity)
+        userActivity.addUserInfoEntriesFromDictionary([ AppConfiguration.UserActivity.listColorUserInfoKey: list.color.toRaw() ])
+    }
 }

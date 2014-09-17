@@ -14,6 +14,8 @@ NSString *const AAPLAppConfigurationFirstLaunchUserDefaultsKey = @"AAPLAppConfig
 NSString *const AAPLAppConfigurationStorageOptionUserDefaultsKey = @"AAPLAppConfigurationStorageOptionUserDefaultsKey";
 NSString *const AAPLAppConfigurationStoredUbiquityIdentityTokenKey = @"com.example.apple-samplecode.Lister.UbiquityIdentityToken";
 
+NSString *const AAPLAppConfigurationUserActivityListColorUserInfoKey = @"listColor";
+
 NSString *const AAPLAppConfigurationListerFileUTI = @"com.example.apple-samplecode.Lister";
 NSString *const AAPLAppConfigurationListerFileExtension = @"list";
 

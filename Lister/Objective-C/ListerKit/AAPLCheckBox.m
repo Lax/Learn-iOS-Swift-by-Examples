@@ -32,6 +32,13 @@
 }
 
 #pragma mark - Property Overrides
+
+- (void)didMoveToWindow {
+    if (self.window != nil) {
+        self.contentScaleFactor = self.window.screen.scale;
+    }
+}
+
 - (void)setChecked:(BOOL)checked {
     self.checkBoxLayer.checked = checked;
 }

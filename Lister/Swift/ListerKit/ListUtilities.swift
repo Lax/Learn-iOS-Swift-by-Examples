@@ -123,7 +123,7 @@ public class ListUtilities {
             if success {
                 let fileAttributes = [NSFileExtensionHidden: true]
                 
-                NSFileManager.defaultManager().setAttributes(fileAttributes, ofItemAtPath: writingIntent.URL.path, error: nil)
+                NSFileManager.defaultManager().setAttributes(fileAttributes, ofItemAtPath: writingIntent.URL.path!, error: nil)
             }
             
             completionHandler?(error)
@@ -185,7 +185,7 @@ public class ListUtilities {
             if success {
                 let fileAttributes = [NSFileExtensionHidden: true]
                 
-                fileManager.setAttributes(fileAttributes, ofItemAtPath: replacingIntent.URL.path, error: nil)
+                fileManager.setAttributes(fileAttributes, ofItemAtPath: replacingIntent.URL.path!, error: nil)
             }
             
             if successfulSecurityScopedResourceAccess {

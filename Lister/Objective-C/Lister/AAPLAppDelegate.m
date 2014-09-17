@@ -10,6 +10,7 @@
 
 #import "AAPLAppDelegate.h"
 #import "AAPLListDocumentsViewController.h"
+#import "AAPLListViewController.h"
 @import ListerKit;
 
 // The main storyboard name.
@@ -22,6 +23,8 @@ NSString *const AAPLAppDelegateMainStoryboardListNavigationViewControllerIdentif
 
 // View controller segue identifiers.
 NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerToNewListDocumentControllerSegueIdentifier = @"newListDocument";
+NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerToListViewControllerSegueIdentifier = @"showListDocument";
+NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerContinueUserActivityToListViewControllerSegueIdentifier = @"showListDocumentFromUserActivity";
 
 @interface AAPLAppDelegate () <UISplitViewControllerDelegate>
 
@@ -57,14 +60,27 @@ NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerToNewLis
     }];
     
     // Set ourselves as the split view controller's delegate.
-    self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
     self.splitViewController.delegate = self;
+    self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
+    UINavigationController *navigationController = self.splitViewController.viewControllers.lastObject;
+    navigationController.topViewController.navigationItem.leftBarButtonItem = [self.splitViewController displayModeButtonItem];
+    navigationController.topViewController.navigationItem.leftItemsSupplementBackButton = YES;
 
     return YES;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     [self setupUserStoragePreferences];
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray *))restorationHandler {
+    // Lister only supports a single user activity type; if you support more than one the type is available from the `userActivity` parameter.
+    if (restorationHandler && self.listDocumentsViewController) {
+        restorationHandler(@[self.listDocumentsViewController]);
+        return true;
+    }
+    
+    return false;
 }
 
 #pragma mark - Property Overrides
@@ -78,52 +94,47 @@ NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerToNewLis
 }
 
 - (AAPLListDocumentsViewController *)listDocumentsViewController {
-    return (AAPLListDocumentsViewController *)self.primaryViewController.topViewController;
+    return (AAPLListDocumentsViewController *)self.primaryViewController.viewControllers.firstObject;
 }
 
 #pragma mark - UISplitViewControllerDelegate
 
-- (UISplitViewControllerDisplayMode)targetDisplayModeForActionInSplitViewController:(UISplitViewController *)splitViewController {
-    return UISplitViewControllerDisplayModeAllVisible;
-}
-
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAutomatic;
     
-    // If there's a list that's currently selected in separated mode and we want to show it in collapsed
-    // mode, we'll transfer over the view controller's settings.
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]]) {
+    // If there's a list that's currently selected in separated mode and we want to show it in collapsed mode, we'll transfer over the view controller's settings.
+    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [((UINavigationController *)secondaryViewController).topViewController isKindOfClass:[AAPLListViewController class]]) {
         UINavigationController *secondaryNavigationController = (UINavigationController *)secondaryViewController;
         
         self.primaryViewController.navigationBar.titleTextAttributes = secondaryNavigationController.navigationBar.titleTextAttributes;
         self.primaryViewController.navigationBar.tintColor = secondaryNavigationController.navigationBar.tintColor;
         self.primaryViewController.toolbar.tintColor = secondaryNavigationController.toolbar.tintColor;
 
-        [self.primaryViewController showDetailViewController:secondaryNavigationController.topViewController sender:nil];
+        return NO;
     }
 
     return YES;
 }
 
 - (UIViewController *)splitViewController:(UISplitViewController *)splitViewController separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)primaryViewController {
-    if (self.primaryViewController.topViewController == self.primaryViewController.viewControllers.firstObject) {
-        // If no list is on the stack, fill the detail area with an empty controller.
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:AAPLAppDelegateMainStoryboardName bundle:nil];
-        UIViewController *emptyViewController = [storyboard instantiateViewControllerWithIdentifier:AAPLAppDelegateMainStoryboardEmptyViewControllerIdentifier];
-
-        return emptyViewController;
+    if ([self.primaryViewController.topViewController isKindOfClass:[UINavigationController class]] &&
+        [((UINavigationController *)self.primaryViewController.topViewController).topViewController isKindOfClass:[AAPLListViewController class]]) {
+        UINavigationController *secondaryViewController = (UINavigationController *)[self.primaryViewController popViewControllerAnimated:NO];
+        AAPLListViewController *listViewController = (AAPLListViewController *)secondaryViewController.topViewController;
+        
+        // Obtain the `textAttributes` and `tintColor` to setup the separated navigation controller.
+        NSDictionary *textAttributes = listViewController.textAttributes;
+        UIColor *tintColor = AAPLColorFromListColor(listViewController.document.list.color);
+        
+        secondaryViewController.navigationBar.titleTextAttributes = textAttributes;
+        secondaryViewController.navigationBar.tintColor = tintColor;
+        secondaryViewController.toolbar.tintColor = tintColor;
+        
+        secondaryViewController.topViewController.navigationItem.leftBarButtonItem = [splitViewController displayModeButtonItem];
+        
+        return secondaryViewController;
     }
 
-    NSDictionary *textAttributes = self.primaryViewController.navigationBar.titleTextAttributes;
-    UIColor *tintColor = self.primaryViewController.navigationBar.tintColor;
-    UIViewController *poppedViewController = [self.primaryViewController popViewControllerAnimated:NO];
-    
-    UINavigationController *navigationViewController = [[UINavigationController alloc] initWithRootViewController:poppedViewController];
-    navigationViewController.navigationBar.titleTextAttributes = textAttributes;
-    navigationViewController.navigationBar.tintColor = tintColor;
-    navigationViewController.toolbar.tintColor = tintColor;
-
-    return navigationViewController;
+    return nil;
 }
 
 #pragma mark - Notifications

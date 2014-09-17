@@ -4,7 +4,7 @@
      
      Abstract:
      
-                 NSViewController subclass that handles displaying list items in a NCWidgetListViewController. Bindings are used to link the represented object to the view controller.
+                 The AAPLListRowViewController class is an NSViewController subclass that displays list items in a NCWidgetListViewController. Bindings are used to link the represented object to the view controller.
              
  */
 
@@ -16,12 +16,6 @@
 @end
 
 @implementation AAPLListRowViewController
-
-#pragma mark - Properties
-
-- (NSString *)nibName {
-    return @"AAPLListRowViewController";
-}
 
 #pragma mark - View Life Cycle
 

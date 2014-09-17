@@ -14,6 +14,8 @@
 @interface AAPLListViewController : UITableViewController
 
 @property (nonatomic, strong) AAPLListController *listController;
+@property (nonatomic, strong) AAPLListDocument *document;
+@property (nonatomic, copy) NSDictionary *textAttributes;
 
 - (void)configureWithListInfo:(AAPLListInfo *)listInfo;
 

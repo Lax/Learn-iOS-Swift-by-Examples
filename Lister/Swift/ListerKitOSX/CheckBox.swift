@@ -57,4 +57,12 @@ import Cocoa
         
         cell().performClick(self)
     }
+    
+    override public func viewDidChangeBackingProperties() {
+        super.viewDidChangeBackingProperties()
+        
+        if let window = window {
+            layer?.contentsScale = window.backingScaleFactor
+        }
+    }
 }

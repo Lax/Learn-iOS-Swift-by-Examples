@@ -22,11 +22,8 @@ class OpenListerRowViewController: NSViewController {
     
     @IBAction func openInLister(_: NSButton) {
         TodayListManager.fetchTodayDocumentURLWithCompletionHandler { todayDocumentURL in
-            if let todayDocumentURL = todayDocumentURL {
-                let workspace = NSWorkspace.sharedWorkspace()
-                let options: NSWorkspaceLaunchOptions = .Async
-                
-                workspace.openURLs([todayDocumentURL], withAppBundleIdentifier: AppConfiguration.Extensions.widgetBundleIdentifier, options: options, additionalEventParamDescriptor: nil, launchIdentifiers: nil)
+            if let url = todayDocumentURL {
+                NSWorkspace.sharedWorkspace().openURLs([url], withAppBundleIdentifier: AppConfiguration.App.bundleIdentifier, options: .Async, additionalEventParamDescriptor: nil, launchIdentifiers: nil)
             }
         }
     }

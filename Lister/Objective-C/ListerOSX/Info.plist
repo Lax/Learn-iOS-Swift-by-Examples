@@ -28,7 +28,7 @@
 			<key>NSDocumentClass</key>
 			<string>AAPLListDocument</string>
 			<key>NSUbiquitousDocumentUserActivityType</key>
-			<string>com.example.apple-samplecode.Lister</string>
+			<string>com.example.apple-samplecode.Lister.editing</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
@@ -57,6 +57,10 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.example.apple-samplecode.Lister.editing</string>
+	</array>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>

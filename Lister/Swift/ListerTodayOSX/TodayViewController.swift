@@ -13,12 +13,6 @@ import NotificationCenter
 import ListerKitOSX
 
 class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListViewDelegate, ListRowViewControllerDelegate, ListDocumentDelegate {
-    // MARK: Types
-    
-    private struct TableViewConstants {
-        static let openListRow = 0
-    }
-    
     // MARK: Properties
 
     @IBOutlet var listViewController: NCWidgetListViewController!
@@ -47,7 +41,6 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
 
         listViewController.delegate = self
         listViewController.hasDividerLines = false
-        listViewController.showsAddButtonWhenEditing = false
         listViewController.contents = []
 
         updateWidgetContents()
@@ -64,48 +57,32 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
     }
     
     func widgetAllowsEditing() -> Bool {
-        return true
-    }
-    
-    func widgetDidBeginEditing() {
-        listViewController.editing = true
-    }
-    
-    func widgetDidEndEditing() {
-        listViewController.editing = false
+        return false
     }
     
     // MARK: NCWidgetListViewDelegate
 
     func widgetList(_: NCWidgetListViewController, viewControllerForRow row: Int) -> NSViewController {
-        if row == TableViewConstants.openListRow {
-            return OpenListerRowViewController()
+        let representedObjectForRow: AnyObject = listViewController.contents[row]
+
+        // First check to see if it's a straightforward row to return a view controller for.
+        if let todayWidgetRowPurpose = representedObjectForRow as? TodayWidgetRowPurposeBox {
+            switch todayWidgetRowPurpose.purpose {
+                case .OpenLister: return OpenListerRowViewController()
+                case .NoItemsInList: return NoItemsRowViewController()
+                case .RequiresCloud: return TodayWidgetRequiresCloudViewController()
+            }
         }
-        else if list.isEmpty {
-            return NoItemsRowViewController()
-        }
-        
+
         let listRowViewController = ListRowViewController()
         
-        listRowViewController.representedObject = listViewController.contents[row]
+        listRowViewController.representedObject = representedObjectForRow
 
         listRowViewController.delegate = self
         
         return listRowViewController
     }
-    
-    func widgetList(_: NCWidgetListViewController, shouldRemoveRow row: Int) -> Bool {
-        return row != TableViewConstants.openListRow
-    }
-    
-    func widgetList(_: NCWidgetListViewController, didRemoveRow row: Int) {
-        let item = list[row - 1]
-        
-        list.removeItems([item])
-        
-        document.updateChangeCount(.ChangeDone)
-    }
-    
+
     // MARK: ListRowViewControllerDelegate
 
     func listRowViewControllerDidChangeRepresentedObjectState(listRowViewController: ListRowViewController) {
@@ -134,7 +111,7 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
         let listColor = list.color.colorValue
         
         // The "Open in Lister" has a representedObject as an NSColor, representing the text color.
-        representedObjects += [listColor]
+        representedObjects += [TodayWidgetRowPurposeBox(purpose: .OpenLister, userInfo: listColor)]
 
         for item in aList.items {
             representedObjects += [ListRowRepresentedObject(item: item, color: listColor)]
@@ -143,21 +120,23 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
         // Add a sentinel NSNull value to represent the "No Items" represented object.
         if list.isEmpty {
             // No items in the list.
-            representedObjects += [NSNull()]
+            representedObjects += [TodayWidgetRowPurposeBox(purpose: .NoItemsInList)]
         }
         
         return representedObjects
     }
-    
+
     func updateWidgetContents(completionHandler: (NCUpdateResult -> Void)? = nil) {
         TodayListManager.fetchTodayDocumentURLWithCompletionHandler { todayDocumentURL in
-            if todayDocumentURL == nil {
-                completionHandler?(.Failed)
-
-                return
-            }
-            
             dispatch_async(dispatch_get_main_queue()) {
+                if todayDocumentURL == nil {
+                    self.listViewController.contents = [TodayWidgetRowPurposeBox(purpose: .RequiresCloud)]
+                    
+                    completionHandler?(.Failed)
+                    
+                    return
+                }
+
                 var error: NSError?
 
                 let newDocument = ListDocument(contentsOfURL: todayDocumentURL!, makesCustomWindowControllers: false, error: &error)
@@ -166,14 +145,14 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
                     completionHandler?(.Failed)
                 }
                 else {
-                    if self.document?.list == newDocument.list {
+                    if self.document != nil && self.list == newDocument.list {
                         completionHandler?(.NoData)
                     }
                     else {
                         self.document = newDocument
                         self.document.delegate = self
                         self.listViewController.contents = self.listRowRepresentedObjectsForList(newDocument.list)
-                        
+
                         completionHandler?(.NewData)
                     }
                 }

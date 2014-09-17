@@ -49,6 +49,14 @@
     [self.cell performClick:self];
 }
 
+- (void)viewDidChangeBackingProperties {
+    [super viewDidChangeBackingProperties];
+    
+    if (self.window) {
+        self.layer.contentsScale = self.window.backingScaleFactor;
+    }
+}
+
 #pragma mark - AAPLCheckBox Property Overrides
 
 - (void)setChecked:(BOOL)checked {

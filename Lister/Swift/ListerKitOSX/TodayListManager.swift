@@ -48,7 +48,7 @@ public class TodayListManager {
 
         if fileManager.copyItemAtURL(sampleTodayDocumentURL!, toURL: todayDocumentURL, error: nil) {
             // Make the file's extension hidden.
-            fileManager.setAttributes([NSFileExtensionHidden: true], ofItemAtPath: todayDocumentURL.path, error: nil)
+            fileManager.setAttributes([NSFileExtensionHidden: true], ofItemAtPath: todayDocumentURL.path!, error: nil)
 
             return todayDocumentURL
         }

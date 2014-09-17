@@ -8,7 +8,9 @@
             
 */
 
+#import "AAPLAppConfiguration.h"
 #import "AAPLListDocument.h"
+#import "AAPLList.h"
 
 @implementation AAPLListDocument
 
@@ -43,6 +45,13 @@
     [super accommodatePresentedItemDeletionWithCompletionHandler:completionHandler];
 
     [self.delegate listDocumentWasDeleted:self];
+}
+
+#pragma mark - Handoff
+
+- (void)updateUserActivityState:(NSUserActivity *)userActivity {
+    [super updateUserActivityState:userActivity];
+    [userActivity addUserInfoEntriesFromDictionary:@{ AAPLAppConfigurationUserActivityListColorUserInfoKey: @(self.list.color) }];
 }
 
 @end

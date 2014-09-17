@@ -59,4 +59,11 @@ public class ListDocument: UIDocument {
         
         delegate?.listDocumentWasDeleted(self)
     }
+    
+    // MARK: Handoff
+    
+    override public func updateUserActivityState(userActivity: NSUserActivity) {
+        super.updateUserActivityState(userActivity)
+        userActivity.addUserInfoEntriesFromDictionary([ AppConfiguration.UserActivity.listColorUserInfoKey: list.color.toRaw() ])
+    }
 }

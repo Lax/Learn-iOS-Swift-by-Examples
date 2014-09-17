@@ -22,6 +22,8 @@ typedef struct AAPLAppStorageState {
     BOOL cloudAvailable;
 } AAPLAppStorageState;
 
+extern NSString *const AAPLAppConfigurationUserActivityListColorUserInfoKey;
+
 extern NSString *const AAPLAppConfigurationListerFileUTI;
 extern NSString *const AAPLAppConfigurationListerFileExtension;
 extern NSString *const AAPLAppConfigurationWidgetBundleIdentifier;

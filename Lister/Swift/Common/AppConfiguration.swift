@@ -16,6 +16,16 @@ public class AppConfiguration {
         static let storageOptionKey = "AppConfiguration.Defaults.storageOptionKey"
         static let storedUbiquityIdentityToken = "AppConfiguration.Defaults.storedUbiquityIdentityToken"
     }
+    
+    public struct UserActivity {
+        public static let listColorUserInfoKey = "listColor"
+    }
+    
+    #if os(OSX)
+    public struct App {
+        public static let bundleIdentifier = "com.example.apple-samplecode.ListerOSX"
+    }
+    #endif
 
     public struct Extensions {
         #if os(iOS)

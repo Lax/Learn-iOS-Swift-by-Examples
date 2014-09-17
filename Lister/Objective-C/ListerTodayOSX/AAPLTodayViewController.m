@@ -4,15 +4,17 @@
      
      Abstract:
      
-                 Handles display of the Today view. It leverages iCloud for seamless interaction between devices.
+                 The AAPLTodayViewController class handles display of the Today view. It leverages iCloud for seamless interaction between devices.
               
  */
 
 #import "AAPLTodayViewController.h"
 #import "AAPLListRowViewController.h"
 #import "AAPLOpenListerRowViewController.h"
+#import "AAPLTodayWidgetRequiresCloudViewController.h"
 #import "AAPLNoItemsRowViewController.h"
 #import "AAPLListRowRepresentedObject.h"
+#import "AAPLTodayWidgetRowPurposeBox.h"
 @import NotificationCenter;
 @import ListerKitOSX;
 
@@ -42,7 +44,6 @@ const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
 
     self.listViewController.delegate = self;
     self.listViewController.hasDividerLines = NO;
-    self.listViewController.showsAddButtonWhenEditing = NO;
     self.listViewController.contents = @[];
     
     [self updateWidgetContents:nil];
@@ -64,30 +65,33 @@ const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
 }
 
 - (BOOL)widgetAllowsEditing {
-    return YES;
-}
-
-- (void)widgetDidBeginEditing {
-    self.listViewController.editing = YES;
-}
-
-- (void)widgetDidEndEditing {
-    self.listViewController.editing = NO;
+    return NO;
 }
 
 #pragma mark - NCWidgetListViewDelegate
 
 - (NSViewController *)widgetList:(NCWidgetListViewController *)list viewControllerForRow:(NSUInteger)row {
-    if (row == AAPLTodayViewControllerOpenListerRow) {
-        return [[AAPLOpenListerRowViewController alloc] init];
-    }
-    else if (self.list.isEmpty) {
-        return [[AAPLNoItemsRowViewController alloc] init];
+    id representedObjectForRow = self.listViewController.contents[row];
+    
+    if ([representedObjectForRow isKindOfClass:[AAPLTodayWidgetRowPurposeBox class]]) {
+        switch ([representedObjectForRow purpose]) {
+            case AAPLTodayWidgetRowPurposeOpenLister:
+                return [[AAPLOpenListerRowViewController alloc] init];
+                break;
+                
+            case AAPLTodayWidgetRowPurposeNoItemsInList:
+                return [[AAPLNoItemsRowViewController alloc] init];
+                break;
+            
+            case AAPLTodayWidgetRowPurposeRequiresCloud:
+                return [[AAPLTodayWidgetRequiresCloudViewController alloc] init];
+                break;
+        }
     }
     
     AAPLListRowViewController *listRowViewController = [[AAPLListRowViewController alloc] init];
     
-    listRowViewController.representedObject = self.listViewController.contents[row];
+    listRowViewController.representedObject = representedObjectForRow;
 
     listRowViewController.delegate = self;
 
@@ -134,13 +138,14 @@ const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
 
 - (NSArray *)listRowRepresentedObjectsForList:(AAPLList *)list {
     NSArray *listItems = list.allItems;
-    
-    NSMutableArray *representedObjects = [[NSMutableArray alloc] initWithCapacity:listItems.count + 1];
+
+    NSMutableArray *representedObjects = [NSMutableArray array];
 
     NSColor *listColor = AAPLColorFromListColor(list.color);
+    AAPLTodayWidgetRowPurposeBox *openInListerPurposeBox = [[AAPLTodayWidgetRowPurposeBox alloc] initWithPurpose:AAPLTodayWidgetRowPurposeOpenLister userInfo:listColor];
     
     // The "Open in Lister" has a representedObject as an NSColor, representing the text color.
-    [representedObjects addObject:listColor];
+    [representedObjects addObject:openInListerPurposeBox];
 
     for (AAPLListItem *item in listItems) {
         AAPLListRowRepresentedObject *representedObject = [[AAPLListRowRepresentedObject alloc] init];
@@ -154,7 +159,9 @@ const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
     // Add a sentinel NSNull value to represent the "No Items" represented object.
     if (self.list.isEmpty) {
         // No items in the list.
-        [representedObjects addObject:[NSNull null]];
+        AAPLTodayWidgetRowPurposeBox *noItemsInListPurposeBox = [[AAPLTodayWidgetRowPurposeBox alloc] initWithPurpose:AAPLTodayWidgetRowPurposeNoItemsInList userInfo:nil];
+
+        [representedObjects addObject:noItemsInListPurposeBox];
     }
     
     return representedObjects;
@@ -162,21 +169,27 @@ const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
 
 - (void)updateWidgetContents:(void (^)(NCUpdateResult result))completionHandler {
     [[AAPLTodayListManager sharedTodayListManager] fetchTodayDocumentURLWithCompletionHandler:^(NSURL *todayDocumentURL) {
-        if (!todayDocumentURL) {
-            if (completionHandler) {
-                completionHandler(NCUpdateResultFailed);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!todayDocumentURL) {
+                AAPLTodayWidgetRowPurposeBox *requiresCloudPurposeBox = [[AAPLTodayWidgetRowPurposeBox alloc] initWithPurpose:AAPLTodayWidgetRowPurposeRequiresCloud userInfo:nil];
+                
+                self.listViewController.contents = @[requiresCloudPurposeBox];
+
+                if (completionHandler) {
+                    completionHandler(NCUpdateResultFailed);
+                }
+                
+                return;
             }
 
-            return;
-        }
-
-        dispatch_async(dispatch_get_main_queue(), ^{
             NSError *error;
             AAPLListDocument *document = [[AAPLListDocument alloc] initWithContentsOfURL:todayDocumentURL makesCustomWindowControllers:NO error:&error];
             
             if (error) {
                 if (completionHandler) {
                     completionHandler(NCUpdateResultFailed);
+                    
+                    return;
                 }
             }
             else {
@@ -194,10 +207,6 @@ const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
                         completionHandler(NCUpdateResultNewData);
                     }
                 }
-            }
-            
-            if (completionHandler) {
-                completionHandler(NCUpdateResultNoData);
             }
         });
     }];

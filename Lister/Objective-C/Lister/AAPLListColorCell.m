@@ -46,9 +46,18 @@
     // If the user tapped on a color (identified by its tag), notify the delegate.
     if (view) {
         AAPLListColor color = (AAPLListColor)view.tag;
-        self.selectedColor = color;
-
-        [self.delegate listColorCellDidChangeSelectedColor:self];
+        
+        switch (color) {
+            case AAPLListColorGray:
+            case AAPLListColorBlue:
+            case AAPLListColorGreen:
+            case AAPLListColorYellow:
+            case AAPLListColorOrange:
+            case AAPLListColorRed:
+                self.selectedColor = color;
+                [self.delegate listColorCellDidChangeSelectedColor:self];
+                break;
+        }
     }
 }
 

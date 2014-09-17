@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1608C4E41939988600CC1E53 /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3E93585E1920343C0091408E /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex */; };
+		1608C4E41939988600CC1E53 /* ListerTodayOSX.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3E93585E1920343C0091408E /* ListerTodayOSX.appex */; };
 		1608C4EA1939A12100CC1E53 /* NoItemsRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1608C4E81939A12100CC1E53 /* NoItemsRowViewController.swift */; };
 		1608C4EB1939A12100CC1E53 /* NoItemsRowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1608C4E91939A12100CC1E53 /* NoItemsRowViewController.xib */; };
 		162BD21F1922BA5700848FF6 /* ListerOSX.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 162BD21E1922BA5700848FF6 /* ListerOSX.entitlements */; };
 		162CB9E81936F0AF00F2586B /* ListerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE5954192016410052916A /* ListerKit.framework */; };
 		162CB9EB1936F0DE00F2586B /* CheckBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CB9EA1936F0DE00F2586B /* CheckBoxCell.swift */; };
+		164B39A919A27E410064C879 /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 164B39A819A27E410064C879 /* Launch.xib */; };
 		166A72131987F8320016C1B3 /* ListInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674D9AE18F72B7F0019FF77 /* ListInfo.swift */; };
 		1674D9AD18F729CA0019FF77 /* ListDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674D9AC18F729CA0019FF77 /* ListDocumentsViewController.swift */; };
 		1674D9E118F752960019FF77 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674D9E018F752960019FF77 /* ListViewController.swift */; };
@@ -21,7 +22,7 @@
 		16A9851D1936EEA5007B7F37 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168178BA19100ED6008B46DC /* NotificationCenter.framework */; };
 		16A985221936EEA7007B7F37 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A985211936EEA7007B7F37 /* TodayViewController.swift */; };
 		16A985241936EEA7007B7F37 /* Today.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A985231936EEA7007B7F37 /* Today.storyboard */; };
-		16A985271936EEA7007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16A9851C1936EEA5007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex */; };
+		16A985271936EEA7007B7F37 /* ListerToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16A9851C1936EEA5007B7F37 /* ListerToday.appex */; };
 		16AF9FD21987FEA3008CAA4C /* LocalListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AF9FD11987FEA3008CAA4C /* LocalListCoordinator.swift */; };
 		16AF9FD6198864DA008CAA4C /* CloudListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AF9FD5198864DA008CAA4C /* CloudListCoordinator.swift */; };
 		16B6970619332B9800B1CA09 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AF5213191FF94B0088ED08 /* CheckBox.swift */; };
@@ -87,6 +88,9 @@
 		3EDB108A1982DDB100669AAE /* ListItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB10891982DDB100669AAE /* ListItemTests.swift */; };
 		3EDB108B1982DDB600669AAE /* ListItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB10891982DDB100669AAE /* ListItemTests.swift */; };
 		3EE2348E1980530F00F80662 /* ListerKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E93587D1920355C0091408E /* ListerKitOSX.framework */; };
+		3EED110919AFBC9A00848265 /* TodayWidgetRowPurpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED110719AFBAAB00848265 /* TodayWidgetRowPurpose.swift */; };
+		3EED110A19AFBE4400848265 /* TodayWidgetRequiresCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EED110319AFB9A100848265 /* TodayWidgetRequiresCloudViewController.swift */; };
+		3EED110B19AFBE4800848265 /* TodayWidgetRequiresCloudViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EED110519AFB9F900848265 /* TodayWidgetRequiresCloudViewController.xib */; };
 		3EFC7D9F18FB08C90012B60F /* ColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9718FB08C90012B60F /* ColorPaletteView.swift */; };
 		3EFC7DA318FB08C90012B60F /* ListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9B18FB08C90012B60F /* ListTableView.swift */; };
 		3EFC7DA418FB08C90012B60F /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9C18FB08C90012B60F /* ListItemView.swift */; };
@@ -208,7 +212,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				1608C4E41939988600CC1E53 /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex in Embed App Extensions */,
+				1608C4E41939988600CC1E53 /* ListerTodayOSX.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +223,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				16A985271936EEA7007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex in Embed App Extensions */,
+				16A985271936EEA7007B7F37 /* ListerToday.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,11 +256,12 @@
 		1608C4E81939A12100CC1E53 /* NoItemsRowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoItemsRowViewController.swift; path = ListerTodayOSX/NoItemsRowViewController.swift; sourceTree = SOURCE_ROOT; };
 		1608C4E91939A12100CC1E53 /* NoItemsRowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoItemsRowViewController.xib; path = ListerTodayOSX/NoItemsRowViewController.xib; sourceTree = SOURCE_ROOT; };
 		162BD21E1922BA5700848FF6 /* ListerOSX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ListerOSX.entitlements; sourceTree = "<group>"; };
-		162CB9E71936EF8A00F2586B /* com.example.apple-samplecode.Lister.ListerToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "com.example.apple-samplecode.Lister.ListerToday.entitlements"; sourceTree = "<group>"; };
+		162CB9E71936EF8A00F2586B /* ListerToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ListerToday.entitlements; sourceTree = "<group>"; };
 		162CB9EA1936F0DE00F2586B /* CheckBoxCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxCell.swift; sourceTree = "<group>"; };
 		16480E2718F860360068456A /* ListDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListDocument.swift; path = ../ListerKit/ListDocument.swift; sourceTree = "<group>"; };
 		16480E2918F866990068456A /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = ../Common/List.swift; sourceTree = "<group>"; };
 		16480E2B18F866A80068456A /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItem.swift; path = ../Common/ListItem.swift; sourceTree = "<group>"; };
+		164B39A819A27E410064C879 /* Launch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Launch.xib; path = Base.lproj/Launch.xib; sourceTree = "<group>"; };
 		1674D9AC18F729CA0019FF77 /* ListDocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ListDocumentsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1674D9AE18F72B7F0019FF77 /* ListInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListInfo.swift; path = ListerKit/ListInfo.swift; sourceTree = SOURCE_ROOT; };
 		1674D9B618F745670019FF77 /* Lister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Lister.entitlements; sourceTree = "<group>"; };
@@ -264,7 +269,7 @@
 		168178BA19100ED6008B46DC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		1682F5F718F8ACD9000B87A6 /* ListItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemCell.swift; sourceTree = "<group>"; };
 		1686A96218FCBA9900112572 /* NewListDocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NewListDocumentController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		16A9851C1936EEA5007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "com.example.apple-samplecode.Lister.ListerToday.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16A9851C1936EEA5007B7F37 /* ListerToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ListerToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		16A985201936EEA7007B7F37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16A985211936EEA7007B7F37 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		16A985231936EEA7007B7F37 /* Today.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Today.storyboard; sourceTree = "<group>"; };
@@ -296,7 +301,7 @@
 		3E541362198A16F9000DA252 /* ListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListCoordinator.swift; path = ../ListerKit/ListCoordinator.swift; sourceTree = "<group>"; };
 		3E6198971989AE7700D66B75 /* ListUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListUtilities.swift; path = ../ListerKit/ListUtilities.swift; sourceTree = "<group>"; };
 		3E6B618B1935D12C00F7C4BA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		3E93585E1920343C0091408E /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "com.example.apple-samplecode.Lister.ListerTodayOSX.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E93585E1920343C0091408E /* ListerTodayOSX.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ListerTodayOSX.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9358621920343C0091408E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E9358631920343C0091408E /* ListerTodayOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ListerTodayOSX.entitlements; sourceTree = "<group>"; };
 		3E9358661920343C0091408E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -326,6 +331,9 @@
 		3ECADE14192D0B2800BC9826 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3ECADE16192D0B3400BC9826 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		3EDB10891982DDB100669AAE /* ListItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItemTests.swift; path = ListerKitTests/ListItemTests.swift; sourceTree = SOURCE_ROOT; };
+		3EED110319AFB9A100848265 /* TodayWidgetRequiresCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayWidgetRequiresCloudViewController.swift; sourceTree = "<group>"; };
+		3EED110519AFB9F900848265 /* TodayWidgetRequiresCloudViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TodayWidgetRequiresCloudViewController.xib; path = ListerTodayOSX/TodayWidgetRequiresCloudViewController.xib; sourceTree = SOURCE_ROOT; };
+		3EED110719AFBAAB00848265 /* TodayWidgetRowPurpose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayWidgetRowPurpose.swift; sourceTree = "<group>"; };
 		3EFC7D9718FB08C90012B60F /* ColorPaletteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPaletteView.swift; sourceTree = "<group>"; };
 		3EFC7D9A18FB08C90012B60F /* ListColorUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListColorUI.swift; path = Common/ListColorUI.swift; sourceTree = SOURCE_ROOT; };
 		3EFC7D9B18FB08C90012B60F /* ListTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableView.swift; sourceTree = "<group>"; };
@@ -459,7 +467,7 @@
 		16A9851F1936EEA7007B7F37 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				162CB9E71936EF8A00F2586B /* com.example.apple-samplecode.Lister.ListerToday.entitlements */,
+				162CB9E71936EF8A00F2586B /* ListerToday.entitlements */,
 				16A985201936EEA7007B7F37 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -484,9 +492,9 @@
 				16CBDAA718F6EE3A00233D3C /* Lister.app */,
 				3E497FC618FAFA2400B32837 /* ListerOSX.app */,
 				16EE5954192016410052916A /* ListerKit.framework */,
-				3E93585E1920343C0091408E /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex */,
+				3E93585E1920343C0091408E /* ListerTodayOSX.appex */,
 				3E93587D1920355C0091408E /* ListerKitOSX.framework */,
-				16A9851C1936EEA5007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex */,
+				16A9851C1936EEA5007B7F37 /* ListerToday.appex */,
 				3E251757197F7A0400B8AF96 /* ListerKitTests.xctest */,
 				3E251767197F7A1400B8AF96 /* ListerKitTestsOSX.xctest */,
 			);
@@ -616,6 +624,7 @@
 			isa = PBXGroup;
 			children = (
 				16CBDAB518F6EE3A00233D3C /* Main.storyboard */,
+				164B39A819A27E410064C879 /* Launch.xib */,
 				16CBDAAE18F6EE3A00233D3C /* AppDelegate.swift */,
 				16EE597919201D390052916A /* View Controllers */,
 				16EE597A19201D580052916A /* Views */,
@@ -686,10 +695,12 @@
 				3EBB36C7192048970021C954 /* OpenListerRowViewController.swift */,
 				3E93586A1920343C0091408E /* ListRowViewController.swift */,
 				1608C4E81939A12100CC1E53 /* NoItemsRowViewController.swift */,
+				3EED110319AFB9A100848265 /* TodayWidgetRequiresCloudViewController.swift */,
 				3EA02511192052590090F6DB /* TodayViewController.xib */,
 				3EA02513192052590090F6DB /* OpenListerRowViewController.xib */,
 				3EA02512192052590090F6DB /* ListRowViewController.xib */,
 				1608C4E91939A12100CC1E53 /* NoItemsRowViewController.xib */,
+				3EED110519AFB9F900848265 /* TodayWidgetRequiresCloudViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -698,6 +709,7 @@
 			isa = PBXGroup;
 			children = (
 				3EBB36C5192045BE0021C954 /* ListRowRepresentedObject.swift */,
+				3EED110719AFBAAB00848265 /* TodayWidgetRowPurpose.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -883,7 +895,7 @@
 			);
 			name = ListerToday;
 			productName = ListerToday;
-			productReference = 16A9851C1936EEA5007B7F37 /* com.example.apple-samplecode.Lister.ListerToday.appex */;
+			productReference = 16A9851C1936EEA5007B7F37 /* ListerToday.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		16CBDAA618F6EE3A00233D3C /* Lister */ = {
@@ -1006,7 +1018,7 @@
 			);
 			name = ListerTodayOSX;
 			productName = ListerTodayOSX;
-			productReference = 3E93585E1920343C0091408E /* com.example.apple-samplecode.Lister.ListerTodayOSX.appex */;
+			productReference = 3E93585E1920343C0091408E /* ListerTodayOSX.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		3E93587C1920355C0091408E /* ListerKitOSX */ = {
@@ -1038,13 +1050,15 @@
 				TargetAttributes = {
 					16A9851B1936EEA5007B7F37 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = A93A5CM278;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
 					16CBDAA618F6EE3A00233D3C = {
+						DevelopmentTeam = A93A5CM278;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -1053,6 +1067,7 @@
 					};
 					16EE5953192016410052916A = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = A93A5CM278;
 					};
 					3E251756197F7A0400B8AF96 = {
 						CreatedOnToolsVersion = 6.0;
@@ -1062,11 +1077,21 @@
 						CreatedOnToolsVersion = 6.0;
 						TestTargetID = 3E93587C1920355C0091408E;
 					};
+					3E497FC518FAFA2400B32837 = {
+						DevelopmentTeam = A93A5CM278;
+					};
 					3E93585D1920343C0091408E = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = A93A5CM278;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					3E93587C1920355C0091408E = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = A93A5CM278;
 					};
 				};
 			};
@@ -1109,6 +1134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EBE02D3198CA7EB0007E4AC /* ListerDocumentIcon.icns in Resources */,
+				164B39A919A27E410064C879 /* Launch.xib in Resources */,
 				16CBDAB918F6EE3A00233D3C /* Images.xcassets in Resources */,
 				16CBDAB718F6EE3A00233D3C /* Main.storyboard in Resources */,
 				3EC2F3F219369F1400B0BD12 /* Groceries.list in Resources */,
@@ -1161,6 +1187,7 @@
 				3E9358671920343C0091408E /* InfoPlist.strings in Resources */,
 				3EA02515192052590090F6DB /* ListRowViewController.xib in Resources */,
 				1608C4EB1939A12100CC1E53 /* NoItemsRowViewController.xib in Resources */,
+				3EED110B19AFBE4800848265 /* TodayWidgetRequiresCloudViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1259,8 +1286,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E9358691920343C0091408E /* TodayViewController.swift in Sources */,
+				3EED110A19AFBE4400848265 /* TodayWidgetRequiresCloudViewController.swift in Sources */,
 				1608C4EA1939A12100CC1E53 /* NoItemsRowViewController.swift in Sources */,
 				3E93586B1920343C0091408E /* ListRowViewController.swift in Sources */,
+				3EED110919AFBC9A00848265 /* TodayWidgetRowPurpose.swift in Sources */,
 				3EBB36C8192048970021C954 /* OpenListerRowViewController.swift in Sources */,
 				3EBB36C6192045BE0021C954 /* ListRowRepresentedObject.swift in Sources */,
 			);
@@ -1385,7 +1414,7 @@
 		16A9852B1936EEA7007B7F37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "ListerToday/com.example.apple-samplecode.Lister.ListerToday.entitlements";
+				CODE_SIGN_ENTITLEMENTS = ListerToday/ListerToday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1396,25 +1425,27 @@
 				INFOPLIST_FILE = ListerToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "com.example.apple-samplecode.Lister.$(TARGET_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		16A9852C1936EEA7007B7F37 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "ListerToday/com.example.apple-samplecode.Lister.ListerToday.entitlements";
+				CODE_SIGN_ENTITLEMENTS = ListerToday/ListerToday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = ListerToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "com.example.apple-samplecode.Lister.$(TARGET_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1451,11 +1482,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1486,9 +1515,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1506,6 +1533,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1522,6 +1550,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1549,6 +1578,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1574,6 +1604,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1715,7 +1746,7 @@
 				INFOPLIST_FILE = ListerTodayOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = "com.example.apple-samplecode.Lister.$(TARGET_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1736,7 +1767,7 @@
 				INFOPLIST_FILE = ListerTodayOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = "com.example.apple-samplecode.Lister.$(TARGET_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;

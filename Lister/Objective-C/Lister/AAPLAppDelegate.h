@@ -31,6 +31,18 @@ extern NSString *const AAPLAppDelegateMainStoryboardListNavigationViewController
  */
 extern NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerToNewListDocumentControllerSegueIdentifier;
 
+/*!
+ * The segue identifier for the transition between the \c ListDocumentsViewController and the
+ * \c ListViewController.
+ */
+extern NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerToListViewControllerSegueIdentifier;
+
+/*!
+ * The segue identifier for the transition between the \c ListDocumentsViewController and the
+ * \c ListViewController initiated due to the resumption of a user activity.
+ */
+extern NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerContinueUserActivityToListViewControllerSegueIdentifier;
+
 @interface AAPLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;

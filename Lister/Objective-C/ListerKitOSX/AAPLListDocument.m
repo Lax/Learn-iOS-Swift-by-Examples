@@ -96,4 +96,11 @@
     return [NSKeyedArchiver archivedDataWithRootObject:self.list];
 }
 
+#pragma mark - Handoff
+
+- (void)updateUserActivityState:(NSUserActivity *)userActivity {
+    [super updateUserActivityState:userActivity];
+    [userActivity addUserInfoEntriesFromDictionary:@{ AAPLAppConfigurationUserActivityListColorUserInfoKey: @(self.list.color) }];
+}
+
 @end

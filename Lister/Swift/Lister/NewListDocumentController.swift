@@ -72,16 +72,29 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
     
     // MARK: UITextFieldDelegate
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let updatedText = (textField.text as NSString).stringByReplacingCharactersInRange(range, withString: string)
+        updateForProposedListName(updatedText)
+        
+        return true
+    }
+    
     func textFieldDidEndEditing(textField: UITextField) {
-        if listController.canCreateListInfoWithName(textField.text) {
-            saveButton.enabled = true
-            selectedTitle = textField.text
-        }
+        updateForProposedListName(textField.text)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
 
         return true
+    }
+    
+    // MARK: Convenience
+    
+    func updateForProposedListName(name: String) {
+        if listController.canCreateListInfoWithName(name) {
+            saveButton.enabled = true
+            selectedTitle = name
+        }
     }
 }

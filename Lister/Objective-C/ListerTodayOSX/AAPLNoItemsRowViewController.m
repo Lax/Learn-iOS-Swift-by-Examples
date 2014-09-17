@@ -4,18 +4,12 @@
      
      Abstract:
      
-                  NSViewController subclass responsible for displaying the "No items" row.
+                 The AAPLNoItemsRowViewController class is an NSViewController subclass that displays the "No Items" row in the app extension.
               
  */
 
 #import "AAPLNoItemsRowViewController.h"
 
 @implementation AAPLNoItemsRowViewController
-
-#pragma mark - Properties
-
-- (NSString *)nibName {
-    return @"AAPLNoItemsRowViewController";
-}
 
 @end

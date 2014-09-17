@@ -83,7 +83,8 @@ NSString *AAPLTodayViewControllerMessageCellIdentifier = @"messageCell";
 }
 
 - (void)listController:(AAPLListController *)listController didRemoveListInfo:(AAPLListInfo *)listInfo atIndex:(NSInteger)index {
-    NSAssert(YES, @"listController:didRemoveListInfo:atIndex: should never be called from the Today widget!");
+    NSLog(@"listController:didRemoveListInfo:atIndex: should never be called from the Today widget!");
+    abort();
 }
 
 - (void)listController:(AAPLListController *)listController didUpdateListInfo:(AAPLListInfo *)listInfo atIndex:(NSInteger)index {
@@ -95,11 +96,13 @@ NSString *AAPLTodayViewControllerMessageCellIdentifier = @"messageCell";
 }
 
 - (void)listController:(AAPLListController *)listController didFailCreatingListInfo:(AAPLListInfo *)listInfo withError:(NSError *)error {
-    NSAssert(YES, @"listController:didFailCreatingListInfo:withError: should never be called from the Today widget!");
+    NSLog(@"listController:didFailCreatingListInfo:withError: should never be called from the Today widget!");
+    abort();
 }
 
 - (void)listController:(AAPLListController *)listController didFailRemovingListInfo:(AAPLListInfo *)listInfo withError:(NSError *)error {
-    NSAssert(YES, @"listController:didFailRemovingListInfo:withError: should never be called from the Today widget!");
+    NSLog(@"listController:didFailRemovingListInfo:withError: should never be called from the Today widget!");
+    abort();
 }
 
 - (void)processListInfoAsTodayDocument:(AAPLListInfo *)listInfo {

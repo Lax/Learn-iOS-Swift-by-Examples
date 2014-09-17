@@ -4,7 +4,7 @@
      
      Abstract:
      
-                 Handles display of the Today view. It leverages iCloud for seamless interaction between devices.
+                 The AAPLTodayViewController class handles display of the Today view. It leverages iCloud for seamless interaction between devices.
               
  */
 

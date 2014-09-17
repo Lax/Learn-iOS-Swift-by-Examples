@@ -154,7 +154,7 @@ class TodayViewController: UITableViewController, ListControllerDelegate, NCWidg
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if !isCloudAvailable {
             let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.CellIdentifiers.message, forIndexPath: indexPath) as UITableViewCell
-            cell.textLabel.text = NSLocalizedString("Today requires iCloud", comment: "")
+            cell.textLabel!.text = NSLocalizedString("Today requires iCloud", comment: "")
             
             return cell
         }
@@ -163,7 +163,7 @@ class TodayViewController: UITableViewController, ListControllerDelegate, NCWidg
             if !showingAll && indexPath.row == TableViewConstants.baseRowCount &&  list!.count != TableViewConstants.baseRowCount + 1 {
                 let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.CellIdentifiers.message, forIndexPath: indexPath) as UITableViewCell
 
-                cell.textLabel.text = NSLocalizedString("Show All...", comment: "")
+                cell.textLabel!.text = NSLocalizedString("Show All...", comment: "")
 
                 return cell
             }
@@ -179,10 +179,10 @@ class TodayViewController: UITableViewController, ListControllerDelegate, NCWidg
             let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.CellIdentifiers.message, forIndexPath: indexPath) as UITableViewCell
 
             if isTodayAvailable {
-                cell.textLabel.text = NSLocalizedString("No items in today's list", comment: "")
+                cell.textLabel!.text = NSLocalizedString("No items in today's list", comment: "")
             }
             else {
-                cell.textLabel.text = ""
+                cell.textLabel!.text = ""
             }
 
             return cell
@@ -230,8 +230,8 @@ class TodayViewController: UITableViewController, ListControllerDelegate, NCWidg
         }
         
         // Open the main app if an item is tapped.
-        let url = NSURL.URLWithString("lister://today")
-        extensionContext.openURL(url, completionHandler: nil)
+        let url = NSURL(string: "lister://today")
+        extensionContext?.openURL(url, completionHandler: nil)
     }
     
     // MARK: IBActions
@@ -278,7 +278,7 @@ class TodayViewController: UITableViewController, ListControllerDelegate, NCWidg
         
         let viewLocation = tableView.convertPoint(viewOrigin, fromView: view)
         
-        return tableView.indexPathForRowAtPoint(viewLocation)
+        return tableView.indexPathForRowAtPoint(viewLocation)!
     }
     
     func resetContentSize() {

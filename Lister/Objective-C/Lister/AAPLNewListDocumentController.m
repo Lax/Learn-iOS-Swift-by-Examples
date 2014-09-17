@@ -67,17 +67,30 @@
 
 #pragma mark - UITextFieldDelegate
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *updatedText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    [self updateForProposedListName:updatedText];
+    
+    return YES;
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    if ([self.listController canCreateListInfoWithName:textField.text]) {
-        self.saveButton.enabled = YES;
-        self.selectedTitle = textField.text;
-    }
+    [self updateForProposedListName:textField.text];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
 
     return YES;
+}
+
+#pragma mark - Convenience
+
+- (void)updateForProposedListName:(NSString *)name {
+    if ([self.listController canCreateListInfoWithName:name]) {
+        self.saveButton.enabled = YES;
+        self.selectedTitle = name;
+    }
 }
 
 @end

@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         is `nil`.
     */
     var listDocumentsViewController: ListDocumentsViewController? {
-        return primaryViewController.topViewController as? ListDocumentsViewController
+        return primaryViewController.viewControllers.first as? ListDocumentsViewController
     }
     
     // MARK: UIApplicationDelegate
@@ -61,8 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             ListUtilities.copyInitialLists()
         }
 
-        splitViewController.preferredDisplayMode = .AllVisible
         splitViewController.delegate = self
+        splitViewController.preferredDisplayMode = .AllVisible
+        let navigationController = splitViewController.viewControllers.last as UINavigationController
+        navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        navigationController.topViewController.navigationItem.leftItemsSupplementBackButton = true
         
         return true
     }
@@ -71,45 +74,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         setupUserStoragePreferences()
     }
     
-    // MARK: UISplitViewControllerDelegate
-    
-    func targetDisplayModeForActionInSplitViewController(splitViewController: UISplitViewController) -> UISplitViewControllerDisplayMode {
-        return .AllVisible
+    func application(_: UIApplication, continueUserActivity: NSUserActivity, restorationHandler: [AnyObject] -> Void) -> Bool {
+        // Lister only supports a single user activity type; if you support more than one the type is available from the `continueUserActivity` parameter.
+        if let listDocumentsViewController = listDocumentsViewController {
+            restorationHandler([listDocumentsViewController])
+            return true
+        }
+        
+        return false
     }
     
+    // MARK: UISplitViewControllerDelegate
+
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController _: UIViewController) -> Bool {
-        splitViewController.preferredDisplayMode = .Automatic
-        
         // If there's a list that's currently selected in separated mode and we want to show it in collapsed mode, we'll transfer over the view controller's settings.
-        if let secondaryViewController = secondaryViewController as? UINavigationController {
-            primaryViewController.navigationBar.titleTextAttributes = secondaryViewController.navigationBar.titleTextAttributes
-            primaryViewController.navigationBar.tintColor = secondaryViewController.navigationBar.tintColor
-            primaryViewController.toolbar.tintColor = secondaryViewController.toolbar.tintColor
+        if secondaryViewController is UINavigationController && (secondaryViewController as UINavigationController).topViewController is ListViewController {
+            let secondaryNavigationController = secondaryViewController as UINavigationController
+            primaryViewController.navigationBar.titleTextAttributes = secondaryNavigationController.navigationBar.titleTextAttributes
+            primaryViewController.navigationBar.tintColor = secondaryNavigationController.navigationBar.tintColor
+            primaryViewController.toolbar?.tintColor = secondaryNavigationController.toolbar?.tintColor
             
-            primaryViewController.showDetailViewController(secondaryViewController.topViewController, sender: nil)
+            return false
         }
         
         return true
     }
     
     func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController _: UIViewController) -> UIViewController? {
-        // If no list is on the stack, fill the detail area with an empty controller.
-        if primaryViewController.topViewController === primaryViewController.viewControllers.first {
-            let storyboard = UIStoryboard(name: MainStoryboard.name, bundle: nil)
+        if primaryViewController.topViewController is UINavigationController && (primaryViewController.topViewController as UINavigationController).topViewController is ListViewController {
+            let secondaryViewController = primaryViewController.popViewControllerAnimated(false) as UINavigationController
+            let listViewController = secondaryViewController.topViewController as ListViewController
             
-            return storyboard.instantiateViewControllerWithIdentifier(MainStoryboard.Identifiers.emptyViewController) as? UIViewController
+            // Obtain the `textAttributes` and `tintColor` to setup the separated navigation controller.
+            let textAttributes = listViewController.textAttributes
+            let tintColor = listViewController.document.list.color.colorValue
+            
+            secondaryViewController.navigationBar.titleTextAttributes = textAttributes
+            secondaryViewController.navigationBar.tintColor = tintColor
+            secondaryViewController.toolbar?.tintColor = tintColor
+
+            secondaryViewController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+            
+            return secondaryViewController
         }
         
-        let textAttributes = primaryViewController.navigationBar.titleTextAttributes
-        let tintColor = primaryViewController.navigationBar.tintColor
-        let poppedViewController = primaryViewController.popViewControllerAnimated(false)
-        
-        let navigationViewController = UINavigationController(rootViewController: poppedViewController)
-        navigationViewController.navigationBar.titleTextAttributes = textAttributes
-        navigationViewController.navigationBar.tintColor = tintColor
-        navigationViewController.toolbar.tintColor = tintColor
-        
-        return navigationViewController
+        return nil
     }
     
     // MARK: Notifications
@@ -214,7 +223,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
         if listController == nil {
             listController = ListController(listCoordinator: listCoordinator) { $0.name < $1.name }
-            listDocumentsViewController!.listController = listController
+            listDocumentsViewController?.listController = listController
         }
         else if accountChanged {
             listController.listCoordinator = listCoordinator

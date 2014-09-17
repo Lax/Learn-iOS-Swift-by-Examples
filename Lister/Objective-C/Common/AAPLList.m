@@ -202,7 +202,6 @@ NSString *const AAPLListEncodingColorKey = @"color";
     [self.items removeObjectsInArray:itemsToRemove];
 }
 
-
 // Toggles an item's completion state and moves the item to the appropriate index. The normalized from/to indexes are returned in the AAPLListOperationInfo struct.
 - (AAPLListOperationInfo)toggleItem:(AAPLListItem *)item withPreferredDestinationIndex:(NSInteger)preferredTargetIndex {
     NSInteger fromIndex = [self.items indexOfObject:item];

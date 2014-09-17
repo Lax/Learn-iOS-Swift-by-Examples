@@ -54,6 +54,12 @@ import UIKit
     }
     
     // MARK: Overrides
+    
+    override public func didMoveToWindow() {
+        if let window = window {
+            contentScaleFactor = window.screen.scale
+        }
+    }
 
     override public class func layerClass() -> AnyClass {
         return CheckBoxLayer.self

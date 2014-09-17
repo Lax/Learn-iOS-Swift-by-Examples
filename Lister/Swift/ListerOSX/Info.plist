@@ -26,7 +26,7 @@
 			<key>NSDocumentClass</key>
 			<string>ListerKitOSX.ListDocument</string>
 			<key>NSUbiquitousDocumentUserActivityType</key>
-			<string>com.example.apple-samplecode.Lister</string>
+			<string>com.example.apple-samplecode.Lister.editing</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
@@ -59,7 +59,7 @@
 	<string>NSApplication</string>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>com.example.apple-samplecode.Lister</string>
+		<string>com.example.apple-samplecode.Lister.editing</string>
 	</array>
 	<key>UTExportedTypeDeclarations</key>
 	<array>

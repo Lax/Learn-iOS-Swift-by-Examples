@@ -27,7 +27,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="textColor" keyPath="self.representedObject" id="MH7-Vl-PB5"/>
+                        <binding destination="-2" name="textColor" keyPath="self.representedObject.userInfo" id="MH7-Vl-PB5"/>
                     </connections>
                 </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="sP1-sd-2Fg">

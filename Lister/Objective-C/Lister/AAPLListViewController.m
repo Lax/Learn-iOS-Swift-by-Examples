@@ -23,14 +23,14 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 
 @interface AAPLListViewController () <UITextFieldDelegate, AAPLListColorCellDelegate, AAPLListDocumentDelegate>
 
+// Set in \c textFieldDidBeginEditing:. \c nil otherwise.
+@property (nonatomic, weak) UITextField *activeTextField;
+
 @property (nonatomic, strong) AAPLListInfo *listInfo;
 
-@property (nonatomic, strong) AAPLListDocument *document;
 @property (nonatomic, readonly) AAPLList *list;
 
 @property (nonatomic, readonly) NSURL *documentURL;
-
-@property (nonatomic, copy) NSDictionary *textAttributes;
 
 @property (nonatomic, readonly) NSArray *listToolbarItems;
 
@@ -103,6 +103,7 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 - (NSArray *)listToolbarItems {
     NSString *title = NSLocalizedString(@"Delete List", nil);
     UIBarButtonItem *deleteList = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(deleteList:)];
+    deleteList.tintColor = [UIColor redColor];
 
     if ([self.documentURL.lastPathComponent isEqualToString:[AAPLAppConfiguration sharedAppConfiguration].localizedTodayDocumentNameAndExtension]) {
         deleteList.enabled = false;
@@ -125,7 +126,7 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
     
     self.textAttributes = @{
         NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline],
-        NSForegroundColorAttributeName: AAPLColorFromListColor(listInfo.color)
+        NSForegroundColorAttributeName: AAPLColorFromListColor(listInfo.color) ?: AAPLColorFromListColor(AAPLListColorGray)
     };
 }
 
@@ -150,6 +151,9 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
     
     // Prevent navigating back in edit mode.
     [self.navigationItem setHidesBackButton:editing animated:animated];
+    
+    // Make sure to resign first responder on the active text field if needed.
+    [self.activeTextField endEditing:NO];
     
     // Reload the first row to switch from "Add Item" to "Change Color".
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -185,21 +189,16 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *identifier;
+    
     if (self.editing && indexPath.row == 0) {
-        AAPLListColorCell *colorCell = [tableView dequeueReusableCellWithIdentifier:AAPLListViewControllerListColorCellIdentifier forIndexPath:indexPath];
-        
-        [colorCell configure];
-        colorCell.delegate = self;
-        
-        return colorCell;
+        identifier = AAPLListViewControllerListColorCellIdentifier;
     }
     else {
-        AAPLListItemCell *itemCell = [tableView dequeueReusableCellWithIdentifier:AAPLListViewControllerListItemCellIdentifier forIndexPath:indexPath];
-
-        [self configureListItemCell:itemCell usingColor:self.list.color forRow:indexPath.row];
-        
-        return itemCell;
+        identifier = AAPLListViewControllerListItemCellIdentifier;
     }
+    
+    return [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -246,6 +245,21 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 
 #pragma mark - UITableViewDelegate
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Assert if attempting to configure an unknown or unsupported cell type.
+    NSParameterAssert([cell isKindOfClass:[AAPLListColorCell class]] || [cell isKindOfClass:[AAPLListItemCell class]]);
+    
+    if ([cell isKindOfClass:[AAPLListColorCell class]]) {
+        AAPLListColorCell *colorCell = (AAPLListColorCell *)cell;
+        [colorCell configure];
+        colorCell.selectedColor = self.list.color;
+        colorCell.delegate = self;
+    }
+    else if ([cell isKindOfClass:[AAPLListItemCell class]]) {
+        [self configureListItemCell:(AAPLListItemCell *)cell usingColor:self.list.color forRow:indexPath.row];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
     // When the user swipes to show the delete confirmation, don't enter editing mode.
     // UITableViewController enters editing mode by default so we override without calling super.
@@ -278,6 +292,10 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 }
 
 #pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.activeTextField = textField;
+}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     NSIndexPath *indexPath = [self indexPathForView:textField];
@@ -318,6 +336,8 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
         // Notify the document of a change.
         [self.document updateChangeCount:UIDocumentChangeDone];
     }
+    
+    self.activeTextField = nil;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -392,20 +412,24 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 #pragma mark - Convenience
 
 - (void)updateInterfaceWithTextAttributes {
-    self.navigationController.navigationBar.titleTextAttributes = self.textAttributes;
-    self.navigationController.navigationBar.tintColor = self.textAttributes[NSForegroundColorAttributeName];
-    self.navigationController.toolbar.tintColor = self.textAttributes[NSForegroundColorAttributeName];
+    UINavigationController *controller = self.navigationController.navigationController ?: self.navigationController;
+    
+    controller.navigationBar.titleTextAttributes = self.textAttributes;
+    controller.navigationBar.tintColor = self.textAttributes[NSForegroundColorAttributeName];
+    controller.toolbar.tintColor = self.textAttributes[NSForegroundColorAttributeName];
 
     self.tableView.tintColor = self.textAttributes[NSForegroundColorAttributeName];
 }
 
 - (void)hideViewControllerAfterListWasDeleted {
     if (self.splitViewController && self.splitViewController.isCollapsed) {
-        [self.navigationController popViewControllerAnimated:YES];
+        UINavigationController *controller = self.navigationController.navigationController ?: self.navigationController;
+        [controller popViewControllerAnimated:YES];
     }
     else {
-        UIViewController *emptyViewController = (UIViewController *)[self.storyboard instantiateViewControllerWithIdentifier:AAPLAppDelegateMainStoryboardEmptyViewControllerIdentifier];
-
+        UINavigationController *emptyViewController = (UINavigationController *)[self.storyboard instantiateViewControllerWithIdentifier:AAPLAppDelegateMainStoryboardEmptyViewControllerIdentifier];
+        emptyViewController.topViewController.navigationItem.leftBarButtonItem = [self.splitViewController displayModeButtonItem];
+        
         self.splitViewController.viewControllers = @[self.splitViewController.viewControllers.firstObject, emptyViewController];
     }
 }

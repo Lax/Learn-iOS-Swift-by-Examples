@@ -15,6 +15,4 @@
 
 @property (nonatomic, strong) AAPLListController *listController;
 
-- (void)selectListWithListInfo:(AAPLListInfo *)listInfo;
-
 @end
