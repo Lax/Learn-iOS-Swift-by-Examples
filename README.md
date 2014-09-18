@@ -175,6 +175,9 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 
 ```xcode 6 安装系统要求为MacOSX 10.9.3+```
 
+*    [http://pan.baidu.com/s/1dD2AJ3j](http://pan.baidu.com/s/1dD2AJ3j)
+
+*    xcode_6.0.1.dmg [http://pan.baidu.com/s/1sjNQY1B](http://pan.baidu.com/s/1sjNQY1B)
 *    xcode_6.dmg [http://pan.baidu.com/s/1jGoTsWm](http://pan.baidu.com/s/1jGoTsWm)_
 *    xcode_6_beta_6.dmg [http://pan.baidu.com/s/1dD3qeOT](http://pan.baidu.com/s/1dD3qeOT)
 *    xcode_6_beta_4.dmg [http://pan.baidu.com/s/1pJ0nkJx](http://pan.baidu.com/s/1pJ0nkJx)
