@@ -115,14 +115,14 @@ class TextViewController: UIViewController, UITextViewDelegate {
         attributedText.addAttribute(NSBackgroundColorAttributeName, value: UIColor.applicationGreenColor(), range: highlightedRange)
 
         // Add underline.
-        attributedText.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleSingle.toRaw(), range: underlinedRange)
+        attributedText.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: underlinedRange)
 
         // Add tint.
         attributedText.addAttribute(NSForegroundColorAttributeName, value: UIColor.applicationBlueColor(), range: tintedRange)
 
         // Add image attachment.
         let textAttachment = NSTextAttachment()
-        let image = UIImage(named: "text_view_attachment")
+        let image = UIImage(named: "text_view_attachment")!
         textAttachment.image = image
         textAttachment.bounds = CGRect(origin: CGPointZero, size: image.size)
 

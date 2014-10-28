@@ -17,7 +17,7 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         case Red = 0, Green, Blue
         
         static var count: Int {
-            return ColorComponent.Blue.toRaw() + 1
+            return ColorComponent.Blue.rawValue + 1
         }
     }
 
@@ -80,8 +80,8 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             // Note that the delegate method on UIPickerViewDelegate is not triggered when manually
             // calling UIPickerView.selectRow(_:inComponent:animated:). To do this, we fire off delegate
             // method manually.
-            pickerView.selectRow(selectedRow, inComponent: colorComponent.toRaw(), animated: true)
-            pickerView(pickerView, didSelectRow: selectedRow, inComponent: colorComponent.toRaw())
+            pickerView.selectRow(selectedRow, inComponent: colorComponent.rawValue, animated: true)
+            pickerView(pickerView, didSelectRow: selectedRow, inComponent: colorComponent.rawValue)
         }
     }
 
@@ -105,7 +105,7 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         var greenColorComponent = RGB.min
         var blueColorComponent = RGB.min
 
-        switch ColorComponent.fromRaw(component)! {
+        switch ColorComponent(rawValue: component)! {
             case .Red:
                 redColorComponent = value
             case .Green:
@@ -129,7 +129,7 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let colorComponentValue = RGB.offset * CGFloat(row) / RGB.max
 
-        switch ColorComponent.fromRaw(component)! {
+        switch ColorComponent(rawValue: component)! {
             case .Red:
                 redColor = colorComponentValue
             case .Green:
@@ -141,8 +141,8 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 
     // MARK: UIPickerViewAccessibilityDelegate
 
-    func pickerView(pickerView: UIPickerView, accessibilityLabelForComponent component: Int) -> NSString {
-        switch ColorComponent.fromRaw(component)! {
+    func pickerView(pickerView: UIPickerView, accessibilityLabelForComponent component: Int) -> String {
+        switch ColorComponent(rawValue: component)! {
             case .Red:
                 return NSLocalizedString("Red color component value", comment: "")
             case .Green:

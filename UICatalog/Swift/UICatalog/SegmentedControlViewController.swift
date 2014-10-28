@@ -64,7 +64,7 @@ class SegmentedControlViewController: UITableViewController {
         }
 
         for (idx, segmentImageName) in enumerate(sortedSegmentImageNames) {
-            let image = UIImage(named: segmentImageName)
+            let image = UIImage(named: segmentImageName)!
 
             image.accessibilityLabel = imageToAccessibilityLabelMappings[segmentImageName]
 

@@ -25,8 +25,8 @@ class ImageViewController: UIViewController {
         // The root view of the view controller set in Interface Builder is a UIImageView.
         let imageView = view as UIImageView
         
-        // Fetch the images (each image is of the format image_animal_number).
-        imageView.animationImages = (1...5).map { UIImage(named: "image_animal_\($0)") }
+        // Fetch the images (each image is of the format image_animal_number).        
+        imageView.animationImages = map(1...5) { UIImage(named: "image_animal_\($0)")! }
 
         // We want the image to be scaled to the correct aspect ratio within imageView's bounds.
         imageView.contentMode = .ScaleAspectFit

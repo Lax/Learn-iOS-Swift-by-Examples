@@ -35,9 +35,10 @@ class WebViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegat
     // MARK: Convenience
 
     func loadAddressURL() {
-        let requestURL = NSURL(string: addressTextField.text)
-        let request = NSURLRequest(URL: requestURL)
-        webView.loadRequest(request)
+        if let requestURL = NSURL(string: addressTextField.text) {
+            let request = NSURLRequest(URL: requestURL)
+            webView.loadRequest(request)
+        }
     }
 
     // MARK: Configuration

@@ -17,7 +17,7 @@ class AlertControllerViewController : UITableViewController {
     
     // A matrix of closures that should be invoked based on which table view cell is
     // tapped (index by section, row).
-    var actionMap: [[Void -> Void]] {
+    var actionMap: [[(selectedIndexPath: NSIndexPath) -> Void]] {
         return [
             // Alert style alerts.
             [
@@ -34,12 +34,11 @@ class AlertControllerViewController : UITableViewController {
             ]
         ]
     }
-
-
+    
     // MARK: UIAlertControllerStyleAlert Style Alerts
 
     /// Show an alert with an "Okay" button.
-    func showSimpleAlert() {
+    func showSimpleAlert(_: NSIndexPath) {
         let title = NSLocalizedString("A Short Title is Best", comment: "")
         let message = NSLocalizedString("A message should be a short, complete sentence.", comment: "")
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
@@ -58,7 +57,7 @@ class AlertControllerViewController : UITableViewController {
     }
     
     /// Show an alert with an "Okay" and "Cancel" button.
-    func showOkayCancelAlert() {
+    func showOkayCancelAlert(_: NSIndexPath) {
         let title = NSLocalizedString("A Short Title is Best", comment: "")
         let message = NSLocalizedString("A message should be a short, complete sentence.", comment: "")
         let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
@@ -83,7 +82,7 @@ class AlertControllerViewController : UITableViewController {
     }
 
     /// Show an alert with two custom buttons.
-    func showOtherAlert() {
+    func showOtherAlert(_: NSIndexPath) {
         let title = NSLocalizedString("A Short Title is Best", comment: "")
         let message = NSLocalizedString("A message should be a short, complete sentence.", comment: "")
         let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
@@ -114,7 +113,7 @@ class AlertControllerViewController : UITableViewController {
     }
 
     /// Show a text entry alert with two custom buttons.
-    func showTextEntryAlert() {
+    func showTextEntryAlert(_: NSIndexPath) {
         let title = NSLocalizedString("A Short Title is Best", comment: "")
         let message = NSLocalizedString("A message should be a short, complete sentence.", comment: "")
         let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
@@ -144,7 +143,7 @@ class AlertControllerViewController : UITableViewController {
     }
     
     /// Show a secure text entry alert with two custom buttons.
-    func showSecureTextEntryAlert() {
+    func showSecureTextEntryAlert(_: NSIndexPath) {
         let title = NSLocalizedString("A Short Title is Best", comment: "")
         let message = NSLocalizedString("A message should be a short, complete sentence.", comment: "")
         let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
@@ -196,7 +195,7 @@ class AlertControllerViewController : UITableViewController {
     // MARK: UIAlertControllerStyleActionSheet Style Alerts
     
     /// Show a dialog with an "Okay" and "Cancel" button.
-    func showOkayCancelActionSheet() {
+    func showOkayCancelActionSheet(selectedIndexPath: NSIndexPath) {
         let cancelButtonTitle = NSLocalizedString("Cancel", comment: "OK")
         let destructiveButtonTitle = NSLocalizedString("OK", comment: "")
         
@@ -215,11 +214,20 @@ class AlertControllerViewController : UITableViewController {
         alertController.addAction(cancelAction)
         alertController.addAction(destructiveAction)
         
+        // Configure the alert controller's popover presentation controller if it has one.
+        if let popoverPresentationController = alertController.popoverPresentationController {
+            // This method expects a valid cell to display from.
+            let selectedCell = tableView.cellForRowAtIndexPath(selectedIndexPath)!
+            popoverPresentationController.sourceRect = selectedCell.frame
+            popoverPresentationController.sourceView = view
+            popoverPresentationController.permittedArrowDirections = .Up
+        }
+        
         presentViewController(alertController, animated: true, completion: nil)
     }
 
     /// Show a dialog with two custom buttons.
-    func showOtherActionSheet() {
+    func showOtherActionSheet(selectedIndexPath: NSIndexPath) {
         let destructiveButtonTitle = NSLocalizedString("Destructive Choice", comment: "")
         let otherButtonTitle = NSLocalizedString("Safe Choice", comment: "")
         
@@ -238,6 +246,15 @@ class AlertControllerViewController : UITableViewController {
         alertController.addAction(destructiveAction)
         alertController.addAction(otherAction)
         
+        // Configure the alert controller's popover presentation controller if it has one.
+        if let popoverPresentationController = alertController.popoverPresentationController {
+            // This method expects a valid cell to display from.
+            let selectedCell = tableView.cellForRowAtIndexPath(selectedIndexPath)!
+            popoverPresentationController.sourceRect = selectedCell.frame
+            popoverPresentationController.sourceView = view
+            popoverPresentationController.permittedArrowDirections = .Up
+        }
+        
         presentViewController(alertController, animated: true, completion: nil)
     }
     
@@ -246,16 +263,17 @@ class AlertControllerViewController : UITableViewController {
     func handleTextFieldTextDidChangeNotification(notification: NSNotification) {
         let textField = notification.object as UITextField
 
-        // Enforce a minimum length of >= 5 for secure text alerts.
-        secureTextAlertAction!.enabled = textField.text.utf16Count >= 5
+        // Enforce a minimum length of >= 5 characters for secure text alerts.
+        secureTextAlertAction!.enabled = countElements(textField.text) >= 5
     }
     
     // MARK: UITableViewDelegate
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
         let action = actionMap[indexPath.section][indexPath.row]
         
-        action()
+        action(selectedIndexPath: indexPath)
 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }

@@ -201,7 +201,7 @@ typedef NS_ENUM(NSInteger, AAPLAlertControllerActionSheetRow) {
 #pragma mark - UIAlertControllerStyleActionSheet Style Alerts
 
 // Show a dialog with an "Okay" and "Cancel" button.
-- (void)showOkayCancelActionSheet {
+- (void)showOkayCancelActionSheet:(NSIndexPath *)selectedPath {
     NSString *cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
     NSString *destructiveButtonTitle = NSLocalizedString(@"OK", nil);
     
@@ -220,11 +220,20 @@ typedef NS_ENUM(NSInteger, AAPLAlertControllerActionSheetRow) {
     [alertController addAction:cancelAction];
     [alertController addAction:destructiveAction];
     
+    // Configure the alert controller's popover presentation controller if it has one.
+    UIPopoverPresentationController *popoverPresentationController = [alertController popoverPresentationController];
+    if (popoverPresentationController) {
+        UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:selectedPath];
+        popoverPresentationController.sourceRect = selectedCell.frame;
+        popoverPresentationController.sourceView = self.view;
+        popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    }
+    
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
 // Show a dialog with two custom buttons.
-- (void)showOtherActionSheet {
+- (void)showOtherActionSheet:(NSIndexPath *)selectedPath {
     NSString *destructiveButtonTitle = NSLocalizedString(@"Destructive Choice", nil);
     NSString *otherButtonTitle = NSLocalizedString(@"Safe Choice", nil);
     
@@ -242,6 +251,15 @@ typedef NS_ENUM(NSInteger, AAPLAlertControllerActionSheetRow) {
     // Add the actions.
     [alertController addAction:destructiveAction];
     [alertController addAction:otherAction];
+    
+    // Configure the alert controller's popover presentation controller if it has one.
+    UIPopoverPresentationController *popoverPresentationController = [alertController popoverPresentationController];
+    if (popoverPresentationController) {
+        UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:selectedPath];
+        popoverPresentationController.sourceRect = selectedCell.frame;
+        popoverPresentationController.sourceView = self.view;
+        popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    }
 
     [self presentViewController:alertController animated:YES completion:nil];
 }
@@ -286,13 +304,13 @@ typedef NS_ENUM(NSInteger, AAPLAlertControllerActionSheetRow) {
     }
     else if (AAPLAlertControllerSectionActionSheet == section) {
         AAPLAlertControllerActionSheetRow row = indexPath.row;
-        
+
         switch (row) {
             case AAPLAlertControllerActionSheetRowOkayCancel:
-                [self showOkayCancelActionSheet];
+                [self showOkayCancelActionSheet:indexPath];
                 break;
             case AAPLAlertControllerActionSheetRowOther:
-                [self showOtherActionSheet];
+                [self showOtherActionSheet:indexPath];
                 break;
             default:
                 break;

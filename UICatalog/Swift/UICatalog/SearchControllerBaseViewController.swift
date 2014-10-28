@@ -49,7 +49,7 @@ class SearchControllerBaseViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.tableViewCellIdentifier, forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel!.text = visibleResults[indexPath.row]
+        cell.textLabel.text = visibleResults[indexPath.row]
 
         return cell
     }

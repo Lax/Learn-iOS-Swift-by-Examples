@@ -79,7 +79,7 @@ class TextFieldViewController: UITableViewController, UITextFieldDelegate {
 
         // Create a purple button that, when selected, turns the custom text field's text color
         // to purple.
-        let purpleImage = UIImage(named: "text_field_purple_right_view")
+        let purpleImage = UIImage(named: "text_field_purple_right_view")!
         let purpleImageButton = UIButton.buttonWithType(.Custom) as UIButton
         purpleImageButton.bounds = CGRect(x: 0, y: 0, width: purpleImage.size.width, height: purpleImage.size.height)
         purpleImageButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
