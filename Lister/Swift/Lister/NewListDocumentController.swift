@@ -43,7 +43,7 @@ class NewListDocumentController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pickColor(sender: UIButton) {
         // Use the button's tag to determine the color.
-        selectedColor = List.Color.fromRaw(sender.tag)!
+        selectedColor = List.Color(rawValue: sender.tag)!
         
         // If a button was previously selected, we need to clear out its previous border.
         if let oldButton = selectedButton {

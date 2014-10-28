@@ -18,6 +18,8 @@
 
 + (void)copyInitialLists;
 
++ (void)copyTodayList;
+
 + (void)migrateLocalListsToCloud;
 
 + (void)readListAtURL:(NSURL *)url withCompletionHandler:(void (^)(AAPLList *list, NSError *error))completionHandler;

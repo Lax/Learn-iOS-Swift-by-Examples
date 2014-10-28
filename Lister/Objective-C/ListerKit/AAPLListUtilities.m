@@ -25,6 +25,12 @@
     }
 }
 
++ (void)copyTodayList {
+    NSString *localizedTodayListName = [AAPLAppConfiguration sharedAppConfiguration].localizedTodayDocumentName;
+    NSURL *url = [[NSBundle mainBundle] URLForResource:localizedTodayListName withExtension:AAPLAppConfigurationListerFileExtension];
+    [self copyURLToDocumentsDirectory:url];
+}
+
 + (void)migrateLocalListsToCloud {
     dispatch_queue_t defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     
@@ -49,20 +55,22 @@
 + (void)makeItemUbiquitousAtURL:(NSURL *)sourceURL documentsDirectoryURL:(NSURL *)documentsDirectoryURL {
     NSString *destinationFileName = sourceURL.lastPathComponent;
     
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
     NSURL *destinationURL = [documentsDirectoryURL URLByAppendingPathComponent:destinationFileName];
     
-    dispatch_queue_t defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    if ([fileManager fileExistsAtPath:destinationURL.path]) {
+        return;
+    }
     
+    dispatch_queue_t defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(defaultQueue, ^{
-        NSFileManager *fileManager = [[NSFileManager alloc] init];
-        
         [fileManager setUbiquitous:YES itemAtURL:sourceURL destinationURL:destinationURL error:nil];
     });
 }
 
 + (void)readListAtURL:(NSURL *)url withCompletionHandler:(void (^)(AAPLList *list, NSError *error))completionHandler {
     NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
-    
+
     // `url` may be a security scoped resource.
     BOOL successfulSecurityScopedResourceAccess = [url startAccessingSecurityScopedResource];
     
@@ -80,21 +88,24 @@
             return;
         }
         
+        // Local variables that will be used as parameters to `completionHandler`.
         NSError *readError;
+        AAPLList *deserializedList;
+
         NSData *contents = [NSData dataWithContentsOfURL:readingIntent.URL options:NSDataReadingUncached error:&readError];
+
+        if (contents) {
+            deserializedList = [NSKeyedUnarchiver unarchiveObjectWithData:contents];
+            
+            NSAssert(deserializedList != nil, @"The provided URL must correspond to an AAPLList object.");
+        }
         
         if (successfulSecurityScopedResourceAccess) {
             [url stopAccessingSecurityScopedResource];
         }
-        
-        AAPLList *deserializedList = [NSKeyedUnarchiver unarchiveObjectWithData:contents];
-        if (deserializedList) {
-            if (completionHandler) {
-                completionHandler(deserializedList, nil);
-            }
-        }
-        else if (completionHandler) {
-            completionHandler(nil, accessError);
+
+        if (completionHandler) {
+            completionHandler(deserializedList, readError);
         }
     }];
 }
@@ -166,6 +177,11 @@
 
 + (void)copyURLToDocumentsDirectory:(NSURL *)url {
     NSURL *toURL = [[AAPLListUtilities localDocumentsDirectory] URLByAppendingPathComponent:url.lastPathComponent];
+    
+    // If the file already exists, don't attempt to copy the version from the bundle.
+    if ([[NSFileManager defaultManager] fileExistsAtPath:toURL.path]) {
+        return;
+    }
     
     NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
     __block NSError *error;

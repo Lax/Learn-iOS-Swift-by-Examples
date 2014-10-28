@@ -27,7 +27,7 @@ class ListItemView: NSTableCellView, NSTextFieldDelegate {
     var isComplete: Bool = false {
         didSet {
             statusCheckBox.isChecked = isComplete
-            textField.textColor = isComplete ? NSColor.completeItemTextColor() : NSColor.incompleteItemTextColor()
+            textField!.textColor = isComplete ? NSColor.completeItemTextColor() : NSColor.incompleteItemTextColor()
         }
     }
 
@@ -43,11 +43,11 @@ class ListItemView: NSTableCellView, NSTextFieldDelegate {
     
     var stringValue: String {
         set {
-            textField.stringValue = newValue
+            textField!.stringValue = newValue
         }
     
         get {
-            return textField.stringValue
+            return textField!.stringValue
         }
     }
 

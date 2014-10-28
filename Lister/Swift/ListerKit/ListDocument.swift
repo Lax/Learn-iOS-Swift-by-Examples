@@ -23,12 +23,6 @@ public class ListDocument: UIDocument {
     // Use a default, empty list.
     public var list = List()
     
-    // MARK: Initializers
-
-    override public init(fileURL url: NSURL) {
-        super.init(fileURL: url)
-    }
-
     // MARK: Serialization / Deserialization
     
     override public func loadFromContents(contents: AnyObject, ofType typeName: String, error outError: NSErrorPointer) -> Bool {
@@ -64,6 +58,6 @@ public class ListDocument: UIDocument {
     
     override public func updateUserActivityState(userActivity: NSUserActivity) {
         super.updateUserActivityState(userActivity)
-        userActivity.addUserInfoEntriesFromDictionary([ AppConfiguration.UserActivity.listColorUserInfoKey: list.color.toRaw() ])
+        userActivity.addUserInfoEntriesFromDictionary([ AppConfiguration.UserActivity.listColorUserInfoKey: list.color.rawValue ])
     }
 }

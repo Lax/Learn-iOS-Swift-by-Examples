@@ -46,7 +46,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         return document?.list
     }
     
-    override var undoManager: NSUndoManager {
+    override var undoManager: NSUndoManager! {
         return document.undoManager
     }
     
@@ -62,7 +62,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
 
     // MARK: NSTableViewDelegate
 
-    func numberOfRowsInTableView(NSTableView) -> Int {
+    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         if list == nil { return 0 }
 
         return list.isEmpty ? 1 : list.count
@@ -89,7 +89,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
     }
     
     // Only allow rows to be selectable if there are items in the list.
-    func tableView(NSTableView, shouldSelectRow: Int) -> Bool {
+    func tableView(tableView: NSTableView, shouldSelectRow: Int) -> Bool {
         return !list.isEmpty
     }
     
@@ -149,7 +149,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         return true
     }
     
-    func tableView(NSTableView, writeRowsWithIndexes indexes: NSIndexSet, toPasteboard pasteboard: NSPasteboard) -> Bool {
+    func tableView(tableView: NSTableView, writeRowsWithIndexes indexes: NSIndexSet, toPasteboard pasteboard: NSPasteboard) -> Bool {
         if list.isEmpty {
             return false
         }
@@ -166,21 +166,23 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
     func listItemsWithListerPasteboardType(pasteboard: NSPasteboard, refreshesItemIdentities: Bool = false) -> [ListItem]? {
         if pasteboard.canReadItemWithDataConformingToTypes([TableViewConstants.pasteboardType]) {
             for pasteboardItem in pasteboard.pasteboardItems as [NSPasteboardItem] {
-                var allItems = [ListItem]()
 
-                let itemsData = pasteboardItem.dataForType(TableViewConstants.pasteboardType)
-                
-                let pasteboardListItems = NSKeyedUnarchiver.unarchiveObjectWithData(itemsData) as [ListItem]
+                if let itemsData = pasteboardItem.dataForType(TableViewConstants.pasteboardType) {
+                    var allItems = [ListItem]()
 
-                for item in pasteboardListItems {
-                    if refreshesItemIdentities {
-                        item.refreshIdentity()
+                    let pasteboardListItems = NSKeyedUnarchiver.unarchiveObjectWithData(itemsData) as [ListItem]
+                    
+                    for item in pasteboardListItems {
+                        if refreshesItemIdentities {
+                            item.refreshIdentity()
+                        }
+                        
+                        allItems += [item]
                     }
-
-                    allItems += [item]
+                    
+                    return allItems
                 }
-                
-                return allItems
+
             }
         }
         
@@ -192,11 +194,11 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
             var allItems = [ListItem]()
 
             for pasteboardItem in pasteboard.pasteboardItems as [NSPasteboardItem] {
-                let targetType = pasteboardItem.availableTypeFromArray([NSPasteboardTypeString])
-
-                let pasteboardString = pasteboardItem.stringForType(targetType)
-                
-                allItems += ListFormatting.listItemsFromString(pasteboardString)
+                if let targetType = pasteboardItem.availableTypeFromArray([NSPasteboardTypeString]) {
+                    if let pasteboardString = pasteboardItem.stringForType(targetType) {
+                        allItems += ListFormatting.listItemsFromString(pasteboardString)
+                    }
+                }
             }
             
             return allItems
@@ -404,7 +406,7 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
         var listItems = listItemsWithListerPasteboardType(NSPasteboard.generalPasteboard(), refreshesItemIdentities: true)
         
         // If there were no pasted items that are of the Lister pasteboard type, see if there are any String contents on the pasteboard.
-        if listItems != nil {
+        if listItems == nil {
             listItems = listItemsWithStringPasteboardType(NSPasteboard.generalPasteboard())
         }
 
@@ -478,14 +480,14 @@ class ListViewController: NSViewController, ColorPaletteViewDelegate, ListItemVi
     // MARK: ColorPaletteViewDelegate
 
     func colorPaletteViewDidChangeSelectedColor(colorPaletteView: ColorPaletteView) {
-        setColorPaletteViewColor(colorPaletteView.selectedColor.toRaw())
+        setColorPaletteViewColor(colorPaletteView.selectedColor.rawValue)
     }
 
     // To use NSUndoManager, only types representable in ObjC can be used as parameters.
     @objc func setColorPaletteViewColor(rawColor: Int) {
-        undoManager.prepareWithInvocationTarget(self).setColorPaletteViewColor(list.color.toRaw())
+        undoManager.prepareWithInvocationTarget(self).setColorPaletteViewColor(list.color.rawValue)
 
-        list.color = List.Color.fromRaw(rawColor)!
+        list.color = List.Color(rawValue: rawColor)!
         colorPaletteView.selectedColor = list.color
 
         // Update the list item views with the newly selected color.

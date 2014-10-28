@@ -169,6 +169,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // MARK: Alerts
     
     func notifyUserOfAccountChange() {
+        // Copy a 'Today' list from the bundle to the local documents directory if a 'Today' list
+        // doesn't exist. This provides more context for the user than no lists and ensures the user
+        // always has a 'Today' list (a design choice made in Lister).
+        ListUtilities.copyTodayList()
+        
         let title = NSLocalizedString("Sign Out of iCloud", comment: "")
         let message = NSLocalizedString("You have signed out of the iCloud account previously used to store documents. Sign back in with that account to access those documents.", comment: "")
         let okActionTitle = NSLocalizedString("OK", comment: "")

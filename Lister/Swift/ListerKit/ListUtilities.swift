@@ -29,6 +29,11 @@ public class ListUtilities {
             copyURLToDocumentsDirectory(url)
         }
     }
+    
+    public class func copyTodayList() {
+        let url = NSBundle.mainBundle().URLForResource(AppConfiguration.localizedTodayDocumentName, withExtension: AppConfiguration.listerFileExtension)!
+        copyURLToDocumentsDirectory(url)
+    }
 
     public class func migrateLocalListsToCloud() {
         let defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
@@ -58,14 +63,18 @@ public class ListUtilities {
     private class func makeItemUbiquitousAtURL(sourceURL: NSURL, documentsDirectoryURL: NSURL) {
         let destinationFileName = sourceURL.lastPathComponent
         
+        let fileManager = NSFileManager()
         let destinationURL = documentsDirectoryURL.URLByAppendingPathComponent(destinationFileName)
+        
+        if fileManager.fileExistsAtPath(destinationURL.path!) {
+            return
+        }
         
         let defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         
         dispatch_async(defaultQueue) {
-            let fileManager = NSFileManager()
-            
             fileManager.setUbiquitous(true, itemAtURL: sourceURL, destinationURL: destinationURL, error: nil)
+            return
         }
     }
 
@@ -87,19 +96,21 @@ public class ListUtilities {
                 return
             }
             
+            // Local variables that will be used as parameters to `completionHandler`.
+            var deserializedList: List?
             var readError: NSError?
-            let contents = NSData.dataWithContentsOfURL(readingIntent.URL, options: .DataReadingUncached, error: &readError)
+
+            if let contents = NSData(contentsOfURL: readingIntent.URL, options: .DataReadingUncached, error: &readError) {
+                deserializedList = NSKeyedUnarchiver.unarchiveObjectWithData(contents) as? List
+                
+                assert(deserializedList != nil, "The provided URL must correspond to an AAPLList object.")
+            }
 
             if successfulSecurityScopedResourceAccess {
                 url.stopAccessingSecurityScopedResource()
             }
             
-            if let deserializedList = NSKeyedUnarchiver.unarchiveObjectWithData(contents) as? List {
-                completionHandler(deserializedList, nil)
-            }
-            else {
-                completionHandler(nil, readError)
-            }
+            completionHandler(deserializedList, readError)
         }
     }
 
@@ -164,6 +175,11 @@ public class ListUtilities {
         let toURL = ListUtilities.localDocumentsDirectory.URLByAppendingPathComponent(url.lastPathComponent)
         let fileCoordinator = NSFileCoordinator()
         var error: NSError?
+        
+        if NSFileManager().fileExistsAtPath(toURL.path!) {
+            // If the file already exists, don't attempt to copy the version from the bundle.
+            return
+        }
         
         // `url` may be a security scoped resource.
         let successfulSecurityScopedResourceAccess = url.startAccessingSecurityScopedResource()

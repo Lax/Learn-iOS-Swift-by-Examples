@@ -82,7 +82,7 @@ class ColorPaletteView: NSView {
         for button in buttons {
             button.layer = CALayer()
 
-            let buttonColor = List.Color.fromRaw(button.tag)!
+            let buttonColor = List.Color(rawValue: button.tag)!
             button.layer!.backgroundColor = buttonColor.colorValue.CGColor
         }
     }
@@ -92,8 +92,8 @@ class ColorPaletteView: NSView {
     @IBAction func colorButtonClicked(sender: NSButton) {
         // The tag for each color was set in the storyboard for each button based
         // on the type of color.
-        let selectedColor = List.Color.fromRaw(sender.tag)!
-        
+        let selectedColor = List.Color(rawValue: sender.tag)!
+
         hideOverlayWithSelectedColor(selectedColor, animated: true)
     }
     

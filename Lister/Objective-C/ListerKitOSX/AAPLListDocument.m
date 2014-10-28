@@ -12,6 +12,8 @@
 #import "AAPLList.h"
 #import "AAPlAppConfiguration.h"
 
+NSString *const AAPLListWindowControllerStoryboardIdentifier = @"AAPLListWindowControllerStoryboardIdentifier";
+
 @interface AAPLListDocument()
 
 @property BOOL makesCustomWindowControllers;
@@ -57,10 +59,10 @@
     [super makeWindowControllers];
     
     if (self.makesCustomWindowControllers) {
-        NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+        NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Main" bundle:nil];
         
-        NSWindowController *windowController = [storyboard instantiateInitialController];
-        
+        NSWindowController *windowController = [storyboard instantiateControllerWithIdentifier:AAPLListWindowControllerStoryboardIdentifier];
+
         [self addWindowController:windowController];
     }
 }

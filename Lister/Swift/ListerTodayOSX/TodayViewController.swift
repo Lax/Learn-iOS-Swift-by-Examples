@@ -141,17 +141,17 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
 
                 let newDocument = ListDocument(contentsOfURL: todayDocumentURL!, makesCustomWindowControllers: false, error: &error)
 
-                if error != nil {
+                if newDocument == nil {
                     completionHandler?(.Failed)
                 }
                 else {
-                    if self.document != nil && self.list == newDocument.list {
+                    if self.document != nil && self.list == newDocument!.list {
                         completionHandler?(.NoData)
                     }
                     else {
                         self.document = newDocument
                         self.document.delegate = self
-                        self.listViewController.contents = self.listRowRepresentedObjectsForList(newDocument.list)
+                        self.listViewController.contents = self.listRowRepresentedObjectsForList(newDocument!.list)
 
                         completionHandler?(.NewData)
                     }

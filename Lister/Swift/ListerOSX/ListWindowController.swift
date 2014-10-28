@@ -27,25 +27,25 @@ class ListWindowController: NSWindowController {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        let action = Int(NSEventMask.LeftMouseDownMask.toRaw())
+        let action = Int(NSEventMask.LeftMouseDownMask.rawValue)
         shareButton.sendActionOn(action)
     }
 
     // MARK: Overrides
     
-    override var document: AnyObject! {
+    override var document: AnyObject? {
         didSet {
-            let listViewController = window.contentViewController as ListViewController
+            let listViewController = window!.contentViewController as ListViewController
             listViewController.document = document as? ListDocument
         }
     }
     
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == SegueIdentifiers.showAddItemViewController {
-            let listViewController = window.contentViewController as ListViewController
-            
+            let listViewController = window!.contentViewController as ListViewController
+
             let addItemViewController = segue.destinationController as AddItemViewController
-            
+
             addItemViewController.delegate = listViewController
         }
     }
@@ -58,7 +58,7 @@ class ListWindowController: NSWindowController {
             
             let sharingServicePicker = NSSharingServicePicker(items: [listContents])
             
-            let preferredEdge =  NSRectEdge(CGRectEdge.MinYEdge.toRaw())
+            let preferredEdge =  NSRectEdge(CGRectEdge.MinYEdge.rawValue)
             sharingServicePicker.showRelativeToRect(NSZeroRect, ofView: sender, preferredEdge: preferredEdge)
         }
     }

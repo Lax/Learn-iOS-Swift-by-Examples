@@ -19,13 +19,13 @@ class ResizingTextField: NSTextField {
     
     override var intrinsicContentSize: NSSize {
         // Change the auto layout constraint width to be the drawn size of the text.
-        let maximumSize = NSMakeSize(CGFloat.max, NSHeight(frame))
+        let maximumSize = NSMakeSize(CGFloat.max, frame.height)
         
         // Find the size that the string occupies when displayed with the given font.
-        let boundingSize = stringValue.boundingRectWithSize(maximumSize, options: nil, attributes: [NSFontAttributeName: font])
+        let boundingSize = (stringValue as NSString).boundingRectWithSize(maximumSize, options: nil, attributes: [NSFontAttributeName: font!])
 
-        let roundedWidth = CGFloat(NSWidth(boundingSize) + 10)
+        let roundedWidth = CGFloat(boundingSize.width + 10)
 
-        return NSSize(width: roundedWidth, height: NSHeight(frame))
+        return NSSize(width: roundedWidth, height: frame.height)
     }
 }

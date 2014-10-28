@@ -183,6 +183,11 @@ NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerContinue
 #pragma mark - Alerts
 
 - (void)notifyUserOfAccountChange {
+    // Copy a 'Today' list from the bundle to the local documents directory if a 'Today' list
+    // doesn't exist. This provides more context for the user than no lists and ensures the user
+    // always has a 'Today' list (a design choice made in Lister).
+    [AAPLListUtilities copyTodayList];
+    
     NSString *title = NSLocalizedString(@"iCloud Sign Out", nil);
     NSString *message = NSLocalizedString(@"You have signed out of the iCloud account previously used to store documents. Sign back in to access those documents.", nil);
     NSString *okActionTitle = NSLocalizedString(@"OK", nil);

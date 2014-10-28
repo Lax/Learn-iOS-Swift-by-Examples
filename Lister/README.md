@@ -1,10 +1,8 @@
 # Lister
 
-Important: This is a preliminary sample application that includes descriptions and applications of OS X Yosemite technology that are currently in development. This information is subject to change, and software implemented according to this sample application should be tested with final operating system software.
-
 ## Version
 
-1.2
+1.4
 
 ## Build and Runtime Requirements
 + Xcode 6.0 or later

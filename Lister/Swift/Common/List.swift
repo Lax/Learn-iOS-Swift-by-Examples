@@ -123,12 +123,12 @@ public class List: NSObject, NSCoding, NSCopying {
     
     public required init(coder aDecoder: NSCoder) {
         _items = aDecoder.decodeObjectForKey(SerializationKeys.items) as [ListItem]
-        color = List.Color.fromRaw(aDecoder.decodeIntegerForKey(SerializationKeys.color))!
+        color = List.Color(rawValue: aDecoder.decodeIntegerForKey(SerializationKeys.color))!
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(items, forKey: SerializationKeys.items)
-        aCoder.encodeInteger(color.toRaw(), forKey: SerializationKeys.color)
+        aCoder.encodeInteger(color.rawValue, forKey: SerializationKeys.color)
     }
     
     // MARK: NSCopying
@@ -165,7 +165,7 @@ public class List: NSObject, NSCoding, NSCopying {
         items.reserveCapacity(indexes.count)
             
         indexes.enumerateIndexesUsingBlock { idx, _ in
-            items.append(self[idx])
+            items += [self[idx]]
         }
 
         return items

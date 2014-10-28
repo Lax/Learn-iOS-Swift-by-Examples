@@ -16,7 +16,7 @@
 		1632760318AD468F00A97A9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632760218AD468F00A97A9F /* main.m */; };
 		1632760918AD468F00A97A9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1632760818AD468F00A97A9F /* Images.xcassets */; };
 		1632762118AD468F00A97A9F /* ListerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1632761E18AD468F00A97A9F /* ListerKit.framework */; };
-		1632762218AD468F00A97A9F /* ListerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1632761E18AD468F00A97A9F /* ListerKit.framework */; };
+		1632762218AD468F00A97A9F /* ListerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1632761E18AD468F00A97A9F /* ListerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1632762B18AD468F00A97A9F /* ListerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1632762A18AD468F00A97A9F /* ListerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1633C7321939338000A9CC5E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160808CA190B3C0200790AFC /* NotificationCenter.framework */; };
 		1633C7371939338000A9CC5E /* ListerTodayOSX.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 1633C7361939338000A9CC5E /* ListerTodayOSX.entitlements */; };
@@ -66,7 +66,6 @@
 		3E2517CD197F7D9700B8AF96 /* ListerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1632761E18AD468F00A97A9F /* ListerKit.framework */; };
 		3E3208C019088F60003C9147 /* AAPLColorPaletteView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E3208BE19088F60003C9147 /* AAPLColorPaletteView.h */; };
 		3E3208C119088F60003C9147 /* AAPLColorPaletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3208BF19088F60003C9147 /* AAPLColorPaletteView.m */; };
-		3E3558AB193525AF0024DF75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3558AA193525AF0024DF75 /* Main.storyboard */; };
 		3E5C9F1F1936FCAC00EE1526 /* AAPLListDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 163701C5190AC1A2003FF9D0 /* AAPLListDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E5C9F211936FD9100EE1526 /* AAPLListDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 163701C6190AC1A2003FF9D0 /* AAPLListDocument.m */; };
 		3E5C9F301936FE3E00EE1526 /* AAPLAppConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E5C9F2E1936FE3E00EE1526 /* AAPLAppConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -77,12 +76,12 @@
 		3E5C9F391936FE6500EE1526 /* AAPLListDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C9F351936FE6500EE1526 /* AAPLListDocument.m */; };
 		3E6224601924623D00FFC808 /* AAPLListWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E62245E1924623D00FFC808 /* AAPLListWindowController.h */; };
 		3E6224611924623D00FFC808 /* AAPLListWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E62245F1924623D00FFC808 /* AAPLListWindowController.m */; };
-		3E63B0B3192468FF0065DF9E /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E63B0B2192468FF0065DF9E /* Storyboard.storyboard */; };
 		3E745ED0190880F30090B20E /* ListerKitOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E745ECF190880F30090B20E /* ListerKitOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E745EF41908833C0090B20E /* AAPLList.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D4DA0B19082E2B0013342E /* AAPLList.m */; };
 		3E745EF61908833C0090B20E /* AAPLListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D4DA0D19082E2B0013342E /* AAPLListItem.m */; };
 		3E745EFD190887500090B20E /* AAPLListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E745EFB190887500090B20E /* AAPLListViewController.h */; };
 		3E745EFE190887500090B20E /* AAPLListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E745EFC190887500090B20E /* AAPLListViewController.m */; };
+		3E79958F19EC841D0077233E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E79958E19EC841D0077233E /* Main.storyboard */; };
 		3E7DBC5B19296BF200830E02 /* AAPLAddItemViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E7DBC5919296BF200830E02 /* AAPLAddItemViewController.h */; };
 		3E7DBC5C19296BF200830E02 /* AAPLAddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7DBC5A19296BF200830E02 /* AAPLAddItemViewController.m */; };
 		3E950665198574820030A9D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E950664198574820030A9D1 /* UIKit.framework */; };
@@ -314,19 +313,18 @@
 		3E2EA7391974FFD200C7B658 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		3E3208BE19088F60003C9147 /* AAPLColorPaletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLColorPaletteView.h; sourceTree = "<group>"; };
 		3E3208BF19088F60003C9147 /* AAPLColorPaletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLColorPaletteView.m; sourceTree = "<group>"; };
-		3E3558AA193525AF0024DF75 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3E5C9F2E1936FE3E00EE1526 /* AAPLAppConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLAppConfiguration.h; path = Common/AAPLAppConfiguration.h; sourceTree = SOURCE_ROOT; };
 		3E5C9F2F1936FE3E00EE1526 /* AAPLAppConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLAppConfiguration.m; path = Common/AAPLAppConfiguration.m; sourceTree = SOURCE_ROOT; };
 		3E5C9F341936FE6500EE1526 /* AAPLListDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLListDocument.h; sourceTree = "<group>"; };
 		3E5C9F351936FE6500EE1526 /* AAPLListDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLListDocument.m; sourceTree = "<group>"; };
 		3E62245E1924623D00FFC808 /* AAPLListWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLListWindowController.h; sourceTree = "<group>"; };
 		3E62245F1924623D00FFC808 /* AAPLListWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLListWindowController.m; sourceTree = "<group>"; };
-		3E63B0B2192468FF0065DF9E /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		3E745ECB190880F30090B20E /* ListerKitOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ListerKitOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E745ECE190880F30090B20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E745ECF190880F30090B20E /* ListerKitOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListerKitOSX.h; sourceTree = "<group>"; };
 		3E745EFB190887500090B20E /* AAPLListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLListViewController.h; sourceTree = "<group>"; };
 		3E745EFC190887500090B20E /* AAPLListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLListViewController.m; sourceTree = "<group>"; };
+		3E79958E19EC841D0077233E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3E7DBC5919296BF200830E02 /* AAPLAddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLAddItemViewController.h; sourceTree = "<group>"; };
 		3E7DBC5A19296BF200830E02 /* AAPLAddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLAddItemViewController.m; sourceTree = "<group>"; };
 		3E950664198574820030A9D1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -535,14 +533,14 @@
 			path = ListerKit;
 			sourceTree = "<group>";
 		};
-		1633C7331939338000A9CC5E /* Today Extension */ = {
+		1633C7331939338000A9CC5E /* Today Widget */ = {
 			isa = PBXGroup;
 			children = (
 				3EBE0287198CA0B10007E4AC /* Models */,
 				3EBE0288198CA0B50007E4AC /* View Controllers */,
 				1633C7341939338000A9CC5E /* Supporting Files */,
 			);
-			name = "Today Extension";
+			name = "Today Widget";
 			path = ListerTodayOSX;
 			sourceTree = "<group>";
 		};
@@ -559,8 +557,7 @@
 		163A6CA11906ED4C008E1930 /* Main App */ = {
 			isa = PBXGroup;
 			children = (
-				3E3558AA193525AF0024DF75 /* Main.storyboard */,
-				3E63B0B2192468FF0065DF9E /* Storyboard.storyboard */,
+				3E79958E19EC841D0077233E /* Main.storyboard */,
 				16ADF818191AAC2E00CA9120 /* AAPLAppDelegate.h */,
 				16ADF819191AAC2E00CA9120 /* AAPLAppDelegate.m */,
 				3EDCB8ED193A551A003B5830 /* Window Controllers */,
@@ -643,7 +640,7 @@
 			isa = PBXGroup;
 			children = (
 				163275FC18AD468F00A97A9F /* Main App */,
-				3EBE027C198C9D130007E4AC /* Today Extension */,
+				3EBE027C198C9D130007E4AC /* Today Widget */,
 				3EBE027E198C9D780007E4AC /* ListerKit Framework (iOS) */,
 			);
 			name = "Lister iOS App";
@@ -653,7 +650,7 @@
 			isa = PBXGroup;
 			children = (
 				163A6CA11906ED4C008E1930 /* Main App */,
-				1633C7331939338000A9CC5E /* Today Extension */,
+				1633C7331939338000A9CC5E /* Today Widget */,
 				3E745ECC190880F30090B20E /* ListerKit Framework (OS X) */,
 			);
 			name = "Lister OS X App";
@@ -700,7 +697,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3EBE027C198C9D130007E4AC /* Today Extension */ = {
+		3EBE027C198C9D130007E4AC /* Today Widget */ = {
 			isa = PBXGroup;
 			children = (
 				169DAF20192D1C1C007F738B /* Today.storyboard */,
@@ -708,7 +705,7 @@
 				3EBE027D198C9D4C0007E4AC /* View Controllers */,
 				1623E08219378BD600939745 /* Supporting Files */,
 			);
-			name = "Today Extension";
+			name = "Today Widget";
 			sourceTree = "<group>";
 		};
 		3EBE027D198C9D4C0007E4AC /* View Controllers */ = {
@@ -1145,7 +1142,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AAPL;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Apple Inc.";
 				TargetAttributes = {
 					163275F918AD468F00A97A9F = {
@@ -1157,8 +1154,10 @@
 					};
 					1633C7301939337F00A9CC5E = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = A93A5CM278;
 					};
 					163A6C9F1906ED4C008E1930 = {
+						DevelopmentTeam = A93A5CM278;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -1251,11 +1250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				168AF80B191AA89700D6BA5A /* ListerOSX.entitlements in Resources */,
-				3E3558AB193525AF0024DF75 /* Main.storyboard in Resources */,
+				3E79958F19EC841D0077233E /* Main.storyboard in Resources */,
 				3EBE029B198CA5280007E4AC /* ListerDocumentIcon.icns in Resources */,
 				3EBE02CC198CA5FD0007E4AC /* Today.list in Resources */,
 				163A6CAE1906ED4C008E1930 /* Images.xcassets in Resources */,
-				3E63B0B3192468FF0065DF9E /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1815,7 +1813,7 @@
 				AXLE_ENABLE_DEBUG_INFO = YES;
 				CLANG_WARN_ASSIGN_ENUM = NO;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1846,7 +1844,7 @@
 				AXLE_ENABLE_DEBUG_INFO = NO;
 				CLANG_WARN_ASSIGN_ENUM = NO;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

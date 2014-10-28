@@ -4,7 +4,7 @@
     
     Abstract:
     
-            The `TodayWidgetRequiresCloudViewController` class is an NSViewController subclass that displays the "The Lister Today widget requires iCloud." row in the app extension.
+            The `TodayWidgetRequiresCloudViewController` class is an `NSViewController` subclass that displays the "The Lister Today widget requires iCloud." row in the app extension.
             
 */
 

@@ -294,59 +294,75 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        let indexPath = indexPathForView(textField)
+        // Keep track of a flag that determines whether or not we'll notify
+        var shouldNotifyDocumentOfChange = false
         
-        if indexPath != nil && indexPath!.row > 0 {
-            // Edit the item in place.
-            let item = list[indexPath!.row - 1]
+        if let indexPath = indexPathForView(textField) {
+            // Check to see if a change needs to be made to an existing list item (i.e. row > 0)
+            // or if we need to insert a new list item.
+            let isForExistingListItem = indexPath.row > 0
+            
+            if isForExistingListItem {
+                // Edit the item in place.
+                let item = list[indexPath.row - 1]
 
-            // If the contents of the text field at the end of editing is the same as it started, don't trigger an update.
-            if item.text != textField.text {
-                item.text = textField.text
+                // Delete the item row if the user deletes all characters in the text field.
+                if textField.text.isEmpty {
+                    list.removeItems([item])
+                    
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                    
+                    triggerNewDataForWidget()
+                    
+                    shouldNotifyDocumentOfChange = true
+                }
+                // Update the item's text if it changed (besides removing all characters, which is a delete).
+                else if item.text != textField.text {
+                    item.text = textField.text
+                    
+                    triggerNewDataForWidget()
+                    
+                    shouldNotifyDocumentOfChange = true
+                }
+            }
+            else if !textField.text.isEmpty {
+                // Adds the item to the top of the list.
+                let newItem = ListItem(text: textField.text)
+                let insertedIndex = list.insertItem(newItem)
+
+                // Update the edit row to show the check box.
+                let itemCell = tableView.cellForRowAtIndexPath(indexPath) as ListItemCell
+                itemCell.checkBox.hidden = false
+                
+                // Update the edit row to indicate that deleting all text in an item will delete the item.
+                itemCell.textField.placeholder = NSLocalizedString("Delete Item", comment: "")
+                
+                // Insert a new add item row into the table view.
+                tableView.beginUpdates()
+                
+                let targetIndexPath = NSIndexPath(forRow: insertedIndex, inSection: 0)
+                tableView.insertRowsAtIndexPaths([targetIndexPath], withRowAnimation: .Automatic)
+                
+                tableView.endUpdates()
                 
                 triggerNewDataForWidget()
                 
-                // Notify the document of a change.
-                document.updateChangeCount(.Done)
+                shouldNotifyDocumentOfChange = true
             }
         }
-        else if !textField.text.isEmpty {
-            // Adds the item to the top of the list.
-            let item = ListItem(text: textField.text)
-            let insertedIndex = list.insertItem(item)
-            
-            // Update the edit row to show the check box.
-            let itemCell = tableView.cellForRowAtIndexPath(indexPath!) as ListItemCell
-            itemCell.checkBox.hidden = false
-            
-            // Insert a new add item row into the table view.
-            tableView.beginUpdates()
-            
-            let targetIndexPath = NSIndexPath(forRow: insertedIndex, inSection: 0)
-            tableView.insertRowsAtIndexPaths([targetIndexPath], withRowAnimation: .Automatic)
-            
-            tableView.endUpdates()
-            
-            triggerNewDataForWidget()
-            
-            // Notify the document of a change.
+        
+        if shouldNotifyDocumentOfChange {
             document.updateChangeCount(.Done)
         }
-        
+
         activeTextField = nil
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        let indexPath = indexPathForView(textField)!
+        // Always resign first responder and return. If the field is empty, the item will be deleted.
+        textField.resignFirstResponder()
 
-        // An item must have text to dismiss the keyboard.
-        if !textField.text.isEmpty || indexPath.row == 0 {
-            textField.resignFirstResponder()
-
-            return true
-        }
-        
-        return false
+        return true
     }
     
     // MARK: ListColorCellDelegate

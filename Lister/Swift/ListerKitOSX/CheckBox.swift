@@ -55,7 +55,7 @@ import Cocoa
     override public func mouseDown(event: NSEvent) {
         isChecked = !isChecked
         
-        cell().performClick(self)
+        cell()!.performClick(self)
     }
     
     override public func viewDidChangeBackingProperties() {

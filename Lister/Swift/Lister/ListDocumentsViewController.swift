@@ -102,7 +102,7 @@ class ListDocumentsViewController: UITableViewController, ListControllerDelegate
             
             let rawListInfoColor = activity.userInfo![AppConfiguration.UserActivity.listColorUserInfoKey]! as Int
             
-            activityListInfo.color = List.Color.fromRaw(rawListInfoColor)
+            activityListInfo.color = List.Color(rawValue: rawListInfoColor)
 
             performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showListDocumentFromUserActivity, sender: activityListInfo)
         }

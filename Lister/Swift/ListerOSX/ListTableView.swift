@@ -11,11 +11,11 @@
 import Cocoa
 
 class ListTableView: NSTableView {
-    override func validateProposedFirstResponder(responder: NSResponder, forEvent: NSEvent) -> Bool {
+    override func validateProposedFirstResponder(responder: NSResponder, forEvent event: NSEvent?) -> Bool {
         if responder is NSTextField {
             return true
         }
 
-        return super.validateProposedFirstResponder(responder, forEvent: forEvent)
+        return super.validateProposedFirstResponder(responder, forEvent: event)
     }
 }

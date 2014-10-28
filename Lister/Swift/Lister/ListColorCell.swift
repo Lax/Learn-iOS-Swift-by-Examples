@@ -57,10 +57,8 @@ class ListColorCell: UITableViewCell {
 
         // If the user tapped on a color (identified by its tag), notify the delegate.
         if let view = contentView.hitTest(tapLocation, withEvent: nil) {
-            if let color = List.Color.fromRaw(view.tag) {
-                selectedColor = color
-                delegate?.listColorCellDidChangeSelectedColor(self)
-            }
+            selectedColor = List.Color(rawValue: view.tag)!
+            delegate?.listColorCellDidChangeSelectedColor(self)
         }
     }
 }

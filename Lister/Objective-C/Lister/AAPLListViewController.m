@@ -298,20 +298,35 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
+    BOOL shouldNotifyDocumentOfChange = NO;
+    
     NSIndexPath *indexPath = [self indexPathForView:textField];
     
-    if (indexPath.row > 0) {
+    // Check to see if a change needs to be made to an existing list item (i.e. row > 0)
+    // or if we need to insert a new list item.
+    BOOL isForExistingListItem = indexPath.row > 0;
+    
+    if (isForExistingListItem) {
         // Edit the item in place.
         AAPLListItem *item = self.list[indexPath.row - 1];
         
-        // If the contents of the text field at the end of editing is the same as it started, don't trigger an update.
-        if (![item.text isEqualToString:textField.text]) {
+        // Delete the item row if the user deletes all characters in the text field.
+        if (textField.text.length == 0) {
+            [self.list removeItems:@[item]];
+            
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+            [self triggerNewDataForWidget];
+            
+            shouldNotifyDocumentOfChange = YES;
+        }
+        // Update the item's text if it changed (besides removing all characters, which is a delete).
+        else if (![item.text isEqualToString:textField.text]) {
             item.text = textField.text;
             
             [self triggerNewDataForWidget];
             
-            // Notify the document of a change.
-            [self.document updateChangeCount:UIDocumentChangeDone];
+            shouldNotifyDocumentOfChange = YES;
         }
     }
     else if (textField.text.length > 0) {
@@ -323,6 +338,9 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
         AAPLListItemCell *itemCell = (AAPLListItemCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         itemCell.checkBox.hidden = NO;
         
+        // Update the edit row to indicate that deleting all text in an item will delete the item.
+        itemCell.textField.placeholder = NSLocalizedString(@"Delete Item", nil);
+        
         // Insert a new add item row into the table view.
         [self.tableView beginUpdates];
         
@@ -333,7 +351,10 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
         
         [self triggerNewDataForWidget];
         
-        // Notify the document of a change.
+        shouldNotifyDocumentOfChange = YES;
+    }
+    
+    if (shouldNotifyDocumentOfChange) {
         [self.document updateChangeCount:UIDocumentChangeDone];
     }
     
@@ -341,16 +362,10 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    NSIndexPath *indexPath = [self indexPathForView:textField];
-    
-    // An item must have text to dismiss the keyboard.
-    if (textField.text.length > 0 || indexPath.row == 0) {
-        [textField resignFirstResponder];
+    // Always resign first responder and return. If the field is empty, the item will be deleted.
+    [textField resignFirstResponder];
 
-        return YES;
-    }
-    
-    return NO;
+    return YES;
 }
 
 #pragma mark - AAPLListColorCellDelegate

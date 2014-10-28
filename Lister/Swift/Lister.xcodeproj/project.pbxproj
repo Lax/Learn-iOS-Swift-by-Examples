@@ -47,15 +47,14 @@
 		3E3D094C19313A8400D21A98 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D094A193139BB00D21A98 /* AppConfiguration.swift */; };
 		3E3D094D19313A8500D21A98 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D094A193139BB00D21A98 /* AppConfiguration.swift */; };
 		3E3F3980191066AF005813D6 /* TableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F397F191066AF005813D6 /* TableRowView.swift */; };
-		3E497FCB18FAFA2400B32837 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E497FCA18FAFA2400B32837 /* main.swift */; };
 		3E497FD218FAFA2400B32837 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E497FD118FAFA2400B32837 /* Images.xcassets */; };
 		3E541363198A16F9000DA252 /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E541362198A16F9000DA252 /* ListCoordinator.swift */; };
 		3E5F97EC1920377B00723004 /* ListColorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9A18FB08C90012B60F /* ListColorUI.swift */; };
 		3E5F97ED1920378000723004 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16480E2B18F866A80068456A /* ListItem.swift */; };
 		3E5F97EE1920378300723004 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16480E2918F866990068456A /* List.swift */; };
 		3E6198981989AE7700D66B75 /* ListUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6198971989AE7700D66B75 /* ListUtilities.swift */; };
-		3E6B618C1935D12C00F7C4BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6B618B1935D12C00F7C4BA /* Main.storyboard */; };
 		3E6F0E3C198C83DA009A4CBB /* NSColor+AppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFC7D9D18FB08C90012B60F /* NSColor+AppSpecific.swift */; };
+		3E79958D19EC7E820077233E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E79958C19EC7E820077233E /* Main.storyboard */; };
 		3E8576E219205618004FF442 /* ListerKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E93587D1920355C0091408E /* ListerKitOSX.framework */; };
 		3E93585F1920343C0091408E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168178BA19100ED6008B46DC /* NotificationCenter.framework */; };
 		3E9358641920343C0091408E /* ListerTodayOSX.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 3E9358631920343C0091408E /* ListerTodayOSX.entitlements */; };
@@ -84,7 +83,6 @@
 		3ECADE11192D0B1500BC9826 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECADE10192D0B1500BC9826 /* AddItemViewController.swift */; };
 		3ECADE13192D0B2000BC9826 /* ListWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECADE12192D0B2000BC9826 /* ListWindowController.swift */; };
 		3ECADE15192D0B2800BC9826 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECADE14192D0B2800BC9826 /* ListViewController.swift */; };
-		3ECADE17192D0B3400BC9826 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ECADE16192D0B3400BC9826 /* Storyboard.storyboard */; };
 		3EDB108A1982DDB100669AAE /* ListItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB10891982DDB100669AAE /* ListItemTests.swift */; };
 		3EDB108B1982DDB600669AAE /* ListItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB10891982DDB100669AAE /* ListItemTests.swift */; };
 		3EE2348E1980530F00F80662 /* ListerKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E93587D1920355C0091408E /* ListerKitOSX.framework */; };
@@ -296,11 +294,10 @@
 		3E3F397F191066AF005813D6 /* TableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowView.swift; sourceTree = "<group>"; };
 		3E497FC618FAFA2400B32837 /* ListerOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListerOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E497FC918FAFA2400B32837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E497FCA18FAFA2400B32837 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3E497FD118FAFA2400B32837 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3E541362198A16F9000DA252 /* ListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListCoordinator.swift; path = ../ListerKit/ListCoordinator.swift; sourceTree = "<group>"; };
 		3E6198971989AE7700D66B75 /* ListUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListUtilities.swift; path = ../ListerKit/ListUtilities.swift; sourceTree = "<group>"; };
-		3E6B618B1935D12C00F7C4BA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3E79958C19EC7E820077233E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3E93585E1920343C0091408E /* ListerTodayOSX.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ListerTodayOSX.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9358621920343C0091408E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E9358631920343C0091408E /* ListerTodayOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ListerTodayOSX.entitlements; sourceTree = "<group>"; };
@@ -329,7 +326,6 @@
 		3ECADE10192D0B1500BC9826 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		3ECADE12192D0B2000BC9826 /* ListWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWindowController.swift; sourceTree = "<group>"; };
 		3ECADE14192D0B2800BC9826 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		3ECADE16192D0B3400BC9826 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		3EDB10891982DDB100669AAE /* ListItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItemTests.swift; path = ListerKitTests/ListItemTests.swift; sourceTree = SOURCE_ROOT; };
 		3EED110319AFB9A100848265 /* TodayWidgetRequiresCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayWidgetRequiresCloudViewController.swift; sourceTree = "<group>"; };
 		3EED110519AFB9F900848265 /* TodayWidgetRequiresCloudViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TodayWidgetRequiresCloudViewController.xib; path = ListerTodayOSX/TodayWidgetRequiresCloudViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -452,7 +448,7 @@
 			name = "Imported Frameworks";
 			sourceTree = "<group>";
 		};
-		16A9851E1936EEA5007B7F37 /* Today Extension */ = {
+		16A9851E1936EEA5007B7F37 /* Today Widget */ = {
 			isa = PBXGroup;
 			children = (
 				16A985231936EEA7007B7F37 /* Today.storyboard */,
@@ -460,7 +456,7 @@
 				3E6F0E32198C8001009A4CBB /* View Controllers */,
 				16A9851F1936EEA7007B7F37 /* Supporting Files */,
 			);
-			name = "Today Extension";
+			name = "Today Widget";
 			path = ListerToday;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -505,7 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				3E6F0E33198C8053009A4CBB /* Main App */,
-				16A9851E1936EEA5007B7F37 /* Today Extension */,
+				16A9851E1936EEA5007B7F37 /* Today Widget */,
 				3E6F0E34198C809A009A4CBB /* ListerKit Framework (iOS) */,
 			);
 			name = "Lister iOS App";
@@ -573,7 +569,7 @@
 			isa = PBXGroup;
 			children = (
 				3E6F0E38198C8242009A4CBB /* Main App */,
-				3E6F0E31198C7F52009A4CBB /* Today Extension */,
+				3E6F0E31198C7F52009A4CBB /* Today Widget */,
 				3E93587E1920355C0091408E /* ListerKit Framework (OS X) */,
 			);
 			name = "Lister OS X App";
@@ -586,7 +582,6 @@
 				3E497FD118FAFA2400B32837 /* Images.xcassets */,
 				3E497FC918FAFA2400B32837 /* Info.plist */,
 				162BD21E1922BA5700848FF6 /* ListerOSX.entitlements */,
-				3E497FCA18FAFA2400B32837 /* main.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -601,14 +596,14 @@
 			path = ../ListerKit;
 			sourceTree = "<group>";
 		};
-		3E6F0E31198C7F52009A4CBB /* Today Extension */ = {
+		3E6F0E31198C7F52009A4CBB /* Today Widget */ = {
 			isa = PBXGroup;
 			children = (
 				3E6F0E3A198C828A009A4CBB /* Models */,
 				3E6F0E39198C827C009A4CBB /* View Controllers */,
 				3E9358611920343C0091408E /* Supporting Files */,
 			);
-			name = "Today Extension";
+			name = "Today Widget";
 			path = ../Lister;
 			sourceTree = "<group>";
 		};
@@ -676,8 +671,7 @@
 		3E6F0E38198C8242009A4CBB /* Main App */ = {
 			isa = PBXGroup;
 			children = (
-				3E6B618B1935D12C00F7C4BA /* Main.storyboard */,
-				3ECADE16192D0B3400BC9826 /* Storyboard.storyboard */,
+				3E79958C19EC7E820077233E /* Main.storyboard */,
 				3EA0250D19204ACE0090F6DB /* AppDelegate.swift */,
 				3EDCB8F0193A5548003B5830 /* Window Controllers */,
 				3EDCB8F1193A5557003B5830 /* View Controllers */,
@@ -1170,9 +1164,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E497FD218FAFA2400B32837 /* Images.xcassets in Resources */,
-				3E6B618C1935D12C00F7C4BA /* Main.storyboard in Resources */,
+				3E79958D19EC7E820077233E /* Main.storyboard in Resources */,
 				3EBE02D4198CA7EF0007E4AC /* ListerDocumentIcon.icns in Resources */,
-				3ECADE17192D0B3400BC9826 /* Storyboard.storyboard in Resources */,
 				162BD21F1922BA5700848FF6 /* ListerOSX.entitlements in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1274,7 +1267,6 @@
 				3ECADE15192D0B2800BC9826 /* ListViewController.swift in Sources */,
 				3E3F3980191066AF005813D6 /* TableRowView.swift in Sources */,
 				3ECADE11192D0B1500BC9826 /* AddItemViewController.swift in Sources */,
-				3E497FCB18FAFA2400B32837 /* main.swift in Sources */,
 				3E6F0E3C198C83DA009A4CBB /* NSColor+AppSpecific.swift in Sources */,
 				3EFC7DA418FB08C90012B60F /* ListItemView.swift in Sources */,
 				3EFC7D9F18FB08C90012B60F /* ColorPaletteView.swift in Sources */,

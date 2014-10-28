@@ -73,7 +73,7 @@ public class AppConfiguration {
         #if os(iOS)
         let defaultOptions: [NSObject: AnyObject] = [
             Defaults.firstLaunchKey: true,
-            Defaults.storageOptionKey: Storage.NotSet.toRaw()
+            Defaults.storageOptionKey: Storage.NotSet.rawValue
         ]
         #elseif os(OSX)
         let defaultOptions: [NSObject: AnyObject] = [
@@ -99,11 +99,11 @@ public class AppConfiguration {
         get {
             let value = NSUserDefaults.standardUserDefaults().integerForKey(Defaults.storageOptionKey)
             
-            return Storage.fromRaw(value)!
+            return Storage(rawValue: value)!
         }
 
         set {
-            NSUserDefaults.standardUserDefaults().setInteger(newValue.toRaw(), forKey: Defaults.storageOptionKey)
+            NSUserDefaults.standardUserDefaults().setInteger(newValue.rawValue, forKey: Defaults.storageOptionKey)
         }
     }
 
