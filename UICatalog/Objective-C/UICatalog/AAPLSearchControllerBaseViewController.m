@@ -40,7 +40,7 @@ NSString *const AAPLSearchControllerBaseViewControllerTableViewCellIdentifier = 
         self.visibleResults = self.allResults;
     }
     else {
-        NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@", filterString];
+        NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"self contains[c] %@", filterString];
         self.visibleResults = [self.allResults filteredArrayUsingPredicate:filterPredicate];
     }
     
@@ -54,11 +54,11 @@ NSString *const AAPLSearchControllerBaseViewControllerTableViewCellIdentifier = 
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AAPLSearchControllerBaseViewControllerTableViewCellIdentifier forIndexPath:indexPath];
-    
+    return [tableView dequeueReusableCellWithIdentifier:AAPLSearchControllerBaseViewControllerTableViewCellIdentifier forIndexPath:indexPath];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.textLabel.text = self.visibleResults[indexPath.row];
-    
-    return cell;
 }
 
 @end

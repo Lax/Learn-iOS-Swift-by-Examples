@@ -31,7 +31,7 @@ class SearchControllerBaseViewController: UITableViewController {
             }
             else {
                 // Filter the results using a predicate based on the filter string.
-                let filterPredicate = NSPredicate(format: "SELF contains[c] %@", argumentArray: [filterString!])
+                let filterPredicate = NSPredicate(format: "self contains[c] %@", argumentArray: [filterString!])
 
                 visibleResults = allResults.filter { filterPredicate.evaluateWithObject($0) }
             }
@@ -47,10 +47,10 @@ class SearchControllerBaseViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(TableViewConstants.tableViewCellIdentifier, forIndexPath: indexPath) as UITableViewCell
-        
-        cell.textLabel.text = visibleResults[indexPath.row]
-
-        return cell
+        return tableView.dequeueReusableCellWithIdentifier(TableViewConstants.tableViewCellIdentifier, forIndexPath: indexPath) as UITableViewCell
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.textLabel!.text = visibleResults[indexPath.row]
     }
 }
