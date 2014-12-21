@@ -8,11 +8,11 @@
   
  */
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @class APLProduct;
 
-static NSString * const kCellIdentifier = @"cellID";
+extern NSString *const kCellIdentifier;
 
 @interface APLBaseTableViewController : UITableViewController
 

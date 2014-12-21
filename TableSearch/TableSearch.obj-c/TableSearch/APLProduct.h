@@ -15,7 +15,7 @@
 @property (nonatomic, copy) NSNumber *yearIntroduced;
 @property (nonatomic, copy) NSNumber *introPrice;
 
-+ (instancetype)productWithType:(NSString *)type name:(NSString *)name year:(NSNumber *)year price:(NSNumber *)price;
++ (APLProduct *)productWithType:(NSString *)type name:(NSString *)name year:(NSNumber *)year price:(NSNumber *)price;
 
 + (NSArray *)deviceTypeNames;
 + (NSString *)displayNameForType:(NSString *)type;

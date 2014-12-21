@@ -12,6 +12,6 @@
 
 @interface APLMainTableViewController : APLBaseTableViewController
 
-@property (nonatomic, strong) NSArray *products;
+@property (nonatomic, copy) NSArray *products;
 
 @end

@@ -133,7 +133,10 @@ class MainTableViewController: BaseTableViewController, UISearchBarDelegate, UIS
             //      name CONTAINS[c] "2007", yearIntroduced ==[c] 2007, introPrice ==[c] 2007
             //
             var searchItemsPredicate = [NSPredicate]()
-                
+            
+            // Below we use NSExpression represent expressions in our predicates.
+            // NSPredicate is made up of smaller, atomic parts: two NSExpressions (a left-hand value and a right-hand value).
+
             // Name field matching.
             var lhs = NSExpression(forKeyPath: "title")
             var rhs = NSExpression(forConstantValue: searchString)
@@ -210,9 +213,9 @@ class MainTableViewController: BaseTableViewController, UISearchBarDelegate, UIS
         let detailViewController = DetailViewController.forProduct(selectedProduct)
         
         // Note: Should not be necessary but current iOS 8.0 bug requires it.
-        tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow(), animated: false)
+        tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)
         
-        navigationController.pushViewController(detailViewController, animated: true)
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
     
     // MARK: UIStateRestoration
@@ -220,8 +223,10 @@ class MainTableViewController: BaseTableViewController, UISearchBarDelegate, UIS
     override func encodeRestorableStateWithCoder(coder: NSCoder) {
         super.encodeRestorableStateWithCoder(coder)
         
+        // Encode the view state so it can be restored later.
+        
         // Encode the title.
-        coder.encodeObject(navigationItem.title, forKey:RestorationKeys.viewControllerTitle)
+        coder.encodeObject(navigationItem.title!, forKey:RestorationKeys.viewControllerTitle)
         
         // Encode the search controller's active state.
         coder.encodeBool(searchController.active, forKey:RestorationKeys.searchControllerIsActive)

@@ -8,7 +8,7 @@
   
  */
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface APLAppDelegate : NSObject <UIApplicationDelegate>
 

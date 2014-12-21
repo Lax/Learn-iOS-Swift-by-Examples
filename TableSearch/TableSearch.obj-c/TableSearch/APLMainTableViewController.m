@@ -86,19 +86,19 @@
 }
 
 - (void)willPresentSearchController:(UISearchController *)searchController {
-    //NSLog(@"willPresentSearchController");
+    // do something before the search controller is presented
 }
 
 - (void)didPresentSearchController:(UISearchController *)searchController {
-    //NSLog(@"didPresentSearchController");
+    // do something after the search controller is presented
 }
 
 - (void)willDismissSearchController:(UISearchController *)searchController {
-    //NSLog(@"willDismissSearchController");
+    // do something before the search controller is dismissed
 }
 
 - (void)didDismissSearchController:(UISearchController *)searchController {
-    //NSLog(@"didDismissSearchController");
+    // do something after the search controller is dismissed
 }
 
 
@@ -109,10 +109,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    APLProduct *product = self.products[indexPath.row];
-
     UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
+    
+    APLProduct *product = self.products[indexPath.row];
     [self configureCell:cell forProduct:product];
+    
     return cell;
 }
 
@@ -142,12 +143,12 @@
     NSMutableArray *searchResults = [self.products mutableCopy];
     
     // strip out all the leading and trailing spaces
-    NSString *strippedStr = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *strippedString = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     // break up the search terms (separated by spaces)
     NSArray *searchItems = nil;
-    if (strippedStr.length > 0) {
-        searchItems = [strippedStr componentsSeparatedByString:@" "];
+    if (strippedString.length > 0) {
+        searchItems = [strippedString componentsSeparatedByString:@" "];
     }
     
     // build all the "AND" expressions for each value in the searchString
@@ -164,6 +165,9 @@
         //
         NSMutableArray *searchItemsPredicate = [NSMutableArray array];
         
+        // Below we use NSExpression represent expressions in our predicates.
+        // NSPredicate is made up of smaller, atomic parts: two NSExpressions (a left-hand value and a right-hand value)
+
         // name field matching
         NSExpression *lhs = [NSExpression expressionForKeyPath:@"title"];
         NSExpression *rhs = [NSExpression expressionForConstantValue:searchString];
@@ -176,9 +180,9 @@
         [searchItemsPredicate addObject:finalPredicate];
         
         // yearIntroduced field matching
-        NSNumberFormatter *numFormatter = [[NSNumberFormatter alloc] init];
-        [numFormatter setNumberStyle:NSNumberFormatterNoStyle];
-        NSNumber *targetNumber = [numFormatter numberFromString:searchString];
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterNoStyle];
+        NSNumber *targetNumber = [numberFormatter numberFromString:searchString];
         if (targetNumber != nil) {   // searchString may not convert to a number
             lhs = [NSExpression expressionForKeyPath:@"yearIntroduced"];
             rhs = [NSExpression expressionForConstantValue:targetNumber];
@@ -203,15 +207,13 @@
         }
         
         // at this OR predicate to our master AND predicate
-        NSCompoundPredicate *orMatchPredicates = (NSCompoundPredicate *)[NSCompoundPredicate orPredicateWithSubpredicates:searchItemsPredicate];
+        NSCompoundPredicate *orMatchPredicates = [NSCompoundPredicate orPredicateWithSubpredicates:searchItemsPredicate];
         [andMatchPredicates addObject:orMatchPredicates];
     }
 
-    NSCompoundPredicate *finalCompoundPredicate = nil;
-    
     // match up the fields of the Product object
-    finalCompoundPredicate =
-        (NSCompoundPredicate *)[NSCompoundPredicate andPredicateWithSubpredicates:andMatchPredicates];
+    NSCompoundPredicate *finalCompoundPredicate =
+        [NSCompoundPredicate andPredicateWithSubpredicates:andMatchPredicates];
     searchResults = [[searchResults filteredArrayUsingPredicate:finalCompoundPredicate] mutableCopy];
     
     // hand over the filtered results to our search results table
@@ -223,18 +225,20 @@
 
 #pragma mark - UIStateRestoration
 
-/* we restore several items for state restoration:
- 1) Search controller's active state,
- 2) search text,
- 3) first responder
-*/
-static NSString *ViewControllerTitleKey = @"ViewControllerTitleKey";
-static NSString *SearchControllerIsActiveKey = @"SearchControllerIsActiveKey";
-static NSString *SearchBarTextKey = @"SearchBarTextKey";
-static NSString *SearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
+// we restore several items for state restoration:
+//  1) Search controller's active state,
+//  2) search text,
+//  3) first responder
+
+NSString *const ViewControllerTitleKey = @"ViewControllerTitleKey";
+NSString *const SearchControllerIsActiveKey = @"SearchControllerIsActiveKey";
+NSString *const SearchBarTextKey = @"SearchBarTextKey";
+NSString *const SearchBarIsFirstResponderKey = @"SearchBarIsFirstResponderKey";
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
     [super encodeRestorableStateWithCoder:coder];
+    
+    // encode the view state so it can be restored later
     
     // encode the title
     [coder encodeObject:self.title forKey:ViewControllerTitleKey];

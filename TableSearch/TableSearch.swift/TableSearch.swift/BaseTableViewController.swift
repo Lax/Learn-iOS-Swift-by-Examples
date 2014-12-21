@@ -37,7 +37,7 @@ class BaseTableViewController: UITableViewController {
     // MARK:
     
     func configureCell(cell: UITableViewCell, forProduct product: Product) {
-        cell.textLabel.text = product.title
+        cell.textLabel?.text = product.title
         
         // Build the price and year string.
         //
@@ -48,6 +48,6 @@ class BaseTableViewController: UITableViewController {
 
         let priceString = numberFormatter.stringFromNumber(product.introPrice)
 
-        cell.detailTextLabel.text = "\(priceString) | \(product.yearIntroduced)"
+        cell.detailTextLabel?.text = "\(priceString!) | \(product.yearIntroduced)"
     }
 }

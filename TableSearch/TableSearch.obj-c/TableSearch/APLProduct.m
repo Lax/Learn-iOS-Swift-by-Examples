@@ -8,7 +8,7 @@
 
 @implementation APLProduct
 
-+ (instancetype)productWithType:(NSString *)type name:(NSString *)name year:(NSNumber *)year price:(NSNumber *)price {
++ (APLProduct *)productWithType:(NSString *)type name:(NSString *)name year:(NSNumber *)year price:(NSNumber *)price {
 	APLProduct *newProduct = [[self alloc] init];
 	newProduct.hardwareType = type;
 	newProduct.title = name;
@@ -57,10 +57,10 @@
 
 #pragma mark - Encoding/Decoding
 
-static NSString *NameKey = @"NameKey";
-static NSString *TypeKey = @"TypeKey";
-static NSString *YearKey = @"YearKey";
-static NSString *PriceKey = @"PriceKey";
+NSString *const NameKey = @"NameKey";
+NSString *const TypeKey = @"TypeKey";
+NSString *const YearKey = @"YearKey";
+NSString *const PriceKey = @"PriceKey";
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];

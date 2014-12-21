@@ -14,12 +14,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    APLProduct *product = self.filteredProducts[indexPath.row];
-    
     UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-    assert(cell != nil);    // we should always have a cell
     
+    APLProduct *product = self.filteredProducts[indexPath.row];
     [self configureCell:cell forProduct:product];
+    
     return cell;
 }
 

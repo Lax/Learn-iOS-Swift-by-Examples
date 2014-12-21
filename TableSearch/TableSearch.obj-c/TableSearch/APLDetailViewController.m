@@ -25,15 +25,15 @@
     
     self.yearLabel.text = [self.product.yearIntroduced stringValue];
     
-    NSNumberFormatter *numFormatter = [[NSNumberFormatter alloc] init];
-    [numFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    NSString *priceStr = [numFormatter stringFromNumber:self.product.introPrice];
-    self.priceLabel.text = priceStr;
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    NSString *priceString = [numberFormatter stringFromNumber:self.product.introPrice];
+    self.priceLabel.text = priceString;
 }
 
 #pragma mark - UIStateRestoration
 
-static NSString *ViewControllerProductKey = @"ViewControllerProductKey";
+NSString *const ViewControllerProductKey = @"ViewControllerProductKey";
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
     [super encodeRestorableStateWithCoder:coder];

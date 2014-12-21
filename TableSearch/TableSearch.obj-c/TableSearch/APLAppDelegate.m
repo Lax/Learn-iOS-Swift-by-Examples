@@ -14,7 +14,7 @@
     
     // load our data source and hand it over to APLMainTableViewController
     //
-    NSArray *productArray = @[[APLProduct productWithType:[APLProduct deviceTypeTitle]
+    NSArray *products = @[[APLProduct productWithType:[APLProduct deviceTypeTitle]
                                                      name:@"iPhone"
                                                      year:@2007
                                                     price:@599.00],
@@ -57,7 +57,7 @@
     // we are being store from UIStateRestoration
     //
     APLMainTableViewController *viewController = (APLMainTableViewController *)navigationController.viewControllers[0];
-    viewController.products = productArray;
+    viewController.products = products;
     
     return YES;
 }
