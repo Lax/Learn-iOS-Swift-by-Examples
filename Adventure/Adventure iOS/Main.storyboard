@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.16" systemVersion="13D46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="v0q-4l-l5M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="v0q-4l-l5M">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--TtC13 Adventure iOS14 View Controller-->
+        <!--View Controller-->
         <scene sceneID="yyV-mO-CeJ">
             <objects>
                 <viewController id="v0q-4l-l5M" customClass="ViewController" customModule="Adventure_iOS" sceneMemberID="viewController">
@@ -19,11 +19,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="16A-mh-zAr" customClass="SKView">
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xno-zg-Pex">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="cbW-Js-lBh">
                                         <rect key="frame" x="97" y="-10" width="375" height="220"/>
                                     </imageView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pIz-Fq-R4D">
-                                        <rect key="frame" x="274" y="195" width="20" height="20"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pIz-Fq-R4D">
+                                        <rect key="frame" x="266" y="178" width="37" height="37"/>
                                     </activityIndicatorView>
                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3u-0r-EFd">
                                         <rect key="frame" x="52" y="238" width="187" height="56"/>
@@ -53,6 +56,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="D3u-0r-EFd" secondAttribute="bottom" constant="26" id="5jV-Q7-l2G"/>
+                                    <constraint firstItem="xno-zg-Pex" firstAttribute="top" secondItem="16A-mh-zAr" secondAttribute="top" id="5ze-I9-NEH"/>
                                     <constraint firstAttribute="centerX" secondItem="pIz-Fq-R4D" secondAttribute="centerX" id="8g4-af-dfp"/>
                                     <constraint firstItem="D3u-0r-EFd" firstAttribute="leading" secondItem="16A-mh-zAr" secondAttribute="leading" constant="52" id="9D3-hX-UFe"/>
                                     <constraint firstAttribute="bottom" secondItem="pIz-Fq-R4D" secondAttribute="bottom" constant="105" id="LKU-Hc-gql"/>
@@ -61,8 +65,11 @@
                                     <constraint firstAttribute="trailing" secondItem="cbW-Js-lBh" secondAttribute="trailing" constant="96" id="dSX-to-wj0"/>
                                     <constraint firstItem="cbW-Js-lBh" firstAttribute="leading" secondItem="16A-mh-zAr" secondAttribute="leading" constant="97" id="eHT-Jy-563"/>
                                     <constraint firstItem="D3u-0r-EFd" firstAttribute="top" secondItem="8p3-dw-Wlu" secondAttribute="top" id="ewn-mk-Lai"/>
+                                    <constraint firstItem="xno-zg-Pex" firstAttribute="leading" secondItem="16A-mh-zAr" secondAttribute="leading" id="gQo-J3-hX9"/>
+                                    <constraint firstAttribute="trailing" secondItem="xno-zg-Pex" secondAttribute="trailing" id="mX6-Dp-HgX"/>
                                     <constraint firstAttribute="bottom" secondItem="cbW-Js-lBh" secondAttribute="bottom" constant="110" id="oL2-mb-Ifq"/>
                                     <constraint firstItem="D3u-0r-EFd" firstAttribute="bottom" secondItem="8p3-dw-Wlu" secondAttribute="bottom" id="ocY-aj-dcY"/>
+                                    <constraint firstAttribute="bottom" secondItem="xno-zg-Pex" secondAttribute="bottom" id="vHi-db-N5e"/>
                                     <constraint firstItem="D3u-0r-EFd" firstAttribute="top" secondItem="cbW-Js-lBh" secondAttribute="bottom" constant="28" id="yGZ-09-NGS"/>
                                 </constraints>
                             </view>
@@ -74,12 +81,12 @@
                             <constraint firstItem="16A-mh-zAr" firstAttribute="top" secondItem="U97-k5-wGz" secondAttribute="top" id="PpF-NR-DvY"/>
                             <constraint firstItem="16A-mh-zAr" firstAttribute="leading" secondItem="U97-k5-wGz" secondAttribute="leading" id="WwN-Ga-R6R"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="archerButton" destination="D3u-0r-EFd" id="AJg-vF-7Bf"/>
+                        <outlet property="coverView" destination="xno-zg-Pex" id="q3f-OH-COR"/>
                         <outlet property="gameLogo" destination="cbW-Js-lBh" id="ocP-sF-U5w"/>
                         <outlet property="imageView" destination="cbW-Js-lBh" id="aBz-ax-hfk"/>
                         <outlet property="loadingProgressIndicator" destination="pIz-Fq-R4D" id="0Hd-uO-EDE"/>

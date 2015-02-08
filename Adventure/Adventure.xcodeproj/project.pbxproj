@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		169BC01419EC84CF00CE9246 /* cover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 169BC01319EC84CF00CE9246 /* cover@2x.png */; };
+		169BC01619EC89AB00CE9246 /* cover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 169BC01319EC84CF00CE9246 /* cover@2x.png */; };
 		16A18239189988A000E7758D /* GraphicsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A57D1891E6650091825F /* GraphicsUtilities.swift */; };
+		16AA601B19D61E7E00767D31 /* editor_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 16AA601A19D61E7E00767D31 /* editor_background.png */; };
+		16AA601C19D61E7E00767D31 /* editor_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 16AA601A19D61E7E00767D31 /* editor_background.png */; };
+		16BAD0C119D48568006AA654 /* AdventureHUD.sks in Resources */ = {isa = PBXBuildFile; fileRef = 16BAD0BF19D48568006AA654 /* AdventureHUD.sks */; };
+		16BAD0C219D48568006AA654 /* AdventureHUD.sks in Resources */ = {isa = PBXBuildFile; fileRef = 16BAD0BF19D48568006AA654 /* AdventureHUD.sks */; };
+		16BAD0C319D48568006AA654 /* AdventureWorld.sks in Resources */ = {isa = PBXBuildFile; fileRef = 16BAD0C019D48568006AA654 /* AdventureWorld.sks */; };
+		16BAD0C419D48568006AA654 /* AdventureWorld.sks in Resources */ = {isa = PBXBuildFile; fileRef = 16BAD0C019D48568006AA654 /* AdventureWorld.sks */; };
+		16EFEC9219D4F82500095D32 /* SharedAssetManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EFEC9119D4F82500095D32 /* SharedAssetManagement.swift */; };
+		16EFEC9319D4F8C800095D32 /* SharedAssetManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EFEC9119D4F82500095D32 /* SharedAssetManagement.swift */; };
 		16F418AD189976EF00710C70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16F418AB189976EF00710C70 /* InfoPlist.strings */; };
 		16F418B1189976EF00710C70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F418B0189976EF00710C70 /* AppDelegate.swift */; };
 		16F418B9189976EF00710C70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F418B8189976EF00710C70 /* ViewController.swift */; };
@@ -90,7 +100,6 @@
 		389842C418999B5400FBCB05 /* map_level.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E91D301880C8E4006CA729 /* map_level.png */; };
 		389842C518999B5400FBCB05 /* map_trees.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E91D311880C8E4006CA729 /* map_trees.png */; };
 		389842C618999F8000FBCB05 /* AdventureScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997C03187F7B2800FAAB91 /* AdventureScene.swift */; };
-		389842C718999F8000FBCB05 /* LayeredCharacterScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997C0518805E6E00FAAB91 /* LayeredCharacterScene.swift */; };
 		389842C818999F8000FBCB05 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB1985188232F2008CC889 /* Player.swift */; };
 		389842C918999F8400FBCB05 /* ParallaxSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FCBAA3188223B40017B9D2 /* ParallaxSprite.swift */; };
 		389842CA18999F8400FBCB05 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E5475188352DB009BBDC0 /* Tree.swift */; };
@@ -103,23 +112,21 @@
 		389842D118999F8400FBCB05 /* Cave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383738811884C616008A03B2 /* Cave.swift */; };
 		389842D218999F8400FBCB05 /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5741891E51D0091825F /* Boss.swift */; };
 		389842D31899A20F00FBCB05 /* ArtificialIntelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3837387F1884C4FA008A03B2 /* ArtificialIntelligence.swift */; };
-		389842D41899A20F00FBCB05 /* ChaseAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5781891E59E0091825F /* ChaseAI.swift */; };
-		389842D51899A20F00FBCB05 /* SpawnAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A57A1891E5B90091825F /* SpawnAI.swift */; };
-		389842D71899A29E00FBCB05 /* LayeredCharacterSceneOSXEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389842D61899A29E00FBCB05 /* LayeredCharacterSceneOSXEvents.swift */; };
+		389842D41899A20F00FBCB05 /* ChaseArtificialIntelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5781891E59E0091825F /* ChaseArtificialIntelligence.swift */; };
+		389842D51899A20F00FBCB05 /* SpawnArtificialIntelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A57A1891E5B90091825F /* SpawnArtificialIntelligence.swift */; };
+		389842D71899A29E00FBCB05 /* AdventureSceneOSXEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389842D61899A29E00FBCB05 /* AdventureSceneOSXEvents.swift */; };
 		38997BEE187F688800FAAB91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 38997BEC187F688800FAAB91 /* InfoPlist.strings */; };
-		38997BF0187F688800FAAB91 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997BEF187F688800FAAB91 /* main.swift */; };
 		38997BF2187F688800FAAB91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997BF1187F688800FAAB91 /* AppDelegate.swift */; };
 		38997BF5187F688800FAAB91 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38997BF3187F688800FAAB91 /* MainMenu.xib */; };
 		38997C04187F7B2800FAAB91 /* AdventureScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997C03187F7B2800FAAB91 /* AdventureScene.swift */; };
-		38997C0618805E6E00FAAB91 /* LayeredCharacterScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997C0518805E6E00FAAB91 /* LayeredCharacterScene.swift */; };
 		38A86E3518871BDB00D300AB /* magicmissile.caf in Resources */ = {isa = PBXBuildFile; fileRef = 38A86E3418871BDB00D300AB /* magicmissile.caf */; };
 		38A9A5731891E4F00091825F /* Goblin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5721891E4F00091825F /* Goblin.swift */; };
 		38A9A5751891E51D0091825F /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5741891E51D0091825F /* Boss.swift */; };
 		38A9A5771891E5540091825F /* Archer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5761891E5540091825F /* Archer.swift */; };
-		38A9A5791891E59E0091825F /* ChaseAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5781891E59E0091825F /* ChaseAI.swift */; };
-		38A9A57B1891E5B90091825F /* SpawnAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A57A1891E5B90091825F /* SpawnAI.swift */; };
+		38A9A5791891E59E0091825F /* ChaseArtificialIntelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A5781891E59E0091825F /* ChaseArtificialIntelligence.swift */; };
+		38A9A57B1891E5B90091825F /* SpawnArtificialIntelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A57A1891E5B90091825F /* SpawnArtificialIntelligence.swift */; };
 		38A9A57E1891E6650091825F /* GraphicsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9A57D1891E6650091825F /* GraphicsUtilities.swift */; };
-		38C22DBA1899E5CC007C9837 /* iOSLayeredCharacterSceneEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C22DB91899E5CC007C9837 /* iOSLayeredCharacterSceneEvents.swift */; };
+		38C22DBA1899E5CC007C9837 /* AdventureSceneiOSEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C22DB91899E5CC007C9837 /* AdventureSceneiOSEvents.swift */; };
 		38C4413B18806ACA0069ECE4 /* Tiles.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 38C4413A18806ACA0069ECE4 /* Tiles.atlas */; };
 		38CB1984188232C3008CC889 /* HeroCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB1983188232C3008CC889 /* HeroCharacter.swift */; };
 		38CB1986188232F2008CC889 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CB1985188232F2008CC889 /* Player.swift */; };
@@ -164,6 +171,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		169BC01319EC84CF00CE9246 /* cover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cover@2x.png"; sourceTree = "<group>"; };
+		16AA601A19D61E7E00767D31 /* editor_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editor_background.png; sourceTree = "<group>"; };
+		16BAD0BF19D48568006AA654 /* AdventureHUD.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AdventureHUD.sks; sourceTree = "<group>"; };
+		16BAD0C019D48568006AA654 /* AdventureWorld.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AdventureWorld.sks; sourceTree = "<group>"; };
+		16EFEC9119D4F82500095D32 /* SharedAssetManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedAssetManagement.swift; sourceTree = "<group>"; };
 		16F418A7189976EF00710C70 /* Adventure iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adventure iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F418AA189976EF00710C70 /* Adventure iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Adventure iOS-Info.plist"; sourceTree = "<group>"; };
 		16F418AC189976EF00710C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -195,25 +207,23 @@
 		3837387F1884C4FA008A03B2 /* ArtificialIntelligence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtificialIntelligence.swift; sourceTree = "<group>"; };
 		383738811884C616008A03B2 /* Cave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cave.swift; sourceTree = "<group>"; };
 		386E5475188352DB009BBDC0 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
-		389842D61899A29E00FBCB05 /* LayeredCharacterSceneOSXEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayeredCharacterSceneOSXEvents.swift; sourceTree = "<group>"; };
+		389842D61899A29E00FBCB05 /* AdventureSceneOSXEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventureSceneOSXEvents.swift; sourceTree = "<group>"; };
 		38997BE7187F688800FAAB91 /* Adventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adventure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38997BEB187F688800FAAB91 /* Adventure-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Adventure-Info.plist"; sourceTree = "<group>"; };
 		38997BED187F688800FAAB91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		38997BEF187F688800FAAB91 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		38997BF1187F688800FAAB91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38997BF4187F688800FAAB91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		38997BFD187F695B00FAAB91 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		38997BFF187F7A3800FAAB91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		38997C03187F7B2800FAAB91 /* AdventureScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventureScene.swift; sourceTree = "<group>"; };
-		38997C0518805E6E00FAAB91 /* LayeredCharacterScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayeredCharacterScene.swift; sourceTree = "<group>"; };
 		38A86E3418871BDB00D300AB /* magicmissile.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = magicmissile.caf; sourceTree = "<group>"; };
 		38A9A5721891E4F00091825F /* Goblin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goblin.swift; sourceTree = "<group>"; };
 		38A9A5741891E51D0091825F /* Boss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boss.swift; sourceTree = "<group>"; };
 		38A9A5761891E5540091825F /* Archer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Archer.swift; sourceTree = "<group>"; };
-		38A9A5781891E59E0091825F /* ChaseAI.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ChaseAI.swift; sourceTree = "<group>"; tabWidth = 4; };
-		38A9A57A1891E5B90091825F /* SpawnAI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpawnAI.swift; sourceTree = "<group>"; };
+		38A9A5781891E59E0091825F /* ChaseArtificialIntelligence.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ChaseArtificialIntelligence.swift; sourceTree = "<group>"; tabWidth = 4; };
+		38A9A57A1891E5B90091825F /* SpawnArtificialIntelligence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpawnArtificialIntelligence.swift; sourceTree = "<group>"; };
 		38A9A57D1891E6650091825F /* GraphicsUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsUtilities.swift; sourceTree = "<group>"; };
-		38C22DB91899E5CC007C9837 /* iOSLayeredCharacterSceneEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSLayeredCharacterSceneEvents.swift; sourceTree = "<group>"; };
+		38C22DB91899E5CC007C9837 /* AdventureSceneiOSEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventureSceneiOSEvents.swift; sourceTree = "<group>"; };
 		38C4413A18806ACA0069ECE4 /* Tiles.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Tiles.atlas; sourceTree = "<group>"; };
 		38CB1983188232C3008CC889 /* HeroCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroCharacter.swift; sourceTree = "<group>"; };
 		38CB1985188232F2008CC889 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -282,7 +292,7 @@
 				2277D59C18998F9800986F85 /* Main.storyboard */,
 				16F418B0189976EF00710C70 /* AppDelegate.swift */,
 				16F418B8189976EF00710C70 /* ViewController.swift */,
-				38C22DB91899E5CC007C9837 /* iOSLayeredCharacterSceneEvents.swift */,
+				38C22DB91899E5CC007C9837 /* AdventureSceneiOSEvents.swift */,
 				16F418A9189976EF00710C70 /* Supporting Files */,
 			);
 			path = "Adventure iOS";
@@ -326,8 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				3837387F1884C4FA008A03B2 /* ArtificialIntelligence.swift */,
-				38A9A5781891E59E0091825F /* ChaseAI.swift */,
-				38A9A57A1891E5B90091825F /* SpawnAI.swift */,
+				38A9A5781891E59E0091825F /* ChaseArtificialIntelligence.swift */,
+				38A9A57A1891E5B90091825F /* SpawnArtificialIntelligence.swift */,
 			);
 			path = AI;
 			sourceTree = "<group>";
@@ -357,7 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				38997BF1187F688800FAAB91 /* AppDelegate.swift */,
-				389842D61899A29E00FBCB05 /* LayeredCharacterSceneOSXEvents.swift */,
+				389842D61899A29E00FBCB05 /* AdventureSceneOSXEvents.swift */,
 				38997BF3187F688800FAAB91 /* MainMenu.xib */,
 				38997BEA187F688800FAAB91 /* Supporting Files */,
 			);
@@ -370,7 +380,6 @@
 			children = (
 				38997BEB187F688800FAAB91 /* Adventure-Info.plist */,
 				38997BEC187F688800FAAB91 /* InfoPlist.strings */,
-				38997BEF187F688800FAAB91 /* main.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -378,6 +387,8 @@
 		38997C01187F7AF600FAAB91 /* Adventure Shared */ = {
 			isa = PBXGroup;
 			children = (
+				16BAD0BF19D48568006AA654 /* AdventureHUD.sks */,
+				16BAD0C019D48568006AA654 /* AdventureWorld.sks */,
 				38997C02187F7B0700FAAB91 /* Scene */,
 				38FCBAA2188223730017B9D2 /* Sprites */,
 				3837387E1884C4DD008A03B2 /* AI */,
@@ -391,7 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				38997C03187F7B2800FAAB91 /* AdventureScene.swift */,
-				38997C0518805E6E00FAAB91 /* LayeredCharacterScene.swift */,
+				16EFEC9119D4F82500095D32 /* SharedAssetManagement.swift */,
 				38CB1985188232F2008CC889 /* Player.swift */,
 			);
 			path = Scene;
@@ -442,6 +453,7 @@
 		38E91D2F1880C8E4006CA729 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				16AA601A19D61E7E00767D31 /* editor_background.png */,
 				38E91D301880C8E4006CA729 /* map_level.png */,
 				38E91D311880C8E4006CA729 /* map_trees.png */,
 			);
@@ -528,6 +540,7 @@
 		38FE6C691884CCF500646ED4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				169BC01319EC84CF00CE9246 /* cover@2x.png */,
 				38FE6C6A1884CCF500646ED4 /* Assets - iOS.xcassets */,
 				38FE6C6B1884CCF500646ED4 /* Assets - OS X.xcassets */,
 				38FE6C6C1884CCF500646ED4 /* button_archer.png */,
@@ -633,9 +646,11 @@
 				380C6FBC18999B0E00AE7608 /* hardCircle.png in Resources */,
 				16F418D01899794C00710C70 /* Goblin_Death.atlas in Resources */,
 				16F418D21899794C00710C70 /* Goblin_Idle.atlas in Resources */,
+				16AA601C19D61E7E00767D31 /* editor_background.png in Resources */,
 				380C6FBE18999B0E00AE7608 /* leaf_02.png in Resources */,
 				380C6FB718999B0E00AE7608 /* CaveDeathSmoke.sks in Resources */,
 				380C6FC518999B0E00AE7608 /* WarriorProjectile.sks in Resources */,
+				169BC01619EC89AB00CE9246 /* cover@2x.png in Resources */,
 				380C6FC218999B0E00AE7608 /* spark.png in Resources */,
 				380C6FC018999B0E00AE7608 /* Leaves_02.sks in Resources */,
 				380C6FB118999AF200AE7608 /* lives.png in Resources */,
@@ -661,6 +676,7 @@
 				380C6FBD18999B0E00AE7608 /* leaf_00.png in Resources */,
 				16F418CA1899794C00710C70 /* Boss_Attack.atlas in Resources */,
 				16F418C71899794C00710C70 /* Archer_GetHit.atlas in Resources */,
+				16BAD0C219D48568006AA654 /* AdventureHUD.sks in Resources */,
 				380C6FB018999AF200AE7608 /* iconWarrior_red.png in Resources */,
 				380C6FAF18999AF200AE7608 /* iconWarrior_pink.png in Resources */,
 				380C6FB218999AF200AE7608 /* logo.png in Resources */,
@@ -671,6 +687,7 @@
 				380C6FBF18999B0E00AE7608 /* Leaves_01.sks in Resources */,
 				380C6FB518999B0E00AE7608 /* BossDamage.sks in Resources */,
 				16F418D71899794C00710C70 /* Warrior_Idle.atlas in Resources */,
+				16BAD0C419D48568006AA654 /* AdventureWorld.sks in Resources */,
 				16F418CD1899794C00710C70 /* Boss_Idle.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -697,9 +714,11 @@
 				38FCBA92188223390017B9D2 /* Boss_Attack.atlas in Resources */,
 				38280E541884B3890017B525 /* Spawn.sks in Resources */,
 				38280E461884B3890017B525 /* BossDamage.sks in Resources */,
+				16AA601B19D61E7E00767D31 /* editor_background.png in Resources */,
 				38FCBA98188223390017B9D2 /* Goblin_Attack.atlas in Resources */,
 				38280E511884B3890017B525 /* Leaves_02.sks in Resources */,
 				38280E521884B3890017B525 /* ProjectileSplat.sks in Resources */,
+				169BC01419EC84CF00CE9246 /* cover@2x.png in Resources */,
 				38280E4E1884B3890017B525 /* leaf_00.png in Resources */,
 				38A86E3518871BDB00D300AB /* magicmissile.caf in Resources */,
 				38FE6C821884CCF500646ED4 /* lives.png in Resources */,
@@ -725,6 +744,7 @@
 				38280E531884B3890017B525 /* spark.png in Resources */,
 				38FE6C7F1884CCF500646ED4 /* iconWarrior_green.png in Resources */,
 				38FCBA91188223390017B9D2 /* Archer_Walk.atlas in Resources */,
+				16BAD0C119D48568006AA654 /* AdventureHUD.sks in Resources */,
 				38FCBA93188223390017B9D2 /* Boss_Death.atlas in Resources */,
 				38FCBA99188223390017B9D2 /* Goblin_Death.atlas in Resources */,
 				38FCBA9B188223390017B9D2 /* Goblin_Idle.atlas in Resources */,
@@ -735,6 +755,7 @@
 				38997BF5187F688800FAAB91 /* MainMenu.xib in Resources */,
 				38C4413B18806ACA0069ECE4 /* Tiles.atlas in Resources */,
 				38FCBA8E188223390017B9D2 /* Archer_Death.atlas in Resources */,
+				16BAD0C319D48568006AA654 /* AdventureWorld.sks in Resources */,
 				38280E561884B3890017B525 /* WarriorProjectile.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -756,11 +777,11 @@
 				389842D31899A20F00FBCB05 /* ArtificialIntelligence.swift in Sources */,
 				389842CC18999F8400FBCB05 /* HeroCharacter.swift in Sources */,
 				389842CF18999F8400FBCB05 /* EnemyCharacter.swift in Sources */,
-				389842D41899A20F00FBCB05 /* ChaseAI.swift in Sources */,
-				38C22DBA1899E5CC007C9837 /* iOSLayeredCharacterSceneEvents.swift in Sources */,
-				389842D51899A20F00FBCB05 /* SpawnAI.swift in Sources */,
+				16EFEC9319D4F8C800095D32 /* SharedAssetManagement.swift in Sources */,
+				389842D41899A20F00FBCB05 /* ChaseArtificialIntelligence.swift in Sources */,
+				38C22DBA1899E5CC007C9837 /* AdventureSceneiOSEvents.swift in Sources */,
+				389842D51899A20F00FBCB05 /* SpawnArtificialIntelligence.swift in Sources */,
 				389842D218999F8400FBCB05 /* Boss.swift in Sources */,
-				389842C718999F8000FBCB05 /* LayeredCharacterScene.swift in Sources */,
 				389842C918999F8400FBCB05 /* ParallaxSprite.swift in Sources */,
 				389842CA18999F8400FBCB05 /* Tree.swift in Sources */,
 				389842CB18999F8400FBCB05 /* Character.swift in Sources */,
@@ -776,23 +797,22 @@
 				38997C04187F7B2800FAAB91 /* AdventureScene.swift in Sources */,
 				38CB1984188232C3008CC889 /* HeroCharacter.swift in Sources */,
 				38CB1986188232F2008CC889 /* Player.swift in Sources */,
-				38997C0618805E6E00FAAB91 /* LayeredCharacterScene.swift in Sources */,
-				389842D71899A29E00FBCB05 /* LayeredCharacterSceneOSXEvents.swift in Sources */,
+				389842D71899A29E00FBCB05 /* AdventureSceneOSXEvents.swift in Sources */,
 				383738821884C616008A03B2 /* Cave.swift in Sources */,
 				383738801884C4FA008A03B2 /* ArtificialIntelligence.swift in Sources */,
 				38A9A5731891E4F00091825F /* Goblin.swift in Sources */,
 				38FCBAA4188223B40017B9D2 /* ParallaxSprite.swift in Sources */,
 				38A9A5751891E51D0091825F /* Boss.swift in Sources */,
-				38A9A57B1891E5B90091825F /* SpawnAI.swift in Sources */,
+				38A9A57B1891E5B90091825F /* SpawnArtificialIntelligence.swift in Sources */,
+				16EFEC9219D4F82500095D32 /* SharedAssetManagement.swift in Sources */,
 				386E5476188352DB009BBDC0 /* Tree.swift in Sources */,
 				38A9A5771891E5540091825F /* Archer.swift in Sources */,
 				38FCBAA61882276F0017B9D2 /* Character.swift in Sources */,
 				38CB198818823580008CC889 /* Warrior.swift in Sources */,
 				38A9A57E1891E6650091825F /* GraphicsUtilities.swift in Sources */,
-				38A9A5791891E59E0091825F /* ChaseAI.swift in Sources */,
+				38A9A5791891E59E0091825F /* ChaseArtificialIntelligence.swift in Sources */,
 				38997BF2187F688800FAAB91 /* AppDelegate.swift in Sources */,
 				3837387D1884C4AE008A03B2 /* EnemyCharacter.swift in Sources */,
-				38997BF0187F688800FAAB91 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,7 +857,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Adventure iOS/Adventure iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -854,7 +874,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Adventure iOS/Adventure iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -900,6 +920,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SPRITEKIT_TEXTURE_ATLAS_WARNINGS = No;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -933,6 +954,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
+				SPRITEKIT_TEXTURE_ATLAS_WARNINGS = No;
 			};
 			name = Release;
 		};
@@ -948,7 +970,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
@@ -967,7 +989,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;

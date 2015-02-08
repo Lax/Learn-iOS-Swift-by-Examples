@@ -1,31 +1,32 @@
 /*
-  Copyright (C) 2014 Apple Inc. All Rights Reserved.
+  Copyright (C) 2015 Apple Inc. All Rights Reserved.
   See LICENSE.txt for this sample’s licensing information
   
   Abstract:
-  
-        Defines the class that handles basic AI
-      
+  Defines the class that handles basic AI.
 */
 
 import SpriteKit
 
 class ArtificialIntelligence {
+    // MARK: Properties
+
+    // The character that should be moving towards the target.
     var character: Character
+    
+    // The target of the AI. This property can be set after initialization.
     var target: Character?
 
-    init(character: Character, target: Character?) {
+    // MARK: Initializers
+
+    init(character: Character) {
         self.character = character
-        self.target = target
     }
 
+    // MARK: Scene Processing Support
+
+    // This should be overriden in subclasses.
     func updateWithTimeSinceLastUpdate(interval: NSTimeInterval) {
-        // Overridden by subclasses
-    }
-
-    func clearTarget(target: Character?) {
-        if self.target == target {
-            self.target = nil
-        }
+       // No implementation required in the base class AI.
     }
 }

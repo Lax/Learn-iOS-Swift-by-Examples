@@ -1,67 +1,64 @@
 /*
-  Copyright (C) 2014 Apple Inc. All Rights Reserved.
+  Copyright (C) 2015 Apple Inc. All Rights Reserved.
   See LICENSE.txt for this sample’s licensing information
   
   Abstract:
-  
-        Defines the common class for hero characters
-      
+  Defines the common class for hero characters.
 */
 
 import SpriteKit
 
-let kCharacterCollisionRadius: CGFloat = 40.0
-let kHeroProjectileSpeed: CGFloat = 480.0
-let kHeroProjectileLifetime: NSTimeInterval = 1.0
-let kHeroProjectileFadeOutTime: NSTimeInterval = 0.6
-
 class HeroCharacter: Character {
+    // MARK: Types
+    
+    struct Constants {
+        static let projectileCollisionRadius: CGFloat = 15.0
+        static let projectileSpeed: CGFloat = 480.0
+        static let projectileLifetime: NSTimeInterval = 1.0
+        static let projectileFadeOutDuration: NSTimeInterval = 0.6
+    }
+    
+    // MARK: Properties
+    
     var player: Player!
+    
+    var projectileSoundAction = SKAction.playSoundFileNamed("magicmissile.caf", waitForCompletion: false)
 
-    init(atPosition position: CGPoint, withTexture texture: SKTexture? = nil, player: Player) {
+    // MARK: Initializers
+
+    convenience init(atPosition position: CGPoint, withTexture texture: SKTexture? = nil, player: Player) {
+        self.init(texture: texture, atPosition: position)
         self.player = player
-        super.init(texture: texture, atPosition: position)
-
+        
         zRotation = CGFloat(M_PI)
         zPosition = -0.25
         name = "Hero"
     }
     
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+    // MARK: Setup
 
     override func configurePhysicsBody() {
         // Assign the physics body; unwrap the physics body to configure it.
-        physicsBody = SKPhysicsBody(circleOfRadius: kCharacterCollisionRadius)
-        physicsBody!.categoryBitMask = ColliderType.Hero.toRaw()
-        physicsBody!.collisionBitMask = ColliderType.GoblinOrBoss.toRaw() | ColliderType.Hero.toRaw() | ColliderType.Wall.toRaw() | ColliderType.Cave.toRaw()
-        physicsBody!.contactTestBitMask = ColliderType.GoblinOrBoss.toRaw()
+        physicsBody = SKPhysicsBody(circleOfRadius: collisionRadius)
+        physicsBody!.categoryBitMask = ColliderType.Hero.rawValue
+        physicsBody!.collisionBitMask = ColliderType.allButProjectile
+        physicsBody!.contactTestBitMask = ColliderType.GoblinOrBoss.rawValue
     }
 
-    override func collidedWith(other: SKPhysicsBody) {
-        if other.categoryBitMask & ColliderType.GoblinOrBoss.toRaw() == 0 {
-            return
-        }
-
-        if let enemy = other.node as? Character {
-            if !enemy.dying {
-                applyDamage(5.0)
-                requestedAnimation = .GetHit
-            }
-        }
-    }
+    // MARK: Scene Processing Support
 
     override func animationDidComplete(animation: AnimationState) {
         super.animationDidComplete(animation)
 
         switch animation {
             case .Death:
-                let actions = [SKAction.waitForDuration(4.0),
-                               SKAction.runBlock {
-                                   self.characterScene.heroWasKilled(self)
-                               },
-                               SKAction.removeFromParent()]
+                let actions = [
+                    SKAction.waitForDuration(4.0),
+                    SKAction.runBlock {
+                        self.characterScene.heroWasKilled(self)
+                    },
+                    SKAction.removeFromParent()
+                ]
                 runAction(SKAction.sequence(actions))
 
             case .Attack:
@@ -72,52 +69,43 @@ class HeroCharacter: Character {
         }
     }
 
-// PROJECTILES
+    override func collidedWith(other: SKPhysicsBody) {
+        if other.categoryBitMask & ColliderType.GoblinOrBoss.rawValue == 0 {
+            return
+        }
+
+        if let enemy = other.node as? Character {
+            if !enemy.isDying {
+                applyDamage(5.0)
+                requestedAnimation = .GetHit
+            }
+        }
+    }
+
     func fireProjectile() {
-        let projectile = self.projectile()!.copy() as SKSpriteNode
+        let projectile = self.dynamicType.projectile.copy() as SKSpriteNode
         projectile.position = position
         projectile.zRotation = zRotation
 
-        let emitter = projectileEmitter()!.copy() as SKEmitterNode
+        let emitter = self.dynamicType.projectileEmitter.copy() as SKEmitterNode
         emitter.targetNode = scene!.childNodeWithName("world")
         projectile.addChild(emitter)
 
         characterScene.addNode(projectile, atWorldLayer: .Character)
         let rot = zRotation
 
-        let x = -sin(rot) * kHeroProjectileSpeed * CGFloat(kHeroProjectileLifetime)
-        let y =  cos(rot) * kHeroProjectileSpeed * CGFloat(kHeroProjectileLifetime)
-        projectile.runAction(SKAction.moveByX(x, y: y, duration: kHeroProjectileLifetime))
+        let x = -sin(rot) * Constants.projectileSpeed * CGFloat(Constants.projectileLifetime)
+        let y =  cos(rot) * Constants.projectileSpeed * CGFloat(Constants.projectileLifetime)
+        projectile.runAction(SKAction.moveByX(x, y: y, duration: Constants.projectileLifetime))
 
-        let waitAction = SKAction.waitForDuration(kHeroProjectileFadeOutTime)
-        let fadeAction = SKAction.fadeOutWithDuration(kHeroProjectileLifetime - kHeroProjectileFadeOutTime)
+        let waitAction = SKAction.waitForDuration(Constants.projectileFadeOutDuration)
+        let fadeAction = SKAction.fadeOutWithDuration(Constants.projectileLifetime - Constants.projectileFadeOutDuration)
         let removeAction = SKAction.removeFromParent()
         let sequence = [waitAction, fadeAction, removeAction]
 
         projectile.runAction(SKAction.sequence(sequence))
-        projectile.runAction(projectileSoundAction())
+        projectile.runAction(projectileSoundAction)
 
-        let data: NSMutableDictionary = ["kPlayer" : self.player]
-        projectile.userData = data
-    }
-
-    func projectile() -> SKSpriteNode? {
-        return nil
-    }
-
-    func projectileEmitter() -> SKEmitterNode? {
-        return nil
-    }
-
-    func projectileSoundAction() -> SKAction {
-        return sSharedProjectileSoundAction
-    }
-
-    class func loadSharedHeroAssets() {
-        sSharedProjectileSoundAction = SKAction.playSoundFileNamed("magicmissile.caf", waitForCompletion: false)
+        projectile.userData = [Player.Keys.projectileUserDataPlayer: player]
     }
 }
-
-var sSharedProjectileSoundAction = SKAction()
-
-let kPlayer = "kPlayer"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6154.16" systemVersion="14A238x" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6724" systemVersion="14C93" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6154.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6724"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -10,13 +10,14 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Adventure">
             <connections>
                 <outlet property="archerButton" destination="rf7-2a-1CN" id="T4L-hI-ln1"/>
+                <outlet property="coverView" destination="rBh-y7-vzz" id="kIy-0Y-MrM"/>
                 <outlet property="gameLogo" destination="wJF-pE-EMK" id="rE2-QT-ZtV"/>
                 <outlet property="loadingProgressIndicator" destination="Ph7-k8-qtR" id="DgE-rB-j5g"/>
-                <outlet property="skView" destination="ndj-Jt-Yht" id="Z4L-ce-4uZ"/>
+                <outlet property="view" destination="ndj-Jt-Yht" id="clp-Yy-vS5"/>
                 <outlet property="warriorButton" destination="42m-Fb-F5b" id="hXF-AI-bt1"/>
             </connections>
         </customObject>
@@ -670,11 +671,12 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Adventure" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="254" y="77" width="1024" height="768"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+        <window title="Adventure" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="AdventureWindow" customModule="Adventure">
+            <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
+            <rect key="contentRect" x="738" y="363" width="1024" height="768"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <value key="minSize" type="size" width="1024" height="768"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -682,6 +684,9 @@
                     <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ndj-Jt-Yht" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <subviews>
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="rBh-y7-vzz">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </visualEffectView>
                             <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wJF-pE-EMK">
                                 <rect key="frame" x="85" y="230" width="855" height="495"/>
                                 <constraints>
@@ -726,10 +731,14 @@
                             <constraint firstAttribute="bottom" secondItem="rf7-2a-1CN" secondAttribute="bottom" constant="152" id="604-mu-I0h"/>
                             <constraint firstItem="wJF-pE-EMK" firstAttribute="centerX" secondItem="ndj-Jt-Yht" secondAttribute="centerX" id="96u-bY-bdg"/>
                             <constraint firstItem="wJF-pE-EMK" firstAttribute="top" secondItem="ndj-Jt-Yht" secondAttribute="top" constant="43" id="BaP-yy-22z"/>
+                            <constraint firstAttribute="bottom" secondItem="rBh-y7-vzz" secondAttribute="bottom" id="TFt-sI-jKs"/>
                             <constraint firstAttribute="trailing" secondItem="42m-Fb-F5b" secondAttribute="trailing" constant="104" id="XBD-wq-zea"/>
                             <constraint firstItem="Ph7-k8-qtR" firstAttribute="centerX" secondItem="wJF-pE-EMK" secondAttribute="centerX" id="YCM-vU-uhc"/>
                             <constraint firstItem="rf7-2a-1CN" firstAttribute="top" secondItem="42m-Fb-F5b" secondAttribute="top" id="aND-vK-sNm"/>
+                            <constraint firstAttribute="trailing" secondItem="rBh-y7-vzz" secondAttribute="trailing" id="e6J-Pg-cGJ"/>
                             <constraint firstItem="rf7-2a-1CN" firstAttribute="leading" secondItem="ndj-Jt-Yht" secondAttribute="leading" constant="105" id="eQN-sq-JZS"/>
+                            <constraint firstItem="rBh-y7-vzz" firstAttribute="leading" secondItem="ndj-Jt-Yht" secondAttribute="leading" id="fh4-NZ-eCr"/>
+                            <constraint firstItem="rBh-y7-vzz" firstAttribute="top" secondItem="ndj-Jt-Yht" secondAttribute="top" id="hvb-Mm-aN0"/>
                             <constraint firstItem="rf7-2a-1CN" firstAttribute="bottom" secondItem="42m-Fb-F5b" secondAttribute="bottom" id="ncI-e6-wfq"/>
                         </constraints>
                     </customView>
