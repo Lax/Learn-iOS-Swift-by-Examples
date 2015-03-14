@@ -46,7 +46,7 @@ class Character: ParallaxSprite {
     }
     
     var characterScene: AdventureScene {
-        return self.scene as AdventureScene
+        return self.scene as! AdventureScene
     }
     
     class var characterType: CharacterType {
@@ -192,7 +192,7 @@ class Character: ParallaxSprite {
     // MARK: NSCopying
     
     override func copyWithZone(zone: NSZone) -> AnyObject {
-        var character = super.copyWithZone(zone) as Character
+        var character = super.copyWithZone(zone) as! Character
         character.isDying = isDying
         character.isAttacking = isAttacking
         character.health = health
@@ -201,7 +201,7 @@ class Character: ParallaxSprite {
         character.movementSpeed = movementSpeed
         character.rotationSpeed = rotationSpeed
         character.requestedAnimation = requestedAnimation
-        character.shadowBlob = shadowBlob.copy() as SKSpriteNode
+        character.shadowBlob = shadowBlob.copy() as! SKSpriteNode
         return character
     }
     
@@ -237,7 +237,7 @@ class Character: ParallaxSprite {
         health -= damage
         
         if health > 0.0 {
-            let emitter = self.dynamicType.damageEmitter.copy() as SKEmitterNode
+            let emitter = self.dynamicType.damageEmitter.copy() as! SKEmitterNode
             characterScene.addNode(emitter, atWorldLayer: .AboveCharacter)
             
             emitter.position = position

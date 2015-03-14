@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     @IBOutlet weak var warriorButton: NSButton!
     
     var adventureWindow: NSWindow {
-        let windows = NSApplication.sharedApplication().windows as [NSWindow]
+        let windows = NSApplication.sharedApplication().windows as! [NSWindow]
         
         for window in windows {
             if window.isKindOfClass(AdventureWindow.self) {
@@ -86,7 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
     
     func windowDidResize(notification: NSNotification) {
-        let window = notification.object as NSWindow
+        let window = notification.object as! NSWindow
         let windowSize = window.contentRectForFrameRect(window.frame)
         
         scene.size = CGSize(width: windowSize.width, height: windowSize.height)

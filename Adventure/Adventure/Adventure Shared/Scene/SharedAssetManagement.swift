@@ -10,7 +10,7 @@ import SpriteKit
 
 // Allows adopters to advertise that they have shared assets that require loading and can load them.
 protocol SharedAssetProvider {
-    class func loadSharedAssets()
+    static func loadSharedAssets()
 }
 
 enum CharacterType {

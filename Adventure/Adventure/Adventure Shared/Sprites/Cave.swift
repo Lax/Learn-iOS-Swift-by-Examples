@@ -36,12 +36,12 @@ final class Cave: EnemyCharacter, SharedAssetProvider {
     // MARK: NSCopying
     
     override func copyWithZone(zone: NSZone) -> AnyObject {
-        var cave = super.copyWithZone(zone) as Cave
+        var cave = super.copyWithZone(zone) as! Cave
         cave.smokeEmitter = smokeEmitter?.copy() as? SKEmitterNode
         cave.timeUntilNextGenerate = timeUntilNextGenerate
         cave.activeGoblins = [Goblin]()
         cave.inactiveGoblins = [Goblin]()
-        cave.shadowBlob = shadowBlob.copy() as SKSpriteNode
+        cave.shadowBlob = shadowBlob.copy() as! SKSpriteNode
         cave.shadowBlob.name = "caveShadow"
         return cave
     }
@@ -89,7 +89,7 @@ final class Cave: EnemyCharacter, SharedAssetProvider {
         updateSmokeForHealth()
         
         // show damage on parallax stacks
-        for node in children as [SKNode] {
+        for node in children as! [SKNode] {
             node.runAction(self.dynamicType.damageAction)
         }
     }
@@ -99,7 +99,7 @@ final class Cave: EnemyCharacter, SharedAssetProvider {
             return
         }
         
-        var emitter: SKEmitterNode = Cave.deathEmitter.copy() as SKEmitterNode
+        var emitter: SKEmitterNode = Cave.deathEmitter.copy() as! SKEmitterNode
         emitter.position = position
         emitter.zPosition = -0.8
         smokeEmitter = emitter
@@ -109,7 +109,7 @@ final class Cave: EnemyCharacter, SharedAssetProvider {
     override func performDeath() {
         super.performDeath()
         
-        let splort = Cave.deathSplort.copy() as SKSpriteNode
+        let splort = Cave.deathSplort.copy() as! SKSpriteNode
         splort.zPosition = -1.0
         splort.zRotation = virtualZRotation
         splort.position = position
@@ -207,7 +207,7 @@ final class Cave: EnemyCharacter, SharedAssetProvider {
         torch.position = CGPoint(x: 83, y: 83)
         caveBase.addChild(torch)
         
-        var torchB = torch.copy() as SKNode
+        var torchB = torch.copy() as! SKNode
         torch.position = CGPoint(x: -83, y: 83)
         caveBase.addChild(torchB)
         

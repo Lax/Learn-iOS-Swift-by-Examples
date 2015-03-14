@@ -10,7 +10,7 @@ import SpriteKit
 
 func loadFramesFromAtlasWithName(atlasName: String) -> [SKTexture] {
     let atlas = SKTextureAtlas(named: atlasName)
-    return sorted(atlas.textureNames as [String]).map { atlas.textureNamed($0) }
+    return sorted(atlas.textureNames as! [String]).map { atlas.textureNamed($0) }
 }
 
 func unitRandom() -> CGFloat {

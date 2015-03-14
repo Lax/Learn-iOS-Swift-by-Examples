@@ -11,7 +11,7 @@ import SpriteKit
 extension AdventureScene {
     // MARK: Touch Handling
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         // If we have no hero, we don't need to update the user interface at all.
         if heroes.isEmpty || touches.count <= 0 {
             return
@@ -23,11 +23,11 @@ extension AdventureScene {
             return
         }
 
-        let touch = touches.anyObject() as UITouch
+        let touch = touches.first as! UITouch
 
         defaultPlayer.targetLocation = touch.locationInNode(defaultPlayer.hero!.parent)
 
-        let nodes = nodesAtPoint(touch.locationInNode(self)) as [SKNode]
+        let nodes = nodesAtPoint(touch.locationInNode(self)) as! [SKNode]
 
         let enemyBitmask = ColliderType.GoblinOrBoss.rawValue | ColliderType.Cave.rawValue
 
@@ -47,7 +47,7 @@ extension AdventureScene {
         defaultPlayer.movementTouch = touch
     }
 
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         // If we have no hero, we don't need to update the user interface at all.
         if heroes.isEmpty || touches.count <= 0 {
             return
@@ -56,7 +56,7 @@ extension AdventureScene {
         // If a touch has been previously recorded, move the player in the direction of the previous
         // touch.
         if let touch = defaultPlayer.movementTouch {
-            if touches.containsObject(touch) {
+            if touches.contains(touch) {
                 defaultPlayer.targetLocation = touch.locationInNode(defaultPlayer.hero!.parent)
 
                 if !defaultPlayer.fireAction {
@@ -66,7 +66,7 @@ extension AdventureScene {
         }
     }
 
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         // If we have no hero, we don't need to update the user interface at all.
         if heroes.isEmpty || touches.count <= 0 {
             return
@@ -74,7 +74,7 @@ extension AdventureScene {
 
         // If there was a touch being tracked, stop tracking it. Don't move the player anywhere.
         if let touch = defaultPlayer.movementTouch {
-            if touches.containsObject(touch) {
+            if touches.contains(touch) {
                 defaultPlayer.movementTouch = nil
                 defaultPlayer.fireAction = false
             }

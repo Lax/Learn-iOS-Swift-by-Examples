@@ -83,11 +83,11 @@ class HeroCharacter: Character {
     }
 
     func fireProjectile() {
-        let projectile = self.dynamicType.projectile.copy() as SKSpriteNode
+        let projectile = self.dynamicType.projectile.copy() as! SKSpriteNode
         projectile.position = position
         projectile.zRotation = zRotation
 
-        let emitter = self.dynamicType.projectileEmitter.copy() as SKEmitterNode
+        let emitter = self.dynamicType.projectileEmitter.copy() as! SKEmitterNode
         emitter.targetNode = scene!.childNodeWithName("world")
         projectile.addChild(emitter)
 

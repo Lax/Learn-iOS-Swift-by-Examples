@@ -91,7 +91,7 @@ final class Goblin: EnemyCharacter, SharedAssetProvider {
     override func performDeath() {
         removeAllActions()
 
-        var splort = Goblin.deathSplort.copy() as SKSpriteNode
+        var splort = Goblin.deathSplort.copy() as! SKSpriteNode
         splort.zPosition = -1.0
         splort.zRotation = unitRandom() * CGFloat(M_PI)
         splort.position = position

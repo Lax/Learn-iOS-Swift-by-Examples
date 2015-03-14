@@ -12,7 +12,7 @@ class SpawnArtificialIntelligence: ArtificialIntelligence {
     // MARK: Properties
     
     var cave: Cave {
-        return character as Cave
+        return character as! Cave
     }
     
     // MARK: Scene Processing Support

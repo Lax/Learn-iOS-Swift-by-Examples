@@ -28,7 +28,7 @@ class ParallaxSprite: SKSpriteNode {
             if rotation != 0.0 {
                 super.zRotation = 0.0
                 
-                for child in children as [SKNode] {
+                for child in children as! [SKNode] {
                     child.zRotation = rotation
                 }
                 
@@ -39,7 +39,7 @@ class ParallaxSprite: SKSpriteNode {
 
     // MARK: Initializers
 
-    convenience override init () {
+    convenience init () {
       self.init(texture: nil, color: SKColor.whiteColor(), size: CGSize(width: 0, height: 0))
     }
 
@@ -62,7 +62,7 @@ class ParallaxSprite: SKSpriteNode {
     // MARK: NSCopying
 
     override func copyWithZone(zone: NSZone) -> AnyObject {
-        let sprite = super.copyWithZone(zone) as ParallaxSprite
+        let sprite = super.copyWithZone(zone) as! ParallaxSprite
 
         sprite.parallaxOffset = parallaxOffset
         sprite.usesParallaxEffect = usesParallaxEffect
@@ -84,7 +84,7 @@ class ParallaxSprite: SKSpriteNode {
 
         let delta = parallaxOffset / CGFloat(children.count)
 
-        for (childNumber, child) in enumerate(children as [SKNode]) {
+        for (childNumber, child) in enumerate(children as! [SKNode]) {
             child.position = CGPoint(x: offsetX * delta * CGFloat(childNumber), y: offsetY * delta * CGFloat(childNumber))
         }
 

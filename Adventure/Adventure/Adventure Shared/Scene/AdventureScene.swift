@@ -34,6 +34,8 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
         static let hudHeartName = "hudHeart"
         
         static let hudWidth = 300
+        
+        static let backgroundQueue = dispatch_queue_create("com.example.apple-samplecode.Adventure.backgroundQueue", DISPATCH_QUEUE_SERIAL)
     }
     
     // MARK: Properties
@@ -110,10 +112,8 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
     // MARK: SKView Behaviors
 
     override func didMoveToView(view: SKView) {
-        let backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
-
         // Complete the loading on a background queue to not take up the main queue's resources.
-        dispatch_async(backgroundQueue) {
+        dispatch_async(Constants.backgroundQueue) {
             self.loadWorld()
             
             self.centerWorldOnPosition(self.defaultSpawnPoint)
@@ -329,7 +329,7 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
             if let projectile = bodyAIsProjectile ? contact.bodyA.node : contact.bodyB.node {
                 projectile.runAction(SKAction.removeFromParent())
                 
-                let emitter = projectileSparkEmitterTemplate.copy() as SKEmitterNode
+                let emitter = projectileSparkEmitterTemplate.copy() as! SKEmitterNode
                 addNode(emitter, atWorldLayer: .AboveCharacter)
                 emitter.position = projectile.position
 
@@ -400,7 +400,7 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
                 hero = Archer(atPosition: spawnPosition, withPlayer: player)
         }
 
-        let emitter = spawnEmitterTemplate.copy() as SKEmitterNode
+        let emitter = spawnEmitterTemplate.copy() as! SKEmitterNode
         emitter.position = spawnPosition
         addNode(emitter, atWorldLayer: .AboveCharacter)
         runOneShotEmitter(emitter, withDuration: 0.15)
@@ -452,14 +452,14 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
 
     func loadHUDForPlayer(player: Player, atIndex index: Int) {
         let hudScene: SKScene = SKScene(fileNamed: Constants.hudNodeName)
-        let hud = hudScene.children.first!.copy() as SKNode
+        let hud = hudScene.children.first!.copy() as! SKNode
         hud.name = Constants.hudNodeName
         hud.position = CGPoint(x: CGFloat(0 + Constants.hudWidth * index), y: frame.size.height)
         addChild(hud)
-        player.hudAvatar = hud.childNodeWithName(Constants.hudAvatarName) as SKSpriteNode
-        player.hudScore = hud.childNodeWithName(Constants.hudScoreName) as SKLabelNode
+        player.hudAvatar = hud.childNodeWithName(Constants.hudAvatarName) as! SKSpriteNode
+        player.hudScore = hud.childNodeWithName(Constants.hudScoreName) as! SKLabelNode
         hud.enumerateChildNodesWithName(Constants.hudHeartName) { node, stop in
-            player.hudLifeHearts.append(node as SKSpriteNode)
+            player.hudLifeHearts.append(node as! SKSpriteNode)
         }
 
         updateHUDForPlayer(player)
@@ -491,7 +491,7 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         let scene = SKScene(fileNamed: "AdventureWorld")
-        let templateWorld = scene.children.first!.copy() as SKNode
+        let templateWorld = scene.children.first!.copy() as! SKNode
 
         world.name = "world"
         addChild(world)
@@ -522,7 +522,7 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
         let ground = fromWorld.childNodeWithName("layerGround")!
         ground.enumerateChildNodesWithName("wall") { node, stop in
             // Unwrap the physics body to configure it.
-            let wallNode = node.copy() as SKNode
+            let wallNode = node.copy() as! SKNode
             wallNode.physicsBody!.dynamic = false
             wallNode.physicsBody!.categoryBitMask = ColliderType.Wall.rawValue
             self.addNode(wallNode, atWorldLayer: .Ground)
@@ -535,7 +535,7 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
         levelBoss.addToScene(self)
         
         fromWorld.enumerateChildNodesWithName("//cave") { node, stop in
-            let cave = Cave.Shared.template.copy() as Cave
+            let cave = Cave.Shared.template.copy() as! Cave
             cave.position = node.position
             cave.zRotation = node.zRotation
             cave.timeUntilNextGenerate = 5.0 + 5.0 * unitRandom()
@@ -560,15 +560,15 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
             var tree: Tree
             switch node.name {
             case let name where name == "smallTree":
-                tree = Tree.Shared.smallTemplate.copy() as Tree
+                tree = Tree.Shared.smallTemplate.copy() as! Tree
             case let name where name == "bigTree":
-                tree = Tree.Shared.largeTemplate.copy() as Tree
+                tree = Tree.Shared.largeTemplate.copy() as! Tree
                 
                 var emitter: SKEmitterNode
                 if arc4random_uniform(2) == 1 {
-                    emitter = self.leafEmitterATemplate.copy() as SKEmitterNode
+                    emitter = self.leafEmitterATemplate.copy() as! SKEmitterNode
                 } else {
-                    emitter = self.leafEmitterBTemplate.copy() as SKEmitterNode
+                    emitter = self.leafEmitterBTemplate.copy() as! SKEmitterNode
                 }
 
                 emitter.position = node.position
@@ -596,9 +596,7 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
     // MARK: Asset Pre-loading
     
     class func loadSceneAssetsWithCompletionHandler(completionHandler: AdventureScene -> Void) {
-        let backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
-        
-        dispatch_async(backgroundQueue) {
+        dispatch_async(Constants.backgroundQueue) {
             Tree.loadSharedAssets()
             Warrior.loadSharedAssets()
             Archer.loadSharedAssets()
@@ -660,7 +658,7 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func configureConnectedGameControllers() {
-        let gameControllers = GCController.controllers() as [GCController]
+        let gameControllers = GCController.controllers() as! [GCController]
         
         for controller in gameControllers {
             let playerIndex = controller.playerIndex
@@ -682,7 +680,7 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func gameControllerDidConnect(notification: NSNotification) {
-        let controller = notification.object as GCController
+        let controller = notification.object as! GCController
         let playerIndex = controller.playerIndex
         if playerIndex == GCControllerPlayerIndexUnset {
             assignUnknownController(controller)
@@ -693,7 +691,7 @@ class AdventureScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func gameControllerDidDisconnect(notification: NSNotification) {
-        let controller = notification.object as GCController
+        let controller = notification.object as! GCController
         for player in players {
             if let player = player {
                 if player.controller == controller {
