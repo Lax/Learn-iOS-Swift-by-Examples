@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6750" systemVersion="14C108" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--Catalog-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="interfaceController" title="Catalog" id="AgC-eL-Hgc" customClass="AAPLInterfaceController">
+                    <items>
+                        <table alignment="left" id="3Hk-Dw-EC3">
+                            <items>
+                                <tableRow identifier="default" id="LQ2-gd-Btl" customClass="AAPLElementRowController">
+                                    <group key="rootItem" width="1" alignment="left" id="ZGA-mp-Zka">
+                                        <items>
+                                            <label alignment="center" verticalAlignment="center" text="Label" id="F1f-WA-jZa"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803926" blue="0.9882352941176471" alpha="0.14000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="elementLabel" destination="F1f-WA-jZa" id="afA-3y-qUG"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="interfaceTable" destination="3Hk-Dw-EC3" id="8tm-Sm-gVl"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="-69"/>
+        </scene>
+        <!--Glance Interface Controller-->
+        <scene sceneID="BOz-TT-tkC">
+            <objects>
+                <glanceController spacing="0.0" topTemplateType="body1Medium" id="0uZ-2p-rRc" customClass="AAPLGlanceController">
+                    <items>
+                        <label alignment="left" text="WatchKit Catalog" id="gaI-OH-psT"/>
+                        <label alignment="left" text="Tap Glance" id="ddL-00-QSD"/>
+                        <group alignment="left" id="56w-Mv-CNg">
+                            <items>
+                                <imageView width="1" height="1" alignment="left" contentMode="scaleAspectFit" id="qPv-Zg-Ju4"/>
+                            </items>
+                        </group>
+                    </items>
+                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="glanceImage" destination="qPv-Zg-Ju4" id="zU3-MG-SbW"/>
+                    </connections>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="235" y="1426"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="center" text="- Static -" textAlignment="center" numberOfLines="0" id="ivJ-0G-bDR"/>
+                        <separator alignment="left" id="fUV-Py-o42">
+                            <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </separator>
+                        <label alignment="left" text="Alert from payload." numberOfLines="0" id="XG7-oj-wkh"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf">
+                        <color key="sashColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </notificationCategory>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="XG7-oj-wkh" id="gMR-p4-Z2l"/>
+                        <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="235" y="1755"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="KIl-fV-djm">
+            <objects>
+                <controller id="gdX-wl-uQE" customClass="AAPLNotificationController">
+                    <items>
+                        <label alignment="center" text="- Dynamic -" textAlignment="center" numberOfLines="0" id="pZY-e7-d8r"/>
+                        <separator alignment="left" id="Ulp-oM-cKi">
+                            <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </separator>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="556" y="1755"/>
+        </scene>
+        <!--Button-->
+        <scene sceneID="1Fe-wX-9eZ">
+            <objects>
+                <controller identifier="buttonDetailController" title="Button" id="NJ4-uK-UVW" customClass="AAPLButtonDetailController">
+                    <items>
+                        <button width="1" alignment="left" title="Text" id="8XO-wv-QHx"/>
+                        <button alignment="left" id="8Mf-2D-ORo">
+                            <group key="contentGroup" width="1" alignment="left" spacing="6" id="MDV-qd-6Cp">
+                                <items>
+                                    <imageView width="35" height="35" alignment="left" image="LocationMarker" id="lmE-5L-IFc"/>
+                                    <label alignment="left" verticalAlignment="center" text="Group" id="9ma-tk-xph"/>
+                                </items>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.95686274510000002" blue="0.98823529409999999" alpha="0.14000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <edgeInsets key="margins" left="2" right="2" top="2" bottom="2"/>
+                            </group>
+                        </button>
+                        <group width="1" alignment="left" spacing="2" id="NGP-oQ-Ri0">
+                            <items>
+                                <button width="0.33000000000000002" alignment="left" title="1" id="a8R-uD-Fjb">
+                                    <connections>
+                                        <action selector="hideAndShow" destination="NJ4-uK-UVW" id="OMd-F4-Ob1"/>
+                                    </connections>
+                                </button>
+                                <button width="0.33000000000000002" alignment="left" title="2" id="4DB-CH-Xbj"/>
+                                <button width="0.33000000000000002" alignment="left" title="3" id="3qa-dZ-7Vj">
+                                    <connections>
+                                        <action selector="changeAlpha" destination="NJ4-uK-UVW" id="e1y-nK-Frj"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="Disabled" enabled="NO" id="cAV-mk-rbB"/>
+                    </items>
+                    <connections>
+                        <outlet property="alphaButton" destination="3qa-dZ-7Vj" id="QPs-Fd-Aax"/>
+                        <outlet property="defaultButton" destination="8XO-wv-QHx" id="ICG-qf-h2k"/>
+                        <outlet property="hiddenButton" destination="a8R-uD-Fjb" id="vwy-ys-sdJ"/>
+                        <outlet property="placeholderButton" destination="4DB-CH-Xbj" id="iSc-fG-Dtl"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="458" y="212.75"/>
+        </scene>
+        <!--Switch-->
+        <scene sceneID="mCa-dj-2bV">
+            <objects>
+                <controller identifier="switchDetailController" title="Switch" id="Hq4-MZ-jxL" customClass="AAPLSwitchDetailController">
+                    <items>
+                        <switch alignment="left" value="YES" title="On" id="W46-bh-O56"/>
+                        <switch alignment="left" value="YES" title="Off (API)" id="hOE-Dd-e6Q"/>
+                        <switch width="1" alignment="left" value="YES" title="Switch w/ Action" id="ovR-bL-V9H">
+                            <connections>
+                                <action selector="switchAction:" destination="Hq4-MZ-jxL" id="wE4-eG-Vwx"/>
+                            </connections>
+                        </switch>
+                        <switch width="1" alignment="left" value="YES" title="Colored Switch" id="vwg-aH-Y5q"/>
+                        <switch alignment="left" value="YES" enabled="NO" title="Disabled" id="jjD-Zy-Mfy"/>
+                    </items>
+                    <connections>
+                        <outlet property="coloredSwitch" destination="vwg-aH-Y5q" id="P9b-O9-nfT"/>
+                        <outlet property="offSwitch" destination="hOE-Dd-e6Q" id="LxH-Xe-qHT"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="669" y="211.25"/>
+        </scene>
+        <!--Slider-->
+        <scene sceneID="7ro-YB-IC1">
+            <objects>
+                <controller identifier="sliderDetailController" title="Slider" id="xX7-A6-gdB" customClass="AAPLSliderDetailController">
+                    <items>
+                        <label alignment="left" text="Default" id="MOt-7P-uxj"/>
+                        <slider width="1" alignment="left" value="0.5" steps="3" id="0tH-8K-FTy"/>
+                        <label alignment="left" text="Continuous with Action" numberOfLines="0" id="kHh-lW-kK7"/>
+                        <slider width="1" alignment="left" continuous="YES" value="0.5" steps="3" id="NuH-kn-pIO">
+                            <connections>
+                                <action selector="sliderAction:" destination="xX7-A6-gdB" id="Jda-Mh-ugk"/>
+                            </connections>
+                        </slider>
+                        <label alignment="left" text="Colored with 5 Segments" numberOfLines="0" id="hX8-b8-HWN"/>
+                        <slider width="1" alignment="left" value="0.5" steps="5" id="vQF-QP-AHm"/>
+                        <label alignment="left" text="Min and max images" numberOfLines="0" id="eWe-Yc-E1X"/>
+                        <slider width="1" alignment="left" value="0.5" steps="3" minimumImage="Worry" maximumImage="Laugh" id="EOF-jG-N8m"/>
+                        <label alignment="left" text="Disabled" numberOfLines="0" id="qDm-pM-yS9"/>
+                        <slider width="1" alignment="left" enabled="NO" value="0.5" steps="3" id="FK2-St-ZLQ"/>
+                    </items>
+                    <connections>
+                        <outlet property="coloredSlider" destination="vQF-QP-AHm" id="6cU-hs-otc"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="888" y="317.75"/>
+        </scene>
+        <!--Text Input-->
+        <scene sceneID="XXJ-5G-WLV">
+            <objects>
+                <controller identifier="textInputDetailController" title="Text Input" id="N5E-eF-Wkp" customClass="AAPLTextInputController">
+                    <items>
+                        <button width="1" alignment="left" title="Reply" id="AfS-Yb-drd">
+                            <connections>
+                                <action selector="replyWithTextInputController" destination="N5E-eF-Wkp" id="O65-wT-g7M"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1094" y="203"/>
+        </scene>
+        <!--Label-->
+        <scene sceneID="m77-Cb-HAI">
+            <objects>
+                <controller identifier="labelDetailController" title="Label" id="ACa-O1-ewQ" customClass="AAPLLabelDetailController">
+                    <items>
+                        <label alignment="center" text="Headline" textAlignment="center" id="kVw-dP-ubT">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label alignment="center" text="Subhead" textAlignment="center" id="qFZ-uP-A1l">
+                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                        </label>
+                        <label alignment="center" text="Body" textAlignment="center" id="1hX-5X-LH7">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <label alignment="center" text="Caption 1" textAlignment="center" id="oU3-GQ-2aC">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                        </label>
+                        <label alignment="center" text="Caption 2" textAlignment="center" id="yvw-CH-8xv">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
+                        <label alignment="center" text="Footnote" textAlignment="center" id="nnx-ym-7ds">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label alignment="center" text="Colored Label" textAlignment="center" id="ic6-01-abF"/>
+                        <label alignment="center" text="Semibold Label" id="20P-VX-XXg">
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
+                        </label>
+                        <label alignment="center" text="Label" id="LaE-eL-ijQ">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <dateLabel alignment="center" minimumScaleFactor="0.0" id="Dqk-xg-uyY">
+                            <dateFormatterStyle key="dateStyle" none="YES" medium="YES"/>
+                            <dateFormatterStyle key="timeStyle" none="YES" short="YES"/>
+                        </dateLabel>
+                        <timer alignment="center" minimumScaleFactor="0.0" format="abbreviated" id="2YG-3i-leu">
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                            <calendarUnit key="units" year="YES" month="YES" day="YES" hour="YES" minute="YES" second="YES" weekOfMonth="YES"/>
+                        </timer>
+                    </items>
+                    <connections>
+                        <outlet property="coloredLabel" destination="ic6-01-abF" id="WDE-TA-4O3"/>
+                        <outlet property="timer" destination="2YG-3i-leu" id="CHz-N7-TEO"/>
+                        <outlet property="ultralightLabel" destination="LaE-eL-ijQ" id="Wjv-Dd-gWd"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="239.5"/>
+        </scene>
+        <!--Image-->
+        <scene sceneID="M3I-h5-v4F">
+            <objects>
+                <controller identifier="imageDetailController" title="Image" id="0Wv-Oj-wcZ" customClass="AAPLImageDetailController">
+                    <items>
+                        <label alignment="left" text="Image set from image cache" numberOfLines="0" id="jNG-Oi-MQK"/>
+                        <imageView alignment="center" id="e5o-AV-Ltk"/>
+                        <imageView width="1" alignment="center" contentMode="scaleAspectFill" id="h5E-26-Mhp"/>
+                        <imageView alignment="center" image="Bus0" animationDuration="2" id="4vt-jD-Gfc"/>
+                        <group width="1" alignment="left" spacing="2" id="OLq-fQ-zhq">
+                            <items>
+                                <button width="0.5" alignment="left" title="Play" id="Ebj-Ir-WMk">
+                                    <connections>
+                                        <action selector="playAnimation" destination="0Wv-Oj-wcZ" id="Cj4-Fc-2TA"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" alignment="left" title="Stop" id="Edy-lZ-IBA">
+                                    <connections>
+                                        <action selector="stopAnimation" destination="0Wv-Oj-wcZ" id="rvE-hk-T7I"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="animatedImage" destination="4vt-jD-Gfc" id="FZE-X9-126"/>
+                        <outlet property="cachedImage" destination="e5o-AV-Ltk" id="roU-Bj-xAG"/>
+                        <outlet property="playButton" destination="Ebj-Ir-WMk" id="JDk-N0-agS"/>
+                        <outlet property="staticImage" destination="h5E-26-Mhp" id="WG3-kg-3ZO"/>
+                        <outlet property="stopButton" destination="Edy-lZ-IBA" id="SVM-Av-kT4"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="745.75"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="xYS-PC-q5i">
+            <objects>
+                <controller identifier="mapDetailController" title="Map" id="DxF-Qd-CZE" customClass="AAPLMapDetailController">
+                    <items>
+                        <group width="1" alignment="left" spacing="2" id="ae3-qF-qkM">
+                            <items>
+                                <button width="0.50000000000000011" alignment="left" title="Apple" id="baA-gK-nOm">
+                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <connections>
+                                        <action selector="goToApple" destination="DxF-Qd-CZE" id="SdU-gL-GGo"/>
+                                    </connections>
+                                </button>
+                                <button width="0.50000000000000011" alignment="left" title="Tokyo" id="PTY-Us-E8S">
+                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <connections>
+                                        <action selector="goToTokyo" destination="DxF-Qd-CZE" id="EHs-Fd-wsG"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" spacing="2" id="bJh-zW-5Ji">
+                            <items>
+                                <button width="0.5" alignment="left" title="In" id="uNV-1m-dQh">
+                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <connections>
+                                        <action selector="zoomIn" destination="DxF-Qd-CZE" id="hlo-po-nFM"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" alignment="left" title="Out" id="8M3-yO-77i">
+                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <connections>
+                                        <action selector="zoomOut" destination="DxF-Qd-CZE" id="vY0-1U-tGX"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <map alignment="center" id="KKt-Tm-wuD"/>
+                        <group width="1" alignment="left" spacing="2" id="nmt-9i-hTK">
+                            <items>
+                                <button width="0.5" alignment="left" title="Pins" id="nsf-EN-wP0">
+                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <connections>
+                                        <action selector="addPinAnnotations" destination="DxF-Qd-CZE" id="Xtz-jh-Uej"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" alignment="left" title="Images" id="Dc1-hJ-j4b">
+                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <connections>
+                                        <action selector="addImageAnnotations" destination="DxF-Qd-CZE" id="ag4-Ts-GPM"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="Remove All" id="Uld-Wn-88k">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                            <connections>
+                                <action selector="removeAll" destination="DxF-Qd-CZE" id="lCP-Sl-j2X"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="appleButton" destination="baA-gK-nOm" id="5c6-cH-YHY"/>
+                        <outlet property="imagesButton" destination="Dc1-hJ-j4b" id="K9F-q2-mBz"/>
+                        <outlet property="inButton" destination="uNV-1m-dQh" id="egj-ui-bhS"/>
+                        <outlet property="map" destination="KKt-Tm-wuD" id="X0X-of-YHi"/>
+                        <outlet property="outButton" destination="8M3-yO-77i" id="E12-TI-GtC"/>
+                        <outlet property="pinsButton" destination="nsf-EN-wP0" id="uFd-NX-wwv"/>
+                        <outlet property="removeAllButton" destination="Uld-Wn-88k" id="POG-zn-YkB"/>
+                        <outlet property="tokyoButton" destination="PTY-Us-E8S" id="Ppy-0A-QRy"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="669" y="743"/>
+        </scene>
+        <!--Separator-->
+        <scene sceneID="KgY-GF-oaX">
+            <objects>
+                <controller identifier="separatorDetailController" title="Separator" id="lG6-kc-lse" customClass="AAPLSeparatorDetailController">
+                    <items>
+                        <label alignment="left" text="A default white separator." numberOfLines="0" id="Q72-GY-BV0">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <separator alignment="left" id="Pnn-or-5MD"/>
+                        <label alignment="left" text="A relative width blue separator." textAlignment="left" numberOfLines="0" id="iEs-SQ-Fgs">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <separator width="0.5" alignment="center" id="Icd-h9-qMl">
+                            <color key="color" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="left" text="A fixed width green separator." numberOfLines="0" id="Hox-VI-FOx">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <separator width="100" alignment="center" id="Seo-L5-V4O">
+                            <color key="color" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="left" text="A vertical separator in a group." numberOfLines="0" id="0xY-q4-bYI">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <group width="1" height="40" alignment="center" verticalAlignment="center" spacing="10" id="yH3-dB-MGE">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Left" id="fKC-vR-UZm"/>
+                                <separator height="0.80000000000000004" alignment="center" verticalAlignment="center" id="scg-Nk-qDz"/>
+                                <label alignment="center" verticalAlignment="center" text="Right" id="Pzu-gV-jOJ"/>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="458" y="716.25"/>
+        </scene>
+        <!--Group-->
+        <scene sceneID="EQf-5o-8Mv">
+            <objects>
+                <controller identifier="groupDetailController" title="Group" id="cnC-hb-ogk" customClass="AAPLGroupDetailController">
+                    <items>
+                        <label alignment="left" text="Horizontal" id="x3c-za-yQK"/>
+                        <group width="1" alignment="left" spacing="4" id="HEf-5V-P9P">
+                            <items>
+                                <button width="0.5" alignment="left" title="Button" id="Ktd-g3-MpZ"/>
+                                <button width="0.5" alignment="left" title="Button" id="9Dh-9S-wOA"/>
+                            </items>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
+                        </group>
+                        <label alignment="left" text="Vertical" id="MgH-iK-eAV">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <group width="1" alignment="center" layout="vertical" radius="3" spacing="8" id="5q4-Vi-KtG">
+                            <items>
+                                <button width="1" alignment="left" title="Button" id="oVx-UG-Oo8"/>
+                                <button width="1" alignment="left" title="Button" id="i53-Rg-MeA"/>
+                            </items>
+                            <edgeInsets key="margins" left="2" right="2" top="2" bottom="2"/>
+                        </group>
+                        <label alignment="left" text="Mixed" id="QsT-F0-5qG">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <group width="1" alignment="left" id="kVh-l8-PBe">
+                            <items>
+                                <group width="0.5" alignment="left" layout="vertical" id="iQ3-uJ-aqp">
+                                    <items>
+                                        <imageView alignment="center" image="Laugh" id="3AK-D3-DPm"/>
+                                        <label alignment="center" text="Laugh" id="P24-AD-cFY"/>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="4" bottom="4"/>
+                                </group>
+                                <group width="0.50000000000000011" alignment="left" layout="vertical" id="laW-tI-pcQ">
+                                    <items>
+                                        <imageView alignment="center" image="Worry" id="OfU-rL-V7M"/>
+                                        <label alignment="center" text="Worry" id="mwf-sG-zZt"/>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="4" bottom="4"/>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="buttonOne" destination="oVx-UG-Oo8" id="RTN-PV-hSg"/>
+                        <outlet property="buttonTwo" destination="i53-Rg-MeA" id="W3G-3F-zUb"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="888" y="725"/>
+        </scene>
+        <!--Table-->
+        <scene sceneID="UNG-mI-Hyp">
+            <objects>
+                <controller identifier="tableDetailController" title="Table" id="H8F-tc-qXL" customClass="AAPLTableDetailController">
+                    <items>
+                        <table alignment="left" id="nXC-Mh-TYy">
+                            <items>
+                                <tableRow identifier="default" id="zJA-dk-zIT" customClass="AAPLTableRowController">
+                                    <group key="rootItem" width="1" alignment="left" spacing="6" id="ASs-9x-fCK">
+                                        <items>
+                                            <imageView width="35" height="35" alignment="left" verticalAlignment="center" image="LocationMarker" id="rac-gq-1kM"/>
+                                            <label alignment="left" verticalAlignment="center" text="Location" id="jkO-KQ-vGr"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.95686274510000002" blue="0.98823529409999999" alpha="0.14000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <edgeInsets key="margins" left="2" right="2" top="2" bottom="2"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowLabel" destination="jkO-KQ-vGr" id="Hcb-P2-F5Q"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="interfaceTable" destination="nXC-Mh-TYy" id="4YS-uT-eWw"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="1076"/>
+        </scene>
+        <!--Device-->
+        <scene sceneID="QdT-Ds-OXs">
+            <objects>
+                <controller identifier="deviceDetailController" title="Device" id="fmI-ft-6CA" customClass="AAPLDeviceDetailController">
+                    <items>
+                        <label alignment="left" text="Bounds:" id="yw5-bY-JCQ"/>
+                        <label alignment="left" text="Bounds" numberOfLines="0" id="7bV-KK-bKT">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <separator alignment="left" id="uad-Es-JF1"/>
+                        <label alignment="left" text="Scale:" id="tSH-6L-civ"/>
+                        <label alignment="left" text="Scale" numberOfLines="0" id="X5F-gg-KBJ">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <separator alignment="left" id="Zq0-lc-8cX"/>
+                        <label alignment="left" text="Content Size:" id="rFS-0C-cFH"/>
+                        <label alignment="left" text="preferredContentSizeCategory" numberOfLines="0" id="CNz-fl-bOE">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="boundsLabel" destination="7bV-KK-bKT" id="6eE-Fn-FaB"/>
+                        <outlet property="preferredContentSizeLabel" destination="CNz-fl-bOE" id="2PE-XZ-7rr"/>
+                        <outlet property="scaleLabel" destination="X5F-gg-KBJ" id="gYL-Fs-emq"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="458" y="1112.5"/>
+        </scene>
+        <!--Controller-->
+        <scene sceneID="vQD-To-ac3">
+            <objects>
+                <controller identifier="controllerDetailController" title="Controller" id="jfY-fy-4W5" customClass="AAPLControllerDetailController">
+                    <items>
+                        <button width="1" alignment="center" title="Present Pages" id="8Dv-qI-ZTo">
+                            <connections>
+                                <action selector="presentPages" destination="jfY-fy-4W5" id="gDf-ps-mFH"/>
+                            </connections>
+                        </button>
+                        <label alignment="center" text="Click-and-hold on this controller, in the iOS Simulator, to perform a Force Touch gesture and display a menu." numberOfLines="0" id="tpT-kN-C2w"/>
+                    </items>
+                    <menu key="menu" id="l2j-7A-7iS">
+                        <items>
+                            <menuItem title="Yes" icon="accept" id="Ne8-T1-LRb">
+                                <connections>
+                                    <action selector="menuItemTapped" destination="jfY-fy-4W5" id="vgh-DN-Aoc"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="No" icon="decline" id="IBg-XE-IlE">
+                                <connections>
+                                    <action selector="menuItemTapped" destination="jfY-fy-4W5" id="7JB-ww-XgM"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Whale" image="Whale.png" id="cf0-ge-u8R">
+                                <connections>
+                                    <action selector="menuItemTapped" destination="jfY-fy-4W5" id="gyy-0l-JXk"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Cupertino" image="LocationMarker.png" id="ECD-xa-OEf">
+                                <connections>
+                                    <action selector="menuItemTapped" destination="jfY-fy-4W5" id="nhC-H1-0DK"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="669" y="1088.25"/>
+        </scene>
+        <!--Dismiss-->
+        <scene sceneID="ggQ-Gf-354">
+            <objects>
+                <controller identifier="pageController" title="Dismiss" id="tIW-Jo-Ezh" customClass="AAPLPageController">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Label" textAlignment="center" id="tjb-Rt-efI"/>
+                    </items>
+                    <connections>
+                        <outlet property="pageLabel" destination="tjb-Rt-efI" id="26X-fp-eRM"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="888" y="1076"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.80000001192092896" green="0.40000000596046448" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+</document>

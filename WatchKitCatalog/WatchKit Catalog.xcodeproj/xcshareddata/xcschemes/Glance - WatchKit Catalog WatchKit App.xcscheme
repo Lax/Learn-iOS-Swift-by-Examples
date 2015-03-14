@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0620"
+   version = "2.0">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CB2698FA1A3667DA00D75212"
+               BuildableName = "WatchKit Catalog WatchKit App.app"
+               BlueprintName = "WatchKit Catalog WatchKit App"
+               ReferencedContainer = "container:WatchKit Catalog.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CB2698E81A3667DA00D75212"
+               BuildableName = "WatchKit Catalog WatchKit Extension.appex"
+               BlueprintName = "WatchKit Catalog WatchKit Extension"
+               ReferencedContainer = "container:WatchKit Catalog.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CB2698BB1A3667CE00D75212"
+               BuildableName = "WatchKit Catalog.app"
+               BlueprintName = "WatchKit Catalog"
+               ReferencedContainer = "container:WatchKit Catalog.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
+      <Testables>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CB2698FA1A3667DA00D75212"
+            BuildableName = "WatchKit Catalog WatchKit App.app"
+            BlueprintName = "WatchKit Catalog WatchKit App"
+            ReferencedContainer = "container:WatchKit Catalog.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES"
+      launchAutomaticallySubstyle = "4">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard"
+         launchOptions = "4"
+         RemotePath = "/Catalog">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CB2698FA1A3667DA00D75212"
+            BuildableName = "WatchKit Catalog WatchKit App.app"
+            BlueprintName = "WatchKit Catalog WatchKit App"
+            ReferencedContainer = "container:WatchKit Catalog.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CB2698FA1A3667DA00D75212"
+            BuildableName = "WatchKit Catalog WatchKit App.app"
+            BlueprintName = "WatchKit Catalog WatchKit App"
+            ReferencedContainer = "container:WatchKit Catalog.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CB2698FA1A3667DA00D75212"
+            BuildableName = "WatchKit Catalog WatchKit App.app"
+            BlueprintName = "WatchKit Catalog WatchKit App"
+            ReferencedContainer = "container:WatchKit Catalog.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard"
+         RemotePath = "/WatchKit Catalog">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CB2698FA1A3667DA00D75212"
+            BuildableName = "WatchKit Catalog WatchKit App.app"
+            BlueprintName = "WatchKit Catalog WatchKit App"
+            ReferencedContainer = "container:WatchKit Catalog.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
