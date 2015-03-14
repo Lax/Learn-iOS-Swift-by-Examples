@@ -1,12 +1,10 @@
 /*
-     Copyright (C) 2014 Apple Inc. All Rights Reserved.
-     See LICENSE.txt for this sample’s licensing information
-     
-     Abstract:
-     
-                  The view controller responsible for displaying the contents of a list document.
-              
- */
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
+    See LICENSE.txt for this sample’s licensing information
+    
+    Abstract:
+    The view controller responsible for displaying the contents of a list document.
+*/
 
 @import Cocoa;
 #import "AAPLAddItemViewController.h"

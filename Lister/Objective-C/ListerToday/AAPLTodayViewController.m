@@ -1,15 +1,18 @@
 /*
-     Copyright (C) 2014 Apple Inc. All Rights Reserved.
-     See LICENSE.txt for this sample’s licensing information
-     
-     Abstract:
-     
-                   Handles display of the Today view. It leverages iCloud for seamless interaction between devices.
-              
- */
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
+    See LICENSE.txt for this sample’s licensing information
+    
+    Abstract:
+    The \c AAPLTodayViewController class displays the Today view containing the contents of the Today list.
+*/
 
+@import NotificationCenter;
+@import ListerKit;
 #import "AAPLTodayViewController.h"
 #import "AAPLCheckBoxCell.h"
+#import "AAPLListCoordinator.h"
+#import "AAPLLocalListCoordinator.h"
+#import "AAPLCloudListCoordinator.h"
 
 const CGFloat AAPLTodayRowHeight = 44.f;
 const NSInteger AAPLTodayBaseRowCount = 5;
@@ -18,18 +21,56 @@ NSString *AAPLTodayViewControllerContentCellIdentifier = @"todayViewCell";
 NSString *AAPLTodayViewControllerMessageCellIdentifier = @"messageCell";
 
 
-@interface AAPLTodayViewController () <AAPLListControllerDelegate,NCWidgetProviding>
+@interface AAPLTodayViewController () <AAPLListPresenterDelegate, AAPLListsControllerDelegate, NCWidgetProviding>
 
-@property (strong) AAPLListDocument *document;
-@property (nonatomic, readonly) AAPLList *list;
-@property (nonatomic) BOOL showingAll;
-@property (nonatomic, readonly, getter=isCloudAvailable) BOOL cloudAvailable;
+@property (nonatomic, strong) AAPLListDocument *document;
+@property (nonatomic, getter=isShowingAll) BOOL showingAll;
 @property (nonatomic, readonly, getter=isTodayAvailable) BOOL todayAvailable;
-@property (nonatomic, strong) AAPLListController *listController;
+@property (nonatomic, strong) AAPLListsController *listsController;
+@property (nonatomic, readonly) AAPLIncompleteListItemsPresenter *listPresenter;
+@property (nonatomic, readonly) CGFloat preferredViewHeight;
 
 @end
 
 @implementation AAPLTodayViewController
+
+#pragma mark = Properties
+
+- (void)setDocument:(AAPLListDocument *)document {
+    _document = document;
+    
+    document.listPresenter.delegate = self;
+}
+
+- (AAPLIncompleteListItemsPresenter *)listPresenter {
+    return self.document.listPresenter;
+}
+
+- (void)setShowingAll:(BOOL)showingAll {
+    if (showingAll != _showingAll) {
+        _showingAll = showingAll;
+        
+        // Now that all items will be shown, resize the content area for the additional rows.
+        [self resetContentSize];
+    }
+}
+
+- (BOOL)isTodayAvailable {
+    return self.document && self.listPresenter;
+}
+
+- (CGFloat)preferredViewHeight {
+    // Determine the total number of items available for presentation.
+    NSInteger itemCount = self.isTodayAvailable && !self.listPresenter.isEmpty ? self.listPresenter.count : 1;
+    
+    /*
+        On first launch only display up to `AAPLTodayBaseRowCount + 1` rows. An additional row is used to display
+        the "Show All" row.
+    */
+    NSInteger rowCount = self.isShowingAll ? itemCount : MIN(itemCount, AAPLTodayBaseRowCount + 1);
+    
+    return rowCount * AAPLTodayRowHeight;
+}
 
 #pragma mark - View Life Cycle
 
@@ -38,26 +79,20 @@ NSString *AAPLTodayViewControllerMessageCellIdentifier = @"messageCell";
     
     self.tableView.backgroundColor = [UIColor clearColor];
     
-    if (self.cloudAvailable) {
-        NSString *localizedTodayListName = [AAPLAppConfiguration sharedAppConfiguration].localizedTodayDocumentNameAndExtension;
-        AAPLCloudListCoordinator *listCoordinator = [[AAPLCloudListCoordinator alloc] initWithLastPathComponent:localizedTodayListName];
-        self.listController = [[AAPLListController alloc] initWithListCoordinator:listCoordinator sortComparator:^NSComparisonResult(AAPLListInfo *lhs, AAPLListInfo *rhs) {
-            return [lhs.name compare:rhs.name];
-        }];
-        self.listController.delegate = self;
-    }
+    NSString *localizedTodayListName = [AAPLAppConfiguration sharedAppConfiguration].localizedTodayDocumentNameAndExtension;
+    
+    self.listsController = [[AAPLAppConfiguration sharedAppConfiguration] listsControllerForCurrentConfigurationWithLastPathComponent:localizedTodayListName firstQueryHandler:nil];
+    
+    self.listsController.delegate = self;
+    [self.listsController startSearching];
     
     [self resetContentSize];
-
-    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
-    if (self.todayAvailable) {
-        [self.document closeWithCompletionHandler:nil];
-    }
+
+    [self.document closeWithCompletionHandler:nil];
 }
 
 #pragma mark - NCWidgetProviding
@@ -72,119 +107,85 @@ NSString *AAPLTodayViewControllerMessageCellIdentifier = @"messageCell";
     }
 }
 
-#pragma mark - AAPLListControllerDelegate
+#pragma mark - AAPLListsControllerDelegate
 
-- (void)listControllerWillChangeContent:(AAPLListController *)listController {
-    // Nothing to do here.
-}
-
-- (void)listController:(AAPLListController *)listController didInsertListInfo:(AAPLListInfo *)listInfo atIndex:(NSInteger)index {
+- (void)listsController:(AAPLListsController *)listsController didInsertListInfo:(AAPLListInfo *)listInfo atIndex:(NSInteger)index {
+    // Once we've found the Today list, we'll hand off ownership of listening to udpates to the list presenter.
+    [self.listsController stopSearching];
+    
+    self.listsController = nil;
+    
+    // Update the Today widget with the Today list info.
     [self processListInfoAsTodayDocument:listInfo];
-}
-
-- (void)listController:(AAPLListController *)listController didRemoveListInfo:(AAPLListInfo *)listInfo atIndex:(NSInteger)index {
-    NSLog(@"listController:didRemoveListInfo:atIndex: should never be called from the Today widget!");
-    abort();
-}
-
-- (void)listController:(AAPLListController *)listController didUpdateListInfo:(AAPLListInfo *)listInfo atIndex:(NSInteger)index {
-    [self processListInfoAsTodayDocument:listInfo];
-}
-
-- (void)listControllerDidChangeContent:(AAPLListController *)listController {
-    // Nothing to do here.
-}
-
-- (void)listController:(AAPLListController *)listController didFailCreatingListInfo:(AAPLListInfo *)listInfo withError:(NSError *)error {
-    NSLog(@"listController:didFailCreatingListInfo:withError: should never be called from the Today widget!");
-    abort();
-}
-
-- (void)listController:(AAPLListController *)listController didFailRemovingListInfo:(AAPLListInfo *)listInfo withError:(NSError *)error {
-    NSLog(@"listController:didFailRemovingListInfo:withError: should never be called from the Today widget!");
-    abort();
-}
-
-- (void)processListInfoAsTodayDocument:(AAPLListInfo *)listInfo {
-    self.document = [[AAPLListDocument alloc] initWithFileURL:listInfo.URL];
-    [self.document openWithCompletionHandler:^(BOOL success) {
-        if (!success) {
-            NSLog(@"Couldn't open document: %@.", self.document.fileURL.absoluteString);
-            return;
-        }
-        
-        [self resetContentSize];
-        [self.tableView reloadData];
-    }];
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (!self.isTodayAvailable) {
+        // Make sure to allow for a row to note that the widget is unavailable.
         return 1;
     }
     
-    return self.showingAll ? self.list.count : MIN(self.list.count, AAPLTodayBaseRowCount + 1);
+    if (self.listPresenter.isEmpty) {
+        // Make sure to allow for a row to note that no incomplete items remain.
+        return 1;
+    }
+    
+    return self.isShowingAll ? self.listPresenter.count : MIN(self.listPresenter.count, AAPLTodayBaseRowCount + 1);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (!self.cloudAvailable) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AAPLTodayViewControllerMessageCellIdentifier forIndexPath:indexPath];
-
-        cell.textLabel.text = NSLocalizedString(@"Today requires iCloud", nil);
-
-        return cell;
-    }
-
-    NSInteger itemCount = self.list ? self.list.count : 0;
-    
-    if (itemCount > 0) {
-        AAPLListItem *item = self.list[indexPath.row];
-        
-        if (!self.showingAll && indexPath.row == AAPLTodayBaseRowCount && itemCount != AAPLTodayBaseRowCount + 1) {
+    if (self.listPresenter) {
+        if (self.listPresenter.isEmpty) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AAPLTodayViewControllerMessageCellIdentifier forIndexPath:indexPath];
-
-            cell.textLabel.text = NSLocalizedString(@"Show All...", nil);
-
+            cell.textLabel.text = NSLocalizedString(@"No incomplete items in today's list.", @"");
+            
             return cell;
         }
         else {
-            AAPLCheckBoxCell *cell = [tableView dequeueReusableCellWithIdentifier:AAPLTodayViewControllerContentCellIdentifier forIndexPath:indexPath];
-
-            [self configureListItemCell:cell usingColor:self.list.color item:item];
-
-            return cell;
+            NSInteger itemCount = self.listPresenter.count;
+            
+            /*
+                Check to determine what to show at the row at index `AAPLTodayBaseRowCount`. If not showing
+                all rows (explicitly) and the item count is less than `AAPLTodayBaseRowCount` + 1 diplay a
+                message cell allowing the user to disclose all rows.
+             */
+            if (!self.showingAll && indexPath.row == AAPLTodayBaseRowCount && itemCount != AAPLTodayBaseRowCount + 1) {
+                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AAPLTodayViewControllerMessageCellIdentifier forIndexPath:indexPath];
+                
+                cell.textLabel.text = NSLocalizedString(@"Show All...", @"");
+                
+                return cell;
+            }
+            else {
+                AAPLCheckBoxCell *checkBoxCell = [tableView dequeueReusableCellWithIdentifier:AAPLTodayViewControllerContentCellIdentifier forIndexPath:indexPath];
+                
+                AAPLListItem *item = self.listPresenter.presentedListItems[indexPath.row];
+                
+                [self configureCheckBoxCell:checkBoxCell forListItem:item];
+                
+                return checkBoxCell;
+            }
         }
     }
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AAPLTodayViewControllerMessageCellIdentifier forIndexPath:indexPath];
-    if (self.todayAvailable) {
-        cell.textLabel.text = NSLocalizedString(@"No items in today's list", nil);
-    }
     else {
-        cell.textLabel.text = @"";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AAPLTodayViewControllerMessageCellIdentifier forIndexPath:indexPath];
+        
+        cell.textLabel.text = NSLocalizedString(@"Lister's Today widget is currently unavailable.", @"");
+        
+        return cell;
     }
+}
+
+- (void)configureCheckBoxCell:(AAPLCheckBoxCell *)checkBoxCell forListItem:(AAPLListItem *)listItem {
+    checkBoxCell.checkBox.tintColor = AAPLColorFromListColor(self.listPresenter.color);
+    checkBoxCell.checkBox.checked = listItem.isComplete;
+    checkBoxCell.checkBox.hidden = NO;
     
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.layer.backgroundColor = [UIColor clearColor].CGColor;
-}
-
-- (void)configureListItemCell:(AAPLCheckBoxCell *)itemCell usingColor:(AAPLListColor)color item:(AAPLListItem *)item {    
-    itemCell.checkBox.tintColor = AAPLColorFromListColor(color);
-    itemCell.checkBox.checked = item.isComplete;
-    itemCell.checkBox.hidden = NO;
-
-    itemCell.label.text = item.text;
-    itemCell.label.textColor = [UIColor whiteColor];
-
-    // Configure a completed list item cell.
-    if (item.isComplete) {
-        itemCell.label.textColor = [UIColor lightGrayColor];
-    }
+    checkBoxCell.label.text = listItem.text;
+    
+    checkBoxCell.label.textColor = listItem.isComplete ? [UIColor lightGrayColor] : [UIColor whiteColor];
 }
 
 #pragma mark - UITableViewDelegate
@@ -197,26 +198,39 @@ NSString *AAPLTodayViewControllerMessageCellIdentifier = @"messageCell";
         [self.tableView beginUpdates];
         
         NSIndexPath *indexPathForRemoval = [NSIndexPath indexPathForRow:AAPLTodayBaseRowCount inSection:0];
-
+        
         [self.tableView deleteRowsAtIndexPaths:@[indexPathForRemoval] withRowAnimation:UITableViewRowAnimationFade];
         
-        NSMutableArray *inserted = [NSMutableArray array];
+        NSMutableArray *insertedIndexPaths = [NSMutableArray array];
         
-        for (NSInteger i = AAPLTodayBaseRowCount; i < self.list.count; i++) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-            [inserted addObject:indexPath];
+        for (NSInteger idx = AAPLTodayBaseRowCount; idx < self.listPresenter.count; idx++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+            [insertedIndexPaths addObject:indexPath];
         }
         
-        [self.tableView insertRowsAtIndexPaths:inserted withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView insertRowsAtIndexPaths:insertedIndexPaths withRowAnimation:UITableViewRowAnimationFade];
         
         [self.tableView endUpdates];
         
         return;
     }
     
-    // Open the main app if an item is tapped.
-    NSURL *url = [NSURL URLWithString:@"lister://today"];
-    [self.extensionContext openURL:url completionHandler:nil];
+    // Construct a URL with the lister scheme and the file path of the document.
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] init];
+    urlComponents.scheme = AAPLAppConfigurationListerSchemeName;
+    urlComponents.path = self.document.fileURL.path;
+    
+    // Add a query item to encode the color associated with the list.
+    NSString *colorQueryValue = [NSString stringWithFormat:@"%ld", (long)self.listPresenter.color];
+    NSURLQueryItem *colorQueryItem = [NSURLQueryItem queryItemWithName:AAPLAppConfigurationListerColorQueryKey value:colorQueryValue];
+    urlComponents.queryItems = @[colorQueryItem];
+
+    // Use the `extensionContext`'s ability to open a URL to trigger the containing app.
+    [self.extensionContext openURL:urlComponents.URL completionHandler:nil];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.layer.backgroundColor = [UIColor clearColor].CGColor;
 }
 
 #pragma mark - IBActions
@@ -224,65 +238,101 @@ NSString *AAPLTodayViewControllerMessageCellIdentifier = @"messageCell";
 - (IBAction)checkBoxTapped:(AAPLCheckBox *)sender {
     NSIndexPath *indexPath = [self indexPathForView:sender];
     
-    AAPLListItem *item = self.list[indexPath.row];
-    AAPLListOperationInfo info = [self.list toggleItem:item withPreferredDestinationIndex:NSNotFound];
-    if (info.fromIndex == info.toIndex) {
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    } else {
-        NSInteger itemCount = self.list.count;
-        
-        if (!self.showingAll && itemCount != AAPLTodayBaseRowCount && info.toIndex > AAPLTodayBaseRowCount - 1) {
-            // Completing has moved an item off the bottom of the short list.
-            // Delete the completed row and insert a new row above "Show All...".
-            NSIndexPath *targetIndexPath = [NSIndexPath indexPathForRow:AAPLTodayBaseRowCount - 1 inSection:0];
-            
-            [self.tableView beginUpdates];
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [self.tableView insertRowsAtIndexPaths:@[targetIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [self.tableView endUpdates];
-        } else {
-            // Need to animate the row up or down depending on its completion state.
-            NSIndexPath *targetIndexPath = [NSIndexPath indexPathForRow:info.toIndex inSection:0];
-            
-            [self.tableView beginUpdates];
-            [self.tableView moveRowAtIndexPath:indexPath toIndexPath:targetIndexPath];
-            [self.tableView endUpdates];
-            [self.tableView reloadRowsAtIndexPaths:@[targetIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
+    AAPLListItem *item = self.listPresenter.presentedListItems[indexPath.row];
+    [self.listPresenter toggleListItem:item];
+}
+
+#pragma mark - ListPresenterDelegate
+
+- (void)listPresenterDidRefreshCompleteLayout:(id<AAPLListPresenting>)listPresenter {
+    /**
+     	Note when we reload the data, the color of the list will automatically change because the list's color
+        is only shown in each list item in the iOS Today widget.
+     */
+    [self.tableView reloadData];
+}
+
+- (void)listPresenterWillChangeListLayout:(id<AAPLListPresenting>)listPresenter isInitialLayout:(BOOL)isInitialLayout {
+    [self.tableView beginUpdates];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didInsertListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {
+    NSArray *indexPaths = @[[NSIndexPath indexPathForRow:index inSection:0]];
+    
+    // Hide the "No items in list" row.
+    if (index == 0 && self.listPresenter.count == 1) {
+        [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     }
     
-    // Notify the document of a change.
-    [self.document updateChangeCount:UIDocumentChangeDone];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didRemoveListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {
+    NSArray *indexPaths = @[[NSIndexPath indexPathForRow:index inSection:0]];
+    
+    [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    // Show the "No items in list" row.
+    if (index == 0 && self.listPresenter.isEmpty) {
+        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didUpdateListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    
+    AAPLCheckBoxCell *checkBoxCell = (AAPLCheckBoxCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    [self configureCheckBoxCell:checkBoxCell forListItem:self.listPresenter.presentedListItems[indexPath.row]];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didMoveListItem:(AAPLListItem *)listItem fromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
+    NSIndexPath *fromIndexPath = [NSIndexPath indexPathForRow:fromIndex inSection:0];
+    NSIndexPath *toIndexPath = [NSIndexPath indexPathForRow:toIndex inSection:0];
+    
+    [self.tableView moveRowAtIndexPath:fromIndexPath toIndexPath:toIndexPath];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didUpdateListColorWithColor:(AAPLListColor)color {
+    for (NSInteger idx = 0; idx < self.listPresenter.presentedListItems.count; idx++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+        
+        AAPLCheckBoxCell *checkBoxCell = (AAPLCheckBoxCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        checkBoxCell.checkBox.tintColor = AAPLColorFromListColor(color);
+    }
+}
+
+- (void)listPresenterDidChangeListLayout:(id<AAPLListPresenting>)listPresenter isInitialLayout:(BOOL)isInitialLayout {
+    [self resetContentSize];
+    
+    [self.tableView endUpdates];
+    
+    /*
+        The underlying document changed because of user interaction (this event only occurs if the list
+        presenter's underlying list presentation changes based on user interaction).
+     */
+    if (!isInitialLayout) {
+        [self.document updateChangeCount:UIDocumentChangeDone];
+    }
 }
 
 #pragma mark - Convenience
 
-- (AAPLList *)list {
-    return self.document.list;
-}
-
-- (BOOL)isCloudAvailable {
-    return [AAPLAppConfiguration sharedAppConfiguration].isCloudAvailable;
-}
-
-- (BOOL)isTodayAvailable {
-    return self.cloudAvailable && self.document && self.list;
-}
-
-- (void)resetContentSize {
-    CGSize preferredSize = self.preferredContentSize;
-
-    preferredSize.height = self.preferredViewHeight;
-
-    self.preferredContentSize = preferredSize;
-}
-                         
-- (CGFloat)preferredViewHeight {
-    NSInteger itemCount = self.todayAvailable && self.list.count > 0 ? self.list.count : 1;
-
-    NSInteger rowCount = self.showingAll ? itemCount : MIN(itemCount, AAPLTodayBaseRowCount + 1);
+- (void)processListInfoAsTodayDocument:(AAPLListInfo *)listInfo {
+    // Ignore any updates if we already have the Today document.
+    if (self.document) {
+        return;
+    }
     
-    return rowCount * AAPLTodayRowHeight;
+    AAPLIncompleteListItemsPresenter *incompleteListItemsPresenter = [[AAPLIncompleteListItemsPresenter alloc] init];
+    self.document = [[AAPLListDocument alloc] initWithFileURL:listInfo.URL listPresenter:incompleteListItemsPresenter];
+    
+    [self.document openWithCompletionHandler:^(BOOL success) {
+        if (!success) {
+            NSLog(@"Couldn't open document: %@.", self.document.fileURL);
+        }
+        
+        [self resetContentSize];
+    }];
 }
 
 - (NSIndexPath *)indexPathForView:(UIView *)view {
@@ -292,12 +342,12 @@ NSString *AAPLTodayViewControllerMessageCellIdentifier = @"messageCell";
     return [self.tableView indexPathForRowAtPoint:viewLocation];
 }
 
-- (void)setShowingAll:(BOOL)showingAll {
-    if (showingAll != _showingAll) {
-        _showingAll = showingAll;
-        
-        [self resetContentSize];
-    }
+- (void)resetContentSize {
+    CGSize preferredSize = self.preferredContentSize;
+
+    preferredSize.height = self.preferredViewHeight;
+
+    self.preferredContentSize = preferredSize;
 }
 
 @end

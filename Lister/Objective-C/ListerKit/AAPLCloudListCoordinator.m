@@ -1,7 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
-
+    
+    Abstract:
+    The \c AAPLCloudListCoordinator class handles querying for and interacting with lists stored as files in iCloud Drive.
 */
 
 #import "AAPLCloudListCoordinator.h"
@@ -11,10 +13,12 @@
 @interface AAPLCloudListCoordinator ()
 
 @property (nonatomic, strong) NSMetadataQuery *metadataQuery;
-
 @property (nonatomic, strong) dispatch_queue_t documentsDirectoryQueue;
 
 @property (nonatomic, strong) NSURL *documentsDirectory;
+
+/// Closure executed after the first update provided by the coordinator regarding tracked URLs.
+@property (nonatomic, strong) void (^firstQueryUpdateHandler)(void);
 
 @end
 
@@ -22,19 +26,22 @@
 @synthesize delegate = _delegate;
 @synthesize documentsDirectory = _documentsDirectory;
 
-#pragma mark - Initializers
+#pragma mark - Initialization
 
-- (instancetype)initWithPredicate:(NSPredicate *)predicate {
+- (instancetype)initWithPredicate:(NSPredicate *)predicate firstQueryUpdateHandler:(void (^)(void))firstQueryUpdateHandler {
     self = [super init];
 
     if (self) {
-        _documentsDirectoryQueue = dispatch_queue_create("com.example.apple-samplecode.lister.cloudlistcoordinator", 0ul);
-        
+        _firstQueryUpdateHandler = firstQueryUpdateHandler;
+        _documentsDirectoryQueue = dispatch_queue_create("com.example.apple-samplecode.lister.cloudlistcoordinator.documentsDirectory", DISPATCH_QUEUE_SERIAL);
+
         _metadataQuery = [[NSMetadataQuery alloc] init];
         _metadataQuery.searchScopes = @[NSMetadataQueryUbiquitousDocumentsScope, NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope];
         
         _metadataQuery.predicate = predicate;
-        
+        _metadataQuery.operationQueue = [[NSOperationQueue alloc] init];
+        _metadataQuery.operationQueue.name = @"com.example.apple-samplecode.lister.cloudlistcoordinator.metadataQuery";
+
         dispatch_barrier_async(_documentsDirectoryQueue, ^{
             NSURL *cloudContainerURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
             
@@ -52,10 +59,10 @@
     return self;
 }
 
-- (instancetype)initWithPathExtension:(NSString *)pathExtension {
+- (instancetype)initWithPathExtension:(NSString *)pathExtension firstQueryUpdateHandler:(void (^)(void))firstQueryUpdateHandler {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K.pathExtension = %@)", NSMetadataItemURLKey, pathExtension];
     
-    self = [self initWithPredicate:predicate];
+    self = [self initWithPredicate:predicate firstQueryUpdateHandler:firstQueryUpdateHandler];
     
     if (self) {
         // No need for additional initialization.
@@ -64,10 +71,10 @@
     return self;
 }
 
-- (instancetype)initWithLastPathComponent:(NSString *)lastPathComponent {
+- (instancetype)initWithLastPathComponent:(NSString *)lastPathComponent firstQueryUpdateHandler:(void (^)(void))firstQueryUpdateHandler {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K.lastPathComponent = %@)", NSMetadataItemURLKey, lastPathComponent];
     
-    self = [self initWithPredicate:predicate];
+    self = [self initWithPredicate:predicate firstQueryUpdateHandler:firstQueryUpdateHandler];
     
     if (self) {
         // No need for additional initialization.
@@ -100,11 +107,17 @@
 #pragma mark - AAPLListCoordinator
 
 - (void)startQuery {
-    [self.metadataQuery startQuery];
+    // \c NSMetadataQuery should always be started on the main thread.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.metadataQuery startQuery];
+    });
 }
 
 - (void)stopQuery {
-    [self.metadataQuery stopQuery];
+    // \c NSMetadataQuery should always be stopped on the main thread.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.metadataQuery stopQuery];
+    });
 }
 
 - (void)createURLForList:(AAPLList *)list withName:(NSString *)name {
@@ -156,6 +169,14 @@
     [self.delegate listCoordinatorDidUpdateContentsWithInsertedURLs:insertedURLs removedURLs:@[] updatedURLs:@[]];
     
     [self.metadataQuery enableUpdates];
+    
+    if (self.firstQueryUpdateHandler) {
+        // Execute the `firstQueryUpdateHandler`, it will contain the closure from initialization on first update.
+        self.firstQueryUpdateHandler();
+        
+        // Set `firstQueryUpdateHandler` to an empty closure so that the handler provided is only run on first update.
+        self.firstQueryUpdateHandler = nil;
+    }
 }
 
 - (void)metadataQueryDidUpdate:(NSNotification *)notification {

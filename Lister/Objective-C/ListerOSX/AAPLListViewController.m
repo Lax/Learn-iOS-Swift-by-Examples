@@ -1,19 +1,17 @@
 /*
-     Copyright (C) 2014 Apple Inc. All Rights Reserved.
-     See LICENSE.txt for this sample’s licensing information
-     
-     Abstract:
-     
-                  The view controller responsible for displaying the contents of a list document.
-              
- */
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
+    See LICENSE.txt for this sample’s licensing information
+    
+    Abstract:
+    The view controller responsible for displaying the contents of a list document.
+*/
 
 #import "AAPLListViewController.h"
 #import "AAPLAddItemViewController.h"
 #import "AAPLColorPaletteView.h"
 #import "AAPLListItemView.h"
 #import "AAPLTableRowView.h"
-@import ListerKitOSX;
+@import ListerKit;
 @import NotificationCenter;
 
 // View identifiers.
@@ -24,14 +22,13 @@ NSString *const AAPLListViewControllerNoListItemViewIdentifier = @"AAPLListViewC
 NSString *const AAPLListViewControllerDragType = @"AAPLListViewControllerDragType";
 NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
 
-
-@interface AAPLListViewController() <NSTableViewDelegate, AAPLListDocumentDelegate, AAPLColorPaletteViewDelegate, AAPLListItemViewDelegate>
+@interface AAPLListViewController() <NSTableViewDelegate, AAPLListPresenterDelegate, AAPLColorPaletteViewDelegate, AAPLListItemViewDelegate>
 
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet AAPLColorPaletteView *colorPaletteView;
 
 // Convenience
-@property (readonly, nonatomic) AAPLList *list;
+@property (readonly) AAPLAllListItemsPresenter *listPresenter;
 
 @end
 
@@ -43,13 +40,16 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
 - (void)setDocument:(AAPLListDocument *)document {
     _document = document;
     
-    document.delegate = self;
+    AAPLAllListItemsPresenter *listPresenter = [[AAPLAllListItemsPresenter alloc] init];
+    listPresenter.delegate = self;
     
-    [self reloadListUI];
+    document.listPresenter = listPresenter;
+    
+    listPresenter.undoManager = self.document.undoManager;
 }
 
-- (AAPLList *)list {
-    return [self.document list];
+- (AAPLAllListItemsPresenter *)listPresenter {
+    return [self.document listPresenter];
 }
 
 - (NSUndoManager *)undoManager {
@@ -61,7 +61,8 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
 - (void)viewDidAppear {
     [super viewDidAppear];
     
-    self.document.delegate = self;
+    // Load the current data for the table view.
+    [self.tableView reloadData];
 
     // Enable dragging for the list items of our specific type.
     [self.tableView registerForDraggedTypes:@[AAPLListViewControllerDragType, NSPasteboardTypeString]];
@@ -72,36 +73,30 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
 #pragma mark - NSTableViewDelegate
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    if (!self.list) {
+    if (!self.document) {
         return 0;
     }
 
-    return self.list.empty ? 1 : self.list.count;
+    return self.listPresenter.isEmpty ? 1 : self.listPresenter.count;
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    if (self.list.isEmpty) {
+    if (self.listPresenter.isEmpty) {
         return [tableView makeViewWithIdentifier:AAPLListViewControllerNoListItemViewIdentifier owner:nil];
     }
 
     AAPLListItemView *listItemView = [tableView makeViewWithIdentifier:AAPLListViewControllerListItemViewIdentifier owner:nil];
     
-    AAPLListItem *item = self.list[row];
+    AAPLListItem *listItem = self.listPresenter.presentedListItems[row];
     
-    listItemView.completed = item.isComplete;
-
-    listItemView.tintColor = AAPLColorFromListColor(self.list.color);
-
-    listItemView.stringValue = item.text;
-    
-    listItemView.delegate = self;
+    [self configureListItemView:listItemView forListItem:listItem];
     
     return listItemView;
 }
 
 // Only allow rows to be selectable if there are items in the list.
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row {
-    return !self.list.empty;
+    return !self.listPresenter.isEmpty;
 }
 
 - (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation {
@@ -112,19 +107,17 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
     
     // Only allow drops above.
     if (dropOperation == NSTableViewDropAbove) {
-        // If drag source is our own table view, it's a move.
-        if (info.draggingSource == self.tableView) {
+        // If the drag source is our table view, it's a move.
+        if ([info draggingSource] == tableView) {
             NSArray *listItems = [self listItemsWithListerPasteboardType:pasteboard refreshesItemIdentities:NO];
-            
-            BOOL canMoveItem = listItems.count == 1 && [self.list canMoveItem:listItems.firstObject toIndex:row inclusive:YES];
-            if (canMoveItem) {
+
+            // Only allow a move if there's a single item being moved, and the list allows it.
+            if (listItems.count == 1 && [self.listPresenter canMoveListItem:listItems.firstObject toIndex:row]) {
                 result = NSDragOperationMove;
             }
         }
         else {
-            NSArray *items = [self listItemsWithStringPasteboardType:pasteboard];
-            
-            if (items && [self.list canInsertIncompleteItems:items atIndex:row]) {
+            if ([self listItemsWithListerPasteboardType:pasteboard refreshesItemIdentities:NO] || [self listItemsWithStringPasteboardType:pasteboard]) {
                 result = NSDragOperationCopy;
             }
         }
@@ -137,34 +130,41 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
     NSPasteboard *pasteboard = [info draggingPasteboard];
     
     if (info.draggingSource == self.tableView) {
-        NSArray *items = [self listItemsWithListerPasteboardType:pasteboard refreshesItemIdentities:NO];
+        NSArray *listItems = [self listItemsWithListerPasteboardType:pasteboard refreshesItemIdentities:NO];
 
-        NSAssert(items.count == 1, @"There must be exactly one moved item");
+        NSAssert(listItems.count == 1, @"There must be exactly one moved item.");
+        NSAssert(dropOperation == NSTableViewDropAbove, @"Only NSTableViewDropAbove operations are allowed.");
+
+        AAPLListItem *listItem = listItems.firstObject;
         
-        [self moveItem:items.firstObject toIndex:row];
+        NSInteger fromIndex = [self.listPresenter.presentedListItems indexOfObject:listItem];
         
-        return YES;
+        NSInteger normalizedToIndex = row;
+        if (fromIndex < row) {
+            normalizedToIndex--;
+        }
+        
+        [self.listPresenter moveListItem:listItem toIndex:normalizedToIndex];
     }
     else {
-        NSArray *items = [self listItemsWithStringPasteboardType:pasteboard];
+        NSArray *listItems = [self listItemsWithStringPasteboardType:pasteboard];
         
-        NSAssert(items, @"'items' must not be nil");
+        NSAssert(listItems, @"`listItems` must not be nil");
         
-        NSIndexSet *indexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(row, items.count)];
-        [self insertItems:items withPreferredIndexes:indexes];
-        
-        return YES;
+        [self.listPresenter insertListItems:listItems];
     }
+    
+    return YES;
 }
 
 - (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pasteboard {
-    if (self.list.empty) {
+    if (self.listPresenter.empty) {
         return NO;
     }
     
-    NSArray *items = self.list[rowIndexes];
+    NSArray *items = [self.listPresenter.presentedListItems objectsAtIndexes:rowIndexes];
 
-    [self writeItems:items toPasteboard:pasteboard];
+    [self writeListItems:items toPasteboard:pasteboard];
     
     return YES;
 }
@@ -173,7 +173,7 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
 
 - (NSArray *)listItemsWithListerPasteboardType:(NSPasteboard *)pasteboard refreshesItemIdentities:(BOOL)refreshesItemIdentities {
     if ([pasteboard canReadItemWithDataConformingToTypes:@[AAPLListViewControllerPasteboardType]]) {
-        NSMutableArray *allItems = [NSMutableArray array];
+        NSMutableArray *listItems = [NSMutableArray array];
         
         for (NSPasteboardItem *pasteboardItem in pasteboard.pasteboardItems) {
             NSData *itemsData = [pasteboardItem dataForType:AAPLListViewControllerPasteboardType];
@@ -181,15 +181,15 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
             NSArray *pasteboardsListItems = [NSKeyedUnarchiver unarchiveObjectWithData:itemsData];
             
             if (refreshesItemIdentities) {
-                for (AAPLListItem *item in pasteboardsListItems) {
-                    [item refreshIdentity];
+                for (AAPLListItem *listItem in pasteboardsListItems) {
+                    [listItem refreshIdentity];
                 }
             }
             
-            [allItems addObjectsFromArray:pasteboardsListItems];
+            [listItems addObjectsFromArray:pasteboardsListItems];
         }
         
-        return allItems;
+        return listItems;
     }
     
     return nil;
@@ -197,180 +197,33 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
 
 - (NSArray *)listItemsWithStringPasteboardType:(NSPasteboard *)pasteboard {
     if ([pasteboard canReadItemWithDataConformingToTypes:@[NSPasteboardTypeString]]) {
-        NSMutableArray *allItems = [NSMutableArray array];
+        NSMutableArray *listItems = [NSMutableArray array];
         
         for (NSPasteboardItem *pasteboardItem in pasteboard.pasteboardItems) {
             NSString *targetType = [pasteboardItem availableTypeFromArray:@[NSPasteboardTypeString]];
             
             NSString *pasteboardString = [pasteboardItem stringForType:targetType];
             
-            NSArray *listItems = [AAPLListFormatting listItemsFromString:pasteboardString];
-            [allItems addObjectsFromArray:listItems];
+            NSArray *formattedListItems = [AAPLListFormatting listItemsFromString:pasteboardString];
+            [listItems addObjectsFromArray:formattedListItems];
         }
         
-        return allItems;
+        return listItems;
     }
     
     return nil;
 }
 
-- (void)writeItems:(NSArray *)items toPasteboard:(NSPasteboard *)pasteboard {
+- (void)writeListItems:(NSArray *)listItems toPasteboard:(NSPasteboard *)pasteboard {
     [pasteboard declareTypes:@[AAPLListViewControllerDragType, NSPasteboardTypeString] owner:nil];
     
     // Save the items as data.
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:items];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:listItems];
     [pasteboard setData:data forType:AAPLListViewControllerPasteboardType];
     
     // Save the items as a string.
-    NSString *itemsString = [AAPLListFormatting stringFromListItems:items];
-    [pasteboard setString:itemsString forType:NSPasteboardTypeString];
-}
-
-#pragma mark - Item Rearrangement
-
-- (void)moveItem:(AAPLListItem *)item toIndex:(NSInteger)toIndex {
-    AAPLListOperationInfo moveInfo = [self.list moveItem:item toIndex:toIndex];
-    
-    [self.tableView moveRowAtIndex:moveInfo.fromIndex toIndex:moveInfo.toIndex];
-    
-    typeof(self) windowController = [self.undoManager prepareWithInvocationTarget:self];
-    [windowController moveItem:item toPriorIndex:moveInfo.fromIndex];
-    
-    [self updateWidget];
-}
-
-- (void)moveItem:(AAPLListItem *)item toPriorIndex:(NSInteger)priorIndex {
-    NSInteger currentItemIndex = [self.list indexOfItem:item];
-    
-    NSInteger normalizedIndex = priorIndex;
-    if (currentItemIndex < priorIndex) {
-        normalizedIndex++;
-    }
-    
-    [self moveItem:item toIndex:normalizedIndex];
-}
-
-- (void)deleteRowsAtIndexes:(NSIndexSet *)indexes {
-    // Ignore empty index sets.
-    if (indexes.count <= 0) {
-        return;
-    }
-    
-    NSArray *items = self.list[indexes];
-    
-    [self.list removeItems:items];
-    
-    [self.tableView beginUpdates];
-    
-    [self.tableView removeRowsAtIndexes:indexes withAnimation:NSTableViewAnimationSlideUp];
-    
-    if (self.list.empty) {
-        // Show the empty row.
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
-        [self.tableView insertRowsAtIndexes:indexSet withAnimation:NSTableViewAnimationSlideDown];
-    }
-    
-    [self.tableView endUpdates];
-    
-    [[self.undoManager prepareWithInvocationTarget:self] insertItems:items withPreferredIndexes:indexes];
-    
-    [self updateWidget];
-}
-
-// If 'preferredIndexes' is nil, the items will be inserted at the most appropriate places based on the completion status of the item. Otherwise, the indexes will be used.
-- (void)insertItems:(NSArray *)items withPreferredIndexes:(NSIndexSet *)preferredIndexes {
-    BOOL listEmptyBeforeInsert = self.list.empty;
-    
-    NSIndexSet *insertedIndexes;
-    
-    if (preferredIndexes) {
-        __block NSInteger itemsIndex = 0;
-        [preferredIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-            AAPLListItem *item = items[itemsIndex];
-            
-            [self.list insertItem:item atIndex:idx];
-
-            itemsIndex++;
-        }];
-        
-        insertedIndexes = preferredIndexes;
-    }
-    else {
-        insertedIndexes = [self.list insertItems:items];
-    }
-    
-    [self.tableView beginUpdates];
-    if (listEmptyBeforeInsert) {
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
-        [self.tableView removeRowsAtIndexes:indexSet withAnimation:NSTableViewAnimationSlideUp];
-    }
-    [self.tableView insertRowsAtIndexes:insertedIndexes withAnimation:NSTableViewAnimationSlideDown];
-    [self.tableView endUpdates];
-    
-    [[self.undoManager prepareWithInvocationTarget:self] deleteRowsAtIndexes:insertedIndexes];
-    
-    [self updateWidget];
-}
-
-- (void)toggleItem:(AAPLListItem *)item withPreferredDestinationIndex:(NSInteger)preferredDestinationIndex {
-    [self.tableView beginUpdates];
-    
-    NSInteger itemIndex = [self.list indexOfItem:item];
-    AAPLListItemView *listItemView = [self.tableView viewAtColumn:0 row:itemIndex makeIfNecessary:YES];
-    
-    AAPLListOperationInfo toggleInfo = [self.list toggleItem:item withPreferredDestinationIndex:preferredDestinationIndex];
-    
-    [self.tableView moveRowAtIndex:toggleInfo.fromIndex toIndex:toggleInfo.toIndex];
-    
-    listItemView.completed = item.isComplete;
-    
-    [self.tableView endUpdates];
-    
-    typeof(self) windowController = [self.undoManager prepareWithInvocationTarget:self];
-    [windowController toggleItem:item withPreferredDestinationIndex:toggleInfo.fromIndex];
-    
-    [self updateWidget];
-}
-
-- (void)resetToList:(AAPLList *)list {
-    [[self.undoManager prepareWithInvocationTarget:self] resetToList:[self.list copy]];
-    
-    self.document.list = list;
-    
-    self.colorPaletteView.selectedColor = self.list.color;
-    [self.tableView reloadData];
-    
-    [self updateWidget];
-}
-
-- (void)updateAllItemsToCompletionState:(BOOL)completeStatus {
-    [[self.undoManager prepareWithInvocationTarget:self] resetToList:[self.list copy]];
-    
-    [self.list updateAllItemsToCompletionState:completeStatus];
-    [self.tableView reloadData];
-}
-
-- (void)updateItem:(AAPLListItem *)item withText:(NSString *)text {
-    NSString *oldText = item.text;
-    
-    item.text = text;
-    
-    NSInteger indexOfItem = [self.list indexOfItem:item];
-    
-    [self.tableView beginUpdates];
-    AAPLListItemView *listItemView = [self.tableView viewAtColumn:0 row:indexOfItem makeIfNecessary:YES];
-    listItemView.stringValue = text;
-    [self.tableView endUpdates];
-    
-    [[self.undoManager prepareWithInvocationTarget:self] updateItem:item withText:oldText];
-}
-
-#pragma mark - Reloading Convenience
-
-- (void)reloadListUI {
-    self.colorPaletteView.selectedColor = self.list.color;
-    
-    [self.tableView reloadData];
+    NSString *listItemsString = [AAPLListFormatting stringFromListItems:listItems];
+    [pasteboard setString:listItemsString forType:NSPasteboardTypeString];
 }
 
 #pragma mark - Cut / Copy / Paste / Delete
@@ -379,11 +232,11 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
     NSIndexSet *selectedRowIndexes = self.tableView.selectedRowIndexes;
     
     if (selectedRowIndexes.count > 0) {
-        NSArray *items = self.list[selectedRowIndexes];
+        NSArray *listItems = [self.listPresenter.presentedListItems objectsAtIndexes:selectedRowIndexes];
         
-        [self writeItems:items toPasteboard:[NSPasteboard generalPasteboard]];
+        [self writeListItems:listItems toPasteboard:[NSPasteboard generalPasteboard]];
         
-        [self deleteRowsAtIndexes:selectedRowIndexes];
+        [self.listPresenter removeListItems:listItems];
     }
 }
 
@@ -391,22 +244,22 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
     NSIndexSet *selectedRowIndexes = self.tableView.selectedRowIndexes;
     
     if (selectedRowIndexes.count > 0) {
-        NSArray *items = self.list[selectedRowIndexes];
+        NSArray *items = [self.listPresenter.presentedListItems objectsAtIndexes:selectedRowIndexes];
         
-        [self writeItems:items toPasteboard:[NSPasteboard generalPasteboard]];
+        [self writeListItems:items toPasteboard:[NSPasteboard generalPasteboard]];
     }
 }
 
 - (void)paste:(id)sender {
     // First check if the items were serialized as data, then check for text.
-    NSArray *items = [self listItemsWithListerPasteboardType:[NSPasteboard generalPasteboard] refreshesItemIdentities:YES];
+    NSArray *listItems = [self listItemsWithListerPasteboardType:[NSPasteboard generalPasteboard] refreshesItemIdentities:YES];
 
-    if (!items) {
-        items = [self listItemsWithStringPasteboardType:[NSPasteboard generalPasteboard]];
+    if (!listItems) {
+        listItems = [self listItemsWithStringPasteboardType:[NSPasteboard generalPasteboard]];
     }
     
-    if (items.count > 0) {
-        [self insertItems:items withPreferredIndexes:nil];
+    if (listItems.count > 0) {
+        [self.listPresenter insertListItems:listItems];
     }
 }
 
@@ -415,18 +268,20 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
     
     // Only handle delete keyboard event.
     if (character == NSDeleteCharacter) {
-        [self deleteRowsAtIndexes:self.tableView.selectedRowIndexes];
+        NSArray *listItems = [self.listPresenter.presentedListItems objectsAtIndexes:self.tableView.selectedRowIndexes];
+        
+        [self.listPresenter removeListItems:listItems];
     }
 }
 
 #pragma mark - IBActions
 
-- (IBAction)completeAllItems:(id)sender {
-    [self updateAllItemsToCompletionState:YES];
+- (IBAction)markAllListItemsAsComplete:(id)sender {
+    [self.listPresenter updatePresentedListItemsToCompletionState:YES];
 }
 
-- (IBAction)incompleteAllItems:(id)sender {
-    [self updateAllItemsToCompletionState:NO];
+- (IBAction)markAllListItemsAsIncomplete:(id)sender {
+    [self.listPresenter updatePresentedListItemsToCompletionState:NO];
 }
 
 #pragma mark - AAPLListItemViewDelegate
@@ -434,7 +289,9 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
 - (void)listItemViewDidToggleCompletionState:(AAPLListItemView *)listItemView {
     NSInteger row = [self.tableView rowForView:listItemView];
     
-    [self toggleItem:self.list[row] withPreferredDestinationIndex:NSNotFound];
+    AAPLListItem *listItem = self.listPresenter.presentedListItems[row];
+    
+    [self.listPresenter toggleListItem:listItem];
 }
 
 - (void)listItemViewTextDidEndEditing:(AAPLListItemView *)listItemView {
@@ -446,64 +303,97 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
     
     NSString *cleansedString = [listItemView.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
-    if (cleansedString.length > 0) {
-        AAPLListItem *item = self.list[row];
-        
-        NSString *oldText = item.text;
-        
-        item.text = listItemView.stringValue;
-        
-        [[self.undoManager prepareWithInvocationTarget:self] updateItem:item withText:oldText];
-        
-        [self updateWidget];
+    AAPLListItem *listItem = self.listPresenter.presentedListItems[row];
+    
+    // If a list item's text is empty after editing, delete it.
+    if (cleansedString.length <= 0) {
+        [self.listPresenter removeListItem:listItem];
     }
     else {
-        NSIndexSet *indexSetToDelete = [NSIndexSet indexSetWithIndex:row];
-        [self deleteRowsAtIndexes:indexSetToDelete];
+        [self.listPresenter updateListItem:listItem withText:listItemView.stringValue];
     }
 }
 
 #pragma mark - AAPLAddItemViewControllerDelegate
 
 - (void)addItemViewController:(AAPLAddItemViewController *)addItemViewController didCreateNewItemWithText:(NSString *)text {
-    AAPLListItem *newItem = [[AAPLListItem alloc] initWithText:text];
+    AAPLListItem *newListItem = [[AAPLListItem alloc] initWithText:text];
     
-    [self insertItems:@[newItem] withPreferredIndexes:nil];
+    [self.listPresenter insertListItem:newListItem];
 }
 
 #pragma mark - AAPLColorPaletteViewDelegate
 
 - (void)colorPaletteViewDidChangeSelectedColor:(AAPLColorPaletteView *)colorPaletteView {
-    [self setColorPaletteViewColor:colorPaletteView.selectedColor];
+    self.listPresenter.color = colorPaletteView.selectedColor;
 }
 
-- (void)setColorPaletteViewColor:(AAPLListColor)listColor {
-    [[self.undoManager prepareWithInvocationTarget:self] setColorPaletteViewColor:self.list.color];
+#pragma mark - AAPLListPresenterDelegate
 
-    self.list.color = listColor;
-    self.colorPaletteView.selectedColor = listColor;
+- (void)listPresenterDidRefreshCompleteLayout:(id<AAPLListPresenting>)listPresenter {
+    [self.tableView reloadData];
     
-    // Update the list item views with the newly selected color.
-    // Only update the ListItemView subclasses since they only have a tint color.
+    self.colorPaletteView.selectedColor = listPresenter.color;
+}
+
+- (void)listPresenterWillChangeListLayout:(id<AAPLListPresenting>)listPresenter isInitialLayout:(BOOL)isInitialLayout {
     [self.tableView beginUpdates];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didInsertListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:index];
+
+    // Hide the "No items in list" row.
+    if (index == 0 && listPresenter.count == 1) {
+        [self.tableView removeRowsAtIndexes:indexSet withAnimation:NSTableViewAnimationSlideUp];
+    }
+    
+    [self.tableView insertRowsAtIndexes:indexSet withAnimation:NSTableViewAnimationSlideDown];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didRemoveListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:index];
+    
+    [self.tableView removeRowsAtIndexes:indexSet withAnimation:NSTableViewAnimationSlideUp];
+    
+    // Show the "No items in list" row.
+    if (index == 0 && listPresenter.isEmpty) {
+        [self.tableView insertRowsAtIndexes:indexSet withAnimation:NSTableViewAnimationSlideDown];
+    }
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didUpdateListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {
+    AAPLListItemView *listItemView = [self.tableView viewAtColumn:0 row:index makeIfNecessary:NO];
+    
+    [self configureListItemView:listItemView forListItem:listItem];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didMoveListItem:(AAPLListItem *)listItem fromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
+    [self.tableView moveRowAtIndex:fromIndex toIndex:toIndex];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didUpdateListColorWithColor:(AAPLListColor)color {
+    self.colorPaletteView.selectedColor = color;
+    
+    /**
+        Update the list item views with the newly selected color. Only update the `AAPLListItemView` subclasses
+        since they only have a tint color.
+    */
     [self.tableView enumerateAvailableRowViewsUsingBlock:^(NSTableRowView *rowView, NSInteger row) {
-        NSTableCellView *cellView = [rowView viewAtColumn:0];
+        id listItemView = [rowView viewAtColumn:0];
         
-        if ([cellView isKindOfClass:[AAPLListItemView class]]) {
-            AAPLListItemView *listItemView = (AAPLListItemView *)cellView;
-            
-            listItemView.tintColor = AAPLColorFromListColor(listColor);
+        if ([listItemView isKindOfClass:[AAPLListItemView class]]) {
+            [listItemView setTintColor:AAPLColorFromListColor(self.listPresenter.color)];
         }
     }];
-    [self.tableView endUpdates];
-    
-    [self updateWidget];
 }
 
-#pragma mark - AAPLListDocumentDelegate
-
-- (void)listDocumentDidChangeContents:(AAPLListDocument *)document {
-    [self reloadListUI];
+- (void)listPresenterDidChangeListLayout:(id<AAPLListPresenting>)listPresenter isInitialLayout:(BOOL)isInitialLayout {
+    [self.tableView endUpdates];
+    
+    if (!isInitialLayout) {
+        [self updateWidget];
+    }
 }
 
 #pragma mark - NCWidget Support
@@ -520,6 +410,18 @@ NSString *const AAPLListViewControllerPasteboardType = @"public.item.list";
             [[NCWidgetController widgetController] setHasContent:YES forWidgetWithBundleIdentifier:AAPLAppConfigurationWidgetBundleIdentifier];
         }
     }];
+}
+
+#pragma mark - Convenience
+
+- (void)configureListItemView:(AAPLListItemView *)listItemView forListItem:(AAPLListItem *)listItem {
+    listItemView.complete = listItem.isComplete;
+    
+    listItemView.tintColor = AAPLColorFromListColor(self.listPresenter.color);
+    
+    listItemView.stringValue = listItem.text;
+    
+    listItemView.delegate = self;
 }
 
 @end

@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                The \c AAPLListUtilities class provides a suite of convenience methods for interacting with \c AAPLList objects and their associated files.
-            
+    The \c AAPLListUtilities class provides a suite of convenience methods for interacting with \c AAPLList objects and their associated files.
 */
 
 #import "AAPLListUtilities.h"
@@ -14,7 +12,27 @@
 @implementation AAPLListUtilities
 
 + (NSURL *)localDocumentsDirectory {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+    NSURL *documentsURL = [[self sharedApplicationGroupContainer] URLByAppendingPathComponent:@"Documents" isDirectory:YES];
+    
+    NSError *error;
+    // This will return `YES` for success if the directory is successfully created, or already exists.
+    BOOL success = [[NSFileManager defaultManager] createDirectoryAtURL:documentsURL withIntermediateDirectories:YES attributes:nil error:&error];
+    
+    if (success) {
+        return documentsURL;
+    }
+    else {
+        NSLog(@"The shared application group documents directory doesn't exist and could not be created. Error: %@", error.localizedDescription);
+        abort();
+    }
+}
+
++ (NSURL *)sharedApplicationGroupContainer {
+    NSURL *containerURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:AAPLAppConfigurationApplicationGroupsPrimary];
+    
+    NSAssert(containerURL != nil, @"The shared application group container is unavailable. Check your entitlements and provisioning profiles for this target. Details on proper setup can be found in the PDFs referenced from the README.");
+    
+    return containerURL;
 }
 
 + (void)copyInitialLists {
@@ -58,7 +76,10 @@
     NSFileManager *fileManager = [[NSFileManager alloc] init];
     NSURL *destinationURL = [documentsDirectoryURL URLByAppendingPathComponent:destinationFileName];
     
-    if ([fileManager fileExistsAtPath:destinationURL.path]) {
+    if ([fileManager isUbiquitousItemAtURL:destinationURL] ||
+        [fileManager fileExistsAtPath:destinationURL.path]) {
+        // If the file already exists in the cloud, remove the local version and return.
+        [self removeListAtURL:sourceURL withCompletionHandler:nil];
         return;
     }
     

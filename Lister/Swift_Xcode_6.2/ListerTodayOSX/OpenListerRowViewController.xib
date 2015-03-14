@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6221" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6221"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="OpenListerRowViewController" customModule="ListerToday" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView wantsLayer="YES" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="22"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EYk-9O-w2R">
+                    <rect key="frame" x="369" y="1" width="106" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="TFk-yM-lxV"/>
+                        <constraint firstAttribute="width" constant="102" id="cMK-ui-PiZ"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Open in Lister »" id="smf-mz-VdC">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="textColor" keyPath="self.representedObject.userInfo" id="MH7-Vl-PB5"/>
+                    </connections>
+                </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="sP1-sd-2Fg">
+                    <rect key="frame" x="366" y="-3" width="109" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="109" id="2XN-oY-Vt4"/>
+                        <constraint firstAttribute="height" constant="18" id="H6V-WO-Oel"/>
+                    </constraints>
+                    <buttonCell key="cell" type="inline" title=" " bezelStyle="inline" imagePosition="overlaps" alignment="right" state="on" imageScaling="proportionallyDown" inset="2" id="deJ-Jg-I8c">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="14" name="LucidaGrande"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="openInLister:" target="-2" id="w16-Sq-Ok9"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="EYk-9O-w2R" secondAttribute="bottom" constant="1" id="0Y8-rE-BHE"/>
+                <constraint firstAttribute="centerY" secondItem="sP1-sd-2Fg" secondAttribute="centerY" constant="-5" id="FHB-P3-dcl"/>
+                <constraint firstItem="EYk-9O-w2R" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="3" id="aHH-1N-ReR"/>
+                <constraint firstAttribute="trailing" secondItem="EYk-9O-w2R" secondAttribute="trailing" constant="7" id="n7Q-Yt-TbS"/>
+                <constraint firstAttribute="trailing" secondItem="sP1-sd-2Fg" secondAttribute="trailing" constant="5" id="stx-Le-dlu"/>
+            </constraints>
+            <point key="canvasLocation" x="594" y="249"/>
+        </customView>
+    </objects>
+</document>

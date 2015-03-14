@@ -1,16 +1,12 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                Handles display of the Today view. It leverages iCloud for seamless interaction between devices.
-            
+    The \c AAPLTodayViewController class displays the Today view containing the contents of the Today list.
 */
 
 @import UIKit;
-@import NotificationCenter;
-@import ListerKit;
 
 @interface AAPLTodayViewController : UITableViewController
 @end

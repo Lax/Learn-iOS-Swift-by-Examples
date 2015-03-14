@@ -1,12 +1,10 @@
 /*
-     Copyright (C) 2014 Apple Inc. All Rights Reserved.
-     See LICENSE.txt for this sample’s licensing information
-     
-     Abstract:
-     
-                 The AAPLTodayViewController class handles display of the Today view. It leverages iCloud for seamless interaction between devices.
-              
- */
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
+    See LICENSE.txt for this sample’s licensing information
+    
+    Abstract:
+    The \c AAPLTodayViewController class displays the Today view containing the contents of the Today list.
+*/
 
 #import "AAPLTodayViewController.h"
 #import "AAPLListRowViewController.h"
@@ -16,50 +14,70 @@
 #import "AAPLListRowRepresentedObject.h"
 #import "AAPLTodayWidgetRowPurposeBox.h"
 @import NotificationCenter;
-@import ListerKitOSX;
+@import ListerKit;
 
-@interface AAPLTodayViewController () <NCWidgetProviding, NCWidgetListViewDelegate, AAPLListRowViewControllerDelegate, AAPLListDocumentDelegate>
+@interface AAPLTodayViewController () <NCWidgetProviding, NCWidgetListViewDelegate, AAPLListRowViewControllerDelegate, AAPLListPresenterDelegate>
 
-@property (strong) IBOutlet NCWidgetListViewController *listViewController;
+@property (strong) IBOutlet NCWidgetListViewController *widgetListViewController;
 
 @property AAPLListDocument *document;
-@property (nonatomic, readonly) AAPLList *list;
+@property (readonly) AAPLIncompleteListItemsPresenter *listPresenter;
 
 @end
 
 const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
 
+
 @implementation AAPLTodayViewController
-
-#pragma mark - View Life Cycle
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    [self updateWidgetContents:nil];
-}
-
-- (void)viewWillAppear {
-    [super viewWillAppear];
-
-    self.listViewController.delegate = self;
-    self.listViewController.hasDividerLines = NO;
-    self.listViewController.contents = @[];
-    
-    [self updateWidgetContents:nil];
-}
 
 #pragma mark - NCWidgetProviding
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult result))completionHandler {
-    [self updateWidgetContents:completionHandler];
+    [[AAPLTodayListManager sharedTodayListManager] fetchTodayDocumentURLWithCompletionHandler:^(NSURL *todayDocumentURL) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (todayDocumentURL == nil) {
+                AAPLTodayWidgetRowPurposeBox *requiresCloudPurposeBox = [[AAPLTodayWidgetRowPurposeBox alloc] initWithPurpose:AAPLTodayWidgetRowPurposeRequiresCloud userInfo:nil];
+                
+                self.widgetListViewController.contents = @[requiresCloudPurposeBox];
+
+                completionHandler(NCUpdateResultFailed);
+
+                return;
+            }
+            
+            NSError *error;
+            
+            AAPLListDocument *newDocument = [[AAPLListDocument alloc] initWithContentsOfURL:todayDocumentURL listPresenter:nil makesCustomWindowControllers:NO error:&error];
+            
+            if (newDocument) {
+                BOOL existingDocumentIsUpToDate = [self.document.listPresenter.archiveableList isEqualToList:newDocument.listPresenter.archiveableList];
+
+                if (existingDocumentIsUpToDate) {
+                    completionHandler(NCUpdateResultNoData);
+                }
+                else {
+                    self.document = newDocument;
+                    
+                    AAPLIncompleteListItemsPresenter *listPresenter = [[AAPLIncompleteListItemsPresenter alloc] init];
+                    listPresenter.delegate = self;
+                    
+                    self.document.listPresenter = listPresenter;
+                    
+                    completionHandler(NCUpdateResultNewData);
+                }
+            }
+            else {
+                completionHandler(NCUpdateResultFailed);
+            }
+        });
+    }];
 }
 
 - (NSEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(NSEdgeInsets)defaultMarginInset {
     return (NSEdgeInsets){
-        .left = 0,
-        .right = 0,
-        .top = 0,
+        .left   = 0,
+        .right  = 0,
+        .top    = 0,
         .bottom = 0
     };
 }
@@ -70,8 +88,8 @@ const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
 
 #pragma mark - NCWidgetListViewDelegate
 
-- (NSViewController *)widgetList:(NCWidgetListViewController *)list viewControllerForRow:(NSUInteger)row {
-    id representedObjectForRow = self.listViewController.contents[row];
+- (NSViewController *)widgetList:(NCWidgetListViewController *)listViewController viewControllerForRow:(NSUInteger)row {
+    id representedObjectForRow = self.widgetListViewController.contents[row];
     
     if ([representedObjectForRow isKindOfClass:[AAPLTodayWidgetRowPurposeBox class]]) {
         switch ([representedObjectForRow purpose]) {
@@ -82,13 +100,13 @@ const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
             case AAPLTodayWidgetRowPurposeNoItemsInList:
                 return [[AAPLNoItemsRowViewController alloc] init];
                 break;
-            
+                
             case AAPLTodayWidgetRowPurposeRequiresCloud:
                 return [[AAPLTodayWidgetRequiresCloudViewController alloc] init];
                 break;
         }
     }
-    
+
     AAPLListRowViewController *listRowViewController = [[AAPLListRowViewController alloc] init];
     
     listRowViewController.representedObject = representedObjectForRow;
@@ -96,120 +114,83 @@ const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
     listRowViewController.delegate = self;
 
     return listRowViewController;
-}
-
-- (BOOL)widgetList:(NCWidgetListViewController *)list shouldRemoveRow:(NSUInteger)row {
-    return row != AAPLTodayViewControllerOpenListerRow;
-}
-
-- (void)widgetList:(NCWidgetListViewController *)list didRemoveRow:(NSUInteger)row {
-    AAPLListItem *item = self.list[row - 1];
     
-    [self.list removeItems:@[item]];
-    
-    [self.document updateChangeCount:NSChangeDone];
+//    return [[AAPLTodayWidgetRequiresCloudViewController alloc] init];
 }
 
 #pragma mark - AAPLListRowViewControllerDelegate
 
 - (void)listRowViewControllerDidChangeRepresentedObjectState:(AAPLListRowViewController *)listRowViewController {
-    NSInteger indexOfListRowViewController = [self.listViewController rowForViewController:listRowViewController];
+    NSInteger indexOfListRowViewController = [self.widgetListViewController rowForViewController:listRowViewController];
     
-    AAPLListItem *item = self.list[indexOfListRowViewController - 1];
-    [self.list toggleItem:item withPreferredDestinationIndex:NSNotFound];
-    
-    [self.document updateChangeCount:NSChangeDone];
-
-    // Make sure the rows are reordered appropriately.
-    self.listViewController.contents = [self listRowRepresentedObjectsForList:self.document.list];
+    AAPLListItem *listItem = self.listPresenter.presentedListItems[indexOfListRowViewController - 1];
+    [self.listPresenter toggleListItem:listItem];
 }
 
-#pragma mark - AAPLListDocumentDelegate
+#pragma mark - AAPLListPresenting
 
-- (void)listDocumentDidChangeContents:(AAPLListDocument *)document {
-    self.listViewController.contents = [self listRowRepresentedObjectsForList:document.list];
+- (void)listPresenterDidRefreshCompleteLayout:(id<AAPLListPresenting>)listPresenter {
+    // Refresh the display for all of the rows.
+    [self setListRowRepresentedObjects];
+}
+
+/*!
+ * The following methods are not necessary to implement for the \c AAPLTodayViewController because the rows for
+ * \c widgetListViewController are set in both -listPresenterDidRefreshCompleteLayout: and in the
+ * \c -listPresenterDidChangeListLayout:isInitialLayout: method.
+ */
+- (void)listPresenterWillChangeListLayout:(id<AAPLListPresenting>)listPresenter isInitialLayout:(BOOL)isInitialLayout {}
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didInsertListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {}
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didRemoveListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {}
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didUpdateListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {}
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didMoveListItem:(AAPLListItem *)listItem fromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {}
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didUpdateListColorWithColor:(AAPLListColor)color {}
+
+- (void)listPresenterDidChangeListLayout:(id<AAPLListPresenting>)listPresenter isInitialLayout:(BOOL)isInitialLayout {
+    if (isInitialLayout) {
+        [self setListRowRepresentedObjects];
+    }
+    else {
+        [self.document updateChangeCount:NSChangeDone];
+        
+        [self.document saveDocumentWithDelegate:nil didSaveSelector:NULL contextInfo:NULL];
+        
+        [[NCWidgetController widgetController] setHasContent:YES forWidgetWithBundleIdentifier:AAPLAppConfigurationWidgetBundleIdentifier];
+    }
 }
 
 #pragma mark - Convenience
 
-- (AAPLList *)list {
-    return self.document.list;
+- (AAPLIncompleteListItemsPresenter *)listPresenter {
+    return self.document.listPresenter;
 }
 
-- (NSArray *)listRowRepresentedObjectsForList:(AAPLList *)list {
-    NSArray *listItems = list.allItems;
-
+- (void)setListRowRepresentedObjects {
     NSMutableArray *representedObjects = [NSMutableArray array];
 
-    NSColor *listColor = AAPLColorFromListColor(list.color);
+    // The "Open in Lister" has a `representedObject` as an `NSColor`, representing the text color.
+    NSColor *listColor = AAPLColorFromListColor(self.listPresenter.color);
     AAPLTodayWidgetRowPurposeBox *openInListerPurposeBox = [[AAPLTodayWidgetRowPurposeBox alloc] initWithPurpose:AAPLTodayWidgetRowPurposeOpenLister userInfo:listColor];
     
-    // The "Open in Lister" has a representedObject as an NSColor, representing the text color.
     [representedObjects addObject:openInListerPurposeBox];
 
-    for (AAPLListItem *item in listItems) {
+    for (AAPLListItem *listItem in self.listPresenter.presentedListItems) {
         AAPLListRowRepresentedObject *representedObject = [[AAPLListRowRepresentedObject alloc] init];
         
-        representedObject.item = item;
+        representedObject.listItem = listItem;
         representedObject.color = listColor;
-        
+
         [representedObjects addObject:representedObject];
     }
-    
-    // Add a sentinel NSNull value to represent the "No Items" represented object.
-    if (self.list.isEmpty) {
-        // No items in the list.
+
+    // Add an `AAPLTodayWidgetRowPurposeNoItemsInList` box to represent the "No Items" represented object.
+    if (self.listPresenter.isEmpty) {
         AAPLTodayWidgetRowPurposeBox *noItemsInListPurposeBox = [[AAPLTodayWidgetRowPurposeBox alloc] initWithPurpose:AAPLTodayWidgetRowPurposeNoItemsInList userInfo:nil];
 
         [representedObjects addObject:noItemsInListPurposeBox];
     }
     
-    return representedObjects;
-}
-
-- (void)updateWidgetContents:(void (^)(NCUpdateResult result))completionHandler {
-    [[AAPLTodayListManager sharedTodayListManager] fetchTodayDocumentURLWithCompletionHandler:^(NSURL *todayDocumentURL) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (!todayDocumentURL) {
-                AAPLTodayWidgetRowPurposeBox *requiresCloudPurposeBox = [[AAPLTodayWidgetRowPurposeBox alloc] initWithPurpose:AAPLTodayWidgetRowPurposeRequiresCloud userInfo:nil];
-                
-                self.listViewController.contents = @[requiresCloudPurposeBox];
-
-                if (completionHandler) {
-                    completionHandler(NCUpdateResultFailed);
-                }
-                
-                return;
-            }
-
-            NSError *error;
-            AAPLListDocument *document = [[AAPLListDocument alloc] initWithContentsOfURL:todayDocumentURL makesCustomWindowControllers:NO error:&error];
-            
-            if (error) {
-                if (completionHandler) {
-                    completionHandler(NCUpdateResultFailed);
-                    
-                    return;
-                }
-            }
-            else {
-                if ([self.document.list isEqualToList:document.list]) {
-                    if (completionHandler) {
-                        completionHandler(NCUpdateResultNoData);
-                    }
-                }
-                else {
-                    self.document = document;
-                    self.document.delegate = self;
-                    self.listViewController.contents = [self listRowRepresentedObjectsForList:self.document.list];
-                    
-                    if (completionHandler) {
-                        completionHandler(NCUpdateResultNewData);
-                    }
-                }
-            }
-        });
-    }];
+    self.widgetListViewController.contents = representedObjects;
 }
 
 @end

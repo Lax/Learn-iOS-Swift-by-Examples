@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6221" systemVersion="14B17" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6221"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -34,7 +34,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide Foo" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide Lister" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -52,7 +52,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit Foo" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit Lister" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -64,7 +64,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
+                                        <menuItem title="New" keyEquivalent="N" id="Was-JA-tGl">
                                             <connections>
                                                 <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
                                             </connections>
@@ -132,8 +132,22 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="ma0-no-apM"/>
-                                        <menuItem title="Complete All" keyEquivalent="C" id="SJl-4d-bhg"/>
-                                        <menuItem title="Incomplete All" keyEquivalent="I" id="72C-Se-Hgh"/>
+                                        <menuItem title="Complete All" keyEquivalent="C" id="SJl-4d-bhg">
+                                            <connections>
+                                                <action selector="markAllListItemsAsComplete:" target="Ady-hI-5gd" id="Vn1-VU-rZO"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Incomplete All" keyEquivalent="I" id="72C-Se-Hgh">
+                                            <connections>
+                                                <action selector="markAllListItemsAsIncomplete:" target="Ady-hI-5gd" id="s7t-UA-dTo"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="x0l-Zh-BLR"/>
+                                        <menuItem title="New List Item" keyEquivalent="n" id="BV3-4w-kUf">
+                                            <connections>
+                                                <action selector="showAddItemViewController:" target="Ady-hI-5gd" id="Fxh-X4-gTs"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="WRV-NI-Exz"/>
                                         <menuItem title="Cut" keyEquivalent="x" id="uRl-iY-unG">
                                             <connections>
@@ -629,7 +643,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="Foo Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="Lister Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -899,7 +913,8 @@ QQJEAkkAAAAAAAACAQAAAAAAAABFAAAAAAAAAAAAAAAAAAACSw
                                             </animations>
                                             <size key="intercellSpacing" width="10" height="10"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
+                                            <color key="gridColor" white="0.96999999999999997" alpha="1" colorSpace="calibratedWhite"/>
                                             <tableColumns>
                                                 <tableColumn width="492" minWidth="40" maxWidth="1000" id="THo-tV-EiX">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
@@ -924,7 +939,7 @@ QQJEAkkAAAAAAAACAQAAAAAAAABFAAAAAAAAAAAAAAAAAAACSw
                                                                         <constraint firstAttribute="height" constant="18" id="98p-Sb-ovl"/>
                                                                         <constraint firstAttribute="width" constant="438" placeholder="YES" id="JMb-z5-dUt"/>
                                                                     </constraints>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingHead" selectable="YES" editable="YES" state="on" focusRingType="none" drawsBackground="YES" usesSingleLineMode="YES" id="l3K-VC-dvB">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" state="on" focusRingType="none" alignment="left" drawsBackground="YES" usesSingleLineMode="YES" id="l3K-VC-dvB">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>

@@ -1,28 +1,20 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                An NSDocument subclass that represents a list. It manages the serialization / deserialization of the list object, presentation of window controllers, and more.
-            
+    The \c AAPLListDocument class is an \c NSDocument subclass that represents a list. It manages the serialization / deserialization of the list object, presentation of window controllers, a list presenter, and more.
 */
 
 @import Cocoa;
 
-@class AAPLList, AAPLListDocument;
-
-@protocol AAPLListDocumentDelegate <NSObject>
-- (void)listDocumentDidChangeContents:(AAPLListDocument *)document;
-@end
-
+@class AAPLList;
+@protocol AAPLListPresenting;
 
 @interface AAPLListDocument : NSDocument
 
-- (instancetype)initWithContentsOfURL:(NSURL *)url makesCustomWindowControllers:(BOOL)makesCustomWindowControllers error:(NSError *__autoreleasing *)error;
+- (instancetype)initWithContentsOfURL:(NSURL *)url listPresenter:(id<AAPLListPresenting>)listPresenter makesCustomWindowControllers:(BOOL)makesCustomWindowControllers error:(NSError *__autoreleasing *)error;
 
-@property (weak) id<AAPLListDocumentDelegate> delegate;
-
-@property AAPLList *list;
+@property (nonatomic) id<AAPLListPresenting> listPresenter;
 
 @end

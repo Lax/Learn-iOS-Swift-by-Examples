@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                The \c AAPLListInfo class is a caching abstraction over an \c AAPLList object that contains information about lists (e.g. color and name).
-             
+    The \c AAPLListInfo class is a caching abstraction over an \c AAPLList object that contains information about lists (e.g. color and name).
 */
 
 #import "AAPLListInfo.h"
@@ -21,7 +19,7 @@
 
 @implementation AAPLListInfo
 
-#pragma mark - Initializers
+#pragma mark - Initialization
 
 - (instancetype)initWithURL:(NSURL *)URL {
     self = [super init];

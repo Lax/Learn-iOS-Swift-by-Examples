@@ -1,16 +1,14 @@
 /*
-     Copyright (C) 2014 Apple Inc. All Rights Reserved.
-     See LICENSE.txt for this sample’s licensing information
-     
-     Abstract:
-     
-                  An NSTableCellView subclass that has a few controls that represent the state of a ListItem object.
-              
- */
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
+    See LICENSE.txt for this sample’s licensing information
+    
+    Abstract:
+    An \c NSTableCellView subclass that has a few controls that represent the state of a \c AAPLListItem object.
+*/
 
 #import "AAPLListItemView.h"
 #import "NSColor+AppSpecific.h"
-@import ListerKitOSX;
+@import ListerKit;
 
 @interface AAPLListItemView()
 
@@ -20,7 +18,7 @@
 @end
 
 @implementation AAPLListItemView
-@synthesize completed = _completed;
+@synthesize complete = _complete;
 
 #pragma mark - View Life Cycle
 
@@ -62,17 +60,18 @@
     self.textField.stringValue = textValue;
 }
 
-- (void)setCompleted:(BOOL)completed {
-    if (_completed != completed) {
-        _completed = completed;
+- (void)setComplete:(BOOL)complete {
+    if (_complete != complete) {
+        _complete = complete;
         
-        self.statusCheckBox.checked = completed;
-        self.textField.textColor = completed ? [NSColor aapl_completeItemTextColor] : [NSColor aapl_incompleteItemTextColor];
+        self.statusCheckBox.checked = complete;
+        self.textField.textColor = complete ? [NSColor aapl_completeItemTextColor] : [NSColor aapl_incompleteItemTextColor];
+        self.textField.enabled = !complete;
     }
 }
 
 - (BOOL)isComplete {
-    return _completed;
+    return _complete;
 }
 
 - (void)setTintColor:(NSColor *)tintColor {

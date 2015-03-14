@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                A custom cell that allows the user to select between 6 different colors.
-            
+    A custom cell that allows the user to select a color.
 */
 
 @import UIKit;

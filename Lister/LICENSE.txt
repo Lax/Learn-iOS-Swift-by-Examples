@@ -1,5 +1,5 @@
-Sample code project: Lister: A Productivity App (Obj-C and Swift)
-Version: 1.4
+Sample code project: Lister (for Apple Watch, iOS, and OS X)
+Version: 2.0
 
 IMPORTANT:  This Apple software is supplied to you by Apple
 Inc. ("Apple") in consideration of your agreement to the following
@@ -39,4 +39,4 @@ AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
 STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
-Copyright (C) 2014 Apple Inc. All Rights Reserved.
+Copyright (C) 2015 Apple Inc. All Rights Reserved.

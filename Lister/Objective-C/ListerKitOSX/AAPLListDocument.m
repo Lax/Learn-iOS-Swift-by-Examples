@@ -1,33 +1,36 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                An NSDocument subclass that represents a list. It manages the serialization / deserialization of the list object, presentation of window controllers, and more.
-            
+    The \c AAPLListDocument class is an \c NSDocument subclass that represents a list. It manages the serialization / deserialization of the list object, presentation of window controllers, a list presenter, and more.
 */
 
 #import "AAPLListDocument.h"
-#import "AAPLList.h"
 #import "AAPlAppConfiguration.h"
+#import "AAPLList.h"
+#import "AAPLListPresenting.h"
 
 NSString *const AAPLListWindowControllerStoryboardIdentifier = @"AAPLListWindowControllerStoryboardIdentifier";
 
-@interface AAPLListDocument()
+@interface AAPLListDocument ()
 
-@property BOOL makesCustomWindowControllers;
+@property (nonatomic) BOOL makesCustomWindowControllers;
+
+@property AAPLList *unarchivedList;
 
 @end
 
 @implementation AAPLListDocument
+@synthesize listPresenter = _listPresenter;
 
-#pragma mark - Initializers
+#pragma mark - Initialization
 
-- (instancetype)initWithContentsOfURL:(NSURL *)url makesCustomWindowControllers:(BOOL)makesCustomWindowControllers error:(NSError *__autoreleasing *)error {
+- (instancetype)initWithContentsOfURL:(NSURL *)url listPresenter:(id<AAPLListPresenting>)listPresenter makesCustomWindowControllers:(BOOL)makesCustomWindowControllers error:(NSError *__autoreleasing *)error {
     self = [super initWithContentsOfURL:url ofType:AAPLAppConfigurationListerFileExtension error:error];
 
     if (self) {
+        _listPresenter = listPresenter;
         _makesCustomWindowControllers = makesCustomWindowControllers;
     }
     
@@ -38,7 +41,6 @@ NSString *const AAPLListWindowControllerStoryboardIdentifier = @"AAPLListWindowC
     self = [super init];
     
     if (self) {
-        _list = [AAPLList new];
         _makesCustomWindowControllers = YES;
     }
     
@@ -51,10 +53,22 @@ NSString *const AAPLListWindowControllerStoryboardIdentifier = @"AAPLListWindowC
     return YES;
 }
 
+#pragma mark - Property Overrides
+
+- (void)setListPresenter:(id<AAPLListPresenting>)listPresenter {
+    _listPresenter = listPresenter;
+
+    if (self.unarchivedList) {
+        [_listPresenter setList:self.unarchivedList];
+    }
+}
+
 #pragma mark - NSDocument Overrides
 
-// Create window controllers from a storyboard, if desired (based on -makesWindowControllers).
-// The window controller that's used is the initial controller set in the storyboard.
+/*!
+ * Create window controllers from a storyboard, if desired (based on -makesWindowControllers).
+ * The window controller that's used is the initial controller set in the storyboard.
+ */
 - (void)makeWindowControllers {
     [super makeWindowControllers];
     
@@ -72,22 +86,18 @@ NSString *const AAPLListWindowControllerStoryboardIdentifier = @"AAPLListWindowC
 }
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    AAPLList *deserializedList = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    self.unarchivedList = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 
-    if (deserializedList) {
-        *outError = nil;
-
-        self.list = deserializedList;
-
-        [self.delegate listDocumentDidChangeContents:self];
+    if (self.unarchivedList != nil) {
+        [self.listPresenter setList:self.unarchivedList];
 
         return YES;
     }
     
     if (outError) {
         *outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:@{
-            NSLocalizedDescriptionKey: @"Could not read file.",
-            NSLocalizedFailureReasonErrorKey: @"File was in an invalid format."
+            NSLocalizedDescriptionKey: NSLocalizedString(@"Could not read file.", nil),
+            NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"File was in an invalid format.", nil)
         }];
     }
 
@@ -95,14 +105,18 @@ NSString *const AAPLListWindowControllerStoryboardIdentifier = @"AAPLListWindowC
 }
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    return [NSKeyedArchiver archivedDataWithRootObject:self.list];
+    return [NSKeyedArchiver archivedDataWithRootObject:self.listPresenter.archiveableList];
 }
 
 #pragma mark - Handoff
 
 - (void)updateUserActivityState:(NSUserActivity *)userActivity {
     [super updateUserActivityState:userActivity];
-    [userActivity addUserInfoEntriesFromDictionary:@{ AAPLAppConfigurationUserActivityListColorUserInfoKey: @(self.list.color) }];
+
+    // Store the list's color in the user activity to be able to quickly present a list when it's viewed.
+    [userActivity addUserInfoEntriesFromDictionary:@{
+        AAPLAppConfigurationUserActivityListColorUserInfoKey: @(self.listPresenter.color)
+    }];
 }
 
 @end

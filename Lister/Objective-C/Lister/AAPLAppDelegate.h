@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                The application delegate.
-            
+    The application delegate.
 */
 
 @import UIKit;
@@ -39,9 +37,9 @@ extern NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerT
 
 /*!
  * The segue identifier for the transition between the \c ListDocumentsViewController and the
- * \c ListViewController initiated due to the resumption of a user activity.
+ * \c ListViewController initiated by the resumption of a user activity.
  */
-extern NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerContinueUserActivityToListViewControllerSegueIdentifier;
+extern NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerContinueUserActivity;
 
 @interface AAPLAppDelegate : UIResponder <UIApplicationDelegate>
 

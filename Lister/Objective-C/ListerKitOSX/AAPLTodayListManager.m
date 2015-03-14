@@ -1,12 +1,10 @@
 /*
-     Copyright (C) 2014 Apple Inc. All Rights Reserved.
-     See LICENSE.txt for this sample’s licensing information
-     
-     Abstract:
-     
-                  The AAPLTodayListManager class implements convenience methods to create and retrieve the Today list document from the user's ubiquity container.
-              
- */
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
+    See LICENSE.txt for this sample’s licensing information
+    
+    Abstract:
+    The \c AAPLTodayListManager class implements convenience methods to create and retrieve the Today list document from the user's ubiquity container.
+*/
 
 #import "AAPLTodayListManager.h"
 #import "AAPLAppConfiguration.h"

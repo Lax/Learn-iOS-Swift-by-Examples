@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                The \c AAPLListUtilities class provides a suite of convenience methods for interacting with \c AAPLList objects and their associated files.
-            
+    The \c AAPLListUtilities class provides a suite of convenience methods for interacting with \c AAPLList objects and their associated files.
 */
 
 @import Foundation;

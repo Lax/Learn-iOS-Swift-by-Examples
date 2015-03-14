@@ -1,12 +1,10 @@
 /*
-     Copyright (C) 2014 Apple Inc. All Rights Reserved.
-     See LICENSE.txt for this sample’s licensing information
-     
-     Abstract:
-     
-                  Enhancements for the AAPLListColor enumeration that add the ability to obtain a platform-specific color object from the enumeration value.
-              
- */
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
+    See LICENSE.txt for this sample’s licensing information
+    
+    Abstract:
+    Enhancements for the \c AAPLListColor enumeration that add the ability to obtain a platform-specific color object from the enumeration value.
+*/
 
 @import Foundation;
 #import "AAPLList.h"
@@ -23,6 +21,7 @@
 
 #endif
 
+/// Returns the platform-specific color that is reprsented by \c listColor.
 AAPLAppColor *AAPLColorFromListColor(AAPLListColor listColor);
 
 #undef AAPLAppColor

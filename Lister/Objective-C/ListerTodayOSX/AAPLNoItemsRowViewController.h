@@ -1,15 +1,14 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-              An NSViewController subclass responsible for displaying the "No Items" row in the app extension.
-           
- */
+    An \c NSViewController subclass responsible for displaying the "No Items" row in the app extension.
+*/
 
 @import Cocoa;
-#import "AAPLListRowRepresentedObject.h"
+
+@class AAPLListRowRepresentedObject;
 
 @interface AAPLNoItemsRowViewController : NSViewController
 

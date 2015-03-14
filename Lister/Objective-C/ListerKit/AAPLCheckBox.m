@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                A custom check box for use in the lists, it supports designing live in IB.
-            
+    A custom check box for use in the lists, it supports designing live in IB.
 */
 
 #import "AAPLCheckbox.h"

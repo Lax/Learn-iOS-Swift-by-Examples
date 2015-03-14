@@ -1,31 +1,60 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                Handles application configuration logic and information.
-            
+    Handles application configuration logic and information.
 */
 
 #import "AAPLAppConfiguration.h"
+
+#if TARGET_OS_IPHONE
+#import "AAPLListsController.h"
+#import "AAPLListInfo.h"
+#import "AAPLLocalListCoordinator.h"
+#import "AAPLCloudListCoordinator.h"
+#endif
 
 NSString *const AAPLAppConfigurationFirstLaunchUserDefaultsKey = @"AAPLAppConfigurationFirstLaunchUserDefaultsKey";
 NSString *const AAPLAppConfigurationStorageOptionUserDefaultsKey = @"AAPLAppConfigurationStorageOptionUserDefaultsKey";
 NSString *const AAPLAppConfigurationStoredUbiquityIdentityTokenKey = @"com.example.apple-samplecode.Lister.UbiquityIdentityToken";
 
-NSString *const AAPLAppConfigurationUserActivityListColorUserInfoKey = @"listColor";
+NSString *const AAPLAppConfigurationUserActivityTypeEditing = @"com.example.apple-samplecode.Lister.editing";
+NSString *const AAPLAppConfigurationUserActivityTypeWatch = @"com.example.apple-samplecode.Lister.watch";
+
+NSString *const AAPLAppConfigurationUserActivityListURLPathUserInfoKey = @"listURLUserInfoKey";
+NSString *const AAPLAppConfigurationUserActivityListColorUserInfoKey = @"listColorUserInfoKey";
+
+NSString *const AAPLAppConfigurationListerSchemeName = @"lister";
+NSString *const AAPLAppConfigurationListerColorQueryKey = @"color";
+
+/*!
+ * The \c LISTER_BUNDLE_PREFIX_STRING preprocessor macro is used below to concatenate the value of the
+ * \c LISTER_BUNDLE_PREFIX user-defined build setting with other strings. This avoids the need for developers
+ * to edit both LISTER_BUNDLE_PREFIX and the code below. \c LISTER_BUNDLE_PREFIX_STRING is equal to
+ * \c @"LISTER_BUNDLE_PREFIX", i.e. an \c NSString literal for the value of \c LISTER_BUNDLE_PREFIX. (Multiple
+ * \c NSString literals can be concatenated at compile-time to create a new string literal.)
+*/
+NSString *const AAPLAppConfigurationApplicationGroupsPrimary = @"group."LISTER_BUNDLE_PREFIX_STRING@".Lister.Documents";
 
 NSString *const AAPLAppConfigurationListerFileUTI = @"com.example.apple-samplecode.Lister";
 NSString *const AAPLAppConfigurationListerFileExtension = @"list";
 
 #if TARGET_OS_IPHONE
-NSString *const AAPLAppConfigurationWidgetBundleIdentifier = @"com.example.apple-samplecode.Lister.ListerToday";
+NSString *const AAPLAppConfigurationWidgetBundleIdentifier = LISTER_BUNDLE_PREFIX_STRING@".Lister.ListerToday";
 #elif TARGET_OS_MAC
-NSString *const AAPLAppConfigurationWidgetBundleIdentifier = @"com.example.apple-samplecode.ListerOSX.ListerTodayOSX";
+NSString *const AAPLAppConfigurationWidgetBundleIdentifier = LISTER_BUNDLE_PREFIX_STRING@".ListerOSX.ListerTodayOSX";
 
-NSString *const AAPLAppConfigurationListerOSXBundleIdentifier = @"com.example.apple-samplecode.ListerOSX";
+NSString *const AAPLAppConfigurationListerOSXBundleIdentifier = LISTER_BUNDLE_PREFIX_STRING@".ListerOSX";
 #endif
+
+@interface AAPLAppConfiguration ()
+
+@property (nonatomic, readonly) NSUserDefaults *applicationUserDefaults;
+
+@property (nonatomic, readwrite, getter=isFirstLaunch) BOOL firstLaunch;
+
+@end
 
 @implementation AAPLAppConfiguration
 
@@ -48,6 +77,10 @@ NSString *const AAPLAppConfigurationListerOSXBundleIdentifier = @"com.example.ap
     return [NSString stringWithFormat:@"%@.%@", self.localizedTodayDocumentName, AAPLAppConfigurationListerFileExtension];
 }
 
+- (NSUserDefaults *)applicationUserDefaults {
+    return [[NSUserDefaults alloc] initWithSuiteName:AAPLAppConfigurationApplicationGroupsPrimary];
+}
+
 - (NSString *)defaultListerDraftName {
     return NSLocalizedString(@"List", @"");
 }
@@ -55,13 +88,13 @@ NSString *const AAPLAppConfigurationListerOSXBundleIdentifier = @"com.example.ap
 #pragma mark - Property Overrides
 
 - (AAPLAppStorage)storageOption {
-    NSInteger value = [[NSUserDefaults standardUserDefaults] integerForKey:AAPLAppConfigurationStorageOptionUserDefaultsKey];
+    NSInteger value = [self.applicationUserDefaults integerForKey:AAPLAppConfigurationStorageOptionUserDefaultsKey];
 
     return (AAPLAppStorage)value;
 }
 
 - (void)setStorageOption:(AAPLAppStorage)storageOption {
-    [[NSUserDefaults standardUserDefaults] setInteger:storageOption forKey:AAPLAppConfigurationStorageOptionUserDefaultsKey];
+    [self.applicationUserDefaults setInteger:storageOption forKey:AAPLAppConfigurationStorageOptionUserDefaultsKey];
 }
 
 - (BOOL)isCloudAvailable {
@@ -76,18 +109,30 @@ NSString *const AAPLAppConfigurationListerOSXBundleIdentifier = @"com.example.ap
     };
 }
 
-- (void)runHandlerOnFirstLaunch:(void (^)(void))firstLaunchHandler {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+- (BOOL)isFirstLaunch {
+    [self registerDefaults];
+    
+    return [self.applicationUserDefaults boolForKey:AAPLAppConfigurationFirstLaunchUserDefaultsKey];
+}
 
+- (void)setFirstLaunch:(BOOL)firstLaunch {
+    [self.applicationUserDefaults setBool:firstLaunch forKey:AAPLAppConfigurationFirstLaunchUserDefaultsKey];
+}
+
+- (void)registerDefaults {
+    NSUserDefaults *defaults = self.applicationUserDefaults;
+    
     [defaults registerDefaults:@{
-        AAPLAppConfigurationFirstLaunchUserDefaultsKey: @YES,
+    	AAPLAppConfigurationFirstLaunchUserDefaultsKey: @YES,
 #if TARGET_PLATFORM_IPHONE
         AAPLAppConfigurationStorageOptionUserDefaultsKey: @(AAPLAppStorageNotSet)
 #endif
     }];
+}
 
-    if ([defaults boolForKey:AAPLAppConfigurationFirstLaunchUserDefaultsKey]) {
-        [defaults setBool:NO forKey:AAPLAppConfigurationFirstLaunchUserDefaultsKey];
+- (void)runHandlerOnFirstLaunch:(void (^)(void))firstLaunchHandler {
+    if (self.isFirstLaunch) {
+        self.firstLaunch = NO;
         
         firstLaunchHandler();
     }
@@ -115,7 +160,7 @@ NSString *const AAPLAppConfigurationListerOSXBundleIdentifier = @"com.example.ap
 }
 
 - (void)persistAccount {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = self.applicationUserDefaults;
     id<NSObject, NSCopying, NSCoding> token = [NSFileManager defaultManager].ubiquityIdentityToken;
 
     if (token) {
@@ -134,7 +179,7 @@ NSString *const AAPLAppConfigurationListerOSXBundleIdentifier = @"com.example.ap
     id<NSObject, NSCopying, NSCoding> storedToken = nil;
     
     // Determine if the iCloud account associated with this device has changed since the last time the user launched the app.
-    NSData *ubiquityIdentityTokenArchive = [[NSUserDefaults standardUserDefaults] objectForKey:AAPLAppConfigurationStoredUbiquityIdentityTokenKey];
+    NSData *ubiquityIdentityTokenArchive = [self.applicationUserDefaults objectForKey:AAPLAppConfigurationStoredUbiquityIdentityTokenKey];
 
     if (ubiquityIdentityTokenArchive) {
         storedToken = [NSKeyedUnarchiver unarchiveObjectWithData:ubiquityIdentityTokenArchive];
@@ -143,5 +188,46 @@ NSString *const AAPLAppConfigurationListerOSXBundleIdentifier = @"com.example.ap
     return storedToken;
 }
 
+#pragma mark - Conveience Methods
+
+#if TARGET_OS_IPHONE
+
+- (id<AAPLListCoordinator>)listsCoordinatorForCurrentConfigurationWithPathExtension:(NSString *)pathExtension firstQueryHandler:(void (^)(void))firstQueryHandler; {
+    if ([AAPLAppConfiguration sharedAppConfiguration].storageOption != AAPLAppStorageCloud) {
+        // This will be called if the storage option is either `AAPLAppStorageLocal` or `AAPLAppStorageNotSet`.
+        return [[AAPLLocalListCoordinator alloc] initWithPathExtension:pathExtension firstQueryUpdateHandler:firstQueryHandler];
+    }
+    else {
+        return [[AAPLCloudListCoordinator alloc] initWithPathExtension:pathExtension firstQueryUpdateHandler:firstQueryHandler];
+    }
+}
+
+- (id<AAPLListCoordinator>)listsCoordinatorForCurrentConfigurationWithLastPathComponent:(NSString *)lastPathComponent firstQueryHandler:(void (^)(void))firstQueryHandler {
+    if ([AAPLAppConfiguration sharedAppConfiguration].storageOption != AAPLAppStorageCloud) {
+        // This will be called if the storage option is either `AAPLAppStorageLocal` or `AAPLAppStorageNotSet`.
+        return [[AAPLLocalListCoordinator alloc] initWithLastPathComponent:lastPathComponent firstQueryUpdateHandler:firstQueryHandler];
+    }
+    else {
+        return [[AAPLCloudListCoordinator alloc] initWithLastPathComponent:lastPathComponent firstQueryUpdateHandler:firstQueryHandler];
+    }
+}
+
+- (AAPLListsController *)listsControllerForCurrentConfigurationWithPathExtension:(NSString *)pathExtension firstQueryHandler:(void (^)(void))firstQueryHandler {
+    id<AAPLListCoordinator> listCoordinator = [self listsCoordinatorForCurrentConfigurationWithPathExtension:pathExtension firstQueryHandler:firstQueryHandler];
+
+    return [[AAPLListsController alloc] initWithListCoordinator:listCoordinator delegateQueue:[NSOperationQueue mainQueue] sortComparator:^NSComparisonResult(AAPLListInfo *lhs, AAPLListInfo *rhs) {
+        return [lhs.name localizedCaseInsensitiveCompare:rhs.name];
+    }];
+}
+
+- (AAPLListsController *)listsControllerForCurrentConfigurationWithLastPathComponent:(NSString *)lastPathComponent firstQueryHandler:(void (^)(void))firstQueryHandler {
+    id<AAPLListCoordinator> listCoordinator = [self listsCoordinatorForCurrentConfigurationWithLastPathComponent:lastPathComponent firstQueryHandler:firstQueryHandler];
+    
+    return [[AAPLListsController alloc] initWithListCoordinator:listCoordinator delegateQueue:[NSOperationQueue mainQueue] sortComparator:^NSComparisonResult(AAPLListInfo *lhs, AAPLListInfo *rhs) {
+        return [lhs.name localizedCaseInsensitiveCompare:rhs.name];
+    }];
+}
+
+#endif
 
 @end

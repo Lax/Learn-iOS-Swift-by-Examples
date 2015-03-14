@@ -1,23 +1,21 @@
 /*
-     Copyright (C) 2014 Apple Inc. All Rights Reserved.
-     See LICENSE.txt for this sample’s licensing information
-     
-     Abstract:
-     
-                  The \c AAPLListItem class represents the text and completion state of a single item in the list.
-              
- */
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
+    See LICENSE.txt for this sample’s licensing information
+    
+    Abstract:
+    The \c AAPLListItem class represents the text and completion state of a single item in the list.
+*/
 
 #import "AAPLListItem.h"
 
-@interface AAPLListItem()
+@interface AAPLListItem ()
 
 @property NSUUID *UUID;
 
 @end
 
 NSString *const AAPLListItemEncodingTextKey = @"text";
-NSString *const AAPLListItemEncodingCompletedKey = @"completed";
+NSString *const AAPLListItemEncodingCompleteKey = @"completed";
 NSString *const AAPLListItemEncodingUUIDKey = @"uuid";
 
 @implementation AAPLListItem
@@ -58,7 +56,7 @@ NSString *const AAPLListItemEncodingUUIDKey = @"uuid";
     if (self) {
         _text = [aDecoder decodeObjectForKey:AAPLListItemEncodingTextKey];
         _UUID = [aDecoder decodeObjectForKey:AAPLListItemEncodingUUIDKey];
-        _complete = [aDecoder decodeBoolForKey:AAPLListItemEncodingCompletedKey];
+        _complete = [aDecoder decodeBoolForKey:AAPLListItemEncodingCompleteKey];
     }
     
     return self;
@@ -67,7 +65,7 @@ NSString *const AAPLListItemEncodingUUIDKey = @"uuid";
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.text forKey:AAPLListItemEncodingTextKey];
     [aCoder encodeObject:self.UUID forKey:AAPLListItemEncodingUUIDKey];
-    [aCoder encodeBool:self.isComplete forKey:AAPLListItemEncodingCompletedKey];
+    [aCoder encodeBool:self.isComplete forKey:AAPLListItemEncodingCompleteKey];
 }
 
 - (void)refreshIdentity {
@@ -86,6 +84,12 @@ NSString *const AAPLListItemEncodingUUIDKey = @"uuid";
     }
     
     return NO;
+}
+
+#pragma mark - Debugging
+
+- (NSString *)debugDescription {
+    return [NSString stringWithFormat:@"\"%@\"", self.text];
 }
 
 @end

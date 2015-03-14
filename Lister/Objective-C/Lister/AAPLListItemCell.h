@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                A custom cell used to display a list item or the row used to create a new item.
-            
+    A custom cell used to display a list item or the row used to create a new item.
 */
 
 @import UIKit;
@@ -16,6 +14,6 @@
 @property (nonatomic, weak) IBOutlet AAPLCheckBox *checkBox;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 
-@property (nonatomic, getter=isCompleted) BOOL complete;
+@property (nonatomic, getter=isComplete) BOOL complete;
 
 @end

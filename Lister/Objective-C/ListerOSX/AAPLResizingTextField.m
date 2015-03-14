@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                A subclass of NSTextField that maintains its intrinsicContentSize property based on the size of its text.
-            
+    A subclass of \c NSTextField that maintains its \c intrinsicContentSize property based on the size of its text.
  */
 
 #import "AAPLResizingTextField.h"

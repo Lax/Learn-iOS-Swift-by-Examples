@@ -1,0 +1,4 @@
+/* Display name and description for this extension. */
+"CFBundleDisplayName" = "Lister";
+"com.apple.notificationcenter.widget.description" = "Lister Today View";
+

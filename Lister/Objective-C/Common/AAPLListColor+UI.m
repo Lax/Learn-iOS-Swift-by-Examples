@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                Enhancements for the AAPLListColor enumeration that add the ability to obtain a platform-specific color object from the enumeration value.
-            
+    Enhancements for the \c AAPLListColor enumeration that add the ability to obtain a platform-specific color object from the enumeration value.
 */
 
 #import "AAPLListColor+UI.h"

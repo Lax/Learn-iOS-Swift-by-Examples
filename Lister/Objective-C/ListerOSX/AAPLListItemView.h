@@ -1,12 +1,10 @@
 /*
-     Copyright (C) 2014 Apple Inc. All Rights Reserved.
-     See LICENSE.txt for this sample’s licensing information
-     
-     Abstract:
-     
-                  An NSTableCellView subclass that has a few controls that represent the state of a ListItem object.
-              
- */
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
+    See LICENSE.txt for this sample’s licensing information
+    
+    Abstract:
+    An \c NSTableCellView subclass that has a few controls that represent the state of a \c AAPLListItem object.
+*/
 
 @import Cocoa;
 
@@ -22,7 +20,7 @@
 
 @property (weak) id<AAPLListItemViewDelegate> delegate;
 
-@property (getter=isComplete) BOOL completed;
+@property (getter=isComplete) BOOL complete;
 
 @property NSColor *tintColor;
 

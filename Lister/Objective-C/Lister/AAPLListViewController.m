@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                The \c AAPLListViewController class displays the contents of a list document. It also allows the user to create, update, and delete items, change the color of the list, or delete the list.
-            
+    The \c AAPLListViewController class displays the contents of a list document. It also allows the user to create, update, and delete items, change the color of the list, or delete the list.
 */
 
 @import NotificationCenter;
@@ -15,6 +13,7 @@
 #import "AAPLListViewController.h"
 #import "AAPLListItemCell.h"
 #import "AAPLListColorCell.h"
+#import "AAPLList.h"
 
 // Table view cell identifiers.
 NSString *const AAPLListViewControllerListItemCellIdentifier = @"listItemCell";
@@ -28,11 +27,11 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 
 @property (nonatomic, strong) AAPLListInfo *listInfo;
 
-@property (nonatomic, readonly) AAPLList *list;
-
 @property (nonatomic, readonly) NSURL *documentURL;
 
 @property (nonatomic, readonly) NSArray *listToolbarItems;
+
+@property (nonatomic, readonly) AAPLAllListItemsPresenter *listPresenter;
 
 @end
 
@@ -41,8 +40,14 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 
 #pragma mark - View Life Cycle
 
+- (BOOL)canBecomeFirstResponder {
+    return true;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.rowHeight = 44.0;
     
     [self updateInterfaceWithTextAttributes];
     
@@ -61,7 +66,18 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
             abort();
         }
         
-        [self.tableView reloadData];
+        self.textAttributes = @{
+            NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline],
+            NSForegroundColorAttributeName: AAPLColorFromListColor(self.listPresenter.color)
+        };
+        
+        /*
+            When the document is opened, make sure that the document stores its extra metadata in the `userInfo`
+            dictionary. See `AAPLListDocument`'s -updateUserActivityState: method for more information.
+        */
+        if (self.document.userActivity) {
+            [self.document updateUserActivityState:self.document.userActivity];
+        }
 
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }];
@@ -71,6 +87,8 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
+    [self resignFirstResponder];
     
     self.document.delegate = nil;
     [self.document closeWithCompletionHandler:nil];
@@ -83,12 +101,25 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 
 #pragma mark - Property Overrides
 
-- (AAPLList *)list {
-    return self.document.list;
-}
-
 - (NSURL *)documentURL {
     return self.document.fileURL;
+}
+
+- (void)setDocument:(AAPLListDocument *)document {
+    _document = document;
+    
+    document.delegate = self;
+
+    self.listPresenter.undoManager = document.undoManager;
+    self.listPresenter.delegate = self;
+}
+
+- (NSUndoManager *)undoManager {
+    return self.document.undoManager;
+}
+
+- (AAPLAllListItemsPresenter *)listPresenter {
+    return self.document.listPresenter;
 }
 
 - (void)setTextAttributes:(NSDictionary *)textAttributes {
@@ -101,6 +132,8 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 
 // Return the toolbar items since they are used in edit mode.
 - (NSArray *)listToolbarItems {
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
     NSString *title = NSLocalizedString(@"Delete List", nil);
     UIBarButtonItem *deleteList = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(deleteList:)];
     deleteList.tintColor = [UIColor redColor];
@@ -108,8 +141,6 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
     if ([self.documentURL.lastPathComponent isEqualToString:[AAPLAppConfiguration sharedAppConfiguration].localizedTodayDocumentNameAndExtension]) {
         deleteList.enabled = false;
     }
-    
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
     return @[flexibleSpace, deleteList, flexibleSpace];
 }
@@ -119,9 +150,9 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 - (void)configureWithListInfo:(AAPLListInfo *)listInfo {
     self.listInfo = listInfo;
     
-    self.document = [[AAPLListDocument alloc] initWithFileURL:listInfo.URL];
-    self.document.delegate = self;
-    
+    AAPLAllListItemsPresenter *listPresenter = [[AAPLAllListItemsPresenter alloc] init];
+    self.document = [[AAPLListDocument alloc] initWithFileURL:listInfo.URL listPresenter:listPresenter];
+
     self.navigationItem.title = listInfo.name;
     
     self.textAttributes = @{
@@ -139,6 +170,7 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
         [self resolveConflicts];
     }
     
+    // In order to update the UI, dispatch back to the main queue as there are no promises about the queue this will be called on.
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
@@ -161,13 +193,10 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
     
     // If moving out of edit mode, notify observers about the list color and trigger a save.
     if (!editing) {
-        // Notify the document of a change.
-        [self.document updateChangeCount:UIDocumentChangeDone];
-
         // If the list info doesn't already exist (but it should), then create a new one.
         self.listInfo = self.listInfo ?: [[AAPLListInfo alloc] initWithURL:self.documentURL];
-        self.listInfo.color = self.list.color;
-        [self.listController setListInfoHasNewContents:self.listInfo];
+        self.listInfo.color = self.listPresenter.color;
+        [self.listsController setListInfoHasNewContents:self.listInfo];
         
         [self triggerNewDataForWidget];
     }
@@ -185,7 +214,7 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
     }
 
     // Show the items in a list, plus a separate row that lets users enter a new item.
-    return self.list.count + 1;
+    return self.listPresenter.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -224,71 +253,63 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
         return;
     }
 
-    AAPLListItem *item = self.list[indexPath.row - 1];
-    [self.list removeItems:@[item]];
-    
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
-    [self triggerNewDataForWidget];
-    
-    // Notify the document of a change.
-    [self.document updateChangeCount:UIDocumentChangeDone];
+    AAPLListItem *listItem = self.listPresenter.presentedListItems[indexPath.row - 1];
+    [self.listPresenter removeListItem:listItem];
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-    AAPLListItem *item = self.list[fromIndexPath.row - 1];
-    [self.list moveItem:item toIndex:toIndexPath.row - 1];
+    AAPLListItem *item = self.listPresenter.presentedListItems[fromIndexPath.row - 1];
     
-    // Notify the document of a change.
-    [self.document updateChangeCount:UIDocumentChangeDone];
+    // `toIndexPath.row` will never be `0` since we don't allow moving to the zeroth row (it's the color selection row).
+    [self.listPresenter moveListItem:item toIndex:toIndexPath.row - 1];
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Assert if attempting to configure an unknown or unsupported cell type.
+    // Make sure the cell is one of the classes we've specified.
     NSParameterAssert([cell isKindOfClass:[AAPLListColorCell class]] || [cell isKindOfClass:[AAPLListItemCell class]]);
     
     if ([cell isKindOfClass:[AAPLListColorCell class]]) {
         AAPLListColorCell *colorCell = (AAPLListColorCell *)cell;
         [colorCell configure];
-        colorCell.selectedColor = self.list.color;
+        colorCell.selectedColor = self.listPresenter.color;
         colorCell.delegate = self;
     }
     else if ([cell isKindOfClass:[AAPLListItemCell class]]) {
-        [self configureListItemCell:(AAPLListItemCell *)cell usingColor:self.list.color forRow:indexPath.row];
+        [self configureListItemCell:(AAPLListItemCell *)cell forRow:indexPath.row];
     }
 }
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    // When the user swipes to show the delete confirmation, don't enter editing mode.
-    // UITableViewController enters editing mode by default so we override without calling super.
+    /*
+        When the user swipes to show the delete confirmation, don't enter editing mode.
+        `UITableViewController` enters editing mode by default so we override without calling super.
+    */
 }
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    // When the user swipes to hide the delete confirmation, no need to exit edit mode because we didn't enter it.
-    // UITableViewController enters editing mode by default so we override without calling super.
+    /*
+        When the user swipes to hide the delete confirmation, no need to exit edit mode because we didn't enter it.
+        `UITableViewController` enters editing mode by default so we override without calling super.
+    */
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)fromIndexPath toProposedIndexPath:(NSIndexPath *)proposedIndexPath {
-    AAPLListItem *item = self.list[fromIndexPath.row - 1];
+    AAPLListItem *listItem = self.listPresenter.presentedListItems[fromIndexPath.row - 1];
     
     if (proposedIndexPath.row == 0) {
-        NSInteger row = item.isComplete ? self.list.indexOfFirstCompletedItem + 1 : 1;
-
-        return [NSIndexPath indexPathForRow:row inSection:0];
+        return fromIndexPath;
     }
-    else if ([self.list canMoveItem:item toIndex:proposedIndexPath.row - 1 inclusive:NO]) {
+    else if ([self.listPresenter canMoveListItem:listItem toIndex:proposedIndexPath.row - 1]) {
         return proposedIndexPath;
     }
-    else if (item.isComplete) {
-        return [NSIndexPath indexPathForRow:self.list.indexOfFirstCompletedItem + 1 inSection:0];
-    }
-    else {
-        return [NSIndexPath indexPathForRow:self.list.indexOfFirstCompletedItem inSection:0];
-    }
     
-    return proposedIndexPath;
+    return fromIndexPath;
 }
 
 #pragma mark - UITextFieldDelegate
@@ -298,94 +319,44 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    BOOL shouldNotifyDocumentOfChange = NO;
-    
     NSIndexPath *indexPath = [self indexPathForView:textField];
     
-    // Check to see if a change needs to be made to an existing list item (i.e. row > 0)
-    // or if we need to insert a new list item.
-    BOOL isForExistingListItem = indexPath.row > 0;
-    
-    if (isForExistingListItem) {
-        // Edit the item in place.
-        AAPLListItem *item = self.list[indexPath.row - 1];
+    if (indexPath != nil && indexPath.row > 0) {
+        AAPLListItem *listItem = self.listPresenter.presentedListItems[indexPath.row - 1];
         
-        // Delete the item row if the user deletes all characters in the text field.
-        if (textField.text.length == 0) {
-            [self.list removeItems:@[item]];
-            
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            
-            [self triggerNewDataForWidget];
-            
-            shouldNotifyDocumentOfChange = YES;
-        }
-        // Update the item's text if it changed (besides removing all characters, which is a delete).
-        else if (![item.text isEqualToString:textField.text]) {
-            item.text = textField.text;
-            
-            [self triggerNewDataForWidget];
-            
-            shouldNotifyDocumentOfChange = YES;
-        }
+        [self.listPresenter updateListItem:listItem withText:textField.text];
     }
     else if (textField.text.length > 0) {
-        // Adds the item to the top of the list.
-        AAPLListItem *item = [[AAPLListItem alloc] initWithText:textField.text];
-        NSInteger insertedIndex = [self.list insertItem:item];
+        AAPLListItem *listItem = [[AAPLListItem alloc] initWithText:textField.text];
         
-        // Update the edit row to show the check box.
-        AAPLListItemCell *itemCell = (AAPLListItemCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-        itemCell.checkBox.hidden = NO;
-        
-        // Update the edit row to indicate that deleting all text in an item will delete the item.
-        itemCell.textField.placeholder = NSLocalizedString(@"Delete Item", nil);
-        
-        // Insert a new add item row into the table view.
-        [self.tableView beginUpdates];
-        
-        NSIndexPath *targetIndexPath = [NSIndexPath indexPathForRow:insertedIndex inSection:0];
-        [self.tableView insertRowsAtIndexPaths:@[targetIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        
-        [self.tableView endUpdates];
-        
-        [self triggerNewDataForWidget];
-        
-        shouldNotifyDocumentOfChange = YES;
-    }
-    
-    if (shouldNotifyDocumentOfChange) {
-        [self.document updateChangeCount:UIDocumentChangeDone];
+        [self.listPresenter insertListItem:listItem];
     }
     
     self.activeTextField = nil;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    // Always resign first responder and return. If the field is empty, the item will be deleted.
-    [textField resignFirstResponder];
+    NSIndexPath *indexPath = [self indexPathForView:textField];
+    
+    if (textField.text.length == 0 || indexPath.row == 0) {
+        [textField resignFirstResponder];
+        
+        return YES;
+    }
 
-    return YES;
+    return NO;
 }
 
 #pragma mark - AAPLListColorCellDelegate
 
 - (void)listColorCellDidChangeSelectedColor:(AAPLListColorCell *)listColorCell {
-    self.list.color = listColorCell.selectedColor;
-    
-    self.textAttributes = @{
-        NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline],
-        NSForegroundColorAttributeName: AAPLColorFromListColor(self.list.color)
-    };
-    
-    NSArray *indexPaths = [self.tableView indexPathsForVisibleRows];
-    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+    self.listPresenter.color = listColorCell.selectedColor;
 }
 
 # pragma mark - IBActions
 
 - (IBAction)deleteList:(id)sender {
-    [self.listController removeListInfo:self.listInfo];
+    [self.listsController removeListInfo:self.listInfo];
 
     [self hideViewControllerAfterListWasDeleted];
 }
@@ -394,27 +365,10 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
     NSIndexPath *indexPath = [self indexPathForView:sender];
    
     // Check to see if the tapped row is within the list item rows.
-    if (indexPath.row >= 1 && indexPath.row <= self.list.count) {
-        AAPLListItem *item = self.list[indexPath.row - 1];
-        AAPLListOperationInfo info = [self.list toggleItem:item withPreferredDestinationIndex:NSNotFound];
+    if (indexPath.row >= 1 && indexPath.row <= self.listPresenter.count) {
+        AAPLListItem *listItem = self.listPresenter.presentedListItems[indexPath.row - 1];
         
-        if (info.fromIndex == info.toIndex) {
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
-        else {
-            // Animate the row up or down depending on whether it was complete/incomplete.
-            NSIndexPath *targetRow = [NSIndexPath indexPathForRow:info.toIndex + 1 inSection:0];
-            
-            [self.tableView beginUpdates];
-            [self.tableView moveRowAtIndexPath:indexPath toIndexPath:targetRow];
-            [self.tableView endUpdates];
-            [self.tableView reloadRowsAtIndexPaths:@[targetRow] withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
-        
-        [self triggerNewDataForWidget];
-        
-        // Notify the document of a change.
-        [self.document updateChangeCount:UIDocumentChangeDone];
+        [self.listPresenter toggleListItem:listItem];
     }
 }
 
@@ -422,6 +376,74 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
 
 - (void)listDocumentWasDeleted:(AAPLListDocument *)document {
     [self hideViewControllerAfterListWasDeleted];
+}
+
+#pragma mark - AAPLListPresenterDelegate
+
+- (void)listPresenterDidRefreshCompleteLayout:(id<AAPLListPresenting>)listPresenter {
+    self.textAttributes = @{
+        NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline],
+        NSForegroundColorAttributeName: AAPLColorFromListColor(self.listPresenter.color)
+    };
+    
+    [self.tableView reloadData];
+}
+
+- (void)listPresenterWillChangeListLayout:(id<AAPLListPresenting>)listPresenter isInitialLayout:(BOOL)isInitialLayout {
+    [self.tableView beginUpdates];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didInsertListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {
+    NSArray *indexPathsForInsertion = @[[NSIndexPath indexPathForRow:index + 1 inSection:0]];
+    
+    [self.tableView insertRowsAtIndexPaths:indexPathsForInsertion withRowAnimation:UITableViewRowAnimationFade];
+    
+    // Reload the ListItemCell to be configured for the row to create a new list item.
+    if (index == 0) {
+        NSArray *indexPathsForReloading = @[[NSIndexPath indexPathForRow:0 inSection:0]];
+        
+        [self.tableView reloadRowsAtIndexPaths:indexPathsForReloading withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didRemoveListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {
+    NSArray *indexPathsForRemoval = @[[NSIndexPath indexPathForRow:index + 1 inSection:0]];
+    
+    [self.tableView deleteRowsAtIndexPaths:indexPathsForRemoval withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didUpdateListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {
+    [self.tableView endUpdates];
+    
+    [self.tableView beginUpdates];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index + 1 inSection:0];
+    
+    AAPLListItemCell *listItemCell = (AAPLListItemCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    [self configureListItemCell:listItemCell forRow:index + 1];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didMoveListItem:(AAPLListItem *)listItem fromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
+    NSIndexPath *fromIndexPath = [NSIndexPath indexPathForRow:fromIndex + 1 inSection:0];
+    NSIndexPath *toIndexPath = [NSIndexPath indexPathForRow:toIndex + 1 inSection:0];
+    
+    [self.tableView moveRowAtIndexPath:fromIndexPath toIndexPath:toIndexPath];
+}
+
+- (void)listPresenter:(id<AAPLListPresenting>)listPresenter didUpdateListColorWithColor:(AAPLListColor)color {
+    self.textAttributes = @{
+        NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline],
+        NSForegroundColorAttributeName: AAPLColorFromListColor(color)
+    };
+    
+    // The document infrastructure needs to be updated to capture the list's color when it changes.
+    if (self.document.userActivity) {
+        [self.document updateUserActivityState:self.document.userActivity];
+    }
+}
+
+- (void)listPresenterDidChangeListLayout:(id<AAPLListPresenting>)listPresenter isInitialLayout:(BOOL)isInitialLayout {
+    [self.tableView endUpdates];
 }
 
 #pragma mark - Convenience
@@ -449,26 +471,26 @@ NSString *const AAPLListViewControllerListColorCellIdentifier = @"listColorCell"
     }
 }
 
-- (void)configureListItemCell:(AAPLListItemCell *)itemCell usingColor:(AAPLListColor)color forRow:(NSInteger)row {
-    itemCell.checkBox.checked = NO;
-    itemCell.checkBox.hidden = NO;
+- (void)configureListItemCell:(AAPLListItemCell *)listItemCell forRow:(NSInteger)row {
+    listItemCell.checkBox.checked = NO;
+    listItemCell.checkBox.hidden = NO;
     
-    itemCell.textField.text = @"";
-    itemCell.textField.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    itemCell.textField.delegate = self;
-    itemCell.textField.textColor = [UIColor darkTextColor];
-    itemCell.textField.enabled = YES;
+    listItemCell.textField.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    listItemCell.textField.delegate = self;
+    listItemCell.textField.textColor = [UIColor darkTextColor];
+    listItemCell.textField.enabled = YES;
     
     if (row == 0) {
         // Configure an "Add Item" list item cell.
-        itemCell.textField.placeholder = NSLocalizedString(@"Add Item", nil);
-        itemCell.checkBox.hidden = YES;
+        listItemCell.textField.placeholder = NSLocalizedString(@"Add Item", nil);
+        listItemCell.textField.text = @"";
+        listItemCell.checkBox.hidden = YES;
     }
     else {
-        AAPLListItem *item = self.list[row - 1];
+        AAPLListItem *listItem = self.listPresenter.presentedListItems[row - 1];
         
-        itemCell.complete = item.isComplete;
-        itemCell.textField.text = item.text;
+        listItemCell.complete = listItem.isComplete;
+        listItemCell.textField.text = listItem.text;
     }
 }
 

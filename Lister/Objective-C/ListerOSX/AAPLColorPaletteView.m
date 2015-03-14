@@ -1,12 +1,10 @@
 /*
-     Copyright (C) 2014 Apple Inc. All Rights Reserved.
-     See LICENSE.txt for this sample’s licensing information
-     
-     Abstract:
-     
-                  A color palette view that allows the user to select a color defined in the AAPLListColor enumeration.
-              
- */
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
+    See LICENSE.txt for this sample’s licensing information
+    
+    Abstract:
+    A color palette view that allows the user to select a color defined in the \c AAPLListColor enumeration.
+*/
 
 #import "AAPLColorPaletteView.h"
 @import QuartzCore;

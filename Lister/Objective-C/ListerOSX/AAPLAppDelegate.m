@@ -1,16 +1,13 @@
 /*
-     Copyright (C) 2014 Apple Inc. All Rights Reserved.
-     See LICENSE.txt for this sample’s licensing information
-     
-     Abstract:
-     
-                  The application delegate.
-              
- */
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
+    See LICENSE.txt for this sample’s licensing information
+    
+    Abstract:
+    The application delegate.
+*/
 
 #import "AAPLAppDelegate.h"
-@import ListerKitOSX;
-
+@import ListerKit;
 
 @interface AAPLAppDelegate()
 
@@ -41,8 +38,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUbiquityIdentityDidChangeNotification:) name:NSUbiquityIdentityDidChangeNotification object:nil];
 }
 
-// Note that there are two possibile callers for this method. The first is the application delegate if it's the first launch.
-// The other possibility is if you use the keyboard shortcut (Command-T) to open your Today document.
+/*!
+ * Note that there are two possibile callers for this method. The first is the application delegate if it's
+ * the first launch. The other possibility is if you use the keyboard shortcut (Command-T) to open your Today
+ * document.
+ */
 - (IBAction)openTodayDocument:(id)sender {
     [[AAPLTodayListManager sharedTodayListManager] fetchTodayDocumentURLWithCompletionHandler:^(NSURL *url) {
         if (!url) {
