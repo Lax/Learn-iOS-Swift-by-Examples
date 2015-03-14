@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                A view controller that demonstrates how to use UITextView.
-            
+    A view controller that demonstrates how to use UITextView.
 */
 
 import UIKit
@@ -58,11 +56,11 @@ class TextViewController: UIViewController, UITextViewDelegate {
     func keyboardWillChangeFrameWithNotification(notification: NSNotification, showsKeyboard: Bool) {
         let userInfo = notification.userInfo!
 
-        let animationDuration: NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber).doubleValue
+        let animationDuration: NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         
         // Convert the keyboard frame from screen to view coordinates.
-        let keyboardScreenBeginFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
-        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+        let keyboardScreenBeginFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         let keyboardViewBeginFrame = view.convertRect(keyboardScreenBeginFrame, fromView: view.window)
         let keyboardViewEndFrame = view.convertRect(keyboardScreenEndFrame, fromView: view.window)
@@ -107,7 +105,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
         let tintedRange = text.rangeOfString(NSLocalizedString("tinted", comment: ""))
 
         // Add bold. Take the current font descriptor and create a new font descriptor with an additional bold trait.
-        let boldFontDescriptor = textView.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
+        let boldFontDescriptor = textView.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)!
         let boldFont = UIFont(descriptor: boldFontDescriptor, size: 0)
         attributedText.addAttribute(NSFontAttributeName, value: boldFont, range: boldRange)
 

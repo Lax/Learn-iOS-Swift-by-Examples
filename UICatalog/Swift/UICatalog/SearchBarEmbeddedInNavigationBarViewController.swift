@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                A view controller that demonstrates how to present a search controller's search bar within a navigation bar.
-            
+    A view controller that demonstrates how to present a search controller's search bar within a navigation bar.
 */
 
 import UIKit
@@ -22,7 +20,7 @@ class SearchBarEmbeddedInNavigationBarViewController: SearchControllerBaseViewCo
         super.viewDidLoad()
         
         // Create the search results view controller and use it for the UISearchController.
-        let searchResultsController = storyboard!.instantiateViewControllerWithIdentifier(SearchResultsViewController.StoryboardConstants.identifier) as SearchResultsViewController
+        let searchResultsController = storyboard!.instantiateViewControllerWithIdentifier(SearchResultsViewController.StoryboardConstants.identifier) as! SearchResultsViewController
         
         // Create the search controller and make it perform the results updating.
         searchController = UISearchController(searchResultsController: searchResultsController)

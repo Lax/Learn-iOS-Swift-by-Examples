@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                A view controller that demonstrates how to use UIImageView.
-            
+    A view controller that demonstrates how to use UIImageView.
 */
 
 import UIKit
@@ -23,7 +21,7 @@ class ImageViewController: UIViewController {
     
     func configureImageView() {
         // The root view of the view controller set in Interface Builder is a UIImageView.
-        let imageView = view as UIImageView
+        let imageView = view as! UIImageView
         
         // Fetch the images (each image is of the format image_animal_number).        
         imageView.animationImages = map(1...5) { UIImage(named: "image_animal_\($0)")! }

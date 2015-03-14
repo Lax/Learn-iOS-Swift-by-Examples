@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                The view controller that demonstrates how to use UIAlertController.
-            
+    The view controller that demonstrates how to use UIAlertController.
 */
 
 import UIKit
@@ -261,10 +259,10 @@ class AlertControllerViewController : UITableViewController {
     // MARK: UITextFieldTextDidChangeNotification
 
     func handleTextFieldTextDidChangeNotification(notification: NSNotification) {
-        let textField = notification.object as UITextField
+        let textField = notification.object as! UITextField
 
         // Enforce a minimum length of >= 5 characters for secure text alerts.
-        secureTextAlertAction!.enabled = countElements(textField.text) >= 5
+        secureTextAlertAction!.enabled = count(textField.text) >= 5
     }
     
     // MARK: UITableViewDelegate

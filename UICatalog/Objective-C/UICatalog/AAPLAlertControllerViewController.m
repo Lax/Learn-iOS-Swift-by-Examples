@@ -1,11 +1,9 @@
 /*
- Copyright (C) 2014 Apple Inc. All Rights Reserved.
+ Copyright (C) 2015 Apple Inc. All Rights Reserved.
  See LICENSE.txt for this sample’s licensing information
  
  Abstract:
- 
-  The view controller that demonstrates how to use UIAlertController.
-  
+ The view controller that demonstrates how to use UIAlertController.
 */
 
 #import "AAPLAlertControllerViewController.h"

@@ -6,9 +6,17 @@ Note that this sample also shows you how to make your non-standard views (images
 
 You will also notice this sample shows how to localize string content by using the NSLocalizedString function. Each language has a "Localizeable.strings" file and this function refers to this file when loading the strings from the default bundle.
 
+## Build Requirements
+
+Xcode 6.3 and iOS 8.0 SDK or later
+
+## Runtime Requirements
+
+iOS 8.0 or later
+
 ## Written in Objective-C and Swift
 
-This sample is written in both Objective-C and Swift. Both versions of the sample are at the top level directory of this project in folders named "Objective-C" and "Swift". Both versions of the application have the exact same visual appearance; however, the code and structure may be different depending on the choice of language.
+This sample is provided in both Objective-C and Swift. Both versions of the application have the exact same visual appearance; however, the code and structure may be different depending on the choice of language.
 
 ## Using the Sample
 
@@ -40,13 +48,5 @@ UICatalog demonstrates how to configure and customize the following controls / c
 + UISearchBar
 + UISearchController
 + UIToolbar
-
-## Build
-
-Building this sample requires Xcode 6.0 and iOS 8.0 SDK
-
-## Runtime
-
-Running the sample requires iOS 8.0 or later.
 
 Copyright (C) 2014 Apple Inc. All rights reserved.

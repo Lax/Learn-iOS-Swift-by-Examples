@@ -1,11 +1,9 @@
 /*
-    Copyright (C) 2014 Apple Inc. All Rights Reserved.
+    Copyright (C) 2015 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    
-                A view controller that demonstrates how to use UIPickerView.
-            
+    A view controller that demonstrates how to use UIPickerView.
 */
 
 import UIKit
@@ -97,7 +95,7 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 
     // MARK: UIPickerViewDelegate
 
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString {
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let colorValue = CGFloat(row) * RGB.offset
 
         let value = CGFloat(colorValue) / RGB.max
