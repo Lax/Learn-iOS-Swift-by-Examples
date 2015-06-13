@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A178r" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eT1-6D-OLs">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photos View Controller-->
+        <scene sceneID="uEh-Sm-wmz">
+            <objects>
+                <viewController id="Mso-Eu-4PO" customClass="PhotosViewController" customModule="PhotoProgress" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1E7-QS-gAv"/>
+                        <viewControllerLayoutGuide type="bottom" id="TPT-7M-4PO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Ef-xO-KnR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJc-RL-hFe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="s5Z-Tx-3S8" kind="embed" identifier="collectionView" id="gb1-9L-Jua"/>
+                                </connections>
+                            </containerView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hpw-j6-tjM" userLabel="Progress Container View">
+                                <rect key="frame" x="0.0" y="514" width="600" height="42"/>
+                                <subviews>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jgt-Ay-v4f">
+                                        <rect key="frame" x="8" y="20" width="584" height="2"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="2hX-cf-4yu"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="2hX-cf-4yu"/>
+                                            </mask>
+                                        </variation>
+                                    </progressView>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="0.77659574468085102" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Jgt-Ay-v4f" secondAttribute="trailing" id="06v-px-EeN"/>
+                                    <constraint firstItem="Jgt-Ay-v4f" firstAttribute="leading" secondItem="Hpw-j6-tjM" secondAttribute="leadingMargin" id="63Z-dZ-4Dy"/>
+                                    <constraint firstAttribute="height" constant="50" id="HG2-IC-CAn"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jgt-Ay-v4f" secondAttribute="bottom" constant="20" id="jbM-BD-pmj"/>
+                                    <constraint firstItem="Jgt-Ay-v4f" firstAttribute="top" secondItem="Hpw-j6-tjM" secondAttribute="top" constant="20" id="tAp-Mf-sVp"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HG2-IC-CAn"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZJc-RL-hFe" secondAttribute="trailing" id="Anf-Z0-bwC"/>
+                            <constraint firstItem="TPT-7M-4PO" firstAttribute="top" secondItem="Hpw-j6-tjM" secondAttribute="bottom" id="F3D-xE-uM8"/>
+                            <constraint firstItem="ZJc-RL-hFe" firstAttribute="trailing" secondItem="5Ef-xO-KnR" secondAttribute="trailingMargin" id="GR6-Da-Lzb"/>
+                            <constraint firstAttribute="trailing" secondItem="Hpw-j6-tjM" secondAttribute="trailing" id="H07-uv-yNa"/>
+                            <constraint firstItem="Hpw-j6-tjM" firstAttribute="leading" secondItem="5Ef-xO-KnR" secondAttribute="leading" id="JWx-DC-hU8"/>
+                            <constraint firstAttribute="bottom" secondItem="ZJc-RL-hFe" secondAttribute="bottom" constant="20" symbolic="YES" id="Mn1-CE-ySb"/>
+                            <constraint firstAttribute="trailing" secondItem="ZJc-RL-hFe" secondAttribute="trailing" id="R1z-2w-3Pg"/>
+                            <constraint firstItem="ZJc-RL-hFe" firstAttribute="top" secondItem="5Ef-xO-KnR" secondAttribute="top" id="XeR-j8-vfr"/>
+                            <constraint firstItem="ZJc-RL-hFe" firstAttribute="top" secondItem="5Ef-xO-KnR" secondAttribute="top" id="c5Z-IW-okn"/>
+                            <constraint firstItem="ZJc-RL-hFe" firstAttribute="top" secondItem="5Ef-xO-KnR" secondAttribute="topMargin" id="edf-7x-KJf"/>
+                            <constraint firstItem="ZJc-RL-hFe" firstAttribute="leading" secondItem="5Ef-xO-KnR" secondAttribute="leading" id="ek9-Xn-uJr"/>
+                            <constraint firstItem="ZJc-RL-hFe" firstAttribute="leading" secondItem="5Ef-xO-KnR" secondAttribute="leading" id="gST-zx-FxO"/>
+                            <constraint firstItem="ZJc-RL-hFe" firstAttribute="leading" secondItem="5Ef-xO-KnR" secondAttribute="leadingMargin" id="xP4-Nx-MAB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Anf-Z0-bwC"/>
+                                <exclude reference="GR6-Da-Lzb"/>
+                                <exclude reference="XeR-j8-vfr"/>
+                                <exclude reference="edf-7x-KJf"/>
+                                <exclude reference="gST-zx-FxO"/>
+                                <exclude reference="xP4-Nx-MAB"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Import" id="mfo-aK-2ws" userLabel="Import Toolbar Item">
+                            <connections>
+                                <action selector="startImport" destination="Mso-Eu-4PO" id="Ai3-dZ-RFQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="vUJ-G8-plS"/>
+                    <connections>
+                        <outlet property="cancelToolbarItem" destination="Ab3-Xy-4uA" id="I0a-C8-Qcb"/>
+                        <outlet property="pauseToolbarItem" destination="HKr-E4-lS4" id="AX1-jr-iMN"/>
+                        <outlet property="progressContainerView" destination="Hpw-j6-tjM" id="LQx-AW-BjO"/>
+                        <outlet property="progressView" destination="Jgt-Ay-v4f" id="lrf-h9-CdP"/>
+                        <outlet property="resetToolbarItem" destination="SMY-2N-Q5Y" id="h2F-zh-y6y"/>
+                        <outlet property="resumeToolbarItem" destination="Bmp-kJ-hNu" id="2rg-Hp-DvT"/>
+                        <outlet property="startToolbarItem" destination="mfo-aK-2ws" id="FKx-RJ-dhX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eeK-ba-Jld" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Cancel" id="Ab3-Xy-4uA">
+                    <connections>
+                        <action selector="cancelImport" destination="Mso-Eu-4PO" id="hAC-Gc-9lR"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Pause" id="HKr-E4-lS4">
+                    <connections>
+                        <action selector="pauseImport" destination="Mso-Eu-4PO" id="dLC-Oa-4bx"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Resume" id="Bmp-kJ-hNu">
+                    <connections>
+                        <action selector="resumeImport" destination="Mso-Eu-4PO" id="LEM-pq-2rm"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Reset" id="SMY-2N-Q5Y" userLabel="Reset Toolbar Item">
+                    <connections>
+                        <action selector="resetImport" destination="Mso-Eu-4PO" id="QEj-lr-Xqx"/>
+                    </connections>
+                </barButtonItem>
+            </objects>
+            <point key="canvasLocation" x="1248" y="184"/>
+        </scene>
+        <!--Photos Collection View Controller-->
+        <scene sceneID="HLW-Tb-rNQ">
+            <objects>
+                <collectionViewController id="s5Z-Tx-3S8" customClass="PhotosCollectionViewController" customModule="PhotoProgress" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Cs4-xi-Dza">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FMq-YW-MYK">
+                            <size key="itemSize" width="300" height="300"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Photo" id="j9d-rb-zxM" customClass="PhotoCollectionViewCell" customModule="PhotoProgress" customModuleProvider="target">
+                                <rect key="frame" x="150" y="0.0" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ALQ-RY-TSP">
+                                            <rect key="frame" x="8" y="8" width="284" height="274"/>
+                                            <animations/>
+                                        </imageView>
+                                        <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aFy-vJ-c96">
+                                            <rect key="frame" x="8" y="290" width="284" height="2"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="10" id="7sQ-ZD-hiN"/>
+                                                <constraint firstAttribute="height" constant="2" id="miR-J6-Zof"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="7sQ-ZD-hiN"/>
+                                                </mask>
+                                            </variation>
+                                        </progressView>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="ALQ-RY-TSP" secondAttribute="trailing" id="3Jk-2U-KEC"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="ALQ-RY-TSP" secondAttribute="bottom" constant="8" id="9u5-mU-FQu"/>
+                                    <constraint firstItem="aFy-vJ-c96" firstAttribute="top" secondItem="ALQ-RY-TSP" secondAttribute="bottom" constant="8" symbolic="YES" id="AgT-PE-RAD"/>
+                                    <constraint firstItem="aFy-vJ-c96" firstAttribute="leading" secondItem="j9d-rb-zxM" secondAttribute="leadingMargin" id="Mo9-PS-he8"/>
+                                    <constraint firstItem="ALQ-RY-TSP" firstAttribute="top" secondItem="j9d-rb-zxM" secondAttribute="topMargin" id="MuU-bI-eNQ"/>
+                                    <constraint firstItem="ALQ-RY-TSP" firstAttribute="leading" secondItem="j9d-rb-zxM" secondAttribute="leadingMargin" id="QkX-MO-Cqk"/>
+                                    <constraint firstItem="aFy-vJ-c96" firstAttribute="bottom" secondItem="j9d-rb-zxM" secondAttribute="bottomMargin" id="Uly-TV-NY5"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="aFy-vJ-c96" secondAttribute="trailing" id="jh2-Cp-hMN"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="aFy-vJ-c96" secondAttribute="bottom" id="ycJ-OY-NQ1"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9u5-mU-FQu"/>
+                                        <exclude reference="ycJ-OY-NQ1"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="imageView" destination="ALQ-RY-TSP" id="aFT-2a-amY"/>
+                                    <outlet property="progressView" destination="aFy-vJ-c96" id="7IU-Af-fBh"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="s5Z-Tx-3S8" id="8LD-lB-cJh"/>
+                            <outlet property="delegate" destination="s5Z-Tx-3S8" id="dKK-9z-6UK"/>
+                        </connections>
+                    </collectionView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="QjC-7y-Rne"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Cs4-xi-Dza" id="0eB-76-G7I"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kxf-aO-E8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1980" y="183.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dDd-lK-VlZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" toolbarHidden="NO" id="eT1-6D-OLs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j4N-h3-5Xi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="5Og-7f-jeE">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="Mso-Eu-4PO" kind="relationship" relationship="rootViewController" id="j9T-my-S0p"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7rk-35-Omp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="435" y="184"/>
+        </scene>
+    </scenes>
+</document>
