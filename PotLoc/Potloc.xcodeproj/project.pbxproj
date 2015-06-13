@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A5858EA1B12B1B6001504BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5858E91B12B1B6001504BE /* AppDelegate.swift */; };
+		3A5858EC1B12B1B6001504BE /* PotlocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5858EB1B12B1B6001504BE /* PotlocViewController.swift */; };
+		3A5858EF1B12B1B7001504BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5858ED1B12B1B7001504BE /* Main.storyboard */; };
+		3A5858F11B12B1B7001504BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5858F01B12B1B7001504BE /* Assets.xcassets */; };
+		3A5858F41B12B1B7001504BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5858F21B12B1B7001504BE /* LaunchScreen.storyboard */; };
+		3A5858F91B12B1B7001504BE /* Potloc WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3A5858F81B12B1B7001504BE /* Potloc WatchKit App.app */; };
+		3A5858FF1B12B1B7001504BE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5858FD1B12B1B7001504BE /* Interface.storyboard */; };
+		3A5859011B12B1B7001504BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5859001B12B1B7001504BE /* Assets.xcassets */; };
+		3A5859081B12B1B7001504BE /* Potloc WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3A5859071B12B1B7001504BE /* Potloc WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3A58590D1B12B1B7001504BE /* PotlocInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A58590C1B12B1B7001504BE /* PotlocInterfaceController.swift */; };
+		3A58590F1B12B1B7001504BE /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A58590E1B12B1B7001504BE /* ExtensionDelegate.swift */; };
+		3A5859111B12B1B7001504BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5859101B12B1B7001504BE /* Assets.xcassets */; };
+		3A5859241B12B84C001504BE /* RequestLocationInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5859231B12B84C001504BE /* RequestLocationInterfaceController.swift */; };
+		3A5859291B12B9DA001504BE /* StreamLocationInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5859281B12B9DA001504BE /* StreamLocationInterfaceController.swift */; };
+		3ADE0B391B1F8E05003DF7AD /* PotlocConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE0B381B1F8E05003DF7AD /* PotlocConstants.swift */; };
+		3ADE0B3A1B1F8FAA003DF7AD /* PotlocConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE0B381B1F8E05003DF7AD /* PotlocConstants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A5858FA1B12B1B7001504BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A5858DE1B12B1B6001504BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A5858F71B12B1B7001504BE;
+			remoteInfo = "Potloc WatchKit App";
+		};
+		3A5859091B12B1B7001504BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A5858DE1B12B1B6001504BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A5859061B12B1B7001504BE;
+			remoteInfo = "Potloc WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3A5859181B12B1B7001504BE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3A5859081B12B1B7001504BE /* Potloc WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A58591C1B12B1B7001504BE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				3A5858F91B12B1B7001504BE /* Potloc WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3A5858E61B12B1B6001504BE /* Potloc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Potloc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A5858E91B12B1B6001504BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A5858EB1B12B1B6001504BE /* PotlocViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotlocViewController.swift; sourceTree = "<group>"; };
+		3A5858EE1B12B1B7001504BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A5858F01B12B1B7001504BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A5858F31B12B1B7001504BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3A5858F51B12B1B7001504BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5858F81B12B1B7001504BE /* Potloc WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Potloc WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A5858FE1B12B1B7001504BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		3A5859001B12B1B7001504BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A5859021B12B1B7001504BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5859071B12B1B7001504BE /* Potloc WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Potloc WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A58590C1B12B1B7001504BE /* PotlocInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotlocInterfaceController.swift; sourceTree = "<group>"; };
+		3A58590E1B12B1B7001504BE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		3A5859101B12B1B7001504BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A5859121B12B1B7001504BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5859231B12B84C001504BE /* RequestLocationInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestLocationInterfaceController.swift; sourceTree = "<group>"; };
+		3A5859281B12B9DA001504BE /* StreamLocationInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamLocationInterfaceController.swift; sourceTree = "<group>"; };
+		3ADE0B381B1F8E05003DF7AD /* PotlocConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotlocConstants.swift; sourceTree = "<group>"; };
+		3EEE2B391B1ED7C200FED015 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A5858E31B12B1B6001504BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A5859041B12B1B7001504BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A5858DD1B12B1B6001504BE = {
+			isa = PBXGroup;
+			children = (
+				3EEE2B391B1ED7C200FED015 /* README.md */,
+				3A5858E81B12B1B6001504BE /* Potloc */,
+				3A5858FC1B12B1B7001504BE /* Potloc WatchKit App */,
+				3A58590B1B12B1B7001504BE /* Potloc WatchKit Extension */,
+				3EF5FF1D1B1FDC750056412C /* Common */,
+				3A5858E71B12B1B6001504BE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A5858E71B12B1B6001504BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A5858E61B12B1B6001504BE /* Potloc.app */,
+				3A5858F81B12B1B7001504BE /* Potloc WatchKit App.app */,
+				3A5859071B12B1B7001504BE /* Potloc WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A5858E81B12B1B6001504BE /* Potloc */ = {
+			isa = PBXGroup;
+			children = (
+				3A5858ED1B12B1B7001504BE /* Main.storyboard */,
+				3A5858E91B12B1B6001504BE /* AppDelegate.swift */,
+				3A5858EB1B12B1B6001504BE /* PotlocViewController.swift */,
+				3A5858F01B12B1B7001504BE /* Assets.xcassets */,
+				3A5858F21B12B1B7001504BE /* LaunchScreen.storyboard */,
+				3A5858F51B12B1B7001504BE /* Info.plist */,
+			);
+			path = Potloc;
+			sourceTree = "<group>";
+		};
+		3A5858FC1B12B1B7001504BE /* Potloc WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				3A5858FD1B12B1B7001504BE /* Interface.storyboard */,
+				3A5859001B12B1B7001504BE /* Assets.xcassets */,
+				3A5859021B12B1B7001504BE /* Info.plist */,
+			);
+			path = "Potloc WatchKit App";
+			sourceTree = "<group>";
+		};
+		3A58590B1B12B1B7001504BE /* Potloc WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3A58590C1B12B1B7001504BE /* PotlocInterfaceController.swift */,
+				3A5859231B12B84C001504BE /* RequestLocationInterfaceController.swift */,
+				3A5859281B12B9DA001504BE /* StreamLocationInterfaceController.swift */,
+				3A58590E1B12B1B7001504BE /* ExtensionDelegate.swift */,
+				3A5859101B12B1B7001504BE /* Assets.xcassets */,
+				3A5859121B12B1B7001504BE /* Info.plist */,
+			);
+			path = "Potloc WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		3EF5FF1D1B1FDC750056412C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3ADE0B381B1F8E05003DF7AD /* PotlocConstants.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A5858E51B12B1B6001504BE /* Potloc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A58591D1B12B1B7001504BE /* Build configuration list for PBXNativeTarget "Potloc" */;
+			buildPhases = (
+				3A5858E21B12B1B6001504BE /* Sources */,
+				3A5858E31B12B1B6001504BE /* Frameworks */,
+				3A5858E41B12B1B6001504BE /* Resources */,
+				3A58591C1B12B1B7001504BE /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A5858FB1B12B1B7001504BE /* PBXTargetDependency */,
+			);
+			name = Potloc;
+			productName = Potloc;
+			productReference = 3A5858E61B12B1B6001504BE /* Potloc.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A5858F71B12B1B7001504BE /* Potloc WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A5859191B12B1B7001504BE /* Build configuration list for PBXNativeTarget "Potloc WatchKit App" */;
+			buildPhases = (
+				3A5858F61B12B1B7001504BE /* Resources */,
+				3A5859181B12B1B7001504BE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A58590A1B12B1B7001504BE /* PBXTargetDependency */,
+			);
+			name = "Potloc WatchKit App";
+			productName = "Potloc WatchKit App";
+			productReference = 3A5858F81B12B1B7001504BE /* Potloc WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		3A5859061B12B1B7001504BE /* Potloc WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A5859151B12B1B7001504BE /* Build configuration list for PBXNativeTarget "Potloc WatchKit Extension" */;
+			buildPhases = (
+				3A5859031B12B1B7001504BE /* Sources */,
+				3A5859041B12B1B7001504BE /* Frameworks */,
+				3A5859051B12B1B7001504BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Potloc WatchKit Extension";
+			productName = "Potloc WatchKit Extension";
+			productReference = 3A5859071B12B1B7001504BE /* Potloc WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A5858DE1B12B1B6001504BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Apple Inc.";
+				TargetAttributes = {
+					3A5858E51B12B1B6001504BE = {
+						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					3A5858F71B12B1B7001504BE = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					3A5859061B12B1B7001504BE = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = 3A5858E11B12B1B6001504BE /* Build configuration list for PBXProject "Potloc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A5858DD1B12B1B6001504BE;
+			productRefGroup = 3A5858E71B12B1B6001504BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A5858E51B12B1B6001504BE /* Potloc */,
+				3A5858F71B12B1B7001504BE /* Potloc WatchKit App */,
+				3A5859061B12B1B7001504BE /* Potloc WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A5858E41B12B1B6001504BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A5858F41B12B1B7001504BE /* LaunchScreen.storyboard in Resources */,
+				3A5858F11B12B1B7001504BE /* Assets.xcassets in Resources */,
+				3A5858EF1B12B1B7001504BE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A5858F61B12B1B7001504BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A5859011B12B1B7001504BE /* Assets.xcassets in Resources */,
+				3A5858FF1B12B1B7001504BE /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A5859051B12B1B7001504BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A5859111B12B1B7001504BE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A5858E21B12B1B6001504BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A5858EC1B12B1B6001504BE /* PotlocViewController.swift in Sources */,
+				3A5858EA1B12B1B6001504BE /* AppDelegate.swift in Sources */,
+				3ADE0B391B1F8E05003DF7AD /* PotlocConstants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A5859031B12B1B7001504BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A5859291B12B9DA001504BE /* StreamLocationInterfaceController.swift in Sources */,
+				3ADE0B3A1B1F8FAA003DF7AD /* PotlocConstants.swift in Sources */,
+				3A58590F1B12B1B7001504BE /* ExtensionDelegate.swift in Sources */,
+				3A58590D1B12B1B7001504BE /* PotlocInterfaceController.swift in Sources */,
+				3A5859241B12B84C001504BE /* RequestLocationInterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A5858FB1B12B1B7001504BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A5858F71B12B1B7001504BE /* Potloc WatchKit App */;
+			targetProxy = 3A5858FA1B12B1B7001504BE /* PBXContainerItemProxy */;
+		};
+		3A58590A1B12B1B7001504BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A5859061B12B1B7001504BE /* Potloc WatchKit Extension */;
+			targetProxy = 3A5859091B12B1B7001504BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3A5858ED1B12B1B7001504BE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A5858EE1B12B1B7001504BE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3A5858F21B12B1B7001504BE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A5858F31B12B1B7001504BE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3A5858FD1B12B1B7001504BE /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A5858FE1B12B1B7001504BE /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A5859131B12B1B7001504BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TOOLCHAINS = default;
+			};
+			name = Debug;
+		};
+		3A5859141B12B1B7001504BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TOOLCHAINS = default;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A5859161B12B1B7001504BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Potloc WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Potloc.nativewatchkitapp.nativewatchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		3A5859171B12B1B7001504BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Potloc WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Potloc.nativewatchkitapp.nativewatchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		3A58591A1B12B1B7001504BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Potloc_WatchKit_Extension;
+				INFOPLIST_FILE = "Potloc WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Potloc.nativewatchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		3A58591B1B12B1B7001504BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Potloc_WatchKit_Extension;
+				INFOPLIST_FILE = "Potloc WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Potloc.nativewatchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		3A58591E1B12B1B7001504BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Potloc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Potloc";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3A58591F1B12B1B7001504BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Potloc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Potloc";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A5858E11B12B1B6001504BE /* Build configuration list for PBXProject "Potloc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A5859131B12B1B7001504BE /* Debug */,
+				3A5859141B12B1B7001504BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A5859151B12B1B7001504BE /* Build configuration list for PBXNativeTarget "Potloc WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A5859161B12B1B7001504BE /* Debug */,
+				3A5859171B12B1B7001504BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A5859191B12B1B7001504BE /* Build configuration list for PBXNativeTarget "Potloc WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A58591A1B12B1B7001504BE /* Debug */,
+				3A58591B1B12B1B7001504BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A58591D1B12B1B7001504BE /* Build configuration list for PBXNativeTarget "Potloc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A58591E1B12B1B7001504BE /* Debug */,
+				3A58591F1B12B1B7001504BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A5858DE1B12B1B6001504BE /* Project object */;
+}

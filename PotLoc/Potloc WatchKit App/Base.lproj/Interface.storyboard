@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8121.17" systemVersion="15A178t" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8066.14"/>
+    </dependencies>
+    <scenes>
+        <!--Potloc-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="Potloc" id="AgC-eL-Hgc" customClass="PotlocInterfaceController" customModule="Potloc_WatchKit_Extension">
+                    <items>
+                        <label width="136" alignment="left" text="Watch" textAlignment="center" id="SsQ-H0-M5d"/>
+                        <button width="1" alignment="left" title="Request" id="ORx-IS-2QV">
+                            <connections>
+                                <segue destination="vKN-QW-QSX" kind="push" id="e2y-YJ-buV"/>
+                            </connections>
+                        </button>
+                        <label width="136" alignment="left" text="iPhone" textAlignment="center" id="Bgw-OG-jqr"/>
+                        <button width="1" alignment="left" title="Stream" id="qYD-Ej-ff4">
+                            <connections>
+                                <segue destination="GfQ-kZ-q03" kind="push" id="HBc-h1-HxZ"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="appleWatchLabel" destination="SsQ-H0-M5d" id="iMD-TZ-zSp"/>
+                        <outlet property="iPhoneLabel" destination="Bgw-OG-jqr" id="aw6-FQ-PjR"/>
+                        <outlet property="requestButton" destination="ORx-IS-2QV" id="BpJ-rj-gXz"/>
+                        <outlet property="streamButton" destination="qYD-Ej-ff4" id="Tiz-hD-xPk"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="297" y="510"/>
+        </scene>
+        <!--Request-->
+        <scene sceneID="CZE-it-a52">
+            <objects>
+                <controller title="Request" hidesWhenLoading="NO" id="vKN-QW-QSX" customClass="RequestLocationInterfaceController" customModule="Potloc_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="Request Location" id="1VS-TO-RYx">
+                            <connections>
+                                <action selector="requestLocation:" destination="vKN-QW-QSX" id="Sub-nD-iv4"/>
+                            </connections>
+                        </button>
+                        <timer alignment="left" id="qpm-Zg-mhf"/>
+                        <separator alignment="left" id="vK1-9E-kfS"/>
+                        <label alignment="left" text="Label" id="jpF-sQ-sjD"/>
+                        <label alignment="left" text="Label" id="Xry-1x-JDh"/>
+                        <separator alignment="left" id="x6Z-ra-Hm7"/>
+                        <label alignment="left" text="Label" numberOfLines="0" id="WTm-mB-7Kd"/>
+                    </items>
+                    <connections>
+                        <outlet property="displayTimer" destination="qpm-Zg-mhf" id="Xzb-eh-U9S"/>
+                        <outlet property="errorLabel" destination="WTm-mB-7Kd" id="RXk-5s-CYR"/>
+                        <outlet property="latitudeLabel" destination="jpF-sQ-sjD" id="IZU-CZ-aIh"/>
+                        <outlet property="longitudeLabel" destination="Xry-1x-JDh" id="5TX-s5-9RD"/>
+                        <outlet property="requestLocationButton" destination="1VS-TO-RYx" id="pUD-8f-NFy"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="618" y="393"/>
+        </scene>
+        <!--Stream-->
+        <scene sceneID="jvN-4t-kTW">
+            <objects>
+                <controller title="Stream" hidesWhenLoading="NO" id="GfQ-kZ-q03" customClass="StreamLocationInterfaceController" customModule="Potloc_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="Start" id="Vvg-Ow-bTs">
+                            <connections>
+                                <action selector="startStopUpdatingLocation:" destination="GfQ-kZ-q03" id="aHM-59-soO"/>
+                            </connections>
+                        </button>
+                        <label width="133" alignment="left" text="iPhone Locations Received:" numberOfLines="0" id="v52-iB-HT1"/>
+                        <label width="136" alignment="left" text="0" numberOfLines="0" id="TZa-aB-Abs"/>
+                    </items>
+                    <connections>
+                        <outlet property="locationsReceivedOnPhoneCount" destination="TZa-aB-Abs" id="NDE-L1-21w"/>
+                        <outlet property="locationsReeivedOnPhoneCountTitleLabel" destination="v52-iB-HT1" id="RFu-FN-q0I"/>
+                        <outlet property="startStopButton" destination="Vvg-Ow-bTs" id="dMh-9N-eri"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="616" y="640"/>
+        </scene>
+    </scenes>
+</document>

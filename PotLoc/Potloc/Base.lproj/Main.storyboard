@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A178r" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Potloc View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PotlocViewController" customModule="Potloc" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location manager not updating locations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQd-yF-GPh">
+                                <rect key="frame" x="20" y="40" width="560" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location batch size:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Br9-eS-VMs">
+                                <rect key="frame" x="20" y="68.5" width="470" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRy-84-XZk">
+                                <rect key="frame" x="490" y="68.5" width="90" height="20.5"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="Muu-Ew-vid"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hf-4J-5Qk">
+                                <rect key="frame" x="490" y="97" width="90" height="20.5"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="32b-IX-obI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foq-1x-DAR">
+                                <rect key="frame" x="20" y="285" width="560" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Start updating location"/>
+                                <connections>
+                                    <action selector="startStopUpdatingLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NTM-oh-TLP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total locations received:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqL-ZZ-qXM">
+                                <rect key="frame" x="20" y="97" width="470" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="eRy-84-XZk" secondAttribute="trailing" id="1iL-Ce-egP"/>
+                            <constraint firstItem="eQd-yF-GPh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4na-Sv-FqO"/>
+                            <constraint firstItem="eRy-84-XZk" firstAttribute="top" secondItem="Br9-eS-VMs" secondAttribute="bottom" constant="8" id="7At-mw-kwV"/>
+                            <constraint firstItem="eQd-yF-GPh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="ANL-sR-6WH"/>
+                            <constraint firstItem="eRy-84-XZk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ATi-yi-UaL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eQd-yF-GPh" secondAttribute="trailing" id="EWS-PS-LVu"/>
+                            <constraint firstItem="1Hf-4J-5Qk" firstAttribute="top" secondItem="eRy-84-XZk" secondAttribute="bottom" constant="8" id="KY2-Zx-0Vk"/>
+                            <constraint firstItem="tqL-ZZ-qXM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="LVY-hx-QcH"/>
+                            <constraint firstItem="foq-1x-DAR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M1K-7n-hkj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Hf-4J-5Qk" secondAttribute="trailing" id="ZTq-TT-mhz"/>
+                            <constraint firstItem="Br9-eS-VMs" firstAttribute="top" secondItem="eQd-yF-GPh" secondAttribute="bottom" constant="8" id="a7R-S9-Zty"/>
+                            <constraint firstItem="eQd-yF-GPh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eNu-qy-qNe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="foq-1x-DAR" secondAttribute="trailing" id="hYc-6e-hmC"/>
+                            <constraint firstItem="tqL-ZZ-qXM" firstAttribute="top" secondItem="Br9-eS-VMs" secondAttribute="bottom" constant="8" id="kql-1b-xTH"/>
+                            <constraint firstItem="eRy-84-XZk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nWc-nU-3Nr"/>
+                            <constraint firstItem="foq-1x-DAR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oxC-7I-3Rb"/>
+                            <constraint firstItem="eRy-84-XZk" firstAttribute="leading" secondItem="Br9-eS-VMs" secondAttribute="trailing" id="sDK-Qn-dyC"/>
+                            <constraint firstItem="eRy-84-XZk" firstAttribute="top" secondItem="eQd-yF-GPh" secondAttribute="bottom" constant="8" id="tY1-fx-NfY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Br9-eS-VMs" secondAttribute="trailing" id="w2S-NS-vDJ"/>
+                            <constraint firstItem="eQd-yF-GPh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wRU-Kd-aJs"/>
+                            <constraint firstItem="foq-1x-DAR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xlk-9c-l4P"/>
+                            <constraint firstItem="1Hf-4J-5Qk" firstAttribute="leading" secondItem="tqL-ZZ-qXM" secondAttribute="trailing" id="ywp-n9-6M3"/>
+                            <constraint firstItem="Br9-eS-VMs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="zSB-IY-JOh"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4na-Sv-FqO"/>
+                                <exclude reference="eNu-qy-qNe"/>
+                                <exclude reference="w2S-NS-vDJ"/>
+                                <exclude reference="1iL-Ce-egP"/>
+                                <exclude reference="7At-mw-kwV"/>
+                                <exclude reference="nWc-nU-3Nr"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="locationBatchSizeLabel" destination="eRy-84-XZk" id="R5O-FT-T1G"/>
+                        <outlet property="locationBatchSizeTitleLabel" destination="Br9-eS-VMs" id="0NP-Ur-MOo"/>
+                        <outlet property="managerStatusLabel" destination="eQd-yF-GPh" id="qNe-Sg-Tfy"/>
+                        <outlet property="receivedLocationCountLabel" destination="1Hf-4J-5Qk" id="zK0-zv-kmq"/>
+                        <outlet property="receivedLocationCountTitleLabel" destination="tqL-ZZ-qXM" id="BOG-PU-H3C"/>
+                        <outlet property="startStopUpdatingLocationButton" destination="foq-1x-DAR" id="TX5-BC-7Z5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="857" y="527"/>
+        </scene>
+    </scenes>
+</document>
