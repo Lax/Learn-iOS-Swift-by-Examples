@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A178n" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Yx6-Rv-4Rt">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="ptT-1U-RxG">
+            <objects>
+                <tableViewController id="Yx6-Rv-4Rt" customClass="TodayViewController" customModule="Lister" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qUQ-YA-DWa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="todayViewCell" id="yvc-Rb-Ky9" customClass="CheckBoxCell" customModule="Lister">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yvc-Rb-Ky9" id="FVA-2r-Qck">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SdY-qH-iah" customClass="CheckBox" customModule="ListerKit">
+                                            <rect key="frame" x="15" y="8" width="28" height="28"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="SdY-qH-iah" secondAttribute="height" multiplier="1:1" id="ZEg-1d-KMS"/>
+                                                <constraint firstAttribute="width" constant="28" id="bNG-ey-viH"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="insetFactor">
+                                                    <real key="value" value="0.171875"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="strokeFactor">
+                                                    <real key="value" value="0.068359375"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="checkBoxTapped:" destination="Yx6-Rv-4Rt" eventType="touchUpInside" id="X65-ZG-6tK"/>
+                                            </connections>
+                                        </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpF-CM-0Y8">
+                                            <rect key="frame" x="58" y="12" width="247" height="20"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="bpF-CM-0Y8" firstAttribute="leading" secondItem="SdY-qH-iah" secondAttribute="trailing" constant="15" id="3bX-xw-2S0"/>
+                                        <constraint firstAttribute="bottom" secondItem="SdY-qH-iah" secondAttribute="bottom" constant="8" id="Ae1-1Y-6SB"/>
+                                        <constraint firstAttribute="centerY" secondItem="bpF-CM-0Y8" secondAttribute="centerY" id="Jld-hP-mol"/>
+                                        <constraint firstItem="SdY-qH-iah" firstAttribute="leading" secondItem="FVA-2r-Qck" secondAttribute="leading" constant="15" id="OBm-Jx-Jkl"/>
+                                        <constraint firstItem="SdY-qH-iah" firstAttribute="top" secondItem="FVA-2r-Qck" secondAttribute="top" constant="8" id="Xl6-eD-p6n"/>
+                                        <constraint firstAttribute="trailing" secondItem="bpF-CM-0Y8" secondAttribute="trailing" constant="15" id="jNW-fZ-UrU"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="checkBox" destination="SdY-qH-iah" id="piX-je-ZlD"/>
+                                    <outlet property="label" destination="bpF-CM-0Y8" id="tvC-hs-6vU"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="messageCell" textLabel="A1L-bz-N4F" rowHeight="63" style="IBUITableViewCellStyleDefault" id="iIK-77-nn0">
+                                <rect key="frame" x="0.0" y="66" width="320" height="63"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iIK-77-nn0" id="YtQ-tO-l90">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A1L-bz-N4F">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="63"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Yx6-Rv-4Rt" id="7fu-R9-uFa"/>
+                            <outlet property="delegate" destination="Yx6-Rv-4Rt" id="uFG-i3-vV9"/>
+                        </connections>
+                    </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="200"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KX6-mw-unc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="533"/>
+        </scene>
+    </scenes>
+</document>

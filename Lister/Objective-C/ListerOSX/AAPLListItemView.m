@@ -19,6 +19,7 @@
 
 @implementation AAPLListItemView
 @synthesize complete = _complete;
+@dynamic textField;
 
 #pragma mark - View Life Cycle
 

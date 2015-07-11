@@ -179,7 +179,7 @@ NSString *AAPLTodayViewControllerMessageCellIdentifier = @"messageCell";
 }
 
 - (void)configureCheckBoxCell:(AAPLCheckBoxCell *)checkBoxCell forListItem:(AAPLListItem *)listItem {
-    checkBoxCell.checkBox.tintColor = AAPLColorFromListColor(self.listPresenter.color);
+    checkBoxCell.checkBox.tintColor = AAPLColorFromListColorForNotificationCenter(self.listPresenter.color);
     checkBoxCell.checkBox.checked = listItem.isComplete;
     checkBoxCell.checkBox.hidden = NO;
     
@@ -227,10 +227,6 @@ NSString *AAPLTodayViewControllerMessageCellIdentifier = @"messageCell";
 
     // Use the `extensionContext`'s ability to open a URL to trigger the containing app.
     [self.extensionContext openURL:urlComponents.URL completionHandler:nil];
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.layer.backgroundColor = [UIColor clearColor].CGColor;
 }
 
 #pragma mark - IBActions
@@ -297,7 +293,7 @@ NSString *AAPLTodayViewControllerMessageCellIdentifier = @"messageCell";
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
         
         AAPLCheckBoxCell *checkBoxCell = (AAPLCheckBoxCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-        checkBoxCell.checkBox.tintColor = AAPLColorFromListColor(color);
+        checkBoxCell.checkBox.tintColor = AAPLColorFromListColorForNotificationCenter(color);
     }
 }
 

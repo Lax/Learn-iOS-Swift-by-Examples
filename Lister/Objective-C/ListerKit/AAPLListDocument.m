@@ -12,6 +12,8 @@
 #import "AAPLList.h"
 #import "AAPLListColor+UI.h"
 
+@import WatchConnectivity;
+
 @implementation AAPLListDocument
 
 #pragma mark - Initialization
@@ -63,6 +65,38 @@
     else {
         return nil;
     }
+}
+
+#pragma mark - Saving
+
+- (void)saveToURL:(nonnull NSURL *)url forSaveOperation:(UIDocumentSaveOperation)saveOperation completionHandler:(void (^ __nullable)(BOOL))completionHandler {
+    [super saveToURL:url forSaveOperation:saveOperation completionHandler:^(BOOL success) {
+        // On a successful save, transfer the file to the paired watch if appropriate.
+        if ([WCSession isSupported] && [WCSession defaultSession].isWatchAppInstalled && success) {
+            NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
+            NSFileAccessIntent *readingIntent = [NSFileAccessIntent readingIntentWithURL:self.fileURL options:0];
+            [fileCoordinator coordinateAccessWithIntents:@[readingIntent] queue:[[NSOperationQueue alloc] init] byAccessor:^(NSError *accessError) {
+                if (accessError) {
+                    return;
+                }
+                
+                WCSession *session = [WCSession defaultSession];
+                
+                for (WCSessionFileTransfer *transfer in session.outstandingFileTransfers) {
+                    if ([transfer.file.fileURL isEqual:readingIntent.URL]) {
+                        [transfer cancel];
+                        break;
+                    }
+                }
+                
+                [session transferFile:readingIntent.URL metadata:nil];
+            }];
+        }
+        
+        if (completionHandler) {
+            completionHandler(success);
+        }
+    }];
 }
 
 #pragma mark - Deletion

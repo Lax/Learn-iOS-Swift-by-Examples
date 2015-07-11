@@ -66,8 +66,8 @@ NSString *const AAPLListWindowControllerStoryboardIdentifier = @"AAPLListWindowC
 #pragma mark - NSDocument Overrides
 
 /*!
- * Create window controllers from a storyboard, if desired (based on -makesWindowControllers).
- * The window controller that's used is the initial controller set in the storyboard.
+    Create window controllers from a storyboard, if desired (based on -makesWindowControllers).
+    The window controller that's used is the initial controller set in the storyboard.
  */
 - (void)makeWindowControllers {
     [super makeWindowControllers];

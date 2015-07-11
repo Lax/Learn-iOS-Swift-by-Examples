@@ -4,21 +4,8 @@
 
 2.0
 
-## Special Note
-
-Xcode 6.3 introduced several changes to the Swift programming language. Because of this, the Lister sample includes two versions of its Swift project:
-
-- Swift_Xcode_6.2 (for use with Xcode 6.2 only)
-- Swift_Xcode_6.3 (for use with Xcode 6.3 only)
-
-Please be sure to select the correct version of the project for your current version of Xcode.
-
-For a full description of the Swift changes in Xcode 6.3, see the Xcode Release Notes:
-
-https://developer.apple.com/library/prerelease/ios/releasenotes/DeveloperTools/RN-Xcode/Chapters/Introduction.html
-
 ## Build Requirements
-+ Xcode 6.2 or later
++ Xcode 6.3 or later
 + iOS 8.2 SDK or later
 + OS X 10.10 SDK or later
 + iCloud–enabled provisioning profile
@@ -51,7 +38,7 @@ Because Lister supports iCloud Documents and App Groups, the Lister Xcode projec
 
 ## Written in Objective-C and Swift
 
-This sample is provided in both Objective-C and Swift. Both versions of the application have the exact same visual appearance; however, the code and structure may be different depending on the choice of language.
+This sample is provided in both Objective-C and Swift. Both versions of the sample are at the top level directory of this project in folders named "Objective-C" and "Swift". Both versions of the application have the exact same visual appearance; however, the code and structure may be different depending on the choice of language.
 
 Note: The "List" class in Swift is conceptually equivalent to the "AAPLList" class in Objective C. The same applies to other classes mentioned in this README. This documentation refers to class names for both languages without the "AAPL" prefix, for brevity.
 

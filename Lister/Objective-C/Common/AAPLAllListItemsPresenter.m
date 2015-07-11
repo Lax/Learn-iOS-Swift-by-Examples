@@ -73,9 +73,9 @@
 }
 
 /*!
- * Sets the list that should be presented. Calling \c -setList: on an
- * \c AAPLAllListItemsPresenter does not trigger any undo registrations. Calling
- * \c -setList: also removes all of the undo actions from the undo manager.
+    Sets the list that should be presented. Calling \c -setList: on an
+    \c AAPLAllListItemsPresenter does not trigger any undo registrations. Calling
+    \c -setList: also removes all of the undo actions from the undo manager.
  */
 - (void)setList:(AAPLList *)newList {
     /*

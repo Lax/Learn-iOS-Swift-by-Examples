@@ -28,8 +28,8 @@
 @end
 
 /*!
- * Represents an undefined state for either the \c presentedTotalListItemCount or \c presentedCompleteListItemCount
- * properties.
+    Represents an undefined state for either the \c presentedTotalListItemCount or \c presentedCompleteListItemCount
+    properties.
 */
 const NSInteger AAPLGlanceInterfaceControllerCountUndefined = -1;
 
@@ -49,10 +49,6 @@ const NSInteger AAPLGlanceInterfaceControllerCountUndefined = -1;
     if (self) {
         _presentedTotalListItemCount = AAPLGlanceInterfaceControllerCountUndefined;
         _presentedCompleteListItemCount = AAPLGlanceInterfaceControllerCountUndefined;
-        
-        if ([AAPLAppConfiguration sharedAppConfiguration].isFirstLaunch) {
-            NSLog(@"Lister does not currently support configuring a storage option before the iOS app is launched. Please launch the iOS app first. See the Release Notes section in README.md for more information.");
-        }
     }
     
     return self;
@@ -102,8 +98,8 @@ const NSInteger AAPLGlanceInterfaceControllerCountUndefined = -1;
 }
 
 /*!
- * These methods are no ops because all of the data is bulk rendered after the the content changes. This can
- * occur in \c -listPresenterDidRefreshCompleteLayout: or in \c -listPresenterDidChangeListLayout:isInitialLayout:.
+    These methods are no ops because all of the data is bulk rendered after the the content changes. This can
+    occur in \c -listPresenterDidRefreshCompleteLayout: or in \c -listPresenterDidChangeListLayout:isInitialLayout:.
  */
 - (void)listPresenterWillChangeListLayout:(id<AAPLListPresenting>)listPresenter isInitialLayout:(BOOL)isInitialLayout {}
 - (void)listPresenter:(id<AAPLListPresenting>)listPresenter didInsertListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {}

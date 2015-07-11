@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16030B431B079FF800BA8EEB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16892DE11B06E2F00001FF08 /* Interface.storyboard */; };
 		160868761A8EA54300A5A707 /* AAPLAppLaunchContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 160868751A8EA54300A5A707 /* AAPLAppLaunchContext.m */; };
 		1608C4DC19398CE400CC1E53 /* AAPLNoItemsRowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1608C4DA19398CE400CC1E53 /* AAPLNoItemsRowViewController.m */; };
 		1608C4DD19398CE400CC1E53 /* AAPLNoItemsRowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1608C4DB19398CE400CC1E53 /* AAPLNoItemsRowViewController.xib */; };
@@ -25,11 +26,11 @@
 		1623FD161A02FE7900631A60 /* AAPLIncompleteListItemsPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1623FD0F1A02FE7900631A60 /* AAPLIncompleteListItemsPresenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1623FD171A02FE7900631A60 /* AAPLIncompleteListItemsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1623FD101A02FE7900631A60 /* AAPLIncompleteListItemsPresenter.m */; };
 		1623FD181A02FE7900631A60 /* AAPLIncompleteListItemsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1623FD101A02FE7900631A60 /* AAPLIncompleteListItemsPresenter.m */; };
+		162C25C01B1CEA07004DD2FC /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162C25BF1B1CEA07004DD2FC /* NotificationCenter.framework */; };
 		1632760318AD468F00A97A9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632760218AD468F00A97A9F /* main.m */; };
 		1632760918AD468F00A97A9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1632760818AD468F00A97A9F /* Images.xcassets */; };
 		1632762118AD468F00A97A9F /* ListerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1632761E18AD468F00A97A9F /* ListerKit.framework */; };
 		1632762218AD468F00A97A9F /* ListerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1632761E18AD468F00A97A9F /* ListerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1633C7321939338000A9CC5E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160808CA190B3C0200790AFC /* NotificationCenter.framework */; };
 		1633C7371939338000A9CC5E /* ListerTodayOSX.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 1633C7361939338000A9CC5E /* ListerTodayOSX.entitlements */; };
 		1633C73A1939338000A9CC5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1633C7381939338000A9CC5E /* InfoPlist.strings */; };
 		1633C74D193933B100A9CC5E /* ListerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E745ECB190880F30090B20E /* ListerKit.framework */; };
@@ -45,8 +46,107 @@
 		163A6CA51906ED4C008E1930 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 163A6CA41906ED4C008E1930 /* main.m */; };
 		163A6CAE1906ED4C008E1930 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 163A6CAD1906ED4C008E1930 /* Images.xcassets */; };
 		163AD5B219082124007D9A03 /* AAPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 163AD5AD19082124007D9A03 /* AAPLAppDelegate.m */; };
+		164346BF1B0FE7FE00F81674 /* AAPLListInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1645D9071B0CFAF4005E8148 /* AAPLListInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346C01B0FE80600F81674 /* AAPLListInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645D9081B0CFAF4005E8148 /* AAPLListInfo.m */; };
+		164346C11B0FE80D00F81674 /* AAPLConnectivityListsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1645D90B1B0CFB5A005E8148 /* AAPLConnectivityListsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346C21B0FE81400F81674 /* AAPLConnectivityListsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645D90C1B0CFB5A005E8148 /* AAPLConnectivityListsController.m */; };
+		164346C31B0FE82200F81674 /* ListerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E745ECF190880F30090B20E /* ListerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346C41B0FE84D00F81674 /* AAPLList.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D4DA0A19082E2B0013342E /* AAPLList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346C51B0FE84D00F81674 /* AAPLListItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D4DA0C19082E2B0013342E /* AAPLListItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346C61B0FE84D00F81674 /* AAPLListPresenterDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9053121A132884006DCBA7 /* AAPLListPresenterDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346C71B0FE84D00F81674 /* AAPLListPresenting.h in Headers */ = {isa = PBXBuildFile; fileRef = 1623FD061A02FE6300631A60 /* AAPLListPresenting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346C81B0FE84D00F81674 /* AAPLAllListItemsPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1623FD0D1A02FE7900631A60 /* AAPLAllListItemsPresenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346C91B0FE84D00F81674 /* AAPLIncompleteListItemsPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1623FD0F1A02FE7900631A60 /* AAPLIncompleteListItemsPresenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346CB1B0FE85500F81674 /* AAPLListPresenterAlgorithms.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9053151A13289F006DCBA7 /* AAPLListPresenterAlgorithms.h */; };
+		164346CC1B0FE85500F81674 /* AAPLListPresenterUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9053171A13289F006DCBA7 /* AAPLListPresenterUtilities.h */; };
+		164346CD1B0FE86900F81674 /* AAPLList.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D4DA0B19082E2B0013342E /* AAPLList.m */; };
+		164346CE1B0FE86900F81674 /* AAPLListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D4DA0D19082E2B0013342E /* AAPLListItem.m */; };
+		164346CF1B0FE86900F81674 /* AAPLAllListItemsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1623FD0E1A02FE7900631A60 /* AAPLAllListItemsPresenter.m */; };
+		164346D01B0FE86900F81674 /* AAPLIncompleteListItemsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1623FD101A02FE7900631A60 /* AAPLIncompleteListItemsPresenter.m */; };
+		164346D11B0FE86900F81674 /* AAPLListPresenterAlgorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9053161A13289F006DCBA7 /* AAPLListPresenterAlgorithms.m */; };
+		164346D21B0FE86900F81674 /* AAPLListPresenterUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9053181A13289F006DCBA7 /* AAPLListPresenterUtilities.m */; };
+		164346D41B0FEA0F00F81674 /* AAPLAppConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E5C9F2E1936FE3E00EE1526 /* AAPLAppConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346D51B0FEA1600F81674 /* AAPLAppConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C9F2F1936FE3E00EE1526 /* AAPLAppConfiguration.m */; };
+		164346D61B0FED2F00F81674 /* AAPLListColor+UI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EC72A2D1908B3F900AE5774 /* AAPLListColor+UI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346D71B0FED3800F81674 /* AAPLListColor+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC72A2E1908B3F900AE5774 /* AAPLListColor+UI.m */; };
+		164346D91B0FEDF500F81674 /* ListerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 164346B51B0FE72200F81674 /* ListerKit.framework */; };
+		164346DC1B0FEE6C00F81674 /* AAPLListUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EE49ED9198B342B002B78BC /* AAPLListUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		164346DD1B0FEE7300F81674 /* AAPLListUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE49EDA198B342B002B78BC /* AAPLListUtilities.m */; };
+		16502F961B06877E00EB83DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16502F951B06877E00EB83DF /* Images.xcassets */; };
+		16502F9D1B06877E00EB83DF /* Lister Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16502F9C1B06877E00EB83DF /* Lister Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		16502FA31B06877E00EB83DF /* AAPLListsInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16502FA21B06877E00EB83DF /* AAPLListsInterfaceController.m */; };
+		16502FA61B06877E00EB83DF /* AAPLExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16502FA51B06877E00EB83DF /* AAPLExtensionDelegate.m */; };
+		16502FA91B06877E00EB83DF /* AAPLGlanceInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16502FA81B06877E00EB83DF /* AAPLGlanceInterfaceController.m */; };
+		16502FAB1B06877E00EB83DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16502FAA1B06877E00EB83DF /* Images.xcassets */; };
+		16502FAF1B06877E00EB83DF /* Lister Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 16502F901B06877E00EB83DF /* Lister Watch App.app */; };
+		16533DB31B0921E3006A90C4 /* AAPLColoredTextRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E351EBB19DA07E100971413 /* AAPLColoredTextRowController.m */; };
+		16533DB41B0921E3006A90C4 /* AAPLListItemRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FEF6AB1A117A4500E0CC5E /* AAPLListItemRowController.m */; };
+		1656DCA51B113DF2001233FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1656DCA41B113DF2001233FA /* UIKit.framework */; };
+		1656DCA61B113E60001233FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1656DCA41B113DF2001233FA /* UIKit.framework */; };
+		1656DCA81B114CAE001233FA /* ListerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 164346B51B0FE72200F81674 /* ListerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		167843B61B0927D6009DEE8D /* AAPLListInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16533DB11B091B6C006A90C4 /* AAPLListInterfaceController.m */; };
+		167843B91B092FEA009DEE8D /* checkbox-blue-checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FE91B06892100EB83DF /* checkbox-blue-checked@2x.png */; };
+		167843BA1B092FEA009DEE8D /* checkbox-blue-unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FEA1B06892100EB83DF /* checkbox-blue-unchecked@2x.png */; };
+		167843BB1B092FEA009DEE8D /* checkbox-gray-checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FEB1B06892100EB83DF /* checkbox-gray-checked@2x.png */; };
+		167843BC1B092FEA009DEE8D /* checkbox-gray-unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FEC1B06892100EB83DF /* checkbox-gray-unchecked@2x.png */; };
+		167843BD1B092FEA009DEE8D /* checkbox-green-checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FED1B06892100EB83DF /* checkbox-green-checked@2x.png */; };
+		167843BE1B092FEA009DEE8D /* checkbox-green-unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FEE1B06892100EB83DF /* checkbox-green-unchecked@2x.png */; };
+		167843BF1B092FEA009DEE8D /* checkbox-orange-checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FEF1B06892100EB83DF /* checkbox-orange-checked@2x.png */; };
+		167843C01B092FEA009DEE8D /* checkbox-orange-unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FF01B06892100EB83DF /* checkbox-orange-unchecked@2x.png */; };
+		167843C11B092FEA009DEE8D /* checkbox-red-checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FF11B06892100EB83DF /* checkbox-red-checked@2x.png */; };
+		167843C21B092FEA009DEE8D /* checkbox-red-unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FF21B06892100EB83DF /* checkbox-red-unchecked@2x.png */; };
+		167843C31B092FEA009DEE8D /* checkbox-yellow-checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FF31B06892100EB83DF /* checkbox-yellow-checked@2x.png */; };
+		167843C41B092FEA009DEE8D /* checkbox-yellow-unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FF41B06892100EB83DF /* checkbox-yellow-unchecked@2x.png */; };
+		167843F21B092FFB009DEE8D /* glance-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FBB1B06892100EB83DF /* glance-0@2x.png */; };
+		167843F31B092FFB009DEE8D /* glance-10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FBC1B06892100EB83DF /* glance-10@2x.png */; };
+		167843F41B092FFB009DEE8D /* glance-11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FBD1B06892100EB83DF /* glance-11@2x.png */; };
+		167843F51B092FFB009DEE8D /* glance-12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FBE1B06892100EB83DF /* glance-12@2x.png */; };
+		167843F61B092FFB009DEE8D /* glance-13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FBF1B06892100EB83DF /* glance-13@2x.png */; };
+		167843F71B092FFB009DEE8D /* glance-14@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FC01B06892100EB83DF /* glance-14@2x.png */; };
+		167843F81B092FFB009DEE8D /* glance-15@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FC11B06892100EB83DF /* glance-15@2x.png */; };
+		167843F91B092FFB009DEE8D /* glance-16@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FC21B06892100EB83DF /* glance-16@2x.png */; };
+		167843FA1B092FFB009DEE8D /* glance-17@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FC31B06892100EB83DF /* glance-17@2x.png */; };
+		167843FB1B092FFB009DEE8D /* glance-18@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FC41B06892100EB83DF /* glance-18@2x.png */; };
+		167843FC1B092FFB009DEE8D /* glance-19@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FC51B06892100EB83DF /* glance-19@2x.png */; };
+		167843FD1B092FFB009DEE8D /* glance-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FC61B06892100EB83DF /* glance-1@2x.png */; };
+		167843FE1B092FFB009DEE8D /* glance-20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FC71B06892100EB83DF /* glance-20@2x.png */; };
+		167843FF1B092FFB009DEE8D /* glance-21@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FC81B06892100EB83DF /* glance-21@2x.png */; };
+		167844001B092FFB009DEE8D /* glance-22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FC91B06892100EB83DF /* glance-22@2x.png */; };
+		167844011B092FFB009DEE8D /* glance-23@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FCA1B06892100EB83DF /* glance-23@2x.png */; };
+		167844021B092FFB009DEE8D /* glance-24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FCB1B06892100EB83DF /* glance-24@2x.png */; };
+		167844031B092FFB009DEE8D /* glance-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FCC1B06892100EB83DF /* glance-25@2x.png */; };
+		167844041B092FFB009DEE8D /* glance-26@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FCD1B06892100EB83DF /* glance-26@2x.png */; };
+		167844051B092FFB009DEE8D /* glance-27@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FCE1B06892100EB83DF /* glance-27@2x.png */; };
+		167844061B092FFB009DEE8D /* glance-28@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FCF1B06892100EB83DF /* glance-28@2x.png */; };
+		167844071B092FFB009DEE8D /* glance-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FD01B06892100EB83DF /* glance-29@2x.png */; };
+		167844081B092FFB009DEE8D /* glance-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FD11B06892100EB83DF /* glance-2@2x.png */; };
+		167844091B092FFB009DEE8D /* glance-30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FD21B06892100EB83DF /* glance-30@2x.png */; };
+		1678440A1B092FFB009DEE8D /* glance-31@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FD31B06892100EB83DF /* glance-31@2x.png */; };
+		1678440B1B092FFB009DEE8D /* glance-32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FD41B06892100EB83DF /* glance-32@2x.png */; };
+		1678440C1B092FFB009DEE8D /* glance-33@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FD51B06892100EB83DF /* glance-33@2x.png */; };
+		1678440D1B092FFB009DEE8D /* glance-34@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FD61B06892100EB83DF /* glance-34@2x.png */; };
+		1678440E1B092FFB009DEE8D /* glance-35@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FD71B06892100EB83DF /* glance-35@2x.png */; };
+		1678440F1B092FFB009DEE8D /* glance-36@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FD81B06892100EB83DF /* glance-36@2x.png */; };
+		167844101B092FFB009DEE8D /* glance-37@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FD91B06892100EB83DF /* glance-37@2x.png */; };
+		167844111B092FFB009DEE8D /* glance-38@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FDA1B06892100EB83DF /* glance-38@2x.png */; };
+		167844121B092FFB009DEE8D /* glance-39@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FDB1B06892100EB83DF /* glance-39@2x.png */; };
+		167844131B092FFB009DEE8D /* glance-3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FDC1B06892100EB83DF /* glance-3@2x.png */; };
+		167844141B092FFB009DEE8D /* glance-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FDD1B06892100EB83DF /* glance-40@2x.png */; };
+		167844151B092FFB009DEE8D /* glance-41@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FDE1B06892100EB83DF /* glance-41@2x.png */; };
+		167844161B092FFB009DEE8D /* glance-42@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FDF1B06892100EB83DF /* glance-42@2x.png */; };
+		167844171B092FFB009DEE8D /* glance-43@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FE01B06892100EB83DF /* glance-43@2x.png */; };
+		167844181B092FFB009DEE8D /* glance-44@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FE11B06892100EB83DF /* glance-44@2x.png */; };
+		167844191B092FFB009DEE8D /* glance-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FE21B06892100EB83DF /* glance-4@2x.png */; };
+		1678441A1B092FFB009DEE8D /* glance-5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FE31B06892100EB83DF /* glance-5@2x.png */; };
+		1678441B1B092FFB009DEE8D /* glance-6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FE41B06892100EB83DF /* glance-6@2x.png */; };
+		1678441C1B092FFB009DEE8D /* glance-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FE51B06892100EB83DF /* glance-7@2x.png */; };
+		1678441D1B092FFB009DEE8D /* glance-8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FE61B06892100EB83DF /* glance-8@2x.png */; };
+		1678441E1B092FFB009DEE8D /* glance-9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FE71B06892100EB83DF /* glance-9@2x.png */; };
+		1678441F1B09300E009DEE8D /* check-all@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FF61B06892100EB83DF /* check-all@2x.png */; };
+		167844201B09300E009DEE8D /* uncheck-all@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16502FF71B06892100EB83DF /* uncheck-all@2x.png */; };
 		168A23671A93F05000BB2495 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55BB61D61A13C84D001BE161 /* Images.xcassets */; };
 		168AF80B191AA89700D6BA5A /* ListerOSX.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 168AF80A191AA89700D6BA5A /* ListerOSX.entitlements */; };
+		169A57221B1B7EBE006BC62A /* Lister WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16F60C5E1A8560470028B2D8 /* Lister WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		169E922C18AD7EF100139723 /* AAPLListDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 169E922B18AD7EF100139723 /* AAPLListDocumentsViewController.m */; };
 		16A1A286193818EE00302EE4 /* AAPLCheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16040D02190F32A5006D75CA /* AAPLCheckBoxCell.m */; };
 		16A1A287193819B900302EE4 /* AAPLTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 169DAF1E192D1C1C007F738B /* AAPLTodayViewController.m */; };
@@ -61,16 +161,16 @@
 		16C1577218AD9B7100B21147 /* AAPLListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C1577118AD9B7100B21147 /* AAPLListViewController.m */; };
 		16C1577618ADC47F00B21147 /* AAPLListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C1577518ADC47F00B21147 /* AAPLListItemCell.m */; };
 		16C89AAA1909AD4600752460 /* AAPLListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C89AA91909AD4600752460 /* AAPLListCell.m */; };
+		16CD55B21B124B5100DB4F4F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CD55B01B124B5100DB4F4F /* Launch Screen.storyboard */; };
+		16D1A47E1B06B0670027BF67 /* AAPLWatchStoryboardConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FE73919DBB6AE0056487F /* AAPLWatchStoryboardConstants.m */; };
 		16D4DA1119082E2B0013342E /* AAPLList.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D4DA0B19082E2B0013342E /* AAPLList.m */; };
 		16D4DA1219082E2B0013342E /* AAPLListItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D4DA0C19082E2B0013342E /* AAPLListItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		16D4DA1319082E2B0013342E /* AAPLListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D4DA0D19082E2B0013342E /* AAPLListItem.m */; };
 		16E330CC191EDAC400698F8C /* AAPLTodayListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E330C9191EDAC400698F8C /* AAPLTodayListManager.m */; };
-		16EB5ECC1936D39400532A4B /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160808CA190B3C0200790AFC /* NotificationCenter.framework */; };
 		16EB5EDF1936D48D00532A4B /* ListerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1632761E18AD468F00A97A9F /* ListerKit.framework */; };
 		16F60C691A8560470028B2D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16F60C681A8560470028B2D8 /* Images.xcassets */; };
 		16F60C6D1A8560470028B2D8 /* Lister WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 16F60C6C1A8560470028B2D8 /* Lister WatchKit App.app */; };
 		16F60C751A8560470028B2D8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F60C731A8560470028B2D8 /* Interface.storyboard */; };
-		16F60C7A1A8560470028B2D8 /* Lister WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16F60C5E1A8560470028B2D8 /* Lister WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		16F60C811A8562160028B2D8 /* AAPLWatchStoryboardConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FE73919DBB6AE0056487F /* AAPLWatchStoryboardConstants.m */; };
 		16F60C821A8562160028B2D8 /* AAPLListsInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E04D0E819D9FB7500C59A0F /* AAPLListsInterfaceController.m */; };
 		16F60C831A8562160028B2D8 /* AAPLListInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FE73119DBB2AA0056487F /* AAPLListInterfaceController.m */; };
@@ -139,7 +239,9 @@
 		16F60CC21A8564810028B2D8 /* glance-44@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16E377B719FAE1CC000F9EC3 /* glance-44@2x.png */; };
 		16F60CC31A8564870028B2D8 /* check-all@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1624FDB31A126FD500CFB0F5 /* check-all@2x.png */; };
 		16F60CC41A8564870028B2D8 /* uncheck-all@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1624FDB41A126FD500CFB0F5 /* uncheck-all@2x.png */; };
-		16FD1D6519A5103700A40F20 /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16FD1D6319A5103700A40F20 /* Launch.xib */; };
+		16F718961B10F8C800EA8C90 /* AAPLGlanceBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1634730619F5E46000387A94 /* AAPLGlanceBadge.m */; };
+		16F718971B1128B000EA8C90 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 165030371B068AB600EB83DF /* Localizable.strings */; };
+		16F718981B1128B000EA8C90 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 165030381B068AB600EB83DF /* Localizable.stringsdict */; };
 		3E0C2C2F1A153DD600976F0D /* AAPLAllListItemsPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C9AFD1A15003900909602 /* AAPLAllListItemsPresenterTests.m */; };
 		3E0C2C301A153E5500976F0D /* ListerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E745ECB190880F30090B20E /* ListerKit.framework */; };
 		3E0C2C321A154B0900976F0D /* AAPLIncompleteListItemsPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0C2C311A154B0900976F0D /* AAPLIncompleteListItemsPresenterTests.m */; };
@@ -188,7 +290,6 @@
 		3E90531E1A13289F006DCBA7 /* AAPLListPresenterUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9053171A13289F006DCBA7 /* AAPLListPresenterUtilities.h */; };
 		3E90531F1A13289F006DCBA7 /* AAPLListPresenterUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9053181A13289F006DCBA7 /* AAPLListPresenterUtilities.m */; };
 		3E9053201A13289F006DCBA7 /* AAPLListPresenterUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9053181A13289F006DCBA7 /* AAPLListPresenterUtilities.m */; };
-		3E950665198574820030A9D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E950664198574820030A9D1 /* UIKit.framework */; };
 		3E97926519097A860062A433 /* AAPLListTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E97926319097A860062A433 /* AAPLListTableView.h */; };
 		3E97926619097A860062A433 /* AAPLListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E97926419097A860062A433 /* AAPLListTableView.m */; };
 		3E9792691909807D0062A433 /* AAPLResizingTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9792671909807D0062A433 /* AAPLResizingTextField.h */; };
@@ -233,6 +334,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		160D670E1B1E188600E923AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 163275F218AD468F00A97A9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 163275F918AD468F00A97A9F;
+			remoteInfo = Lister;
+		};
 		1611C5FE1A92A09100472891 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 163275F218AD468F00A97A9F /* Project object */;
@@ -261,6 +369,34 @@
 			remoteGlobalIDString = 3E745ECA190880F30090B20E;
 			remoteInfo = ListerKitOSX;
 		};
+		164346DA1B0FEE5500F81674 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 163275F218AD468F00A97A9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 164346B41B0FE72200F81674;
+			remoteInfo = "ListerKit (WatchOS)";
+		};
+		16502F9E1B06877E00EB83DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 163275F218AD468F00A97A9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16502F9B1B06877E00EB83DF;
+			remoteInfo = "Lister Watch Extension";
+		};
+		16502FAD1B06877E00EB83DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 163275F218AD468F00A97A9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16502F8F1B06877E00EB83DF;
+			remoteInfo = "Lister Watch App";
+		};
+		169A57231B1B7EBE006BC62A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 163275F218AD468F00A97A9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16F60C5D1A8560470028B2D8;
+			remoteInfo = "Lister WatchKit Extension";
+		};
 		16A1A2891938266C00302EE4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 163275F218AD468F00A97A9F /* Project object */;
@@ -275,19 +411,19 @@
 			remoteGlobalIDString = 1633C7301939337F00A9CC5E;
 			remoteInfo = ListerTodayOSX;
 		};
-		16F60C6E1A8560470028B2D8 /* PBXContainerItemProxy */ = {
+		16CD55B31B12537500DB4F4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 163275F218AD468F00A97A9F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 16F60C6B1A8560470028B2D8;
 			remoteInfo = "Lister WatchKit App";
 		};
-		16F60C781A8560470028B2D8 /* PBXContainerItemProxy */ = {
+		16F60C6E1A8560470028B2D8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 163275F218AD468F00A97A9F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 16F60C5D1A8560470028B2D8;
-			remoteInfo = "Lister WatchKit Extension";
+			remoteGlobalIDString = 16F60C6B1A8560470028B2D8;
+			remoteInfo = "Lister WatchKit App";
 		};
 		3E1ACA041A85810600FF4AB3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -345,13 +481,35 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		16502FB51B06877E00EB83DF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				16502F9D1B06877E00EB83DF /* Lister Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16502FB71B06877E00EB83DF /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				16502FAF1B06877E00EB83DF /* Lister Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		16A1A28B1938266C00302EE4 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				16F60C7A1A8560470028B2D8 /* Lister WatchKit Extension.appex in Embed App Extensions */,
+				169A57221B1B7EBE006BC62A /* Lister WatchKit Extension.appex in Embed App Extensions */,
 				16A1A2881938266C00302EE4 /* Lister.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -366,6 +524,17 @@
 				16B6ABA71939573B00CA7E11 /* Lister.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16D1A4AD1B06C5D20027BF67 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1656DCA81B114CAE001233FA /* ListerKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3ED603CE19384D630044A535 /* Embed Frameworks */ = {
@@ -384,7 +553,6 @@
 /* Begin PBXFileReference section */
 		16040D01190F32A5006D75CA /* AAPLCheckBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCheckBoxCell.h; sourceTree = "<group>"; };
 		16040D02190F32A5006D75CA /* AAPLCheckBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLCheckBoxCell.m; sourceTree = "<group>"; };
-		160808CA190B3C0200790AFC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		160868741A8EA54300A5A707 /* AAPLAppLaunchContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLAppLaunchContext.h; sourceTree = "<group>"; };
 		160868751A8EA54300A5A707 /* AAPLAppLaunchContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLAppLaunchContext.m; sourceTree = "<group>"; };
 		1608C4D919398CE400CC1E53 /* AAPLNoItemsRowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLNoItemsRowViewController.h; sourceTree = "<group>"; };
@@ -413,6 +581,7 @@
 		1624FDB11A126FD500CFB0F5 /* checkbox-yellow-unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-yellow-unchecked@2x.png"; sourceTree = "<group>"; };
 		1624FDB31A126FD500CFB0F5 /* check-all@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-all@2x.png"; sourceTree = "<group>"; };
 		1624FDB41A126FD500CFB0F5 /* uncheck-all@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck-all@2x.png"; sourceTree = "<group>"; };
+		162C25BF1B1CEA07004DD2FC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		163275FA18AD468F00A97A9F /* Lister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		163275FE18AD468F00A97A9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1632760218AD468F00A97A9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -435,8 +604,8 @@
 		1633C77419393EB200A9CC5E /* AAPLTodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTodayViewController.h; sourceTree = "<group>"; };
 		1633C77519393EB200A9CC5E /* AAPLTodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLTodayViewController.m; sourceTree = "<group>"; };
 		1633C77619393EB200A9CC5E /* AAPLTodayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AAPLTodayViewController.xib; sourceTree = "<group>"; };
-		1634730519F5E46000387A94 /* AAPLGlanceBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLGlanceBadge.h; path = Glance/AAPLGlanceBadge.h; sourceTree = "<group>"; };
-		1634730619F5E46000387A94 /* AAPLGlanceBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLGlanceBadge.m; path = Glance/AAPLGlanceBadge.m; sourceTree = "<group>"; };
+		1634730519F5E46000387A94 /* AAPLGlanceBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLGlanceBadge.h; path = "Lister WatchKit Common/Glance/AAPLGlanceBadge.h"; sourceTree = "<group>"; };
+		1634730619F5E46000387A94 /* AAPLGlanceBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLGlanceBadge.m; path = "Lister WatchKit Common/Glance/AAPLGlanceBadge.m"; sourceTree = "<group>"; };
 		1634730719F5E46000387A94 /* AAPLGlanceInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLGlanceInterfaceController.h; path = Glance/AAPLGlanceInterfaceController.h; sourceTree = "<group>"; };
 		1634730819F5E46000387A94 /* AAPLGlanceInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLGlanceInterfaceController.m; path = Glance/AAPLGlanceInterfaceController.m; sourceTree = "<group>"; };
 		163701C5190AC1A2003FF9D0 /* AAPLListDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLListDocument.h; path = ListerKit/AAPLListDocument.h; sourceTree = "<group>"; };
@@ -451,6 +620,89 @@
 		163A6CAD1906ED4C008E1930 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		163AD5AC19082124007D9A03 /* AAPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLAppDelegate.h; sourceTree = "<group>"; };
 		163AD5AD19082124007D9A03 /* AAPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLAppDelegate.m; sourceTree = "<group>"; };
+		164346B51B0FE72200F81674 /* ListerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ListerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		164346B91B0FE72200F81674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1645D9071B0CFAF4005E8148 /* AAPLListInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLListInfo.h; sourceTree = "<group>"; };
+		1645D9081B0CFAF4005E8148 /* AAPLListInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLListInfo.m; sourceTree = "<group>"; };
+		1645D90B1B0CFB5A005E8148 /* AAPLConnectivityListsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLConnectivityListsController.h; sourceTree = "<group>"; };
+		1645D90C1B0CFB5A005E8148 /* AAPLConnectivityListsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLConnectivityListsController.m; sourceTree = "<group>"; };
+		16502F901B06877E00EB83DF /* Lister Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lister Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16502F951B06877E00EB83DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		16502F971B06877E00EB83DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16502F9C1B06877E00EB83DF /* Lister Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Lister Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16502FA11B06877E00EB83DF /* AAPLListsInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLListsInterfaceController.h; sourceTree = "<group>"; };
+		16502FA21B06877E00EB83DF /* AAPLListsInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAPLListsInterfaceController.m; sourceTree = "<group>"; };
+		16502FA41B06877E00EB83DF /* AAPLExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLExtensionDelegate.h; sourceTree = "<group>"; };
+		16502FA51B06877E00EB83DF /* AAPLExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAPLExtensionDelegate.m; sourceTree = "<group>"; };
+		16502FA71B06877E00EB83DF /* AAPLGlanceInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLGlanceInterfaceController.h; sourceTree = "<group>"; };
+		16502FA81B06877E00EB83DF /* AAPLGlanceInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAPLGlanceInterfaceController.m; sourceTree = "<group>"; };
+		16502FAA1B06877E00EB83DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		16502FAC1B06877E00EB83DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16502FBB1B06892100EB83DF /* glance-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-0@2x.png"; sourceTree = "<group>"; };
+		16502FBC1B06892100EB83DF /* glance-10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-10@2x.png"; sourceTree = "<group>"; };
+		16502FBD1B06892100EB83DF /* glance-11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-11@2x.png"; sourceTree = "<group>"; };
+		16502FBE1B06892100EB83DF /* glance-12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-12@2x.png"; sourceTree = "<group>"; };
+		16502FBF1B06892100EB83DF /* glance-13@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-13@2x.png"; sourceTree = "<group>"; };
+		16502FC01B06892100EB83DF /* glance-14@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-14@2x.png"; sourceTree = "<group>"; };
+		16502FC11B06892100EB83DF /* glance-15@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-15@2x.png"; sourceTree = "<group>"; };
+		16502FC21B06892100EB83DF /* glance-16@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-16@2x.png"; sourceTree = "<group>"; };
+		16502FC31B06892100EB83DF /* glance-17@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-17@2x.png"; sourceTree = "<group>"; };
+		16502FC41B06892100EB83DF /* glance-18@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-18@2x.png"; sourceTree = "<group>"; };
+		16502FC51B06892100EB83DF /* glance-19@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-19@2x.png"; sourceTree = "<group>"; };
+		16502FC61B06892100EB83DF /* glance-1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-1@2x.png"; sourceTree = "<group>"; };
+		16502FC71B06892100EB83DF /* glance-20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-20@2x.png"; sourceTree = "<group>"; };
+		16502FC81B06892100EB83DF /* glance-21@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-21@2x.png"; sourceTree = "<group>"; };
+		16502FC91B06892100EB83DF /* glance-22@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-22@2x.png"; sourceTree = "<group>"; };
+		16502FCA1B06892100EB83DF /* glance-23@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-23@2x.png"; sourceTree = "<group>"; };
+		16502FCB1B06892100EB83DF /* glance-24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-24@2x.png"; sourceTree = "<group>"; };
+		16502FCC1B06892100EB83DF /* glance-25@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-25@2x.png"; sourceTree = "<group>"; };
+		16502FCD1B06892100EB83DF /* glance-26@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-26@2x.png"; sourceTree = "<group>"; };
+		16502FCE1B06892100EB83DF /* glance-27@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-27@2x.png"; sourceTree = "<group>"; };
+		16502FCF1B06892100EB83DF /* glance-28@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-28@2x.png"; sourceTree = "<group>"; };
+		16502FD01B06892100EB83DF /* glance-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-29@2x.png"; sourceTree = "<group>"; };
+		16502FD11B06892100EB83DF /* glance-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-2@2x.png"; sourceTree = "<group>"; };
+		16502FD21B06892100EB83DF /* glance-30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-30@2x.png"; sourceTree = "<group>"; };
+		16502FD31B06892100EB83DF /* glance-31@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-31@2x.png"; sourceTree = "<group>"; };
+		16502FD41B06892100EB83DF /* glance-32@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-32@2x.png"; sourceTree = "<group>"; };
+		16502FD51B06892100EB83DF /* glance-33@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-33@2x.png"; sourceTree = "<group>"; };
+		16502FD61B06892100EB83DF /* glance-34@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-34@2x.png"; sourceTree = "<group>"; };
+		16502FD71B06892100EB83DF /* glance-35@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-35@2x.png"; sourceTree = "<group>"; };
+		16502FD81B06892100EB83DF /* glance-36@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-36@2x.png"; sourceTree = "<group>"; };
+		16502FD91B06892100EB83DF /* glance-37@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-37@2x.png"; sourceTree = "<group>"; };
+		16502FDA1B06892100EB83DF /* glance-38@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-38@2x.png"; sourceTree = "<group>"; };
+		16502FDB1B06892100EB83DF /* glance-39@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-39@2x.png"; sourceTree = "<group>"; };
+		16502FDC1B06892100EB83DF /* glance-3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-3@2x.png"; sourceTree = "<group>"; };
+		16502FDD1B06892100EB83DF /* glance-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-40@2x.png"; sourceTree = "<group>"; };
+		16502FDE1B06892100EB83DF /* glance-41@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-41@2x.png"; sourceTree = "<group>"; };
+		16502FDF1B06892100EB83DF /* glance-42@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-42@2x.png"; sourceTree = "<group>"; };
+		16502FE01B06892100EB83DF /* glance-43@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-43@2x.png"; sourceTree = "<group>"; };
+		16502FE11B06892100EB83DF /* glance-44@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-44@2x.png"; sourceTree = "<group>"; };
+		16502FE21B06892100EB83DF /* glance-4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-4@2x.png"; sourceTree = "<group>"; };
+		16502FE31B06892100EB83DF /* glance-5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-5@2x.png"; sourceTree = "<group>"; };
+		16502FE41B06892100EB83DF /* glance-6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-6@2x.png"; sourceTree = "<group>"; };
+		16502FE51B06892100EB83DF /* glance-7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-7@2x.png"; sourceTree = "<group>"; };
+		16502FE61B06892100EB83DF /* glance-8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-8@2x.png"; sourceTree = "<group>"; };
+		16502FE71B06892100EB83DF /* glance-9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glance-9@2x.png"; sourceTree = "<group>"; };
+		16502FE91B06892100EB83DF /* checkbox-blue-checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-blue-checked@2x.png"; sourceTree = "<group>"; };
+		16502FEA1B06892100EB83DF /* checkbox-blue-unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-blue-unchecked@2x.png"; sourceTree = "<group>"; };
+		16502FEB1B06892100EB83DF /* checkbox-gray-checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-gray-checked@2x.png"; sourceTree = "<group>"; };
+		16502FEC1B06892100EB83DF /* checkbox-gray-unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-gray-unchecked@2x.png"; sourceTree = "<group>"; };
+		16502FED1B06892100EB83DF /* checkbox-green-checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-green-checked@2x.png"; sourceTree = "<group>"; };
+		16502FEE1B06892100EB83DF /* checkbox-green-unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-green-unchecked@2x.png"; sourceTree = "<group>"; };
+		16502FEF1B06892100EB83DF /* checkbox-orange-checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-orange-checked@2x.png"; sourceTree = "<group>"; };
+		16502FF01B06892100EB83DF /* checkbox-orange-unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-orange-unchecked@2x.png"; sourceTree = "<group>"; };
+		16502FF11B06892100EB83DF /* checkbox-red-checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-red-checked@2x.png"; sourceTree = "<group>"; };
+		16502FF21B06892100EB83DF /* checkbox-red-unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-red-unchecked@2x.png"; sourceTree = "<group>"; };
+		16502FF31B06892100EB83DF /* checkbox-yellow-checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-yellow-checked@2x.png"; sourceTree = "<group>"; };
+		16502FF41B06892100EB83DF /* checkbox-yellow-unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-yellow-unchecked@2x.png"; sourceTree = "<group>"; };
+		16502FF61B06892100EB83DF /* check-all@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-all@2x.png"; sourceTree = "<group>"; };
+		16502FF71B06892100EB83DF /* uncheck-all@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck-all@2x.png"; sourceTree = "<group>"; };
+		165030371B068AB600EB83DF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		165030381B068AB600EB83DF /* Localizable.stringsdict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		16533DB01B091B6C006A90C4 /* AAPLListInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLListInterfaceController.h; sourceTree = "<group>"; };
+		16533DB11B091B6C006A90C4 /* AAPLListInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLListInterfaceController.m; sourceTree = "<group>"; };
+		1656DCA41B113DF2001233FA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		16892DE21B06E2F00001FF08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		168AF80A191AA89700D6BA5A /* ListerOSX.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ListerOSX.entitlements; sourceTree = "<group>"; };
 		169DAF1D192D1C1C007F738B /* AAPLTodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLTodayViewController.h; path = ListerToday/AAPLTodayViewController.h; sourceTree = "<group>"; };
 		169DAF1E192D1C1C007F738B /* AAPLTodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLTodayViewController.m; path = ListerToday/AAPLTodayViewController.m; sourceTree = "<group>"; };
@@ -469,6 +721,7 @@
 		16C1577518ADC47F00B21147 /* AAPLListItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLListItemCell.m; sourceTree = "<group>"; };
 		16C89AA81909AD4600752460 /* AAPLListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLListCell.h; sourceTree = "<group>"; };
 		16C89AA91909AD4600752460 /* AAPLListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLListCell.m; sourceTree = "<group>"; };
+		16CD55B11B124B5100DB4F4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		16D4DA0A19082E2B0013342E /* AAPLList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLList.h; path = Common/AAPLList.h; sourceTree = "<group>"; };
 		16D4DA0B19082E2B0013342E /* AAPLList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLList.m; path = Common/AAPLList.m; sourceTree = "<group>"; };
 		16D4DA0C19082E2B0013342E /* AAPLListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLListItem.h; path = Common/AAPLListItem.h; sourceTree = "<group>"; };
@@ -529,9 +782,8 @@
 		16F60C681A8560470028B2D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		16F60C6C1A8560470028B2D8 /* Lister WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lister WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F60C741A8560470028B2D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		16FD1D6419A5103700A40F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Launch.xib; sourceTree = "<group>"; };
-		16FEF6AA1A117A4500E0CC5E /* AAPLListItemRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLListItemRowController.h; sourceTree = "<group>"; };
-		16FEF6AB1A117A4500E0CC5E /* AAPLListItemRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLListItemRowController.m; sourceTree = "<group>"; };
+		16FEF6AA1A117A4500E0CC5E /* AAPLListItemRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLListItemRowController.h; path = "../Lister WatchKit Common/AAPLListItemRowController.h"; sourceTree = "<group>"; };
+		16FEF6AB1A117A4500E0CC5E /* AAPLListItemRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLListItemRowController.m; path = "../Lister WatchKit Common/AAPLListItemRowController.m"; sourceTree = "<group>"; };
 		3E028CCE1A1690B0004B6F9D /* Localizable.stringsdict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		3E028CD11A1690B7004B6F9D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		3E04D0E219D9FB7500C59A0F /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
@@ -549,8 +801,8 @@
 		3E2A4A641A14800A00E40DA5 /* AAPLListPresenterTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLListPresenterTestHelper.m; path = "ListerKit Tests/AAPLListPresenterTestHelper.m"; sourceTree = "<group>"; };
 		3E3208BE19088F60003C9147 /* AAPLColorPaletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLColorPaletteView.h; sourceTree = "<group>"; };
 		3E3208BF19088F60003C9147 /* AAPLColorPaletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLColorPaletteView.m; sourceTree = "<group>"; };
-		3E351EBA19DA07E100971413 /* AAPLColoredTextRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLColoredTextRowController.h; sourceTree = "<group>"; };
-		3E351EBB19DA07E100971413 /* AAPLColoredTextRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLColoredTextRowController.m; sourceTree = "<group>"; };
+		3E351EBA19DA07E100971413 /* AAPLColoredTextRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLColoredTextRowController.h; path = "../Lister WatchKit Common/AAPLColoredTextRowController.h"; sourceTree = "<group>"; };
+		3E351EBB19DA07E100971413 /* AAPLColoredTextRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLColoredTextRowController.m; path = "../Lister WatchKit Common/AAPLColoredTextRowController.m"; sourceTree = "<group>"; };
 		3E5C9F2E1936FE3E00EE1526 /* AAPLAppConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLAppConfiguration.h; path = Common/AAPLAppConfiguration.h; sourceTree = SOURCE_ROOT; };
 		3E5C9F2F1936FE3E00EE1526 /* AAPLAppConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLAppConfiguration.m; path = Common/AAPLAppConfiguration.m; sourceTree = SOURCE_ROOT; };
 		3E5C9F341936FE6500EE1526 /* AAPLListDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLListDocument.h; sourceTree = "<group>"; };
@@ -568,15 +820,13 @@
 		3E7DBC5A19296BF200830E02 /* AAPLAddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLAddItemViewController.m; sourceTree = "<group>"; };
 		3E7FE73019DBB2AA0056487F /* AAPLListInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLListInterfaceController.h; sourceTree = "<group>"; };
 		3E7FE73119DBB2AA0056487F /* AAPLListInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLListInterfaceController.m; sourceTree = "<group>"; };
-		3E7FE73819DBB6AE0056487F /* AAPLWatchStoryboardConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLWatchStoryboardConstants.h; sourceTree = "<group>"; };
-		3E7FE73919DBB6AE0056487F /* AAPLWatchStoryboardConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLWatchStoryboardConstants.m; sourceTree = "<group>"; };
+		3E7FE73819DBB6AE0056487F /* AAPLWatchStoryboardConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLWatchStoryboardConstants.h; path = "Lister WatchKit Common/AAPLWatchStoryboardConstants.h"; sourceTree = "<group>"; };
+		3E7FE73919DBB6AE0056487F /* AAPLWatchStoryboardConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLWatchStoryboardConstants.m; path = "Lister WatchKit Common/AAPLWatchStoryboardConstants.m"; sourceTree = "<group>"; };
 		3E9053121A132884006DCBA7 /* AAPLListPresenterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLListPresenterDelegate.h; path = Common/AAPLListPresenterDelegate.h; sourceTree = "<group>"; };
 		3E9053151A13289F006DCBA7 /* AAPLListPresenterAlgorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLListPresenterAlgorithms.h; path = Common/AAPLListPresenterAlgorithms.h; sourceTree = "<group>"; };
 		3E9053161A13289F006DCBA7 /* AAPLListPresenterAlgorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLListPresenterAlgorithms.m; path = Common/AAPLListPresenterAlgorithms.m; sourceTree = "<group>"; };
 		3E9053171A13289F006DCBA7 /* AAPLListPresenterUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLListPresenterUtilities.h; path = Common/AAPLListPresenterUtilities.h; sourceTree = "<group>"; };
 		3E9053181A13289F006DCBA7 /* AAPLListPresenterUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLListPresenterUtilities.m; path = Common/AAPLListPresenterUtilities.m; sourceTree = "<group>"; };
-		3E950664198574820030A9D1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		3E9506661985748C0030A9D1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3E950670198575570030A9D1 /* ListerKit Tests (OS X).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ListerKit Tests (OS X).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E95067C1985AA8A0030A9D1 /* AAPLListItemTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLListItemTests.m; path = "ListerKit Tests/AAPLListItemTests.m"; sourceTree = "<group>"; };
 		3E97926319097A860062A433 /* AAPLListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLListTableView.h; sourceTree = "<group>"; };
@@ -647,7 +897,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1633C74D193933B100A9CC5E /* ListerKit.framework in Frameworks */,
-				1633C7321939338000A9CC5E /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,12 +908,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		164346B11B0FE72200F81674 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1656DCA51B113DF2001233FA /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16502F991B06877E00EB83DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1656DCA61B113E60001233FA /* UIKit.framework in Frameworks */,
+				164346D91B0FEDF500F81674 /* ListerKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		16EB5EC81936D39400532A4B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				162C25C01B1CEA07004DD2FC /* NotificationCenter.framework in Frameworks */,
 				16EB5EDF1936D48D00532A4B /* ListerKit.framework in Frameworks */,
-				16EB5ECC1936D39400532A4B /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,7 +945,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E950665198574820030A9D1 /* UIKit.framework in Frameworks */,
 				3E2517CD197F7D9700B8AF96 /* ListerKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -710,16 +975,6 @@
 			);
 			name = Views;
 			path = ListerToday;
-			sourceTree = "<group>";
-		};
-		160808C9190B3C0200790AFC /* Imported Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3E9506661985748C0030A9D1 /* Foundation.framework */,
-				3E950664198574820030A9D1 /* UIKit.framework */,
-				160808CA190B3C0200790AFC /* NotificationCenter.framework */,
-			);
-			name = "Imported Frameworks";
 			sourceTree = "<group>";
 		};
 		160868731A8EA49000A5A707 /* Context */ = {
@@ -819,10 +1074,11 @@
 			children = (
 				3E6F0E44198C85D6009A4CBB /* Lister iOS App */,
 				55EEFA861A1A5EAE00172D58 /* Lister WatchKit App */,
+				1645D9031B0CF707005E8148 /* Shared Lister WatchKit Code */,
+				16502FB81B06882800EB83DF /* Lister Watch App */,
 				3E6F0E45198C85DE009A4CBB /* Lister OS X App */,
 				3E6F0E47198C86C8009A4CBB /* Shared ListerKit Framework Code */,
 				3E6F0E48198C86D5009A4CBB /* Shared Lister Resources */,
-				160808C9190B3C0200790AFC /* Imported Frameworks */,
 				3E04D0E119D9FB7500C59A0F /* Frameworks */,
 				163275FB18AD468F00A97A9F /* Products */,
 			);
@@ -844,6 +1100,9 @@
 				16F60C5E1A8560470028B2D8 /* Lister WatchKit Extension.appex */,
 				16F60C6C1A8560470028B2D8 /* Lister WatchKit App.app */,
 				1611C5F81A92A09100472891 /* Lister Tests.xctest */,
+				16502F901B06877E00EB83DF /* Lister Watch App.app */,
+				16502F9C1B06877E00EB83DF /* Lister Watch Extension.appex */,
+				164346B51B0FE72200F81674 /* ListerKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -852,7 +1111,7 @@
 			isa = PBXGroup;
 			children = (
 				16B9353D1909753F004E89E3 /* Main.storyboard */,
-				16FD1D6319A5103700A40F20 /* Launch.xib */,
+				16CD55B01B124B5100DB4F4F /* Launch Screen.storyboard */,
 				163AD5AC19082124007D9A03 /* AAPLAppDelegate.h */,
 				163AD5AD19082124007D9A03 /* AAPLAppDelegate.m */,
 				160868731A8EA49000A5A707 /* Context */,
@@ -910,8 +1169,6 @@
 		1634730419F5E3D500387A94 /* Glance */ = {
 			isa = PBXGroup;
 			children = (
-				1634730519F5E46000387A94 /* AAPLGlanceBadge.h */,
-				1634730619F5E46000387A94 /* AAPLGlanceBadge.m */,
 				1634730719F5E46000387A94 /* AAPLGlanceInterfaceController.h */,
 				1634730819F5E46000387A94 /* AAPLGlanceInterfaceController.m */,
 			);
@@ -941,6 +1198,218 @@
 				168AF80A191AA89700D6BA5A /* ListerOSX.entitlements */,
 				163A6CA31906ED4C008E1930 /* Info.plist */,
 				163A6CA41906ED4C008E1930 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		164346B61B0FE72200F81674 /* ListerKit Framework (watchOS) */ = {
+			isa = PBXGroup;
+			children = (
+				1645D9061B0CFA8A005E8148 /* Storage */,
+				164346BE1B0FE7C800F81674 /* Supporting Files */,
+			);
+			name = "ListerKit Framework (watchOS)";
+			path = "ListerKit (WatchOS)";
+			sourceTree = "<group>";
+		};
+		164346BE1B0FE7C800F81674 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				164346B91B0FE72200F81674 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1645D9031B0CF707005E8148 /* Shared Lister WatchKit Code */ = {
+			isa = PBXGroup;
+			children = (
+				3E7FE73819DBB6AE0056487F /* AAPLWatchStoryboardConstants.h */,
+				3E7FE73919DBB6AE0056487F /* AAPLWatchStoryboardConstants.m */,
+				16FEF6A91A116AA300E0CC5E /* Row Controllers */,
+				1645D9041B0CF757005E8148 /* Glance */,
+			);
+			name = "Shared Lister WatchKit Code";
+			sourceTree = "<group>";
+		};
+		1645D9041B0CF757005E8148 /* Glance */ = {
+			isa = PBXGroup;
+			children = (
+				1634730519F5E46000387A94 /* AAPLGlanceBadge.h */,
+				1634730619F5E46000387A94 /* AAPLGlanceBadge.m */,
+			);
+			name = Glance;
+			sourceTree = "<group>";
+		};
+		1645D9061B0CFA8A005E8148 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				1645D9071B0CFAF4005E8148 /* AAPLListInfo.h */,
+				1645D9081B0CFAF4005E8148 /* AAPLListInfo.m */,
+				1645D90B1B0CFB5A005E8148 /* AAPLConnectivityListsController.h */,
+				1645D90C1B0CFB5A005E8148 /* AAPLConnectivityListsController.m */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		16502F911B06877E00EB83DF /* Lister Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				16892DE11B06E2F00001FF08 /* Interface.storyboard */,
+				16502FB91B06892100EB83DF /* Assets */,
+				165030331B06898600EB83DF /* Supporting Files */,
+			);
+			path = "Lister Watch App";
+			sourceTree = "<group>";
+		};
+		16502FA01B06877E00EB83DF /* Lister Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				165030341B0689E700EB83DF /* Main App */,
+				165030351B0689F800EB83DF /* Glance */,
+				165030361B068A0400EB83DF /* Supporting Files */,
+			);
+			path = "Lister Watch Extension";
+			sourceTree = "<group>";
+		};
+		16502FB81B06882800EB83DF /* Lister Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				16502FA01B06877E00EB83DF /* Lister Watch Extension */,
+				16502F911B06877E00EB83DF /* Lister Watch App */,
+				164346B61B0FE72200F81674 /* ListerKit Framework (watchOS) */,
+			);
+			name = "Lister Watch App";
+			sourceTree = "<group>";
+		};
+		16502FB91B06892100EB83DF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				16502FE81B06892100EB83DF /* CheckBox */,
+				16502FBA1B06892100EB83DF /* Glance */,
+				16502FF51B06892100EB83DF /* Menus */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		16502FBA1B06892100EB83DF /* Glance */ = {
+			isa = PBXGroup;
+			children = (
+				16502FBB1B06892100EB83DF /* glance-0@2x.png */,
+				16502FBC1B06892100EB83DF /* glance-10@2x.png */,
+				16502FBD1B06892100EB83DF /* glance-11@2x.png */,
+				16502FBE1B06892100EB83DF /* glance-12@2x.png */,
+				16502FBF1B06892100EB83DF /* glance-13@2x.png */,
+				16502FC01B06892100EB83DF /* glance-14@2x.png */,
+				16502FC11B06892100EB83DF /* glance-15@2x.png */,
+				16502FC21B06892100EB83DF /* glance-16@2x.png */,
+				16502FC31B06892100EB83DF /* glance-17@2x.png */,
+				16502FC41B06892100EB83DF /* glance-18@2x.png */,
+				16502FC51B06892100EB83DF /* glance-19@2x.png */,
+				16502FC61B06892100EB83DF /* glance-1@2x.png */,
+				16502FC71B06892100EB83DF /* glance-20@2x.png */,
+				16502FC81B06892100EB83DF /* glance-21@2x.png */,
+				16502FC91B06892100EB83DF /* glance-22@2x.png */,
+				16502FCA1B06892100EB83DF /* glance-23@2x.png */,
+				16502FCB1B06892100EB83DF /* glance-24@2x.png */,
+				16502FCC1B06892100EB83DF /* glance-25@2x.png */,
+				16502FCD1B06892100EB83DF /* glance-26@2x.png */,
+				16502FCE1B06892100EB83DF /* glance-27@2x.png */,
+				16502FCF1B06892100EB83DF /* glance-28@2x.png */,
+				16502FD01B06892100EB83DF /* glance-29@2x.png */,
+				16502FD11B06892100EB83DF /* glance-2@2x.png */,
+				16502FD21B06892100EB83DF /* glance-30@2x.png */,
+				16502FD31B06892100EB83DF /* glance-31@2x.png */,
+				16502FD41B06892100EB83DF /* glance-32@2x.png */,
+				16502FD51B06892100EB83DF /* glance-33@2x.png */,
+				16502FD61B06892100EB83DF /* glance-34@2x.png */,
+				16502FD71B06892100EB83DF /* glance-35@2x.png */,
+				16502FD81B06892100EB83DF /* glance-36@2x.png */,
+				16502FD91B06892100EB83DF /* glance-37@2x.png */,
+				16502FDA1B06892100EB83DF /* glance-38@2x.png */,
+				16502FDB1B06892100EB83DF /* glance-39@2x.png */,
+				16502FDC1B06892100EB83DF /* glance-3@2x.png */,
+				16502FDD1B06892100EB83DF /* glance-40@2x.png */,
+				16502FDE1B06892100EB83DF /* glance-41@2x.png */,
+				16502FDF1B06892100EB83DF /* glance-42@2x.png */,
+				16502FE01B06892100EB83DF /* glance-43@2x.png */,
+				16502FE11B06892100EB83DF /* glance-44@2x.png */,
+				16502FE21B06892100EB83DF /* glance-4@2x.png */,
+				16502FE31B06892100EB83DF /* glance-5@2x.png */,
+				16502FE41B06892100EB83DF /* glance-6@2x.png */,
+				16502FE51B06892100EB83DF /* glance-7@2x.png */,
+				16502FE61B06892100EB83DF /* glance-8@2x.png */,
+				16502FE71B06892100EB83DF /* glance-9@2x.png */,
+			);
+			name = Glance;
+			path = Badge;
+			sourceTree = "<group>";
+		};
+		16502FE81B06892100EB83DF /* CheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				16502FE91B06892100EB83DF /* checkbox-blue-checked@2x.png */,
+				16502FEA1B06892100EB83DF /* checkbox-blue-unchecked@2x.png */,
+				16502FEB1B06892100EB83DF /* checkbox-gray-checked@2x.png */,
+				16502FEC1B06892100EB83DF /* checkbox-gray-unchecked@2x.png */,
+				16502FED1B06892100EB83DF /* checkbox-green-checked@2x.png */,
+				16502FEE1B06892100EB83DF /* checkbox-green-unchecked@2x.png */,
+				16502FEF1B06892100EB83DF /* checkbox-orange-checked@2x.png */,
+				16502FF01B06892100EB83DF /* checkbox-orange-unchecked@2x.png */,
+				16502FF11B06892100EB83DF /* checkbox-red-checked@2x.png */,
+				16502FF21B06892100EB83DF /* checkbox-red-unchecked@2x.png */,
+				16502FF31B06892100EB83DF /* checkbox-yellow-checked@2x.png */,
+				16502FF41B06892100EB83DF /* checkbox-yellow-unchecked@2x.png */,
+			);
+			path = CheckBox;
+			sourceTree = "<group>";
+		};
+		16502FF51B06892100EB83DF /* Menus */ = {
+			isa = PBXGroup;
+			children = (
+				16502FF61B06892100EB83DF /* check-all@2x.png */,
+				16502FF71B06892100EB83DF /* uncheck-all@2x.png */,
+			);
+			path = Menus;
+			sourceTree = "<group>";
+		};
+		165030331B06898600EB83DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16502F951B06877E00EB83DF /* Images.xcassets */,
+				16502F971B06877E00EB83DF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		165030341B0689E700EB83DF /* Main App */ = {
+			isa = PBXGroup;
+			children = (
+				16502FA11B06877E00EB83DF /* AAPLListsInterfaceController.h */,
+				16502FA21B06877E00EB83DF /* AAPLListsInterfaceController.m */,
+				16533DB01B091B6C006A90C4 /* AAPLListInterfaceController.h */,
+				16533DB11B091B6C006A90C4 /* AAPLListInterfaceController.m */,
+				16502FA41B06877E00EB83DF /* AAPLExtensionDelegate.h */,
+				16502FA51B06877E00EB83DF /* AAPLExtensionDelegate.m */,
+			);
+			name = "Main App";
+			sourceTree = "<group>";
+		};
+		165030351B0689F800EB83DF /* Glance */ = {
+			isa = PBXGroup;
+			children = (
+				16502FA71B06877E00EB83DF /* AAPLGlanceInterfaceController.h */,
+				16502FA81B06877E00EB83DF /* AAPLGlanceInterfaceController.m */,
+			);
+			path = Glance;
+			sourceTree = "<group>";
+		};
+		165030361B068A0400EB83DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				165030371B068AB600EB83DF /* Localizable.strings */,
+				165030381B068AB600EB83DF /* Localizable.stringsdict */,
+				16502FAC1B06877E00EB83DF /* Info.plist */,
+				16502FAA1B06877E00EB83DF /* Images.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1083,11 +1552,14 @@
 				16FEF6AB1A117A4500E0CC5E /* AAPLListItemRowController.m */,
 			);
 			name = "Row Controllers";
+			path = "Lister WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		3E04D0E119D9FB7500C59A0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				162C25BF1B1CEA07004DD2FC /* NotificationCenter.framework */,
+				1656DCA41B113DF2001233FA /* UIKit.framework */,
 				3E04D0E219D9FB7500C59A0F /* WatchKit.framework */,
 			);
 			name = Frameworks;
@@ -1444,13 +1916,10 @@
 		55EEFA871A1A5ED700172D58 /* Main App */ = {
 			isa = PBXGroup;
 			children = (
-				3E7FE73819DBB6AE0056487F /* AAPLWatchStoryboardConstants.h */,
-				3E7FE73919DBB6AE0056487F /* AAPLWatchStoryboardConstants.m */,
 				3E04D0E719D9FB7500C59A0F /* AAPLListsInterfaceController.h */,
 				3E04D0E819D9FB7500C59A0F /* AAPLListsInterfaceController.m */,
 				3E7FE73019DBB2AA0056487F /* AAPLListInterfaceController.h */,
 				3E7FE73119DBB2AA0056487F /* AAPLListInterfaceController.m */,
-				16FEF6A91A116AA300E0CC5E /* Row Controllers */,
 			);
 			name = "Main App";
 			sourceTree = "<group>";
@@ -1499,6 +1968,27 @@
 				3E6224601924623D00FFC808 /* AAPLListWindowController.h in Headers */,
 				3E9792691909807D0062A433 /* AAPLResizingTextField.h in Headers */,
 				3E745EFD190887500090B20E /* AAPLListViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		164346B21B0FE72200F81674 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				164346C71B0FE84D00F81674 /* AAPLListPresenting.h in Headers */,
+				164346C61B0FE84D00F81674 /* AAPLListPresenterDelegate.h in Headers */,
+				164346BF1B0FE7FE00F81674 /* AAPLListInfo.h in Headers */,
+				164346C11B0FE80D00F81674 /* AAPLConnectivityListsController.h in Headers */,
+				164346C41B0FE84D00F81674 /* AAPLList.h in Headers */,
+				164346DC1B0FEE6C00F81674 /* AAPLListUtilities.h in Headers */,
+				164346C31B0FE82200F81674 /* ListerKit.h in Headers */,
+				164346C81B0FE84D00F81674 /* AAPLAllListItemsPresenter.h in Headers */,
+				164346D41B0FEA0F00F81674 /* AAPLAppConfiguration.h in Headers */,
+				164346C51B0FE84D00F81674 /* AAPLListItem.h in Headers */,
+				164346CC1B0FE85500F81674 /* AAPLListPresenterUtilities.h in Headers */,
+				164346C91B0FE84D00F81674 /* AAPLIncompleteListItemsPresenter.h in Headers */,
+				164346CB1B0FE85500F81674 /* AAPLListPresenterAlgorithms.h in Headers */,
+				164346D61B0FED2F00F81674 /* AAPLListColor+UI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1555,13 +2045,16 @@
 				163275F818AD468F00A97A9F /* Resources */,
 				1632764118AD468F00A97A9F /* Embed Frameworks */,
 				16A1A28B1938266C00302EE4 /* Embed App Extensions */,
+				16502FB71B06877E00EB83DF /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				1632762018AD468F00A97A9F /* PBXTargetDependency */,
 				16A1A28A1938266C00302EE4 /* PBXTargetDependency */,
-				16F60C791A8560470028B2D8 /* PBXTargetDependency */,
+				16CD55B41B12537500DB4F4F /* PBXTargetDependency */,
+				16502FAE1B06877E00EB83DF /* PBXTargetDependency */,
+				169A57241B1B7EBE006BC62A /* PBXTargetDependency */,
 			);
 			name = Lister;
 			productName = Lister;
@@ -1628,6 +2121,60 @@
 			productReference = 163A6CA01906ED4C008E1930 /* Lister.app */;
 			productType = "com.apple.product-type.application";
 		};
+		164346B41B0FE72200F81674 /* ListerKit (watchOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 164346BA1B0FE72200F81674 /* Build configuration list for PBXNativeTarget "ListerKit (watchOS)" */;
+			buildPhases = (
+				164346B01B0FE72200F81674 /* Sources */,
+				164346B11B0FE72200F81674 /* Frameworks */,
+				164346B21B0FE72200F81674 /* Headers */,
+				164346B31B0FE72200F81674 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ListerKit (watchOS)";
+			productName = "ListerKit (WatchOS)";
+			productReference = 164346B51B0FE72200F81674 /* ListerKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		16502F8F1B06877E00EB83DF /* Lister Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16502FB61B06877E00EB83DF /* Build configuration list for PBXNativeTarget "Lister Watch App" */;
+			buildPhases = (
+				16502F8E1B06877E00EB83DF /* Resources */,
+				16502FB51B06877E00EB83DF /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16502F9F1B06877E00EB83DF /* PBXTargetDependency */,
+			);
+			name = "Lister Watch App";
+			productName = "Lister Watch App";
+			productReference = 16502F901B06877E00EB83DF /* Lister Watch App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		16502F9B1B06877E00EB83DF /* Lister Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16502FB41B06877E00EB83DF /* Build configuration list for PBXNativeTarget "Lister Watch Extension" */;
+			buildPhases = (
+				16502F981B06877E00EB83DF /* Sources */,
+				16502F991B06877E00EB83DF /* Frameworks */,
+				16502F9A1B06877E00EB83DF /* Resources */,
+				16D1A4AD1B06C5D20027BF67 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				164346DB1B0FEE5500F81674 /* PBXTargetDependency */,
+			);
+			name = "Lister Watch Extension";
+			productName = "Lister Watch Extension";
+			productReference = 16502F9C1B06877E00EB83DF /* Lister Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		16EB5ECA1936D39400532A4B /* Lister Today */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16EB5EDA1936D39400532A4B /* Build configuration list for PBXNativeTarget "Lister Today" */;
@@ -1692,6 +2239,7 @@
 			);
 			dependencies = (
 				3E2517CF197F7D9700B8AF96 /* PBXTargetDependency */,
+				160D670F1B1E188600E923AB /* PBXTargetDependency */,
 			);
 			name = "ListerKit Tests";
 			productName = ListerKitTests;
@@ -1741,7 +2289,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AAPL;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Apple Inc.";
 				TargetAttributes = {
 					1611C5F71A92A09100472891 = {
@@ -1768,6 +2316,16 @@
 							};
 						};
 					};
+					164346B41B0FE72200F81674 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = A93A5CM278;
+					};
+					16502F8F1B06877E00EB83DF = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					16502F9B1B06877E00EB83DF = {
+						CreatedOnToolsVersion = 7.0;
+					};
 					16EB5ECA1936D39400532A4B = {
 						CreatedOnToolsVersion = 6.0;
 						SystemCapabilities = {
@@ -1787,7 +2345,7 @@
 					};
 					3E2517C6197F7D9600B8AF96 = {
 						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 1632761D18AD468F00A97A9F;
+						TestTargetID = 163275F918AD468F00A97A9F;
 					};
 					3E95066F198575570030A9D1 = {
 						CreatedOnToolsVersion = 6.0;
@@ -1814,6 +2372,9 @@
 				16F60C6B1A8560470028B2D8 /* Lister WatchKit App */,
 				1632761D18AD468F00A97A9F /* ListerKit */,
 				3E2517C6197F7D9600B8AF96 /* ListerKit Tests */,
+				16502F9B1B06877E00EB83DF /* Lister Watch Extension */,
+				16502F8F1B06877E00EB83DF /* Lister Watch App */,
+				164346B41B0FE72200F81674 /* ListerKit (watchOS) */,
 				163A6C9F1906ED4C008E1930 /* Lister (OS X) */,
 				1633C7301939337F00A9CC5E /* Lister Today (OS X) */,
 				3E745ECA190880F30090B20E /* ListerKit (OS X) */,
@@ -1838,9 +2399,9 @@
 				3EBE02C5198CA57B0007E4AC /* Groceries.list in Resources */,
 				160D913E1937921E00373D47 /* Lister.entitlements in Resources */,
 				16B9353F1909753F004E89E3 /* Main.storyboard in Resources */,
-				16FD1D6519A5103700A40F20 /* Launch.xib in Resources */,
 				3EBE02C6198CA57B0007E4AC /* Tech Toys.list in Resources */,
 				1632760918AD468F00A97A9F /* Images.xcassets in Resources */,
+				16CD55B21B124B5100DB4F4F /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1873,6 +2434,91 @@
 				3E79958F19EC841D0077233E /* Main.storyboard in Resources */,
 				3EBE029B198CA5280007E4AC /* ListerDocumentIcon.icns in Resources */,
 				163A6CAE1906ED4C008E1930 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		164346B31B0FE72200F81674 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16502F8E1B06877E00EB83DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				167843BE1B092FEA009DEE8D /* checkbox-green-unchecked@2x.png in Resources */,
+				167844121B092FFB009DEE8D /* glance-39@2x.png in Resources */,
+				1678440F1B092FFB009DEE8D /* glance-36@2x.png in Resources */,
+				167844151B092FFB009DEE8D /* glance-41@2x.png in Resources */,
+				16030B431B079FF800BA8EEB /* Interface.storyboard in Resources */,
+				167844001B092FFB009DEE8D /* glance-22@2x.png in Resources */,
+				167844141B092FFB009DEE8D /* glance-40@2x.png in Resources */,
+				167843BF1B092FEA009DEE8D /* checkbox-orange-checked@2x.png in Resources */,
+				167844131B092FFB009DEE8D /* glance-3@2x.png in Resources */,
+				167843F51B092FFB009DEE8D /* glance-12@2x.png in Resources */,
+				167843B91B092FEA009DEE8D /* checkbox-blue-checked@2x.png in Resources */,
+				167843C41B092FEA009DEE8D /* checkbox-yellow-unchecked@2x.png in Resources */,
+				167844011B092FFB009DEE8D /* glance-23@2x.png in Resources */,
+				167843F81B092FFB009DEE8D /* glance-15@2x.png in Resources */,
+				167843F31B092FFB009DEE8D /* glance-10@2x.png in Resources */,
+				167844171B092FFB009DEE8D /* glance-43@2x.png in Resources */,
+				1678441C1B092FFB009DEE8D /* glance-7@2x.png in Resources */,
+				167844161B092FFB009DEE8D /* glance-42@2x.png in Resources */,
+				167843BA1B092FEA009DEE8D /* checkbox-blue-unchecked@2x.png in Resources */,
+				1678440E1B092FFB009DEE8D /* glance-35@2x.png in Resources */,
+				1678440C1B092FFB009DEE8D /* glance-33@2x.png in Resources */,
+				167844031B092FFB009DEE8D /* glance-25@2x.png in Resources */,
+				167843F91B092FFB009DEE8D /* glance-16@2x.png in Resources */,
+				167843F41B092FFB009DEE8D /* glance-11@2x.png in Resources */,
+				167843F71B092FFB009DEE8D /* glance-14@2x.png in Resources */,
+				1678441F1B09300E009DEE8D /* check-all@2x.png in Resources */,
+				167843C11B092FEA009DEE8D /* checkbox-red-checked@2x.png in Resources */,
+				1678440D1B092FFB009DEE8D /* glance-34@2x.png in Resources */,
+				167844201B09300E009DEE8D /* uncheck-all@2x.png in Resources */,
+				167844041B092FFB009DEE8D /* glance-26@2x.png in Resources */,
+				167843BD1B092FEA009DEE8D /* checkbox-green-checked@2x.png in Resources */,
+				167844081B092FFB009DEE8D /* glance-2@2x.png in Resources */,
+				167844091B092FFB009DEE8D /* glance-30@2x.png in Resources */,
+				167843C01B092FEA009DEE8D /* checkbox-orange-unchecked@2x.png in Resources */,
+				167844071B092FFB009DEE8D /* glance-29@2x.png in Resources */,
+				167844021B092FFB009DEE8D /* glance-24@2x.png in Resources */,
+				1678441B1B092FFB009DEE8D /* glance-6@2x.png in Resources */,
+				167843FF1B092FFB009DEE8D /* glance-21@2x.png in Resources */,
+				167844051B092FFB009DEE8D /* glance-27@2x.png in Resources */,
+				1678440B1B092FFB009DEE8D /* glance-32@2x.png in Resources */,
+				167844061B092FFB009DEE8D /* glance-28@2x.png in Resources */,
+				167843C21B092FEA009DEE8D /* checkbox-red-unchecked@2x.png in Resources */,
+				167843BC1B092FEA009DEE8D /* checkbox-gray-unchecked@2x.png in Resources */,
+				167843C31B092FEA009DEE8D /* checkbox-yellow-checked@2x.png in Resources */,
+				167843BB1B092FEA009DEE8D /* checkbox-gray-checked@2x.png in Resources */,
+				1678441D1B092FFB009DEE8D /* glance-8@2x.png in Resources */,
+				167844111B092FFB009DEE8D /* glance-38@2x.png in Resources */,
+				167844181B092FFB009DEE8D /* glance-44@2x.png in Resources */,
+				167844191B092FFB009DEE8D /* glance-4@2x.png in Resources */,
+				167844101B092FFB009DEE8D /* glance-37@2x.png in Resources */,
+				167843FE1B092FFB009DEE8D /* glance-20@2x.png in Resources */,
+				167843F21B092FFB009DEE8D /* glance-0@2x.png in Resources */,
+				167843FD1B092FFB009DEE8D /* glance-1@2x.png in Resources */,
+				167843F61B092FFB009DEE8D /* glance-13@2x.png in Resources */,
+				167843FB1B092FFB009DEE8D /* glance-18@2x.png in Resources */,
+				167843FA1B092FFB009DEE8D /* glance-17@2x.png in Resources */,
+				16502F961B06877E00EB83DF /* Images.xcassets in Resources */,
+				1678441A1B092FFB009DEE8D /* glance-5@2x.png in Resources */,
+				1678441E1B092FFB009DEE8D /* glance-9@2x.png in Resources */,
+				167843FC1B092FFB009DEE8D /* glance-19@2x.png in Resources */,
+				1678440A1B092FFB009DEE8D /* glance-31@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16502F9A1B06877E00EB83DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16502FAB1B06877E00EB83DF /* Images.xcassets in Resources */,
+				16F718971B1128B000EA8C90 /* Localizable.strings in Resources */,
+				16F718981B1128B000EA8C90 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2069,6 +2715,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		164346B01B0FE72200F81674 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				164346CD1B0FE86900F81674 /* AAPLList.m in Sources */,
+				164346C21B0FE81400F81674 /* AAPLConnectivityListsController.m in Sources */,
+				164346CE1B0FE86900F81674 /* AAPLListItem.m in Sources */,
+				164346D71B0FED3800F81674 /* AAPLListColor+UI.m in Sources */,
+				164346D01B0FE86900F81674 /* AAPLIncompleteListItemsPresenter.m in Sources */,
+				164346CF1B0FE86900F81674 /* AAPLAllListItemsPresenter.m in Sources */,
+				164346D51B0FEA1600F81674 /* AAPLAppConfiguration.m in Sources */,
+				164346D21B0FE86900F81674 /* AAPLListPresenterUtilities.m in Sources */,
+				164346DD1B0FEE7300F81674 /* AAPLListUtilities.m in Sources */,
+				164346D11B0FE86900F81674 /* AAPLListPresenterAlgorithms.m in Sources */,
+				164346C01B0FE80600F81674 /* AAPLListInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16502F981B06877E00EB83DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16533DB31B0921E3006A90C4 /* AAPLColoredTextRowController.m in Sources */,
+				16D1A47E1B06B0670027BF67 /* AAPLWatchStoryboardConstants.m in Sources */,
+				16502FA61B06877E00EB83DF /* AAPLExtensionDelegate.m in Sources */,
+				16502FA31B06877E00EB83DF /* AAPLListsInterfaceController.m in Sources */,
+				16502FA91B06877E00EB83DF /* AAPLGlanceInterfaceController.m in Sources */,
+				16533DB41B0921E3006A90C4 /* AAPLListItemRowController.m in Sources */,
+				167843B61B0927D6009DEE8D /* AAPLListInterfaceController.m in Sources */,
+				16F718961B10F8C800EA8C90 /* AAPLGlanceBadge.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		16EB5EC71936D39400532A4B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2139,6 +2818,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		160D670F1B1E188600E923AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 163275F918AD468F00A97A9F /* Lister */;
+			targetProxy = 160D670E1B1E188600E923AB /* PBXContainerItemProxy */;
+		};
 		1611C5FF1A92A09100472891 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 163275F918AD468F00A97A9F /* Lister */;
@@ -2159,6 +2843,26 @@
 			target = 3E745ECA190880F30090B20E /* ListerKit (OS X) */;
 			targetProxy = 1633C7601939356E00A9CC5E /* PBXContainerItemProxy */;
 		};
+		164346DB1B0FEE5500F81674 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 164346B41B0FE72200F81674 /* ListerKit (watchOS) */;
+			targetProxy = 164346DA1B0FEE5500F81674 /* PBXContainerItemProxy */;
+		};
+		16502F9F1B06877E00EB83DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16502F9B1B06877E00EB83DF /* Lister Watch Extension */;
+			targetProxy = 16502F9E1B06877E00EB83DF /* PBXContainerItemProxy */;
+		};
+		16502FAE1B06877E00EB83DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16502F8F1B06877E00EB83DF /* Lister Watch App */;
+			targetProxy = 16502FAD1B06877E00EB83DF /* PBXContainerItemProxy */;
+		};
+		169A57241B1B7EBE006BC62A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16F60C5D1A8560470028B2D8 /* Lister WatchKit Extension */;
+			targetProxy = 169A57231B1B7EBE006BC62A /* PBXContainerItemProxy */;
+		};
 		16A1A28A1938266C00302EE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 16EB5ECA1936D39400532A4B /* Lister Today */;
@@ -2169,15 +2873,15 @@
 			target = 1633C7301939337F00A9CC5E /* Lister Today (OS X) */;
 			targetProxy = 16B6ABA81939573B00CA7E11 /* PBXContainerItemProxy */;
 		};
+		16CD55B41B12537500DB4F4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16F60C6B1A8560470028B2D8 /* Lister WatchKit App */;
+			targetProxy = 16CD55B31B12537500DB4F4F /* PBXContainerItemProxy */;
+		};
 		16F60C6F1A8560470028B2D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 16F60C6B1A8560470028B2D8 /* Lister WatchKit App */;
 			targetProxy = 16F60C6E1A8560470028B2D8 /* PBXContainerItemProxy */;
-		};
-		16F60C791A8560470028B2D8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 16F60C5D1A8560470028B2D8 /* Lister WatchKit Extension */;
-			targetProxy = 16F60C781A8560470028B2D8 /* PBXContainerItemProxy */;
 		};
 		3E1ACA051A85810600FF4AB3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2220,6 +2924,14 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		16892DE11B06E2F00001FF08 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16892DE21B06E2F00001FF08 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		16B9353D1909753F004E89E3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2228,20 +2940,20 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		16CD55B01B124B5100DB4F4F /* Launch Screen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16CD55B11B124B5100DB4F4F /* Base */,
+			);
+			name = "Launch Screen.storyboard";
+			sourceTree = "<group>";
+		};
 		16F60C731A8560470028B2D8 /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				16F60C741A8560470028B2D8 /* Base */,
 			);
 			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
-		16FD1D6319A5103700A40F20 /* Launch.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				16FD1D6419A5103700A40F20 /* Base */,
-			);
-			name = Launch.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2264,6 +2976,7 @@
 				INFOPLIST_FILE = "Lister Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lister.app/Lister";
 			};
@@ -2283,6 +2996,7 @@
 				INFOPLIST_FILE = "Lister Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lister.app/Lister";
 			};
@@ -2307,6 +3021,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2322,11 +3037,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LISTER_BUNDLE_PREFIX = "com.example.apple-samplecode";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TOOLCHAINS = default;
 			};
 			name = Debug;
 		};
@@ -2358,10 +3073,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LISTER_BUNDLE_PREFIX = "com.example.apple-samplecode";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TOOLCHAINS = default;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -2387,6 +3102,7 @@
 				INFOPLIST_FILE = ListerKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2411,6 +3127,7 @@
 				INFOPLIST_FILE = ListerKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2422,7 +3139,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Lister/Lister.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2434,6 +3150,7 @@
 				GCC_PREFIX_HEADER = "Lister/Lister-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Lister/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2443,7 +3160,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Lister/Lister.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2455,6 +3171,7 @@
 				GCC_PREFIX_HEADER = "Lister/Lister-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Lister/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2475,8 +3192,8 @@
 				);
 				INFOPLIST_FILE = ListerTodayOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).ListerOSX.$(PRODUCT_NAME:rfc1034identifier)TodayOSX";
 				PRODUCT_NAME = Lister;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -2496,8 +3213,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = ListerTodayOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).ListerOSX.$(PRODUCT_NAME:rfc1034identifier)TodayOSX";
 				PRODUCT_NAME = Lister;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -2523,7 +3240,7 @@
 				);
 				INFOPLIST_FILE = ListerOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).$(PRODUCT_NAME:rfc1034identifier)OSX";
 				PRODUCT_NAME = Lister;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -2545,10 +3262,168 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = ListerOSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).$(PRODUCT_NAME:rfc1034identifier)OSX";
 				PRODUCT_NAME = Lister;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		164346BB1B0FE72200F81674 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ListerKit (WatchOS)/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).ListerKit--WatchOS-";
+				PRODUCT_NAME = ListerKit;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		164346BC1B0FE72200F81674 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "ListerKit (WatchOS)/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).ListerKit--WatchOS-";
+				PRODUCT_NAME = ListerKit;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		16502FB01B06877E00EB83DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Lister_Watch_Extension;
+				INFOPLIST_FILE = "$(SRCROOT)/Lister Watch App/Info.plist";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).Lister.nativewatchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		16502FB11B06877E00EB83DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = Lister_Watch_Extension;
+				INFOPLIST_FILE = "$(SRCROOT)/Lister Watch App/Info.plist";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).Lister.nativewatchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		16502FB21B06877E00EB83DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Lister Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).Lister.nativewatchkitapp.nativewatchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		16502FB31B06877E00EB83DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Lister Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).Lister.nativewatchkitapp.nativewatchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;
 		};
@@ -2567,6 +3442,7 @@
 				INFOPLIST_FILE = ListerToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).Lister.$(PRODUCT_NAME:rfc1034identifier)Today";
 				PRODUCT_NAME = Lister;
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -2584,6 +3460,7 @@
 				INFOPLIST_FILE = ListerToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).Lister.$(PRODUCT_NAME:rfc1034identifier)Today";
 				PRODUCT_NAME = Lister;
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -2605,6 +3482,7 @@
 				INFOPLIST_FILE = "Lister WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.Lister.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -2624,6 +3502,7 @@
 				INFOPLIST_FILE = "Lister WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.Lister.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -2644,9 +3523,9 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Lister WatchKit Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.Lister.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SKIP_INSTALL = YES;
 			};
@@ -2662,9 +3541,9 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = "Lister WatchKit Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.Lister.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SKIP_INSTALL = YES;
 			};
@@ -2686,7 +3565,9 @@
 				INFOPLIST_FILE = "ListerKit Tests/iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lister.app/Lister";
 			};
 			name = Debug;
 		};
@@ -2702,7 +3583,9 @@
 				INFOPLIST_FILE = "ListerKit Tests/iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lister.app/Lister";
 			};
 			name = Release;
 		};
@@ -2728,7 +3611,7 @@
 				);
 				INFOPLIST_FILE = ListerKitOSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ListerKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -2756,7 +3639,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = ListerKitOSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(LISTER_BUNDLE_PREFIX).$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ListerKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -2784,6 +3667,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -2805,6 +3689,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "${LISTER_BUNDLE_PREFIX}.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -2863,6 +3748,33 @@
 			buildConfigurations = (
 				163A6CBE1906ED4D008E1930 /* Debug */,
 				163A6CBF1906ED4D008E1930 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		164346BA1B0FE72200F81674 /* Build configuration list for PBXNativeTarget "ListerKit (watchOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				164346BB1B0FE72200F81674 /* Debug */,
+				164346BC1B0FE72200F81674 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16502FB41B06877E00EB83DF /* Build configuration list for PBXNativeTarget "Lister Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16502FB21B06877E00EB83DF /* Debug */,
+				16502FB31B06877E00EB83DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16502FB61B06877E00EB83DF /* Build configuration list for PBXNativeTarget "Lister Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16502FB01B06877E00EB83DF /* Debug */,
+				16502FB11B06877E00EB83DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

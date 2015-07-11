@@ -116,6 +116,12 @@
     return ![[NSFileManager defaultManager] fileExistsAtPath:documentURL.path];
 }
 
+- (void)copyListFromURL:(NSURL *)URL toListWithName:(NSString *)name {
+    NSURL *documentURL = [self documentURLForName:name];
+    
+    [AAPLListUtilities copyFromURL:URL toURL:documentURL];
+}
+
 #pragma mark - AAPLDirectoryMonitorDelegate
 
 - (void)directoryMonitorDidObserveChange:(AAPLDirectoryMonitor *)directoryMonitor {

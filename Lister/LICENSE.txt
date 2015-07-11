@@ -1,5 +1,5 @@
-Sample code project: Lister (for Apple Watch, iOS, and OS X)
-Version: 2.0
+Sample code project: Lister (for watchOS, iOS, and OS X)
+Version: 3.0
 
 IMPORTANT:  This Apple software is supplied to you by Apple
 Inc. ("Apple") in consideration of your agreement to the following

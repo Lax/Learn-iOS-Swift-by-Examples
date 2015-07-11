@@ -16,8 +16,8 @@ typedef NS_ENUM(NSInteger, AAPLTodayWidgetRowPurpose) {
 };
 
 /*!
- * A wrapper around a \c AAPLTodayWidgetRowPurpose that is used to bind to different objects in the
- * \c AAPLTodayViewController widget list view controller's row row views.
+    A wrapper around a \c AAPLTodayWidgetRowPurpose that is used to bind to different objects in the
+    \c AAPLTodayViewController widget list view controller's row row views.
  */
 @interface AAPLTodayWidgetRowPurposeBox : NSObject
 

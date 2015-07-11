@@ -13,25 +13,25 @@
 @interface AAPLListsController () <AAPLListCoordinatorDelegate>
 
 /*!
- * The \c AAPLListInfo objects that are cached by the \c AAPLListsController to allow for users of the
- * \c AAPLListsController class to easily subscript the controller.
+    The \c AAPLListInfo objects that are cached by the \c AAPLListsController to allow for users of the
+    \c AAPLListsController class to easily subscript the controller.
  */
 @property (nonatomic, strong) NSMutableArray *listInfos;
 
 /*!
- * @return A private, local queue to the \c AAPLListsController that is used to perform updates on
- *         \c listInfos.
+    @return A private, local queue to the \c AAPLListsController that is used to perform updates on
+            \c listInfos.
  */
 @property (nonatomic, strong) dispatch_queue_t listInfoQueue;
 
 /*!
- * The sort comparator that's set in initialization. The sort predicate ensures a strict sort ordering
- * of the \c listInfos array. If \c sortComparator is nil, the sort order is ignored.
+    The sort comparator that's set in initialization. The sort predicate ensures a strict sort ordering
+    of the \c listInfos array. If \c sortComparator is nil, the sort order is ignored.
  */
 @property (nonatomic, copy) NSComparisonResult (^sortComparator)(AAPLListInfo *lhs, AAPLListInfo *rhs);
 
 /*!
- * The queue in which the \c AAPLListsController object invokes delegate messages.
+    The queue in which the \c AAPLListsController object invokes delegate messages.
  */
 @property (nonatomic, strong) NSOperationQueue *delegateQueue;
 
@@ -124,6 +124,10 @@
     return [self.listCoordinator canCreateListWithName:name];
 }
 
+- (void)copyListFromURL:(NSURL *)URL toListWithName:(NSString *)name {
+    [self.listCoordinator copyListFromURL:URL toListWithName:name];
+}
+
 - (void)setListInfoHasNewContents:(AAPLListInfo *)listInfo {
     dispatch_async(self.listInfoQueue, ^{
         // Remove the old list info and replace it with the new one.
@@ -173,13 +177,13 @@
 #pragma mark - Change Processing
 
 /*!
- * Processes changes to the \c AAPLListsController object's \c AAPLListInfo collection. This
- * implementation performs the updates and determines where each of these URLs were located so that
- * the controller can forward the new / removed / updated indexes as well.
- *
- * @param insertedURLs The \c NSURL instances that are newly tracked.
- * @param removedURLs The \c NSURL instances that have just been untracked.
- * @param updatedURLs The \c NSURL instances that have had their underlying model updated.
+    Processes changes to the \c AAPLListsController object's \c AAPLListInfo collection. This
+    implementation performs the updates and determines where each of these URLs were located so that
+    the controller can forward the new / removed / updated indexes as well.
+
+    @param insertedURLs The \c NSURL instances that are newly tracked.
+    @param removedURLs The \c NSURL instances that have just been untracked.
+    @param updatedURLs The \c NSURL instances that have had their underlying model updated.
  */
 - (void)processContentChangesWithInsertedURLs:(NSArray *)insertedURLs removedURLs:(NSArray *)removedURLs updatedURLs:(NSArray *)updatedURLs {
     NSArray *insertedListInfos = [self listInfosByMappingURLs:insertedURLs];

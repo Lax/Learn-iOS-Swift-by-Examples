@@ -17,6 +17,8 @@
 
 @implementation AAPLListRowViewController
 
+@dynamic representedObject;
+
 #pragma mark - View Life Cycle
 
 - (void)viewDidLoad {

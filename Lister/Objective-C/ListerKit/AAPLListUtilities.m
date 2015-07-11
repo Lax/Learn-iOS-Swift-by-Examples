@@ -204,17 +204,41 @@
         return;
     }
     
+    [self copyFromURL:url toURL:toURL];
+}
+
++ (void)copyFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL {
     NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
     __block NSError *error;
     
-    BOOL successfulSecurityScopedResourceAccess = [url startAccessingSecurityScopedResource];
+    BOOL successfulSecurityScopedResourceAccess = [fromURL startAccessingSecurityScopedResource];
     
-    NSFileAccessIntent *movingIntent = [NSFileAccessIntent writingIntentWithURL:url options:NSFileCoordinatorWritingForMoving];
-    NSFileAccessIntent *replacingIntent = [NSFileAccessIntent writingIntentWithURL:toURL options:NSFileCoordinatorWritingForReplacing];
-    [fileCoordinator coordinateAccessWithIntents:@[movingIntent, replacingIntent] queue:[self queue] byAccessor:^(NSError *accessError) {
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    
+    // First copy the source file into a temporary location where the replace can be carried out.
+    NSURL *tempDirectory = [fileManager URLForDirectory:NSItemReplacementDirectory
+                                               inDomain:NSUserDomainMask
+                                      appropriateForURL:toURL
+                                                 create:YES
+                                                  error:&error];
+    NSURL *tempURL = [tempDirectory URLByAppendingPathComponent:[toURL lastPathComponent]];
+    BOOL success = [fileManager copyItemAtURL:fromURL toURL:tempURL error:&error];
+    
+    if (!success) {
+        // An error occured when moving URL to toURL. In your app, handle this gracefully.
+        NSLog(@"Couldn't create temp file from: %@ at: %@ error: %@.", fromURL.absoluteString, tempURL.absoluteString, error.localizedDescription);
+        NSLog(@"Error\nCode: %ld\nDomain: %@\nDescription: %@\nReason: %@\nUser Info: %@\n", (long)error.code, error.domain, error.localizedDescription, error.localizedFailureReason, error.userInfo);
+        
+        return;
+    }
+    
+    // Now perform a coordinated replace to move the file from the temporary location to its final destination.
+    NSFileAccessIntent *movingIntent = [NSFileAccessIntent writingIntentWithURL:tempURL options:NSFileCoordinatorWritingForMoving];
+    NSFileAccessIntent *mergingIntent = [NSFileAccessIntent writingIntentWithURL:toURL options:NSFileCoordinatorWritingForMerging];
+    [fileCoordinator coordinateAccessWithIntents:@[movingIntent, mergingIntent] queue:[self queue] byAccessor:^(NSError *accessError) {
         if (accessError) {
             // An error occured when trying to coordinate moving URL to toURL. In your app, handle this gracefully.
-            NSLog(@"Couldn't move file: %@ to: %@ error: %@.", url.absoluteString, toURL.absoluteString, accessError.localizedDescription);
+            NSLog(@"Couldn't move file: %@ to: %@ error: %@.", fromURL.absoluteString, toURL.absoluteString, accessError.localizedDescription);
             
             return;
         }
@@ -223,22 +247,26 @@
         
         NSFileManager *fileManager = [[NSFileManager alloc] init];
         
-        success = [fileManager copyItemAtURL:movingIntent.URL toURL:replacingIntent.URL error:&error];
+        success = [[NSData dataWithContentsOfURL:movingIntent.URL] writeToURL:mergingIntent.URL atomically:YES];
         
         if (success) {
             NSDictionary *fileAttributes = @{ NSFileExtensionHidden: @YES };
             
-            [fileManager setAttributes:fileAttributes ofItemAtPath:replacingIntent.URL.path error:nil];
+            [[NSFileManager defaultManager] setAttributes:fileAttributes ofItemAtPath:mergingIntent.URL.path error:&error];
         }
         
         if (successfulSecurityScopedResourceAccess) {
-            [url stopAccessingSecurityScopedResource];
+            [fromURL stopAccessingSecurityScopedResource];
         }
         
         if (!success) {
             // An error occured when moving URL to toURL. In your app, handle this gracefully.
-            NSLog(@"Couldn't move file: %@ to: %@.", url.absoluteString, toURL.absoluteString);
+            NSLog(@"Couldn't move file: %@ to: %@ error: %@.", fromURL.absoluteString, toURL.absoluteString, error.localizedDescription);
+            NSLog(@"Error\nCode: %ld\nDomain: %@\nDescription: %@\nReason: %@\nUser Info: %@\n", (long)error.code, error.domain, error.localizedDescription, error.localizedFailureReason, error.userInfo);
         }
+        
+        // Cleanup
+        [fileManager removeItemAtURL:tempDirectory error:&error];
     }];
 }
 
@@ -249,6 +277,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         queue = [[NSOperationQueue alloc] init];
+        queue.maxConcurrentOperationCount = 1;
     });
     
     return queue;

@@ -21,10 +21,10 @@
 @property (getter=isInitialList) BOOL initialList;
 
 /*!
- * A cached array of the list items that should be presented. When the presenter initially has its underlying \c list
- * set, the \c presentedListItems is set to all of the incomplete list items. As list items are toggled, \c presentedListItems
- * may not only contain incomplete list items. Note that we've named the property \c presentedListItems since
- * there's already a readonly \c presentedListItems property (which returns the value of \c presentedListItems).
+    A cached array of the list items that should be presented. When the presenter initially has its underlying \c list
+    set, the \c presentedListItems is set to all of the incomplete list items. As list items are toggled, \c presentedListItems
+    may not only contain incomplete list items. Note that we've named the property \c presentedListItems since
+    there's already a readonly \c presentedListItems property (which returns the value of \c presentedListItems).
  */
 @property (readwrite, copy) NSArray *presentedListItems;
 
@@ -63,9 +63,9 @@
 }
 
 /*!
- * This methods determines the diff betwen the current list and the new list provided and notifies the delegate
- * accordingly. The delegate will be notified of all changes except for reordering list items (an implementation
- * detail). If the list is the initial list to be presented, we just reload all of the data.
+    This methods determines the diff betwen the current list and the new list provided and notifies the delegate
+    accordingly. The delegate will be notified of all changes except for reordering list items (an implementation
+    detail). If the list is the initial list to be presented, we just reload all of the data.
  */
 - (void)setList:(AAPLList *)newList {
     // If this is the initial list that's being presented, just tell the delegate to reload all of the data.

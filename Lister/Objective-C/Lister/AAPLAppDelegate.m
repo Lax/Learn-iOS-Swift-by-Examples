@@ -21,7 +21,7 @@ NSString *const AAPLAppDelegateMainStoryboardListViewControllerIdentifier = @"li
 NSString *const AAPLAppDelegateMainStoryboardListNavigationViewControllerIdentifier = @"listViewNavigationController";
 
 // View controller segue identifiers.
-NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerToNewListDocumentControllerSegueIdentifier = @"newListDocument";
+NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerToNewListDocumentControllerSegueIdentifier = @"showNewListDocument";
 NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerToListViewControllerSegueIdentifier = @"showListDocument";
 NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerContinueUserActivity = @"showListDocumentFromUserActivity";
 
@@ -30,24 +30,24 @@ NSString *const AAPLAppDelegateMainStoryboardListDocumentsViewControllerContinue
 @property (nonatomic, strong) AAPLListsController *listsController;
 
 /*!
- * The root view controller of the window will always be a UISplitViewController. This is setup in
- * the main storyboard.
+    The root view controller of the window will always be a UISplitViewController. This is setup in
+    the main storyboard.
  */
 @property (nonatomic, readonly) UISplitViewController *splitViewController;
 
 /*!
- * The primary view controller of the split view controller defined in the main storyboard.
+    The primary view controller of the split view controller defined in the main storyboard.
  */
 @property (nonatomic, readonly) UINavigationController *primaryViewController;
 
 /*!
- * The view controller that displays the list of documents. If it's not visible, then this value is nil.
+    The view controller that displays the list of documents. If it's not visible, then this value is nil.
  */
 @property (nonatomic, readonly) AAPLListDocumentsViewController *listDocumentsViewController;
 
 /*!
- * @return A private, local queue used to ensure serialized access to Cloud containers during application 
- * startup.
+    @return A private, local queue used to ensure serialized access to Cloud containers during application 
+    startup.
  */
 @property (nonatomic, strong) dispatch_queue_t appDelegateQueue;
 

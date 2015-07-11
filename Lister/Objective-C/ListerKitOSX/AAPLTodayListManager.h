@@ -13,8 +13,8 @@
 + (AAPLTodayListManager *)sharedTodayListManager;
 
 /*!
- * Fetches the ubiquity container URL for the Today list document. If one isn't found, the block is invoked
- * with a nil value.
+    Fetches the ubiquity container URL for the Today list document. If one isn't found, the block is invoked
+    with a nil value.
  */
 - (void)fetchTodayDocumentURLWithCompletionHandler:(void (^)(NSURL *url))completionHandler;
 

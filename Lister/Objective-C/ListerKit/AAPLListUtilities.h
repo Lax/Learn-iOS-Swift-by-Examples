@@ -26,4 +26,6 @@
 
 + (void)removeListAtURL:(NSURL *)url withCompletionHandler:(void (^)(NSError *error))completionHandler;
 
++ (void)copyFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL;
+
 @end

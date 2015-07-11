@@ -9,7 +9,7 @@
 @import Foundation;
 #import "AAPLList.h"
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IOS || TARGET_OS_WATCH
 
 @import UIKit;
 #define AAPLAppColor UIColor
@@ -23,5 +23,8 @@
 
 /// Returns the platform-specific color that is reprsented by \c listColor.
 AAPLAppColor *AAPLColorFromListColor(AAPLListColor listColor);
+
+/// Returns the platform-specific color that is reprsented by \c listColor for use in Notifcation Center.
+AAPLAppColor *AAPLColorFromListColorForNotificationCenter(AAPLListColor listColor);
 
 #undef AAPLAppColor

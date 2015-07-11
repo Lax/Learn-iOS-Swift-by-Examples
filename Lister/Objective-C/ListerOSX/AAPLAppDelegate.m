@@ -39,9 +39,9 @@
 }
 
 /*!
- * Note that there are two possibile callers for this method. The first is the application delegate if it's
- * the first launch. The other possibility is if you use the keyboard shortcut (Command-T) to open your Today
- * document.
+    Note that there are two possibile callers for this method. The first is the application delegate if it's
+    the first launch. The other possibility is if you use the keyboard shortcut (Command-T) to open your Today
+    document.
  */
 - (IBAction)openTodayDocument:(id)sender {
     [[AAPLTodayListManager sharedTodayListManager] fetchTodayDocumentURLWithCompletionHandler:^(NSURL *url) {

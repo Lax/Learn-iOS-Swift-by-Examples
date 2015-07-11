@@ -9,8 +9,8 @@
 @import WatchKit;
 
 /*!
- * The interface controller that presents a list. The interface controller listens for changes to how the list
- * should be presented by the list presenter.
+    The interface controller that presents a list. The interface controller listens for changes to how the list
+    should be presented by the list presenter.
  */
 @interface AAPLListInterfaceController : WKInterfaceController
 @end

@@ -9,8 +9,8 @@
 #import "AAPLListColorCell.h"
 
 /*!
- * A \c UIView subclass that's used to test whether or not a \c colorTap(_:) action occurs from a view that we
- * designate as color tappable (e.g. the "Color" label should not be tappable).
+    A \c UIView subclass that's used to test whether or not a \c colorTap(_:) action occurs from a view that we
+    designate as color tappable (e.g. the "Color" label should not be tappable).
  */
 @interface AAPLColorTappableView: UIView
 @end

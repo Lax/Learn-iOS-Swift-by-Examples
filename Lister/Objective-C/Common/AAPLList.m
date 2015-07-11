@@ -21,8 +21,8 @@ NSString *AAPLNameFromListColor(AAPLListColor listColor) {
 }
 
 /*!
- * String constants that are used to archive the stored properties of an \c AAPLListItem.
- * These constants are used to help implement \c NSCoding.
+    String constants that are used to archive the stored properties of an \c AAPLListItem.
+    These constants are used to help implement \c NSCoding.
 */
 NSString *const AAPLListEncodingItemsKey = @"items";
 NSString *const AAPLListEncodingColorKey = @"color";

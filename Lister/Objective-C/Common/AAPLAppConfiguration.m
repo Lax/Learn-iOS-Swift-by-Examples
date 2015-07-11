@@ -8,7 +8,7 @@
 
 #import "AAPLAppConfiguration.h"
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IOS
 #import "AAPLListsController.h"
 #import "AAPLListInfo.h"
 #import "AAPLLocalListCoordinator.h"
@@ -25,22 +25,26 @@ NSString *const AAPLAppConfigurationUserActivityTypeWatch = @"com.example.apple-
 NSString *const AAPLAppConfigurationUserActivityListURLPathUserInfoKey = @"listURLUserInfoKey";
 NSString *const AAPLAppConfigurationUserActivityListColorUserInfoKey = @"listColorUserInfoKey";
 
+NSString *const AAPLApplicationActivityContextCurrentListsKey = @"ListerCurrentLists";
+NSString *const AAPLApplicationActivityContextListNameKey = @"name";
+NSString *const AAPLApplicationActivityContextListColorKey = @"color";
+
 NSString *const AAPLAppConfigurationListerSchemeName = @"lister";
 NSString *const AAPLAppConfigurationListerColorQueryKey = @"color";
 
 /*!
- * The \c LISTER_BUNDLE_PREFIX_STRING preprocessor macro is used below to concatenate the value of the
- * \c LISTER_BUNDLE_PREFIX user-defined build setting with other strings. This avoids the need for developers
- * to edit both LISTER_BUNDLE_PREFIX and the code below. \c LISTER_BUNDLE_PREFIX_STRING is equal to
- * \c @"LISTER_BUNDLE_PREFIX", i.e. an \c NSString literal for the value of \c LISTER_BUNDLE_PREFIX. (Multiple
- * \c NSString literals can be concatenated at compile-time to create a new string literal.)
+    The \c LISTER_BUNDLE_PREFIX_STRING preprocessor macro is used below to concatenate the value of the
+    \c LISTER_BUNDLE_PREFIX user-defined build setting with other strings. This avoids the need for developers
+    to edit both LISTER_BUNDLE_PREFIX and the code below. \c LISTER_BUNDLE_PREFIX_STRING is equal to
+    \c @"LISTER_BUNDLE_PREFIX", i.e. an \c NSString literal for the value of \c LISTER_BUNDLE_PREFIX. (Multiple
+    \c NSString literals can be concatenated at compile-time to create a new string literal.)
 */
 NSString *const AAPLAppConfigurationApplicationGroupsPrimary = @"group."LISTER_BUNDLE_PREFIX_STRING@".Lister.Documents";
 
 NSString *const AAPLAppConfigurationListerFileUTI = @"com.example.apple-samplecode.Lister";
 NSString *const AAPLAppConfigurationListerFileExtension = @"list";
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IOS
 NSString *const AAPLAppConfigurationWidgetBundleIdentifier = LISTER_BUNDLE_PREFIX_STRING@".Lister.ListerToday";
 #elif TARGET_OS_MAC
 NSString *const AAPLAppConfigurationWidgetBundleIdentifier = LISTER_BUNDLE_PREFIX_STRING@".ListerOSX.ListerTodayOSX";
@@ -124,7 +128,7 @@ NSString *const AAPLAppConfigurationListerOSXBundleIdentifier = LISTER_BUNDLE_PR
     
     [defaults registerDefaults:@{
     	AAPLAppConfigurationFirstLaunchUserDefaultsKey: @YES,
-#if TARGET_PLATFORM_IPHONE
+#if TARGET_OS_IOS
         AAPLAppConfigurationStorageOptionUserDefaultsKey: @(AAPLAppStorageNotSet)
 #endif
     }];
@@ -190,7 +194,7 @@ NSString *const AAPLAppConfigurationListerOSXBundleIdentifier = LISTER_BUNDLE_PR
 
 #pragma mark - Conveience Methods
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IOS
 
 - (id<AAPLListCoordinator>)listsCoordinatorForCurrentConfigurationWithPathExtension:(NSString *)pathExtension firstQueryHandler:(void (^)(void))firstQueryHandler; {
     if ([AAPLAppConfiguration sharedAppConfiguration].storageOption != AAPLAppStorageCloud) {

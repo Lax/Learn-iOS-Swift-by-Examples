@@ -135,9 +135,9 @@ const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
 }
 
 /*!
- * The following methods are not necessary to implement for the \c AAPLTodayViewController because the rows for
- * \c widgetListViewController are set in both -listPresenterDidRefreshCompleteLayout: and in the
- * \c -listPresenterDidChangeListLayout:isInitialLayout: method.
+    The following methods are not necessary to implement for the \c AAPLTodayViewController because the rows for
+    \c widgetListViewController are set in both -listPresenterDidRefreshCompleteLayout: and in the
+    \c -listPresenterDidChangeListLayout:isInitialLayout: method.
  */
 - (void)listPresenterWillChangeListLayout:(id<AAPLListPresenting>)listPresenter isInitialLayout:(BOOL)isInitialLayout {}
 - (void)listPresenter:(id<AAPLListPresenting>)listPresenter didInsertListItem:(AAPLListItem *)listItem atIndex:(NSInteger)index {}
@@ -169,7 +169,7 @@ const NSUInteger AAPLTodayViewControllerOpenListerRow = 0;
     NSMutableArray *representedObjects = [NSMutableArray array];
 
     // The "Open in Lister" has a `representedObject` as an `NSColor`, representing the text color.
-    NSColor *listColor = AAPLColorFromListColor(self.listPresenter.color);
+    NSColor *listColor = AAPLColorFromListColorForNotificationCenter(self.listPresenter.color);
     AAPLTodayWidgetRowPurposeBox *openInListerPurposeBox = [[AAPLTodayWidgetRowPurposeBox alloc] initWithPurpose:AAPLTodayWidgetRowPurposeOpenLister userInfo:listColor];
     
     [representedObjects addObject:openInListerPurposeBox];

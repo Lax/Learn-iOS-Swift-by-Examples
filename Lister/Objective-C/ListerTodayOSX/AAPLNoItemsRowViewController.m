@@ -10,4 +10,6 @@
 
 @implementation AAPLNoItemsRowViewController
 
+@dynamic representedObject;
+
 @end

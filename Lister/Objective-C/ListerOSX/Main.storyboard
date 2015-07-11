@@ -690,7 +690,7 @@
                                             <font key="font" metaFont="system" size="10"/>
                                         </buttonCell>
                                         <connections>
-                                            <segue destination="vBF-It-k9g" kind="popover" identifier="AAPLListWindowControllerShowAddItemViewControllerSegueIdentifier" popoverAnchorView="rBC-aF-vTl" popoverBehavior="t" preferredEdge="maxY" id="6AJ-fL-5Di"/>
+                                            <segue destination="vBF-It-k9g" kind="popover" identifier="showAddItem" popoverAnchorView="rBC-aF-vTl" popoverBehavior="t" preferredEdge="maxY" id="6AJ-fL-5Di"/>
                                         </connections>
                                     </button>
                                 </toolbarItem>

@@ -17,7 +17,7 @@
 
 @end
 
-NSString *const AAPLListWindowControllerShowAddItemViewControllerSegueIdentifier = @"AAPLListWindowControllerShowAddItemViewControllerSegueIdentifier";
+NSString *const AAPLListWindowControllerShowAddItemViewControllerSegueIdentifier = @"showAddItem";
 
 @implementation AAPLListWindowController
 

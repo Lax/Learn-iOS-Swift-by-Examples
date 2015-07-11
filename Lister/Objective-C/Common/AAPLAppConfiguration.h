@@ -28,6 +28,11 @@ extern NSString *const AAPLAppConfigurationUserActivityTypeWatch;
 extern NSString *const AAPLAppConfigurationUserActivityListURLPathUserInfoKey;
 extern NSString *const AAPLAppConfigurationUserActivityListColorUserInfoKey;
 
+// Keys used to store information in a WCSession context.
+extern NSString *const AAPLApplicationActivityContextCurrentListsKey;
+extern NSString *const AAPLApplicationActivityContextListNameKey;
+extern NSString *const AAPLApplicationActivityContextListColorKey;
+
 // Constants used in assembling and handling the custom lister:// URL scheme.
 extern NSString *const AAPLAppConfigurationListerSchemeName;
 extern NSString *const AAPLAppConfigurationListerColorQueryKey;
@@ -46,7 +51,7 @@ extern NSString *const AAPLAppConfigurationWidgetBundleIdentifier;
 extern NSString *const AAPLAppConfigurationListerOSXBundleIdentifier;
 #endif
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IOS
 @protocol AAPLListCoordinator;
 @class AAPLListsController;
 #endif
@@ -70,31 +75,31 @@ extern NSString *const AAPLAppConfigurationListerOSXBundleIdentifier;
 
 @property (nonatomic, readonly, getter=isFirstLaunch) BOOL firstLaunch;
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IOS
 
 /*!
- * Returns an \c AAPLListCoordinator based on the current configuration that queries based on \c pathExtension.
- * For example, if the user has chosen local storage, a local \c AAPLListCoordinator object will be returned.
+    Returns an \c AAPLListCoordinator based on the current configuration that queries based on \c pathExtension.
+    For example, if the user has chosen local storage, a local \c AAPLListCoordinator object will be returned.
  */
 - (id<AAPLListCoordinator>)listsCoordinatorForCurrentConfigurationWithPathExtension:(NSString *)pathExtension firstQueryHandler:(void (^)(void))firstQueryHandler;
 
 /*!
- * Returns an \c AAPLListCoordinator based on the current configuration that queries based on \c lastPathComponent.
- * For example, if the user has chosen local storage, a local \c AAPLListCoordinator object will be returned.
+    Returns an \c AAPLListCoordinator based on the current configuration that queries based on \c lastPathComponent.
+    For example, if the user has chosen local storage, a local \c AAPLListCoordinator object will be returned.
  */
 - (id<AAPLListCoordinator>)listsCoordinatorForCurrentConfigurationWithLastPathComponent:(NSString *)lastPathComponent firstQueryHandler:(void (^)(void))firstQueryHandler;
 
 /*!
- * Returns an \c AAPLListsController instance based on the current configuration. For example, if the user has
- * chosen local storage, an \c AAPLListsController object will be returned that uses a local list coordinator.
- * \c pathExtension is passed down to the list coordinator to filter results.
+    Returns an \c AAPLListsController instance based on the current configuration. For example, if the user has
+    chosen local storage, an \c AAPLListsController object will be returned that uses a local list coordinator.
+    \c pathExtension is passed down to the list coordinator to filter results.
  */
 - (AAPLListsController *)listsControllerForCurrentConfigurationWithPathExtension:(NSString *)pathExtension firstQueryHandler:(void (^)(void))firstQueryHandler;
 
 /*!
- * Returns an \c AAPLListsController instance based on the current configuration. For example, if the user has
- * chosen local storage, an \c AAPLListsController object will be returned that uses a local list coordinator.
- * \c lastPathComponent is passed down to the list coordinator to filter results.
+    Returns an \c AAPLListsController instance based on the current configuration. For example, if the user has
+    chosen local storage, an \c AAPLListsController object will be returned that uses a local list coordinator.
+    \c lastPathComponent is passed down to the list coordinator to filter results.
  */
 - (AAPLListsController *)listsControllerForCurrentConfigurationWithLastPathComponent:(NSString *)lastPathComponent firstQueryHandler:(void (^)(void))firstQueryHandler;
 
