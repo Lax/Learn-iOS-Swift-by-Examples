@@ -31,7 +31,7 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 *    [StackOverflow上的Swift讨论](http://stackoverflow.com/questions/tagged/swift-language)
 *    github上的swift内容 [search结果](https://github.com/search?l=Swift&q=swift&ref=cmdform&type=Repositories)
 *    [Swift Cheatsheet](http://cdn2.raywenderlich.com/wp-content/uploads/2014/06/RW-Swift-Cheatsheet-0_3.pdf)
-*    [Swift & Cocoapods](https://medium.com/swift-programming/swift-cocoapods-da09d8ba6dd2) How to integrate Cocoapods into a vanilla Swift project
+*    [Swift & CocoaPods](https://medium.com/swift-programming/swift-cocoapods-da09d8ba6dd2) How to integrate CocoaPods into a vanilla Swift project
 *    [Swift Toolbox](http://www.swifttoolbox.io)
 
 
