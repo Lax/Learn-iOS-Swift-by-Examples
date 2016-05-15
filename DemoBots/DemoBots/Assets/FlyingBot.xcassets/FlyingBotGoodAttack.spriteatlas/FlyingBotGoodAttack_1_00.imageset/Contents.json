@@ -1,0 +1,46 @@
+{
+  "images" : [
+    {
+      "idiom" : "iphone",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "FlyingBotGoodAttack_1_00_120.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "FlyingBotGoodAttack_1_00_225.png",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "FlyingBotGoodAttack_1_00_144.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "FlyingBotGoodAttack_1_00_288.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "tv",
+      "filename" : "FlyingBotGoodAttack_1_00_202.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "mac",
+      "filename" : "FlyingBotGoodAttack_1_00_270.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "mac",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

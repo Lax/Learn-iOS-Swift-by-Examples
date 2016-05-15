@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9527" systemVersion="15C29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Brt-Gy-b0O">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9527"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="3jF-cy-add">
+            <objects>
+                <windowController id="Brt-Gy-b0O" customClass="GameWindowController" customModule="DemoBots" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="DemoBots" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" animationBehavior="default" id="qsr-uL-NHr">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
+                        <rect key="contentRect" x="425" y="461" width="700" height="525"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+                        <value key="minSize" type="size" width="700" height="525"/>
+                    </window>
+                    <connections>
+                        <segue destination="LN5-zj-wy9" kind="relationship" relationship="window.shadowedContentViewController" id="HdM-0B-OdZ"/>
+                    </connections>
+                </windowController>
+                <customObject id="zb8-qz-aiw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="292" y="847.5"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="klB-69-3VE">
+            <objects>
+                <viewController id="LN5-zj-wy9" customClass="GameViewController" customModule="DemoBots" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="HeF-f2-MxQ" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="700" height="525"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="fHO-zX-GJN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1104" y="847.5"/>
+        </scene>
+        <!--Application-->
+        <scene sceneID="rzH-qe-ri8">
+            <objects>
+                <application id="cNX-Tc-8MY" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="AMainMenu" systemMenu="main" userInterfaceLayoutDirection="leftToRight" id="8wv-no-x8R">
+                        <items>
+                            <menuItem title="DemoBots" id="IcB-hh-2dh">
+                                <menu key="submenu" title="DemoBots" systemMenu="apple" userInterfaceLayoutDirection="leftToRight" id="o8d-0b-xhf">
+                                    <items>
+                                        <menuItem title="About DemoBots" id="KkM-zG-CyI">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="orderFrontStandardAboutPanel:" target="Q4B-0P-IhE" id="mms-s3-igE"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="RqP-YN-6u2">
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="5z2-R6-pou"/>
+                                        <menuItem isSeparatorItem="YES" id="p2Q-Wb-5Bb">
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Services" id="F8d-mb-aCB">
+                                            <menu key="submenu" title="Services" systemMenu="services" userInterfaceLayoutDirection="leftToRight" id="d2N-Tp-WoV"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="Uu9-lz-euL">
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Hide DemoBots" keyEquivalent="h" id="Akb-Rc-Ed9">
+                                            <connections>
+                                                <action selector="hide:" target="Q4B-0P-IhE" id="HZj-sv-aG2"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="jJo-dk-Tyl">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="hideOtherApplications:" target="Q4B-0P-IhE" id="BHm-a2-rT7"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Show All" id="vis-gu-icS">
+                                            <connections>
+                                                <action selector="unhideAllApplications:" target="Q4B-0P-IhE" id="djb-3t-QRG"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="l3Z-1a-4gp">
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Quit DemoBots" keyEquivalent="q" id="Iic-Ld-LOF">
+                                            <connections>
+                                                <action selector="terminate:" target="Q4B-0P-IhE" id="6ec-eI-ifG"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Window" id="hPo-Yf-PvD" userLabel="Window">
+                                <menu key="submenu" title="Window" systemMenu="window" userInterfaceLayoutDirection="leftToRight" id="cy7-Jx-uSX">
+                                    <items>
+                                        <menuItem title="Minimize" keyEquivalent="m" id="Y4B-Nh-cTf">
+                                            <connections>
+                                                <action selector="performMiniaturize:" target="Q4B-0P-IhE" id="MXE-BV-ifq"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Zoom" id="Nr0-kn-cez">
+                                            <connections>
+                                                <action selector="performZoom:" target="Q4B-0P-IhE" id="6CH-AN-Jy7"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="nRt-Xf-KoU">
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Bring All to Front" id="5f7-qC-ros">
+                                            <connections>
+                                                <action selector="arrangeInFront:" target="Q4B-0P-IhE" id="rcJ-mV-WeM"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Help" id="2tU-35-zl4">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Help" systemMenu="help" userInterfaceLayoutDirection="leftToRight" id="KDV-c6-fPU">
+                                    <items>
+                                        <menuItem title="DemoBots Help" keyEquivalent="?" id="Xr5-co-Sba">
+                                            <connections>
+                                                <action selector="showHelp:" target="Q4B-0P-IhE" id="yaT-Ub-WLB"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="IPg-as-B74" id="8hk-2x-IlI"/>
+                    </connections>
+                </application>
+                <customObject id="Q4B-0P-IhE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="IPg-as-B74" customClass="AppDelegate" customModule="DemoBots" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="292.5" y="468"/>
+        </scene>
+    </scenes>
+</document>
