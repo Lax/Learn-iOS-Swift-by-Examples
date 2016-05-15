@@ -1,19 +1,21 @@
-# Lister
+# Lister (for watchOS, iOS, and OS X)
 
 ## Version
 
-2.0
+3.3
 
 ## Build Requirements
-+ Xcode 6.3 or later
-+ iOS 8.2 SDK or later
-+ OS X 10.10 SDK or later
++ Xcode 7.3 or later
++ iOS 9.3 SDK or later
++ OS X 10.11 SDK or later
++ watchOS 2.2 SDK or later
 + iCloud–enabled provisioning profile
 + App Groups–enabled provisioning profile
 
 ## Runtime Requirements
-+ iOS 8.0 or later (iOS 8.2 or later required for Apple Watch)
-+ OS X 10.10 or later
++ iOS 9.1 or later
++ OS X 10.11 or later
++ watchOS 2.2 or later
 
 ## About Lister
 
@@ -29,18 +31,10 @@ on a single device.
 + Create App Extensions to provide Today Widgets and Watch Apps.
 + Define a framework to share common code between multiple targets.
 
-The Lister Xcode project is provided in both Swift and Objective-C.
-
 Because Lister supports iCloud Documents and App Groups, the Lister Xcode project requires a small amount of setup before it can be built and run. It also requires a paid iOS and / or Mac Developer Program account.
 
 + If you have an iOS Developer Program account, follow the instructions in *iOS and Watch Quick Start*.
 + If you have a Mac Developer Program account, follow the instructions in *Mac Quick Start*.
-
-## Written in Objective-C and Swift
-
-This sample is provided in both Objective-C and Swift. Both versions of the sample are at the top level directory of this project in folders named "Objective-C" and "Swift". Both versions of the application have the exact same visual appearance; however, the code and structure may be different depending on the choice of language.
-
-Note: The "List" class in Swift is conceptually equivalent to the "AAPLList" class in Objective C. The same applies to other classes mentioned in this README. This documentation refers to class names for both languages without the "AAPL" prefix, for brevity.
 
 ## Application Architecture
 
@@ -82,7 +76,7 @@ Lister Today widgets are available on both iOS and OS X. Lister shares much of t
 
 ## Swift Features
 
-The Swift version of the Lister sample makes use of many features unique to Swift, including:
+The Lister sample makes use of many features unique to Swift, including:
 
 #### Nested types
 
@@ -112,4 +106,4 @@ Lister has unit tests written for the List and ListItem classes. These tests are
 
 Lister does not currently support configuring a storage option before the iOS app is launched. Please launch the iOS app first. In your own projects, you should provide for the watch app being run prior to the iOS app that hosts it.
 
-Copyright (C) 2014-2015 Apple Inc. All rights reserved.
+Copyright (C) 2014-2016 Apple Inc. All rights reserved.
