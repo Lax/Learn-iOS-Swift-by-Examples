@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E1D56F2194F68F600D8298E /* AAPLSearchControllerBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1D56F1194F68F600D8298E /* AAPLSearchControllerBaseViewController.m */; };
+		3E1D56F5194F6BBD00D8298E /* AAPLSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1D56F4194F6BBD00D8298E /* AAPLSearchResultsViewController.m */; };
+		3E73CE46193318F7000F43D0 /* AAPLAlertControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E73CE45193318F7000F43D0 /* AAPLAlertControllerViewController.m */; };
+		3E8CF104196DBE6800420B6B /* AAPLSearchShowResultsInSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CF103196DBE6800420B6B /* AAPLSearchShowResultsInSourceViewController.m */; };
+		3E8CF107196DD83A00420B6B /* AAPLSearchBarEmbeddedInNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CF106196DD83A00420B6B /* AAPLSearchBarEmbeddedInNavigationBarViewController.m */; };
+		3EC13ADE1933D95700915353 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC13AE01933D95700915353 /* Main.storyboard */; };
+		3EE0A033196DDDF70059F740 /* AAPLSearchPresentOverNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A032196DDDF70059F740 /* AAPLSearchPresentOverNavigationBarViewController.m */; };
+		5356823E18F3656900BAAD62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5356823D18F3656900BAAD62 /* Foundation.framework */; };
+		5356824018F3656900BAAD62 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5356823F18F3656900BAAD62 /* CoreGraphics.framework */; };
+		5356824218F3656900BAAD62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5356824118F3656900BAAD62 /* UIKit.framework */; };
+		5356824A18F3656900BAAD62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356824918F3656900BAAD62 /* main.m */; };
+		5356825918F3656900BAAD62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5356825818F3656900BAAD62 /* Images.xcassets */; };
+		535682A818F3670300BAAD62 /* AAPLActivityIndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356827818F3670300BAAD62 /* AAPLActivityIndicatorViewController.m */; };
+		535682AA18F3670300BAAD62 /* AAPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356827C18F3670300BAAD62 /* AAPLAppDelegate.m */; };
+		535682AB18F3670300BAAD62 /* AAPLButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356827E18F3670300BAAD62 /* AAPLButtonViewController.m */; };
+		535682AC18F3670300BAAD62 /* AAPLCustomSearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356828018F3670300BAAD62 /* AAPLCustomSearchBarViewController.m */; };
+		535682AD18F3670300BAAD62 /* AAPLCustomToolbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356828218F3670300BAAD62 /* AAPLCustomToolbarViewController.m */; };
+		535682AE18F3670300BAAD62 /* AAPLDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356828418F3670300BAAD62 /* AAPLDatePickerController.m */; };
+		535682AF18F3670300BAAD62 /* AAPLDefaultSearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356828618F3670300BAAD62 /* AAPLDefaultSearchBarViewController.m */; };
+		535682B018F3670300BAAD62 /* AAPLDefaultToolbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356828818F3670300BAAD62 /* AAPLDefaultToolbarViewController.m */; };
+		535682B118F3670300BAAD62 /* AAPLImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356828A18F3670300BAAD62 /* AAPLImageViewController.m */; };
+		535682B318F3670300BAAD62 /* AAPLPageControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356828E18F3670300BAAD62 /* AAPLPageControlViewController.m */; };
+		535682B418F3670300BAAD62 /* AAPLPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356829018F3670300BAAD62 /* AAPLPickerViewController.m */; };
+		535682B518F3670300BAAD62 /* AAPLProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356829218F3670300BAAD62 /* AAPLProgressViewController.m */; };
+		535682B618F3670300BAAD62 /* AAPLSegmentedControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356829418F3670300BAAD62 /* AAPLSegmentedControlViewController.m */; };
+		535682B718F3670300BAAD62 /* AAPLSliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356829618F3670300BAAD62 /* AAPLSliderViewController.m */; };
+		535682B918F3670300BAAD62 /* AAPLStepperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356829A18F3670300BAAD62 /* AAPLStepperViewController.m */; };
+		535682BA18F3670300BAAD62 /* AAPLSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356829C18F3670300BAAD62 /* AAPLSwitchViewController.m */; };
+		535682BB18F3670300BAAD62 /* AAPLTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356829E18F3670300BAAD62 /* AAPLTextFieldViewController.m */; };
+		535682BC18F3670300BAAD62 /* AAPLTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535682A018F3670300BAAD62 /* AAPLTextViewController.m */; };
+		535682BD18F3670300BAAD62 /* AAPLTintedToolbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535682A218F3670300BAAD62 /* AAPLTintedToolbarViewController.m */; };
+		535682BE18F3670300BAAD62 /* AAPLWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 535682A418F3670300BAAD62 /* AAPLWebViewController.m */; };
+		535682BF18F3670300BAAD62 /* UIColor+AAPLApplicationSpecific.m in Sources */ = {isa = PBXBuildFile; fileRef = 535682A618F3670300BAAD62 /* UIColor+AAPLApplicationSpecific.m */; };
+		53874F9918F36B1800510922 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53874F9718F36B1800510922 /* Localizable.strings */; };
+		B5C300DF1B0FC4F1003B05A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5C300DE1B0FC4F1003B05A0 /* LaunchScreen.storyboard */; };
+		B5C805741B1A7BDE00C110F1 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5C805721B1A7BDE00C110F1 /* Search.storyboard */; };
+		B5E280FA1B1D03F800920B27 /* AAPLStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E280F91B1D03F800920B27 /* AAPLStackViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3E1D56F0194F68F600D8298E /* AAPLSearchControllerBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSearchControllerBaseViewController.h; sourceTree = "<group>"; };
+		3E1D56F1194F68F600D8298E /* AAPLSearchControllerBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSearchControllerBaseViewController.m; sourceTree = "<group>"; };
+		3E1D56F3194F6BBD00D8298E /* AAPLSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSearchResultsViewController.h; sourceTree = "<group>"; };
+		3E1D56F4194F6BBD00D8298E /* AAPLSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSearchResultsViewController.m; sourceTree = "<group>"; };
+		3E5C084C19748F0D00969DD7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		3E73CE44193318F7000F43D0 /* AAPLAlertControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLAlertControllerViewController.h; sourceTree = "<group>"; };
+		3E73CE45193318F7000F43D0 /* AAPLAlertControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLAlertControllerViewController.m; sourceTree = "<group>"; };
+		3E8CF102196DBE6800420B6B /* AAPLSearchShowResultsInSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSearchShowResultsInSourceViewController.h; sourceTree = "<group>"; };
+		3E8CF103196DBE6800420B6B /* AAPLSearchShowResultsInSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSearchShowResultsInSourceViewController.m; sourceTree = "<group>"; };
+		3E8CF105196DD83A00420B6B /* AAPLSearchBarEmbeddedInNavigationBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSearchBarEmbeddedInNavigationBarViewController.h; sourceTree = "<group>"; };
+		3E8CF106196DD83A00420B6B /* AAPLSearchBarEmbeddedInNavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSearchBarEmbeddedInNavigationBarViewController.m; sourceTree = "<group>"; };
+		3EC13ADF1933D95700915353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3EE0A031196DDDF70059F740 /* AAPLSearchPresentOverNavigationBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSearchPresentOverNavigationBarViewController.h; sourceTree = "<group>"; };
+		3EE0A032196DDDF70059F740 /* AAPLSearchPresentOverNavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSearchPresentOverNavigationBarViewController.m; sourceTree = "<group>"; };
+		5356823A18F3656900BAAD62 /* UIKitCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5356823D18F3656900BAAD62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5356823F18F3656900BAAD62 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5356824118F3656900BAAD62 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5356824518F3656900BAAD62 /* UIKitCatalog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UIKitCatalog-Info.plist"; sourceTree = "<group>"; };
+		5356824918F3656900BAAD62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5356824B18F3656900BAAD62 /* UIKitCatalog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIKitCatalog-Prefix.pch"; sourceTree = "<group>"; };
+		5356825818F3656900BAAD62 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5356827718F3670200BAAD62 /* AAPLActivityIndicatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLActivityIndicatorViewController.h; sourceTree = "<group>"; };
+		5356827818F3670300BAAD62 /* AAPLActivityIndicatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLActivityIndicatorViewController.m; sourceTree = "<group>"; };
+		5356827B18F3670300BAAD62 /* AAPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLAppDelegate.h; sourceTree = "<group>"; };
+		5356827C18F3670300BAAD62 /* AAPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLAppDelegate.m; sourceTree = "<group>"; };
+		5356827D18F3670300BAAD62 /* AAPLButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLButtonViewController.h; sourceTree = "<group>"; };
+		5356827E18F3670300BAAD62 /* AAPLButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLButtonViewController.m; sourceTree = "<group>"; };
+		5356827F18F3670300BAAD62 /* AAPLCustomSearchBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCustomSearchBarViewController.h; sourceTree = "<group>"; };
+		5356828018F3670300BAAD62 /* AAPLCustomSearchBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLCustomSearchBarViewController.m; sourceTree = "<group>"; };
+		5356828118F3670300BAAD62 /* AAPLCustomToolbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCustomToolbarViewController.h; sourceTree = "<group>"; };
+		5356828218F3670300BAAD62 /* AAPLCustomToolbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLCustomToolbarViewController.m; sourceTree = "<group>"; };
+		5356828318F3670300BAAD62 /* AAPLDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLDatePickerController.h; sourceTree = "<group>"; };
+		5356828418F3670300BAAD62 /* AAPLDatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLDatePickerController.m; sourceTree = "<group>"; };
+		5356828518F3670300BAAD62 /* AAPLDefaultSearchBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLDefaultSearchBarViewController.h; sourceTree = "<group>"; };
+		5356828618F3670300BAAD62 /* AAPLDefaultSearchBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLDefaultSearchBarViewController.m; sourceTree = "<group>"; };
+		5356828718F3670300BAAD62 /* AAPLDefaultToolbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLDefaultToolbarViewController.h; sourceTree = "<group>"; };
+		5356828818F3670300BAAD62 /* AAPLDefaultToolbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLDefaultToolbarViewController.m; sourceTree = "<group>"; };
+		5356828918F3670300BAAD62 /* AAPLImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLImageViewController.h; sourceTree = "<group>"; };
+		5356828A18F3670300BAAD62 /* AAPLImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLImageViewController.m; sourceTree = "<group>"; };
+		5356828D18F3670300BAAD62 /* AAPLPageControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLPageControlViewController.h; sourceTree = "<group>"; };
+		5356828E18F3670300BAAD62 /* AAPLPageControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLPageControlViewController.m; sourceTree = "<group>"; };
+		5356828F18F3670300BAAD62 /* AAPLPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLPickerViewController.h; sourceTree = "<group>"; };
+		5356829018F3670300BAAD62 /* AAPLPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLPickerViewController.m; sourceTree = "<group>"; };
+		5356829118F3670300BAAD62 /* AAPLProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLProgressViewController.h; sourceTree = "<group>"; };
+		5356829218F3670300BAAD62 /* AAPLProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLProgressViewController.m; sourceTree = "<group>"; };
+		5356829318F3670300BAAD62 /* AAPLSegmentedControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSegmentedControlViewController.h; sourceTree = "<group>"; };
+		5356829418F3670300BAAD62 /* AAPLSegmentedControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSegmentedControlViewController.m; sourceTree = "<group>"; };
+		5356829518F3670300BAAD62 /* AAPLSliderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSliderViewController.h; sourceTree = "<group>"; };
+		5356829618F3670300BAAD62 /* AAPLSliderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSliderViewController.m; sourceTree = "<group>"; };
+		5356829918F3670300BAAD62 /* AAPLStepperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLStepperViewController.h; sourceTree = "<group>"; };
+		5356829A18F3670300BAAD62 /* AAPLStepperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLStepperViewController.m; sourceTree = "<group>"; };
+		5356829B18F3670300BAAD62 /* AAPLSwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwitchViewController.h; sourceTree = "<group>"; };
+		5356829C18F3670300BAAD62 /* AAPLSwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSwitchViewController.m; sourceTree = "<group>"; };
+		5356829D18F3670300BAAD62 /* AAPLTextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTextFieldViewController.h; sourceTree = "<group>"; };
+		5356829E18F3670300BAAD62 /* AAPLTextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLTextFieldViewController.m; sourceTree = "<group>"; };
+		5356829F18F3670300BAAD62 /* AAPLTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTextViewController.h; sourceTree = "<group>"; };
+		535682A018F3670300BAAD62 /* AAPLTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLTextViewController.m; sourceTree = "<group>"; };
+		535682A118F3670300BAAD62 /* AAPLTintedToolbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTintedToolbarViewController.h; sourceTree = "<group>"; };
+		535682A218F3670300BAAD62 /* AAPLTintedToolbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLTintedToolbarViewController.m; sourceTree = "<group>"; };
+		535682A318F3670300BAAD62 /* AAPLWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLWebViewController.h; sourceTree = "<group>"; };
+		535682A418F3670300BAAD62 /* AAPLWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLWebViewController.m; sourceTree = "<group>"; };
+		535682A518F3670300BAAD62 /* UIColor+AAPLApplicationSpecific.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AAPLApplicationSpecific.h"; sourceTree = "<group>"; };
+		535682A618F3670300BAAD62 /* UIColor+AAPLApplicationSpecific.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AAPLApplicationSpecific.m"; sourceTree = "<group>"; };
+		53874F9818F36B1800510922 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B5C300DE1B0FC4F1003B05A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B5C805731B1A7BDE00C110F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
+		B5E280F81B1D03F800920B27 /* AAPLStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLStackViewController.h; sourceTree = "<group>"; };
+		B5E280F91B1D03F800920B27 /* AAPLStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLStackViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5356823718F3656900BAAD62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5356824018F3656900BAAD62 /* CoreGraphics.framework in Frameworks */,
+				5356824218F3656900BAAD62 /* UIKit.framework in Frameworks */,
+				5356823E18F3656900BAAD62 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E1D56EB194F5FBA00D8298E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3E38C1C0196F282000C8EA2C /* Search Bar */,
+				3E38C1C1196F282B00C8EA2C /* Search Controlleers */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		3E1D56EF194F68D800D8298E /* Base View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3E1D56F0194F68F600D8298E /* AAPLSearchControllerBaseViewController.h */,
+				3E1D56F1194F68F600D8298E /* AAPLSearchControllerBaseViewController.m */,
+				3E1D56F3194F6BBD00D8298E /* AAPLSearchResultsViewController.h */,
+				3E1D56F4194F6BBD00D8298E /* AAPLSearchResultsViewController.m */,
+			);
+			name = "Base View Controllers";
+			sourceTree = "<group>";
+		};
+		3E38C1C0196F282000C8EA2C /* Search Bar */ = {
+			isa = PBXGroup;
+			children = (
+				5356828518F3670300BAAD62 /* AAPLDefaultSearchBarViewController.h */,
+				5356828618F3670300BAAD62 /* AAPLDefaultSearchBarViewController.m */,
+				5356827F18F3670300BAAD62 /* AAPLCustomSearchBarViewController.h */,
+				5356828018F3670300BAAD62 /* AAPLCustomSearchBarViewController.m */,
+			);
+			name = "Search Bar";
+			sourceTree = "<group>";
+		};
+		3E38C1C1196F282B00C8EA2C /* Search Controlleers */ = {
+			isa = PBXGroup;
+			children = (
+				3E1D56EF194F68D800D8298E /* Base View Controllers */,
+				3EE0A031196DDDF70059F740 /* AAPLSearchPresentOverNavigationBarViewController.h */,
+				3EE0A032196DDDF70059F740 /* AAPLSearchPresentOverNavigationBarViewController.m */,
+				3E8CF105196DD83A00420B6B /* AAPLSearchBarEmbeddedInNavigationBarViewController.h */,
+				3E8CF106196DD83A00420B6B /* AAPLSearchBarEmbeddedInNavigationBarViewController.m */,
+				3E8CF102196DBE6800420B6B /* AAPLSearchShowResultsInSourceViewController.h */,
+				3E8CF103196DBE6800420B6B /* AAPLSearchShowResultsInSourceViewController.m */,
+			);
+			name = "Search Controlleers";
+			sourceTree = "<group>";
+		};
+		3EF3286C1931DF2000B1C20C /* Toolbar View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5356828718F3670300BAAD62 /* AAPLDefaultToolbarViewController.h */,
+				5356828818F3670300BAAD62 /* AAPLDefaultToolbarViewController.m */,
+				535682A118F3670300BAAD62 /* AAPLTintedToolbarViewController.h */,
+				535682A218F3670300BAAD62 /* AAPLTintedToolbarViewController.m */,
+				5356828118F3670300BAAD62 /* AAPLCustomToolbarViewController.h */,
+				5356828218F3670300BAAD62 /* AAPLCustomToolbarViewController.m */,
+			);
+			name = "Toolbar View Controllers";
+			sourceTree = "<group>";
+		};
+		5356823118F3656900BAAD62 = {
+			isa = PBXGroup;
+			children = (
+				3E5C084C19748F0D00969DD7 /* README.md */,
+				5356824318F3656900BAAD62 /* UIKitCatalog */,
+				5356823C18F3656900BAAD62 /* Frameworks */,
+				5356823B18F3656900BAAD62 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5356823B18F3656900BAAD62 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5356823A18F3656900BAAD62 /* UIKitCatalog.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5356823C18F3656900BAAD62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5356823D18F3656900BAAD62 /* Foundation.framework */,
+				5356823F18F3656900BAAD62 /* CoreGraphics.framework */,
+				5356824118F3656900BAAD62 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5356824318F3656900BAAD62 /* UIKitCatalog */ = {
+			isa = PBXGroup;
+			children = (
+				535682C018F3680D00BAAD62 /* View Controllers */,
+				53874F9A18F36B6900510922 /* Application */,
+				5356825818F3656900BAAD62 /* Images.xcassets */,
+				5356824418F3656900BAAD62 /* Supporting Files */,
+			);
+			path = UIKitCatalog;
+			sourceTree = "<group>";
+		};
+		5356824418F3656900BAAD62 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5356824518F3656900BAAD62 /* UIKitCatalog-Info.plist */,
+				5356824B18F3656900BAAD62 /* UIKitCatalog-Prefix.pch */,
+				53874F9718F36B1800510922 /* Localizable.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		535682C018F3680D00BAAD62 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5356827718F3670200BAAD62 /* AAPLActivityIndicatorViewController.h */,
+				5356827818F3670300BAAD62 /* AAPLActivityIndicatorViewController.m */,
+				3E73CE44193318F7000F43D0 /* AAPLAlertControllerViewController.h */,
+				3E73CE45193318F7000F43D0 /* AAPLAlertControllerViewController.m */,
+				5356827D18F3670300BAAD62 /* AAPLButtonViewController.h */,
+				5356827E18F3670300BAAD62 /* AAPLButtonViewController.m */,
+				5356828318F3670300BAAD62 /* AAPLDatePickerController.h */,
+				5356828418F3670300BAAD62 /* AAPLDatePickerController.m */,
+				5356828918F3670300BAAD62 /* AAPLImageViewController.h */,
+				5356828A18F3670300BAAD62 /* AAPLImageViewController.m */,
+				5356828D18F3670300BAAD62 /* AAPLPageControlViewController.h */,
+				5356828E18F3670300BAAD62 /* AAPLPageControlViewController.m */,
+				5356828F18F3670300BAAD62 /* AAPLPickerViewController.h */,
+				5356829018F3670300BAAD62 /* AAPLPickerViewController.m */,
+				5356829118F3670300BAAD62 /* AAPLProgressViewController.h */,
+				5356829218F3670300BAAD62 /* AAPLProgressViewController.m */,
+				5356829318F3670300BAAD62 /* AAPLSegmentedControlViewController.h */,
+				5356829418F3670300BAAD62 /* AAPLSegmentedControlViewController.m */,
+				5356829518F3670300BAAD62 /* AAPLSliderViewController.h */,
+				5356829618F3670300BAAD62 /* AAPLSliderViewController.m */,
+				B5E280F81B1D03F800920B27 /* AAPLStackViewController.h */,
+				B5E280F91B1D03F800920B27 /* AAPLStackViewController.m */,
+				5356829918F3670300BAAD62 /* AAPLStepperViewController.h */,
+				5356829A18F3670300BAAD62 /* AAPLStepperViewController.m */,
+				5356829B18F3670300BAAD62 /* AAPLSwitchViewController.h */,
+				5356829C18F3670300BAAD62 /* AAPLSwitchViewController.m */,
+				5356829D18F3670300BAAD62 /* AAPLTextFieldViewController.h */,
+				5356829E18F3670300BAAD62 /* AAPLTextFieldViewController.m */,
+				5356829F18F3670300BAAD62 /* AAPLTextViewController.h */,
+				535682A018F3670300BAAD62 /* AAPLTextViewController.m */,
+				535682A318F3670300BAAD62 /* AAPLWebViewController.h */,
+				535682A418F3670300BAAD62 /* AAPLWebViewController.m */,
+				3E1D56EB194F5FBA00D8298E /* Search */,
+				3EF3286C1931DF2000B1C20C /* Toolbar View Controllers */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		53874F9A18F36B6900510922 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5356824918F3656900BAAD62 /* main.m */,
+				5356827B18F3670300BAAD62 /* AAPLAppDelegate.h */,
+				5356827C18F3670300BAAD62 /* AAPLAppDelegate.m */,
+				535682A518F3670300BAAD62 /* UIColor+AAPLApplicationSpecific.h */,
+				535682A618F3670300BAAD62 /* UIColor+AAPLApplicationSpecific.m */,
+				B5C300DE1B0FC4F1003B05A0 /* LaunchScreen.storyboard */,
+				3EC13AE01933D95700915353 /* Main.storyboard */,
+				B5C805721B1A7BDE00C110F1 /* Search.storyboard */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5356823918F3656900BAAD62 /* UIKitCatalog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5356826F18F3656900BAAD62 /* Build configuration list for PBXNativeTarget "UIKitCatalog" */;
+			buildPhases = (
+				5356823618F3656900BAAD62 /* Sources */,
+				5356823718F3656900BAAD62 /* Frameworks */,
+				5356823818F3656900BAAD62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UIKitCatalog;
+			productName = UIKitCatalog;
+			productReference = 5356823A18F3656900BAAD62 /* UIKitCatalog.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5356823218F3656900BAAD62 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = f;
+			};
+			buildConfigurationList = 5356823518F3656900BAAD62 /* Build configuration list for PBXProject "UIKitCatalog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5356823118F3656900BAAD62;
+			productRefGroup = 5356823B18F3656900BAAD62 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5356823918F3656900BAAD62 /* UIKitCatalog */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5356823818F3656900BAAD62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53874F9918F36B1800510922 /* Localizable.strings in Resources */,
+				B5C300DF1B0FC4F1003B05A0 /* LaunchScreen.storyboard in Resources */,
+				5356825918F3656900BAAD62 /* Images.xcassets in Resources */,
+				3EC13ADE1933D95700915353 /* Main.storyboard in Resources */,
+				B5C805741B1A7BDE00C110F1 /* Search.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5356823618F3656900BAAD62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E8CF104196DBE6800420B6B /* AAPLSearchShowResultsInSourceViewController.m in Sources */,
+				535682AE18F3670300BAAD62 /* AAPLDatePickerController.m in Sources */,
+				3EE0A033196DDDF70059F740 /* AAPLSearchPresentOverNavigationBarViewController.m in Sources */,
+				535682AB18F3670300BAAD62 /* AAPLButtonViewController.m in Sources */,
+				535682B618F3670300BAAD62 /* AAPLSegmentedControlViewController.m in Sources */,
+				535682B018F3670300BAAD62 /* AAPLDefaultToolbarViewController.m in Sources */,
+				535682BD18F3670300BAAD62 /* AAPLTintedToolbarViewController.m in Sources */,
+				535682B318F3670300BAAD62 /* AAPLPageControlViewController.m in Sources */,
+				535682BA18F3670300BAAD62 /* AAPLSwitchViewController.m in Sources */,
+				3E73CE46193318F7000F43D0 /* AAPLAlertControllerViewController.m in Sources */,
+				535682AF18F3670300BAAD62 /* AAPLDefaultSearchBarViewController.m in Sources */,
+				535682BC18F3670300BAAD62 /* AAPLTextViewController.m in Sources */,
+				535682B418F3670300BAAD62 /* AAPLPickerViewController.m in Sources */,
+				B5E280FA1B1D03F800920B27 /* AAPLStackViewController.m in Sources */,
+				535682BE18F3670300BAAD62 /* AAPLWebViewController.m in Sources */,
+				535682BB18F3670300BAAD62 /* AAPLTextFieldViewController.m in Sources */,
+				535682BF18F3670300BAAD62 /* UIColor+AAPLApplicationSpecific.m in Sources */,
+				535682B718F3670300BAAD62 /* AAPLSliderViewController.m in Sources */,
+				3E1D56F5194F6BBD00D8298E /* AAPLSearchResultsViewController.m in Sources */,
+				3E1D56F2194F68F600D8298E /* AAPLSearchControllerBaseViewController.m in Sources */,
+				535682B918F3670300BAAD62 /* AAPLStepperViewController.m in Sources */,
+				535682AA18F3670300BAAD62 /* AAPLAppDelegate.m in Sources */,
+				535682B518F3670300BAAD62 /* AAPLProgressViewController.m in Sources */,
+				535682AD18F3670300BAAD62 /* AAPLCustomToolbarViewController.m in Sources */,
+				535682A818F3670300BAAD62 /* AAPLActivityIndicatorViewController.m in Sources */,
+				535682AC18F3670300BAAD62 /* AAPLCustomSearchBarViewController.m in Sources */,
+				5356824A18F3656900BAAD62 /* main.m in Sources */,
+				3E8CF107196DD83A00420B6B /* AAPLSearchBarEmbeddedInNavigationBarViewController.m in Sources */,
+				535682B118F3670300BAAD62 /* AAPLImageViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3EC13AE01933D95700915353 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EC13ADF1933D95700915353 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		53874F9718F36B1800510922 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53874F9818F36B1800510922 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		B5C805721B1A7BDE00C110F1 /* Search.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5C805731B1A7BDE00C110F1 /* Base */,
+			);
+			name = Search.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5356826D18F3656900BAAD62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5356826E18F3656900BAAD62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5356827018F3656900BAAD62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIKitCatalog/UIKitCatalog-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/UIKitCatalog/UIKitCatalog-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UIKitCatalog";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5356827118F3656900BAAD62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIKitCatalog/UIKitCatalog-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/UIKitCatalog/UIKitCatalog-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UIKitCatalog";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5356823518F3656900BAAD62 /* Build configuration list for PBXProject "UIKitCatalog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5356826D18F3656900BAAD62 /* Debug */,
+				5356826E18F3656900BAAD62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5356826F18F3656900BAAD62 /* Build configuration list for PBXNativeTarget "UIKitCatalog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5356827018F3656900BAAD62 /* Debug */,
+				5356827118F3656900BAAD62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5356823218F3656900BAAD62 /* Project object */;
+}
