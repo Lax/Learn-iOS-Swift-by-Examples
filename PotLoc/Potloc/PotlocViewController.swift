@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015 Apple Inc. All Rights Reserved.
+Copyright (C) 2016 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
@@ -90,16 +90,16 @@ class PotlocViewController: UIViewController, WCSessionDelegate, CLLocationManag
     }
     
     var locationBatchSizeTitleText: String {
-        return NSLocalizedString("Location batch size:", comment: "Informs the user how many locations have been received since last batch push to the watch")
+        return NSLocalizedString("Locations received since last context update", comment: "Informs the user how many locations have been received since last batch push to the watch")
     }
     
     var receivedLocationCountTitleText: String {
-        return NSLocalizedString("Total locations received:", comment: "Informs the user how many locations have been received since starting the app")
+        return NSLocalizedString("Total locations received", comment: "Informs the user how many locations have been received since starting the app")
     }
     
     // MARK: Initialization
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         commonInit()
@@ -163,7 +163,8 @@ class PotlocViewController: UIViewController, WCSessionDelegate, CLLocationManag
 
             do {
                 try session.updateApplicationContext([
-                    MessageKey.StateUpdate.rawValue: isUpdatingLocation
+                    MessageKey.StateUpdate.rawValue: isUpdatingLocation,
+                    MessageKey.LocationCount.rawValue: String(receivedLocationCount)
                 ])
             }
             catch let error as NSError {
@@ -175,7 +176,7 @@ class PotlocViewController: UIViewController, WCSessionDelegate, CLLocationManag
         
         manager.startUpdatingLocation()
         
-        sessionMessageTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "sendLocationCount", userInfo: nil, repeats: true)
+        sessionMessageTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(PotlocViewController.sendLocationCount), userInfo: nil, repeats: true)
         
         managerStatusLabel.text = updatingLocationText
         
@@ -198,7 +199,8 @@ class PotlocViewController: UIViewController, WCSessionDelegate, CLLocationManag
         if commandedFromPhone {
             do {
                 try session.updateApplicationContext([
-                    MessageKey.StateUpdate.rawValue: isUpdatingLocation
+                    MessageKey.StateUpdate.rawValue: isUpdatingLocation,
+                    MessageKey.LocationCount.rawValue: String(receivedLocationCount)
                 ])
             }
             catch let error as NSError {
@@ -278,8 +280,9 @@ class PotlocViewController: UIViewController, WCSessionDelegate, CLLocationManag
     */
     func sendLocationCount() {
         do {
-            try self.session.updateApplicationContext([
-                MessageKey.LocationCount.rawValue: String(self.receivedLocationCount)
+            try session.updateApplicationContext([
+                MessageKey.StateUpdate.rawValue: isUpdatingLocation,
+                MessageKey.LocationCount.rawValue: String(receivedLocationCount)
             ])
             
             locationBatchCount = 0
@@ -295,7 +298,7 @@ class PotlocViewController: UIViewController, WCSessionDelegate, CLLocationManag
         Increases that location count by the number of locations received by the 
         manager. Updates the batch count with the added locations.
     */
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         receivedLocationCount = receivedLocationCount + locations.count
         locationBatchCount = locationBatchCount + locations.count
 

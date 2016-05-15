@@ -6,7 +6,7 @@ This sample demonstrates what you can do with CoreLocation, Apple Watch, and iPh
 1.0
 
 ## Build Requirements
-+ Xcode 7.0 or later
++ Xcode 7.3 or later
 + iOS 9.0 SDK or later
 + Watch OS 2.0 SDK or later
 + Valid provisioning profile
@@ -24,4 +24,4 @@ Potloc demonstrates how to:
 + Start and stop updating location on iPhone using the WatchConnectivity framework
 + Start location updates on iPhone from Apple Watch while iPhone's app is in the background
 
-Copyright (C) 2015 Apple Inc. All rights reserved.
+Copyright (C) 2016 Apple Inc. All rights reserved.

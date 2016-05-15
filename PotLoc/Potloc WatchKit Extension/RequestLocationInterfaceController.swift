@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015 Apple Inc. All Rights Reserved.
+Copyright (C) 2016 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 */
@@ -20,12 +20,6 @@ import Foundation
 */
 class RequestLocationInterfaceController: WKInterfaceController, CLLocationManagerDelegate {
     // MARK: Properties
-
-    /**
-        When this timer times out, the labels in the interface reset to a default
-        state that does not resemble a requestLocation result.
-    */
-    var interfaceResetTimer = NSTimer()
     
     /// Location manager to request authorization and location updates.
     let manager = CLLocationManager()
@@ -35,9 +29,6 @@ class RequestLocationInterfaceController: WKInterfaceController, CLLocationManag
     
     /// Button to request location. Also allows cancelling the location request.
     @IBOutlet var requestLocationButton: WKInterfaceButton!
-    
-    /// Timer to count down 5 seconds as a visual cue that the interface will reset.
-    @IBOutlet var displayTimer: WKInterfaceTimer!
     
     /// Label to display the most recent location's latitude.
     @IBOutlet var latitudeLabel: WKInterfaceLabel!
@@ -70,29 +61,19 @@ class RequestLocationInterfaceController: WKInterfaceController, CLLocationManag
         return NSLocalizedString("Unexpected authorization status.", comment: "Text to indicate authorization status is an unexpected value")
     }
     
-    var latitudeResetText: String {
-        return NSLocalizedString("<latitude reset>", comment: "String indicating that no latitude is shown to the user due to a timer reset")
-    }
-    
-    var longitudeResetText: String {
-        return NSLocalizedString("<longitude reset>", comment: "String indicating that no longitude is shown to the user due to a timer reset")
-    }
-    
-    var errorResetText: String {
-        return NSLocalizedString("<no error>", comment: "String indicating that no error is shown to the user")
-    }
-    
     // MARK: Interface Controller
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        self.setTitle(interfaceTitle)
+        setTitle(interfaceTitle)
         
         // Remember to set the location manager's delegate.
         manager.delegate = self
-
-        resetInterface()
+        
+        latitudeLabel.setAlpha(0)
+        longitudeLabel.setAlpha(0)
+        errorLabel.setAlpha(0)
     }
     
     /// MARK - Button Actions
@@ -127,12 +108,14 @@ class RequestLocationInterfaceController: WKInterfaceController, CLLocationManag
                 manager.requestLocation()
             
             case .Denied:
+                errorLabel.setAlpha(1)
                 errorLabel.setText(deniedText)
-                restartTimers()
+                simulateFadeOut(errorLabel)
             
             default:
+                errorLabel.setAlpha(1)
                 errorLabel.setText(unexpectedText)
-                restartTimers()
+                simulateFadeOut(errorLabel)
         }
     }
     
@@ -142,21 +125,27 @@ class RequestLocationInterfaceController: WKInterfaceController, CLLocationManag
         When the location manager receives new locations, display the latitude and
         longitude of the latest location and restart the timers.
     */
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard !locations.isEmpty else { return }
 
         dispatch_async(dispatch_get_main_queue()) {
-            let lastLocationCoordinate = locations.last!.coordinate!
-
+            let lastLocationCoordinate = locations.last!.coordinate
+            
             self.latitudeLabel.setText(String(lastLocationCoordinate.latitude))
             
             self.longitudeLabel.setText(String(lastLocationCoordinate.longitude))
+            
+            self.latitudeLabel.setAlpha(1)
+            
+            self.longitudeLabel.setAlpha(1)
             
             self.isRequestingLocation = false
             
             self.requestLocationButton.setTitle(self.requestLocationTitle)
             
-            self.restartTimers()
+            self.simulateFadeOut(self.latitudeLabel)
+            
+            self.simulateFadeOut(self.longitudeLabel)
         }
     }
     
@@ -166,13 +155,15 @@ class RequestLocationInterfaceController: WKInterfaceController, CLLocationManag
     */
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         dispatch_async(dispatch_get_main_queue()) {
+            self.errorLabel.setAlpha(1)
+            
             self.errorLabel.setText(String(error.localizedDescription))
 
             self.isRequestingLocation = false
             
             self.requestLocationButton.setTitle(self.requestLocationTitle)
             
-            self.restartTimers()
+            self.simulateFadeOut(self.errorLabel)
         }
     }
     
@@ -189,16 +180,18 @@ class RequestLocationInterfaceController: WKInterfaceController, CLLocationManag
                     manager.requestLocation()
                     
                 case .Denied:
+                    self.errorLabel.setAlpha(1)
                     self.errorLabel.setText(self.deniedText)
                     self.isRequestingLocation = false
                     self.requestLocationButton.setTitle(self.requestLocationTitle)
-                    self.restartTimers()
+                    self.simulateFadeOut(self.errorLabel)
                     
                 default:
+                    self.errorLabel.setAlpha(1)
                     self.errorLabel.setText(self.unexpectedText)
                     self.isRequestingLocation = false
                     self.requestLocationButton.setTitle(self.requestLocationTitle)
-                    self.restartTimers()
+                    self.simulateFadeOut(self.errorLabel)
             }
         }
     }
@@ -206,46 +199,20 @@ class RequestLocationInterfaceController: WKInterfaceController, CLLocationManag
     /// MARK - Resetting
     
     /**
-        Resets the text labels in the interface to empty labels.
-    
-        This method is useful for cleaning the interface to ensure that data 
-        displayed to the user is not stale.
+        Simulates fading out animation by setting the alpha of the given label to
+        progressively smaller numbers.
     */
-    func resetInterface() {
-        dispatch_async(dispatch_get_main_queue()) {
-            self.stopDisplayTimer()
+    func simulateFadeOut(label: WKInterfaceLabel) {
+        let mainQueue = dispatch_get_main_queue()
+        
+        for index in 1...10 {
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(Double(index) / 10.0 * Double(NSEC_PER_SEC)))
 
-            self.latitudeLabel.setText(self.latitudeResetText)
-            
-            self.longitudeLabel.setText(self.longitudeResetText)
-            
-            self.errorLabel.setText(self.errorResetText)
+            dispatch_after(time, mainQueue) {
+                let alphaAmount = CGFloat(1 - (0.1 * Float(index)))
+
+                label.setAlpha(alphaAmount)
+            }
         }
-    }
-    
-    /**
-        Restarts the NSTimer and the WKInterface timer by stopping / invalidating
-        them, then starting them with a 5 second timeout.
-    */
-    func restartTimers() {
-        stopDisplayTimer()
-
-        interfaceResetTimer.invalidate()
-        
-        interfaceResetTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "resetInterface", userInfo: [:], repeats: false)
-        
-        let fiveSecondDelay = NSDate(timeIntervalSinceNow: 5)
-        
-        displayTimer.setDate(fiveSecondDelay)
-        
-        displayTimer.start()
-    }
-    
-    /// Stops the display timer.
-    func stopDisplayTimer() {
-        let now = NSDate()
-        displayTimer.setDate(now)
-
-        displayTimer.stop()
     }
 }

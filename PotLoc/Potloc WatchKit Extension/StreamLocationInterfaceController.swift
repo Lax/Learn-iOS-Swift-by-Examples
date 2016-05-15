@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2015 Apple Inc. All Rights Reserved.
+Copyright (C) 2016 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 */
@@ -83,7 +83,7 @@ class StreamLocationInterfaceController: WKInterfaceController, WCSessionDelegat
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        self.setTitle(interfaceTitle)
+        setTitle(interfaceTitle)
         locationsReeivedOnPhoneCountTitleLabel.setText(locationsReceivedText)
         
         // Initialize the `WCSession`.

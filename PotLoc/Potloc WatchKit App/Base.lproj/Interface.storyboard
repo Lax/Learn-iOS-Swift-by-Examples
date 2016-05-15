@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8121.17" systemVersion="15A178t" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8152.3" systemVersion="15A214" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8066.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8077.2"/>
     </dependencies>
     <scenes>
         <!--Potloc-->
@@ -43,7 +43,6 @@
                                 <action selector="requestLocation:" destination="vKN-QW-QSX" id="Sub-nD-iv4"/>
                             </connections>
                         </button>
-                        <timer alignment="left" id="qpm-Zg-mhf"/>
                         <separator alignment="left" id="vK1-9E-kfS"/>
                         <label alignment="left" text="Label" id="jpF-sQ-sjD"/>
                         <label alignment="left" text="Label" id="Xry-1x-JDh"/>
@@ -51,7 +50,6 @@
                         <label alignment="left" text="Label" numberOfLines="0" id="WTm-mB-7Kd"/>
                     </items>
                     <connections>
-                        <outlet property="displayTimer" destination="qpm-Zg-mhf" id="Xzb-eh-U9S"/>
                         <outlet property="errorLabel" destination="WTm-mB-7Kd" id="RXk-5s-CYR"/>
                         <outlet property="latitudeLabel" destination="jpF-sQ-sjD" id="IZU-CZ-aIh"/>
                         <outlet property="longitudeLabel" destination="Xry-1x-JDh" id="5TX-s5-9RD"/>
