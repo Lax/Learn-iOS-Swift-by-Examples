@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IPv4</key>
+	<dict>
+		<key>Pool</key>
+		<dict>
+			<key>EndAddress</key>
+			<string>192.168.2.10</string>
+			<key>StartAddress</key>
+			<string>192.168.2.2</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
