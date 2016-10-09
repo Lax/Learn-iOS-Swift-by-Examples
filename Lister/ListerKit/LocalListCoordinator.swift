@@ -186,8 +186,8 @@ public class LocalListCoordinator: ListCoordinator, DirectoryMonitorDelegate {
     }
     
     private func documentURLForName(name: String) -> NSURL {
-        let documentURLWithoutExtension = documentsDirectory.URLByAppendingPathComponent(name)
+        let documentURLWithoutExtension = documentsDirectory.URLByAppendingPathComponent(name)!
 
-        return documentURLWithoutExtension.URLByAppendingPathExtension(AppConfiguration.listerFileExtension)
+        return documentURLWithoutExtension.URLByAppendingPathExtension(AppConfiguration.listerFileExtension)!
     }
 }

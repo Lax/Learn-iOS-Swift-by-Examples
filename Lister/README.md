@@ -2,10 +2,10 @@
 
 ## Version
 
-3.3
+3.4
 
 ## Build Requirements
-+ Xcode 7.3 or later
++ Xcode 8.0 or later
 + iOS 9.3 SDK or later
 + OS X 10.11 SDK or later
 + watchOS 2.2 SDK or later

@@ -30,9 +30,9 @@ public class TodayListManager {
             return nil
         }
 
-        let todayDocumentFolderURL = containerURL!.URLByAppendingPathComponent("Documents")
+        let todayDocumentFolderURL = containerURL!.URLByAppendingPathComponent("Documents")!
 
-        let todayDocumentURL = todayDocumentFolderURL.URLByAppendingPathComponent(AppConfiguration.localizedTodayDocumentName).URLByAppendingPathExtension(AppConfiguration.listerFileExtension)
+        let todayDocumentURL = todayDocumentFolderURL.URLByAppendingPathComponent(AppConfiguration.localizedTodayDocumentName)!.URLByAppendingPathExtension(AppConfiguration.listerFileExtension)!
 
         let fileManager = NSFileManager.defaultManager()
 

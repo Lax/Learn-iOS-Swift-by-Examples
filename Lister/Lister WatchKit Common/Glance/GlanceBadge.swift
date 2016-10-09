@@ -58,7 +58,7 @@ class GlanceBadge {
 
         UIGraphicsEndImageContext()
         
-        return frame
+        return frame!
     }
     
     let groupBackgroundImageSize = CGSizeMake(136, 101)

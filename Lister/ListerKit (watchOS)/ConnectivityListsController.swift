@@ -239,7 +239,7 @@ public class ConnectivityListsController: NSObject, WCSessionDelegate {
     
     private func copyURLToDocumentsDirectory(URL: NSURL) {
         let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-        let toURL = documentsURL.URLByAppendingPathComponent(URL.lastPathComponent!)
+        let toURL = documentsURL.URLByAppendingPathComponent(URL.lastPathComponent!)!
         
         ListUtilities.copyFromURL(URL, toURL: toURL)
     }

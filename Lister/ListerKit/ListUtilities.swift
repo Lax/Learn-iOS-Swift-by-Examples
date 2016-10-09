@@ -20,7 +20,7 @@ public class ListUtilities {
     // MARK: Properties
 
     public class var localDocumentsDirectory: NSURL  {
-        let documentsURL = sharedApplicationGroupContainer.URLByAppendingPathComponent("Documents", isDirectory: true)
+        let documentsURL = sharedApplicationGroupContainer.URLByAppendingPathComponent("Documents", isDirectory: true)!
         
         do {
             // This will throw if the directory cannot be successfully created, or does not already exist.
@@ -73,7 +73,7 @@ public class ListUtilities {
                 
                     for URL in localDocumentURLs {
                         if URL.pathExtension == AppConfiguration.listerFileExtension {
-                            self.makeItemUbiquitousAtURL(URL, documentsDirectoryURL: documentsDirectoryURL)
+                            self.makeItemUbiquitousAtURL(URL, documentsDirectoryURL: documentsDirectoryURL!)
                         }
                     }
                 }
@@ -94,8 +94,8 @@ public class ListUtilities {
         let fileManager = NSFileManager()
         let destinationURL = documentsDirectoryURL.URLByAppendingPathComponent(destinationFileName)
         
-        if fileManager.isUbiquitousItemAtURL(destinationURL) ||
-            fileManager.fileExistsAtPath(destinationURL.path!) {
+        if fileManager.isUbiquitousItemAtURL(destinationURL!) ||
+            fileManager.fileExistsAtPath(destinationURL!.path!) {
             // If the file already exists in the cloud, remove the local version and return.
             removeListAtURL(sourceURL, completionHandler: nil)
             return
@@ -105,7 +105,7 @@ public class ListUtilities {
         
         dispatch_async(defaultQueue) {
             do {
-                try fileManager.setUbiquitous(true, itemAtURL: sourceURL, destinationURL: destinationURL)
+                try fileManager.setUbiquitous(true, itemAtURL: sourceURL, destinationURL: destinationURL!)
                 return
             }
             catch let error as NSError {
@@ -230,12 +230,12 @@ public class ListUtilities {
     private class func copyURLToDocumentsDirectory(url: NSURL) {
         let toURL = ListUtilities.localDocumentsDirectory.URLByAppendingPathComponent(url.lastPathComponent!)
         
-        if NSFileManager().fileExistsAtPath(toURL.path!) {
+        if NSFileManager().fileExistsAtPath(toURL!.path!) {
             // If the file already exists, don't attempt to copy the version from the bundle.
             return
         }
         
-        copyFromURL(url, toURL: toURL)
+        copyFromURL(url, toURL: toURL!)
     }
     
     public class func copyFromURL(fromURL: NSURL, toURL: NSURL) {

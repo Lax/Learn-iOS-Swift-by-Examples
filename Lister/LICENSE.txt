@@ -1,5 +1,5 @@
 Sample code project: Lister (for watchOS, iOS, and OS X)
-Version: 3.3
+Version: 3.4
 
 IMPORTANT:  This Apple software is supplied to you by Apple
 Inc. ("Apple") in consideration of your agreement to the following

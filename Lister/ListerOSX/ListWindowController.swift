@@ -25,8 +25,7 @@ class ListWindowController: NSWindowController, SegueHandlerType {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        let action = Int(NSEventMask.LeftMouseDownMask.rawValue)
-        shareButton.sendActionOn(action)
+        shareButton.sendActionOn(.LeftMouseDown)
     }
     
     // MARK: Keyboard Shortcuts

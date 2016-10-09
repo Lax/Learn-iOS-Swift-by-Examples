@@ -295,14 +295,14 @@ class ListViewController: UITableViewController, UITextFieldDelegate, ListColorC
         }
     }
     
-    override func tableView(_: UITableView, willBeginEditingRowAtIndexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
         /* 
             When the user swipes to show the delete confirmation, don't enter editing mode.
             `UITableViewController` enters editing mode by default so we override without calling super.
         */
     }
     
-    override func tableView(_: UITableView, didEndEditingRowAtIndexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath?) {
         /*
             When the user swipes to hide the delete confirmation, no need to exit edit mode because we didn't
             enter it. `UITableViewController` enters editing mode by default so we override without calling

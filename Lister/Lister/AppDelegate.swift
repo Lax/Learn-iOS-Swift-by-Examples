@@ -359,7 +359,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 guard let listDocuments = self.listDocumentsViewController else { return false }
                 guard let listsController = self.listsController else { return false }
                 
-                let todayURL = listsController.documentsDirectory.URLByAppendingPathComponent(AppConfiguration.localizedTodayDocumentNameAndExtension, isDirectory: false)
+                let todayURL = listsController.documentsDirectory.URLByAppendingPathComponent(AppConfiguration.localizedTodayDocumentNameAndExtension, isDirectory: false)!
                 let launchContext = AppLaunchContext(listURL: todayURL, listColor: List.Color.Orange)
                 
                 listDocuments.configureViewControllerWithLaunchContext(launchContext)
