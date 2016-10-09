@@ -21,17 +21,17 @@ class SceneLoaderDownloadFailedState: GKState {
     
     // MARK: GKState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
         // Clear the `sceneLoader`'s progress.
         sceneLoader.progress = nil
 
         // Notify any interested objects that the download has failed.
-        NSNotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidFailNotification, object: sceneLoader)
+        NotificationCenter.default.post(name: NSNotification.Name.SceneLoaderDidFailNotification, object: sceneLoader)
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         return stateClass is SceneLoaderDownloadingResourcesState.Type
     }
 }

@@ -14,16 +14,16 @@ class LevelSceneActiveState: GKState {
     
     unowned let levelScene: LevelScene
     
-    var timeRemaining: NSTimeInterval = 0.0
+    var timeRemaining: TimeInterval = 0.0
     
     /*
         A formatter for individual date components used to provide an appropriate
         display value for the timer.
     */
-    let timeRemainingFormatter: NSDateComponentsFormatter = {
-        let formatter = NSDateComponentsFormatter()
-        formatter.zeroFormattingBehavior = .Pad
-        formatter.allowedUnits = [.Minute, .Second]
+    let timeRemainingFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.zeroFormattingBehavior = .pad
+        formatter.allowedUnits = [.minute, .second]
         
         return formatter
     }()
@@ -33,7 +33,7 @@ class LevelSceneActiveState: GKState {
         let components = NSDateComponents()
         components.second = Int(max(0.0, timeRemaining))
         
-        return timeRemainingFormatter.stringFromDateComponents(components)!
+        return timeRemainingFormatter.string(from: components as DateComponents)!
     }
     
     // MARK: Initializers
@@ -46,14 +46,14 @@ class LevelSceneActiveState: GKState {
     
     // MARK: GKState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
 
         levelScene.timerNode.text = timeRemainingString
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        super.updateWithDeltaTime(seconds)
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
         
         // Subtract the elapsed time from the remaining time.
         timeRemaining -= seconds
@@ -72,15 +72,15 @@ class LevelSceneActiveState: GKState {
         
         if allTaskBotsAreGood {
             // If all the TaskBots are good, the player has completed the level.
-            stateMachine?.enterState(LevelSceneSuccessState.self)
+            stateMachine?.enter(LevelSceneSuccessState.self)
         }
         else if timeRemaining <= 0.0 {
             // If there is no time remaining, the player has failed to complete the level.
-            stateMachine?.enterState(LevelSceneFailState.self)
+            stateMachine?.enter(LevelSceneFailState.self)
         }
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
             case is LevelScenePauseState.Type, is LevelSceneFailState.Type, is LevelSceneSuccessState.Type:
                 return true

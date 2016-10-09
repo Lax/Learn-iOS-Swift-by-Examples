@@ -21,17 +21,17 @@ class SceneLoaderResourcesReadyState: GKState {
     
     // MARK: GKState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
         // Clear the `sceneLoader`'s progress as loading is complete. 
         sceneLoader.progress = nil
 
         // Notify to any interested objects that the download has completed.
-        NSNotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidCompleteNotification, object: sceneLoader)
+        NotificationCenter.default.post(name: NSNotification.Name.SceneLoaderDidCompleteNotification, object: sceneLoader)
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
             case is SceneLoaderResourcesAvailableState.Type, is SceneLoaderInitialState.Type:
                 return true
@@ -41,8 +41,8 @@ class SceneLoaderResourcesReadyState: GKState {
         }
     }
 
-    override func willExitWithNextState(nextState: GKState) {
-        super.willExitWithNextState(nextState)
+    override func willExit(to nextState: GKState) {
+        super.willExit(to: nextState)
         
         /*
             Presenting the scene is a one shot operation. Clear the scene when 

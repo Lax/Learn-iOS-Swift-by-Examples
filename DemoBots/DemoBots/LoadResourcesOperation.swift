@@ -9,20 +9,20 @@
 
 import Foundation
 
-class LoadResourcesOperation: Operation, NSProgressReporting {
+class LoadResourcesOperation: SceneOperation, ProgressReporting {
     // MARK: Properties
     
     /// A class that conforms to the `ResourceLoadableType` protocol.
     let loadableType: ResourceLoadableType.Type
     
-    let progress: NSProgress
+    let progress: Progress
     
     // MARK: Initialization
     
     init(loadableType: ResourceLoadableType.Type) {
         self.loadableType = loadableType
         
-        progress = NSProgress(totalUnitCount: 1)
+        progress = Progress(totalUnitCount: 1)
         super.init()
     }
     
@@ -30,9 +30,9 @@ class LoadResourcesOperation: Operation, NSProgressReporting {
     
     override func start() {
         // If the operation is cancelled there's nothing to do.
-        guard !cancelled else { return }
+        guard !isCancelled else { return }
         
-        if progress.cancelled {
+        if progress.isCancelled {
             // Ensure the operation is marked as `cancelled`.
             cancel()
             return
@@ -45,10 +45,10 @@ class LoadResourcesOperation: Operation, NSProgressReporting {
         }
         
         // Mark the operation as executing.
-        state = .Executing
+        state = .executing
         
         // Begin loading the resources.
-        loadableType.loadResourcesWithCompletionHandler { [unowned self] in
+        loadableType.loadResources() { [unowned self] in
             // Mark the operation as complete once the resources are loaded.
             self.finish()
         }
@@ -56,6 +56,6 @@ class LoadResourcesOperation: Operation, NSProgressReporting {
     
     func finish() {
         progress.completedUnitCount = 1
-        state = .Finished
+        state = .finished
     }
 }

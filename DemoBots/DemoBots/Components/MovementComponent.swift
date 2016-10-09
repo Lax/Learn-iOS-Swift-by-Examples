@@ -55,19 +55,19 @@ class MovementComponent: GKComponent {
     
     /// The `RenderComponent` for this component's entity.
     var renderComponent: RenderComponent {
-        guard let renderComponent = entity?.componentForClass(RenderComponent.self) else { fatalError("A MovementComponent's entity must have a RenderComponent") }
+        guard let renderComponent = entity?.component(ofType: RenderComponent.self) else { fatalError("A MovementComponent's entity must have a RenderComponent") }
         return renderComponent
     }
 
     /// The `AnimationComponent` for this component's entity.
     var animationComponent: AnimationComponent {
-        guard let animationComponent = entity?.componentForClass(AnimationComponent.self) else { fatalError("A MovementComponent's entity must have an AnimationComponent") }
+        guard let animationComponent = entity?.component(ofType: AnimationComponent.self) else { fatalError("A MovementComponent's entity must have an AnimationComponent") }
         return animationComponent
     }
     
     /// The `OrientationComponent` for this component's entity.
     var orientationComponent: OrientationComponent {
-        guard let orientationComponent = entity?.componentForClass(OrientationComponent.self) else { fatalError("A MovementComponent's entity must have an OrientationComponent") }
+        guard let orientationComponent = entity?.component(ofType: OrientationComponent.self) else { fatalError("A MovementComponent's entity must have an OrientationComponent") }
         return orientationComponent
     }
     
@@ -82,12 +82,17 @@ class MovementComponent: GKComponent {
     override init() {
         movementSpeed = GameplayConfiguration.PlayerBot.movementSpeed
         angularSpeed = GameplayConfiguration.PlayerBot.angularSpeed
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: GKComponent Life Cycle
     
-    override func updateWithDeltaTime(deltaTime: NSTimeInterval) {
-        super.updateWithDeltaTime(deltaTime)
+    override func update(deltaTime: TimeInterval) {
+        super.update(deltaTime: deltaTime)
 
         // Declare local versions of computed properties so we don't compute them multiple times.
         let node = renderComponent.node
@@ -104,10 +109,10 @@ class MovementComponent: GKComponent {
             nextRotation = MovementKind(displacement: targetVector)
         }
         
-        if let movement = nextRotation, newRotation = angleForRotatingNode(node, withRotationalMovement: movement, duration: deltaTime)  {
+        if let movement = nextRotation, let newRotation = angleForRotatingNode(node: node, withRotationalMovement: movement, duration: deltaTime)  {
             // Update the node's `zRotation` with new rotation information.
             orientationComponent.zRotation = newRotation
-            animationState = .Idle
+            animationState = .idle
         }
         else {
             // Clear the rotation if a valid angle could not be created.
@@ -115,7 +120,7 @@ class MovementComponent: GKComponent {
         }
         
         // Update the node's `position` with new displacement information.
-        if let movement = nextTranslation, newPosition = pointForTranslatingNode(node, withTranslationalMovement: movement, duration: deltaTime) {
+        if let movement = nextTranslation, let newPosition = pointForTranslatingNode(node: node, withTranslationalMovement: movement, duration: deltaTime) {
             node.position = newPosition
             
             // If no explicit rotation is being provided, orient in the direction of movement.
@@ -127,7 +132,7 @@ class MovementComponent: GKComponent {
                 Always request a walking animation, but distinguish between walking
                 forward and backwards based on node's `zRotation`.
             */
-            animationState = animationStateForDestination(node, destination: newPosition)
+            animationState = animationStateForDestination(node: node, destination: newPosition)
         }
         else {
             // Clear the translation if a valid point could not be created.
@@ -143,7 +148,7 @@ class MovementComponent: GKComponent {
             // `animationComponent` is a computed property. Declare a local version so we don't compute it multiple times.
             let animationComponent = self.animationComponent
 
-            if animationStateCanBeOverwritten(animationComponent.currentAnimation?.animationState) && animationStateCanBeOverwritten(animationComponent.requestedAnimationState) {
+            if animationStateCanBeOverwritten(animationState: animationComponent.currentAnimation?.animationState) && animationStateCanBeOverwritten(animationState: animationComponent.requestedAnimationState) {
                 animationComponent.requestedAnimationState = animationState
             }
         }
@@ -153,10 +158,10 @@ class MovementComponent: GKComponent {
     
     /// Creates a vector towards the current target of a `BeamComponent` attack (if one exists).
     func vectorForBeamTowardsCurrentTarget() -> float2? {
-        guard let beamComponent = entity?.componentForClass(BeamComponent.self) else { return nil }
+        guard let beamComponent = entity?.component(ofType: BeamComponent.self) else { return nil }
         
         let target = (beamComponent.stateMachine.currentState as? BeamFiringState)?.target
-        guard let taskBotPosition = target?.componentForClass(RenderComponent)?.node.position else { return nil }
+        guard let taskBotPosition = target?.component(ofType: RenderComponent.self)?.node.position else { return nil }
         let playerBotPosition = beamComponent.playerBotAntenna.position
         
         // Return a vector translating from the `taskBotPosition` to the `playerBotPosition`.
@@ -164,7 +169,7 @@ class MovementComponent: GKComponent {
     }
     
     /// Produces the destination point for the node, based on the provided translation.
-    func pointForTranslatingNode(node: SKNode, withTranslationalMovement translation: MovementKind, duration: NSTimeInterval) -> CGPoint? {
+    func pointForTranslatingNode(node: SKNode, withTranslationalMovement translation: MovementKind, duration: TimeInterval) -> CGPoint? {
         // No translation if the vector is a zeroVector.
         guard translation.displacement != float2() else { return nil }
         
@@ -176,7 +181,7 @@ class MovementComponent: GKComponent {
         if translation.isRelativeToOrientation {
             // Ensure the relative displacement component is non-zero.
             guard displacement.x != 0 else { return nil }
-            displacement = calculateAbsoluteDisplacementFromRelativeDisplacement(displacement)
+            displacement = calculateAbsoluteDisplacementFromRelativeDisplacement(relativeDisplacement: displacement)
         }
         
         let angle = CGFloat(atan2(displacement.y, displacement.x))
@@ -210,7 +215,7 @@ class MovementComponent: GKComponent {
         return CGPoint(x: node.position.x + dx, y: node.position.y + dy)
     }
     
-    func angleForRotatingNode(node: SKNode, withRotationalMovement rotation: MovementKind, duration: NSTimeInterval) -> CGFloat? {
+    func angleForRotatingNode(node: SKNode, withRotationalMovement rotation: MovementKind, duration: TimeInterval) -> CGFloat? {
         // No rotation if the vector is a zeroVector.
         guard rotation.displacement != float2() else { return nil }
 
@@ -251,7 +256,7 @@ class MovementComponent: GKComponent {
     private func animationStateForDestination(node: SKNode, destination: CGPoint) -> AnimationState {
         // Ensures nodes rotation is the same direction as the destination point.
         let isMovingWithOrientation = (orientationComponent.zRotation * atan2(destination.y, destination.x)) > 0
-        return isMovingWithOrientation ? .WalkForward : .WalkBackward
+        return isMovingWithOrientation ? .walkForward : .walkBackward
     }
     
     /**
@@ -288,7 +293,7 @@ class MovementComponent: GKComponent {
     */
     private func animationStateCanBeOverwritten(animationState: AnimationState?) -> Bool {
         switch animationState {
-            case nil, .Idle?, .WalkForward?, .WalkBackward?:
+            case .idle?, .walkForward?, .walkBackward?:
                 return true
             
             default:

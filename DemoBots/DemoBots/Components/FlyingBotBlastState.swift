@@ -24,17 +24,17 @@ class FlyingBotBlastState: GKState {
     var currentEmitterNode: SKEmitterNode?
 
     /// The amount of time the `TaskBot` has been in the "blast" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
 
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
-        guard let animationComponent = entity.componentForClass(AnimationComponent.self) else { fatalError("A FlyingBotBlastState's entity must have an AnimationComponent.") }
+        guard let animationComponent = entity.component(ofType: AnimationComponent.self) else { fatalError("A FlyingBotBlastState's entity must have an AnimationComponent.") }
         return animationComponent
     }
 
     /// The `RenderComponent` associated with the `entity`.
     var renderComponent: RenderComponent {
-        guard let renderComponent = entity.componentForClass(RenderComponent.self) else { fatalError("A FlyingBotBlastState's entity must have a RenderComponent.") }
+        guard let renderComponent = entity.component(ofType: RenderComponent.self) else { fatalError("A FlyingBotBlastState's entity must have a RenderComponent.") }
         return renderComponent
     }
 
@@ -61,8 +61,8 @@ class FlyingBotBlastState: GKState {
     
     // MARK: GKState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
         // Reset the "length of this blast" tracker when entering the "blast" state.
         elapsedTime = 0.0
@@ -81,17 +81,17 @@ class FlyingBotBlastState: GKState {
         renderComponent.node.addChild(currentEmitterNode!)
 
         // Request the appropriate "attack" animation for this `TaskBot`.
-        animationComponent.requestedAnimationState = .Attack
+        animationComponent.requestedAnimationState = .attack
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        super.updateWithDeltaTime(seconds)
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
         
         // Check if the `FlyingBot` has reached the end of its blast duration.
         elapsedTime += seconds
         if elapsedTime >= GameplayConfiguration.FlyingBot.blastDuration {
             // Return to an agent-controlled state if the blast has completed.
-            stateMachine?.enterState(TaskBotAgentControlledState.self)
+            stateMachine?.enter(TaskBotAgentControlledState.self)
             return
         }
         else if elapsedTime < GameplayConfiguration.FlyingBot.blastEffectDuration {
@@ -100,12 +100,12 @@ class FlyingBotBlastState: GKState {
                 performGoodBlast()
             }
             else {
-                performBadBlastWithDeltaTime(seconds)
+                performBadBlast(withDeltaTime: seconds)
             }
         }
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
             case is TaskBotAgentControlledState.Type, is TaskBotZappedState.Type:
                 return true
@@ -115,8 +115,8 @@ class FlyingBotBlastState: GKState {
         }
     }
     
-    override func willExitWithNextState(nextState: GKState) {
-        super.willExitWithNextState(nextState)
+    override func willExit(to nextState: GKState) {
+        super.willExit(to: nextState)
 
         // Remove the blast effect emitter node from the `TaskBot` when leaving the blast state.
         currentEmitterNode?.removeFromParent()
@@ -129,7 +129,7 @@ class FlyingBotBlastState: GKState {
     func entitiesInRange() -> [GKEntity] {
         // Retrieve an entity snapshot containing the distances from this `TaskBot` to other entities in the `LevelScene`.
         guard let level = renderComponent.node.scene as? LevelScene else { return [] }
-        guard let entitySnapshot = level.entitySnapshotForEntity(entity) else { return [] }
+        guard let entitySnapshot = level.entitySnapshotForEntity(entity: entity) else { return [] }
         
         // Convert the array of `EntityDistance`s to an array of `GKEntity`s where the distance to the entity is within the blast radius.
         let entitiesInRange: [GKEntity] = entitySnapshot.entityDistances.flatMap {
@@ -150,7 +150,7 @@ class FlyingBotBlastState: GKState {
         // Iterate through the `TaskBot`s in range.
         for taskBot in taskBotsInRange {
             // Retrieve the current intelligence state for the `TaskBot`.
-            guard let currentState = taskBot.componentForClass(IntelligenceComponent.self)?.stateMachine.currentState else { continue }
+            guard let currentState = taskBot.component(ofType: IntelligenceComponent.self)?.stateMachine.currentState else { continue }
 
             // If the entity is a "bad" `TaskBot` that isn't currently attacking, turn it "good".
             if taskBot.isGood { continue }
@@ -166,7 +166,7 @@ class FlyingBotBlastState: GKState {
     }
     
     /// Performs a "bad" blast that removes charge from the `PlayerBot` and turns "good" `TaskBot`s "bad".
-    func performBadBlastWithDeltaTime(seconds: NSTimeInterval) {
+    func performBadBlast(withDeltaTime seconds: TimeInterval) {
         // Calculate how much charge `PlayerBot`s should lose if hit by this application of the blast attack.
         let chargeToLose = GameplayConfiguration.FlyingBot.blastChargeLossPerSecond * seconds
         
@@ -174,12 +174,12 @@ class FlyingBotBlastState: GKState {
         let entities = entitiesInRange()
         
         for entity in entities {
-            if let playerBot = entity as? PlayerBot where !playerBot.isPoweredDown,
-                let chargeComponent = entity.componentForClass(ChargeComponent.self) {
+            if let playerBot = entity as? PlayerBot, !playerBot.isPoweredDown,
+                let chargeComponent = entity.component(ofType: ChargeComponent.self) {
                 // Decrease the charge of a `PlayerBot` if it is in range and not powered down.
-                chargeComponent.loseCharge(chargeToLose)
+                chargeComponent.loseCharge(chargeToLose: chargeToLose)
             }
-            else if let taskBot = entity as? TaskBot where taskBot.isGood {
+            else if let taskBot = entity as? TaskBot, taskBot.isGood {
                 // Turn a `TaskBot` "bad" if it is in range and "good".
                 taskBot.isGood = false
             }

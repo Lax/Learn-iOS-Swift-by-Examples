@@ -18,19 +18,19 @@ class LevelScenePauseState: LevelSceneOverlayState {
     
     // MARK: GKState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
-        levelScene.worldNode.paused = true
+        levelScene.worldNode.isPaused = true
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         return stateClass is LevelSceneActiveState.Type
     }
 
-    override func willExitWithNextState(nextState: GKState) {
-        super.willExitWithNextState(nextState)
+    override func willExit(to nextState: GKState) {
+        super.willExit(to: nextState)
         
-        levelScene.worldNode.paused = false
+        levelScene.worldNode.isPaused = false
     }
 }

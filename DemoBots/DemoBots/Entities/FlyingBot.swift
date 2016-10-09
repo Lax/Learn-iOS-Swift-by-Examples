@@ -68,7 +68,7 @@ class FlyingBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
         }
 
         // Create components that define how the entity looks and behaves.
-        let renderComponent = RenderComponent(entity: self)
+        let renderComponent = RenderComponent()
         addComponent(renderComponent)
 
         let orientationComponent = OrientationComponent()
@@ -107,35 +107,39 @@ class FlyingBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
         beamTargetOffset = GameplayConfiguration.FlyingBot.beamTargetOffset
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: ContactableType
 
-    override func contactWithEntityDidBegin(entity: GKEntity) {
+    override func contactWithEntityDidBegin(_ entity: GKEntity) {
         super.contactWithEntityDidBegin(entity)
         
         guard !isGood else { return }
 
         var shouldStartAttack = false
         
-        if let otherTaskBot = entity as? TaskBot where otherTaskBot.isGood {
+        if let otherTaskBot = entity as? TaskBot, otherTaskBot.isGood {
             // Contact with good task bot will trigger an attack.
             shouldStartAttack = true
         }
-        else if let playerBot = entity as? PlayerBot where !playerBot.isPoweredDown {
+        else if let playerBot = entity as? PlayerBot, !playerBot.isPoweredDown {
             // Contact with an active `PlayerBot` will trigger an attack.
             shouldStartAttack = true
         }
         
-        if let stateMachine = componentForClass(IntelligenceComponent)?.stateMachine where shouldStartAttack {
-            stateMachine.enterState(FlyingBotPreAttackState.self)
+        if let stateMachine = component(ofType: IntelligenceComponent.self)?.stateMachine, shouldStartAttack {
+            stateMachine.enter(FlyingBotPreAttackState.self)
         }
     }
     
     // MARK: ChargeComponentDelegate
     
     func chargeComponentDidLoseCharge(chargeComponent: ChargeComponent) {
-        guard let intelligenceComponent = componentForClass(IntelligenceComponent) else { return }
+        guard let intelligenceComponent = component(ofType: IntelligenceComponent.self) else { return }
         
-        intelligenceComponent.stateMachine.enterState(TaskBotZappedState.self)
+        intelligenceComponent.stateMachine.enter(TaskBotZappedState.self)
         isGood = !chargeComponent.hasCharge
     }
     
@@ -145,7 +149,7 @@ class FlyingBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
         return goodAnimations == nil || badAnimations == nil
     }
     
-    static func loadResourcesWithCompletionHandler(completionHandler: () -> ()) {        
+    static func loadResources(withCompletionHandler completionHandler: @escaping () -> ()) {
         // Load `TaskBot`s shared assets.
         super.loadSharedAssets()
         
@@ -170,13 +174,13 @@ class FlyingBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
                 after the `FlyingBot` texture atlases have finished preloading.
             */
             goodAnimations = [:]
-            goodAnimations![.WalkForward] = AnimationComponent.animationsFromAtlas(flyingBotAtlases[0], withImageIdentifier: "FlyingBotGoodWalk", forAnimationState: .WalkForward, bodyActionName: "FlyingBotBob", shadowActionName: "FlyingBotShadowScale")
-            goodAnimations![.Attack] = AnimationComponent.animationsFromAtlas(flyingBotAtlases[1], withImageIdentifier: "FlyingBotGoodAttack", forAnimationState: .Attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
+            goodAnimations![.walkForward] = AnimationComponent.animationsFromAtlas(atlas: flyingBotAtlases[0], withImageIdentifier: "FlyingBotGoodWalk", forAnimationState: .walkForward, bodyActionName: "FlyingBotBob", shadowActionName: "FlyingBotShadowScale")
+            goodAnimations![.attack] = AnimationComponent.animationsFromAtlas(atlas: flyingBotAtlases[1], withImageIdentifier: "FlyingBotGoodAttack", forAnimationState: .attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
             
             badAnimations = [:]
-            badAnimations![.WalkForward] = AnimationComponent.animationsFromAtlas(flyingBotAtlases[2], withImageIdentifier: "FlyingBotBadWalk", forAnimationState: .WalkForward, bodyActionName: "FlyingBotBob", shadowActionName: "FlyingBotShadowScale")
-            badAnimations![.Attack] = AnimationComponent.animationsFromAtlas(flyingBotAtlases[3], withImageIdentifier: "FlyingBotBadAttack", forAnimationState: .Attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
-            badAnimations![.Zapped] = AnimationComponent.animationsFromAtlas(flyingBotAtlases[4], withImageIdentifier: "FlyingBotZapped", forAnimationState: .Zapped, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
+            badAnimations![.walkForward] = AnimationComponent.animationsFromAtlas(atlas: flyingBotAtlases[2], withImageIdentifier: "FlyingBotBadWalk", forAnimationState: .walkForward, bodyActionName: "FlyingBotBob", shadowActionName: "FlyingBotShadowScale")
+            badAnimations![.attack] = AnimationComponent.animationsFromAtlas(atlas: flyingBotAtlases[3], withImageIdentifier: "FlyingBotBadAttack", forAnimationState: .attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
+            badAnimations![.zapped] = AnimationComponent.animationsFromAtlas(atlas: flyingBotAtlases[4], withImageIdentifier: "FlyingBotZapped", forAnimationState: .zapped, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
             
             // Invoke the passed `completionHandler` to indicate that loading has completed.
             completionHandler()

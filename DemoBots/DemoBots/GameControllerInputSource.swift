@@ -46,11 +46,11 @@ class GameControllerInputSource: ControlInputSourceType {
                 self.delegate?.controlInputSourceDidBeginAttacking(self)
 
                 #if os(tvOS)
-                if let microGamepad = self.gameController.microGamepad where button == microGamepad.buttonA || button == microGamepad.buttonX {
+                if let microGamepad = self.gameController.microGamepad, button == microGamepad.buttonA || button == microGamepad.buttonX {
                     self.gameStateDelegate?.controlInputSourceDidSelect(self)
                 }
                 #else
-                if let gamepad = self.gameController.gamepad where button == gamepad.buttonA || button == gamepad.buttonX {
+                if let gamepad = self.gameController.gamepad, button == gamepad.buttonA || button == gamepad.buttonX {
                     self.gameStateDelegate?.controlInputSourceDidSelect(self)
                 }
                 #endif

@@ -54,9 +54,9 @@ class ThumbStickNode: SKSpriteNode {
         let touchPadTexture = SKTexture(imageNamed: "ControlPad")
         
         // `touchPad` is the inner touch pad that follows the user's thumb.
-        touchPad = SKSpriteNode(texture: touchPadTexture, color: UIColor.clearColor(), size: touchPadSize)
+        touchPad = SKSpriteNode(texture: touchPadTexture, color: UIColor.clear, size: touchPadSize)
         
-        super.init(texture: touchPadTexture, color: UIColor.clearColor(), size: size)
+        super.init(texture: touchPadTexture, color: UIColor.clear, size: size)
 
         alpha = normalAlpha
         
@@ -69,25 +69,25 @@ class ThumbStickNode: SKSpriteNode {
 
     // MARK: UIResponder
     
-    override func canBecomeFirstResponder() -> Bool {
+    override var canBecomeFirstResponder: Bool {
         return true
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         // Highlight that the control is being used by adjusting the alpha.
         alpha = selectedAlpha
         
         // Inform the delegate that the control is being pressed.
-        delegate?.thumbStickNode(self, isPressed: true)
+        delegate?.thumbStickNode(thumbStickNode: self, isPressed: true)
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesMoved(touches, withEvent: event)
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
         
         // For each touch, calculate the movement of the touchPad.
         for touch in touches {
-            let touchLocation = touch.locationInNode(self)
+            let touchLocation = touch.location(in: self)
             
             var dx = touchLocation.x - center.x
             var dy = touchLocation.y - center.y
@@ -111,12 +111,12 @@ class ThumbStickNode: SKSpriteNode {
             // Normalize the displacements between [-1.0, 1.0].
             let normalizedDx = Float(dx / trackingDistance)
             let normalizedDy = Float(dy / trackingDistance)
-            delegate?.thumbStickNode(self, didUpdateXValue: normalizedDx, yValue: normalizedDy)
+            delegate?.thumbStickNode(thumbStickNode: self, didUpdateXValue: normalizedDx, yValue: normalizedDy)
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesEnded(touches, withEvent: event)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         
         // If the touches set is empty, return immediately.
         guard !touches.isEmpty else { return }
@@ -124,8 +124,8 @@ class ThumbStickNode: SKSpriteNode {
         resetTouchPad()
    }
     
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        super.touchesCancelled(touches, withEvent: event)
+    override func touchesCancelled(_ touches: Set<UITouch>?, with event: UIEvent?) {
+        super.touchesCancelled(touches!, with: event)
         resetTouchPad()
     }
     
@@ -133,10 +133,10 @@ class ThumbStickNode: SKSpriteNode {
     func resetTouchPad() {
         alpha = normalAlpha
         
-        let restoreToCenter = SKAction.moveTo(CGPoint.zero, duration: 0.2)
-        touchPad.runAction(restoreToCenter)
+        let restoreToCenter = SKAction.move(to: CGPoint.zero, duration: 0.2)
+        touchPad.run(restoreToCenter)
         
-        delegate?.thumbStickNode(self, isPressed: false)
-        delegate?.thumbStickNode(self, didUpdateXValue: 0, yValue: 0)
+        delegate?.thumbStickNode(thumbStickNode: self, isPressed: false)
+        delegate?.thumbStickNode(thumbStickNode: self, didUpdateXValue: 0, yValue: 0)
     }
 }

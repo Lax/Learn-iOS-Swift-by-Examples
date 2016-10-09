@@ -15,17 +15,17 @@ class PlayerBotRechargingState: GKState {
     unowned var entity: PlayerBot
     
     /// The amount of time the `PlayerBot` has been in the "recharging" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
-        guard let animationComponent = entity.componentForClass(AnimationComponent.self) else { fatalError("A PlayerBotRechargingState's entity must have an AnimationComponent.") }
+        guard let animationComponent = entity.component(ofType: AnimationComponent.self) else { fatalError("A PlayerBotRechargingState's entity must have an AnimationComponent.") }
         return animationComponent
     }
     
     /// The `ChargeComponent` associated with the `entity`.
     var chargeComponent: ChargeComponent {
-        guard let chargeComponent = entity.componentForClass(ChargeComponent.self) else { fatalError("A PlayerBotRechargingState's entity must have a ChargeComponent.") }
+        guard let chargeComponent = entity.component(ofType: ChargeComponent.self) else { fatalError("A PlayerBotRechargingState's entity must have a ChargeComponent.") }
         return chargeComponent
     }
     
@@ -37,18 +37,18 @@ class PlayerBotRechargingState: GKState {
     
     // MARK: GKState life cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
         // Reset the recharge duration when entering this state.
         elapsedTime = 0.0
         
         // Request the "inactive" animation for the `PlayerBot`.
-        animationComponent.requestedAnimationState = .Inactive
+        animationComponent.requestedAnimationState = .inactive
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        super.updateWithDeltaTime(seconds)
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
         
         // Update the elapsed recharge duration.
         elapsedTime += seconds
@@ -64,16 +64,16 @@ class PlayerBotRechargingState: GKState {
 
         // Add charge to the `PlayerBot`.
         let amountToRecharge = GameplayConfiguration.PlayerBot.rechargeAmountPerSecond * seconds
-        chargeComponent.addCharge(amountToRecharge)
+        chargeComponent.addCharge(chargeToAdd: amountToRecharge)
         
         // If the `PlayerBot` is fully charged it can become player controlled again.
         if chargeComponent.isFullyCharged {
             entity.isPoweredDown = false
-            stateMachine?.enterState(PlayerBotPlayerControlledState.self)
+            stateMachine?.enter(PlayerBotPlayerControlledState.self)
         }
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         return stateClass is PlayerBotPlayerControlledState.Type
     }
 }

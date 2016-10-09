@@ -21,7 +21,7 @@ class SceneLoaderResourcesAvailableState: GKState {
     
     // MARK: GKState Life Cycle
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
             case is SceneLoaderInitialState.Type, is SceneLoaderPreparingResourcesState.Type:
                 return true

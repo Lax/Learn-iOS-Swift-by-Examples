@@ -13,60 +13,60 @@ class HomeEndScene: BaseScene {
     
     /// Returns the background node from the scene.
     override var backgroundNode: SKSpriteNode? {
-        return childNodeWithName("backgroundNode") as? SKSpriteNode
+        return childNode(withName: "backgroundNode") as? SKSpriteNode
     }
     
     /// The screen recorder button for the scene (if it has one).
     var screenRecorderButton: ButtonNode? {
-        return backgroundNode?.childNodeWithName(ButtonIdentifier.ScreenRecorderToggle.rawValue) as? ButtonNode
+        return backgroundNode?.childNode(withName: ButtonIdentifier.screenRecorderToggle.rawValue) as? ButtonNode
     }
     
     /// The "NEW GAME" button which allows the player to proceed to the first level.
     var proceedButton: ButtonNode? {
-        return backgroundNode?.childNodeWithName(ButtonIdentifier.ProceedToNextScene.rawValue) as? ButtonNode
+        return backgroundNode?.childNode(withName: ButtonIdentifier.proceedToNextScene.rawValue) as? ButtonNode
     }
-    
+
     /// An array of objects for `SceneLoader` notifications.
-    private var sceneLoaderNotificationObservers = [AnyObject]()
+    private var sceneLoaderNotificationObservers = [Any]()
 
     // MARK: Deinitialization
     
     deinit {
         // Deregister for scene loader notifications.
         for observer in sceneLoaderNotificationObservers {
-            NSNotificationCenter.defaultCenter().removeObserver(observer)
+            NotificationCenter.default.removeObserver(observer)
         }
     }
     
     // MARK: Scene Life Cycle
 
-    override func didMoveToView(view: SKView) {
-        super.didMoveToView(view)
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
 
         #if os(iOS)
         screenRecorderButton?.isSelected = screenRecordingToggleEnabled
         #else
-        screenRecorderButton?.hidden = true
+        screenRecorderButton?.isHidden = true
         #endif
         
         // Enable focus based navigation. 
         focusChangesEnabled = true
         
         registerForNotifications()
-        centerCameraOnPoint(backgroundNode!.position)
+        centerCameraOnPoint(point: backgroundNode!.position)
         
         // Begin loading the first level as soon as the view appears.
-        sceneManager.prepareSceneWithSceneIdentifier(.Level(1))
+        sceneManager.prepareScene(identifier: .level(1))
         
-        let levelLoader = sceneManager.sceneLoaderForSceneIdentifier(.Level(1))
+        let levelLoader = sceneManager.sceneLoader(forSceneIdentifier: .level(1))
         
         // If the first level is not ready, hide the buttons until we are notified.
         if !(levelLoader.stateMachine.currentState is SceneLoaderResourcesReadyState) {
             proceedButton?.alpha = 0.0
-            proceedButton?.userInteractionEnabled = false
+            proceedButton?.isUserInteractionEnabled = false
             
             screenRecorderButton?.alpha = 0.0
-            screenRecorderButton?.userInteractionEnabled = false
+            screenRecorderButton?.isUserInteractionEnabled = false
         }
     }
     
@@ -75,21 +75,21 @@ class HomeEndScene: BaseScene {
         guard sceneLoaderNotificationObservers.isEmpty else { return }
         
         // Create a closure to pass as a notification handler for when loading completes or fails.
-        let handleSceneLoaderNotification: (NSNotification) -> () = { [unowned self] notification in
+        let handleSceneLoaderNotification: (Notification) -> () = { [unowned self] notification in
             let sceneLoader = notification.object as! SceneLoader
             
             // Show the proceed button if the `sceneLoader` pertains to a `LevelScene`.
             if sceneLoader.sceneMetadata.sceneType is LevelScene.Type {
                 // Allow the proceed and screen to be tapped or clicked.
-                self.proceedButton?.userInteractionEnabled = true
-                self.screenRecorderButton?.userInteractionEnabled = true
-                
+                self.proceedButton?.isUserInteractionEnabled = true
+                self.screenRecorderButton?.isUserInteractionEnabled = true
+
                 // Fade in the proceed and screen recorder buttons.
-                self.screenRecorderButton?.runAction(SKAction.fadeInWithDuration(1.0))
-                
+                self.screenRecorderButton?.run(SKAction.fadeIn(withDuration: 1.0))
+
                 // Clear the initial `proceedButton` focus.
                 self.proceedButton?.isFocused = false
-                self.proceedButton?.runAction(SKAction.fadeInWithDuration(1.0)) {
+                self.proceedButton?.run(SKAction.fadeIn(withDuration: 1.0)) {
                     // Indicate that the `proceedButton` is focused.
                     self.resetFocus()
                 }
@@ -97,8 +97,8 @@ class HomeEndScene: BaseScene {
         }
         
         // Register for scene loader notifications.
-        let completeNotification = NSNotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidCompleteNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: handleSceneLoaderNotification)
-        let failNotification = NSNotificationCenter.defaultCenter().addObserverForName(SceneLoaderDidFailNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: handleSceneLoaderNotification)
+        let completeNotification = NotificationCenter.default.addObserver(forName: NSNotification.Name.SceneLoaderDidCompleteNotification, object: nil, queue: OperationQueue.main, using: handleSceneLoaderNotification)
+        let failNotification = NotificationCenter.default.addObserver(forName: NSNotification.Name.SceneLoaderDidFailNotification, object: nil, queue: OperationQueue.main, using: handleSceneLoaderNotification)
         
         // Keep track of the notifications we are registered to so we can remove them in `deinit`.
         sceneLoaderNotificationObservers += [completeNotification, failNotification]

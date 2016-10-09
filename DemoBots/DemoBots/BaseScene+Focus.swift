@@ -27,7 +27,7 @@ extension BaseScene {
     
     /// A computed property to determine which buttons are focusable.
     var currentlyFocusableButtons: [ButtonNode] {
-        return buttons.filter { !$0.hidden && $0.userInteractionEnabled }
+        return buttons.filter { !$0.isHidden && $0.isUserInteractionEnabled }
     }
     
     /**
@@ -40,14 +40,14 @@ extension BaseScene {
     */
     private var buttonIdentifiersOrderedByInitialFocusPriority: [ButtonIdentifier] {
         return [
-            .Resume,
-            .ProceedToNextScene,
-            .Replay,
-            .Retry,
-            .Home,
-            .Cancel,
-            .ViewRecordedContent,
-            .ScreenRecorderToggle
+            .resume,
+            .proceedToNextScene,
+            .replay,
+            .retry,
+            .home,
+            .cancel,
+            .viewRecordedContent,
+            .screenRecorderToggle
         ]
     }
     
@@ -60,7 +60,7 @@ extension BaseScene {
         could be expanded to include horizontal navigation if necessary.
     */
     func createButtonFocusGraph() {
-        let sortedFocusableButtons = currentlyFocusableButtons.sort { $0.position.y > $1.position.y }
+        let sortedFocusableButtons = currentlyFocusableButtons.sorted { $0.position.y > $1.position.y }
         
         // Clear any existing connections.
         sortedFocusableButtons.forEach { $0.focusableNeighbors.removeAll() }
@@ -71,8 +71,8 @@ extension BaseScene {
             let nextNode = sortedFocusableButtons[i + 1]
             
             // Create a bidirectional connection between the nodes.
-            node.focusableNeighbors[.Down] = nextNode
-            nextNode.focusableNeighbors[.Up] = node
+            node.focusableNeighbors[.down] = nextNode
+            nextNode.focusableNeighbors[.up] = node
         }
     }
     
@@ -87,12 +87,12 @@ extension BaseScene {
         // On iOS, ensure a game controller is connected otherwise return without providing focus.
         guard sceneManager.gameInput.isGameControllerConnected else { return }
         #endif
-        
+
         // Reset focus to the `buttonNode` with the maximum initial focus priority.
-        focusedButton = currentlyFocusableButtons.maxElement { lhsButton, rhsButton in
+        focusedButton = currentlyFocusableButtons.max { lhsButton, rhsButton in
             // The initial focus priority is the index within the `buttonIdentifiersOrderedByInitialFocusPriority` array.
-            let lhsPriority = buttonIdentifiersOrderedByInitialFocusPriority.indexOf(lhsButton.buttonIdentifier)!
-            let rhsPriority = buttonIdentifiersOrderedByInitialFocusPriority.indexOf(rhsButton.buttonIdentifier)!
+            let lhsPriority = buttonIdentifiersOrderedByInitialFocusPriority.index(of: lhsButton.buttonIdentifier)!
+            let rhsPriority = buttonIdentifiersOrderedByInitialFocusPriority.index(of: rhsButton.buttonIdentifier)!
             
             return lhsPriority > rhsPriority
         }

@@ -54,13 +54,13 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
             // Clear the `buttons` in preparation for new buttons in the overlay.
             buttons = []
             
-            if let overlay = overlay, camera = camera {
+            if let overlay = overlay, let camera = camera {
                 overlay.backgroundNode.removeFromParent()
                 camera.addChild(overlay.backgroundNode)
                 
                 // Animate the overlay in.
                 overlay.backgroundNode.alpha = 0.0
-                overlay.backgroundNode.runAction(SKAction.fadeInWithDuration(0.25))
+                overlay.backgroundNode.run(SKAction.fadeIn(withDuration: 0.25))
                 overlay.updateScale()
 
                 buttons = findAllButtonsInScene()
@@ -70,7 +70,7 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
             }
             
             // Animate the old overlay out.
-            oldValue?.backgroundNode.runAction(SKAction.fadeOutWithDuration(0.25)) {
+            oldValue?.backgroundNode.run(SKAction.fadeOut(withDuration: 0.25)) {
                 oldValue?.backgroundNode.removeFromParent()
             }
         }
@@ -81,8 +81,8 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
     
     // MARK: SKScene Life Cycle
     
-    override func didMoveToView(view: SKView) {
-        super.didMoveToView(view)
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
         
         updateCameraScale()
         overlay?.updateScale()
@@ -95,7 +95,7 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
         resetFocus()
     }
     
-    override func didChangeSize(oldSize: CGSize) {
+    override func didChangeSize(_ oldSize: CGSize) {
         super.didChangeSize(oldSize)
         
         updateCameraScale()
@@ -122,11 +122,11 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
     
     // MARK: ControlInputSourceGameStateDelegate
     
-    func controlInputSourceDidSelect(controlInputSource: ControlInputSourceType) {
+    func controlInputSourceDidSelect(_ controlInputSource: ControlInputSourceType) {
         focusedButton?.buttonTriggered()
     }
     
-    func controlInputSource(controlInputSource: ControlInputSourceType, didSpecifyDirection direction: ControlInputDirection) {
+    func controlInputSource(_ controlInputSource: ControlInputSourceType, didSpecifyDirection direction: ControlInputDirection) {
         // Check that this scene has focus changes enabled, otherwise ignore.
         guard focusChangesEnabled else { return }
         
@@ -155,7 +155,8 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
                     constant input.
                 */
                 focusChangesEnabled = false
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(200 * NSEC_PER_MSEC)), dispatch_get_main_queue()) {
+                let deadline = DispatchTime.now() + DispatchTimeInterval.microseconds(200)
+                DispatchQueue.main.asyncAfter(deadline: deadline) {
                     self.focusChangesEnabled = true
 
                     /* 
@@ -167,7 +168,7 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
             }
             else {
                 // Indicate that a neighboring button does not exist for the requested direction.
-                currentFocusedButton.performInvalidFocusChangeAnimationForDirection(direction)
+                currentFocusedButton.performInvalidFocusChangeAnimationForDirection(direction: direction)
             }
         }
         else {
@@ -176,20 +177,20 @@ class BaseScene: SKScene, GameInputDelegate, ControlInputSourceGameStateDelegate
         }
     }
     
-    func controlInputSourceDidTogglePauseState(controlInputSource: ControlInputSourceType) {
+    func controlInputSourceDidTogglePauseState(_ controlInputSource: ControlInputSourceType) {
         // Subclasses implement to toggle pause state.
     }
     
     #if DEBUG
-    func controlInputSourceDidToggleDebugInfo(controlInputSource: ControlInputSourceType) {
+    func controlInputSourceDidToggleDebugInfo(_ controlInputSource: ControlInputSourceType) {
         // Subclasses implement if necessary, to display useful debug info.
     }
     
-    func controlInputSourceDidTriggerLevelSuccess(controlInputSource: ControlInputSourceType) {
+    func controlInputSourceDidTriggerLevelSuccess(_ controlInputSource: ControlInputSourceType) {
         // Implemented by subclasses to switch to next level while debugging.
     }
     
-    func controlInputSourceDidTriggerLevelFailure(controlInputSource: ControlInputSourceType) {
+    func controlInputSourceDidTriggerLevelFailure(_ controlInputSource: ControlInputSourceType) {
         // Implemented by subclasses to force failing the level while debugging.
     }
     #endif

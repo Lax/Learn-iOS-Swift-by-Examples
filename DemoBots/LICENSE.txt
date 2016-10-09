@@ -1,5 +1,5 @@
 Sample code project: DemoBots: Building a Cross Platform Game with SpriteKit and GameplayKit
-Version: 2.2
+Version: 2.3
 
 IMPORTANT:  This Apple software is supplied to you by Apple
 Inc. ("Apple") in consideration of your agreement to the following

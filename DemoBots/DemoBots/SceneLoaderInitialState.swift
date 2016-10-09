@@ -21,19 +21,19 @@ class SceneLoaderInitialState: GKState {
     
     // MARK: GKState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
+    override func didEnter(from previousState: GKState?) {
         #if os(iOS) || os(tvOS)
         // Move the `stateMachine` to the available state if no on-demand resources are required.
         if !sceneLoader.sceneMetadata.requiresOnDemandResources {
-            stateMachine!.enterState(SceneLoaderResourcesAvailableState.self)
+            stateMachine!.enter(SceneLoaderResourcesAvailableState.self)
         }
         #elseif os(OSX)
         // On OS X the resources will always be in local storage available for download.
-        stateMachine!.enterState(SceneLoaderResourcesAvailableState.self)
+        _ = stateMachine!.enter(SceneLoaderResourcesAvailableState.self)
         #endif
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_  stateClass: AnyClass) -> Bool {
         #if os(iOS) || os(tvOS)
         if stateClass is SceneLoaderDownloadingResourcesState.Type {
             return true

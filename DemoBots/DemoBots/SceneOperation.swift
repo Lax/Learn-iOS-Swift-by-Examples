@@ -9,7 +9,7 @@ A subclass of `NSOperation` that maps the different states of an `NSOperation`
 
 import Foundation
 
-class Operation: NSOperation {
+class SceneOperation: Operation {
     // MARK: Types
     
     /**
@@ -18,35 +18,35 @@ class Operation: NSOperation {
     */
     @objc enum State: Int {
         /// The `Operation` is ready to begin execution.
-        case Ready
+        case ready
         
         /// The `Operation` is executing.
-        case Executing
+        case executing
         
         /// The `Operation` has finished executing.
-        case Finished
+        case finished
         
         /// The `Operation` has been cancelled.
-        case Cancelled
+        case cancelled
     }
     
     // MARK: Properties
     
     /// Marking `state` as dynamic allows this property to be key-value observed.
-    dynamic var state = State.Ready
+    dynamic var state = State.ready
     
     // MARK: NSOperation
     
-    override var executing: Bool {
-        return state == .Executing
+    override var isExecuting: Bool {
+        return state == .executing
     }
     
-    override var finished: Bool {
-        return state == .Finished
+    override var isFinished: Bool {
+        return state == .finished
     }
     
-    override var cancelled: Bool {
-        return state == .Cancelled
+    override var isCancelled: Bool {
+        return state == .cancelled
     }
     
     /**

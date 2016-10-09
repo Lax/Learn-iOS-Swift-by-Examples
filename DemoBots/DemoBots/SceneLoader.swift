@@ -14,8 +14,10 @@ import GameplayKit
 
     The `object` property of the notification will contain the `SceneLoader`.
 */
-let SceneLoaderDidCompleteNotification = "SceneLoaderDidCompleteNotification"
-let SceneLoaderDidFailNotification = "SceneLoaderDidFailNotification"
+extension NSNotification.Name {
+    public static let SceneLoaderDidCompleteNotification    = NSNotification.Name(rawValue: "SceneLoaderDidCompleteNotification")
+    public static let SceneLoaderDidFailNotification        = NSNotification.Name(rawValue: "SceneLoaderDidFailNotification")
+}
 
 /// A class encapsulating the work necessary to load a scene and its resources based on a given `SceneMetadata` instance.
 class SceneLoader {
@@ -47,7 +49,7 @@ class SceneLoader {
     var scene: BaseScene?
     
     /// The error, if one occurs, from fetching resources.
-    var error: NSError?
+    var error: Error?
     
     /**
         A parent progress, constructed when `prepareSceneForPresentation()`
@@ -55,7 +57,7 @@ class SceneLoader {
         `SceneLoaderDownloadingResourcesState` and `SceneLoaderPreparingResourcesState` 
         states.
     */
-    var progress: NSProgress? {
+    var progress: Progress? {
         didSet {
             guard let progress = progress else { return }
 
@@ -65,7 +67,7 @@ class SceneLoader {
                 self.error = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
                 
                 // Notify any interested objects that the download was not completed.
-                NSNotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidFailNotification, object: self)
+                NotificationCenter.default.post(name: NSNotification.Name.SceneLoaderDidFailNotification, object: self)
             }
         }
     }
@@ -120,7 +122,7 @@ class SceneLoader {
                     the scene's resources, so bump up the quality of service of
                     the operation queue that is preparing the resources.
                 */
-                preparingState.operationQueue.qualityOfService = .UserInteractive
+                preparingState.operationQueue.qualityOfService = .userInteractive
             }
         }
     }
@@ -131,7 +133,7 @@ class SceneLoader {
         self.sceneMetadata = sceneMetadata
         
         // Enter the initial state as soon as the scene loader is created.
-        stateMachine.enterState(SceneLoaderInitialState)
+        stateMachine.enter(SceneLoaderInitialState.self)
     }
     
     #if os(iOS) || os(tvOS)
@@ -141,10 +143,10 @@ class SceneLoader {
     */
     func downloadResourcesIfNecessary() {
         if sceneMetadata.requiresOnDemandResources {
-            stateMachine.enterState(SceneLoaderDownloadingResourcesState.self)
+            stateMachine.enter(SceneLoaderDownloadingResourcesState.self)
         }
         else {
-            stateMachine.enterState(SceneLoaderResourcesAvailableState.self)
+            stateMachine.enter(SceneLoaderResourcesAvailableState.self)
         }
     }
     #endif
@@ -156,20 +158,20 @@ class SceneLoader {
         Note: On iOS there are two distinct steps to loading: downloading on demand resources
         -> loading assets into memory.
     */
-    func asynchronouslyLoadSceneForPresentation() -> NSProgress {
+    func asynchronouslyLoadSceneForPresentation() -> Progress {
         // If a valid progress already exists it means the scene is already being prepared.
-        if let progress = progress where !progress.cancelled {
+        if let progress = progress , !progress.isCancelled {
             return progress
         }
 
         switch stateMachine.currentState {
             case is SceneLoaderResourcesReadyState:
                 // No additional work needs to be done.
-                progress = NSProgress(totalUnitCount: 0)
+                progress = Progress(totalUnitCount: 0)
 
             
             case is SceneLoaderResourcesAvailableState:
-                progress = NSProgress(totalUnitCount: 1)
+                progress = Progress(totalUnitCount: 1)
                 
                 /*
                     Begin preparing the scene's resources.
@@ -177,17 +179,17 @@ class SceneLoader {
                     The `SceneLoaderPreparingResourcesState`'s progress is added to the `SceneLoader`s
                     progress when the operation is started.
                 */
-                stateMachine.enterState(SceneLoaderPreparingResourcesState.self)
+                stateMachine.enter(SceneLoaderPreparingResourcesState.self)
 
             default:
                 #if os(iOS) || os(tvOS)
                 // Set two units of progress to account for both downloading and then loading into memory.
-                progress = NSProgress(totalUnitCount: 2)
+                progress = Progress(totalUnitCount: 2)
                 
-                let downloadingState = stateMachine.stateForClass(SceneLoaderDownloadingResourcesState)!
+                let downloadingState = stateMachine.state(forClass: SceneLoaderDownloadingResourcesState.self)!
                 downloadingState.enterPreparingStateWhenFinished = true
                 
-                stateMachine.enterState(SceneLoaderDownloadingResourcesState.self)
+                stateMachine.enter(SceneLoaderDownloadingResourcesState.self)
                 
                 guard let bundleResourceRequest = bundleResourceRequest else {
                     fatalError("In the `SceneLoaderDownloadingResourcesState`, but a valid resource request has not been created.")
@@ -219,7 +221,7 @@ class SceneLoader {
         progress?.cancel()
         
         // Reset the state machine back to the initial state.
-        stateMachine.enterState(SceneLoaderInitialState)
+        stateMachine.enter(SceneLoaderInitialState.self)
 
         // Unpin any on demand resources.
         bundleResourceRequest = nil

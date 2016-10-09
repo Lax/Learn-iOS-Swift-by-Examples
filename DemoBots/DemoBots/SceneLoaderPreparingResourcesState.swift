@@ -14,13 +14,13 @@ class SceneLoaderPreparingResourcesState: GKState {
     unowned let sceneLoader: SceneLoader
     
     /// An internal operation queue for loading scene resources in the background.
-    let operationQueue = NSOperationQueue()
+    let operationQueue = OperationQueue()
     
     /**
         An NSProgress object that can be used to query and monitor progress of 
         the resources being loaded. Also supports cancellation.
     */
-    var progress: NSProgress? {
+    var progress: Progress? {
         didSet {
             guard let progress = progress else { return }
             
@@ -47,19 +47,19 @@ class SceneLoaderPreparingResourcesState: GKState {
             state machine. Setting the `qualityOfService` as `.Utility` reflects the
             fact that this is an important task, but is not blocking the user.
         */
-        operationQueue.qualityOfService = .Utility
+        operationQueue.qualityOfService = .utility
     }
     
     // MARK: GKState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
         // Begin loading the scene and associated resources in the background.
         loadResourcesAsynchronously()
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
             // Only valid if the `sceneLoader`'s scene has been loaded.
             case is SceneLoaderResourcesReadyState.Type where sceneLoader.scene != nil:
@@ -90,7 +90,7 @@ class SceneLoaderPreparingResourcesState: GKState {
             Create an `NSProgress` object with the total unit count equal to the number of entities that
             need to be loaded plus a unit for loading the scene itself.
         */
-        let loadingProgress = NSProgress(totalUnitCount: sceneMetadata.loadableTypes.count + 1)
+        let loadingProgress = Progress(totalUnitCount: sceneMetadata.loadableTypes.count + 1)
         
         // Add the `SceneLoaderPreparingResourcesState`'s progress to the overall `sceneLoader`'s progress.
         sceneLoader.progress?.addChild(loadingProgress, withPendingUnitCount: 1)
@@ -105,10 +105,10 @@ class SceneLoaderPreparingResourcesState: GKState {
         
         loadSceneOperation.completionBlock = { [unowned self] in
             // Enter the next state on the main queue.
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.sceneLoader.scene = loadSceneOperation.scene
                 
-                let didEnterReadyState = self.stateMachine!.enterState(SceneLoaderResourcesReadyState.self)
+                let didEnterReadyState = self.stateMachine!.enter(SceneLoaderResourcesReadyState.self)
                 assert(didEnterReadyState, "Failed to transition to `ReadyState` after resources were prepared.")
             }
         }
@@ -142,11 +142,11 @@ class SceneLoaderPreparingResourcesState: GKState {
         sceneLoader.error = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
         
         // Enter the next state on the main queue.
-        dispatch_async(dispatch_get_main_queue()) {
-            self.stateMachine!.enterState(SceneLoaderResourcesAvailableState.self)
+        DispatchQueue.main.async {
+            self.stateMachine!.enter(SceneLoaderResourcesAvailableState.self)
             
             // Notify that loading was not completed.
-            NSNotificationCenter.defaultCenter().postNotificationName(SceneLoaderDidFailNotification, object: self.sceneLoader)
+            NotificationCenter.default.post(name: NSNotification.Name.SceneLoaderDidFailNotification, object: self.sceneLoader)
         }
     }
 }

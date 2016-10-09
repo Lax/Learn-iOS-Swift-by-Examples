@@ -15,29 +15,29 @@ class PlayerBotAppearState: GKState {
     unowned var entity: PlayerBot
     
     /// The amount of time the `PlayerBot` has been in the "appear" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
-        guard let animationComponent = entity.componentForClass(AnimationComponent.self) else { fatalError("A PlayerBotAppearState's entity must have an AnimationComponent.") }
+        guard let animationComponent = entity.component(ofType: AnimationComponent.self) else { fatalError("A PlayerBotAppearState's entity must have an AnimationComponent.") }
         return animationComponent
     }
     
     /// The `RenderComponent` associated with the `entity`.
     var renderComponent: RenderComponent {
-        guard let renderComponent = entity.componentForClass(RenderComponent.self) else { fatalError("A PlayerBotAppearState's entity must have an RenderComponent.") }
+        guard let renderComponent = entity.component(ofType: RenderComponent.self) else { fatalError("A PlayerBotAppearState's entity must have an RenderComponent.") }
         return renderComponent
     }
     
     /// The `OrientationComponent` associated with the `entity`.
     var orientationComponent: OrientationComponent {
-        guard let orientationComponent = entity.componentForClass(OrientationComponent.self) else { fatalError("A PlayerBotAppearState's entity must have an OrientationComponent.") }
+        guard let orientationComponent = entity.component(ofType: OrientationComponent.self) else { fatalError("A PlayerBotAppearState's entity must have an OrientationComponent.") }
         return orientationComponent
     }
     
     /// The `InputComponent` associated with the `entity`.
     var inputComponent: InputComponent {
-        guard let inputComponent = entity.componentForClass(InputComponent.self) else { fatalError("A PlayerBotAppearState's entity must have an InputComponent.") }
+        guard let inputComponent = entity.component(ofType: InputComponent.self) else { fatalError("A PlayerBotAppearState's entity must have an InputComponent.") }
         return inputComponent
     }
     
@@ -52,8 +52,8 @@ class PlayerBotAppearState: GKState {
     
     // MARK: GKState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
         // Reset the elapsed time.
         elapsedTime = 0.0
@@ -78,14 +78,14 @@ class PlayerBotAppearState: GKState {
         renderComponent.node.addChild(node)
         
         // Hide the animation component node until the `PlayerBot` exits this state.
-        animationComponent.node.hidden = true
+        animationComponent.node.isHidden = true
 
         // Disable the input component while the `PlayerBot` appears.
         inputComponent.isEnabled = false
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        super.updateWithDeltaTime(seconds)
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
         
         // Update the amount of time that the `PlayerBot` has been teleporting in to the level.
         elapsedTime += seconds
@@ -96,19 +96,19 @@ class PlayerBotAppearState: GKState {
             node.removeFromParent()
             
             // Switch the `PlayerBot` over to a "player controlled" state.
-            stateMachine?.enterState(PlayerBotPlayerControlledState.self)
+            stateMachine?.enter(PlayerBotPlayerControlledState.self)
         }
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         return stateClass is PlayerBotPlayerControlledState.Type
     }
     
-    override func willExitWithNextState(nextState: GKState) {
-        super.willExitWithNextState(nextState)
+    override func willExit(to nextState: GKState) {
+        super.willExit(to: nextState)
         
         // Un-hide the animation component node.
-        animationComponent.node.hidden = false
+        animationComponent.node.isHidden = false
         
         // Re-enable the input component
         inputComponent.isEnabled = true

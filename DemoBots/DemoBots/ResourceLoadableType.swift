@@ -12,7 +12,7 @@ protocol ResourceLoadableType: class {
     static var resourcesNeedLoading: Bool { get }
     
     /// Loads static resources into memory.
-    static func loadResourcesWithCompletionHandler(completionHandler: () -> ())
+    static func loadResources(withCompletionHandler completionHandler: @escaping () -> ())
     
     /// Releases any static resources that can be loaded again later.
     static func purgeResources()

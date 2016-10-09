@@ -10,7 +10,7 @@ import GameplayKit
 
 protocol ContactNotifiableType {
 
-    func contactWithEntityDidBegin(entity: GKEntity)
+    func contactWithEntityDidBegin(_ entity: GKEntity)
     
-    func contactWithEntityDidEnd(entity: GKEntity)
+    func contactWithEntityDidEnd(_ entity: GKEntity)
 }

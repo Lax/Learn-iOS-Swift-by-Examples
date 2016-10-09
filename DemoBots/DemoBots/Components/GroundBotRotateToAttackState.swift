@@ -16,13 +16,13 @@ class GroundBotRotateToAttackState: GKState {
     
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
-        guard let animationComponent = entity.componentForClass(AnimationComponent.self) else { fatalError("A GroundBotRotateToAttackState's entity must have an AnimationComponent.") }
+        guard let animationComponent = entity.component(ofType: AnimationComponent.self) else { fatalError("A GroundBotRotateToAttackState's entity must have an AnimationComponent.") }
         return animationComponent
     }
     
     /// The `OrientationComponent` associated with the `entity`.
     var orientationComponent: OrientationComponent {
-        guard let orientationComponent = entity.componentForClass(OrientationComponent.self) else { fatalError("A GroundBotRotateToAttackState's entity must have an OrientationComponent.") }
+        guard let orientationComponent = entity.component(ofType: OrientationComponent.self) else { fatalError("A GroundBotRotateToAttackState's entity must have an OrientationComponent.") }
         return orientationComponent
     }
 
@@ -40,21 +40,21 @@ class GroundBotRotateToAttackState: GKState {
     
     // MARK: GPState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
         // Request the "walk forward" animation for this `GroundBot`.
-        animationComponent.requestedAnimationState = .WalkForward
+        animationComponent.requestedAnimationState = .walkForward
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        super.updateWithDeltaTime(seconds)
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
         
         // `orientationComponent` is a computed property. Declare a local version so we don't compute it multiple times.
         let orientationComponent = self.orientationComponent
         
         // Calculate the angle the `GroundBot` needs to turn to face the `targetPosition`.
-        let angleDeltaToTarget = shortestAngleDeltaToTargetFromRotation(Float(orientationComponent.zRotation))
+        let angleDeltaToTarget = shortestAngleDeltaToTargetFromRotation(entityRotation: Float(orientationComponent.zRotation))
         
         // Calculate the amount of rotation that should be applied during this update.
         var delta = CGFloat(seconds * GameplayConfiguration.GroundBot.preAttackRotationSpeed)
@@ -66,7 +66,7 @@ class GroundBotRotateToAttackState: GKState {
         if abs(delta) >= abs(angleDeltaToTarget) {
             // Finish the rotation and enter `GroundBotPreAttackState`.
             orientationComponent.zRotation += angleDeltaToTarget
-            stateMachine?.enterState(GroundBotPreAttackState.self)
+            stateMachine?.enter(GroundBotPreAttackState.self)
             return
         }
 
@@ -74,10 +74,10 @@ class GroundBotRotateToAttackState: GKState {
         orientationComponent.zRotation += delta
         
         // The `GroundBot` may have rotated into a new `FacingDirection`, so re-request the "walk forward" animation.
-        animationComponent.requestedAnimationState = .WalkForward
+        animationComponent.requestedAnimationState = .walkForward
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
             case is TaskBotAgentControlledState.Type, is GroundBotPreAttackState.Type, is TaskBotZappedState.Type:
                 return true

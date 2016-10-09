@@ -20,8 +20,8 @@ class BeamComponent: GKComponent {
         let rotation: Float
         
         init(entity: GKEntity, antennaOffset: CGPoint) {
-            guard let renderComponent = entity.componentForClass(RenderComponent.self) else { fatalError("An AntennaInfo must be created with an entity that has a RenderComponent") }
-            guard let orientationComponent = entity.componentForClass(OrientationComponent.self) else { fatalError("An AntennaInfo must be created with an entity that has an OrientationComponent") }
+            guard let renderComponent = entity.component(ofType: RenderComponent.self) else { fatalError("An AntennaInfo must be created with an entity that has a RenderComponent") }
+            guard let orientationComponent = entity.component(ofType: OrientationComponent.self) else { fatalError("An AntennaInfo must be created with an entity that has an OrientationComponent") }
             
             position = CGPoint(x: renderComponent.node.position.x + antennaOffset.x, y: renderComponent.node.position.y + antennaOffset.y)
             rotation = Float(orientationComponent.zRotation)
@@ -71,7 +71,7 @@ class BeamComponent: GKComponent {
     
     /// The `RenderComponent' for this component's 'entity'.
     var renderComponent: RenderComponent {
-        guard let renderComponent = entity?.componentForClass(RenderComponent.self) else { fatalError("A BeamComponent's entity must have a RenderComponent") }
+        guard let renderComponent = entity?.component(ofType: RenderComponent.self) else { fatalError("A BeamComponent's entity must have a RenderComponent") }
         return renderComponent
     }
 
@@ -86,7 +86,11 @@ class BeamComponent: GKComponent {
             BeamCoolingState(beamComponent: self)
         ])
         
-        stateMachine.enterState(BeamIdleState.self)
+        stateMachine.enter(BeamIdleState.self)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     deinit {
@@ -96,8 +100,8 @@ class BeamComponent: GKComponent {
 
     // MARK: GKComponent Life Cycle
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        stateMachine.updateWithDeltaTime(seconds)
+    override func update(deltaTime seconds: TimeInterval) {
+        stateMachine.update(deltaTime: seconds)
     }
     
     // MARK: Convenience
@@ -106,18 +110,18 @@ class BeamComponent: GKComponent {
         Finds the nearest "bad" `TaskBot` that lies within the beam's arc.
         Returns `nil` if no `TaskBot`s are within targeting range.
     */
-    func findTargetInBeamArcWithCurrentTarget(currentTarget: TaskBot?) -> TaskBot? {
+    func findTargetInBeamArc(withCurrentTarget currentTarget: TaskBot?) -> TaskBot? {
         let playerBotNode = renderComponent.node
         
         // Use the player's `EntitySnapshot` to build an array of targetable `TaskBot`s who's antennas are within the beam's arc.
         guard let level = playerBotNode.scene as? LevelScene else { return nil }
-        guard let snapshot = level.entitySnapshotForEntity(playerBot) else { return nil }
+        guard let snapshot = level.entitySnapshotForEntity(entity: playerBot) else { return nil }
         
         let botsInArc = snapshot.entityDistances.filter { entityDistance in
             guard let taskBot = entityDistance.target as? TaskBot else { return false }
             
             // Filter out entities that aren't "bad" `TaskBot`s with a `RenderComponent`.
-            guard let taskBotNode = taskBot.componentForClass(RenderComponent.self)?.node else { return false }
+            guard let taskBotNode = taskBot.component(ofType: RenderComponent.self)?.node else { return false }
             if taskBot.isGood {
                 return false
             }
@@ -139,16 +143,16 @@ class BeamComponent: GKComponent {
                 This adjustment allows for easier aiming as the `PlayerBot` and `TaskBot`
                 get closer together.
             */
-            let arcAngle = playerBotAntenna.angleTo(taskBotAntenna) * targetDistanceRatio
+            let arcAngle = playerBotAntenna.angleTo(target: taskBotAntenna) * targetDistanceRatio
             if arcAngle > Float(GameplayConfiguration.Beam.maxArcAngle) {
                 return false
             }
 
             // Filter out `TaskBot`s where there is scenery between their antenna and the `PlayerBot`'s antenna.
             var hasLineOfSite = true
-            level.physicsWorld.enumerateBodiesAlongRayStart(playerBotAntenna.position, end: taskBotAntenna.position) { obstacleBody, _, _, stop in
-                // Ignore `EntityNode`s as they are not scenery.
-                if obstacleBody.node is EntityNode {
+            level.physicsWorld.enumerateBodies(alongRayStart: playerBotAntenna.position, end: taskBotAntenna.position) { obstacleBody, _, _, stop in
+                // Ignore nodes that have an entity as they are not scenery.
+                if obstacleBody.node?.entity != nil {
                    return
                 }
                 
@@ -162,7 +166,7 @@ class BeamComponent: GKComponent {
                 */
                 if obstacleLowestY < taskBotNode.position.y || obstacleLowestY < playerBotNode.position.y {
                     hasLineOfSite = false
-                    stop.memory = true
+                    stop.pointee = true
                 }
             }
             
@@ -174,7 +178,7 @@ class BeamComponent: GKComponent {
         let target: TaskBot?
         
         // If the current target is still targetable, continue to target it.
-        if let currentTarget = currentTarget where botsInArc.contains(currentTarget) {
+        if let currentTarget = currentTarget, botsInArc.contains(currentTarget) {
             target = currentTarget
         }
         else {

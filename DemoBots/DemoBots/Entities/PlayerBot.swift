@@ -48,7 +48,7 @@ class PlayerBot: GKEntity, ChargeComponentDelegate, ResourceLoadableType {
         It is not targetable when appearing or recharging.
     */
     var isTargetable: Bool {
-        guard let currentState = componentForClass(IntelligenceComponent.self)?.stateMachine.currentState else { return false }
+        guard let currentState = component(ofType: IntelligenceComponent.self)?.stateMachine.currentState else { return false }
 
         switch currentState {
             case is PlayerBotPlayerControlledState, is PlayerBotHitState:
@@ -64,7 +64,7 @@ class PlayerBot: GKEntity, ChargeComponentDelegate, ResourceLoadableType {
     
     /// The `RenderComponent` associated with this `PlayerBot`.
     var renderComponent: RenderComponent {
-        guard let renderComponent = componentForClass(RenderComponent.self) else { fatalError("A PlayerBot must have an RenderComponent.") }
+        guard let renderComponent = component(ofType: RenderComponent.self) else { fatalError("A PlayerBot must have an RenderComponent.") }
         return renderComponent
     }
 
@@ -81,7 +81,7 @@ class PlayerBot: GKEntity, ChargeComponentDelegate, ResourceLoadableType {
             so that they have the render node available to them when first entered
             (e.g. so that `PlayerBotAppearState` can add a shader to the render node).
         */
-        let renderComponent = RenderComponent(entity: self)
+        let renderComponent = RenderComponent()
         addComponent(renderComponent)
         
         let orientationComponent = OrientationComponent()
@@ -133,16 +133,20 @@ class PlayerBot: GKEntity, ChargeComponentDelegate, ResourceLoadableType {
         addComponent(intelligenceComponent)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: Charge component delegate
     
     func chargeComponentDidLoseCharge(chargeComponent: ChargeComponent) {
-        if let intelligenceComponent = componentForClass(IntelligenceComponent.self) {
+        if let intelligenceComponent = component(ofType: IntelligenceComponent.self) {
             if !chargeComponent.hasCharge {
                 isPoweredDown = true
-                intelligenceComponent.stateMachine.enterState(PlayerBotRechargingState.self)
+                intelligenceComponent.stateMachine.enter(PlayerBotRechargingState.self)
             }
             else {
-                intelligenceComponent.stateMachine.enterState(PlayerBotHitState.self)
+                intelligenceComponent.stateMachine.enter(PlayerBotHitState.self)
             }
         }
     }
@@ -153,7 +157,7 @@ class PlayerBot: GKEntity, ChargeComponentDelegate, ResourceLoadableType {
         return appearTextures == nil || animations == nil
     }
     
-    static func loadResourcesWithCompletionHandler(completionHandler: () -> ()) {
+    static func loadResources(withCompletionHandler completionHandler: @escaping () -> ()) {
         loadMiscellaneousAssets()
         
         let playerBotAtlasNames = [
@@ -181,16 +185,16 @@ class PlayerBot: GKEntity, ChargeComponentDelegate, ResourceLoadableType {
             */
             appearTextures = [:]
             for orientation in CompassDirection.allDirections {
-                appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(orientation, inAtlas: playerBotAtlases[0], withImageIdentifier: "PlayerBotIdle")
+                appearTextures![orientation] = AnimationComponent.firstTextureForOrientation(compassDirection: orientation, inAtlas: playerBotAtlases[0], withImageIdentifier: "PlayerBotIdle")
             }
             
             // Set up all of the `PlayerBot`s animations.
             animations = [:]
-            animations![.Idle] = AnimationComponent.animationsFromAtlas(playerBotAtlases[0], withImageIdentifier: "PlayerBotIdle", forAnimationState: .Idle)
-            animations![.WalkForward] = AnimationComponent.animationsFromAtlas(playerBotAtlases[1], withImageIdentifier: "PlayerBotWalk", forAnimationState: .WalkForward)
-            animations![.WalkBackward] = AnimationComponent.animationsFromAtlas(playerBotAtlases[1], withImageIdentifier: "PlayerBotWalk", forAnimationState: .WalkBackward, playBackwards: true)
-            animations![.Inactive] = AnimationComponent.animationsFromAtlas(playerBotAtlases[2], withImageIdentifier: "PlayerBotInactive", forAnimationState: .Inactive)
-            animations![.Hit] = AnimationComponent.animationsFromAtlas(playerBotAtlases[3], withImageIdentifier: "PlayerBotHit", forAnimationState: .Hit, repeatTexturesForever: false)
+            animations![.idle] = AnimationComponent.animationsFromAtlas(atlas: playerBotAtlases[0], withImageIdentifier: "PlayerBotIdle", forAnimationState: .idle)
+            animations![.walkForward] = AnimationComponent.animationsFromAtlas(atlas: playerBotAtlases[1], withImageIdentifier: "PlayerBotWalk", forAnimationState: .walkForward)
+            animations![.walkBackward] = AnimationComponent.animationsFromAtlas(atlas: playerBotAtlases[1], withImageIdentifier: "PlayerBotWalk", forAnimationState: .walkBackward, playBackwards: true)
+            animations![.inactive] = AnimationComponent.animationsFromAtlas(atlas: playerBotAtlases[2], withImageIdentifier: "PlayerBotInactive", forAnimationState: .inactive)
+            animations![.hit] = AnimationComponent.animationsFromAtlas(atlas: playerBotAtlases[3], withImageIdentifier: "PlayerBotHit", forAnimationState: .hit, repeatTexturesForever: false)
             
             // Invoke the passed `completionHandler` to indicate that loading has completed.
             completionHandler()

@@ -18,8 +18,8 @@ struct LevelConfiguration {
 
         /// The different types of `TaskBot` that can exist in a level.
         enum Locomotion {
-            case Ground
-            case Flying
+            case ground
+            case flying
         }
         
         let locomotion: Locomotion
@@ -41,10 +41,10 @@ struct LevelConfiguration {
         init(botConfigurationInfo: [String: AnyObject]) {
             switch botConfigurationInfo["locomotion"] as! String {
                 case "ground":
-                    locomotion = .Ground
+                    locomotion = .ground
                     
                 case "flying":
-                    locomotion = .Flying
+                    locomotion = .flying
                     
                 default:
                     fatalError("Unknown locomotion found while parsing `taskBot` data")
@@ -81,8 +81,8 @@ struct LevelConfiguration {
     }
     
     /// The time limit (in seconds) for this level.
-    var timeLimit: NSTimeInterval {
-        return configurationInfo["timeLimit"] as! NSTimeInterval
+    var timeLimit: TimeInterval {
+        return configurationInfo["timeLimit"] as! TimeInterval
     }
     
     /// The factor used to normalize distances between characters for 'fuzzy' logic.
@@ -95,9 +95,9 @@ struct LevelConfiguration {
     init(fileName: String) {
         self.fileName = fileName
         
-        let url = NSBundle.mainBundle().URLForResource(fileName, withExtension: "plist")!
+        let url = Bundle.main.url(forResource: fileName, withExtension: "plist")
 
-        configurationInfo = NSDictionary(contentsOfURL: url) as! [String: AnyObject]
+        configurationInfo = NSDictionary(contentsOf: url!) as! [String: AnyObject]
         
         // Extract the data for every `TaskBot` in this level as an array of `TaskBotConfiguration` values.
         let botConfigurations = configurationInfo["taskBotConfigurations"] as! [[String: AnyObject]]

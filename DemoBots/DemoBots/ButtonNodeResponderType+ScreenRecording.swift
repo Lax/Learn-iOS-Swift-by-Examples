@@ -22,7 +22,7 @@ extension ButtonNodeResponderType where Self: BaseScene {
 
         button.isSelected = !button.isSelected
         
-        NSUserDefaults.standardUserDefaults().setBool(button.isSelected, forKey: screenRecorderEnabledKey)
+        UserDefaults.standard.set(button.isSelected, forKey: screenRecorderEnabledKey)
     }
     
     func displayRecordedContent() {
@@ -30,8 +30,8 @@ extension ButtonNodeResponderType where Self: BaseScene {
         guard let rootViewController = view?.window?.rootViewController else { fatalError("The scene must be contained in a window with a root view controller.") }
         
         // `RPPreviewViewController` only supports full screen modal presentation.
-        previewViewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+        previewViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         
-        rootViewController.presentViewController(previewViewController, animated: true, completion:nil)
+        rootViewController.present(previewViewController, animated: true, completion:nil)
     }
 }

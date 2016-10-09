@@ -19,13 +19,13 @@ class ChargeBar: SKSpriteNode {
         static let chargeLevelNodeSize = CGSize(width: 70.0, height: 6.0)
         
         /// The duration used for actions to update the level indicator.
-        static let levelUpdateDuration: NSTimeInterval = 0.1
+        static let levelUpdateDuration: TimeInterval = 0.1
         
         /// The background color.
-        static let backgroundColor = SKColor.blackColor()
+        static let backgroundColor = SKColor.black
         
         /// The charge level node color.
-        static let chargeLevelColor = SKColor.greenColor()
+        static let chargeLevelColor = SKColor.green
     }
     
     // MARK: Properties
@@ -33,10 +33,10 @@ class ChargeBar: SKSpriteNode {
     var level: Double = 1.0 {
         didSet {
             // Scale the level bar node based on the current health level.
-            let action = SKAction.scaleXTo(CGFloat(level), duration: Configuration.levelUpdateDuration)
-            action.timingMode = .EaseInEaseOut
+            let action = SKAction.scaleX(to: CGFloat(level), duration: Configuration.levelUpdateDuration)
+            action.timingMode = .easeInEaseOut
 
-            chargeLevelNode.runAction(action)
+            chargeLevelNode.run(action)
         }
     }
     

@@ -24,6 +24,11 @@ class ShadowComponent: GKComponent {
         node.alpha = 0.25
         node.size = size
         node.position = offset
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

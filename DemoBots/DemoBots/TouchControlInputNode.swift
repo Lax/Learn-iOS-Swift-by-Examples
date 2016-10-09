@@ -32,8 +32,8 @@ class TouchControlInputNode: SKSpriteNode, ThumbStickNodeDelegate, ControlInputS
     let centerDividerWidth: CGFloat
     var hideThumbStickNodes: Bool = false {
         didSet {
-            leftThumbStickNode.hidden = hideThumbStickNodes
-            rightThumbStickNode.hidden = hideThumbStickNodes
+            leftThumbStickNode.isHidden = hideThumbStickNodes
+            rightThumbStickNode.isHidden = hideThumbStickNodes
         }
     }
     
@@ -59,10 +59,10 @@ class TouchControlInputNode: SKSpriteNode, ThumbStickNodeDelegate, ControlInputS
         
         // Setup pause button.
         let buttonSize = CGSize(width: frame.height / 4, height: frame.height / 4)
-        pauseButton = SKSpriteNode(texture: nil, color: UIColor.clearColor(), size: buttonSize)
+        pauseButton = SKSpriteNode(texture: nil, color: UIColor.clear, size: buttonSize)
         pauseButton.position = CGPoint(x: 0, y: frame.height / 2)
         
-        super.init(texture: nil, color: UIColor.clearColor(), size: frame.size)
+        super.init(texture: nil, color: UIColor.clear, size: frame.size)
         rightThumbStickNode.delegate = self
         leftThumbStickNode.delegate = self
         
@@ -74,7 +74,7 @@ class TouchControlInputNode: SKSpriteNode, ThumbStickNodeDelegate, ControlInputS
             A `TouchControlInputNode` is designed to receive all user interaction
             and forwards it along to the child nodes.
         */
-        userInteractionEnabled = true
+        isUserInteractionEnabled = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -121,11 +121,11 @@ class TouchControlInputNode: SKSpriteNode, ThumbStickNodeDelegate, ControlInputS
     
     // MARK: UIResponder
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         
         for touch in touches {
-            let touchPoint = touch.locationInNode(self)
+            let touchPoint = touch.location(in: self)
             
             /*
                 Ignore touches if the thumb stick controls are hidden, or if
@@ -137,20 +137,20 @@ class TouchControlInputNode: SKSpriteNode, ThumbStickNodeDelegate, ControlInputS
             }
             
             if touchPoint.x < 0 {
-                leftControlTouches.unionInPlace([touch])
-                leftThumbStickNode.position = pointByCheckingControlOffset(touchPoint)
-                leftThumbStickNode.touchesBegan([touch], withEvent: event)
+                leftControlTouches.formUnion([touch])
+                leftThumbStickNode.position = pointByCheckingControlOffset(suggestedPoint: touchPoint)
+                leftThumbStickNode.touchesBegan([touch], with: event)
             }
             else {
-                rightControlTouches.unionInPlace([touch])
-                rightThumbStickNode.position = pointByCheckingControlOffset(touchPoint)
-                rightThumbStickNode.touchesBegan([touch], withEvent: event)
+                rightControlTouches.formUnion([touch])
+                rightThumbStickNode.position = pointByCheckingControlOffset(suggestedPoint: touchPoint)
+                rightThumbStickNode.touchesBegan([touch], with: event)
             }
         }
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesMoved(touches, withEvent: event)
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
         /*
             If the touch pertains to a `thumbStickNode`, pass the
             touch along to be handled.
@@ -160,44 +160,44 @@ class TouchControlInputNode: SKSpriteNode, ThumbStickNodeDelegate, ControlInputS
             over the the `rightThumbStickNode`s zone or vice versa,
             while ensuring it is handled by the correct thumb stick.
         */
-        let movedLeftTouches = touches.intersect(leftControlTouches)
-        leftThumbStickNode.touchesMoved(movedLeftTouches, withEvent: event)
+        let movedLeftTouches = touches.intersection(leftControlTouches)
+        leftThumbStickNode.touchesMoved(movedLeftTouches, with: event)
         
-        let movedRightTouches = touches.intersect(rightControlTouches)
-        rightThumbStickNode.touchesMoved(movedRightTouches, withEvent: event)
+        let movedRightTouches = touches.intersection(rightControlTouches)
+        rightThumbStickNode.touchesMoved(movedRightTouches, with: event)
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesEnded(touches, withEvent: event)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         
         for touch in touches {
-            let touchPoint = touch.locationInNode(self)
+            let touchPoint = touch.location(in: self)
             
             /// Toggle pause when touching in the pause node.
-            if pauseButton === nodeAtPoint(touchPoint) {
+            if pauseButton === atPoint(touchPoint) {
                 gameStateDelegate?.controlInputSourceDidTogglePauseState(self)
                 break
             }
         }
         
-        let endedLeftTouches = touches.intersect(leftControlTouches)
-        leftThumbStickNode.touchesEnded(endedLeftTouches, withEvent: event)
-        leftControlTouches.subtractInPlace(endedLeftTouches)
+        let endedLeftTouches = touches.intersection(leftControlTouches)
+        leftThumbStickNode.touchesEnded(endedLeftTouches, with: event)
+        leftControlTouches.subtract(endedLeftTouches)
         
-        let endedRightTouches = touches.intersect(rightControlTouches)
-        rightThumbStickNode.touchesEnded(endedRightTouches, withEvent: event)
-        rightControlTouches.subtractInPlace(endedRightTouches)
+        let endedRightTouches = touches.intersection(rightControlTouches)
+        rightThumbStickNode.touchesEnded(endedRightTouches, with: event)
+        rightControlTouches.subtract(endedRightTouches)
     }
     
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        super.touchesCancelled(touches, withEvent: event)
-        
+    override func touchesCancelled(_ touches: Set<UITouch>?, with event: UIEvent?) {
+        super.touchesCancelled(touches!, with: event)
+
         leftThumbStickNode.resetTouchPad()
         rightThumbStickNode.resetTouchPad()
         
         // Keep the set's capacity, because roughly the same number of touch events are being received.
-        leftControlTouches.removeAll(keepCapacity: true)
-        rightControlTouches.removeAll(keepCapacity: true)
+        leftControlTouches.removeAll(keepingCapacity: true)
+        rightControlTouches.removeAll(keepingCapacity: true)
     }
     
     // MARK: Convenience Methods

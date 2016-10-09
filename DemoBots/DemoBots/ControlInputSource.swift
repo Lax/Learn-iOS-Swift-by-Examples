@@ -9,7 +9,7 @@
 import simd
 
 enum ControlInputDirection: Int {
-    case Up = 0, Down, Left, Right
+    case up = 0, down, left, right
     
     init?(vector: float2) {
         // Require sufficient displacement to specify direction.
@@ -17,25 +17,25 @@ enum ControlInputDirection: Int {
         
         // Take the max displacement as the specified axis.
         if abs(vector.x) > abs(vector.y) {
-            self = vector.x > 0 ? .Right : .Left
+            self = vector.x > 0 ? .right : .left
         }
         else {
-            self = vector.y > 0 ? .Up : .Down
+            self = vector.y > 0 ? .up : .down
         }
     }
 }
 
 /// Delegate methods for responding to control input that applies to the game as a whole.
 protocol ControlInputSourceGameStateDelegate: class {
-    func controlInputSourceDidSelect(controlInputSource: ControlInputSourceType)
-    func controlInputSource(controlInputSource: ControlInputSourceType, didSpecifyDirection: ControlInputDirection)
-    func controlInputSourceDidTogglePauseState(controlInputSource: ControlInputSourceType)
+    func controlInputSourceDidSelect(_ controlInputSource: ControlInputSourceType)
+    func controlInputSource(_ controlInputSource: ControlInputSourceType, didSpecifyDirection: ControlInputDirection)
+    func controlInputSourceDidTogglePauseState(_ controlInputSource: ControlInputSourceType)
     
     #if DEBUG
-    func controlInputSourceDidToggleDebugInfo(controlInputSource: ControlInputSourceType)
+    func controlInputSourceDidToggleDebugInfo(_ controlInputSource: ControlInputSourceType)
     
-    func controlInputSourceDidTriggerLevelSuccess(controlInputSource: ControlInputSourceType)
-    func controlInputSourceDidTriggerLevelFailure(controlInputSource: ControlInputSourceType)
+    func controlInputSourceDidTriggerLevelSuccess(_ controlInputSource: ControlInputSourceType)
+    func controlInputSourceDidTriggerLevelFailure(_ controlInputSource: ControlInputSourceType)
     #endif
 }
 
@@ -49,14 +49,14 @@ protocol ControlInputSourceDelegate: class {
             Left:  (-1.0, 0.0)
             Right: (1.0, 0.0)
     */
-    func controlInputSource(controlInputSource: ControlInputSourceType, didUpdateDisplacement displacement: float2)
+    func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateDisplacement displacement: float2)
     
     /**
         Update the `ControlInputSourceDelegate` with new angular displacement
         denoting both the requested angle, and magnitude with which to rotate.
         Measured in radians.
      */
-    func controlInputSource(controlInputSource: ControlInputSourceType, didUpdateAngularDisplacement angularDisplacement: float2)
+    func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateAngularDisplacement angularDisplacement: float2)
     
     /**
         Update the `ControlInputSourceDelegate` to move forward or backward
@@ -64,7 +64,7 @@ protocol ControlInputSourceDelegate: class {
             Forward:  (0.0, 1.0)
             Backward: (0.0, -1.0)
      */
-    func controlInputSource(controlInputSource: ControlInputSourceType, didUpdateWithRelativeDisplacement relativeDisplacement: float2)
+    func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateWithRelativeDisplacement relativeDisplacement: float2)
     
     /**
         Update the `ControlInputSourceDelegate` with new angular displacement
@@ -72,13 +72,13 @@ protocol ControlInputSourceDelegate: class {
             Clockwise:        (-1.0, 0.0)
             CounterClockwise: (1.0, 0.0)
      */
-    func controlInputSource(controlInputSource: ControlInputSourceType, didUpdateWithRelativeAngularDisplacement relativeAngularDisplacement: float2)
+    func controlInputSource(_ controlInputSource: ControlInputSourceType, didUpdateWithRelativeAngularDisplacement relativeAngularDisplacement: float2)
     
     /// Instructs the `ControlInputSourceDelegate` to cause the player to attack.
-    func controlInputSourceDidBeginAttacking(controlInputSource: ControlInputSourceType)
+    func controlInputSourceDidBeginAttacking(_ controlInputSource: ControlInputSourceType)
     
     /// Instructs the `ControlInputSourceDelegate` to end the player's attack.
-    func controlInputSourceDidFinishAttacking(controlInputSource: ControlInputSourceType)
+    func controlInputSourceDidFinishAttacking(_ controlInputSource: ControlInputSourceType)
 }
 
 /// A protocol to be adopted by classes that provide control input and notify their delegates when input is available.

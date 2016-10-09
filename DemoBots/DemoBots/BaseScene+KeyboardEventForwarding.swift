@@ -21,27 +21,27 @@ extension BaseScene {
     
     // MARK: NSResponder
     
-    override func mouseDown(event: NSEvent) {
+    override func mouseDown(with event: NSEvent) {
         keyboardControlInputSource.handleMouseDownEvent()
     }
     
-    override func mouseUp(theEvent: NSEvent) {
+    override func mouseUp(with event: NSEvent) {
         keyboardControlInputSource.handleMouseUpEvent()
     }
 
-    override func keyDown(event: NSEvent) {
+    override func keyDown(with event: NSEvent) {
         guard let characters = event.charactersIgnoringModifiers?.characters else { return }
 
         for character in characters {
-            keyboardControlInputSource.handleKeyDownForCharacter(character)
+            keyboardControlInputSource.handleKeyDown(forCharacter: character)
         }
     }
     
-    override func keyUp(event: NSEvent) {
+    override func keyUp(with event: NSEvent) {
         guard let characters = event.charactersIgnoringModifiers?.characters else { return }
         
         for character in characters {
-            keyboardControlInputSource.handleKeyUpForCharacter(character)
+            keyboardControlInputSource.handleKeyUp(forCharacter: character)
         }
     }
 }

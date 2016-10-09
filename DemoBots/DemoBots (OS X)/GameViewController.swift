@@ -27,6 +27,6 @@ class GameViewController: NSViewController {
         let skView = view as! SKView
         sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
         
-        sceneManager.transitionToSceneWithSceneIdentifier(.Home)
+        sceneManager.transitionToScene(identifier: .home)
     }
 }

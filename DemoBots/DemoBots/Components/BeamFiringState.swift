@@ -18,7 +18,7 @@ class BeamFiringState: GKState {
     var target: TaskBot?
     
     /// The amount of time the beam has been in its "firing" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
 
     /// The `PlayerBot` associated with the `BeamComponent`'s `entity`.
     var playerBot: PlayerBot {
@@ -28,7 +28,7 @@ class BeamFiringState: GKState {
     
     /// The `RenderComponent` associated with the `BeamComponent`'s `entity`.
     var renderComponent: RenderComponent {
-        guard let renderComponent = beamComponent.entity?.componentForClass(RenderComponent.self) else { fatalError("A BeamFiringState's entity must have a RenderComponent.") }
+        guard let renderComponent = beamComponent.entity?.component(ofType: RenderComponent.self) else { fatalError("A BeamFiringState's entity must have a RenderComponent.") }
         return renderComponent
     }
 
@@ -40,8 +40,8 @@ class BeamFiringState: GKState {
     
     // MARK: GKState life cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
         // Reset the "amount of time firing" tracker when we enter the "firing" state.
         elapsedTime = 0.0
@@ -63,7 +63,7 @@ class BeamFiringState: GKState {
             */
             beamComponent.beamNode.zPosition = -1.0
             
-            let aboveCharactersNode = scene.worldLayerNodes[.AboveCharacters]!
+            let aboveCharactersNode = scene.worldLayerNodes[.aboveCharacters]!
             aboveCharactersNode.addChild(beamComponent.beamNode)
             
             // Constrain the `BeamNode` to the antenna position on the `PlayerBot`'s node.
@@ -76,11 +76,11 @@ class BeamFiringState: GKState {
             beamComponent.beamNode.constraints = [constraint]
         }
         
-        updateBeamNodeWithDeltaTime(0.0)
+        updateBeamNode(withDeltaTime: 0.0)
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        super.updateWithDeltaTime(seconds)
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
         
         // Update the "amount of time firing" tracker.
         elapsedTime += seconds
@@ -90,18 +90,18 @@ class BeamFiringState: GKState {
                 The player has been firing the beam for too long. Enter the `BeamCoolingState`
                 to disable firing until the beam has had time to cool down.
             */
-            stateMachine?.enterState(BeamCoolingState.self)
+            stateMachine?.enter(BeamCoolingState.self)
         }
         else if !beamComponent.isTriggered {
             // The beam is no longer being fired. Enter the `BeamIdleState`.
-            stateMachine?.enterState(BeamIdleState.self)
+            stateMachine?.enter(BeamIdleState.self)
         }
         else {
-            updateBeamNodeWithDeltaTime(seconds)
+            updateBeamNode(withDeltaTime: seconds)
         }
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
             case is BeamIdleState.Type, is BeamCoolingState.Type:
                 return true
@@ -111,35 +111,35 @@ class BeamFiringState: GKState {
         }
     }
     
-    override func willExitWithNextState(nextState: GKState) {
-        super.willExitWithNextState(nextState)
+    override func willExit(to nextState: GKState) {
+        super.willExit(to: nextState)
         
         // Clear the current target. 
         target = nil
         
         // Update the beam component with the next state.
-        beamComponent.beamNode.updateWithBeamState(nextState, source: beamComponent.playerBot)
+        beamComponent.beamNode.update(withBeamState: nextState, source: beamComponent.playerBot)
     }
     
     // MARK: Convenience
     
-    func updateBeamNodeWithDeltaTime(seconds: NSTimeInterval) {
+    func updateBeamNode(withDeltaTime seconds: TimeInterval) {
         // Find an appropriate target for the beam.
-        target = beamComponent.findTargetInBeamArcWithCurrentTarget(target)
+        target = beamComponent.findTargetInBeamArc(withCurrentTarget: target)
         
         // If the beam has a target with a charge component, drain charge from it.
-        if let chargeComponent = target?.componentForClass(ChargeComponent.self) {
+        if let chargeComponent = target?.component(ofType: ChargeComponent.self) {
             let chargeToLose = GameplayConfiguration.Beam.chargeLossPerSecond * seconds
-            chargeComponent.loseCharge(chargeToLose)
+            chargeComponent.loseCharge(chargeToLose: chargeToLose)
         }
         
         // Update the appearance, position, size and orientation of the `BeamNode`.
-        beamComponent.beamNode.updateWithBeamState(self, source: playerBot, target: target)
+        beamComponent.beamNode.update(withBeamState: self, source: playerBot, target: target)
         
         // If the current target has been turned good, deactivate the beam and move to the idle state.
-        if let currentTarget = target where currentTarget.isGood {
+        if let currentTarget = target, currentTarget.isGood {
             beamComponent.isTriggered = false
-            stateMachine?.enterState(BeamIdleState.self)
+            stateMachine?.enter(BeamIdleState.self)
         }
     }
     

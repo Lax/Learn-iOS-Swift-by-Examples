@@ -1,8 +1,8 @@
 # DemoBots: Building a Cross Platform Game with SpriteKit and GameplayKit
 
-DemoBots is a fully-featured 2D game built with SpriteKit and GameplayKit, and written in Swift 2.0. It demonstrates how to use agents, goals, and behaviors to drive the movement of characters in your game, and how to use rule systems and state machines to provide those characters with intelligent behavior. You'll see how to integrate on-demand resources into a game to optimize resource usage and reduce the time needed to download additional levels.
+DemoBots is a fully-featured 2D game built with SpriteKit and GameplayKit, and written in Swift. It demonstrates how to use agents, goals, and behaviors to drive the movement of characters in your game, and how to use rule systems and state machines to provide those characters with intelligent behavior. You'll see how to integrate on-demand resources into a game to optimize resource usage and reduce the time needed to download additional levels.
 
-DemoBots takes advantage of the Xcode 7 scene and actions editor to create detailed level designs and animations. The sample also contains assets tailored to ensure the best experience on every supported device.
+DemoBots takes advantage of the Xcode scene and actions editor to create detailed level designs and animations. The sample also contains assets tailored to ensure the best experience on every supported device.
 
 ## Release Note
 
@@ -12,11 +12,11 @@ DemoBots takes advantage of the Xcode 7 scene and actions editor to create detai
 
 ### Build
 
-Xcode 7.3, OS X 10.11 SDK, iOS 9.0 SDK, tvOS 9.0 SDK
+Xcode 8.0, OS X 10.12 SDK, iOS 10.0 SDK, tvOS 10.0 SDK
 
 ### Runtime
 
-OS X 10.11, iOS 9.0, tvOS 9.0
+OS X 10.12, iOS 10.0, tvOS 10.0
 
 ## About DemoBots
 

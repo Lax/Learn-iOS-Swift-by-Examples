@@ -10,18 +10,18 @@ import CoreGraphics
 
 /// The different directions that an animated character can be facing.
 enum CompassDirection: Int {
-    case East = 0, EastByNorthEast, NorthEast, NorthByNorthEast
-    case North, NorthByNorthWest, NorthWest, WestByNorthWest
-    case West, WestBySouthWest, SouthWest, SouthBySouthWest
-    case South, SouthBySouthEast, SouthEast, EastBySouthEast
+    case east = 0, eastByNorthEast, northEast, northByNorthEast
+    case north, northByNorthWest, northWest, westByNorthWest
+    case west, westBySouthWest, southWest, southBySouthWest
+    case south, southBySouthEast, southEast, eastBySouthEast
     
     /// Convenience array of all available directions.
     static let allDirections: [CompassDirection] =
         [
-            .East, .EastByNorthEast, .NorthEast, .NorthByNorthEast,
-            .North, .NorthByNorthWest, .NorthWest, .WestByNorthWest,
-            .West, .WestBySouthWest, .SouthWest, .SouthBySouthWest,
-            .South, .SouthBySouthEast, .SouthEast, .EastBySouthEast
+            .east, .eastByNorthEast, .northEast, .northByNorthEast,
+            .north, .northByNorthWest, .northWest, .westByNorthWest,
+            .west, .westBySouthWest, .southWest, .southBySouthWest,
+            .south, .southBySouthEast, .southEast, .eastBySouthEast
         ]
     
     /// The angle of rotation that the orientation represents.
@@ -37,13 +37,13 @@ enum CompassDirection: Int {
         let twoPi = M_PI * 2
         
         // Normalize the node's rotation.
-        let rotation = (Double(zRotation) + twoPi) % twoPi
+        let rotation = (Double(zRotation) + twoPi).truncatingRemainder(dividingBy: twoPi)
         
         // Convert the rotation of the node to a percentage of a circle.
         let orientation = rotation / twoPi
         
         // Scale the percentage to a value between 0 and 15.
-        let rawFacingValue = round(orientation * 16.0) % 16.0
+        let rawFacingValue = round(orientation * 16.0).truncatingRemainder(dividingBy: 16.0)
         
         // Select the appropriate `CompassDirection` based on its members' raw values, which also run from 0 to 15.
         self = CompassDirection(rawValue: Int(rawFacingValue))!
@@ -52,28 +52,28 @@ enum CompassDirection: Int {
     init(string: String) {
         switch string {
             case "North":
-                self = .North
+                self = .north
                 
             case "NorthEast":
-                self = .NorthEast
+                self = .northEast
                 
             case "East":
-                self = .East
+                self = .east
                 
             case "SouthEast":
-                self = .SouthEast
+                self = .southEast
                 
             case "South":
-                self = .South
+                self = .south
                 
             case "SouthWest":
-                self = .SouthWest
+                self = .southWest
                 
             case "West":
-                self = .West
+                self = .west
                 
             case "NorthWest":
-                self = .NorthWest
+                self = .northWest
                 
             default:
                 fatalError("Unknown or unsupported string - \(string)")

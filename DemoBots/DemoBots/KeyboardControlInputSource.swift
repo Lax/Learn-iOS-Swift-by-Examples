@@ -51,7 +51,7 @@ class KeyboardControlInputSource: ControlInputSourceType {
     }
     
     /// The logic matching a key press to `ControlInputSourceDelegate` calls.
-    func handleKeyDownForCharacter(character: Character) {
+    func handleKeyDown(forCharacter character: Character) {
         // Ignore repeat input.
         if downKeys.contains(character) {
             return
@@ -110,8 +110,8 @@ class KeyboardControlInputSource: ControlInputSourceType {
     }
     
     // Handle the logic matching when a key is released to `ControlInputSource` delegate calls.
-    func handleKeyUpForCharacter(character: Character) {
-        // Ensure the character was accounted for by `handleKeyDownForCharacter(_:)`.
+    func handleKeyUp(forCharacter character: Character) {
+        // Ensure the character was accounted for by `handleKeyDown(forCharacter:)`.
         guard downKeys.remove(character) != nil else { return }
         
         if let relativeDisplacement = relativeDisplacementForCharacter(character) {
@@ -158,35 +158,35 @@ class KeyboardControlInputSource: ControlInputSourceType {
     
     // MARK: Convenience
     
-    private func isDirectionalDisplacementVector(displacement: float2) -> Bool {
+    private func isDirectionalDisplacementVector(_ displacement: float2) -> Bool {
         return displacement == KeyboardControlInputSource.forwardVector
             || displacement == KeyboardControlInputSource.backwardVector
     }
     
-    private func relativeDisplacementForCharacter(character: Character) -> float2? {
+    private func relativeDisplacementForCharacter(_ character: Character) -> float2? {
         let mapping: [Character: float2] = [
             // Up arrow.
-            Character(UnicodeScalar(0xF700)):   KeyboardControlInputSource.forwardVector,
-            "w":                                KeyboardControlInputSource.forwardVector,
+            Character(UnicodeScalar(0xF700)!):   KeyboardControlInputSource.forwardVector,
+            "w":                                 KeyboardControlInputSource.forwardVector,
             
             // Down arrow.
-            Character(UnicodeScalar(0xF701)):   KeyboardControlInputSource.backwardVector,
-            "s":                                KeyboardControlInputSource.backwardVector,
+            Character(UnicodeScalar(0xF701)!):   KeyboardControlInputSource.backwardVector,
+            "s":                                 KeyboardControlInputSource.backwardVector,
             
             // Left arrow.
-            Character(UnicodeScalar(0xF702)):   KeyboardControlInputSource.counterClockwiseVector,
-            "a":                                KeyboardControlInputSource.counterClockwiseVector,
+            Character(UnicodeScalar(0xF702)!):   KeyboardControlInputSource.counterClockwiseVector,
+            "a":                                 KeyboardControlInputSource.counterClockwiseVector,
             
             // Right arrow.
-            Character(UnicodeScalar(0xF703)):   KeyboardControlInputSource.clockwiseVector,
-            "d":                                KeyboardControlInputSource.clockwiseVector
+            Character(UnicodeScalar(0xF703)!):   KeyboardControlInputSource.clockwiseVector,
+            "d":                                 KeyboardControlInputSource.clockwiseVector
         ]
         
         return mapping[character]
     }
     
     /// Indicates if the provided character should trigger an attack.
-    private func isAttackCharacter(character: Character) -> Bool {
+    private func isAttackCharacter(_ character: Character) -> Bool {
         return ["f", " ", "\r"].contains(character)
     }
 }

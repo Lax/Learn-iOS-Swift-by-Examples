@@ -30,7 +30,7 @@ class FuzzyTaskBotRule: GKRule {
     
     // MARK: GPRule Overrides
     
-    override func evaluatePredicateWithSystem(system: GKRuleSystem) -> Bool {
+    override func evaluatePredicate(in system: GKRuleSystem) -> Bool {
         snapshot = system.state["snapshot"] as! EntitySnapshot
         
         if grade() >= 0.0 {
@@ -40,7 +40,7 @@ class FuzzyTaskBotRule: GKRule {
         return false
     }
     
-    override func performActionWithSystem(system: GKRuleSystem) {
-        system.assertFact(fact.rawValue, grade: grade())
+    override func performAction(in system: GKRuleSystem) {
+        system.assertFact(fact.rawValue as NSObject, grade: grade())
     }
 }

@@ -15,11 +15,11 @@ class TaskBotZappedState: GKState {
     unowned var entity: TaskBot
     
     /// The amount of time the `TaskBot` has been in its "zapped" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
-        guard let animationComponent = entity.componentForClass(AnimationComponent.self) else { fatalError("A TaskBotZappedState's entity must have an AnimationComponent.") }
+        guard let animationComponent = entity.component(ofType: AnimationComponent.self) else { fatalError("A TaskBotZappedState's entity must have an AnimationComponent.") }
         return animationComponent
     }
 
@@ -31,14 +31,14 @@ class TaskBotZappedState: GKState {
     
     // MARK: GKState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
         // Reset the elapsed time.
         elapsedTime = 0.0
 
         // Check if the `TaskBot` has a movement component. (`GroundBot`s do, `FlyingBot`s do not.)
-        if let movementComponent = entity.componentForClass(MovementComponent.self) {
+        if let movementComponent = entity.component(ofType: MovementComponent.self) {
             // Clear any pending movement.
             movementComponent.nextTranslation = nil
             movementComponent.nextRotation = nil
@@ -46,11 +46,11 @@ class TaskBotZappedState: GKState {
         }
             
         // Request the "zapped" animation for this `TaskBot`.
-        animationComponent.requestedAnimationState = .Zapped
+        animationComponent.requestedAnimationState = .zapped
     }
 
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        super.updateWithDeltaTime(seconds)
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
         
         elapsedTime += seconds
         
@@ -59,11 +59,11 @@ class TaskBotZappedState: GKState {
             re-enter `TaskBotAgentControlledState`.
         */
         if entity.isGood || elapsedTime >= GameplayConfiguration.TaskBot.zappedStateDuration {
-            stateMachine?.enterState(TaskBotAgentControlledState.self)
+            stateMachine?.enter(TaskBotAgentControlledState.self)
         }
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
             case is TaskBotZappedState.Type:
                 /*

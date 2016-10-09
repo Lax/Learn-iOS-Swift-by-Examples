@@ -28,12 +28,12 @@ class GameViewController: GCEventViewController, SceneManagerDelegate {
         sceneManager = SceneManager(presentingView: skView, gameInput: gameInput)
         sceneManager.delegate = self
         
-        sceneManager.transitionToSceneWithSceneIdentifier(.Home)
+        sceneManager.transitionToScene(identifier: .home)
     }
     
     // MARK: SceneManagerDelegate
     
-    func sceneManagerDidTransitionToScene(scene: SKScene) {
+    func sceneManager(_ sceneManager: SceneManager, didTransitionTo scene: SKScene) {
         /*
             When transitioning to the `HomeEndScene` set
             `controllerUserInteractionEnabled` to `true` to allow the

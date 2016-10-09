@@ -21,22 +21,28 @@ class RulesComponent: GKComponent {
     var ruleSystem: GKRuleSystem
     
     /// The amount of time that has passed since the `TaskBot` last evaluated its rules.
-    private var timeSinceRulesUpdate: NSTimeInterval = 0.0
+    private var timeSinceRulesUpdate: TimeInterval = 0.0
     
     // MARK: Initializers
     
     override init() {
         ruleSystem = GKRuleSystem()
+        super.init()
     }
     
     init(rules: [GKRule]) {
         ruleSystem = GKRuleSystem()
-        ruleSystem.addRulesFromArray(rules)
+        ruleSystem.add(rules)
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: GKComponent Life Cycle
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func update(deltaTime seconds: TimeInterval) {
         timeSinceRulesUpdate += seconds
         
         if timeSinceRulesUpdate < GameplayConfiguration.TaskBot.rulesUpdateWaitDuration { return }
@@ -44,8 +50,9 @@ class RulesComponent: GKComponent {
         timeSinceRulesUpdate = 0.0
         
         if let taskBot = entity as? TaskBot,
-            level = taskBot.componentForClass(RenderComponent)?.node.scene as? LevelScene,
-            entitySnapshot = level.entitySnapshotForEntity(taskBot) where !taskBot.isGood {
+            let level = taskBot.component(ofType: RenderComponent.self)?.node.scene as? LevelScene,
+            let entitySnapshot = level.entitySnapshotForEntity(entity: taskBot),
+            !taskBot.isGood {
 
             ruleSystem.reset()
             
@@ -53,7 +60,7 @@ class RulesComponent: GKComponent {
         
             ruleSystem.evaluate()
             
-            delegate?.rulesComponent(self, didFinishEvaluatingRuleSystem: ruleSystem)
+            delegate?.rulesComponent(rulesComponent: self, didFinishEvaluatingRuleSystem: ruleSystem)
         }
     }
 }

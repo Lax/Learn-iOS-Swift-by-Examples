@@ -20,24 +20,24 @@ extension LevelScene {
         app enters the background. Override to check if an `overlay` node is
         being presented to determine if the game should be paused.
     */
-    override var paused: Bool {
+    override var isPaused: Bool {
         didSet {
             if overlay != nil {
-                worldNode.paused = true
+                worldNode.isPaused = true
             }
         }
     }
     
     /// Platform specific notifications about the app becoming inactive.
-    var pauseNotificationNames: [String] {
+    private var pauseNotificationNames: [NSNotification.Name] {
         #if os(OSX)
         return [
-            NSApplicationWillResignActiveNotification,
-            NSWindowDidMiniaturizeNotification
+           .NSApplicationWillResignActive,
+           .NSWindowDidMiniaturize
         ]
         #else
         return [
-            UIApplicationWillResignActiveNotification
+            NSNotification.Name.UIApplicationWillResignActive
         ]
         #endif
     }
@@ -50,17 +50,17 @@ extension LevelScene {
     */
     func registerForPauseNotifications() {
         for notificationName in pauseNotificationNames {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LevelScene.pauseGame), name: notificationName, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(LevelScene.pauseGame), name: notificationName, object: nil)
         }
     }
     
     func pauseGame() {
-        stateMachine.enterState(LevelScenePauseState.self)
+        stateMachine.enter(LevelScenePauseState.self)
     }
     
     func unregisterForPauseNotifications() {
         for notificationName in pauseNotificationNames {
-            NSNotificationCenter.defaultCenter().removeObserver(self, name: notificationName, object: nil)
+            NotificationCenter.default.removeObserver(self, name: notificationName, object: nil)
         }
     }
 }

@@ -26,7 +26,7 @@ class BeamNode: SKNode, ResourceLoadableType {
 
     static let lineNodeTemplate: SKSpriteNode = {
         let templateScene = SKScene(fileNamed: "BeamLine.sks")!
-        return templateScene.childNodeWithName("BeamLine") as! SKSpriteNode
+        return templateScene.childNode(withName: "BeamLine") as! SKSpriteNode
     }()
 
     // MARK: Properties
@@ -48,21 +48,22 @@ class BeamNode: SKNode, ResourceLoadableType {
     override init() {
         sourceNode = SKSpriteNode()
         sourceNode.size = BeamNode.dotTextureSize
-        sourceNode.hidden = true
+        sourceNode.isHidden = true
         
         destinationNode = SKSpriteNode()
         destinationNode.size = BeamNode.dotTextureSize
-        destinationNode.hidden = true
+        destinationNode.isHidden = true
         
-        let arcPath = CGPathCreateMutable()
-        CGPathAddArc(arcPath, nil, 0.0, 0.0, GameplayConfiguration.Beam.arcLength, GameplayConfiguration.Beam.arcAngle * 0.5, GameplayConfiguration.Beam.arcAngle * -0.5, true)
-        CGPathAddLineToPoint(arcPath, nil, 0.0, 0.0)
+        let arcPath = CGMutablePath.init()
+        let center = CGPoint(x: 0.0, y: 0.0)
+        arcPath.addArc(center: center, radius: GameplayConfiguration.Beam.arcLength, startAngle: GameplayConfiguration.Beam.arcAngle * 0.5, endAngle: GameplayConfiguration.Beam.arcAngle * -0.5, clockwise: true)
+        arcPath.addLine(to: center)
         
         debugNode = SKShapeNode(path: arcPath)
-        debugNode.fillColor = SKColor.blueColor()
+        debugNode.fillColor = SKColor.blue
         debugNode.lineWidth = 0.0
         debugNode.alpha = 0.5
-        debugNode.hidden = true
+        debugNode.isHidden = true
         
         super.init()
         
@@ -77,9 +78,9 @@ class BeamNode: SKNode, ResourceLoadableType {
     
     // MARK: Actions
     
-    func updateWithBeamState(state: GKState, source: PlayerBot, target: TaskBot? = nil) {
+    func update(withBeamState state: GKState, source: PlayerBot, target: TaskBot? = nil) {
         // Constrain the position of the target's antenna if it's not already constrained to it.
-        if let target = target, targetNode = target.componentForClass(RenderComponent.self)?.node where destinationNode.constraints?.first?.referenceNode != targetNode {
+        if let target = target, let targetNode = target.component(ofType: RenderComponent.self)?.node, destinationNode.constraints?.first?.referenceNode != targetNode {
                 let xRange = SKRange(constantValue: target.beamTargetOffset.x)
                 let yRange = SKRange(constantValue: target.beamTargetOffset.y)
                 
@@ -92,14 +93,14 @@ class BeamNode: SKNode, ResourceLoadableType {
         switch state {
             case is BeamIdleState:
                 // Hide the source and destination nodes.
-                sourceNode.hidden = true
-                destinationNode.hidden = true
+                sourceNode.isHidden = true
+                destinationNode.isHidden = true
                 
                 // Remove the `lineNode` from the scene.
                 lineNode?.removeFromParent()
                 lineNode = nil
                 
-                debugNode.hidden = true
+                debugNode.isHidden = true
             
             case is BeamFiringState:
                 /*
@@ -109,38 +110,38 @@ class BeamNode: SKNode, ResourceLoadableType {
                 */
                 if lineNode == nil {
                     lineNode = BeamNode.lineNodeTemplate.copy() as? SKSpriteNode
-                    lineNode!.hidden = true
+                    lineNode!.isHidden = true
                     addChild(lineNode!)
                 }
                 
                 if let target = target {
                     // Show the `sourceNode` with the its firing animation.
-                    sourceNode.hidden = false
-                    animateNode(sourceNode, withAction: AnimationActions.source)
+                    sourceNode.isHidden = false
+                    animate(sourceNode, withAction: AnimationActions.source)
                     
                     // Show the `destinationNode` with its animation.
-                    destinationNode.hidden = false
-                    animateNode(destinationNode, withAction: AnimationActions.destination)
+                    destinationNode.isHidden = false
+                    animate(destinationNode, withAction: AnimationActions.destination)
 
                     // Position the `lineNode` and make sure it's visible.
-                    positionLineNodeFrom(source, to: target)
-                    lineNode?.hidden = false
+                    positionLineNode(from: source, to: target)
+                    lineNode?.isHidden = false
                 }
                 else {
                     // Show the `sourceNode` with the its untargeted animation.
-                    sourceNode.hidden = false
-                    animateNode(sourceNode, withAction: AnimationActions.untargetedSource)
+                    sourceNode.isHidden = false
+                    animate(sourceNode, withAction: AnimationActions.untargetedSource)
                     
                     // Hide the `destinationNode` and `lineNode`.
-                    destinationNode.hidden = true
-                    lineNode?.hidden = true
+                    destinationNode.isHidden = true
+                    lineNode?.isHidden = true
                 }
                 
                 // Update the debug node if debug drawing is enabled.
-                debugNode.hidden = !debugDrawingEnabled
+                debugNode.isHidden = !debugDrawingEnabled
                 
                 if debugDrawingEnabled {
-                    guard let sourceOrientation = source.componentForClass(OrientationComponent.self) else {
+                    guard let sourceOrientation = source.component(ofType: OrientationComponent.self) else {
                         fatalError("BeamNodees must be associated with entities that have an orientation node")
                     }
 
@@ -151,15 +152,17 @@ class BeamNode: SKNode, ResourceLoadableType {
                         This allows for easier aiming the closer the source is to
                         the target.
                     */
-                    let arcPath = CGPathCreateMutable()
+                    let arcPath = CGMutablePath.init()
                     
                     // Only draw beam arc if there is a target.
                     if let target = target {
                         let distanceRatio = GameplayConfiguration.Beam.arcLength / CGFloat(distance(source.agent.position, target.agent.position))
                         let arcAngle = min(GameplayConfiguration.Beam.arcAngle * distanceRatio, 1 / GameplayConfiguration.Beam.maxArcAngle)
                         
-                        CGPathAddArc(arcPath, nil, 0.0, 0.0, GameplayConfiguration.Beam.arcLength, arcAngle * 0.5, -arcAngle * 0.5, true)
-                        CGPathAddLineToPoint(arcPath, nil, 0.0, 0.0)
+                        let center = CGPoint(x: 0, y: 0)
+                        
+                        arcPath.addArc(center: center, radius: GameplayConfiguration.Beam.arcLength, startAngle: arcAngle * 0.5, endAngle: -arcAngle * 0.5, clockwise: true)
+                        arcPath.addLine(to: center)
                     }
                     debugNode.path = arcPath
                     
@@ -168,17 +171,17 @@ class BeamNode: SKNode, ResourceLoadableType {
             
             case is BeamCoolingState:
                 // Show the `sourceNode` with the "cooling" animation.
-                sourceNode.hidden = false
-                animateNode(sourceNode, withAction: AnimationActions.cooling)
+                sourceNode.isHidden = false
+                animate(sourceNode, withAction: AnimationActions.cooling)
 
                 // Hide the `destinationNode`.
-                destinationNode.hidden = true
+                destinationNode.isHidden = true
                 
                 // Remove the `lineNode` from the scene.
                 lineNode?.removeFromParent()
                 lineNode = nil
                 
-                debugNode.hidden = true
+                debugNode.isHidden = true
             
             default:
                 break
@@ -187,23 +190,23 @@ class BeamNode: SKNode, ResourceLoadableType {
     
     // MARK: Convenience
     
-    func animateNode(node: SKSpriteNode, withAction action: SKAction) {
+    func animate(_ node: SKSpriteNode, withAction action: SKAction) {
         if runningNodeAnimations[node] != action {
-            node.runAction(action, withKey: BeamNode.animationActionKey)
+            node.run(action, withKey: BeamNode.animationActionKey)
             runningNodeAnimations[node] = action
         }
     }
 
-    func positionLineNodeFrom(source: PlayerBot, to target: TaskBot) {
+    func positionLineNode(from source: PlayerBot, to target: TaskBot) {
         guard let lineNode = lineNode else { fatalError("positionLineNodeFrom(_: to:) requires a lineNode to have been created.") }
         
         // Calculate the source and destination positions.
         let sourcePosition: CGPoint = {
-            guard let node = source.componentForClass(RenderComponent.self)?.node, nodeParent = node.parent else {
+            guard let node = source.component(ofType: RenderComponent.self)?.node, let nodeParent = node.parent else {
                 fatalError("positionLineNodeFrom(_: to:) requires the source to have a node with a parent.")
             }
 
-            var position = convertPoint(node.position, fromNode: nodeParent)
+            var position = convert(node.position, from: nodeParent)
             position.x += source.antennaOffset.x
             position.y += source.antennaOffset.y
             
@@ -211,11 +214,11 @@ class BeamNode: SKNode, ResourceLoadableType {
         }()
         
         let destinationPosition: CGPoint = {
-            guard let node = target.componentForClass(RenderComponent.self)?.node, nodeParent = node.parent else {
+            guard let node = target.component(ofType: RenderComponent.self)?.node, let nodeParent = node.parent else {
                 fatalError("positionLineNodeFrom(_: to:) requires the destination to have a node with a parent.")
             }
             
-            var position = convertPoint(node.position, fromNode: nodeParent)
+            var position = convert(node.position, from: nodeParent)
             position.x += target.beamTargetOffset.x
             position.y += target.beamTargetOffset.y
             
@@ -240,7 +243,7 @@ class BeamNode: SKNode, ResourceLoadableType {
         return AnimationActions.source == nil || AnimationActions.untargetedSource == nil || AnimationActions.destination == nil || AnimationActions.cooling == nil
     }
     
-    static func loadResourcesWithCompletionHandler(completionHandler: () -> ()) {
+    static func loadResources(withCompletionHandler completionHandler: @escaping () -> ()) {
         let beamAtlasNames = [
             "BeamDot",
             "BeamCharging"
@@ -255,11 +258,11 @@ class BeamNode: SKNode, ResourceLoadableType {
                 fatalError("One or more texture atlases could not be found: \(error)")
             }
             
-            let beamDotAction = AnimationComponent.actionForAllTexturesInAtlas(beamAtlases[0])
+            let beamDotAction = AnimationComponent.actionForAllTexturesInAtlas(atlas: beamAtlases[0])
             AnimationActions.source = beamDotAction
             AnimationActions.untargetedSource = beamDotAction
             AnimationActions.destination = beamDotAction
-            AnimationActions.cooling = AnimationComponent.actionForAllTexturesInAtlas(beamAtlases[1])
+            AnimationActions.cooling = AnimationComponent.actionForAllTexturesInAtlas(atlas: beamAtlases[1])
             
             // Invoke the passed `completionHandler` to indicate that loading has completed.
             completionHandler()

@@ -45,7 +45,7 @@ extension LevelScene {
             for destination in node.connectedNodes as! [GKGraphNode2D] {
                 let points = [CGPoint(node.position), CGPoint(destination.position)]
 
-                let shapeNode = SKShapeNode(points: UnsafeMutablePointer<CGPoint>(points), count: 2)
+                let shapeNode = SKShapeNode(points: UnsafeMutablePointer<CGPoint>(mutating: points), count: 2)
                 shapeNode.strokeColor = SKColor(white: 1.0, alpha: 0.1)
                 shapeNode.lineWidth = 2.0
                 shapeNode.zPosition = -1
@@ -76,21 +76,21 @@ extension SKSpriteNode {
             if newValue == true {
                 let bufferRadius = CGFloat(GameplayConfiguration.TaskBot.pathfindingGraphBufferRadius)
                 let bufferFrame = frame.insetBy(dx: -bufferRadius, dy: -bufferRadius)
-                let bufferedShape = SKShapeNode(rectOfSize: bufferFrame.size)
-                bufferedShape.fillColor = SKColor(red: 1.0, green: 0.5, blue: 0.0, alpha: 0.2)
-                bufferedShape.strokeColor = SKColor(red: 1.0, green: 0.5, blue: 0.0, alpha: 0.4)
+                let bufferedShape = SKShapeNode(rectOf: bufferFrame.size)
+                bufferedShape.fillColor = SKColor(red: CGFloat(1.0), green: CGFloat(0.5), blue: CGFloat(0.0), alpha: CGFloat(0.2))
+                bufferedShape.strokeColor = SKColor(red: CGFloat(1.0), green: CGFloat(0.5), blue: CGFloat(0.0), alpha: CGFloat(0.4))
                 bufferedShape.name = debugBufferShapeName
                 addChild(bufferedShape)
             }
             else {
                 // Remove any existing debug shape layer if we are turning off debug drawing for this node.
-                guard let debugBufferShape = childNodeWithName(debugBufferShapeName) else { return }
-                removeChildrenInArray([debugBufferShape])
+                guard let debugBufferShape = childNode(withName: debugBufferShapeName) else { return }
+                removeChildren(in: [debugBufferShape])
             }
         }
         get {
             // Debug drawing is considered "enabled" if we have the debug node as a child.
-            return childNodeWithName(debugBufferShapeName) != nil
+            return childNode(withName: debugBufferShapeName) != nil
         }
     }
     

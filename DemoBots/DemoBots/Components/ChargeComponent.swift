@@ -64,6 +64,10 @@ class ChargeComponent: GKComponent {
 
         chargeBar?.level = percentageCharge
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: Component actions
     
@@ -78,7 +82,7 @@ class ChargeComponent: GKComponent {
         if newCharge < charge {
             charge = newCharge
             chargeBar?.level = percentageCharge
-            delegate?.chargeComponentDidLoseCharge(self)
+            delegate?.chargeComponentDidLoseCharge(chargeComponent: self)
         }
     }
     

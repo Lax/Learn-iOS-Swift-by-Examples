@@ -19,13 +19,13 @@ class GroundBotAttackState: GKState {
     
     /// The `MovementComponent` associated with the `entity`.
     var movementComponent: MovementComponent {
-        guard let movementComponent = entity.componentForClass(MovementComponent.self) else { fatalError("A GroundBotAttackState's entity must have a MovementComponent.") }
+        guard let movementComponent = entity.component(ofType: MovementComponent.self) else { fatalError("A GroundBotAttackState's entity must have a MovementComponent.") }
         return movementComponent
     }
     
     /// The `PhysicsComponent` associated with the `entity`.
     var physicsComponent: PhysicsComponent {
-        guard let physicsComponent = entity.componentForClass(PhysicsComponent.self) else { fatalError("A GroundBotAttackState's entity must have a PhysicsComponent.") }
+        guard let physicsComponent = entity.component(ofType: PhysicsComponent.self) else { fatalError("A GroundBotAttackState's entity must have a PhysicsComponent.") }
         return physicsComponent
     }
     
@@ -43,14 +43,14 @@ class GroundBotAttackState: GKState {
     
     // MARK: GKState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
 
         // Apply damage to any entities the `GroundBot` is already in contact with.
         let contactedBodies = physicsComponent.physicsBody.allContactedBodies()
         for contactedBody in contactedBodies {
-            guard let entity = (contactedBody.node as? EntityNode)?.entity else { continue }
-            applyDamageToEntity(entity)
+            guard let entity = contactedBody.node?.entity else { continue }
+            applyDamageToEntity(entity: entity)
         }
 
         // `targetPosition` is a computed property. Declare a local version so we don't compute it multiple times.
@@ -74,8 +74,8 @@ class GroundBotAttackState: GKState {
         movementComponent.nextRotation = nil
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        super.updateWithDeltaTime(seconds)
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
         
         // `targetPosition` is a computed property. Declare a local version so we don't compute it multiple times.
         let targetPosition = self.targetPosition
@@ -86,7 +86,7 @@ class GroundBotAttackState: GKState {
         
         let currentDistanceToTarget = hypot(dx, dy)
         if currentDistanceToTarget < GameplayConfiguration.GroundBot.attackEndProximity {
-            stateMachine?.enterState(TaskBotAgentControlledState.self)
+            stateMachine?.enter(TaskBotAgentControlledState.self)
             return
         }
 
@@ -95,7 +95,7 @@ class GroundBotAttackState: GKState {
             its target because it has been knocked off course.
         */
         if currentDistanceToTarget > lastDistanceToTarget {
-            stateMachine?.enterState(TaskBotAgentControlledState.self)
+            stateMachine?.enter(TaskBotAgentControlledState.self)
             return
         }
         
@@ -103,7 +103,7 @@ class GroundBotAttackState: GKState {
         lastDistanceToTarget = currentDistanceToTarget
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
             case is TaskBotAgentControlledState.Type, is TaskBotZappedState.Type:
                 return true
@@ -113,8 +113,8 @@ class GroundBotAttackState: GKState {
         }
     }
     
-    override func willExitWithNextState(nextState: GKState) {
-        super.willExitWithNextState(nextState)
+    override func willExit(to nextState: GKState) {
+        super.willExit(to: nextState)
 
         // `movementComponent` is a computed property. Declare a local version so we don't compute it multiple times.
         let movementComponent = self.movementComponent
@@ -129,11 +129,11 @@ class GroundBotAttackState: GKState {
     // MARK: Convenience
     
     func applyDamageToEntity(entity: GKEntity) {
-        if let playerBot = entity as? PlayerBot, chargeComponent = playerBot.componentForClass(ChargeComponent.self) where !playerBot.isPoweredDown  {
+        if let playerBot = entity as? PlayerBot, let chargeComponent = playerBot.component(ofType: ChargeComponent.self), !playerBot.isPoweredDown  {
             // If the other entity is a `PlayerBot` that isn't powered down, reduce its charge.
-            chargeComponent.loseCharge(GameplayConfiguration.GroundBot.chargeLossPerContact)
+            chargeComponent.loseCharge(chargeToLose: GameplayConfiguration.GroundBot.chargeLossPerContact)
         }
-        else if let taskBot = entity as? TaskBot where taskBot.isGood {
+        else if let taskBot = entity as? TaskBot, taskBot.isGood {
             // If the other entity is a good `TaskBot`, turn it bad.
             taskBot.isGood = false
         }

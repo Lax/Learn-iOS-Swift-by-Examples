@@ -22,7 +22,7 @@ class SceneOverlay {
     init(overlaySceneFileName fileName: String, zPosition: CGFloat) {
         // Load the scene and get the overlay node from it.
         let overlayScene = SKScene(fileNamed: fileName)!
-        let contentTemplateNode = overlayScene.childNodeWithName("Overlay") as! SKSpriteNode
+        let contentTemplateNode = overlayScene.childNode(withName: "Overlay") as! SKSpriteNode
         
         // Create a background node with the same color as the template.
         backgroundNode = SKSpriteNode(color: contentTemplateNode.color, size: contentTemplateNode.size)
@@ -34,7 +34,7 @@ class SceneOverlay {
         backgroundNode.addChild(contentNode)
         
         // Set the content node to a clear color to allow the background node to be seen through it.
-        contentNode.color = .clearColor()
+        contentNode.color = .clear
         
         // Store the current size of the content to allow it to be scaled correctly.
         nativeContentSize = contentNode.size

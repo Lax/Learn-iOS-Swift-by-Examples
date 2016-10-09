@@ -3,7 +3,7 @@
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
-    A `GKComponent` that provides an `SKNode` for an entity. This enables it to be represented in the SpriteKit world. The node is provided as an `EntityNode` instance, so that the entity can be discovered from the node.
+    A `GKComponent` that provides an `SKNode` for an entity. This enables it to be represented in the SpriteKit world.
 */
 
 import SpriteKit
@@ -13,9 +13,15 @@ class RenderComponent: GKComponent {
     // MARK: Properties
     
     // The `RenderComponent` vends a node allowing an entity to be rendered in a scene.
-    let node = EntityNode()
+    let node = SKNode()
+
+    // MARK: GKComponent
     
-    init(entity: GKEntity) {
+    override func didAddToEntity() {
         node.entity = entity
+    }
+    
+    override func willRemoveFromEntity() {
+        node.entity = nil
     }
 }

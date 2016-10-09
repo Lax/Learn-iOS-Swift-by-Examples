@@ -14,7 +14,7 @@ extension BaseScene: ButtonNodeResponderType {
     /// Searches the scene for all `ButtonNode`s.
     func findAllButtonsInScene() -> [ButtonNode] {
         return ButtonIdentifier.allButtonIdentifiers.flatMap { buttonIdentifier in
-            childNodeWithName("//\(buttonIdentifier.rawValue)") as? ButtonNode
+            childNode(withName: "//\(buttonIdentifier.rawValue)") as? ButtonNode
         }
     }
     
@@ -22,25 +22,25 @@ extension BaseScene: ButtonNodeResponderType {
     
     func buttonTriggered(button: ButtonNode) {
         switch button.buttonIdentifier! {
-            case .Home:
-                sceneManager.transitionToSceneWithSceneIdentifier(.Home)
+            case .home:
+                sceneManager.transitionToScene(identifier: .home)
             
-            case .ProceedToNextScene:
-                sceneManager.transitionToSceneWithSceneIdentifier(.NextLevel)
+            case .proceedToNextScene:
+                sceneManager.transitionToScene(identifier: .nextLevel)
             
-            case .Replay:
-                sceneManager.transitionToSceneWithSceneIdentifier(.CurrentLevel)
+            case .replay:
+                sceneManager.transitionToScene(identifier: .currentLevel)
             
-            case .ScreenRecorderToggle:
+            case .screenRecorderToggle:
                 #if os(iOS)
-                toggleScreenRecording(button)
+                toggleScreenRecording(button: button)
                 #endif
             
-            case .ViewRecordedContent:
+            case .viewRecordedContent:
                 #if os(iOS)
                 displayRecordedContent()
                 #endif
-            
+
             default:
                 fatalError("Unsupported ButtonNode type in Scene.")
         }

@@ -15,11 +15,11 @@ class FlyingBotPreAttackState: GKState {
     unowned var entity: FlyingBot
     
     /// The amount of time the `FlyingBot` has been in its "pre-attack" state.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     
     /// The `AnimationComponent` associated with the `entity`.
     var animationComponent: AnimationComponent {
-        guard let animationComponent = entity.componentForClass(AnimationComponent.self) else { fatalError("A FlyingBotPreAttackState's entity must have an AnimationComponent.") }
+        guard let animationComponent = entity.component(ofType: AnimationComponent.self) else { fatalError("A FlyingBotPreAttackState's entity must have an AnimationComponent.") }
         return animationComponent
     }
 
@@ -31,18 +31,18 @@ class FlyingBotPreAttackState: GKState {
     
     // MARK: GKState Life Cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
         // Reset the tracking of how long the `TaskBot` has been in a "pre-attack" state.
         elapsedTime = 0.0
 
         // Request the "attack" animation for this `FlyingBot`.
-        animationComponent.requestedAnimationState = .Attack
+        animationComponent.requestedAnimationState = .attack
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        super.updateWithDeltaTime(seconds)
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
         
         // Update the time that the `TaskBot` has been in its "pre-attack" state.
         elapsedTime += seconds
@@ -52,11 +52,11 @@ class FlyingBotPreAttackState: GKState {
             move to the attack state.
         */
         if elapsedTime >= GameplayConfiguration.TaskBot.preAttackStateDuration {
-            stateMachine?.enterState(FlyingBotBlastState.self)
+            stateMachine?.enter(FlyingBotBlastState.self)
         }
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
             case is TaskBotAgentControlledState.Type, is FlyingBotBlastState.Type, is TaskBotZappedState.Type:
                 return true

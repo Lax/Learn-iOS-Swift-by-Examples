@@ -21,13 +21,13 @@ struct GameplayConfiguration {
         static let maxArcAngle = CGFloat(0.35)
         
         /// The maximum number of seconds for which the beam can be fired before recharging.
-        static let maximumFireDuration: NSTimeInterval = 2.0
+        static let maximumFireDuration: TimeInterval = 2.0
         
         /// The amount of charge points the beam drains from `TaskBot`s per second.
         static let chargeLossPerSecond = 90.0
         
         /// The length of time that the beam takes to recharge when it is fully depleted.
-        static let coolDownDuration: NSTimeInterval = 1.0
+        static let coolDownDuration: TimeInterval = 1.0
     }
 
     struct PlayerBot {
@@ -62,24 +62,24 @@ struct GameplayConfiguration {
         static let maximumCharge = 100.0
         
         /// The length of time for which the `PlayerBot` remains in its "hit" state.
-        static let hitStateDuration: NSTimeInterval = 0.75
+        static let hitStateDuration: TimeInterval = 0.75
         
         /// The length of time that it takes the `PlayerBot` to recharge when deactivated.
-        static let rechargeDelayWhenInactive: NSTimeInterval = 2.0
+        static let rechargeDelayWhenInactive: TimeInterval = 2.0
         
         /// The amount of charge that the `PlayerBot` gains per second when recharging.
         static let rechargeAmountPerSecond = 10.0
         
         /// The amount of time it takes the `PlayerBot` to appear in a level before becoming controllable by the player.
-        static let appearDuration: NSTimeInterval = 0.50
+        static let appearDuration: TimeInterval = 0.50
     }
 
     struct TaskBot {
         /// The length of time a `TaskBot` waits before re-evaluating its rules.
-        static let rulesUpdateWaitDuration: NSTimeInterval = 1.0
+        static let rulesUpdateWaitDuration: TimeInterval = 1.0
 
         /// The length of time a `TaskBot` waits before re-checking for an appropriate behavior.
-        static let behaviorUpdateWaitDuration: NSTimeInterval = 0.25
+        static let behaviorUpdateWaitDuration: TimeInterval = 0.25
         
         /// How close a `TaskBot` has to be to a patrol path start point in order to start patrolling.
         static let thresholdProximityToPatrolPathStartPoint: Float = 50.0
@@ -118,10 +118,10 @@ struct GameplayConfiguration {
         static let agentOffset = physicsBodyOffset
         
         /// The maximum time to look ahead when following a path.
-        static let maxPredictionTimeWhenFollowingPath: NSTimeInterval = 1.0
+        static let maxPredictionTimeWhenFollowingPath: TimeInterval = 1.0
         
         /// The maximum time to look ahead for obstacles to be avoided.
-        static let maxPredictionTimeForObstacleAvoidance: NSTimeInterval = 1.0
+        static let maxPredictionTimeForObstacleAvoidance: TimeInterval = 1.0
 
         /// The radius of the path along which an agent patrols.
         static let patrolPathRadius: Float = 10.0
@@ -136,10 +136,10 @@ struct GameplayConfiguration {
         static let pathfindingGraphBufferRadius: Float = 30.0
         
         /// The duration of a `TaskBot`'s pre-attack state.
-        static let preAttackStateDuration: NSTimeInterval = 0.8
+        static let preAttackStateDuration: TimeInterval = 0.8
         
         /// The duration of a `TaskBot`'s zapped state.
-        static let zappedStateDuration: NSTimeInterval = 0.75
+        static let zappedStateDuration: TimeInterval = 0.75
     }
 
     struct FlyingBot {
@@ -153,10 +153,10 @@ struct GameplayConfiguration {
         static let blastChargeLossPerSecond = 25.0
 
         /// The duration of a `FlyingBot` blast.
-        static let blastDuration: NSTimeInterval = 1.25
+        static let blastDuration: TimeInterval = 1.25
         
         /// The duration over which a `FlyingBot` blast affects entities in its blast radius.
-        static let blastEffectDuration: NSTimeInterval = 0.75
+        static let blastEffectDuration: TimeInterval = 0.75
 
         /// The offset from the `FlyingBot`'s position for the blast particle emitter node.
         static let blastEmitterOffset = CGPoint(x: 0.0, y: 20.0)
@@ -188,7 +188,7 @@ struct GameplayConfiguration {
         static let angularSpeedMultiplierWhenAttacking: CGFloat = 2.5
         
         /// The amount of time to wait between `GroundBot` attacks.
-        static let delayBetweenAttacks: NSTimeInterval = 2.0
+        static let delayBetweenAttacks: TimeInterval = 2.0
         
         /// The offset from the `GroundBot`'s position that should be used for beam targeting.
         static let beamTargetOffset = CGPoint(x: 0.0, y: 40.0)
@@ -224,10 +224,10 @@ struct GameplayConfiguration {
     
     struct SceneManager {
         /// The duration of a transition between loaded scenes.
-        static let transitionDuration: NSTimeInterval = 2.0
+        static let transitionDuration: TimeInterval = 2.0
         
         /// The duration of a transition from the progress scene to its loaded scene.
-        static let progressSceneTransitionDuration: NSTimeInterval = 0.5
+        static let progressSceneTransitionDuration: TimeInterval = 0.5
     }
     
     struct Timer {

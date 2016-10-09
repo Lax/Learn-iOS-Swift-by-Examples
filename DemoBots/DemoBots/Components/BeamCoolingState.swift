@@ -15,7 +15,7 @@ class BeamCoolingState: GKState {
     unowned var beamComponent: BeamComponent
     
     /// The amount of time the beam has been cooling down.
-    var elapsedTime: NSTimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     
     // MARK: Initializers
     
@@ -25,24 +25,24 @@ class BeamCoolingState: GKState {
     
     // MARK: GKState life cycle
     
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        super.didEnterWithPreviousState(previousState)
+    override func didEnter(from previousState: GKState?) {
+        super.didEnter(from: previousState)
         
         elapsedTime = 0.0
     }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        super.updateWithDeltaTime(seconds)
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
         
         elapsedTime += seconds
         
         // If the beam has spent long enough cooling down, enter `BeamIdleState`.
         if elapsedTime >= GameplayConfiguration.Beam.coolDownDuration {
-            stateMachine?.enterState(BeamIdleState.self)
+            stateMachine?.enter(BeamIdleState.self)
         }
     }
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
             case is BeamIdleState.Type, is BeamFiringState.Type:
                 return true
@@ -52,11 +52,11 @@ class BeamCoolingState: GKState {
         }
     }
     
-    override func willExitWithNextState(nextState: GKState) {
-        super.willExitWithNextState(nextState)
+    override func willExit(to nextState: GKState) {
+        super.willExit(to: nextState)
         
         if let playerBot = beamComponent.entity as? PlayerBot {
-            beamComponent.beamNode.updateWithBeamState(nextState, source: playerBot)
+            beamComponent.beamNode.update(withBeamState: nextState, source: playerBot)
         }
     }
 }

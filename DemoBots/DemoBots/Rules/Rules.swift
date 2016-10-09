@@ -22,19 +22,19 @@ import GameplayKit
 
 enum Fact: String {
     // Fuzzy rules pertaining to the proportion of "bad" bots in the level.
-    case BadTaskBotPercentageLow = "BadTaskBotPercentageLow"
-    case BadTaskBotPercentageMedium = "BadTaskBotPercentageMedium"
-    case BadTaskBotPercentageHigh = "BadTaskBotPercentageHigh"
+    case badTaskBotPercentageLow = "BadTaskBotPercentageLow"
+    case badTaskBotPercentageMedium = "BadTaskBotPercentageMedium"
+    case badTaskBotPercentageHigh = "BadTaskBotPercentageHigh"
 
     // Fuzzy rules pertaining to this `TaskBot`'s proximity to the `PlayerBot`.
-    case PlayerBotNear = "PlayerBotNear"
-    case PlayerBotMedium = "PlayerBotMedium"
-    case PlayerBotFar = "PlayerBotFar"
+    case playerBotNear = "PlayerBotNear"
+    case playerBotMedium = "PlayerBotMedium"
+    case playerBotFar = "PlayerBotFar"
 
     // Fuzzy rules pertaining to this `TaskBot`'s proximity to the nearest "good" `TaskBot`.
-    case GoodTaskBotNear = "GoodTaskBotNear"
-    case GoodTaskBotMedium = "GoodTaskBotMedium"
-    case GoodTaskBotFar = "GoodTaskBotFar"
+    case goodTaskBotNear = "GoodTaskBotNear"
+    case goodTaskBotMedium = "GoodTaskBotMedium"
+    case goodTaskBotFar = "GoodTaskBotFar"
 }
 
 /// Asserts whether the number of "bad" `TaskBot`s is considered "low".
@@ -47,7 +47,7 @@ class BadTaskBotPercentageLowRule: FuzzyTaskBotRule {
     
     // MARK: Initializers
     
-    init() { super.init(fact: .BadTaskBotPercentageLow) }
+    init() { super.init(fact: .badTaskBotPercentageLow) }
 }
 
 /// Asserts whether the number of "bad" `TaskBot`s is considered "medium".
@@ -65,7 +65,7 @@ class BadTaskBotPercentageMediumRule: FuzzyTaskBotRule {
     
     // MARK: Initializers
     
-    init() { super.init(fact: .BadTaskBotPercentageMedium) }
+    init() { super.init(fact: .badTaskBotPercentageMedium) }
 }
 
 /// Asserts whether the number of "bad" `TaskBot`s is considered "high".
@@ -78,7 +78,7 @@ class BadTaskBotPercentageHighRule: FuzzyTaskBotRule {
     
     // MARK: Initializers
     
-    init() { super.init(fact: .BadTaskBotPercentageHigh) }
+    init() { super.init(fact: .badTaskBotPercentageHigh) }
 }
 
 /// Asserts whether the `PlayerBot` is considered to be "near" to this `TaskBot`.
@@ -93,7 +93,7 @@ class PlayerBotNearRule: FuzzyTaskBotRule {
 
     // MARK: Initializers
     
-    init() { super.init(fact: .PlayerBotNear) }
+    init() { super.init(fact: .playerBotNear) }
 }
 
 /// Asserts whether the `PlayerBot` is considered to be at a "medium" distance from this `TaskBot`.
@@ -108,7 +108,7 @@ class PlayerBotMediumRule: FuzzyTaskBotRule {
     
     // MARK: Initializers
     
-    init() { super.init(fact: .PlayerBotMedium) }
+    init() { super.init(fact: .playerBotMedium) }
 }
 
 /// Asserts whether the `PlayerBot` is considered to be "far" from this `TaskBot`.
@@ -123,7 +123,7 @@ class PlayerBotFarRule: FuzzyTaskBotRule {
     
     // MARK: Initializers
     
-    init() { super.init(fact: .PlayerBotFar) }
+    init() { super.init(fact: .playerBotFar) }
 }
 
 // MARK: TaskBot Proximity Rules
@@ -140,7 +140,7 @@ class GoodTaskBotNearRule: FuzzyTaskBotRule {
 
     // MARK: Initializers
     
-    init() { super.init(fact: .GoodTaskBotNear) }
+    init() { super.init(fact: .goodTaskBotNear) }
 }
 
 /// Asserts whether the nearest "good" `TaskBot` is considered to be at a "medium" distance from this `TaskBot`.
@@ -155,7 +155,7 @@ class GoodTaskBotMediumRule: FuzzyTaskBotRule {
 
     // MARK: Initializers
     
-    init() { super.init(fact: .GoodTaskBotMedium) }
+    init() { super.init(fact: .goodTaskBotMedium) }
 }
 
 /// Asserts whether the nearest "good" `TaskBot` is considered to be "far" from this `TaskBot`.
@@ -170,5 +170,5 @@ class GoodTaskBotFarRule: FuzzyTaskBotRule {
     
     // MARK: Initializers
     
-    init() { super.init(fact: .GoodTaskBotFar) }
+    init() { super.init(fact: .goodTaskBotFar) }
 }

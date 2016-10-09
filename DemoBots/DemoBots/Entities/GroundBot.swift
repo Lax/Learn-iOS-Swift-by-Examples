@@ -73,7 +73,7 @@ class GroundBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
         }
         
         // Create components that define how the entity looks and behaves.
-        let renderComponent = RenderComponent(entity: self)
+        let renderComponent = RenderComponent()
         addComponent(renderComponent)
 
         let orientationComponent = OrientationComponent()
@@ -116,22 +116,26 @@ class GroundBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
         beamTargetOffset = GameplayConfiguration.GroundBot.beamTargetOffset
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: ContactableType
     
-    override func contactWithEntityDidBegin(entity: GKEntity) {
+    override func contactWithEntityDidBegin(_ entity: GKEntity) {
         super.contactWithEntityDidBegin(entity)
         
         // Retrieve the current state from this `GroundBot` as a `GroundBotAttackState`.
-        guard let attackState = componentForClass(IntelligenceComponent)?.stateMachine.currentState as? GroundBotAttackState else { return }
+        guard let attackState = component(ofType: IntelligenceComponent.self)?.stateMachine.currentState as? GroundBotAttackState else { return }
         
         // Use the `GroundBotAttackState` to apply the appropriate damage to the contacted entity.
-        attackState.applyDamageToEntity(entity)
+        attackState.applyDamageToEntity(entity: entity)
     }
     
     // MARK: RulesComponentDelegate
     
     override func rulesComponent(rulesComponent: RulesComponent, didFinishEvaluatingRuleSystem ruleSystem: GKRuleSystem) {
-        super.rulesComponent(rulesComponent, didFinishEvaluatingRuleSystem: ruleSystem)
+        super.rulesComponent(rulesComponent: rulesComponent, didFinishEvaluatingRuleSystem: ruleSystem)
 
         /*
             A `GroundBot` will attack a location in the scene if the following conditions are met:
@@ -140,26 +144,26 @@ class GroundBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
                 3) The target is within the `GroundBot`'s attack range.
                 4) There is no scenery between the `GroundBot` and the target.
         */
-        guard let scene = componentForClass(RenderComponent.self)?.node.scene else { return }
-        guard let intelligenceComponent = componentForClass(IntelligenceComponent.self) else { return }
+        guard let scene = component(ofType: RenderComponent.self)?.node.scene else { return }
+        guard let intelligenceComponent = component(ofType: IntelligenceComponent.self) else { return }
         guard let agentControlledState = intelligenceComponent.stateMachine.currentState as? TaskBotAgentControlledState else { return }
 
         // 1) Check if enough time has passed since the `GroundBot`'s last attack.
         guard agentControlledState.elapsedTime >= GameplayConfiguration.GroundBot.delayBetweenAttacks else { return }
         
         // 2) Check if the current mandate is to hunt an agent.
-        guard case let .HuntAgent(targetAgent) = mandate else { return }
+        guard case let .huntAgent(targetAgent) = mandate else { return }
         
         // 3) Check if the target is within the `GroundBot`'s attack range.
-        guard distanceToAgent(targetAgent) <= GameplayConfiguration.GroundBot.maximumAttackDistance else { return }
+        guard distanceToAgent(otherAgent: targetAgent) <= GameplayConfiguration.GroundBot.maximumAttackDistance else { return }
         
         // 4) Check if any walls or obstacles are between the `GroundBot` and its hunt target position.
         var hasLineOfSight = true
         
-        scene.physicsWorld.enumerateBodiesAlongRayStart(CGPoint(agent.position), end: CGPoint(targetAgent.position)) { body, _, _, stop in
+        scene.physicsWorld.enumerateBodies(alongRayStart: CGPoint(agent.position), end: CGPoint(targetAgent.position)) { body, _, _, stop in
             if ColliderType(rawValue: body.categoryBitMask).contains(.Obstacle) {
                 hasLineOfSight = false
-                stop.memory = true
+                stop.pointee = true
             }
         }
         
@@ -167,18 +171,18 @@ class GroundBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
         
         // The `GroundBot` is ready to attack the `targetAgent`'s current position.
         targetPosition = targetAgent.position
-        intelligenceComponent.stateMachine.enterState(GroundBotRotateToAttackState.self)
+        intelligenceComponent.stateMachine.enter(GroundBotRotateToAttackState.self)
     }
     
     // MARK: ChargeComponentDelegate
     
     func chargeComponentDidLoseCharge(chargeComponent: ChargeComponent) {
-        guard let intelligenceComponent = componentForClass(IntelligenceComponent) else { return }
+        guard let intelligenceComponent = component(ofType: IntelligenceComponent.self) else { return }
         
         isGood = !chargeComponent.hasCharge
         
         if !isGood {
-            intelligenceComponent.stateMachine.enterState(TaskBotZappedState.self)
+            intelligenceComponent.stateMachine.enter(TaskBotZappedState.self)
         }
     }
     
@@ -188,7 +192,7 @@ class GroundBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
         return goodAnimations == nil || badAnimations == nil
     }
     
-    static func loadResourcesWithCompletionHandler(completionHandler: () -> ()) {
+    static func loadResources(withCompletionHandler completionHandler: @escaping () -> ()) {
         // Load `TaskBot`s shared assets.
         super.loadSharedAssets()
 
@@ -213,12 +217,12 @@ class GroundBot: TaskBot, ChargeComponentDelegate, ResourceLoadableType {
                 after the `GroundBot` texture atlases have finished preloading.
             */
             goodAnimations = [:]
-            goodAnimations![.WalkForward] = AnimationComponent.animationsFromAtlas(groundBotAtlases[0], withImageIdentifier: "GroundBotGoodWalk", forAnimationState: .WalkForward)
+            goodAnimations![.walkForward] = AnimationComponent.animationsFromAtlas(atlas: groundBotAtlases[0], withImageIdentifier: "GroundBotGoodWalk", forAnimationState: .walkForward)
             
             badAnimations = [:]
-            badAnimations![.WalkForward] = AnimationComponent.animationsFromAtlas(groundBotAtlases[1], withImageIdentifier: "GroundBotBadWalk", forAnimationState: .WalkForward)
-            badAnimations![.Attack] = AnimationComponent.animationsFromAtlas(groundBotAtlases[2], withImageIdentifier: "GroundBotAttack", forAnimationState: .Attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake", repeatTexturesForever: false)
-            badAnimations![.Zapped] = AnimationComponent.animationsFromAtlas(groundBotAtlases[3], withImageIdentifier: "GroundBotZapped", forAnimationState: .Zapped, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
+            badAnimations![.walkForward] = AnimationComponent.animationsFromAtlas(atlas: groundBotAtlases[1], withImageIdentifier: "GroundBotBadWalk", forAnimationState: .walkForward)
+            badAnimations![.attack] = AnimationComponent.animationsFromAtlas(atlas: groundBotAtlases[2], withImageIdentifier: "GroundBotAttack", forAnimationState: .attack, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake", repeatTexturesForever: false)
+            badAnimations![.zapped] = AnimationComponent.animationsFromAtlas(atlas: groundBotAtlases[3], withImageIdentifier: "GroundBotZapped", forAnimationState: .zapped, bodyActionName: "ZappedShake", shadowActionName: "ZappedShadowShake")
             
             // Invoke the passed `completionHandler` to indicate that loading has completed.
             completionHandler()
