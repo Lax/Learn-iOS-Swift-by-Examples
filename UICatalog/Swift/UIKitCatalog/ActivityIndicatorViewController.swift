@@ -9,13 +9,13 @@
 import UIKit
 
 class ActivityIndicatorViewController: UITableViewController {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var grayStyleActivityIndicatorView: UIActivityIndicatorView!
     
     @IBOutlet weak var tintedActivityIndicatorView: UIActivityIndicatorView!
     
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class ActivityIndicatorViewController: UITableViewController {
         // When activity is done, use UIActivityIndicatorView.stopAnimating().
     }
     
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configureGrayActivityIndicatorView() {
         grayStyleActivityIndicatorView.activityIndicatorViewStyle = .Gray

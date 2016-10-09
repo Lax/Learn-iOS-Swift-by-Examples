@@ -9,7 +9,7 @@
 import UIKit
 
 class ButtonViewController: UITableViewController {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var systemTextButton: UIButton!
     
@@ -21,7 +21,7 @@ class ButtonViewController: UITableViewController {
     
     @IBOutlet weak var attributedTextButton: UIButton!
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class ButtonViewController: UITableViewController {
         configureAttributedTextSystemButton()
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configureSystemTextButton() {
         let buttonTitle = NSLocalizedString("Button", comment: "")
@@ -95,7 +95,7 @@ class ButtonViewController: UITableViewController {
         attributedTextButton.addTarget(self, action: #selector(ButtonViewController.buttonClicked(_:)), forControlEvents: .TouchUpInside)
     }
 
-    // MARK: Actions
+    // MARK: - Actions
 
     func buttonClicked(sender: UIButton) {
         NSLog("A button was clicked: \(sender).")

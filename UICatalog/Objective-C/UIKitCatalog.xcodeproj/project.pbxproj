@@ -14,9 +14,6 @@
 		3E8CF107196DD83A00420B6B /* AAPLSearchBarEmbeddedInNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CF106196DD83A00420B6B /* AAPLSearchBarEmbeddedInNavigationBarViewController.m */; };
 		3EC13ADE1933D95700915353 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC13AE01933D95700915353 /* Main.storyboard */; };
 		3EE0A033196DDDF70059F740 /* AAPLSearchPresentOverNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A032196DDDF70059F740 /* AAPLSearchPresentOverNavigationBarViewController.m */; };
-		5356823E18F3656900BAAD62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5356823D18F3656900BAAD62 /* Foundation.framework */; };
-		5356824018F3656900BAAD62 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5356823F18F3656900BAAD62 /* CoreGraphics.framework */; };
-		5356824218F3656900BAAD62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5356824118F3656900BAAD62 /* UIKit.framework */; };
 		5356824A18F3656900BAAD62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356824918F3656900BAAD62 /* main.m */; };
 		5356825918F3656900BAAD62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5356825818F3656900BAAD62 /* Images.xcassets */; };
 		535682A818F3670300BAAD62 /* AAPLActivityIndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356827818F3670300BAAD62 /* AAPLActivityIndicatorViewController.m */; };
@@ -62,9 +59,6 @@
 		3EE0A031196DDDF70059F740 /* AAPLSearchPresentOverNavigationBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSearchPresentOverNavigationBarViewController.h; sourceTree = "<group>"; };
 		3EE0A032196DDDF70059F740 /* AAPLSearchPresentOverNavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSearchPresentOverNavigationBarViewController.m; sourceTree = "<group>"; };
 		5356823A18F3656900BAAD62 /* UIKitCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5356823D18F3656900BAAD62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5356823F18F3656900BAAD62 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5356824118F3656900BAAD62 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5356824518F3656900BAAD62 /* UIKitCatalog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UIKitCatalog-Info.plist"; sourceTree = "<group>"; };
 		5356824918F3656900BAAD62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5356824B18F3656900BAAD62 /* UIKitCatalog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIKitCatalog-Prefix.pch"; sourceTree = "<group>"; };
@@ -123,9 +117,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5356824018F3656900BAAD62 /* CoreGraphics.framework in Frameworks */,
-				5356824218F3656900BAAD62 /* UIKit.framework in Frameworks */,
-				5356823E18F3656900BAAD62 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				3E38C1C0196F282000C8EA2C /* Search Bar */,
-				3E38C1C1196F282B00C8EA2C /* Search Controlleers */,
+				3E38C1C1196F282B00C8EA2C /* Search Controllers */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -163,7 +154,7 @@
 			name = "Search Bar";
 			sourceTree = "<group>";
 		};
-		3E38C1C1196F282B00C8EA2C /* Search Controlleers */ = {
+		3E38C1C1196F282B00C8EA2C /* Search Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				3E1D56EF194F68D800D8298E /* Base View Controllers */,
@@ -174,7 +165,7 @@
 				3E8CF102196DBE6800420B6B /* AAPLSearchShowResultsInSourceViewController.h */,
 				3E8CF103196DBE6800420B6B /* AAPLSearchShowResultsInSourceViewController.m */,
 			);
-			name = "Search Controlleers";
+			name = "Search Controllers";
 			sourceTree = "<group>";
 		};
 		3EF3286C1931DF2000B1C20C /* Toolbar View Controllers */ = {
@@ -195,7 +186,6 @@
 			children = (
 				3E5C084C19748F0D00969DD7 /* README.md */,
 				5356824318F3656900BAAD62 /* UIKitCatalog */,
-				5356823C18F3656900BAAD62 /* Frameworks */,
 				5356823B18F3656900BAAD62 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -206,16 +196,6 @@
 				5356823A18F3656900BAAD62 /* UIKitCatalog.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		5356823C18F3656900BAAD62 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5356823D18F3656900BAAD62 /* Foundation.framework */,
-				5356823F18F3656900BAAD62 /* CoreGraphics.framework */,
-				5356824118F3656900BAAD62 /* UIKit.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5356824318F3656900BAAD62 /* UIKitCatalog */ = {
@@ -322,7 +302,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = f;
 			};
 			buildConfigurationList = 5356823518F3656900BAAD62 /* Build configuration list for PBXProject "UIKitCatalog" */;
@@ -440,12 +420,15 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -480,11 +463,14 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -505,6 +491,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UIKitCatalog/UIKitCatalog-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/UIKitCatalog/UIKitCatalog-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UIKitCatalog";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -518,6 +505,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UIKitCatalog/UIKitCatalog-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/UIKitCatalog/UIKitCatalog-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UIKitCatalog";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

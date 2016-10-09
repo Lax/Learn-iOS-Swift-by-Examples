@@ -9,12 +9,12 @@
 import UIKit
 
 class SearchShowResultsInSourceViewController: SearchResultsViewController {
-    // MARK: Properties
+    // MARK: - Properties
     
     // `searchController` is set in `viewDidLoad(_:)`.
     var searchController: UISearchController!
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

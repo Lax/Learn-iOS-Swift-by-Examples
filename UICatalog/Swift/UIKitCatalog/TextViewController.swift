@@ -9,14 +9,14 @@
 import UIKit
 
 class TextViewController: UIViewController, UITextViewDelegate {
-    // MARK: Properties
+    // MARK: - Properties
     
     @IBOutlet weak var textView: UITextView!
     
     /// Used to adjust the text view's height when the keyboard hides and shows.
     @IBOutlet weak var textViewBottomLayoutGuideConstraint: NSLayoutConstraint!
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
         notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
 
-    // MARK: Keyboard Event Notifications
+    // MARK: - Keyboard Event Notifications
 
     func handleKeyboardNotification(notification: NSNotification) {
         let userInfo = notification.userInfo!
@@ -81,12 +81,13 @@ class TextViewController: UIViewController, UITextViewDelegate {
         textView.scrollRangeToVisible(selectedRange)
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configureTextView() {
         let bodyFontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody)
-        textView.font = UIFont(descriptor: bodyFontDescriptor, size: 0)
-
+        let bodyFont = UIFont(descriptor: bodyFontDescriptor, size: 0)
+            
+        textView.font = bodyFont
         textView.textColor = UIColor.blackColor()
         textView.backgroundColor = UIColor.whiteColor()
         textView.scrollEnabled = true
@@ -116,7 +117,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
             with an additional bold trait.
         */
         let boldFontDescriptor = textView.font!.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
-        let boldFont = UIFont(descriptor: boldFontDescriptor, size: 0)
+        let boldFont = UIFont(descriptor: boldFontDescriptor!, size: 0)
         attributedText.addAttribute(NSFontAttributeName, value: boldFont, range: boldRange)
 
         // Add highlight.
@@ -137,10 +138,15 @@ class TextViewController: UIViewController, UITextViewDelegate {
         let textAttachmentString = NSAttributedString(attachment: textAttachment)
         attributedText.appendAttributedString(textAttachmentString)
 
+        // Append a space with matching font of the rest of the body text.
+        let appendedSpace = NSMutableAttributedString.init(string: " ")
+        appendedSpace.addAttribute(NSFontAttributeName, value: bodyFont, range: NSMakeRange(0, 1))
+        attributedText.appendAttributedString(appendedSpace)
+        
         textView.attributedText = attributedText
     }
 
-    // MARK: UITextViewDelegate
+    // MARK: - UITextViewDelegate
 
     func textViewDidBeginEditing(textView: UITextView) {
         /*
@@ -152,7 +158,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
         navigationItem.setRightBarButtonItem(doneBarButtonItem, animated: true)
     }
     
-    // MARK: Actions
+    // MARK: - Actions
 
     func doneBarButtonItemClicked() {
         // Dismiss the keyboard by removing it as the first responder.

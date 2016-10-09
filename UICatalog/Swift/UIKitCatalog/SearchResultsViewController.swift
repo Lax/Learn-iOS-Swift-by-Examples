@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchResultsViewController: SearchControllerBaseViewController, UISearchResultsUpdating {
-    // MARK: Types
+    // MARK: - Types
     
     struct StoryboardConstants {
         /**
@@ -19,7 +19,7 @@ class SearchResultsViewController: SearchControllerBaseViewController, UISearchR
         static let identifier = "SearchResultsViewControllerStoryboardIdentifier"
     }
     
-    // MARK: UISearchResultsUpdating
+    // MARK: - UISearchResultsUpdating
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         /*

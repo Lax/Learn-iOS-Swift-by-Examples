@@ -9,12 +9,12 @@
 import UIKit
 
 class SearchPresentOverNavigationBarViewController: SearchControllerBaseViewController {
-    // MARK: Properties
+    // MARK: - Properties
     
     // `searchController` is set when the search button is clicked.
     var searchController: UISearchController!
 
-    // MARK: Actions
+    // MARK: - Actions
     
     @IBAction func searchButtonClicked(button: UIBarButtonItem) {
         // Create the search results view controller and use it for the `UISearchController`.

@@ -11,6 +11,8 @@
 @interface AAPLAppDelegate() <UISplitViewControllerDelegate>
 @end
 
+#pragma mark -
+
 @implementation AAPLAppDelegate
 
 #pragma mark - UIApplicationDelegate
@@ -23,6 +25,7 @@
 
     return YES;
 }
+
 
 #pragma mark - UISplitViewControllerDelegate
 

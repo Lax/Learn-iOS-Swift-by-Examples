@@ -9,7 +9,7 @@
 import UIKit
 
 class ImageViewController: UIViewController {
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class ImageViewController: UIViewController {
         configureImageView()
     }
     
-    // MARK: Configuration
+    // MARK: - Configuration
     
     func configureImageView() {
         // The root view of the view controller set in Interface Builder is a UIImageView.

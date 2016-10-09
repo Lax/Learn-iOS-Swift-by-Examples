@@ -9,7 +9,7 @@
 import UIKit
 
 class StepperViewController: UITableViewController {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var defaultStepper: UIStepper!
 
@@ -23,7 +23,7 @@ class StepperViewController: UITableViewController {
     
     @IBOutlet weak var customStepperLabel: UILabel!
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class StepperViewController: UITableViewController {
         configureCustomStepper()
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configureDefaultStepper() {
         defaultStepper.value = 0
@@ -82,7 +82,7 @@ class StepperViewController: UITableViewController {
         customStepper.addTarget(self, action: #selector(StepperViewController.stepperValueDidChange(_:)), forControlEvents: .ValueChanged)
     }
 
-    // MARK: Actions
+    // MARK: - Actions
 
     func stepperValueDidChange(stepper: UIStepper) {
         NSLog("A stepper changed its value: \(stepper).")

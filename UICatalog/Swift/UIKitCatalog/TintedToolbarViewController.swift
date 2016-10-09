@@ -9,11 +9,11 @@
 import UIKit
 
 class TintedToolbarViewController: UIViewController {
-    // MARK: Properties
+    // MARK: - Properties
     
     @IBOutlet weak var toolbar: UIToolbar!
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class TintedToolbarViewController: UIViewController {
         configureToolbar()
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configureToolbar() {
         // See the `UIBarStyle` enum for more styles, including `.Default`.
@@ -39,7 +39,7 @@ class TintedToolbarViewController: UIViewController {
         toolbar.setItems(toolbarButtonItems, animated: true)
     }
 
-    // MARK: UIBarButtonItem Creation and Configuration
+    // MARK: - UIBarButtonItem Creation and Configuration
 
     var refreshBarButtonItem: UIBarButtonItem {
         return UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(TintedToolbarViewController.barButtonItemClicked(_:)))
@@ -54,7 +54,7 @@ class TintedToolbarViewController: UIViewController {
         return UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(TintedToolbarViewController.barButtonItemClicked(_:)))
     }
 
-    // MARK: Actions
+    // MARK: - Actions
 
     func barButtonItemClicked(barButtonItem: UIBarButtonItem) {
         NSLog("A bar button item on the tinted toolbar was clicked: \(barButtonItem).")

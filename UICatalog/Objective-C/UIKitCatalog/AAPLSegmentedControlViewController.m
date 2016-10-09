@@ -35,8 +35,6 @@
 #pragma mark - Configuration
 
 - (void)configureDefaultSegmentedControl {
-    self.defaultSegmentedControl.momentary = YES;
-
     [self.defaultSegmentedControl setEnabled:NO forSegmentAtIndex:0];
 
     [self.defaultSegmentedControl addTarget:self action:@selector(selectedSegmentDidChange:) forControlEvents:UIControlEventValueChanged];

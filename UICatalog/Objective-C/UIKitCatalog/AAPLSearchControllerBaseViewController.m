@@ -29,6 +29,7 @@ NSString *const AAPLSearchControllerBaseViewControllerTableViewCellIdentifier = 
     self.visibleResults = self.allResults;
 }
 
+
 #pragma mark - Property Overrides
 
 - (void)setFilterString:(NSString *)filterString {
@@ -44,6 +45,7 @@ NSString *const AAPLSearchControllerBaseViewControllerTableViewCellIdentifier = 
     
     [self.tableView reloadData];
 }
+
 
 #pragma mark - UITableViewDataSource
 

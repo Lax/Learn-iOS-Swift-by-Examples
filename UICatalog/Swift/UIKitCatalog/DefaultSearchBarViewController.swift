@@ -9,11 +9,11 @@
 import UIKit
 
 class DefaultSearchBarViewController: UIViewController, UISearchBarDelegate {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var searchBar: UISearchBar!
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class DefaultSearchBarViewController: UIViewController, UISearchBarDelegate {
         configureSearchBar()
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
     
     func configureSearchBar() {
         searchBar.showsCancelButton = true
@@ -33,7 +33,7 @@ class DefaultSearchBarViewController: UIViewController, UISearchBarDelegate {
         ]
     }
 
-    // MARK: UISearchBarDelegate
+    // MARK: - UISearchBarDelegate
 
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         NSLog("The default search selected scope button index changed to \(selectedScope).")

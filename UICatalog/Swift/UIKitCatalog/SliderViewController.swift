@@ -9,7 +9,7 @@
 import UIKit
 
 class SliderViewController: UITableViewController {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var defaultSlider: UISlider!
 
@@ -17,7 +17,7 @@ class SliderViewController: UITableViewController {
     
     @IBOutlet weak var customSlider: UISlider!
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class SliderViewController: UITableViewController {
         configureCustomSlider()
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configureDefaultSlider() {
         defaultSlider.minimumValue = 0
@@ -63,7 +63,7 @@ class SliderViewController: UITableViewController {
         customSlider.addTarget(self, action: #selector(SliderViewController.sliderValueDidChange(_:)), forControlEvents: .ValueChanged)
     }
 
-    // MARK: Actions
+    // MARK: - Actions
 
     func sliderValueDidChange(slider: UISlider) {
         NSLog("A slider changed its value: \(slider).")

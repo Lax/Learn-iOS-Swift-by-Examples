@@ -9,11 +9,11 @@
 import UIKit
 
 class CustomToolbarViewController: UIViewController {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var toolbar: UIToolbar!
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class CustomToolbarViewController: UIViewController {
         configureToolbar()
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
     
     func configureToolbar() {
         let toolbarBackgroundImage = UIImage(named: "toolbar_background")
@@ -36,7 +36,7 @@ class CustomToolbarViewController: UIViewController {
         toolbar.setItems(toolbarButtonItems, animated: true)
     }
 
-    // MARK: UIBarButtonItem Creation and Configuration
+    // MARK: - UIBarButtonItem Creation and Configuration
 
     var customImageBarButtonItem: UIBarButtonItem {
         let customBarButtonItemImage = UIImage(named: "tools_icon")
@@ -67,7 +67,7 @@ class CustomToolbarViewController: UIViewController {
         return barButtonItem
     }
 
-    // MARK: Actions
+    // MARK: - Actions
     
     func barButtonItemClicked(barButtonItem: UIBarButtonItem) {
         NSLog("A bar button item on the custom toolbar was clicked: \(barButtonItem).")

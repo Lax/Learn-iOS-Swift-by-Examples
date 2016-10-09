@@ -9,11 +9,11 @@
 import UIKit
 
 class DefaultToolbarViewController: UIViewController {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var toolbar: UIToolbar!
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class DefaultToolbarViewController: UIViewController {
         configureToolbar()
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configureToolbar() {
         let toolbarButtonItems = [
@@ -33,7 +33,7 @@ class DefaultToolbarViewController: UIViewController {
         toolbar.setItems(toolbarButtonItems, animated: true)
     }
 
-    // MARK: UIBarButtonItem Creation and Configuration
+    // MARK: - UIBarButtonItem Creation and Configuration
 
     var trashBarButtonItem: UIBarButtonItem {
         return UIBarButtonItem(barButtonSystemItem: .Trash, target: self, action: #selector(DefaultToolbarViewController.barButtonItemClicked(_:)))
@@ -49,7 +49,7 @@ class DefaultToolbarViewController: UIViewController {
         return UIBarButtonItem(title: customTitle, style: .Plain, target: self, action: #selector(DefaultToolbarViewController.barButtonItemClicked(_:)))
     }
 
-    // MARK: Actions
+    // MARK: - Actions
 
     func barButtonItemClicked(barButtonItem: UIBarButtonItem) {
         NSLog("A bar button item on the default toolbar was clicked: \(barButtonItem).")

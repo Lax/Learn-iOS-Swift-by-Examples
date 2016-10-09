@@ -9,7 +9,7 @@
 import UIKit
 
 class StackViewController: UIViewController {
-    // MARK: Properties
+    // MARK: - Properties
     
     @IBOutlet var furtherDetailStackView: UIStackView!
     
@@ -23,7 +23,7 @@ class StackViewController: UIViewController {
     
     let maximumArrangedSubviewCount = 3
     
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,7 +33,7 @@ class StackViewController: UIViewController {
         updateAddRemoveButtons()
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
     @IBAction func showFurtherDetail(_: AnyObject) {
         // Animate the changes by performing them in a `UIView` animation block.
@@ -87,7 +87,7 @@ class StackViewController: UIViewController {
         updateAddRemoveButtons()
     }
     
-    // MARK: Convenience
+    // MARK: - Convenience
     
     private func updateAddRemoveButtons() {
         let arrangedSubviewCount = addRemoveExampleStackView.arrangedSubviews.count

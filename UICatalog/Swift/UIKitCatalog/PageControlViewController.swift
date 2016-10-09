@@ -9,7 +9,7 @@
 import UIKit
 
 class PageControlViewController: UIViewController {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var pageControl: UIPageControl!
 
@@ -29,7 +29,7 @@ class PageControlViewController: UIViewController {
         UIColor.purpleColor()
     ]
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class PageControlViewController: UIViewController {
         pageControlValueDidChange()
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configurePageControl() {
         // The total number of pages that are available is based on how many available colors we have.
@@ -52,7 +52,7 @@ class PageControlViewController: UIViewController {
         pageControl.addTarget(self, action: #selector(PageControlViewController.pageControlValueDidChange), forControlEvents: .ValueChanged)
     }
 
-    // MARK: Actions
+    // MARK: - Actions
 
     func pageControlValueDidChange() {
         NSLog("The page control changed its current page to \(pageControl.currentPage).")

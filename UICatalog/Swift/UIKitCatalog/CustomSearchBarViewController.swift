@@ -9,11 +9,11 @@
 import UIKit
 
 class CustomSearchBarViewController: UIViewController, UISearchBarDelegate {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var searchBar: UISearchBar!
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class CustomSearchBarViewController: UIViewController, UISearchBarDelegate {
         configureSearchBar()
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
     
     func configureSearchBar() {
         searchBar.showsCancelButton = true
@@ -39,7 +39,7 @@ class CustomSearchBarViewController: UIViewController, UISearchBarDelegate {
         searchBar.setImage(bookmarkHighlightedImage, forSearchBarIcon: .Bookmark, state: .Highlighted)
     }
 
-    // MARK: UISearchBarDelegate
+    // MARK: - UISearchBarDelegate
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         NSLog("The custom search bar keyboard search button was tapped: \(searchBar).")

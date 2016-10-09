@@ -9,7 +9,7 @@
 import UIKit
 
 class TextFieldViewController: UITableViewController, UITextFieldDelegate {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var textField: UITextField!
     
@@ -33,28 +33,7 @@ class TextFieldViewController: UITableViewController, UITextFieldDelegate {
         configureCustomTextField()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Listen for changes to keyboard visibility so that we can adjust the text view accordingly.
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-
-        notificationCenter.addObserver(self, selector: #selector(TextFieldViewController.handleKeyboardNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
-
-        notificationCenter.addObserver(self, selector: #selector(TextFieldViewController.handleKeyboardNotification(_:)), name: UIKeyboardWillHideNotification, object: nil)
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-
-        notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-        
-        notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-    }
-
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configureTextField() {
         textField.placeholder = NSLocalizedString("Placeholder text", comment: "")
@@ -122,7 +101,7 @@ class TextFieldViewController: UITableViewController, UITextFieldDelegate {
         customTextField.returnKeyType = .Done
     }
 
-    // MARK: UITextFieldDelegate
+    // MARK: - UITextFieldDelegate
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -130,42 +109,7 @@ class TextFieldViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
 
-    // MARK: Keyboard Event Notifications
-    
-    func handleKeyboardNotification(notification: NSNotification) {
-        let userInfo = notification.userInfo!
-        
-        // Get information about the animation.
-        let animationDuration: NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        
-        let rawAnimationCurveValue = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).unsignedLongValue
-        let animationCurve = UIViewAnimationOptions(rawValue: rawAnimationCurveValue)
-        
-        // Convert the keyboard frame from screen to view coordinates.
-        let keyboardScreenBeginFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        
-        let keyboardViewBeginFrame = view.convertRect(keyboardScreenBeginFrame, fromView: view.window)
-        let keyboardViewEndFrame = view.convertRect(keyboardScreenEndFrame, fromView: view.window)
-        
-        // Determine how far the keyboard has moved up or down.
-        let originDelta = keyboardViewEndFrame.origin.y - keyboardViewBeginFrame.origin.y
-        
-        // Adjust the table view's scroll indicator and content insets.
-        tableView.scrollIndicatorInsets.bottom -= originDelta
-        tableView.contentInset.bottom -= originDelta
-        
-        // Inform the view that its the layout should be updated.
-        tableView.setNeedsLayout()
-
-        // Animate updating the view's layout by calling layoutIfNeeded inside a UIView animation block.
-        let animationOptions: UIViewAnimationOptions = [animationCurve, .BeginFromCurrentState]
-        UIView.animateWithDuration(animationDuration, delay: 0, options: animationOptions, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
-    }
-
-    // MARK: Actions
+    // MARK: - Actions
     
     func customTextFieldPurpleButtonClicked() {
         customTextField.textColor = UIColor.applicationPurpleColor

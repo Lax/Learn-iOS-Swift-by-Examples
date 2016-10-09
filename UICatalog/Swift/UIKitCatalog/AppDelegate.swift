@@ -10,11 +10,11 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: NSObject, UIApplicationDelegate, UISplitViewControllerDelegate {
-    // MARK: Properties
+    // MARK: - Properties
 
     var window: UIWindow?
 
-    // MARK: UIApplicationDelegate
+    // MARK: - UIApplicationDelegate
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let splitViewController = window!.rootViewController as! UISplitViewController
@@ -25,7 +25,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UISplitViewControllerDelegat
         return true
     }
     
-    // MARK: UISplitViewControllerDelegate
+    // MARK: - UISplitViewControllerDelegate
 
     func targetDisplayModeForActionInSplitViewController(splitViewController: UISplitViewController) -> UISplitViewControllerDisplayMode {
         return .AllVisible

@@ -9,12 +9,12 @@
 import UIKit
 
 class DatePickerController: UIViewController {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBOutlet weak var dateLabel: UILabel!
-
+    
     /// A date formatter to format the `date` property of `datePicker`.
     lazy var dateFormatter: NSDateFormatter = {
         let dateFormatter = NSDateFormatter()
@@ -25,7 +25,7 @@ class DatePickerController: UIViewController {
         return dateFormatter
     }()
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class DatePickerController: UIViewController {
         configureDatePicker()
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configureDatePicker() {
         datePicker.datePickerMode = .DateAndTime
@@ -60,7 +60,7 @@ class DatePickerController: UIViewController {
         updateDatePickerLabel()
     }
 
-    // MARK: Actions
+    // MARK: - Actions
 
     func updateDatePickerLabel() {
         dateLabel.text = dateFormatter.stringFromDate(datePicker.date)

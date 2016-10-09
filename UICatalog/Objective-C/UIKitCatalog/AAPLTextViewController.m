@@ -83,8 +83,10 @@
 
 - (void)configureTextView {
     UIFontDescriptor *bodyFontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
-    self.textView.font = [UIFont fontWithDescriptor:bodyFontDescriptor size:0];
-
+    
+    UIFont *bodyFont = [UIFont fontWithDescriptor:bodyFontDescriptor size:0];
+    
+    self.textView.font = bodyFont;
     self.textView.textColor = [UIColor blackColor];
     self.textView.backgroundColor = [UIColor whiteColor];
     self.textView.scrollEnabled = YES;
@@ -126,6 +128,11 @@
 
     NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
     [attributedText appendAttributedString:textAttachmentString];
+    
+    // Append a space with matching font of the rest of the body text.
+    NSMutableAttributedString *appendedSpace = [[NSMutableAttributedString alloc] initWithString:@" "];
+    [appendedSpace addAttribute:NSFontAttributeName value:bodyFont range:NSMakeRange(0,1)];
+    [attributedText appendAttributedString:appendedSpace];
     
     self.textView.attributedText = attributedText;
 }

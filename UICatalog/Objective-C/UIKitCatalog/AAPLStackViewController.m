@@ -35,6 +35,7 @@ static NSInteger AAPLStackViewControllerMaxArrangedSubviewsCount = 3;
     [self updateAddRemoveButtons];
 }
 
+
 #pragma mark - Actions
 
 - (IBAction)showFurtherDetailTapped:(UIButton *)sender {
@@ -87,6 +88,7 @@ static NSInteger AAPLStackViewControllerMaxArrangedSubviewsCount = 3;
     
     [self updateAddRemoveButtons];
 }
+
 
 #pragma mark - Convenience
 

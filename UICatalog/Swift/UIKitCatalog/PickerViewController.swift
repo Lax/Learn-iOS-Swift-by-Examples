@@ -9,7 +9,7 @@
 import UIKit
 
 class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIPickerViewAccessibilityDelegate {
-    // MARK: Types
+    // MARK: - Types
 
     enum ColorComponent: Int {
         case Red = 0, Green, Blue
@@ -25,7 +25,7 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         static let offset: CGFloat = 5.0
     }
 
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var pickerView: UIPickerView!
     
@@ -51,7 +51,7 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         }
     }
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,13 +59,13 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         configurePickerView()
     }
 
-    // MARK: Convenience
+    // MARK: - Convenience
     
     func updateColorSwatchViewBackgroundColor() {
         colorSwatchView.backgroundColor = UIColor(red: redColor, green: greenColor, blue: blueColor, alpha: 1)
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
     
     func configurePickerView() {
         // Show that a given row is selected. This is off by default.
@@ -85,7 +85,7 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         }
     }
 
-    // MARK: UIPickerViewDataSource
+    // MARK: - UIPickerViewDataSource
 
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return ColorComponent.count
@@ -95,7 +95,7 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         return numberOfColorValuesPerComponent
     }
 
-    // MARK: UIPickerViewDelegate
+    // MARK: - UIPickerViewDelegate
 
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let colorValue = CGFloat(row) * RGB.offset
@@ -143,7 +143,7 @@ class PickerViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         }
     }
 
-    // MARK: UIPickerViewAccessibilityDelegate
+    // MARK: - UIPickerViewAccessibilityDelegate
 
     func pickerView(pickerView: UIPickerView, accessibilityLabelForComponent component: Int) -> String? {
         switch ColorComponent(rawValue: component)! {

@@ -8,7 +8,7 @@ You will also notice this sample shows how to localize string content by using t
 
 ## Build Requirements
 
-Xcode 7.3 and iOS 9.0 SDK or later
+Xcode 8.0 and iOS 10.0 SDK or later
 
 ## Runtime Requirements
 
@@ -52,4 +52,4 @@ This sample demonstrates how to configure and customize the following controls /
 + UIToolbar
 + UIWebView
 
-Copyright (C) 2016 Apple Inc. All rights reserved.
+Copyright (C) 2008-2016 Apple Inc. All rights reserved.

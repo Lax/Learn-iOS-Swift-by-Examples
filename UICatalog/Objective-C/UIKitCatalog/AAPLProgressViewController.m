@@ -57,6 +57,7 @@ static void *AAPLProgressViewControllerContext = &AAPLProgressViewControllerCont
     [self.progress removeObserver:self forKeyPath:@"fractionCompleted"];
 }
 
+
 #pragma mark - Configuration
 
 - (void)configureDefaultStyleProgressView {
@@ -73,6 +74,7 @@ static void *AAPLProgressViewControllerContext = &AAPLProgressViewControllerCont
     self.tintedProgressView.trackTintColor = [UIColor aapl_applicationBlueColor];
     self.tintedProgressView.progressTintColor = [UIColor aapl_applicationPurpleColor];
 }
+
 
 #pragma mark - UIViewController
 
@@ -107,6 +109,7 @@ static void *AAPLProgressViewControllerContext = &AAPLProgressViewControllerCont
     [self.updateTimer invalidate];
 }
 
+
 #pragma mark - Key Value Observing (KVO)
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -120,6 +123,7 @@ static void *AAPLProgressViewControllerContext = &AAPLProgressViewControllerCont
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
+
 
 #pragma mark - Convenience
 

@@ -9,7 +9,7 @@
 import UIKit
 
 class AlertControllerViewController : UITableViewController {
-    // MARK: Properties
+    // MARK: - Properties
 
     weak var secureTextAlertAction: UIAlertAction?
     
@@ -35,7 +35,7 @@ class AlertControllerViewController : UITableViewController {
         ]
     }
     
-    // MARK: UIAlertControllerStyleAlert Style Alerts
+    // MARK: - UIAlertControllerStyleAlert Style Alerts
 
     /// Show an alert with an "Okay" button.
     func showSimpleAlert(_: NSIndexPath) {
@@ -200,7 +200,7 @@ class AlertControllerViewController : UITableViewController {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
-    // MARK: UIAlertControllerStyleActionSheet Style Alerts
+    // MARK: - UIAlertControllerStyleActionSheet Style Alerts
     
     /// Show a dialog with an "Okay" and "Cancel" button.
     func showOkayCancelActionSheet(selectedIndexPath: NSIndexPath) {
@@ -266,7 +266,7 @@ class AlertControllerViewController : UITableViewController {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
-    // MARK: UITextFieldTextDidChangeNotification
+    // MARK: - UITextFieldTextDidChangeNotification
 
     func handleTextFieldTextDidChangeNotification(notification: NSNotification) {
         let textField = notification.object as! UITextField
@@ -280,7 +280,7 @@ class AlertControllerViewController : UITableViewController {
         }
     }
     
-    // MARK: UITableViewDelegate
+    // MARK: - UITableViewDelegate
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let action = actionMap[indexPath.section][indexPath.row]

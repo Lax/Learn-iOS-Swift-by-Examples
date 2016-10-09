@@ -15,7 +15,7 @@ import UIKit
 private var progressViewKVOContext = 0
 
 class ProgressViewController: UITableViewController {
-    // MARK: Properties
+    // MARK: - Properties
     
     @IBOutlet weak var defaultStyleProgressView: UIProgressView!
     
@@ -37,7 +37,7 @@ class ProgressViewController: UITableViewController {
     */
     private var updateTimer: NSTimer?
     
-    // MARK: Initialization
+    // MARK: - Initialization
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -51,7 +51,7 @@ class ProgressViewController: UITableViewController {
         progress.removeObserver(self, forKeyPath: "fractionCompleted")
     }
     
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +84,7 @@ class ProgressViewController: UITableViewController {
         updateTimer?.invalidate()
     }
     
-    // MARK: Key Value Observing (KVO)
+    // MARK: - Key Value Observing (KVO)
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String: AnyObject]?, context: UnsafeMutablePointer<Void>) {
         // Check if this is the KVO notification for our `NSProgress` object.
@@ -99,7 +99,7 @@ class ProgressViewController: UITableViewController {
         }
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configureDefaultStyleProgressView() {
         defaultStyleProgressView.progressViewStyle = .Default
@@ -116,7 +116,7 @@ class ProgressViewController: UITableViewController {
         tintedProgressView.progressTintColor = UIColor.applicationPurpleColor
     }
 
-    // MARK: Timer
+    // MARK: - Timer
     
     func timerDidFire() {
         /*

@@ -1,5 +1,5 @@
 Sample code project: UIKit Catalog (iOS): Creating and Customizing UIKit Controls
-Version: 13.1
+Version: 13.2
 
 IMPORTANT:  This Apple software is supplied to you by Apple
 Inc. ("Apple") in consideration of your agreement to the following

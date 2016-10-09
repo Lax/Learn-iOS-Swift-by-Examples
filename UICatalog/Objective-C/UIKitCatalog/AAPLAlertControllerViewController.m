@@ -264,6 +264,7 @@ typedef NS_ENUM(NSInteger, AAPLAlertControllerActionSheetRow) {
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+
 #pragma mark - UITextFieldTextDidChangeNotification
 
 - (void)handleTextFieldTextDidChangeNotification:(NSNotification *)notification {
@@ -272,6 +273,7 @@ typedef NS_ENUM(NSInteger, AAPLAlertControllerActionSheetRow) {
     // Enforce a minimum length of >= 5 characters for secure text alerts.
     self.secureTextAlertAction.enabled = textField.text.length >= 5;
 }
+
 
 #pragma mark - UITableViewDelegate
 

@@ -9,13 +9,13 @@
 import UIKit
 
 class SwitchViewController: UITableViewController {
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var defaultSwitch: UISwitch!
     
     @IBOutlet weak var tintedSwitch: UISwitch!
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class SwitchViewController: UITableViewController {
         configureTintedSwitch()
     }
 
-    // MARK: Configuration
+    // MARK: - Configuration
 
     func configureDefaultSwitch() {
         defaultSwitch.setOn(true, animated: false)
@@ -40,7 +40,7 @@ class SwitchViewController: UITableViewController {
         tintedSwitch.addTarget(self, action: #selector(SwitchViewController.switchValueDidChange(_:)), forControlEvents: .ValueChanged)
     }
 
-    // MARK: Actions
+    // MARK: - Actions
 
     func switchValueDidChange(aSwitch: UISwitch) {
         NSLog("A switch changed its value: \(aSwitch).")
