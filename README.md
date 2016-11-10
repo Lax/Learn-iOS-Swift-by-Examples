@@ -14,12 +14,12 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 
 ### 官方文档
 
-目前唯一的完善的文档是官方发布的《The Swift Programming Language》，是名副其实的```Swift圣经```。目前官方提供 iBooks 版本和 ePub 版本。
-
 * 《The Swift Programming Language》
     *    [苹果官方版本](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/)
     *    iBooks版本([官方](https://itunes.apple.com/book/the-swift-programming-language/id881256329))
     *    EPUB版本（[官方](https://swift.org/documentation/TheSwiftProgrammingLanguage(Swift3).epub)）
+
+* [《API Reference》](https://developer.apple.com/reference?language=swift)
 
 *    Swift介绍 [Introducing Swift](https://developer.apple.com/swift/)
 
