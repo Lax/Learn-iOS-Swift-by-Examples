@@ -18,6 +18,7 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 
 * 《The Swift Programming Language》
     *    [苹果官方版本](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/)
+    *    iBooks版本([官方](https://itunes.apple.com/book/the-swift-programming-language/id881256329))
     *    EPUB版本（[官方](https://swift.org/documentation/TheSwiftProgrammingLanguage(Swift3).epub)）
 
 *    Swift介绍 [Introducing Swift](https://developer.apple.com/swift/)
@@ -31,7 +32,7 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 *    [StackOverflow上的Swift讨论](http://stackoverflow.com/questions/tagged/swift-language)
 *    github上的swift内容 [search结果](https://github.com/search?l=Swift&q=swift&ref=cmdform&type=Repositories)
 *    [Swift Cheatsheet](http://cdn2.raywenderlich.com/wp-content/uploads/2014/06/RW-Swift-Cheatsheet-0_3.pdf)
-*    [Swift & CocoaPods](https://medium.com/swift-programming/swift-cocoapods-da09d8ba6dd2) How to integrate CocoaPods into a vanilla Swift project
+*    [Swift & Cocoapods](https://medium.com/swift-programming/swift-cocoapods-da09d8ba6dd2) How to integrate Cocoapods into a vanilla Swift project
 *    [Swift Toolbox](http://www.swifttoolbox.io)
 
 
@@ -45,7 +46,7 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 *    [Generics in Swift](http://swiftyeti.com/generics/)
 *    [How to use the Swift REPL language shell – Swift programming from the command line](http://practicalswift.com/2014/06/07/swift-repl/)
 *    [How to write a minimal WebKit browser in 30 lines of Swift](http://practicalswift.com/2014/06/27/a-minimal-webkit-browser-in-30-lines-of-swift/)
-*    [Swift Initializers](http://ashfurrow.com/blog/swift-initializers)
+*    [Swift Initializers](http://ashfurrow.com/blog/swift-initializers/)
 *    [Create the Game of Life using Swift and SpriteKit](https://www.makegameswith.us/gamernews/399/create-the-game-of-life-using-swift-and-spritekit)
 *    [Composing functions in Swift](http://railsware.com/blog/2014/06/17/composing-functions-in-swift/)
 *    [Advanced Swift](http://blog.fivelakesstudio.com/2014/06/advanced-swift-part-1.html)
@@ -117,23 +118,19 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 
 *    Lister: A Productivity App Built in Swift
-[apple](https://developer.apple.com/library/prerelease/ios/samplecode/Lister-Swift/Introduction/Intro.html)
-/
-[github](https://github.com/Lax/iOS-Swift-Demos/tree/master/ListerAProductivityAppBuiltinSwift)
+[github](https://github.com/Lax/iOS-Swift-Demos/tree/master/Lister)
 
 *    UICatalog: Creating and Customizing UIKit Controls in Swift
-[apple](https://developer.apple.com/library/prerelease/ios/samplecode/UICatalog-Swift/Introduction/Intro.html)
+[apple](https://developer.apple.com/library/ios/samplecode/UICatalog/Introduction/Intro.html)
 /
-[github](https://github.com/Lax/iOS-Swift-Demos/tree/master/UICatalogCreatingandCustomizingUIKitControlsinSwift)
+[github](https://github.com/Lax/iOS-Swift-Demos/tree/master/UICatalog)
 
 *    Adventure: Building a SpriteKit Game Using Swift
-[apple](https://developer.apple.com/library/prerelease/ios/samplecode/Adventure-Swift/Introduction/Intro.html)
+[apple](https://developer.apple.com/library/mac/samplecode/Adventure-Swift/Introduction/Intro.html)
 /
-[github](https://github.com/Lax/iOS-Swift-Demos/tree/master/AdventureBuildingaSpriteKitgameusingSwift)
+[github](https://github.com/Lax/iOS-Swift-Demos/tree/master/Adventure)
 
 *    GestureRecognizers: Using standard UIGestureRecognizers in Swift
-[apple](https://developer.apple.com/library/prerelease/ios/samplecode/GestureRecognizers/Introduction/Intro.html)
-/
 [github](https://github.com/Lax/iOS-Swift-Demos/tree/master/GestureRecognizersUsingstandardUIGestureRecognizers)
 
 
