@@ -1,0 +1,365 @@
+
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F224161F1D04337E003EB080 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F224161E1D04337E003EB080 /* RingView.swift */; };
+		F2B07F471CED5DC300B03432 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D0CD921CDD78CC0097775C /* AppDelegate.swift */; };
+		F2B07F481CED5DC600B03432 /* CanvasMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D0CD941CDD78CC0097775C /* CanvasMainViewController.swift */; };
+		F2B07F491CED5DC900B03432 /* CGDrawingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F280FF8E1CE04D1F00CF8D37 /* CGDrawingEngine.swift */; };
+		F2B35B191CFCE5960014550C /* CanvasContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B35B181CFCE5960014550C /* CanvasContainerView.swift */; };
+		F2C4FBAF1CEE9E4600F3A052 /* RingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C4FBAE1CEE9E4600F3A052 /* RingControl.swift */; };
+		F2D0CD9A1CDD78CC0097775C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D0CD991CDD78CC0097775C /* Assets.xcassets */; };
+		F2D0CD9D1CDD78CC0097775C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2D0CD9B1CDD78CC0097775C /* LaunchScreen.storyboard */; };
+		F2D0CDA71CDD82900097775C /* StrokeGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D0CDA61CDD82900097775C /* StrokeGestureRecognizer.swift */; };
+		F2D0CDA91CDD9C5F0097775C /* StrokeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D0CDA81CDD9C5F0097775C /* StrokeCollection.swift */; };
+		F2DE48981D022A7200C9E0DC /* CGMathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DE48971D022A7200C9E0DC /* CGMathExtensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F214544C1CFB4E23003F77B0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F224161E1D04337E003EB080 /* RingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		F280FF8E1CE04D1F00CF8D37 /* CGDrawingEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGDrawingEngine.swift; sourceTree = "<group>"; };
+		F2B35B181CFCE5960014550C /* CanvasContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasContainerView.swift; sourceTree = "<group>"; };
+		F2C4FBAE1CEE9E4600F3A052 /* RingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingControl.swift; sourceTree = "<group>"; };
+		F2D0CD8F1CDD78CC0097775C /* SpeedSketch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedSketch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2D0CD921CDD78CC0097775C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F2D0CD941CDD78CC0097775C /* CanvasMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasMainViewController.swift; sourceTree = "<group>"; };
+		F2D0CD991CDD78CC0097775C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2D0CD9C1CDD78CC0097775C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F2D0CD9E1CDD78CC0097775C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2D0CDA61CDD82900097775C /* StrokeGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeGestureRecognizer.swift; sourceTree = "<group>"; };
+		F2D0CDA81CDD9C5F0097775C /* StrokeCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeCollection.swift; sourceTree = "<group>"; };
+		F2DE48971D022A7200C9E0DC /* CGMathExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGMathExtensions.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F2D0CD8C1CDD78CC0097775C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F25618401CDEC7BD00C01A7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F280FF901CE04D5300CF8D37 /* Drawing Engine */ = {
+			isa = PBXGroup;
+			children = (
+				F280FF8E1CE04D1F00CF8D37 /* CGDrawingEngine.swift */,
+			);
+			name = "Drawing Engine";
+			sourceTree = "<group>";
+		};
+		F280FF911CE04D7E00CF8D37 /* Stroke Model and Capture */ = {
+			isa = PBXGroup;
+			children = (
+				F2D0CDA61CDD82900097775C /* StrokeGestureRecognizer.swift */,
+				F2D0CDA81CDD9C5F0097775C /* StrokeCollection.swift */,
+			);
+			name = "Stroke Model and Capture";
+			sourceTree = "<group>";
+		};
+		F2D0CD861CDD78CC0097775C = {
+			isa = PBXGroup;
+			children = (
+				F214544C1CFB4E23003F77B0 /* README.md */,
+				F2D0CD911CDD78CC0097775C /* SpeedSketch */,
+				F2D0CD901CDD78CC0097775C /* Products */,
+				F25618401CDEC7BD00C01A7C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F2D0CD901CDD78CC0097775C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2D0CD8F1CDD78CC0097775C /* SpeedSketch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2D0CD911CDD78CC0097775C /* SpeedSketch */ = {
+			isa = PBXGroup;
+			children = (
+				F2D0CD921CDD78CC0097775C /* AppDelegate.swift */,
+				F2D0CD941CDD78CC0097775C /* CanvasMainViewController.swift */,
+				F2B35B181CFCE5960014550C /* CanvasContainerView.swift */,
+				F2E932E51CEF870B00B1238F /* Controls */,
+				F280FF901CE04D5300CF8D37 /* Drawing Engine */,
+				F280FF911CE04D7E00CF8D37 /* Stroke Model and Capture */,
+				F2DE48971D022A7200C9E0DC /* CGMathExtensions.swift */,
+				F2D0CD991CDD78CC0097775C /* Assets.xcassets */,
+				F2D0CD9B1CDD78CC0097775C /* LaunchScreen.storyboard */,
+				F2D0CD9E1CDD78CC0097775C /* Info.plist */,
+			);
+			path = SpeedSketch;
+			sourceTree = "<group>";
+		};
+		F2E932E51CEF870B00B1238F /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				F2C4FBAE1CEE9E4600F3A052 /* RingControl.swift */,
+				F224161E1D04337E003EB080 /* RingView.swift */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F2D0CD8E1CDD78CC0097775C /* SpeedSketch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2D0CDA11CDD78CC0097775C /* Build configuration list for PBXNativeTarget "SpeedSketch" */;
+			buildPhases = (
+				F2D0CD8B1CDD78CC0097775C /* Sources */,
+				F2D0CD8C1CDD78CC0097775C /* Frameworks */,
+				F2D0CD8D1CDD78CC0097775C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpeedSketch;
+			productName = SpeedSketch;
+			productReference = F2D0CD8F1CDD78CC0097775C /* SpeedSketch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F2D0CD871CDD78CC0097775C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = UIKit;
+				TargetAttributes = {
+					F2D0CD8E1CDD78CC0097775C = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F2D0CD8A1CDD78CC0097775C /* Build configuration list for PBXProject "SpeedSketch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F2D0CD861CDD78CC0097775C;
+			productRefGroup = F2D0CD901CDD78CC0097775C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F2D0CD8E1CDD78CC0097775C /* SpeedSketch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F2D0CD8D1CDD78CC0097775C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2D0CD9D1CDD78CC0097775C /* LaunchScreen.storyboard in Resources */,
+				F2D0CD9A1CDD78CC0097775C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F2D0CD8B1CDD78CC0097775C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F224161F1D04337E003EB080 /* RingView.swift in Sources */,
+				F2B07F471CED5DC300B03432 /* AppDelegate.swift in Sources */,
+				F2B07F481CED5DC600B03432 /* CanvasMainViewController.swift in Sources */,
+				F2DE48981D022A7200C9E0DC /* CGMathExtensions.swift in Sources */,
+				F2B07F491CED5DC900B03432 /* CGDrawingEngine.swift in Sources */,
+				F2D0CDA91CDD9C5F0097775C /* StrokeCollection.swift in Sources */,
+				F2C4FBAF1CEE9E4600F3A052 /* RingControl.swift in Sources */,
+				F2B35B191CFCE5960014550C /* CanvasContainerView.swift in Sources */,
+				F2D0CDA71CDD82900097775C /* StrokeGestureRecognizer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F2D0CD9B1CDD78CC0097775C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2D0CD9C1CDD78CC0097775C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F2D0CD9F1CDD78CC0097775C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = lossless;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2D0CDA01CDD78CC0097775C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = "respect-asset-catalog";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F2D0CDA21CDD78CC0097775C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = SpeedSketch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpeedSketch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		F2D0CDA31CDD78CC0097775C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = SpeedSketch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpeedSketch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F2D0CD8A1CDD78CC0097775C /* Build configuration list for PBXProject "SpeedSketch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2D0CD9F1CDD78CC0097775C /* Debug */,
+				F2D0CDA01CDD78CC0097775C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2D0CDA11CDD78CC0097775C /* Build configuration list for PBXNativeTarget "SpeedSketch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2D0CDA21CDD78CC0097775C /* Debug */,
+				F2D0CDA31CDD78CC0097775C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F2D0CD871CDD78CC0097775C /* Project object */;
+}
