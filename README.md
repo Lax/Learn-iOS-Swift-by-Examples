@@ -1,29 +1,77 @@
 # [Swift学习资源](http://blog.liulantao.com/SwiftBeginnersGuide/)
 
-![Swift](https://devimages.apple.com.edgekey.net/home/images/home-hero-swift-hero.png)
+![Swift](http://images.apple.com/v/swift/b/images/overview/icon_swift_hero_large_2x.png)
 
-[最新内容请查看Wiki](https://github.com/Lax/iOS-Swift-Demos/wiki)
+> Swift，一种强大的开源编程语言，
 
+> 让大家都能开发出众的 App。
+> Swift 是一种强劲而直观的编程语言，它由 Apple 创造，可用来为 iOS、Mac、Apple TV 和 Apple Watch 开发 app。它旨在为开发者提供充分的自由。Swift 易用并且开源，只要有想法，谁都可以创造非凡。
+
+> Swift is a high-performance system programming language. It has a clean and modern syntax, offers seamless access to existing C and Objective-C code and frameworks, and is memory safe by default.
+
+> On December 3, 2015, the Swift language, supporting libraries, debugger, and package manager were published under the Apache 2.0 license with a Runtime Library Exception, and Swift.org was created to host the project.
 
 苹果公司在WWDC 2014上宣布了他们将会推出一款新的编程语言，面向iOS和OS X系统的开发人员，这个新的语言被命名为Swift。
 
-Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语言，对于这个巨大的决定，苹果公司的解释是Swift速度更快，使用起来更加容易。在Swift推出之后，苹果公司应该也不会停止对Objective-C的支持，开发工具会同时支持两种语言。
+Swift在iOS 8发布的时候推向市场，用来取代 Objective-C 语言。
+对于这个巨大的决定，苹果公司的解释是Swift速度更快，使用起来更加容易。
+在Swift推出之后，苹果公司应该不会停止对 Objective-C 的支持，开发工具会同时支持两种语言。
 
+在 Swift 开源后，开发者社区活跃。目前 CocoaPods 中有大量的第三方开发库已经支持 Swift。
 
-## 官方文档及示例
+### 贡献
 
-### 官方文档
+- 提交 PR - [iOS-Swift-Demos](https://github.com/Lax/iOS-Swift-Demos)
+- 加入 QQ群 32958950
 
-* 《The Swift Programming Language》
-    *    [苹果官方版本](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/)
-    *    iBooks版本([官方](https://itunes.apple.com/book/the-swift-programming-language/id881256329))
-    *    EPUB版本（[官方](https://swift.org/documentation/TheSwiftProgrammingLanguage(Swift3).epub)）
+### 官方资源
 
-* [《API Reference》](https://developer.apple.com/reference?language=swift)
+- [Swift 开发者社区 - Swift.org](https://swift.org)
 
-*    Swift介绍 [Introducing Swift](https://developer.apple.com/swift/)
+- [Swift 代码库](https://github.com/apple/swift)
 
-*    [WWDC2014 Videos](https://developer.apple.com/videos/wwdc/2014/)
+- [Apple developer 的 Swift 首页](https://developer.apple.com/swift/)
+    - [Swift Blog](https://developer.apple.com/swift/playgrounds/)
+    - [Swift Resources](https://developer.apple.com/swift/resources/)
+    - [Swift Playgrounds](https://developer.apple.com/swift/playgrounds/) Learn Swift on iPad
+
+- [苹果公司官网的 Swift 页面](http://www.apple.com/swift/)
+    - [Xcode](https://itunes.apple.com/app/xcode/id497799835)
+
+### 权威文档
+
+* 《The Swift Programming Language》- The Definitive Book
+    - [Web](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html)
+    - ePub（[官方](https://swift.org/documentation/TheSwiftProgrammingLanguage(Swift3.0.1).epub）
+    - [iBooks Store](https://itunes.apple.com/us/book-series/swift-programming-series/id888896989?mt=11)
+
+* 《App Development with Swift》
+    -  [iBooks Store](https://itunes.apple.com/us/book/app-development-with-swift/id1118575552?mt=11)
+
+* 《Using Swift with Cocoa and Objective-C》
+    - [iBooks Store](https://itunes.apple.com/us/book/using-swift-cocoa-objective/id888894773?mt=11)
+    - [Web](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/index.html)
+
+* 《[Swift Standard Library API Reference](https://developer.apple.com/reference/swift)》
+
+* 《[Start Developing iOS Apps](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html)》
+
+* 《[API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)》
+
+* 《[Swift Programming Language Evolution](http://apple.github.io/swift-evolution/)》
+
+* [WWDC2014 Videos](https://developer.apple.com/videos/wwdc/2014/)
+
+### 社区文档
+
+- 《The Swift Programming Language》 [社区译中文版](https://github.com/numbbbbb/the-swift-programming-language-in-chinese)
+
+### 课程
+
+- [Stanford University: Developing iOS 9 Apps with Swift](https://itunes.com/StanfordSwift)
+
+- [Plymouth University: iOS Development in Swift](https://itunes.com/PlymouthSwift)
+
 
 ### 非官方文档与社区（英文）
 
@@ -77,19 +125,13 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 *    [SPACESHIP OPERATOR IN SWIFT](http://vperi.com/2014/06/05/spaceship-operator-in-swift/) 和 [REGULAR EXPRESSIONS IN SWITCH STATEMENTS](http://vperi.com/2014/06/08/regular-expressions-in-switch-statements/) by Venkat Peri
 
 
-### 博客与翻译（中文）
-
-有网友第一时间开始了官方文档的翻译工作，相信近期将由更多文档和教程出现。
-
-
 #### 社区
 
 *    https://www.v2ex.com/go/swift
 *    http://swift.sh
 *    http://swift-china.org
 *    CocoaChina的[Swift讨论区](http://www.cocoachina.com/bbs/thread.php?fid=57)
-*    QQ群
-     *     iOS开发者-开始Swift，群号：32958950，申请时请说明身份。
+*    QQ群 iOS开发者-开始Swift，群号：32958950，申请时请说明身份。
 
 
 #### 翻译
@@ -108,8 +150,7 @@ Swift在iOS 8发布的时候推向市场，用来取代现有的Objective-C语�
 
 #### 课程
 
-*    《[Swift Education](http://swifteducation.github.io/teaching_app_development_with_swift/)》
-*    《[SwiftV课堂](http://www.swiftv.cn/)》 免费Swift学习视频
+*    《[SwiftV课堂](http://www.swiftv.cn/)》 免费Swift学习视频
 *    《[Apple Swift语言基础教程](http://www.jikexueyuan.com/course/92.html)》极客学院
 
 
@@ -184,18 +225,18 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 
 ## 其它
 
-*    [iOS Developer Library](https://developer.apple.com/library/prerelease/ios/navigation/)
+*    [iOS Developer Library](https://developer.apple.com/library/ios/navigation/)
 *    [Chris Lattner](http://nondot.org/sabre/) Swift设计者
 
 *    [iOS 7.1 to iOS 8.0 API Differences](https://developer.apple.com/library/prerelease/ios/releasenotes/General/iOS80APIDiffs/index.html)
 *    [App Extensions Increase Your Impact](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/ExtensibilityPG/index.html)
-*    [Swift学习资源](http://blog.liulantao.com/SwiftBeginnersGuide/) 新手的Swift学习资料汇总，比较详细总结了常用的资源。
+*    [Swift学习资源](http://blog.liulantao.com/SwiftBeginnersGuide/) Swift 学习资料汇总，比较详细总结了常用的资源。
 
-### 因为重名躺枪的Swift
+### 因为重名躺枪的 Swift
 
 *    [Swift Lang](http://swift-lang.org) 一门很专业的并行编程语言，有苹果在Swift页面的链接，肯定带过去很多访问量。
 *    [OpenStack Swift](https://github.com/openstack/swift) OpenStack Object Storage (Swift)。
-*    [Swift聊天工具](http://swift.im) 基于XMPP的聊天工具及服务端SDK。
+*    [Swift 聊天工具](http://swift.im) 基于XMPP的聊天工具及服务端SDK。
 
 *    [Taylor Swift](http://en.wikipedia.org/wiki/Taylor_Swift) 美国乡村音乐女創作歌手、吉他歌手、演员。这位1989年出生的美女获得过数不清的格莱美奖及其它排行榜大奖。2014/05/30刚举办了泰勒•斯威夫特“红”巡演上海演唱会。WWDC2014之后三天，她从Google搜索结果首页被挤出，很受伤，歌迷们也很受伤。去[脸盆网](https://www.facebook.com/TaylorSwift)关注她，去音悦台[听她的歌](http://www.yinyuetai.com/fanclub/122)。
 
