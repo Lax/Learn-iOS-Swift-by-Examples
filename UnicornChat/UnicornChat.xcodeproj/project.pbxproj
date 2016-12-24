@@ -1,0 +1,808 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		522FAE651D08855B009BC1A0 /* chatmockdraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 522FAE641D08855B009BC1A0 /* chatmockdraft.png */; };
+		522FAE661D08855B009BC1A0 /* chatmockdraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 522FAE641D08855B009BC1A0 /* chatmockdraft.png */; };
+		522FAE681D0885A4009BC1A0 /* chatmock.png in Resources */ = {isa = PBXBuildFile; fileRef = 522FAE671D0885A4009BC1A0 /* chatmock.png */; };
+		522FAE691D0885A4009BC1A0 /* chatmock.png in Resources */ = {isa = PBXBuildFile; fileRef = 522FAE671D0885A4009BC1A0 /* chatmock.png */; };
+		5253B67C1CFDD60600F67727 /* UCChatViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5253B67A1CFDD60600F67727 /* UCChatViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5253B67D1CFDD60600F67727 /* UCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5253B67B1CFDD60600F67727 /* UCChatViewController.m */; };
+		5253B6831CFDD73800F67727 /* UCChatView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5253B6811CFDD73800F67727 /* UCChatView.h */; };
+		5253B6841CFDD73800F67727 /* UCChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5253B6821CFDD73800F67727 /* UCChatView.m */; };
+		5253B68A1CFDDD3D00F67727 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520CB0D21CEA2617003E80C1 /* IntentsUI.framework */; };
+		5253B68D1CFDDD3D00F67727 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5253B68C1CFDDD3D00F67727 /* IntentViewController.swift */; };
+		5253B6901CFDDD3D00F67727 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5253B68E1CFDDD3D00F67727 /* MainInterface.storyboard */; };
+		5253B6941CFDDD3D00F67727 /* SiriUIExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5253B6891CFDDD3D00F67727 /* SiriUIExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		843FAC4B1CFE99CE0079D035 /* UnicornCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AC3F1C1CF9170F00D3D08A /* UnicornCore.framework */; };
+		84AC3F1F1CF9170F00D3D08A /* UnicornCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84AC3F1E1CF9170F00D3D08A /* UnicornCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84AC3F241CF9170F00D3D08A /* UnicornCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84AC3F1C1CF9170F00D3D08A /* UnicornCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84AC3F2E1CF9187F00D3D08A /* UnicornCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AC3F1C1CF9170F00D3D08A /* UnicornCore.framework */; };
+		84AC3F311CF9195400D3D08A /* UCContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 84AC3F2F1CF9195400D3D08A /* UCContact.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84AC3F321CF9195400D3D08A /* UCContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AC3F301CF9195400D3D08A /* UCContact.m */; };
+		84C6A78A1CE433A200E22048 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6A7891CE433A200E22048 /* AppDelegate.swift */; };
+		84C6A78C1CE433A200E22048 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6A78B1CE433A200E22048 /* ViewController.swift */; };
+		84C6A78F1CE433A200E22048 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C6A78D1CE433A200E22048 /* Main.storyboard */; };
+		84C6A7911CE433A200E22048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C6A7901CE433A200E22048 /* Assets.xcassets */; };
+		84C6A7941CE433A200E22048 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C6A7921CE433A200E22048 /* LaunchScreen.storyboard */; };
+		84C6A7A21CE4413400E22048 /* UCIntentsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6A7A11CE4413400E22048 /* UCIntentsHandler.swift */; };
+		84C6A7A61CE4413400E22048 /* SiriExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 84C6A79F1CE4413400E22048 /* SiriExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		84C6A7AC1CE4573E00E22048 /* UCSendMessageIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6A7AB1CE4573E00E22048 /* UCSendMessageIntentHandler.swift */; };
+		84D39A4E1CFD0DBB00C8241D /* UCAddressBookManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D39A4C1CFD0DBB00C8241D /* UCAddressBookManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D39A4F1CFD0DBB00C8241D /* UCAddressBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D39A4D1CFD0DBB00C8241D /* UCAddressBookManager.m */; };
+		84D39A521CFD5D9000C8241D /* UCAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D39A501CFD5D9000C8241D /* UCAccount.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D39A531CFD5D9000C8241D /* UCAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D39A511CFD5D9000C8241D /* UCAccount.m */; };
+		92508E351D02381800944860 /* INInteraction+UnicornCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 92508E331D02381800944860 /* INInteraction+UnicornCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92508E361D02381800944860 /* INInteraction+UnicornCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 92508E341D02381800944860 /* INInteraction+UnicornCore.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5253B6921CFDDD3D00F67727 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C6A77E1CE433A200E22048 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5253B6881CFDDD3D00F67727;
+			remoteInfo = SiriUIExtension;
+		};
+		84AC3F211CF9170F00D3D08A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C6A77E1CE433A200E22048 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84AC3F1B1CF9170F00D3D08A;
+			remoteInfo = UnicornCore;
+		};
+		84AC3F2C1CF9183500D3D08A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C6A77E1CE433A200E22048 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84AC3F1B1CF9170F00D3D08A;
+			remoteInfo = UnicornCore;
+		};
+		84C6A7A41CE4413400E22048 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C6A77E1CE433A200E22048 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84C6A79E1CE4413400E22048;
+			remoteInfo = SiriExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		84AC3F281CF9170F00D3D08A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				84AC3F241CF9170F00D3D08A /* UnicornCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C6A7AA1CE4413400E22048 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				84C6A7A61CE4413400E22048 /* SiriExtension.appex in Embed App Extensions */,
+				5253B6941CFDDD3D00F67727 /* SiriUIExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		520CB0D21CEA2617003E80C1 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		522FAE641D08855B009BC1A0 /* chatmockdraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatmockdraft.png; sourceTree = "<group>"; };
+		522FAE671D0885A4009BC1A0 /* chatmock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatmock.png; sourceTree = "<group>"; };
+		5253B67A1CFDD60600F67727 /* UCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCChatViewController.h; sourceTree = "<group>"; };
+		5253B67B1CFDD60600F67727 /* UCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCChatViewController.m; sourceTree = "<group>"; };
+		5253B6811CFDD73800F67727 /* UCChatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCChatView.h; sourceTree = "<group>"; };
+		5253B6821CFDD73800F67727 /* UCChatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCChatView.m; sourceTree = "<group>"; };
+		5253B6891CFDDD3D00F67727 /* SiriUIExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SiriUIExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5253B68C1CFDDD3D00F67727 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		5253B68F1CFDDD3D00F67727 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		5253B6911CFDDD3D00F67727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84AC3F1C1CF9170F00D3D08A /* UnicornCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UnicornCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84AC3F1E1CF9170F00D3D08A /* UnicornCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnicornCore.h; sourceTree = "<group>"; };
+		84AC3F201CF9170F00D3D08A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84AC3F2F1CF9195400D3D08A /* UCContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCContact.h; sourceTree = "<group>"; };
+		84AC3F301CF9195400D3D08A /* UCContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCContact.m; sourceTree = "<group>"; };
+		84C6A7861CE433A200E22048 /* UnicornChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnicornChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C6A7891CE433A200E22048 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		84C6A78B1CE433A200E22048 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84C6A78E1CE433A200E22048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84C6A7901CE433A200E22048 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84C6A7931CE433A200E22048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84C6A7951CE433A200E22048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C6A79F1CE4413400E22048 /* SiriExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SiriExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C6A7A11CE4413400E22048 /* UCIntentsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCIntentsHandler.swift; sourceTree = "<group>"; };
+		84C6A7A31CE4413400E22048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C6A7AB1CE4573E00E22048 /* UCSendMessageIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UCSendMessageIntentHandler.swift; sourceTree = "<group>"; };
+		84D39A4C1CFD0DBB00C8241D /* UCAddressBookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCAddressBookManager.h; sourceTree = "<group>"; };
+		84D39A4D1CFD0DBB00C8241D /* UCAddressBookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCAddressBookManager.m; sourceTree = "<group>"; };
+		84D39A501CFD5D9000C8241D /* UCAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCAccount.h; sourceTree = "<group>"; };
+		84D39A511CFD5D9000C8241D /* UCAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCAccount.m; sourceTree = "<group>"; };
+		92508E331D02381800944860 /* INInteraction+UnicornCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "INInteraction+UnicornCore.h"; sourceTree = "<group>"; };
+		92508E341D02381800944860 /* INInteraction+UnicornCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "INInteraction+UnicornCore.m"; sourceTree = "<group>"; };
+		B5E465061D9F11E900F114F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5253B6861CFDDD3D00F67727 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				843FAC4B1CFE99CE0079D035 /* UnicornCore.framework in Frameworks */,
+				5253B68A1CFDDD3D00F67727 /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84AC3F181CF9170F00D3D08A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C6A7831CE433A200E22048 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C6A79C1CE4413400E22048 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84AC3F2E1CF9187F00D3D08A /* UnicornCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		520CB0D11CEA2617003E80C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84AC3F1D1CF9170F00D3D08A /* UnicornCore */,
+				520CB0D21CEA2617003E80C1 /* IntentsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5253B6801CFDD72200F67727 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				522FAE641D08855B009BC1A0 /* chatmockdraft.png */,
+				522FAE671D0885A4009BC1A0 /* chatmock.png */,
+				5253B6811CFDD73800F67727 /* UCChatView.h */,
+				5253B6821CFDD73800F67727 /* UCChatView.m */,
+			);
+			name = Internal;
+			sourceTree = "<group>";
+		};
+		5253B68B1CFDDD3D00F67727 /* SiriUIExtension */ = {
+			isa = PBXGroup;
+			children = (
+				5253B68C1CFDDD3D00F67727 /* IntentViewController.swift */,
+				5253B68E1CFDDD3D00F67727 /* MainInterface.storyboard */,
+				5253B6911CFDDD3D00F67727 /* Info.plist */,
+			);
+			path = SiriUIExtension;
+			sourceTree = "<group>";
+		};
+		84AC3F1D1CF9170F00D3D08A /* UnicornCore */ = {
+			isa = PBXGroup;
+			children = (
+				92508E331D02381800944860 /* INInteraction+UnicornCore.h */,
+				92508E341D02381800944860 /* INInteraction+UnicornCore.m */,
+				5253B67A1CFDD60600F67727 /* UCChatViewController.h */,
+				5253B67B1CFDD60600F67727 /* UCChatViewController.m */,
+				84D39A4C1CFD0DBB00C8241D /* UCAddressBookManager.h */,
+				84D39A4D1CFD0DBB00C8241D /* UCAddressBookManager.m */,
+				84AC3F1E1CF9170F00D3D08A /* UnicornCore.h */,
+				84AC3F2F1CF9195400D3D08A /* UCContact.h */,
+				84AC3F301CF9195400D3D08A /* UCContact.m */,
+				84D39A501CFD5D9000C8241D /* UCAccount.h */,
+				84D39A511CFD5D9000C8241D /* UCAccount.m */,
+				5253B6801CFDD72200F67727 /* Internal */,
+				84AC3F201CF9170F00D3D08A /* Info.plist */,
+			);
+			path = UnicornCore;
+			sourceTree = "<group>";
+		};
+		84C6A77D1CE433A200E22048 = {
+			isa = PBXGroup;
+			children = (
+				B5E465061D9F11E900F114F1 /* README.md */,
+				84C6A7881CE433A200E22048 /* UnicornChat */,
+				84C6A7A01CE4413400E22048 /* SiriExtension */,
+				5253B68B1CFDDD3D00F67727 /* SiriUIExtension */,
+				520CB0D11CEA2617003E80C1 /* Frameworks */,
+				84C6A7871CE433A200E22048 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84C6A7871CE433A200E22048 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84C6A7861CE433A200E22048 /* UnicornChat.app */,
+				84C6A79F1CE4413400E22048 /* SiriExtension.appex */,
+				84AC3F1C1CF9170F00D3D08A /* UnicornCore.framework */,
+				5253B6891CFDDD3D00F67727 /* SiriUIExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84C6A7881CE433A200E22048 /* UnicornChat */ = {
+			isa = PBXGroup;
+			children = (
+				84C6A7891CE433A200E22048 /* AppDelegate.swift */,
+				84C6A78B1CE433A200E22048 /* ViewController.swift */,
+				84C6A78D1CE433A200E22048 /* Main.storyboard */,
+				84C6A7901CE433A200E22048 /* Assets.xcassets */,
+				84C6A7921CE433A200E22048 /* LaunchScreen.storyboard */,
+				84C6A7951CE433A200E22048 /* Info.plist */,
+			);
+			path = UnicornChat;
+			sourceTree = "<group>";
+		};
+		84C6A7A01CE4413400E22048 /* SiriExtension */ = {
+			isa = PBXGroup;
+			children = (
+				84C6A7A11CE4413400E22048 /* UCIntentsHandler.swift */,
+				84C6A7A31CE4413400E22048 /* Info.plist */,
+				84C6A7AB1CE4573E00E22048 /* UCSendMessageIntentHandler.swift */,
+			);
+			path = SiriExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		84AC3F191CF9170F00D3D08A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84D39A4E1CFD0DBB00C8241D /* UCAddressBookManager.h in Headers */,
+				84AC3F1F1CF9170F00D3D08A /* UnicornCore.h in Headers */,
+				92508E351D02381800944860 /* INInteraction+UnicornCore.h in Headers */,
+				84D39A521CFD5D9000C8241D /* UCAccount.h in Headers */,
+				5253B6831CFDD73800F67727 /* UCChatView.h in Headers */,
+				5253B67C1CFDD60600F67727 /* UCChatViewController.h in Headers */,
+				84AC3F311CF9195400D3D08A /* UCContact.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5253B6881CFDDD3D00F67727 /* SiriUIExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5253B6971CFDDD3D00F67727 /* Build configuration list for PBXNativeTarget "SiriUIExtension" */;
+			buildPhases = (
+				5253B6851CFDDD3D00F67727 /* Sources */,
+				5253B6861CFDDD3D00F67727 /* Frameworks */,
+				5253B6871CFDDD3D00F67727 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SiriUIExtension;
+			productName = SiriUIExtension;
+			productReference = 5253B6891CFDDD3D00F67727 /* SiriUIExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		84AC3F1B1CF9170F00D3D08A /* UnicornCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84AC3F271CF9170F00D3D08A /* Build configuration list for PBXNativeTarget "UnicornCore" */;
+			buildPhases = (
+				84AC3F171CF9170F00D3D08A /* Sources */,
+				84AC3F181CF9170F00D3D08A /* Frameworks */,
+				84AC3F191CF9170F00D3D08A /* Headers */,
+				84AC3F1A1CF9170F00D3D08A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnicornCore;
+			productName = UnicornCore;
+			productReference = 84AC3F1C1CF9170F00D3D08A /* UnicornCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		84C6A7851CE433A200E22048 /* UnicornChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84C6A7981CE433A200E22048 /* Build configuration list for PBXNativeTarget "UnicornChat" */;
+			buildPhases = (
+				84C6A7821CE433A200E22048 /* Sources */,
+				84C6A7831CE433A200E22048 /* Frameworks */,
+				84C6A7841CE433A200E22048 /* Resources */,
+				84C6A7AA1CE4413400E22048 /* Embed App Extensions */,
+				84AC3F281CF9170F00D3D08A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84C6A7A51CE4413400E22048 /* PBXTargetDependency */,
+				84AC3F221CF9170F00D3D08A /* PBXTargetDependency */,
+				5253B6931CFDDD3D00F67727 /* PBXTargetDependency */,
+			);
+			name = UnicornChat;
+			productName = UnicornChat;
+			productReference = 84C6A7861CE433A200E22048 /* UnicornChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84C6A79E1CE4413400E22048 /* SiriExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84C6A7A71CE4413400E22048 /* Build configuration list for PBXNativeTarget "SiriExtension" */;
+			buildPhases = (
+				84C6A79B1CE4413400E22048 /* Sources */,
+				84C6A79C1CE4413400E22048 /* Frameworks */,
+				84C6A79D1CE4413400E22048 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84AC3F2D1CF9183500D3D08A /* PBXTargetDependency */,
+			);
+			name = SiriExtension;
+			productName = SiriExtension;
+			productReference = 84C6A79F1CE4413400E22048 /* SiriExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84C6A77E1CE433A200E22048 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Apple Inc";
+				TargetAttributes = {
+					5253B6881CFDDD3D00F67727 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					84AC3F1B1CF9170F00D3D08A = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					84C6A7851CE433A200E22048 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					84C6A79E1CE4413400E22048 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 84C6A7811CE433A200E22048 /* Build configuration list for PBXProject "UnicornChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84C6A77D1CE433A200E22048;
+			productRefGroup = 84C6A7871CE433A200E22048 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84C6A7851CE433A200E22048 /* UnicornChat */,
+				84C6A79E1CE4413400E22048 /* SiriExtension */,
+				5253B6881CFDDD3D00F67727 /* SiriUIExtension */,
+				84AC3F1B1CF9170F00D3D08A /* UnicornCore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5253B6871CFDDD3D00F67727 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5253B6901CFDDD3D00F67727 /* MainInterface.storyboard in Resources */,
+				522FAE651D08855B009BC1A0 /* chatmockdraft.png in Resources */,
+				522FAE681D0885A4009BC1A0 /* chatmock.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84AC3F1A1CF9170F00D3D08A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				522FAE691D0885A4009BC1A0 /* chatmock.png in Resources */,
+				522FAE661D08855B009BC1A0 /* chatmockdraft.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C6A7841CE433A200E22048 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C6A7941CE433A200E22048 /* LaunchScreen.storyboard in Resources */,
+				84C6A7911CE433A200E22048 /* Assets.xcassets in Resources */,
+				84C6A78F1CE433A200E22048 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C6A79D1CE4413400E22048 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5253B6851CFDDD3D00F67727 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5253B68D1CFDDD3D00F67727 /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84AC3F171CF9170F00D3D08A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5253B67D1CFDD60600F67727 /* UCChatViewController.m in Sources */,
+				5253B6841CFDD73800F67727 /* UCChatView.m in Sources */,
+				84D39A4F1CFD0DBB00C8241D /* UCAddressBookManager.m in Sources */,
+				92508E361D02381800944860 /* INInteraction+UnicornCore.m in Sources */,
+				84AC3F321CF9195400D3D08A /* UCContact.m in Sources */,
+				84D39A531CFD5D9000C8241D /* UCAccount.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C6A7821CE433A200E22048 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C6A78C1CE433A200E22048 /* ViewController.swift in Sources */,
+				84C6A78A1CE433A200E22048 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C6A79B1CE4413400E22048 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C6A7A21CE4413400E22048 /* UCIntentsHandler.swift in Sources */,
+				84C6A7AC1CE4573E00E22048 /* UCSendMessageIntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5253B6931CFDDD3D00F67727 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5253B6881CFDDD3D00F67727 /* SiriUIExtension */;
+			targetProxy = 5253B6921CFDDD3D00F67727 /* PBXContainerItemProxy */;
+		};
+		84AC3F221CF9170F00D3D08A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84AC3F1B1CF9170F00D3D08A /* UnicornCore */;
+			targetProxy = 84AC3F211CF9170F00D3D08A /* PBXContainerItemProxy */;
+		};
+		84AC3F2D1CF9183500D3D08A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84AC3F1B1CF9170F00D3D08A /* UnicornCore */;
+			targetProxy = 84AC3F2C1CF9183500D3D08A /* PBXContainerItemProxy */;
+		};
+		84C6A7A51CE4413400E22048 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84C6A79E1CE4413400E22048 /* SiriExtension */;
+			targetProxy = 84C6A7A41CE4413400E22048 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5253B68E1CFDDD3D00F67727 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5253B68F1CFDDD3D00F67727 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		84C6A78D1CE433A200E22048 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84C6A78E1CE433A200E22048 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		84C6A7921CE433A200E22048 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84C6A7931CE433A200E22048 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5253B6951CFDDD3D00F67727 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SiriUIExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UnicornChat.SiriUIExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		5253B6961CFDDD3D00F67727 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SiriUIExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UnicornChat.SiriUIExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		84AC3F251CF9170F00D3D08A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UnicornCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UnicornChat.UnicornCore";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		84AC3F261CF9170F00D3D08A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UnicornCore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UnicornChat.UnicornCore";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		84C6A7961CE433A200E22048 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = lossless;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84C6A7971CE433A200E22048 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = "respect-asset-catalog";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84C6A7991CE433A200E22048 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = UnicornChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UnicornChat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		84C6A79A1CE433A200E22048 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = UnicornChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UnicornChat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		84C6A7A81CE4413400E22048 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SiriExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UnicornChat.SiriExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		84C6A7A91CE4413400E22048 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SiriExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.UnicornChat.SiriExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5253B6971CFDDD3D00F67727 /* Build configuration list for PBXNativeTarget "SiriUIExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5253B6951CFDDD3D00F67727 /* Debug */,
+				5253B6961CFDDD3D00F67727 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84AC3F271CF9170F00D3D08A /* Build configuration list for PBXNativeTarget "UnicornCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84AC3F251CF9170F00D3D08A /* Debug */,
+				84AC3F261CF9170F00D3D08A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C6A7811CE433A200E22048 /* Build configuration list for PBXProject "UnicornChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C6A7961CE433A200E22048 /* Debug */,
+				84C6A7971CE433A200E22048 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C6A7981CE433A200E22048 /* Build configuration list for PBXNativeTarget "UnicornChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C6A7991CE433A200E22048 /* Debug */,
+				84C6A79A1CE433A200E22048 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C6A7A71CE4413400E22048 /* Build configuration list for PBXNativeTarget "SiriExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C6A7A81CE4413400E22048 /* Debug */,
+				84C6A7A91CE4413400E22048 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84C6A77E1CE433A200E22048 /* Project object */;
+}

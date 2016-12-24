@@ -1,0 +1,714 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6A3B541F1AF92D37007CA237 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A3B541E1AF92D37007CA237 /* Launch Screen.storyboard */; };
+		6A4D140F1ADDF2DC00364DE0 /* HMCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4D140E1ADDF2DC00364DE0 /* HMCatalogViewController.swift */; };
+		6A589F641B0FAF3200CDD54B /* SegmentedTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A589F631B0FAF3200CDD54B /* SegmentedTimeCell.swift */; };
+		6A58EE961AF147BE00ECAD21 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A58EE951AF147BE00ECAD21 /* FavoritesViewController.swift */; };
+		6A5D85281B0CF3C5008DF524 /* TriggerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D85271B0CF3C5008DF524 /* TriggerCreator.swift */; };
+		6A5D852A1B0CFE6C008DF524 /* TimerTriggerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D85291B0CFE6C008DF524 /* TimerTriggerCreator.swift */; };
+		6A5D852C1B0D05DD008DF524 /* LocationTriggerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D852B1B0D05DD008DF524 /* LocationTriggerCreator.swift */; };
+		6A5D852F1B0D2155008DF524 /* EventTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D852E1B0D2155008DF524 /* EventTriggerViewController.swift */; };
+		6A5D85321B0D3032008DF524 /* TimeConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D85311B0D3032008DF524 /* TimeConditionViewController.swift */; };
+		6A5D85341B0D40B0008DF524 /* TimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D85331B0D40B0008DF524 /* TimePickerCell.swift */; };
+		6A5D85391B0D5100008DF524 /* EventTriggerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D85381B0D5100008DF524 /* EventTriggerCreator.swift */; };
+		6A5D853B1B0D63EB008DF524 /* NSPredicate+Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D853A1B0D63EB008DF524 /* NSPredicate+Condition.swift */; };
+		6A6DA8881B1FADE800D1FA8A /* HMActionSet+BuiltIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6DA8871B1FADE800D1FA8A /* HMActionSet+BuiltIn.swift */; };
+		6A8347531B0574040055198E /* CharacteristicSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8347521B0574040055198E /* CharacteristicSelectionViewController.swift */; };
+		6A8347551B06668B0055198E /* CharacteristicTriggerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8347541B06668B0055198E /* CharacteristicTriggerCreator.swift */; };
+		6A96D1211B051326004DD072 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A96D1201B051326004DD072 /* UIColor+Custom.swift */; };
+		6AA42B471AEEF28500A92A79 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA42B461AEEF28500A92A79 /* FavoritesManager.swift */; };
+		6AA850DA1B1E645300A77A3E /* UITableViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA850D91B1E645300A77A3E /* UITableViewController+Convenience.swift */; };
+		6AAE046E1B0A93660084A575 /* LocationTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAE046D1B0A93660084A575 /* LocationTriggerViewController.swift */; };
+		6ABBF3021ADF1A1C00C1CF69 /* Array+Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABBF3011ADF1A1C00C1CF69 /* Array+Sorting.swift */; };
+		6ACBCF5D1B02DAA000851BD3 /* CharacteristicTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBCF571B02DAA000851BD3 /* CharacteristicTriggerViewController.swift */; };
+		6ACBCF5E1B02DAA000851BD3 /* MapOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBCF581B02DAA000851BD3 /* MapOverlayView.swift */; };
+		6ACBCF5F1B02DAA000851BD3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBCF591B02DAA000851BD3 /* MapViewController.swift */; };
+		6ACBCF601B02DAA000851BD3 /* TimerTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBCF5C1B02DAA000851BD3 /* TimerTriggerViewController.swift */; };
+		6ACBCF621B02DB1700851BD3 /* TriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBCF611B02DB1700851BD3 /* TriggerViewController.swift */; };
+		6ACBCFA01B040AA600851BD3 /* HMEventTrigger+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBCF9F1B040AA600851BD3 /* HMEventTrigger+Convenience.swift */; };
+		6ACCD8C21B1266A70002FA61 /* ConditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCD8C11B1266A70002FA61 /* ConditionCell.swift */; };
+		6AD5641C1AFA792A00321F78 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD5641B1AFA792A00321F78 /* TabBarController.swift */; };
+		6ADF251E1AE1940B00CD05D0 /* HomeKitObjectCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADF251D1AE1940B00CD05D0 /* HomeKitObjectCollection.swift */; };
+		6ADF25221AE5AA8200CD05D0 /* TextCharacteristicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ADF25211AE5AA8200CD05D0 /* TextCharacteristicCell.xib */; };
+		6ADF25241AE5AAA100CD05D0 /* TextCharacteristicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADF25231AE5AAA100CD05D0 /* TextCharacteristicCell.swift */; };
+		6AE2A5641B17B84B002586A9 /* CNMutablePostalAddress+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE2A5631B17B84B002586A9 /* CNMutablePostalAddress+Convenience.swift */; };
+		DC0BBB991A1FB60E002AB35C /* ServiceGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0BBB981A1FB60E002AB35C /* ServiceGroupViewController.swift */; };
+		DC0BBB9D1A1FBC46002AB35C /* AddServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0BBB9C1A1FBC46002AB35C /* AddServicesViewController.swift */; };
+		DC1310FC1A1438CB004E5DB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1310EE1A1438CB004E5DB5 /* AppDelegate.swift */; };
+		DC1310FF1A1438CB004E5DB5 /* HMCharacteristic+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1310F31A1438CB004E5DB5 /* HMCharacteristic+Properties.swift */; };
+		DC1311001A1438CB004E5DB5 /* HMService+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1310F41A1438CB004E5DB5 /* HMService+Properties.swift */; };
+		DC1311041A1438CB004E5DB5 /* UIAlertController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1310F91A1438CB004E5DB5 /* UIAlertController+Convenience.swift */; };
+		DC1311051A1438CB004E5DB5 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1310FA1A1438CB004E5DB5 /* UIViewController+Convenience.swift */; };
+		DC5042D41A1D5EFD000E3973 /* ActionSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5042D31A1D5EFD000E3973 /* ActionSetViewController.swift */; };
+		DC5042D61A1D5FFE000E3973 /* ActionSetCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5042D51A1D5FFE000E3973 /* ActionSetCreator.swift */; };
+		DC53509F1A1D71F2000A8F0E /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC53509E1A1D71F2000A8F0E /* ActionCell.swift */; };
+		DC58FA801A1BD10400550AD3 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58FA7F1A1BD10400550AD3 /* ServicesViewController.swift */; };
+		DC58FA831A1BE32000550AD3 /* CharacteristicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58FA821A1BE32000550AD3 /* CharacteristicsViewController.swift */; };
+		DC58FA881A1BE59500550AD3 /* CharacteristicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC58FA841A1BE59500550AD3 /* CharacteristicCell.xib */; };
+		DC58FA891A1BE59500550AD3 /* SegmentedControlCharacteristicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC58FA851A1BE59500550AD3 /* SegmentedControlCharacteristicCell.xib */; };
+		DC58FA8A1A1BE59500550AD3 /* SliderCharacteristicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC58FA861A1BE59500550AD3 /* SliderCharacteristicCell.xib */; };
+		DC58FA8B1A1BE59500550AD3 /* SwitchCharacteristicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC58FA871A1BE59500550AD3 /* SwitchCharacteristicCell.xib */; };
+		DC58FA8D1A1BE5A300550AD3 /* CharacteristicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58FA8C1A1BE5A300550AD3 /* CharacteristicCell.swift */; };
+		DC58FA8F1A1BE5B700550AD3 /* SegmentedControlCharacteristicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58FA8E1A1BE5B700550AD3 /* SegmentedControlCharacteristicCell.swift */; };
+		DC58FA911A1BE5C400550AD3 /* SliderCharacteristicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58FA901A1BE5C400550AD3 /* SliderCharacteristicCell.swift */; };
+		DC58FA931A1BE5D000550AD3 /* SwitchCharacteristicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58FA921A1BE5D000550AD3 /* SwitchCharacteristicCell.swift */; };
+		DC58FA951A1BEF7400550AD3 /* CharacteristicsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58FA941A1BEF7400550AD3 /* CharacteristicsTableViewDataSource.swift */; };
+		DC58FA971A1BF4DD00550AD3 /* AccessoryUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58FA961A1BF4DD00550AD3 /* AccessoryUpdateController.swift */; };
+		DCD480611A16B31C001BFEE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD480601A16B31C001BFEE3 /* Main.storyboard */; };
+		DCD480631A16B371001BFEE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCD480621A16B371001BFEE3 /* Images.xcassets */; };
+		DCD480651A16B3AC001BFEE3 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD480641A16B3AC001BFEE3 /* HomeListViewController.swift */; };
+		DCD480671A16B4C3001BFEE3 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD480661A16B4C3001BFEE3 /* HomeStore.swift */; };
+		DCD4806E1A16BD1D001BFEE3 /* HMHome+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4806D1A16BD1D001BFEE3 /* HMHome+Properties.swift */; };
+		DCD480701A16C682001BFEE3 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4806F1A16C682001BFEE3 /* ControlsViewController.swift */; };
+		DCD480721A16C69C001BFEE3 /* ControlsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD480711A16C69C001BFEE3 /* ControlsTableViewDataSource.swift */; };
+		DCD480741A16C948001BFEE3 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD480731A16C948001BFEE3 /* ServiceCell.swift */; };
+		DCD480761A16CDDB001BFEE3 /* HomeListConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD480751A16CDDB001BFEE3 /* HomeListConfigurationViewController.swift */; };
+		DCF046BE1A1A5D92002DBFBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF046BD1A1A5D92002DBFBF /* HomeViewController.swift */; };
+		DCF046C21A1A5E50002DBFBF /* UIStoryboardSegue+IntendedDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF046C11A1A5E50002DBFBF /* UIStoryboardSegue+IntendedDestination.swift */; };
+		DCF046C41A1A939F002DBFBF /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF046C31A1A939F002DBFBF /* RoomViewController.swift */; };
+		DCF046C61A1A9A73002DBFBF /* ZoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF046C51A1A9A73002DBFBF /* ZoneViewController.swift */; };
+		DCF046C81A1A9D25002DBFBF /* AddRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF046C71A1A9D25002DBFBF /* AddRoomViewController.swift */; };
+		DCF046D41A1AB19F002DBFBF /* AccessoryBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF046D31A1AB19F002DBFBF /* AccessoryBrowserViewController.swift */; };
+		DCF046D61A1AB627002DBFBF /* ModifyAccessoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF046D51A1AB627002DBFBF /* ModifyAccessoryViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CAA68A951AF0614300905CFE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3E7CACDF1B1E4AAB00891CE0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6A10AEE81AF84BEA000A2CD6 /* HMCatalog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HMCatalog.entitlements; sourceTree = "<group>"; };
+		6A3B541E1AF92D37007CA237 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		6A4D140E1ADDF2DC00364DE0 /* HMCatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMCatalogViewController.swift; sourceTree = "<group>"; };
+		6A589F631B0FAF3200CDD54B /* SegmentedTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SegmentedTimeCell.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6A58EE951AF147BE00ECAD21 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FavoritesViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6A5D85271B0CF3C5008DF524 /* TriggerCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TriggerCreator.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6A5D85291B0CFE6C008DF524 /* TimerTriggerCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimerTriggerCreator.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6A5D852B1B0D05DD008DF524 /* LocationTriggerCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = LocationTriggerCreator.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6A5D852E1B0D2155008DF524 /* EventTriggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventTriggerViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6A5D85311B0D3032008DF524 /* TimeConditionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimeConditionViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6A5D85331B0D40B0008DF524 /* TimePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = TimePickerCell.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6A5D85381B0D5100008DF524 /* EventTriggerCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventTriggerCreator.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6A5D853A1B0D63EB008DF524 /* NSPredicate+Condition.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Condition.swift"; sourceTree = "<group>"; tabWidth = 4; };
+		6A6DA8871B1FADE800D1FA8A /* HMActionSet+BuiltIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HMActionSet+BuiltIn.swift"; sourceTree = "<group>"; };
+		6A8347521B0574040055198E /* CharacteristicSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CharacteristicSelectionViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6A8347541B06668B0055198E /* CharacteristicTriggerCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CharacteristicTriggerCreator.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6A96D1201B051326004DD072 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; tabWidth = 4; };
+		6AA42B461AEEF28500A92A79 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FavoritesManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6AA850D91B1E645300A77A3E /* UITableViewController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Convenience.swift"; sourceTree = "<group>"; };
+		6AAE046D1B0A93660084A575 /* LocationTriggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LocationTriggerViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6ABBF3011ADF1A1C00C1CF69 /* Array+Sorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Array+Sorting.swift"; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6ACBCF571B02DAA000851BD3 /* CharacteristicTriggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CharacteristicTriggerViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6ACBCF581B02DAA000851BD3 /* MapOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MapOverlayView.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6ACBCF591B02DAA000851BD3 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6ACBCF5C1B02DAA000851BD3 /* TimerTriggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimerTriggerViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6ACBCF611B02DB1700851BD3 /* TriggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TriggerViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6ACBCF9F1B040AA600851BD3 /* HMEventTrigger+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "HMEventTrigger+Convenience.swift"; sourceTree = "<group>"; tabWidth = 4; };
+		6ACCD8C11B1266A70002FA61 /* ConditionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ConditionCell.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6AD5641B1AFA792A00321F78 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		6ADF251D1AE1940B00CD05D0 /* HomeKitObjectCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HomeKitObjectCollection.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6ADF25211AE5AA8200CD05D0 /* TextCharacteristicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCharacteristicCell.xib; sourceTree = "<group>"; };
+		6ADF25231AE5AAA100CD05D0 /* TextCharacteristicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCharacteristicCell.swift; sourceTree = "<group>"; };
+		6AE2A5631B17B84B002586A9 /* CNMutablePostalAddress+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNMutablePostalAddress+Convenience.swift"; sourceTree = "<group>"; };
+		DC0BBB981A1FB60E002AB35C /* ServiceGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ServiceGroupViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
+		DC0BBB9C1A1FBC46002AB35C /* AddServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AddServicesViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC1310BE1A14201E004E5DB5 /* HMCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC1310EE1A1438CB004E5DB5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC1310F31A1438CB004E5DB5 /* HMCharacteristic+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "HMCharacteristic+Properties.swift"; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC1310F41A1438CB004E5DB5 /* HMService+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "HMService+Properties.swift"; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC1310F81A1438CB004E5DB5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC1310F91A1438CB004E5DB5 /* UIAlertController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Convenience.swift"; sourceTree = "<group>"; tabWidth = 4; };
+		DC1310FA1A1438CB004E5DB5 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC5042D31A1D5EFD000E3973 /* ActionSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ActionSetViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC5042D51A1D5FFE000E3973 /* ActionSetCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ActionSetCreator.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC53509E1A1D71F2000A8F0E /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ActionCell.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC58FA7F1A1BD10400550AD3 /* ServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ServicesViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC58FA821A1BE32000550AD3 /* CharacteristicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CharacteristicsViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC58FA841A1BE59500550AD3 /* CharacteristicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharacteristicCell.xib; sourceTree = "<group>"; };
+		DC58FA851A1BE59500550AD3 /* SegmentedControlCharacteristicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlCharacteristicCell.xib; sourceTree = "<group>"; };
+		DC58FA861A1BE59500550AD3 /* SliderCharacteristicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCharacteristicCell.xib; sourceTree = "<group>"; };
+		DC58FA871A1BE59500550AD3 /* SwitchCharacteristicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCharacteristicCell.xib; sourceTree = "<group>"; };
+		DC58FA8C1A1BE5A300550AD3 /* CharacteristicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CharacteristicCell.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC58FA8E1A1BE5B700550AD3 /* SegmentedControlCharacteristicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlCharacteristicCell.swift; sourceTree = "<group>"; tabWidth = 4; };
+		DC58FA901A1BE5C400550AD3 /* SliderCharacteristicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = SliderCharacteristicCell.swift; sourceTree = "<group>"; tabWidth = 3; };
+		DC58FA921A1BE5D000550AD3 /* SwitchCharacteristicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SwitchCharacteristicCell.swift; sourceTree = "<group>"; tabWidth = 4; };
+		DC58FA941A1BEF7400550AD3 /* CharacteristicsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CharacteristicsTableViewDataSource.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DC58FA961A1BF4DD00550AD3 /* AccessoryUpdateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AccessoryUpdateController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DCD480601A16B31C001BFEE3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DCD480621A16B371001BFEE3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DCD480641A16B3AC001BFEE3 /* HomeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HomeListViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DCD480661A16B4C3001BFEE3 /* HomeStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = HomeStore.swift; sourceTree = "<group>"; tabWidth = 4; };
+		DCD4806D1A16BD1D001BFEE3 /* HMHome+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "HMHome+Properties.swift"; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DCD4806F1A16C682001BFEE3 /* ControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ControlsViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DCD480711A16C69C001BFEE3 /* ControlsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ControlsTableViewDataSource.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DCD480731A16C948001BFEE3 /* ServiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; tabWidth = 4; };
+		DCD480751A16CDDB001BFEE3 /* HomeListConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HomeListConfigurationViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DCF046BD1A1A5D92002DBFBF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HomeViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DCF046C11A1A5E50002DBFBF /* UIStoryboardSegue+IntendedDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboardSegue+IntendedDestination.swift"; sourceTree = "<group>"; tabWidth = 4; };
+		DCF046C31A1A939F002DBFBF /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RoomViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DCF046C51A1A9A73002DBFBF /* ZoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ZoneViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DCF046C71A1A9D25002DBFBF /* AddRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AddRoomViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DCF046D31A1AB19F002DBFBF /* AccessoryBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AccessoryBrowserViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		DCF046D51A1AB627002DBFBF /* ModifyAccessoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ModifyAccessoryViewController.swift; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC1310BB1A14201E004E5DB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6A58EE941AF1477700ECAD21 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				6AA42B461AEEF28500A92A79 /* FavoritesManager.swift */,
+				6A58EE951AF147BE00ECAD21 /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		6A5D852D1B0D2134008DF524 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				6A5D852E1B0D2155008DF524 /* EventTriggerViewController.swift */,
+				6A5D85381B0D5100008DF524 /* EventTriggerCreator.swift */,
+				6A5D85301B0D3017008DF524 /* Conditions */,
+				6A8347511B0573C60055198E /* Characteristic */,
+				6A8347501B0573A00055198E /* Location */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		6A5D85301B0D3017008DF524 /* Conditions */ = {
+			isa = PBXGroup;
+			children = (
+				6A5D85311B0D3032008DF524 /* TimeConditionViewController.swift */,
+				6A5D85331B0D40B0008DF524 /* TimePickerCell.swift */,
+				6A589F631B0FAF3200CDD54B /* SegmentedTimeCell.swift */,
+				6ACCD8C11B1266A70002FA61 /* ConditionCell.swift */,
+			);
+			path = Conditions;
+			sourceTree = "<group>";
+		};
+		6A8347501B0573A00055198E /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				6ACBCF631B02DB2400851BD3 /* Mapping */,
+				6AAE046D1B0A93660084A575 /* LocationTriggerViewController.swift */,
+				6A5D852B1B0D05DD008DF524 /* LocationTriggerCreator.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		6A8347511B0573C60055198E /* Characteristic */ = {
+			isa = PBXGroup;
+			children = (
+				6ACBCF571B02DAA000851BD3 /* CharacteristicTriggerViewController.swift */,
+				6A8347541B06668B0055198E /* CharacteristicTriggerCreator.swift */,
+				6A8347521B0574040055198E /* CharacteristicSelectionViewController.swift */,
+			);
+			path = Characteristic;
+			sourceTree = "<group>";
+		};
+		6ACBCF5B1B02DAA000851BD3 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				6ACBCF5C1B02DAA000851BD3 /* TimerTriggerViewController.swift */,
+				6A5D85291B0CFE6C008DF524 /* TimerTriggerCreator.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		6ACBCF631B02DB2400851BD3 /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				6ACBCF581B02DAA000851BD3 /* MapOverlayView.swift */,
+				6ACBCF591B02DAA000851BD3 /* MapViewController.swift */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
+		DC1310B51A14201E004E5DB5 = {
+			isa = PBXGroup;
+			children = (
+				3E7CACDF1B1E4AAB00891CE0 /* README.md */,
+				6A10AEE81AF84BEA000A2CD6 /* HMCatalog.entitlements */,
+				DC1310ED1A1438CB004E5DB5 /* HMCatalog */,
+				DC1310BF1A14201E004E5DB5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC1310BF1A14201E004E5DB5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC1310BE1A14201E004E5DB5 /* HMCatalog.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC1310ED1A1438CB004E5DB5 /* HMCatalog */ = {
+			isa = PBXGroup;
+			children = (
+				DC1310EE1A1438CB004E5DB5 /* AppDelegate.swift */,
+				6A4D140E1ADDF2DC00364DE0 /* HMCatalogViewController.swift */,
+				6AD5641B1AFA792A00321F78 /* TabBarController.swift */,
+				DCD480601A16B31C001BFEE3 /* Main.storyboard */,
+				6A3B541E1AF92D37007CA237 /* Launch Screen.storyboard */,
+				6A58EE941AF1477700ECAD21 /* Favorites */,
+				DCF046D21A1AB107002DBFBF /* Homes */,
+				DCD480621A16B371001BFEE3 /* Images.xcassets */,
+				DC1310F71A1438CB004E5DB5 /* Supporting Files */,
+			);
+			path = HMCatalog;
+			sourceTree = "<group>";
+		};
+		DC1310F71A1438CB004E5DB5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6ABBF3011ADF1A1C00C1CF69 /* Array+Sorting.swift */,
+				6AE2A5631B17B84B002586A9 /* CNMutablePostalAddress+Convenience.swift */,
+				6A6DA8871B1FADE800D1FA8A /* HMActionSet+BuiltIn.swift */,
+				DC1310F31A1438CB004E5DB5 /* HMCharacteristic+Properties.swift */,
+				6ACBCF9F1B040AA600851BD3 /* HMEventTrigger+Convenience.swift */,
+				DCD4806D1A16BD1D001BFEE3 /* HMHome+Properties.swift */,
+				DC1310F41A1438CB004E5DB5 /* HMService+Properties.swift */,
+				6A5D853A1B0D63EB008DF524 /* NSPredicate+Condition.swift */,
+				DC1310F91A1438CB004E5DB5 /* UIAlertController+Convenience.swift */,
+				6A96D1201B051326004DD072 /* UIColor+Custom.swift */,
+				DCF046C11A1A5E50002DBFBF /* UIStoryboardSegue+IntendedDestination.swift */,
+				6AA850D91B1E645300A77A3E /* UITableViewController+Convenience.swift */,
+				DC1310FA1A1438CB004E5DB5 /* UIViewController+Convenience.swift */,
+				DC1310F81A1438CB004E5DB5 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCF046CA1A1AB0B9002DBFBF /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				DCF046C31A1A939F002DBFBF /* RoomViewController.swift */,
+			);
+			path = Rooms;
+			sourceTree = "<group>";
+		};
+		DCF046CB1A1AB0C1002DBFBF /* Zones */ = {
+			isa = PBXGroup;
+			children = (
+				DCF046C71A1A9D25002DBFBF /* AddRoomViewController.swift */,
+				DCF046C51A1A9A73002DBFBF /* ZoneViewController.swift */,
+			);
+			path = Zones;
+			sourceTree = "<group>";
+		};
+		DCF046CC1A1AB0C5002DBFBF /* Accessories */ = {
+			isa = PBXGroup;
+			children = (
+				DC58FA961A1BF4DD00550AD3 /* AccessoryUpdateController.swift */,
+				DCF046D31A1AB19F002DBFBF /* AccessoryBrowserViewController.swift */,
+				DCD4806F1A16C682001BFEE3 /* ControlsViewController.swift */,
+				DCD480711A16C69C001BFEE3 /* ControlsTableViewDataSource.swift */,
+				DCF046CD1A1AB0CB002DBFBF /* Services */,
+				DCF046D51A1AB627002DBFBF /* ModifyAccessoryViewController.swift */,
+			);
+			path = Accessories;
+			sourceTree = "<group>";
+		};
+		DCF046CD1A1AB0CB002DBFBF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DCD480731A16C948001BFEE3 /* ServiceCell.swift */,
+				DC58FA7F1A1BD10400550AD3 /* ServicesViewController.swift */,
+				DCF046CE1A1AB0D2002DBFBF /* Characteristic Cells */,
+				DC58FA821A1BE32000550AD3 /* CharacteristicsViewController.swift */,
+				DC58FA941A1BEF7400550AD3 /* CharacteristicsTableViewDataSource.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DCF046CE1A1AB0D2002DBFBF /* Characteristic Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DC58FA8C1A1BE5A300550AD3 /* CharacteristicCell.swift */,
+				DC58FA841A1BE59500550AD3 /* CharacteristicCell.xib */,
+				DC58FA8E1A1BE5B700550AD3 /* SegmentedControlCharacteristicCell.swift */,
+				DC58FA851A1BE59500550AD3 /* SegmentedControlCharacteristicCell.xib */,
+				DC58FA901A1BE5C400550AD3 /* SliderCharacteristicCell.swift */,
+				DC58FA861A1BE59500550AD3 /* SliderCharacteristicCell.xib */,
+				DC58FA921A1BE5D000550AD3 /* SwitchCharacteristicCell.swift */,
+				DC58FA871A1BE59500550AD3 /* SwitchCharacteristicCell.xib */,
+				6ADF25231AE5AAA100CD05D0 /* TextCharacteristicCell.swift */,
+				6ADF25211AE5AA8200CD05D0 /* TextCharacteristicCell.xib */,
+			);
+			path = "Characteristic Cells";
+			sourceTree = "<group>";
+		};
+		DCF046CF1A1AB0D9002DBFBF /* Service Groups */ = {
+			isa = PBXGroup;
+			children = (
+				DC0BBB981A1FB60E002AB35C /* ServiceGroupViewController.swift */,
+				DC0BBB9C1A1FBC46002AB35C /* AddServicesViewController.swift */,
+			);
+			path = "Service Groups";
+			sourceTree = "<group>";
+		};
+		DCF046D01A1AB0E5002DBFBF /* Action Sets */ = {
+			isa = PBXGroup;
+			children = (
+				DC5042D31A1D5EFD000E3973 /* ActionSetViewController.swift */,
+				DC53509E1A1D71F2000A8F0E /* ActionCell.swift */,
+				DC5042D51A1D5FFE000E3973 /* ActionSetCreator.swift */,
+			);
+			path = "Action Sets";
+			sourceTree = "<group>";
+		};
+		DCF046D11A1AB0EC002DBFBF /* Triggers */ = {
+			isa = PBXGroup;
+			children = (
+				6ACBCF611B02DB1700851BD3 /* TriggerViewController.swift */,
+				6A5D85271B0CF3C5008DF524 /* TriggerCreator.swift */,
+				6A5D852D1B0D2134008DF524 /* Event */,
+				6ACBCF5B1B02DAA000851BD3 /* Timer */,
+			);
+			path = Triggers;
+			sourceTree = "<group>";
+		};
+		DCF046D21A1AB107002DBFBF /* Homes */ = {
+			isa = PBXGroup;
+			children = (
+				DCD480641A16B3AC001BFEE3 /* HomeListViewController.swift */,
+				DCD480751A16CDDB001BFEE3 /* HomeListConfigurationViewController.swift */,
+				DCF046BD1A1A5D92002DBFBF /* HomeViewController.swift */,
+				6ADF251D1AE1940B00CD05D0 /* HomeKitObjectCollection.swift */,
+				DCD480661A16B4C3001BFEE3 /* HomeStore.swift */,
+				DCF046CC1A1AB0C5002DBFBF /* Accessories */,
+				DCF046CA1A1AB0B9002DBFBF /* Rooms */,
+				DCF046CB1A1AB0C1002DBFBF /* Zones */,
+				DCF046D01A1AB0E5002DBFBF /* Action Sets */,
+				DCF046D11A1AB0EC002DBFBF /* Triggers */,
+				DCF046CF1A1AB0D9002DBFBF /* Service Groups */,
+			);
+			path = Homes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC1310BD1A14201E004E5DB5 /* HMCatalog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC1310DD1A14201E004E5DB5 /* Build configuration list for PBXNativeTarget "HMCatalog" */;
+			buildPhases = (
+				DC1310BA1A14201E004E5DB5 /* Sources */,
+				DC1310BB1A14201E004E5DB5 /* Frameworks */,
+				DC1310BC1A14201E004E5DB5 /* Resources */,
+				CAA68A951AF0614300905CFE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HMCatalog;
+			productName = sldkfjghslkjdgh;
+			productReference = DC1310BE1A14201E004E5DB5 /* HMCatalog.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC1310B61A14201E004E5DB5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Apple, Inc";
+				TargetAttributes = {
+					DC1310BD1A14201E004E5DB5 = {
+						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.HomeKit = {
+								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = DC1310B91A14201E004E5DB5 /* Build configuration list for PBXProject "HMCatalog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC1310B51A14201E004E5DB5;
+			productRefGroup = DC1310BF1A14201E004E5DB5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC1310BD1A14201E004E5DB5 /* HMCatalog */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC1310BC1A14201E004E5DB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC58FA8B1A1BE59500550AD3 /* SwitchCharacteristicCell.xib in Resources */,
+				DCD480611A16B31C001BFEE3 /* Main.storyboard in Resources */,
+				6A3B541F1AF92D37007CA237 /* Launch Screen.storyboard in Resources */,
+				6ADF25221AE5AA8200CD05D0 /* TextCharacteristicCell.xib in Resources */,
+				DC58FA891A1BE59500550AD3 /* SegmentedControlCharacteristicCell.xib in Resources */,
+				DC58FA8A1A1BE59500550AD3 /* SliderCharacteristicCell.xib in Resources */,
+				DCD480631A16B371001BFEE3 /* Images.xcassets in Resources */,
+				DC58FA881A1BE59500550AD3 /* CharacteristicCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC1310BA1A14201E004E5DB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCD480671A16B4C3001BFEE3 /* HomeStore.swift in Sources */,
+				6ACCD8C21B1266A70002FA61 /* ConditionCell.swift in Sources */,
+				6AA850DA1B1E645300A77A3E /* UITableViewController+Convenience.swift in Sources */,
+				6ACBCF621B02DB1700851BD3 /* TriggerViewController.swift in Sources */,
+				DC58FA951A1BEF7400550AD3 /* CharacteristicsTableViewDataSource.swift in Sources */,
+				6A58EE961AF147BE00ECAD21 /* FavoritesViewController.swift in Sources */,
+				DC1311041A1438CB004E5DB5 /* UIAlertController+Convenience.swift in Sources */,
+				6ACBCF601B02DAA000851BD3 /* TimerTriggerViewController.swift in Sources */,
+				DC1310FF1A1438CB004E5DB5 /* HMCharacteristic+Properties.swift in Sources */,
+				DC1310FC1A1438CB004E5DB5 /* AppDelegate.swift in Sources */,
+				6ADF25241AE5AAA100CD05D0 /* TextCharacteristicCell.swift in Sources */,
+				DCF046C61A1A9A73002DBFBF /* ZoneViewController.swift in Sources */,
+				DC1311051A1438CB004E5DB5 /* UIViewController+Convenience.swift in Sources */,
+				DCF046BE1A1A5D92002DBFBF /* HomeViewController.swift in Sources */,
+				6A5D852C1B0D05DD008DF524 /* LocationTriggerCreator.swift in Sources */,
+				6AA42B471AEEF28500A92A79 /* FavoritesManager.swift in Sources */,
+				DCD4806E1A16BD1D001BFEE3 /* HMHome+Properties.swift in Sources */,
+				6A6DA8881B1FADE800D1FA8A /* HMActionSet+BuiltIn.swift in Sources */,
+				DC53509F1A1D71F2000A8F0E /* ActionCell.swift in Sources */,
+				DCF046D61A1AB627002DBFBF /* ModifyAccessoryViewController.swift in Sources */,
+				DCD480721A16C69C001BFEE3 /* ControlsTableViewDataSource.swift in Sources */,
+				6A5D85281B0CF3C5008DF524 /* TriggerCreator.swift in Sources */,
+				DC0BBB991A1FB60E002AB35C /* ServiceGroupViewController.swift in Sources */,
+				6A96D1211B051326004DD072 /* UIColor+Custom.swift in Sources */,
+				DC58FA831A1BE32000550AD3 /* CharacteristicsViewController.swift in Sources */,
+				DC1311001A1438CB004E5DB5 /* HMService+Properties.swift in Sources */,
+				DC58FA8D1A1BE5A300550AD3 /* CharacteristicCell.swift in Sources */,
+				6A5D85341B0D40B0008DF524 /* TimePickerCell.swift in Sources */,
+				DC58FA911A1BE5C400550AD3 /* SliderCharacteristicCell.swift in Sources */,
+				6A5D85321B0D3032008DF524 /* TimeConditionViewController.swift in Sources */,
+				6A5D853B1B0D63EB008DF524 /* NSPredicate+Condition.swift in Sources */,
+				6AD5641C1AFA792A00321F78 /* TabBarController.swift in Sources */,
+				6ADF251E1AE1940B00CD05D0 /* HomeKitObjectCollection.swift in Sources */,
+				DCF046C81A1A9D25002DBFBF /* AddRoomViewController.swift in Sources */,
+				DCD480741A16C948001BFEE3 /* ServiceCell.swift in Sources */,
+				DC58FA931A1BE5D000550AD3 /* SwitchCharacteristicCell.swift in Sources */,
+				DC58FA971A1BF4DD00550AD3 /* AccessoryUpdateController.swift in Sources */,
+				DCD480701A16C682001BFEE3 /* ControlsViewController.swift in Sources */,
+				6AAE046E1B0A93660084A575 /* LocationTriggerViewController.swift in Sources */,
+				6A5D85391B0D5100008DF524 /* EventTriggerCreator.swift in Sources */,
+				6A589F641B0FAF3200CDD54B /* SegmentedTimeCell.swift in Sources */,
+				6A5D852F1B0D2155008DF524 /* EventTriggerViewController.swift in Sources */,
+				DCF046C41A1A939F002DBFBF /* RoomViewController.swift in Sources */,
+				6ACBCF5F1B02DAA000851BD3 /* MapViewController.swift in Sources */,
+				6A5D852A1B0CFE6C008DF524 /* TimerTriggerCreator.swift in Sources */,
+				6ACBCF5D1B02DAA000851BD3 /* CharacteristicTriggerViewController.swift in Sources */,
+				6A8347531B0574040055198E /* CharacteristicSelectionViewController.swift in Sources */,
+				6ACBCFA01B040AA600851BD3 /* HMEventTrigger+Convenience.swift in Sources */,
+				6ABBF3021ADF1A1C00C1CF69 /* Array+Sorting.swift in Sources */,
+				6A4D140F1ADDF2DC00364DE0 /* HMCatalogViewController.swift in Sources */,
+				DCD480761A16CDDB001BFEE3 /* HomeListConfigurationViewController.swift in Sources */,
+				DCF046C21A1A5E50002DBFBF /* UIStoryboardSegue+IntendedDestination.swift in Sources */,
+				DC5042D41A1D5EFD000E3973 /* ActionSetViewController.swift in Sources */,
+				6AE2A5641B17B84B002586A9 /* CNMutablePostalAddress+Convenience.swift in Sources */,
+				DC5042D61A1D5FFE000E3973 /* ActionSetCreator.swift in Sources */,
+				6A8347551B06668B0055198E /* CharacteristicTriggerCreator.swift in Sources */,
+				DCF046D41A1AB19F002DBFBF /* AccessoryBrowserViewController.swift in Sources */,
+				6ACBCF5E1B02DAA000851BD3 /* MapOverlayView.swift in Sources */,
+				DC58FA801A1BD10400550AD3 /* ServicesViewController.swift in Sources */,
+				DC58FA8F1A1BE5B700550AD3 /* SegmentedControlCharacteristicCell.swift in Sources */,
+				DC0BBB9D1A1FBC46002AB35C /* AddServicesViewController.swift in Sources */,
+				DCD480651A16B3AC001BFEE3 /* HomeListViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DC1310DB1A14201E004E5DB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC1310DC1A14201E004E5DB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC1310DE1A14201E004E5DB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HMCatalog.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_ON_DEMAND_RESOURCES = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/HMCatalog/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = HMCatalog;
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
+			};
+			name = Debug;
+		};
+		DC1310DF1A14201E004E5DB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HMCatalog.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_ON_DEMAND_RESOURCES = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/HMCatalog/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = HMCatalog;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC1310B91A14201E004E5DB5 /* Build configuration list for PBXProject "HMCatalog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC1310DB1A14201E004E5DB5 /* Debug */,
+				DC1310DC1A14201E004E5DB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC1310DD1A14201E004E5DB5 /* Build configuration list for PBXNativeTarget "HMCatalog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC1310DE1A14201E004E5DB5 /* Debug */,
+				DC1310DF1A14201E004E5DB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC1310B61A14201E004E5DB5 /* Project object */;
+}

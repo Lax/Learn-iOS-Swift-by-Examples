@@ -42,49 +42,49 @@ class StepperViewController: UITableViewController {
         defaultStepper.stepValue = 1
 
         defaultStepperLabel.text = "\(Int(defaultStepper.value))"
-        defaultStepper.addTarget(self, action: #selector(StepperViewController.stepperValueDidChange(_:)), forControlEvents: .ValueChanged)
+        defaultStepper.addTarget(self, action: #selector(StepperViewController.stepperValueDidChange(_:)), for: .valueChanged)
     }
 
     func configureTintedStepper() {
         tintedStepper.tintColor = UIColor.applicationBlueColor
 
         tintedStepperLabel.text = "\(Int(tintedStepper.value))"
-        tintedStepper.addTarget(self, action: #selector(StepperViewController.stepperValueDidChange(_:)), forControlEvents: .ValueChanged)
+        tintedStepper.addTarget(self, action: #selector(StepperViewController.stepperValueDidChange(_:)), for: .valueChanged)
     }
 
     func configureCustomStepper() {
         // Set the background image.
         let stepperBackgroundImage = UIImage(named: "stepper_and_segment_background")
-        customStepper.setBackgroundImage(stepperBackgroundImage, forState: .Normal)
+        customStepper.setBackgroundImage(stepperBackgroundImage, for: UIControlState())
 
         let stepperHighlightedBackgroundImage = UIImage(named: "stepper_and_segment_background_highlighted")
-        customStepper.setBackgroundImage(stepperHighlightedBackgroundImage, forState: .Highlighted)
+        customStepper.setBackgroundImage(stepperHighlightedBackgroundImage, for: .highlighted)
 
         let stepperDisabledBackgroundImage = UIImage(named: "stepper_and_segment_background_disabled")
-        customStepper.setBackgroundImage(stepperDisabledBackgroundImage, forState: .Disabled)
+        customStepper.setBackgroundImage(stepperDisabledBackgroundImage, for: .disabled)
 
         /*
             Set the image which will be painted in between the two stepper segments
             (depends on the states of both segments).
         */
         let stepperSegmentDividerImage = UIImage(named: "stepper_and_segment_divider")
-        customStepper.setDividerImage(stepperSegmentDividerImage, forLeftSegmentState: .Normal, rightSegmentState: .Normal)
+        customStepper.setDividerImage(stepperSegmentDividerImage, forLeftSegmentState: UIControlState(), rightSegmentState: UIControlState())
 
         // Set the image for the + button.
         let stepperIncrementImage = UIImage(named: "stepper_increment")
-        customStepper.setIncrementImage(stepperIncrementImage, forState: .Normal)
+        customStepper.setIncrementImage(stepperIncrementImage, for: UIControlState())
 
         // Set the image for the - button.
         let stepperDecrementImage = UIImage(named: "stepper_decrement")
-        customStepper.setDecrementImage(stepperDecrementImage, forState: .Normal)
+        customStepper.setDecrementImage(stepperDecrementImage, for: UIControlState())
 
         customStepperLabel.text = "\(Int(customStepper.value))"
-        customStepper.addTarget(self, action: #selector(StepperViewController.stepperValueDidChange(_:)), forControlEvents: .ValueChanged)
+        customStepper.addTarget(self, action: #selector(StepperViewController.stepperValueDidChange(_:)), for: .valueChanged)
     }
 
     // MARK: - Actions
 
-    func stepperValueDidChange(stepper: UIStepper) {
+    func stepperValueDidChange(_ stepper: UIStepper) {
         NSLog("A stepper changed its value: \(stepper).")
 
         // A mapping from a stepper to its associated label.
@@ -94,6 +94,6 @@ class StepperViewController: UITableViewController {
             customStepper: customStepperLabel
         ]
 
-        stepperMapping[stepper]!.text = "\(Int(stepper.value))"
+        stepperMapping[stepper]!?.text = "\(Int(stepper.value))"
     }
 }

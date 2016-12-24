@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A294a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MetalImageFilters" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ev-gL-UHu" customClass="MTKView">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="480" id="iig-Yn-Ke7"/>
+                                    <constraint firstAttribute="height" constant="270" id="y1z-OG-yoL"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8h3-7Z-AfJ" appends="YES" id="KQF-Xw-6Bh"/>
+                                    <outletCollection property="gestureRecognizers" destination="mxM-kR-vMG" appends="YES" id="p2I-o5-bTa"/>
+                                    <outletCollection property="gestureRecognizers" destination="9RW-oL-hdS" appends="YES" id="0sW-pk-7cl"/>
+                                    <outletCollection property="gestureRecognizers" destination="sWe-mC-sFI" appends="YES" id="1vi-YN-uMt"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ7-Ge-5U1">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="480" id="sb7-PR-Nmp"/>
+                                    <constraint firstAttribute="height" constant="21" id="t9n-k3-9nc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left/right to change the filter. Swipe up/down to change the texture source." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdT-fj-B0o">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Gae-yj-XRw"/>
+                                    <constraint firstAttribute="width" constant="627" id="uFd-a1-oRG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jQ7-Ge-5U1" firstAttribute="centerX" secondItem="7Ev-gL-UHu" secondAttribute="centerX" id="0Xu-Bz-PRp"/>
+                            <constraint firstItem="AdT-fj-B0o" firstAttribute="centerX" secondItem="7Ev-gL-UHu" secondAttribute="centerX" id="8t4-Ka-XpW"/>
+                            <constraint firstItem="AdT-fj-B0o" firstAttribute="top" secondItem="7Ev-gL-UHu" secondAttribute="bottom" constant="11" id="HX7-mU-zFP"/>
+                            <constraint firstItem="7Ev-gL-UHu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XPv-cc-Zeb"/>
+                            <constraint firstItem="7Ev-gL-UHu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-1.5" id="suc-f2-r3Z"/>
+                            <constraint firstItem="7Ev-gL-UHu" firstAttribute="top" secondItem="jQ7-Ge-5U1" secondAttribute="bottom" constant="10" id="vYe-fw-hlo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="filterLabel" destination="jQ7-Ge-5U1" id="V9y-jV-Bld"/>
+                        <outlet property="mtkView" destination="7Ev-gL-UHu" id="gzg-YP-zqp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="8h3-7Z-AfJ" userLabel="Left Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="didSwipeLeftWithSender:" destination="BYZ-38-t0r" id="kzY-Gp-wI5"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="mxM-kR-vMG" userLabel="Right Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="didSwipeRightWithSender:" destination="BYZ-38-t0r" id="ey6-tU-JeY"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="9RW-oL-hdS" userLabel="Up Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="didSwipeUpOrDownWithSender:" destination="BYZ-38-t0r" id="oin-Lm-uP6"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="sWe-mC-sFI" userLabel="Down Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="didSwipeUpOrDownWithSender:" destination="BYZ-38-t0r" id="GAK-qt-EZZ"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="117.39130434782609" y="122.40000000000001"/>
+        </scene>
+    </scenes>
+</document>

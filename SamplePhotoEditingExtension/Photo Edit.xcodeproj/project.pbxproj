@@ -1,0 +1,785 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		116898691CEB9E9E00AD073E /* PhotoFilterItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116898671CEB9E9E00AD073E /* PhotoFilterItem.xib */; };
+		1194F4F11CE64AEC00F4EDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194F4F01CE64AEC00F4EDF0 /* AppDelegate.swift */; };
+		1194F4F61CE64AEC00F4EDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1194F4F41CE64AEC00F4EDF0 /* Main.storyboard */; };
+		1194F4F81CE64AEC00F4EDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1194F4F71CE64AEC00F4EDF0 /* Assets.xcassets */; };
+		1194F4FB1CE64AEC00F4EDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1194F4F91CE64AEC00F4EDF0 /* LaunchScreen.storyboard */; };
+		1194F5091CE658DF00F4EDF0 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1194F5081CE658DF00F4EDF0 /* PhotosUI.framework */; };
+		1194F50B1CE658DF00F4EDF0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1194F50A1CE658DF00F4EDF0 /* Photos.framework */; };
+		1194F50E1CE658DF00F4EDF0 /* PhotoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194F50D1CE658DF00F4EDF0 /* PhotoEditingViewController.swift */; };
+		1194F5111CE658DF00F4EDF0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1194F50F1CE658DF00F4EDF0 /* MainInterface.storyboard */; };
+		1194F5151CE658DF00F4EDF0 /* Photo Edit.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1194F5061CE658DF00F4EDF0 /* Photo Edit.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1194F5211CE681A100F4EDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194F5201CE681A100F4EDF0 /* AppDelegate.swift */; };
+		1194F5251CE681A100F4EDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1194F5241CE681A100F4EDF0 /* Assets.xcassets */; };
+		1194F5281CE681A100F4EDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1194F5261CE681A100F4EDF0 /* Main.storyboard */; };
+		1194F5321CE682BE00F4EDF0 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1194F5081CE658DF00F4EDF0 /* PhotosUI.framework */; };
+		1194F5331CE682BE00F4EDF0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1194F50A1CE658DF00F4EDF0 /* Photos.framework */; };
+		1194F5381CE682BE00F4EDF0 /* PhotoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194F5371CE682BE00F4EDF0 /* PhotoEditingViewController.swift */; };
+		1194F53B1CE682BE00F4EDF0 /* PhotoEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1194F5391CE682BE00F4EDF0 /* PhotoEditingViewController.xib */; };
+		1194F53F1CE682BE00F4EDF0 /* Photo Edit.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1194F5311CE682BE00F4EDF0 /* Photo Edit.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1194F5481CE6873C00F4EDF0 /* ContentEditingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194F5471CE6873C00F4EDF0 /* ContentEditingController.swift */; };
+		1194F5491CE6873C00F4EDF0 /* ContentEditingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194F5471CE6873C00F4EDF0 /* ContentEditingController.swift */; };
+		11B4A8FD1D025F1700F2E5EE /* Logo_WWDC2016.png in Resources */ = {isa = PBXBuildFile; fileRef = 11B4A8FC1D025F1700F2E5EE /* Logo_WWDC2016.png */; };
+		11B4A8FE1D025F1700F2E5EE /* Logo_WWDC2016.png in Resources */ = {isa = PBXBuildFile; fileRef = 11B4A8FC1D025F1700F2E5EE /* Logo_WWDC2016.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1194F5131CE658DF00F4EDF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1194F4E51CE64AEC00F4EDF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1194F5051CE658DF00F4EDF0;
+			remoteInfo = "Photo Edit";
+		};
+		1194F53D1CE682BE00F4EDF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1194F4E51CE64AEC00F4EDF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1194F5301CE682BE00F4EDF0;
+			remoteInfo = "Photo Edit";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1194F5191CE658DF00F4EDF0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1194F5151CE658DF00F4EDF0 /* Photo Edit.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1194F5431CE682BE00F4EDF0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1194F53F1CE682BE00F4EDF0 /* Photo Edit.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1112F6AB1CEA9ED700D27706 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		116898681CEB9E9E00AD073E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhotoFilterItem.xib; sourceTree = "<group>"; };
+		1194F4ED1CE64AEC00F4EDF0 /* Photo Edit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Edit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1194F4F01CE64AEC00F4EDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1194F4F51CE64AEC00F4EDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1194F4F71CE64AEC00F4EDF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1194F4FA1CE64AEC00F4EDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1194F4FC1CE64AEC00F4EDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1194F5061CE658DF00F4EDF0 /* Photo Edit.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Photo Edit.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1194F5081CE658DF00F4EDF0 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		1194F50A1CE658DF00F4EDF0 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		1194F50D1CE658DF00F4EDF0 /* PhotoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingViewController.swift; sourceTree = "<group>"; };
+		1194F5101CE658DF00F4EDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		1194F5121CE658DF00F4EDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1194F51E1CE681A100F4EDF0 /* Photo Edit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Edit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1194F5201CE681A100F4EDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1194F5241CE681A100F4EDF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1194F5271CE681A100F4EDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1194F5291CE681A100F4EDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1194F5311CE682BE00F4EDF0 /* Photo Edit.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Photo Edit.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1194F5361CE682BE00F4EDF0 /* Photo_Edit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Photo_Edit.entitlements; sourceTree = "<group>"; };
+		1194F5371CE682BE00F4EDF0 /* PhotoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingViewController.swift; sourceTree = "<group>"; };
+		1194F53A1CE682BE00F4EDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhotoEditingViewController.xib; sourceTree = "<group>"; };
+		1194F53C1CE682BE00F4EDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1194F5471CE6873C00F4EDF0 /* ContentEditingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentEditingController.swift; sourceTree = "<group>"; };
+		11B4A8FC1D025F1700F2E5EE /* Logo_WWDC2016.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo_WWDC2016.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1194F4EA1CE64AEC00F4EDF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1194F5031CE658DF00F4EDF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1194F5091CE658DF00F4EDF0 /* PhotosUI.framework in Frameworks */,
+				1194F50B1CE658DF00F4EDF0 /* Photos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1194F51B1CE681A100F4EDF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1194F52E1CE682BE00F4EDF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1194F5321CE682BE00F4EDF0 /* PhotosUI.framework in Frameworks */,
+				1194F5331CE682BE00F4EDF0 /* Photos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1194F4E41CE64AEC00F4EDF0 = {
+			isa = PBXGroup;
+			children = (
+				1112F6AB1CEA9ED700D27706 /* README.md */,
+				1194F5451CE6837B00F4EDF0 /* Photo Editing Extension */,
+				1194F5461CE6838E00F4EDF0 /* Host App */,
+				1194F5071CE658DF00F4EDF0 /* Frameworks */,
+				1194F4EE1CE64AEC00F4EDF0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1194F4EE1CE64AEC00F4EDF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1194F4ED1CE64AEC00F4EDF0 /* Photo Edit.app */,
+				1194F5061CE658DF00F4EDF0 /* Photo Edit.appex */,
+				1194F51E1CE681A100F4EDF0 /* Photo Edit.app */,
+				1194F5311CE682BE00F4EDF0 /* Photo Edit.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1194F4EF1CE64AEC00F4EDF0 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1194F4F01CE64AEC00F4EDF0 /* AppDelegate.swift */,
+				1194F4F41CE64AEC00F4EDF0 /* Main.storyboard */,
+				1194F4F71CE64AEC00F4EDF0 /* Assets.xcassets */,
+				1194F4F91CE64AEC00F4EDF0 /* LaunchScreen.storyboard */,
+				1194F4FC1CE64AEC00F4EDF0 /* Info.plist */,
+			);
+			name = iOS;
+			path = "App (iOS)";
+			sourceTree = "<group>";
+		};
+		1194F5071CE658DF00F4EDF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1194F5081CE658DF00F4EDF0 /* PhotosUI.framework */,
+				1194F50A1CE658DF00F4EDF0 /* Photos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1194F50C1CE658DF00F4EDF0 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1194F50D1CE658DF00F4EDF0 /* PhotoEditingViewController.swift */,
+				1194F50F1CE658DF00F4EDF0 /* MainInterface.storyboard */,
+				1194F5121CE658DF00F4EDF0 /* Info.plist */,
+			);
+			name = iOS;
+			path = "Extension (iOS)";
+			sourceTree = "<group>";
+		};
+		1194F51F1CE681A100F4EDF0 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				1194F5201CE681A100F4EDF0 /* AppDelegate.swift */,
+				1194F5241CE681A100F4EDF0 /* Assets.xcassets */,
+				1194F5261CE681A100F4EDF0 /* Main.storyboard */,
+				1194F5291CE681A100F4EDF0 /* Info.plist */,
+			);
+			name = "OS X";
+			path = "App (OS X)";
+			sourceTree = "<group>";
+		};
+		1194F5341CE682BE00F4EDF0 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				1194F5371CE682BE00F4EDF0 /* PhotoEditingViewController.swift */,
+				1194F5391CE682BE00F4EDF0 /* PhotoEditingViewController.xib */,
+				116898671CEB9E9E00AD073E /* PhotoFilterItem.xib */,
+				1194F53C1CE682BE00F4EDF0 /* Info.plist */,
+				1194F5351CE682BE00F4EDF0 /* Supporting Files */,
+			);
+			name = "OS X";
+			path = "Extension (OS X)";
+			sourceTree = "<group>";
+		};
+		1194F5351CE682BE00F4EDF0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1194F5361CE682BE00F4EDF0 /* Photo_Edit.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1194F5441CE682F500F4EDF0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1194F5471CE6873C00F4EDF0 /* ContentEditingController.swift */,
+				11B4A8FC1D025F1700F2E5EE /* Logo_WWDC2016.png */,
+			);
+			name = Shared;
+			path = "Extension (Shared)";
+			sourceTree = "<group>";
+		};
+		1194F5451CE6837B00F4EDF0 /* Photo Editing Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1194F5441CE682F500F4EDF0 /* Shared */,
+				1194F50C1CE658DF00F4EDF0 /* iOS */,
+				1194F5341CE682BE00F4EDF0 /* OS X */,
+			);
+			name = "Photo Editing Extension";
+			sourceTree = "<group>";
+		};
+		1194F5461CE6838E00F4EDF0 /* Host App */ = {
+			isa = PBXGroup;
+			children = (
+				1194F4EF1CE64AEC00F4EDF0 /* iOS */,
+				1194F51F1CE681A100F4EDF0 /* OS X */,
+			);
+			name = "Host App";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1194F4EC1CE64AEC00F4EDF0 /* Photo Edit App iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1194F4FF1CE64AEC00F4EDF0 /* Build configuration list for PBXNativeTarget "Photo Edit App iOS" */;
+			buildPhases = (
+				1194F4E91CE64AEC00F4EDF0 /* Sources */,
+				1194F4EA1CE64AEC00F4EDF0 /* Frameworks */,
+				1194F4EB1CE64AEC00F4EDF0 /* Resources */,
+				1194F5191CE658DF00F4EDF0 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1194F5141CE658DF00F4EDF0 /* PBXTargetDependency */,
+			);
+			name = "Photo Edit App iOS";
+			productName = "Photo Edit";
+			productReference = 1194F4ED1CE64AEC00F4EDF0 /* Photo Edit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1194F5051CE658DF00F4EDF0 /* Photo Edit Extension iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1194F5161CE658DF00F4EDF0 /* Build configuration list for PBXNativeTarget "Photo Edit Extension iOS" */;
+			buildPhases = (
+				1194F5021CE658DF00F4EDF0 /* Sources */,
+				1194F5031CE658DF00F4EDF0 /* Frameworks */,
+				1194F5041CE658DF00F4EDF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Photo Edit Extension iOS";
+			productName = "Photo Edit";
+			productReference = 1194F5061CE658DF00F4EDF0 /* Photo Edit.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		1194F51D1CE681A100F4EDF0 /* Photo Edit App OS X */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1194F52A1CE681A100F4EDF0 /* Build configuration list for PBXNativeTarget "Photo Edit App OS X" */;
+			buildPhases = (
+				1194F51A1CE681A100F4EDF0 /* Sources */,
+				1194F51B1CE681A100F4EDF0 /* Frameworks */,
+				1194F51C1CE681A100F4EDF0 /* Resources */,
+				1194F5431CE682BE00F4EDF0 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1194F53E1CE682BE00F4EDF0 /* PBXTargetDependency */,
+			);
+			name = "Photo Edit App OS X";
+			productName = "Photo Edit";
+			productReference = 1194F51E1CE681A100F4EDF0 /* Photo Edit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1194F5301CE682BE00F4EDF0 /* Photo Edit Extension OS X */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1194F5401CE682BE00F4EDF0 /* Build configuration list for PBXNativeTarget "Photo Edit Extension OS X" */;
+			buildPhases = (
+				1194F52D1CE682BE00F4EDF0 /* Sources */,
+				1194F52E1CE682BE00F4EDF0 /* Frameworks */,
+				1194F52F1CE682BE00F4EDF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Photo Edit Extension OS X";
+			productName = "Photo Edit";
+			productReference = 1194F5311CE682BE00F4EDF0 /* Photo Edit.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1194F4E51CE64AEC00F4EDF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Apple;
+				TargetAttributes = {
+					1194F4EC1CE64AEC00F4EDF0 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					1194F5051CE658DF00F4EDF0 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					1194F51D1CE681A100F4EDF0 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					1194F5301CE682BE00F4EDF0 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1194F4E81CE64AEC00F4EDF0 /* Build configuration list for PBXProject "Photo Edit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1194F4E41CE64AEC00F4EDF0;
+			productRefGroup = 1194F4EE1CE64AEC00F4EDF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1194F4EC1CE64AEC00F4EDF0 /* Photo Edit App iOS */,
+				1194F5051CE658DF00F4EDF0 /* Photo Edit Extension iOS */,
+				1194F51D1CE681A100F4EDF0 /* Photo Edit App OS X */,
+				1194F5301CE682BE00F4EDF0 /* Photo Edit Extension OS X */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1194F4EB1CE64AEC00F4EDF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1194F4FB1CE64AEC00F4EDF0 /* LaunchScreen.storyboard in Resources */,
+				1194F4F81CE64AEC00F4EDF0 /* Assets.xcassets in Resources */,
+				1194F4F61CE64AEC00F4EDF0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1194F5041CE658DF00F4EDF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11B4A8FD1D025F1700F2E5EE /* Logo_WWDC2016.png in Resources */,
+				1194F5111CE658DF00F4EDF0 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1194F51C1CE681A100F4EDF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1194F5251CE681A100F4EDF0 /* Assets.xcassets in Resources */,
+				1194F5281CE681A100F4EDF0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1194F52F1CE682BE00F4EDF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11B4A8FE1D025F1700F2E5EE /* Logo_WWDC2016.png in Resources */,
+				1194F53B1CE682BE00F4EDF0 /* PhotoEditingViewController.xib in Resources */,
+				116898691CEB9E9E00AD073E /* PhotoFilterItem.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1194F4E91CE64AEC00F4EDF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1194F4F11CE64AEC00F4EDF0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1194F5021CE658DF00F4EDF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1194F5481CE6873C00F4EDF0 /* ContentEditingController.swift in Sources */,
+				1194F50E1CE658DF00F4EDF0 /* PhotoEditingViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1194F51A1CE681A100F4EDF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1194F5211CE681A100F4EDF0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1194F52D1CE682BE00F4EDF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1194F5491CE6873C00F4EDF0 /* ContentEditingController.swift in Sources */,
+				1194F5381CE682BE00F4EDF0 /* PhotoEditingViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1194F5141CE658DF00F4EDF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1194F5051CE658DF00F4EDF0 /* Photo Edit Extension iOS */;
+			targetProxy = 1194F5131CE658DF00F4EDF0 /* PBXContainerItemProxy */;
+		};
+		1194F53E1CE682BE00F4EDF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1194F5301CE682BE00F4EDF0 /* Photo Edit Extension OS X */;
+			targetProxy = 1194F53D1CE682BE00F4EDF0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		116898671CEB9E9E00AD073E /* PhotoFilterItem.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				116898681CEB9E9E00AD073E /* Base */,
+			);
+			name = PhotoFilterItem.xib;
+			sourceTree = "<group>";
+		};
+		1194F4F41CE64AEC00F4EDF0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1194F4F51CE64AEC00F4EDF0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1194F4F91CE64AEC00F4EDF0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1194F4FA1CE64AEC00F4EDF0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1194F50F1CE658DF00F4EDF0 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1194F5101CE658DF00F4EDF0 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		1194F5261CE681A100F4EDF0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1194F5271CE681A100F4EDF0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1194F5391CE682BE00F4EDF0 /* PhotoEditingViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1194F53A1CE682BE00F4EDF0 /* Base */,
+			);
+			name = PhotoEditingViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1194F4FD1CE64AEC00F4EDF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = lossless;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1194F4FE1CE64AEC00F4EDF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = "respect-asset-catalog";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1194F5001CE64AEC00F4EDF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "App (iOS)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Photo-Edit";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1194F5011CE64AEC00F4EDF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "App (iOS)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Photo-Edit";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		1194F5171CE658DF00F4EDF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Extension (iOS)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Photo-Edit.extension";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1194F5181CE658DF00F4EDF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Extension (iOS)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Photo-Edit.extension";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		1194F52B1CE681A100F4EDF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "App (OS X)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Photo-Edit";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1194F52C1CE681A100F4EDF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "App (OS X)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Photo-Edit";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		1194F5411CE682BE00F4EDF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Extension (OS X)/Photo_Edit.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				INFOPLIST_FILE = "Extension (OS X)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Photo-Edit.extension";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1194F5421CE682BE00F4EDF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Extension (OS X)/Photo_Edit.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				INFOPLIST_FILE = "Extension (OS X)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Photo-Edit.extension";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1194F4E81CE64AEC00F4EDF0 /* Build configuration list for PBXProject "Photo Edit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1194F4FD1CE64AEC00F4EDF0 /* Debug */,
+				1194F4FE1CE64AEC00F4EDF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1194F4FF1CE64AEC00F4EDF0 /* Build configuration list for PBXNativeTarget "Photo Edit App iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1194F5001CE64AEC00F4EDF0 /* Debug */,
+				1194F5011CE64AEC00F4EDF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1194F5161CE658DF00F4EDF0 /* Build configuration list for PBXNativeTarget "Photo Edit Extension iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1194F5171CE658DF00F4EDF0 /* Debug */,
+				1194F5181CE658DF00F4EDF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1194F52A1CE681A100F4EDF0 /* Build configuration list for PBXNativeTarget "Photo Edit App OS X" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1194F52B1CE681A100F4EDF0 /* Debug */,
+				1194F52C1CE681A100F4EDF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1194F5401CE682BE00F4EDF0 /* Build configuration list for PBXNativeTarget "Photo Edit Extension OS X" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1194F5411CE682BE00F4EDF0 /* Debug */,
+				1194F5421CE682BE00F4EDF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1194F4E51CE64AEC00F4EDF0 /* Project object */;
+}

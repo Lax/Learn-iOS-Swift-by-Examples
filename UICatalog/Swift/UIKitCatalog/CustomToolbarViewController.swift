@@ -25,7 +25,7 @@ class CustomToolbarViewController: UIViewController {
     
     func configureToolbar() {
         let toolbarBackgroundImage = UIImage(named: "toolbar_background")
-        toolbar.setBackgroundImage(toolbarBackgroundImage, forToolbarPosition: .Bottom, barMetrics: .Default)
+        toolbar.setBackgroundImage(toolbarBackgroundImage, forToolbarPosition: .bottom, barMetrics: .default)
 
         let toolbarButtonItems = [
             customImageBarButtonItem,
@@ -41,7 +41,7 @@ class CustomToolbarViewController: UIViewController {
     var customImageBarButtonItem: UIBarButtonItem {
         let customBarButtonItemImage = UIImage(named: "tools_icon")
 
-        let customImageBarButtonItem = UIBarButtonItem(image: customBarButtonItemImage, style: .Plain, target: self, action: #selector(CustomToolbarViewController.barButtonItemClicked(_:)))
+        let customImageBarButtonItem = UIBarButtonItem(image: customBarButtonItemImage, style: .plain, target: self, action: #selector(CustomToolbarViewController.barButtonItemClicked(_:)))
 
         customImageBarButtonItem.tintColor = UIColor.applicationPurpleColor
 
@@ -50,26 +50,26 @@ class CustomToolbarViewController: UIViewController {
 
     var flexibleSpaceBarButtonItem: UIBarButtonItem {
         // Note that there's no target/action since this represents empty space.
-        return UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     }
 
     var customBarButtonItem: UIBarButtonItem {
-        let barButtonItem = UIBarButtonItem(title: NSLocalizedString("Button", comment: ""), style: .Plain, target: self, action: #selector(CustomToolbarViewController.barButtonItemClicked(_:)))
+        let barButtonItem = UIBarButtonItem(title: NSLocalizedString("Button", comment: ""), style: .plain, target: self, action: #selector(CustomToolbarViewController.barButtonItemClicked(_:)))
 
         let backgroundImage = UIImage(named: "WhiteButton")
-        barButtonItem.setBackgroundImage(backgroundImage, forState: .Normal, barMetrics: .Default)
+        barButtonItem.setBackgroundImage(backgroundImage, for: UIControlState(), barMetrics: .default)
 
         let attributes = [
             NSForegroundColorAttributeName: UIColor.applicationPurpleColor
         ]
-        barButtonItem.setTitleTextAttributes(attributes, forState: .Normal)
+        barButtonItem.setTitleTextAttributes(attributes, for: UIControlState())
 
         return barButtonItem
     }
 
     // MARK: - Actions
     
-    func barButtonItemClicked(barButtonItem: UIBarButtonItem) {
+    func barButtonItemClicked(_ barButtonItem: UIBarButtonItem) {
         NSLog("A bar button item on the custom toolbar was clicked: \(barButtonItem).")
     }
 }

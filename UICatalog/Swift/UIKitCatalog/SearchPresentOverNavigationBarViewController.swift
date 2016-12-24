@@ -16,9 +16,9 @@ class SearchPresentOverNavigationBarViewController: SearchControllerBaseViewCont
 
     // MARK: - Actions
     
-    @IBAction func searchButtonClicked(button: UIBarButtonItem) {
+    @IBAction func searchButtonClicked(_ button: UIBarButtonItem) {
         // Create the search results view controller and use it for the `UISearchController`.
-        let searchResultsController = storyboard!.instantiateViewControllerWithIdentifier(SearchResultsViewController.StoryboardConstants.identifier) as! SearchResultsViewController
+        let searchResultsController = storyboard!.instantiateViewController(withIdentifier: SearchResultsViewController.StoryboardConstants.identifier) as! SearchResultsViewController
 
         // Create the search controller and make it perform the results updating.
         searchController = UISearchController(searchResultsController: searchResultsController)
@@ -26,6 +26,6 @@ class SearchPresentOverNavigationBarViewController: SearchControllerBaseViewCont
         searchController.hidesNavigationBarDuringPresentation = false
 
         // Present the view controller.
-        presentViewController(searchController, animated: true, completion: nil)
+        present(searchController, animated: true, completion: nil)
     }
 }

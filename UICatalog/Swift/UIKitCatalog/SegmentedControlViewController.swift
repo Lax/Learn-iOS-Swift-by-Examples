@@ -34,9 +34,9 @@ class SegmentedControlViewController: UITableViewController {
 
     func configureDefaultSegmentedControl() {
 
-        defaultSegmentedControl.setEnabled(false, forSegmentAtIndex: 0)
+        defaultSegmentedControl.setEnabled(false, forSegmentAt: 0)
 
-        defaultSegmentedControl.addTarget(self, action: #selector(SegmentedControlViewController.selectedSegmentDidChange(_:)), forControlEvents: .ValueChanged)
+        defaultSegmentedControl.addTarget(self, action: #selector(SegmentedControlViewController.selectedSegmentDidChange(_:)), for: .valueChanged)
     }
 
     func configureTintedSegmentedControl() {
@@ -44,7 +44,7 @@ class SegmentedControlViewController: UITableViewController {
 
         tintedSegmentedControl.selectedSegmentIndex = 1
 
-        tintedSegmentedControl.addTarget(self, action: #selector(SegmentedControlViewController.selectedSegmentDidChange(_:)), forControlEvents: .ValueChanged)
+        tintedSegmentedControl.addTarget(self, action: #selector(SegmentedControlViewController.selectedSegmentDidChange(_:)), for: .valueChanged)
     }
 
     func configureCustomSegmentsSegmentedControl() {
@@ -56,21 +56,21 @@ class SegmentedControlViewController: UITableViewController {
 
         // Guarantee that the segments show up in the same order.
         var sortedSegmentImageNames = Array(imageToAccessibilityLabelMappings.keys)
-        sortedSegmentImageNames.sortInPlace { lhs, rhs in
-            return lhs.localizedStandardCompare(rhs) == NSComparisonResult.OrderedAscending
+        sortedSegmentImageNames.sort { lhs, rhs in
+            return lhs.localizedStandardCompare(rhs) == ComparisonResult.orderedAscending
         }
 
-        for (idx, segmentImageName) in sortedSegmentImageNames.enumerate() {
+        for (idx, segmentImageName) in sortedSegmentImageNames.enumerated() {
             let image = UIImage(named: segmentImageName)!
 
             image.accessibilityLabel = imageToAccessibilityLabelMappings[segmentImageName]
 
-            customSegmentsSegmentedControl.setImage(image, forSegmentAtIndex: idx)
+            customSegmentsSegmentedControl.setImage(image, forSegmentAt: idx)
         }
 
         customSegmentsSegmentedControl.selectedSegmentIndex = 0
 
-        customSegmentsSegmentedControl.addTarget(self, action: #selector(SegmentedControlViewController.selectedSegmentDidChange(_:)), forControlEvents: .ValueChanged)
+        customSegmentsSegmentedControl.addTarget(self, action: #selector(SegmentedControlViewController.selectedSegmentDidChange(_:)), for: .valueChanged)
     }
 
 
@@ -79,40 +79,40 @@ class SegmentedControlViewController: UITableViewController {
 
         // Set the background images for each control state.
         let normalSegmentBackgroundImage = UIImage(named: "stepper_and_segment_background")
-        customBackgroundSegmentedControl.setBackgroundImage(normalSegmentBackgroundImage, forState: .Normal, barMetrics: .Default)
+        customBackgroundSegmentedControl.setBackgroundImage(normalSegmentBackgroundImage, for: UIControlState(), barMetrics: .default)
 
         let disabledSegmentBackgroundImage = UIImage(named: "stepper_and_segment_background_disabled")
-        customBackgroundSegmentedControl.setBackgroundImage(disabledSegmentBackgroundImage, forState: .Disabled, barMetrics: .Default)
+        customBackgroundSegmentedControl.setBackgroundImage(disabledSegmentBackgroundImage, for: .disabled, barMetrics: .default)
 
         let highlightedSegmentBackgroundImage = UIImage(named: "stepper_and_segment_background_highlighted")
-        customBackgroundSegmentedControl.setBackgroundImage(highlightedSegmentBackgroundImage, forState: .Highlighted, barMetrics: .Default)
+        customBackgroundSegmentedControl.setBackgroundImage(highlightedSegmentBackgroundImage, for: .highlighted, barMetrics: .default)
 
         // Set the divider image.
         let segmentDividerImage = UIImage(named: "stepper_and_segment_divider")
-        customBackgroundSegmentedControl.setDividerImage(segmentDividerImage, forLeftSegmentState: .Normal, rightSegmentState: .Normal, barMetrics: .Default)
+        customBackgroundSegmentedControl.setDividerImage(segmentDividerImage, forLeftSegmentState: UIControlState(), rightSegmentState: UIControlState(), barMetrics: .default)
 
         // Create a font to use for the attributed title (both normal and highlighted states).
-        let captionFontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleCaption1)
+        let captionFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.caption1)
         let font = UIFont(descriptor: captionFontDescriptor, size: 0)
 
         let normalTextAttributes = [
             NSForegroundColorAttributeName: UIColor.applicationPurpleColor,
             NSFontAttributeName: font
         ]
-        customBackgroundSegmentedControl.setTitleTextAttributes(normalTextAttributes, forState: .Normal)
+        customBackgroundSegmentedControl.setTitleTextAttributes(normalTextAttributes, for: UIControlState())
 
         let highlightedTextAttributes = [
             NSForegroundColorAttributeName: UIColor.applicationGreenColor,
             NSFontAttributeName: font
         ]
-        customBackgroundSegmentedControl.setTitleTextAttributes(highlightedTextAttributes, forState: .Highlighted)
+        customBackgroundSegmentedControl.setTitleTextAttributes(highlightedTextAttributes, for: .highlighted)
 
-        customBackgroundSegmentedControl.addTarget(self, action: #selector(SegmentedControlViewController.selectedSegmentDidChange(_:)), forControlEvents: .ValueChanged)
+        customBackgroundSegmentedControl.addTarget(self, action: #selector(SegmentedControlViewController.selectedSegmentDidChange(_:)), for: .valueChanged)
     }
 
     // MARK: - Actions
 
-    func selectedSegmentDidChange(segmentedControl: UISegmentedControl) {
+    func selectedSegmentDidChange(_ segmentedControl: UISegmentedControl) {
         NSLog("The selected segment changed for: \(segmentedControl).")
     }
 }

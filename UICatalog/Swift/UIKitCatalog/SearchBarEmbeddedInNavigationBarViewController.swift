@@ -20,7 +20,7 @@ class SearchBarEmbeddedInNavigationBarViewController: SearchControllerBaseViewCo
         super.viewDidLoad()
         
         // Create the search results view controller and use it for the `UISearchController`.
-        let searchResultsController = storyboard!.instantiateViewControllerWithIdentifier(SearchResultsViewController.StoryboardConstants.identifier) as! SearchResultsViewController
+        let searchResultsController = storyboard!.instantiateViewController(withIdentifier: SearchResultsViewController.StoryboardConstants.identifier) as! SearchResultsViewController
         
         // Create the search controller and make it perform the results updating.
         searchController = UISearchController(searchResultsController: searchResultsController)
@@ -31,7 +31,7 @@ class SearchBarEmbeddedInNavigationBarViewController: SearchControllerBaseViewCo
             Configure the search controller's search bar. For more information on 
             how to configure search bars, see the "Search Bar" group under "Search".
         */
-        searchController.searchBar.searchBarStyle = .Minimal
+        searchController.searchBar.searchBarStyle = .minimal
         searchController.searchBar.placeholder = NSLocalizedString("Search", comment: "")
         
         // Include the search bar within the navigation bar.

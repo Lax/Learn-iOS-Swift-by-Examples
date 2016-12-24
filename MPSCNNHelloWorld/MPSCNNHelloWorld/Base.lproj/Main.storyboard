@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11185.2" systemVersion="16A254d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11151.3"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Digit_Detector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accuracy = " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Itt-4A-FVR">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMB-WM-8YO">
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Use MNIST Test Set"/>
+                                <connections>
+                                    <action selector="tappedTestSet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iwN-td-1sk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEd-C6-X5l">
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Detect Digit"/>
+                                <connections>
+                                    <action selector="tappedDetectDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rtq-vr-h56"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsO-ek-NfA">
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="tappedClear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aCb-Qa-Y9q"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aa3-61-EIv">
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzX-rP-SKt" customClass="DrawView" customModule="Digit_Detector" customModuleProvider="target">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="cpN-BA-HfR"/>
+                                    <constraint firstAttribute="width" constant="240" id="zZB-ag-7Eh"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv9-QR-RxB">
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Use Deep Net"/>
+                                <connections>
+                                    <action selector="tappedDeepButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wAp-88-Gdp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PzX-rP-SKt" firstAttribute="top" secondItem="NsO-ek-NfA" secondAttribute="bottom" constant="6" id="5Br-ID-zhu"/>
+                            <constraint firstItem="lv9-QR-RxB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9CN-JK-3QO"/>
+                            <constraint firstItem="Itt-4A-FVR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BPl-aC-Jiq"/>
+                            <constraint firstItem="PzX-rP-SKt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LZI-YF-JxH"/>
+                            <constraint firstItem="HEd-C6-X5l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P7g-P9-3IL"/>
+                            <constraint firstItem="Aa3-61-EIv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q2L-ju-FT5"/>
+                            <constraint firstItem="NsO-ek-NfA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q6a-Xz-gCB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lv9-QR-RxB" secondAttribute="bottom" constant="8" id="RDs-tb-ujw"/>
+                            <constraint firstItem="fMB-WM-8YO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T3b-5e-9x9"/>
+                            <constraint firstItem="HEd-C6-X5l" firstAttribute="top" secondItem="PzX-rP-SKt" secondAttribute="bottom" constant="23" id="XZb-1B-Gug"/>
+                            <constraint firstItem="PzX-rP-SKt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YHc-FZ-FDx"/>
+                            <constraint firstItem="Aa3-61-EIv" firstAttribute="top" secondItem="HEd-C6-X5l" secondAttribute="bottom" constant="24" id="kKx-jg-CxZ"/>
+                            <constraint firstItem="fMB-WM-8YO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pRd-8b-Hib"/>
+                            <constraint firstItem="Itt-4A-FVR" firstAttribute="top" secondItem="fMB-WM-8YO" secondAttribute="bottom" constant="24" id="zhT-JQ-n6p"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="DigitView" destination="PzX-rP-SKt" id="bZU-8T-7ZI"/>
+                        <outlet property="accuracyLabel" destination="Itt-4A-FVR" id="REI-58-rzY"/>
+                        <outlet property="predictionLabel" destination="Aa3-61-EIv" id="OkV-W4-Clr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3427.734375" y="430.89311859443626"/>
+        </scene>
+    </scenes>
+</document>

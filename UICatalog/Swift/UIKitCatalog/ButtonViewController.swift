@@ -39,38 +39,38 @@ class ButtonViewController: UITableViewController {
     func configureSystemTextButton() {
         let buttonTitle = NSLocalizedString("Button", comment: "")
 
-        systemTextButton.setTitle(buttonTitle, forState: .Normal)
+        systemTextButton.setTitle(buttonTitle, for: UIControlState())
 
-        systemTextButton.addTarget(self, action: #selector(ButtonViewController.buttonClicked(_:)), forControlEvents: .TouchUpInside)
+        systemTextButton.addTarget(self, action: #selector(ButtonViewController.buttonClicked(_:)), for: .touchUpInside)
     }
 
     func configureSystemContactAddButton() {
-        systemContactAddButton.backgroundColor = UIColor.clearColor()
+        systemContactAddButton.backgroundColor = UIColor.clear
 
-        systemContactAddButton.addTarget(self, action: #selector(ButtonViewController.buttonClicked(_:)), forControlEvents: .TouchUpInside)
+        systemContactAddButton.addTarget(self, action: #selector(ButtonViewController.buttonClicked(_:)), for: .touchUpInside)
     }
 
     func configureSystemDetailDisclosureButton() {
-        systemDetailDisclosureButton.backgroundColor = UIColor.clearColor()
+        systemDetailDisclosureButton.backgroundColor = UIColor.clear
 
-        systemDetailDisclosureButton.addTarget(self, action: #selector(ButtonViewController.buttonClicked(_:)), forControlEvents: .TouchUpInside)
+        systemDetailDisclosureButton.addTarget(self, action: #selector(ButtonViewController.buttonClicked(_:)), for: .touchUpInside)
     }
 
     func configureImageButton() {
         // To create this button in code you can use UIButton.buttonWithType() with a parameter value of .Custom.
 
         // Remove the title text.
-        imageButton.setTitle("", forState: .Normal)
+        imageButton.setTitle("", for: UIControlState())
 
         imageButton.tintColor = UIColor.applicationPurpleColor
 
         let imageButtonNormalImage = UIImage(named: "x_icon")
-        imageButton.setImage(imageButtonNormalImage, forState: .Normal)
+        imageButton.setImage(imageButtonNormalImage, for: UIControlState())
 
         // Add an accessibility label to the image.
         imageButton.accessibilityLabel = NSLocalizedString("X Button", comment: "")
 
-        imageButton.addTarget(self, action: #selector(ButtonViewController.buttonClicked(_:)), forControlEvents: .TouchUpInside)
+        imageButton.addTarget(self, action: #selector(ButtonViewController.buttonClicked(_:)), for: .touchUpInside)
     }
 
     func configureAttributedTextSystemButton() {
@@ -79,25 +79,25 @@ class ButtonViewController: UITableViewController {
         // Set the button's title for normal state.
         let normalTitleAttributes = [
             NSForegroundColorAttributeName: UIColor.applicationBlueColor,
-            NSStrikethroughStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue
-        ]
+            NSStrikethroughStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue
+        ] as [String : Any]
         let normalAttributedTitle = NSAttributedString(string: buttonTitle, attributes: normalTitleAttributes)
-        attributedTextButton.setAttributedTitle(normalAttributedTitle, forState: .Normal)
+        attributedTextButton.setAttributedTitle(normalAttributedTitle, for: UIControlState())
 
         // Set the button's title for highlighted state.
         let highlightedTitleAttributes = [
-            NSForegroundColorAttributeName: UIColor.greenColor(),
-            NSStrikethroughStyleAttributeName: NSUnderlineStyle.StyleThick.rawValue
-        ]
+            NSForegroundColorAttributeName: UIColor.green,
+            NSStrikethroughStyleAttributeName: NSUnderlineStyle.styleThick.rawValue
+        ] as [String : Any]
         let highlightedAttributedTitle = NSAttributedString(string: buttonTitle, attributes: highlightedTitleAttributes)
-        attributedTextButton.setAttributedTitle(highlightedAttributedTitle, forState: .Highlighted)
+        attributedTextButton.setAttributedTitle(highlightedAttributedTitle, for: .highlighted)
 
-        attributedTextButton.addTarget(self, action: #selector(ButtonViewController.buttonClicked(_:)), forControlEvents: .TouchUpInside)
+        attributedTextButton.addTarget(self, action: #selector(ButtonViewController.buttonClicked(_:)), for: .touchUpInside)
     }
 
     // MARK: - Actions
 
-    func buttonClicked(sender: UIButton) {
+    func buttonClicked(_ sender: UIButton) {
         NSLog("A button was clicked: \(sender).")
     }
 }

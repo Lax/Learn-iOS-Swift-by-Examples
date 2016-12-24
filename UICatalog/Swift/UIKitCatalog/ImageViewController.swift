@@ -27,13 +27,13 @@ class ImageViewController: UIViewController {
         imageView.animationImages = (1...5).map { UIImage(named: "image_animal_\($0)")! }
 
         // We want the image to be scaled to the correct aspect ratio within imageView's bounds.
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         
         /*
             If the image does not have the same aspect ratio as imageView's bounds, 
             then imageView's backgroundColor will be applied to the "empty" space.
         */
-        imageView.backgroundColor = UIColor.whiteColor()
+        imageView.backgroundColor = UIColor.white
         
         imageView.animationDuration = 5
         imageView.startAnimating()

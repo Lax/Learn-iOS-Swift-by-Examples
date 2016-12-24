@@ -1,0 +1,655 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1717FC631C7EE70C00DE25F9 /* DialOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1717FC621C7EE70C00DE25F9 /* DialOptionsViewController.swift */; };
+		17275C671C7E7E2B000B48A0 /* CallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17275C661C7E7E2B000B48A0 /* CallsViewController.swift */; };
+		17275C6A1C7E815C000B48A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17275C6C1C7E815C000B48A0 /* Localizable.strings */; };
+		1768B0781C7D2BEB004D401D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1768B0771C7D2BEB004D401D /* AppDelegate.swift */; };
+		1768B07D1C7D2BEB004D401D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1768B07B1C7D2BEB004D401D /* Main.storyboard */; };
+		1768B07F1C7D2BEB004D401D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1768B07E1C7D2BEB004D401D /* Assets.xcassets */; };
+		1768B0821C7D2BEB004D401D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1768B0801C7D2BEB004D401D /* LaunchScreen.storyboard */; };
+		1768B0901C7D2D87004D401D /* AudioController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1768B08F1C7D2D87004D401D /* AudioController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1768B0961C7D2E9B004D401D /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1768B0951C7D2E9B004D401D /* CAXException.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1768B0991C7D2EAA004D401D /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1768B0981C7D2EAA004D401D /* CADebugMacros.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1768B09D1C7D2F87004D401D /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1768B09C1C7D2F87004D401D /* CAStreamBasicDescription.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1780D7451D0A1B5500BE1A8C /* Ringtone.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1780D7441D0A1B5100BE1A8C /* Ringtone.caf */; };
+		17995F861C7EF01D001FDD06 /* CallSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17995F851C7EF01D001FDD06 /* CallSummaryTableViewCell.swift */; };
+		17995F891C7EF22A001FDD06 /* CallDurationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17995F881C7EF22A001FDD06 /* CallDurationFormatter.swift */; };
+		17995F8C1C7EF547001FDD06 /* UIFont+Speakerbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17995F8B1C7EF547001FDD06 /* UIFont+Speakerbox.swift */; };
+		179ADCCC1CE5252000874792 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179ADCCB1CE5252000874792 /* IntentHandler.swift */; };
+		179ADCD01CE5252000874792 /* IntentsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 179ADCC91CE5252000874792 /* IntentsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		17AE708E1CF5875600D27E55 /* SimulateIncomingCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AE708D1CF5875600D27E55 /* SimulateIncomingCallViewController.swift */; };
+		17AE70901CF60D6E00D27E55 /* CallAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AE708F1CF60D6E00D27E55 /* CallAudio.swift */; };
+		17B013AC1CF57EBD00987901 /* Array+Speakerbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B013AB1CF57EBD00987901 /* Array+Speakerbox.swift */; };
+		17CB213A1C7D3CD200D2883E /* ProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB21391C7D3CD200D2883E /* ProviderDelegate.swift */; };
+		17CB213E1C7D421500D2883E /* SpeakerboxCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB213D1C7D421500D2883E /* SpeakerboxCall.swift */; };
+		17CB21431C7E259D00D2883E /* StartCallConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB21421C7E259D00D2883E /* StartCallConvertible.swift */; };
+		17CB21451C7E25EC00D2883E /* URL+StartCallConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB21441C7E25EC00D2883E /* URL+StartCallConvertible.swift */; };
+		17CB21471C7E460000D2883E /* NSUserActivity+StartCallConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB21461C7E460000D2883E /* NSUserActivity+StartCallConvertible.swift */; };
+		7CF2D82A1C90F48400114D4B /* SpeakerboxCallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF2D8291C90F48400114D4B /* SpeakerboxCallManager.swift */; };
+		B51360291D03854400A54075 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B51360281D03854400A54075 /* Accelerate.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		179ADCCE1CE5252000874792 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1768B06C1C7D2BEB004D401D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 179ADCC81CE5252000874792;
+			remoteInfo = IntentsExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		179ADCD41CE5252000874792 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				179ADCD01CE5252000874792 /* IntentsExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		170FC0F91CF4E608002ACB41 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1717FC621C7EE70C00DE25F9 /* DialOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialOptionsViewController.swift; sourceTree = "<group>"; };
+		17275C661C7E7E2B000B48A0 /* CallsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallsViewController.swift; sourceTree = "<group>"; };
+		17275C6B1C7E815C000B48A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1768B0741C7D2BEB004D401D /* Speakerbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speakerbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1768B0771C7D2BEB004D401D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1768B07C1C7D2BEB004D401D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1768B07E1C7D2BEB004D401D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1768B0811C7D2BEB004D401D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1768B0831C7D2BEB004D401D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1768B08A1C7D2D5D004D401D /* Speakerbox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Speakerbox-Bridging-Header.h"; sourceTree = "<group>"; };
+		1768B08E1C7D2D87004D401D /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
+		1768B08F1C7D2D87004D401D /* AudioController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioController.mm; sourceTree = "<group>"; };
+		1768B0941C7D2E9B004D401D /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
+		1768B0951C7D2E9B004D401D /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		1768B0971C7D2EAA004D401D /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		1768B0981C7D2EAA004D401D /* CADebugMacros.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
+		1768B09B1C7D2F87004D401D /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		1768B09C1C7D2F87004D401D /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		1768B09E1C7D2FBA004D401D /* CAMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		1780D7441D0A1B5100BE1A8C /* Ringtone.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ringtone.caf; sourceTree = "<group>"; };
+		17995F851C7EF01D001FDD06 /* CallSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallSummaryTableViewCell.swift; sourceTree = "<group>"; };
+		17995F881C7EF22A001FDD06 /* CallDurationFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallDurationFormatter.swift; sourceTree = "<group>"; };
+		17995F8B1C7EF547001FDD06 /* UIFont+Speakerbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Speakerbox.swift"; sourceTree = "<group>"; };
+		179ADCC91CE5252000874792 /* IntentsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IntentsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		179ADCCB1CE5252000874792 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		179ADCCD1CE5252000874792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17AE708D1CF5875600D27E55 /* SimulateIncomingCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulateIncomingCallViewController.swift; sourceTree = "<group>"; };
+		17AE708F1CF60D6E00D27E55 /* CallAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallAudio.swift; path = Speakerbox/CallAudio.swift; sourceTree = SOURCE_ROOT; };
+		17B013AB1CF57EBD00987901 /* Array+Speakerbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Speakerbox.swift"; sourceTree = "<group>"; };
+		17CB21391C7D3CD200D2883E /* ProviderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderDelegate.swift; sourceTree = "<group>"; };
+		17CB213D1C7D421500D2883E /* SpeakerboxCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakerboxCall.swift; sourceTree = "<group>"; };
+		17CB21421C7E259D00D2883E /* StartCallConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCallConvertible.swift; sourceTree = "<group>"; };
+		17CB21441C7E25EC00D2883E /* URL+StartCallConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+StartCallConvertible.swift"; sourceTree = "<group>"; };
+		17CB21461C7E460000D2883E /* NSUserActivity+StartCallConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserActivity+StartCallConvertible.swift"; sourceTree = "<group>"; };
+		7CF2D8291C90F48400114D4B /* SpeakerboxCallManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakerboxCallManager.swift; sourceTree = "<group>"; };
+		B51360281D03854400A54075 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1768B0711C7D2BEB004D401D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B51360291D03854400A54075 /* Accelerate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		179ADCC61CE5252000874792 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1721B1C51CEC5F81009A1961 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1768B07B1C7D2BEB004D401D /* Main.storyboard */,
+				1768B0801C7D2BEB004D401D /* LaunchScreen.storyboard */,
+				17275C651C7E7E1C000B48A0 /* View Controllers */,
+				17995F841C7EF00B001FDD06 /* Views */,
+				1768B07E1C7D2BEB004D401D /* Assets.xcassets */,
+				1780D7431D0A1B4300BE1A8C /* Sounds */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		1721B1C71CEC5FB1009A1961 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1768B08A1C7D2D5D004D401D /* Speakerbox-Bridging-Header.h */,
+				1768B0831C7D2BEB004D401D /* Info.plist */,
+				17275C6C1C7E815C000B48A0 /* Localizable.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17275C651C7E7E1C000B48A0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				17275C661C7E7E2B000B48A0 /* CallsViewController.swift */,
+				1717FC621C7EE70C00DE25F9 /* DialOptionsViewController.swift */,
+				17AE708D1CF5875600D27E55 /* SimulateIncomingCallViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1768B06B1C7D2BEB004D401D = {
+			isa = PBXGroup;
+			children = (
+				170FC0F91CF4E608002ACB41 /* README.md */,
+				1768B0761C7D2BEB004D401D /* Speakerbox */,
+				179ADCCA1CE5252000874792 /* IntentsExtension */,
+				1768B0751C7D2BEB004D401D /* Products */,
+				B51360271D03854400A54075 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1768B0751C7D2BEB004D401D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1768B0741C7D2BEB004D401D /* Speakerbox.app */,
+				179ADCC91CE5252000874792 /* IntentsExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1768B0761C7D2BEB004D401D /* Speakerbox */ = {
+			isa = PBXGroup;
+			children = (
+				17FA238D1CEE315700A06A15 /* App */,
+				1721B1C51CEC5F81009A1961 /* UI */,
+				17CB21381C7D3B4B00D2883E /* Call Management */,
+				17CB21411C7E255B00D2883E /* Start Call Handling */,
+				1768B0891C7D2C5D004D401D /* Audio */,
+				17995F871C7EF20F001FDD06 /* Data Formatters */,
+				17995F8A1C7EF531001FDD06 /* Extensions */,
+				1721B1C71CEC5FB1009A1961 /* Supporting Files */,
+			);
+			path = Speakerbox;
+			sourceTree = "<group>";
+		};
+		1768B0891C7D2C5D004D401D /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				17AE708F1CF60D6E00D27E55 /* CallAudio.swift */,
+				1768B08E1C7D2D87004D401D /* AudioController.h */,
+				1768B08F1C7D2D87004D401D /* AudioController.mm */,
+				1768B09A1C7D2EAF004D401D /* Utility */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		1768B09A1C7D2EAF004D401D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1768B0971C7D2EAA004D401D /* CADebugMacros.h */,
+				1768B0981C7D2EAA004D401D /* CADebugMacros.cpp */,
+				1768B0941C7D2E9B004D401D /* CAXException.h */,
+				1768B0951C7D2E9B004D401D /* CAXException.cpp */,
+				1768B09E1C7D2FBA004D401D /* CAMath.h */,
+				1768B09B1C7D2F87004D401D /* CAStreamBasicDescription.h */,
+				1768B09C1C7D2F87004D401D /* CAStreamBasicDescription.cpp */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		1780D7431D0A1B4300BE1A8C /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				1780D7441D0A1B5100BE1A8C /* Ringtone.caf */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		17995F841C7EF00B001FDD06 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				17995F851C7EF01D001FDD06 /* CallSummaryTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		17995F871C7EF20F001FDD06 /* Data Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				17995F881C7EF22A001FDD06 /* CallDurationFormatter.swift */,
+			);
+			name = "Data Formatters";
+			sourceTree = "<group>";
+		};
+		17995F8A1C7EF531001FDD06 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				17995F8B1C7EF547001FDD06 /* UIFont+Speakerbox.swift */,
+				17B013AB1CF57EBD00987901 /* Array+Speakerbox.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		179ADCCA1CE5252000874792 /* IntentsExtension */ = {
+			isa = PBXGroup;
+			children = (
+				179ADCCB1CE5252000874792 /* IntentHandler.swift */,
+				179ADCCD1CE5252000874792 /* Info.plist */,
+			);
+			path = IntentsExtension;
+			sourceTree = "<group>";
+		};
+		17CB21381C7D3B4B00D2883E /* Call Management */ = {
+			isa = PBXGroup;
+			children = (
+				7CF2D8291C90F48400114D4B /* SpeakerboxCallManager.swift */,
+				17CB213D1C7D421500D2883E /* SpeakerboxCall.swift */,
+			);
+			name = "Call Management";
+			sourceTree = "<group>";
+		};
+		17CB21411C7E255B00D2883E /* Start Call Handling */ = {
+			isa = PBXGroup;
+			children = (
+				17CB21421C7E259D00D2883E /* StartCallConvertible.swift */,
+				17CB21441C7E25EC00D2883E /* URL+StartCallConvertible.swift */,
+				17CB21461C7E460000D2883E /* NSUserActivity+StartCallConvertible.swift */,
+			);
+			name = "Start Call Handling";
+			sourceTree = "<group>";
+		};
+		17FA238D1CEE315700A06A15 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1768B0771C7D2BEB004D401D /* AppDelegate.swift */,
+				17CB21391C7D3CD200D2883E /* ProviderDelegate.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		B51360271D03854400A54075 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B51360281D03854400A54075 /* Accelerate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1768B0731C7D2BEB004D401D /* Speakerbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1768B0861C7D2BEB004D401D /* Build configuration list for PBXNativeTarget "Speakerbox" */;
+			buildPhases = (
+				1768B0701C7D2BEB004D401D /* Sources */,
+				1768B0711C7D2BEB004D401D /* Frameworks */,
+				1768B0721C7D2BEB004D401D /* Resources */,
+				179ADCD41CE5252000874792 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				179ADCCF1CE5252000874792 /* PBXTargetDependency */,
+			);
+			name = Speakerbox;
+			productName = Speakerbox;
+			productReference = 1768B0741C7D2BEB004D401D /* Speakerbox.app */;
+			productType = "com.apple.product-type.application";
+		};
+		179ADCC81CE5252000874792 /* IntentsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 179ADCD31CE5252000874792 /* Build configuration list for PBXNativeTarget "IntentsExtension" */;
+			buildPhases = (
+				179ADCC51CE5252000874792 /* Sources */,
+				179ADCC61CE5252000874792 /* Frameworks */,
+				179ADCC71CE5252000874792 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IntentsExtension;
+			productName = IntentsExtension;
+			productReference = 179ADCC91CE5252000874792 /* IntentsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1768B06C1C7D2BEB004D401D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Apple;
+				TargetAttributes = {
+					1768B0731C7D2BEB004D401D = {
+						CreatedOnToolsVersion = 7.3;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					179ADCC81CE5252000874792 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1768B06F1C7D2BEB004D401D /* Build configuration list for PBXProject "Speakerbox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1768B06B1C7D2BEB004D401D;
+			productRefGroup = 1768B0751C7D2BEB004D401D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1768B0731C7D2BEB004D401D /* Speakerbox */,
+				179ADCC81CE5252000874792 /* IntentsExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1768B0721C7D2BEB004D401D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1780D7451D0A1B5500BE1A8C /* Ringtone.caf in Resources */,
+				17275C6A1C7E815C000B48A0 /* Localizable.strings in Resources */,
+				1768B0821C7D2BEB004D401D /* LaunchScreen.storyboard in Resources */,
+				1768B07F1C7D2BEB004D401D /* Assets.xcassets in Resources */,
+				1768B07D1C7D2BEB004D401D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		179ADCC71CE5252000874792 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1768B0701C7D2BEB004D401D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17995F8C1C7EF547001FDD06 /* UIFont+Speakerbox.swift in Sources */,
+				17CB21451C7E25EC00D2883E /* URL+StartCallConvertible.swift in Sources */,
+				1768B0781C7D2BEB004D401D /* AppDelegate.swift in Sources */,
+				17995F891C7EF22A001FDD06 /* CallDurationFormatter.swift in Sources */,
+				1717FC631C7EE70C00DE25F9 /* DialOptionsViewController.swift in Sources */,
+				1768B0901C7D2D87004D401D /* AudioController.mm in Sources */,
+				17275C671C7E7E2B000B48A0 /* CallsViewController.swift in Sources */,
+				17995F861C7EF01D001FDD06 /* CallSummaryTableViewCell.swift in Sources */,
+				1768B0991C7D2EAA004D401D /* CADebugMacros.cpp in Sources */,
+				7CF2D82A1C90F48400114D4B /* SpeakerboxCallManager.swift in Sources */,
+				17B013AC1CF57EBD00987901 /* Array+Speakerbox.swift in Sources */,
+				17AE70901CF60D6E00D27E55 /* CallAudio.swift in Sources */,
+				17CB21431C7E259D00D2883E /* StartCallConvertible.swift in Sources */,
+				17CB21471C7E460000D2883E /* NSUserActivity+StartCallConvertible.swift in Sources */,
+				17CB213E1C7D421500D2883E /* SpeakerboxCall.swift in Sources */,
+				17AE708E1CF5875600D27E55 /* SimulateIncomingCallViewController.swift in Sources */,
+				1768B0961C7D2E9B004D401D /* CAXException.cpp in Sources */,
+				1768B09D1C7D2F87004D401D /* CAStreamBasicDescription.cpp in Sources */,
+				17CB213A1C7D3CD200D2883E /* ProviderDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		179ADCC51CE5252000874792 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				179ADCCC1CE5252000874792 /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		179ADCCF1CE5252000874792 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 179ADCC81CE5252000874792 /* IntentsExtension */;
+			targetProxy = 179ADCCE1CE5252000874792 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		17275C6C1C7E815C000B48A0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17275C6B1C7E815C000B48A0 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1768B07B1C7D2BEB004D401D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1768B07C1C7D2BEB004D401D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1768B0801C7D2BEB004D401D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1768B0811C7D2BEB004D401D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1768B0841C7D2BEB004D401D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = lossless;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1768B0851C7D2BEB004D401D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = "respect-asset-catalog";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1768B0871C7D2BEB004D401D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+				INFOPLIST_FILE = Speakerbox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Speakerbox";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Speakerbox/Speakerbox-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		1768B0881C7D2BEB004D401D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+				INFOPLIST_FILE = Speakerbox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Speakerbox";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Speakerbox/Speakerbox-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		179ADCD11CE5252000874792 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = IntentsExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Speakerbox.IntentsExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+			};
+			name = Debug;
+		};
+		179ADCD21CE5252000874792 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = IntentsExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Speakerbox.IntentsExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1768B06F1C7D2BEB004D401D /* Build configuration list for PBXProject "Speakerbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1768B0841C7D2BEB004D401D /* Debug */,
+				1768B0851C7D2BEB004D401D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1768B0861C7D2BEB004D401D /* Build configuration list for PBXNativeTarget "Speakerbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1768B0871C7D2BEB004D401D /* Debug */,
+				1768B0881C7D2BEB004D401D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		179ADCD31CE5252000874792 /* Build configuration list for PBXNativeTarget "IntentsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				179ADCD11CE5252000874792 /* Debug */,
+				179ADCD21CE5252000874792 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1768B06C1C7D2BEB004D401D /* Project object */;
+}

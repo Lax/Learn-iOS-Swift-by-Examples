@@ -37,9 +37,9 @@ class TextFieldViewController: UITableViewController, UITextFieldDelegate {
 
     func configureTextField() {
         textField.placeholder = NSLocalizedString("Placeholder text", comment: "")
-        textField.autocorrectionType = .Yes
-        textField.returnKeyType = .Done
-        textField.clearButtonMode = .Never
+        textField.autocorrectionType = .yes
+        textField.returnKeyType = .done
+        textField.clearButtonMode = .never
     }
 
     func configureTintedTextField() {
@@ -47,16 +47,16 @@ class TextFieldViewController: UITableViewController, UITextFieldDelegate {
         tintedTextField.textColor = UIColor.applicationGreenColor
 
         tintedTextField.placeholder = NSLocalizedString("Placeholder text", comment: "")
-        tintedTextField.returnKeyType = .Done
-        tintedTextField.clearButtonMode = .Never
+        tintedTextField.returnKeyType = .done
+        tintedTextField.clearButtonMode = .never
     }
 
     func configureSecureTextField() {
-        secureTextField.secureTextEntry = true
+        secureTextField.isSecureTextEntry = true
 
         secureTextField.placeholder = NSLocalizedString("Placeholder text", comment: "")
-        secureTextField.returnKeyType = .Done
-        secureTextField.clearButtonMode = .Always
+        secureTextField.returnKeyType = .done
+        secureTextField.clearButtonMode = .always
     }
 
     /**
@@ -65,15 +65,15 @@ class TextFieldViewController: UITableViewController, UITextFieldDelegate {
         This example shows how to display a keyboard to help enter email addresses.
     */
     func configureSpecificKeyboardTextField() {
-        specificKeyboardTextField.keyboardType = .EmailAddress
+        specificKeyboardTextField.keyboardType = .emailAddress
 
         specificKeyboardTextField.placeholder = NSLocalizedString("Placeholder text", comment: "")
-        specificKeyboardTextField.returnKeyType = .Done
+        specificKeyboardTextField.returnKeyType = .done
     }
 
     func configureCustomTextField() {
         // Text fields with custom image backgrounds must have no border.
-        customTextField.borderStyle = .None
+        customTextField.borderStyle = .none
 
         customTextField.background = UIImage(named: "text_field_background")
 
@@ -82,28 +82,28 @@ class TextFieldViewController: UITableViewController, UITextFieldDelegate {
             text color to purple.
         */
         let purpleImage = UIImage(named: "text_field_purple_right_view")!
-        let purpleImageButton = UIButton(type: .Custom)
+        let purpleImageButton = UIButton(type: .custom)
         purpleImageButton.bounds = CGRect(x: 0, y: 0, width: purpleImage.size.width, height: purpleImage.size.height)
         purpleImageButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
-        purpleImageButton.setImage(purpleImage, forState: .Normal)
-        purpleImageButton.addTarget(self, action: #selector(TextFieldViewController.customTextFieldPurpleButtonClicked), forControlEvents: .TouchUpInside)
+        purpleImageButton.setImage(purpleImage, for: UIControlState())
+        purpleImageButton.addTarget(self, action: #selector(TextFieldViewController.customTextFieldPurpleButtonClicked), for: .touchUpInside)
         customTextField.rightView = purpleImageButton
-        customTextField.rightViewMode = .Always
+        customTextField.rightViewMode = .always
 
         // Add an empty view as the left view to ensure inset between the text and the bounding rectangle.
         let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
-        leftPaddingView.backgroundColor = UIColor.clearColor()
+        leftPaddingView.backgroundColor = UIColor.clear
         customTextField.leftView = leftPaddingView
-        customTextField.leftViewMode = .Always
+        customTextField.leftViewMode = .always
 
         customTextField.placeholder = NSLocalizedString("Placeholder text", comment: "")
-        customTextField.autocorrectionType = .No
-        customTextField.returnKeyType = .Done
+        customTextField.autocorrectionType = .no
+        customTextField.returnKeyType = .done
     }
 
     // MARK: - UITextFieldDelegate
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
 
         return true

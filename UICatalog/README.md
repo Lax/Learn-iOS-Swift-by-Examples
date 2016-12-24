@@ -8,7 +8,7 @@ You will also notice this sample shows how to localize string content by using t
 
 ## Build Requirements
 
-Xcode 8.0 and iOS 10.0 SDK or later
+Xcode 8.1 and iOS 10.0 SDK or later
 
 ## Runtime Requirements
 

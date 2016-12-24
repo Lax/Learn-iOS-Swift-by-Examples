@@ -29,7 +29,7 @@ class SwitchViewController: UITableViewController {
     func configureDefaultSwitch() {
         defaultSwitch.setOn(true, animated: false)
 
-        defaultSwitch.addTarget(self, action: #selector(SwitchViewController.switchValueDidChange(_:)), forControlEvents: .ValueChanged)
+        defaultSwitch.addTarget(self, action: #selector(SwitchViewController.switchValueDidChange(_:)), for: .valueChanged)
     }
 
     func configureTintedSwitch() {
@@ -37,12 +37,12 @@ class SwitchViewController: UITableViewController {
         tintedSwitch.onTintColor = UIColor.applicationGreenColor
         tintedSwitch.thumbTintColor = UIColor.applicationPurpleColor
 
-        tintedSwitch.addTarget(self, action: #selector(SwitchViewController.switchValueDidChange(_:)), forControlEvents: .ValueChanged)
+        tintedSwitch.addTarget(self, action: #selector(SwitchViewController.switchValueDidChange(_:)), for: .valueChanged)
     }
 
     // MARK: - Actions
 
-    func switchValueDidChange(aSwitch: UISwitch) {
+    func switchValueDidChange(_ aSwitch: UISwitch) {
         NSLog("A switch changed its value: \(aSwitch).")
     }
 }

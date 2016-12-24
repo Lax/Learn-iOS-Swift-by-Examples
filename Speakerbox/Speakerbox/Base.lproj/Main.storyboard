@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="16A221" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NwA-S1-Vd1">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calls View Controller-->
+        <scene sceneID="ig4-U5-4nF">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="sSr-D5-Q2v" userLabel="Calls View Controller" customClass="CallsViewController" customModule="Speakerbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="6pr-km-iqc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CallSummary" id="eZG-A6-V7F" customClass="CallSummaryTableViewCell" customModule="Speakerbox" customModuleProvider="target">
+                                <frame key="frameInset" minY="120" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eZG-A6-V7F" id="zjX-uB-jX2">
+                                    <frame key="frameInset" width="375" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Caller Identifier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Oz-n8-46F">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HI3-P1-aZS" userLabel="Detail Text Label">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:32" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ln-9n-VWa" userLabel="Duration Label">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5ln-9n-VWa" firstAttribute="baseline" secondItem="HI3-P1-aZS" secondAttribute="baseline" id="1ie-Md-69u"/>
+                                        <constraint firstItem="1Oz-n8-46F" firstAttribute="leading" secondItem="zjX-uB-jX2" secondAttribute="leadingMargin" constant="7" id="2O3-5e-DXd"/>
+                                        <constraint firstItem="5ln-9n-VWa" firstAttribute="trailing" secondItem="zjX-uB-jX2" secondAttribute="trailingMargin" constant="-7" id="PUi-VW-kKR"/>
+                                        <constraint firstItem="HI3-P1-aZS" firstAttribute="leading" secondItem="1Oz-n8-46F" secondAttribute="leading" id="Yct-82-faB"/>
+                                        <constraint firstItem="HI3-P1-aZS" firstAttribute="top" secondItem="1Oz-n8-46F" secondAttribute="bottom" constant="2" id="e64-xt-RHR"/>
+                                        <constraint firstItem="1Oz-n8-46F" firstAttribute="top" secondItem="zjX-uB-jX2" secondAttribute="topMargin" constant="3" id="hv3-Vh-jjI"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="callStatusTextLabel" destination="HI3-P1-aZS" id="poe-zo-30l"/>
+                                    <outlet property="durationLabel" destination="5ln-9n-VWa" id="Lfg-lT-wFJ"/>
+                                    <outlet property="handleLabel" destination="1Oz-n8-46F" id="tZF-kw-wAS"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sSr-D5-Q2v" id="3yk-pI-Oa3"/>
+                            <outlet property="delegate" destination="sSr-D5-Q2v" id="hdh-6G-Q2L"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="RDO-DL-YwY"/>
+                        <barButtonItem title="Simulate Incoming Call…" id="onT-1g-Kil">
+                            <connections>
+                                <segue destination="tJN-fU-Ldk" kind="presentation" id="DUT-0r-ziQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="yrM-DP-hcb"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Speakerbox" id="sce-jh-Knw">
+                        <barButtonItem key="rightBarButtonItem" title="Dial" id="O4B-wo-4Kl">
+                            <connections>
+                                <segue destination="QDb-ng-0CN" kind="presentation" modalPresentationStyle="formSheet" id="MNd-hs-4Rv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rlD-AO-QA5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="118"/>
+        </scene>
+        <!--Simulate Incoming Call Navigation Scene-->
+        <scene sceneID="CJ2-k5-InJ">
+            <objects>
+                <navigationController id="tJN-fU-Ldk" userLabel="Simulate Incoming Call Navigation Scene" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xjC-Z3-XaW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="j8B-Bj-7nb" kind="relationship" relationship="rootViewController" id="Etv-YP-3Wb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZMx-F8-iVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="883"/>
+        </scene>
+        <!--Simulate Incoming Call Scene-->
+        <scene sceneID="Ghx-Tk-qGP">
+            <objects>
+                <viewController title="Simulate Incoming Call" id="j8B-Bj-7nb" userLabel="Simulate Incoming Call Scene" customClass="SimulateIncomingCallViewController" customModule="Speakerbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tRi-zN-vQU"/>
+                        <viewControllerLayoutGuide type="bottom" id="uRX-4m-NfJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fwv-tj-jzj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awy-ZN-rwL">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6OA-PQ-L29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Call" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8M-qD-byz">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="6hb-lu-A3S">
+                                <connections>
+                                    <action selector="stepperValueChanged:" destination="j8B-Bj-7nb" eventType="valueChanged" id="r1a-un-jjw"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delay the call and lock your device to experience an incoming call on the lock screen." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2v-sW-ehY">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delay Call 0 second(s)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TW2-7A-4M8">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l8M-qD-byz" firstAttribute="trailing" secondItem="awy-ZN-rwL" secondAttribute="trailing" id="0rF-yS-8Zj"/>
+                            <constraint firstItem="6OA-PQ-L29" firstAttribute="leading" secondItem="awy-ZN-rwL" secondAttribute="leading" id="15n-Sg-YRC"/>
+                            <constraint firstItem="f2v-sW-ehY" firstAttribute="trailing" secondItem="TW2-7A-4M8" secondAttribute="trailing" id="Dc5-6Q-cmn"/>
+                            <constraint firstItem="6hb-lu-A3S" firstAttribute="leading" secondItem="6OA-PQ-L29" secondAttribute="leading" id="Djb-y9-B1j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="awy-ZN-rwL" secondAttribute="trailing" id="Fbv-q8-dfz"/>
+                            <constraint firstItem="l8M-qD-byz" firstAttribute="leading" secondItem="6OA-PQ-L29" secondAttribute="trailing" constant="8" id="Hxp-yF-nWQ"/>
+                            <constraint firstItem="l8M-qD-byz" firstAttribute="centerY" secondItem="6OA-PQ-L29" secondAttribute="centerY" id="Jjc-RL-UO4"/>
+                            <constraint firstItem="f2v-sW-ehY" firstAttribute="top" secondItem="6hb-lu-A3S" secondAttribute="bottom" constant="4" id="MJo-uH-Uou"/>
+                            <constraint firstItem="6OA-PQ-L29" firstAttribute="top" secondItem="awy-ZN-rwL" secondAttribute="bottom" constant="8" id="S0Q-cX-JwB"/>
+                            <constraint firstItem="6hb-lu-A3S" firstAttribute="top" secondItem="6OA-PQ-L29" secondAttribute="bottom" constant="8" id="XFj-v6-kAq"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="awy-ZN-rwL" secondAttribute="leading" id="eFZ-m0-z2V"/>
+                            <constraint firstItem="TW2-7A-4M8" firstAttribute="trailing" secondItem="awy-ZN-rwL" secondAttribute="trailing" id="oi4-Wm-Z9b"/>
+                            <constraint firstItem="f2v-sW-ehY" firstAttribute="leading" secondItem="6hb-lu-A3S" secondAttribute="leading" id="sSi-iC-iAo"/>
+                            <constraint firstItem="TW2-7A-4M8" firstAttribute="leading" secondItem="6hb-lu-A3S" secondAttribute="trailing" constant="8" id="t8r-9m-3eG"/>
+                            <constraint firstItem="awy-ZN-rwL" firstAttribute="top" secondItem="tRi-zN-vQU" secondAttribute="bottom" constant="62" id="xg9-jN-7tP"/>
+                            <constraint firstItem="TW2-7A-4M8" firstAttribute="centerY" secondItem="6hb-lu-A3S" secondAttribute="centerY" id="xm8-td-tRR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Simulate Incoming Call" id="ghx-QQ-fOw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dQP-zC-Vtr">
+                            <connections>
+                                <action selector="cancel:" destination="j8B-Bj-7nb" id="a3J-oe-MFm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="Brg-nq-V9q">
+                            <connections>
+                                <segue destination="Baw-zA-OxY" kind="unwind" unwindAction="unwindForSimulateIncomingCallSegue:" id="0qd-uE-YDA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="delayExplanationLabel" destination="f2v-sW-ehY" id="cLU-gh-M05"/>
+                        <outlet property="delayStepper" destination="6hb-lu-A3S" id="jNg-0w-EKX"/>
+                        <outlet property="delayStepperLabel" destination="TW2-7A-4M8" id="fYO-bm-sh5"/>
+                        <outlet property="destinationTextField" destination="awy-ZN-rwL" id="7Co-oM-fLd"/>
+                        <outlet property="doneButton" destination="Brg-nq-V9q" id="sPe-VZ-KSs"/>
+                        <outlet property="videoSwitch" destination="6OA-PQ-L29" id="lwH-IR-jKP"/>
+                        <outlet property="videoSwitchLabel" destination="l8M-qD-byz" id="J1c-4p-T6l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p0J-uO-1Gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Baw-zA-OxY" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2645.5999999999999" y="882.90854572713647"/>
+        </scene>
+        <!--Dial Call Navigation-->
+        <scene sceneID="eCs-7D-Cre">
+            <objects>
+                <navigationController id="QDb-ng-0CN" userLabel="Dial Call Navigation" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SIk-NO-LJL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="s6h-OL-qPp" kind="relationship" relationship="rootViewController" id="e4X-hG-Vql"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SUY-l8-Hao" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="-602"/>
+        </scene>
+        <!--Calls Navigation Controller-->
+        <scene sceneID="bZk-ae-eaw">
+            <objects>
+                <navigationController toolbarHidden="NO" id="NwA-S1-Vd1" userLabel="Calls Navigation Controller" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mAj-ur-XxF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="u3K-TZ-LTv">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="sSr-D5-Q2v" kind="relationship" relationship="rootViewController" id="aTU-ah-UoO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOT-mF-Dba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981" y="118"/>
+        </scene>
+        <!--Dial Call-->
+        <scene sceneID="EiN-zg-w2u">
+            <objects>
+                <viewController id="s6h-OL-qPp" customClass="DialOptionsViewController" customModule="Speakerbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KzF-uL-Tdv"/>
+                        <viewControllerLayoutGuide type="bottom" id="BbE-pm-dg9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cRp-3H-o3w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F8n-bR-nGF">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fpV-1C-amO"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Call" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNW-wy-7cM">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="F8n-bR-nGF" firstAttribute="leading" secondItem="cRp-3H-o3w" secondAttribute="leadingMargin" id="5XA-pN-6DE"/>
+                            <constraint firstItem="KNW-wy-7cM" firstAttribute="trailing" secondItem="F8n-bR-nGF" secondAttribute="trailing" id="CHJ-L6-gy4"/>
+                            <constraint firstItem="fpV-1C-amO" firstAttribute="leading" secondItem="F8n-bR-nGF" secondAttribute="leading" id="Har-KC-IRZ"/>
+                            <constraint firstItem="KNW-wy-7cM" firstAttribute="leading" secondItem="fpV-1C-amO" secondAttribute="trailing" constant="8" id="Mag-1e-ZqK"/>
+                            <constraint firstItem="KNW-wy-7cM" firstAttribute="centerY" secondItem="fpV-1C-amO" secondAttribute="centerY" id="TFZ-bZ-VCs"/>
+                            <constraint firstItem="F8n-bR-nGF" firstAttribute="top" secondItem="KzF-uL-Tdv" secondAttribute="bottom" constant="62" id="WdI-pV-Svd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F8n-bR-nGF" secondAttribute="trailing" id="bUY-et-VFj"/>
+                            <constraint firstItem="fpV-1C-amO" firstAttribute="top" secondItem="F8n-bR-nGF" secondAttribute="bottom" constant="8" id="oPF-kY-f7I"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dial Call" id="Yge-MV-Wmz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="K2f-aM-j9s">
+                            <connections>
+                                <action selector="cancel:" destination="s6h-OL-qPp" id="7Ws-kQ-eY2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Dial" id="qdK-b7-8aX">
+                            <connections>
+                                <segue destination="6jL-3S-w1z" kind="unwind" identifier="DialCall" unwindAction="unwindForDialCallSegue:" id="SmZ-k8-xR7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="destinationTextField" destination="F8n-bR-nGF" id="uz0-Qb-Peh"/>
+                        <outlet property="dialButton" destination="qdK-b7-8aX" id="2cF-XD-Yai"/>
+                        <outlet property="videoSwitch" destination="fpV-1C-amO" id="Iub-Kq-Fi5"/>
+                        <outlet property="videoSwitchLabel" destination="KNW-wy-7cM" id="UjD-Q3-CI5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aym-kg-JCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6jL-3S-w1z" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2556" y="-602.24887556221893"/>
+        </scene>
+    </scenes>
+</document>

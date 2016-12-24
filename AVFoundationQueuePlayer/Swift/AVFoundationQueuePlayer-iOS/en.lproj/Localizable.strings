@@ -1,0 +1,52 @@
+/*
+	<samplecode>
+		<abstract>
+			Localizable strings.
+		</abstract>
+	</samplecode>
+*/
+
+// Alert title for errors.
+"alert.error.title" = "Error";
+
+// OK action on error alert
+"alert.error.actions.OK" = "OK";
+
+// Queue is empty.
+"label.queue.empty" = "Media queue is empty";
+
+// Queue of n item(s).
+"label.queue.%lu items" = "Queue of %n media items";
+
+// Title on button to clear the queue.
+"button.title.clear" = "Clear Queue";
+
+// Title of popover that clears the queue.
+"popover.title.clear" = "Clear";
+
+// Message on popover that clears the queue.
+"popover.message.clear" = "Remove all media from the queue?";
+
+// Title of popover cancel action.
+"popover.title.cancel" = "Cancel";
+
+// Title of popover that adds items to the queue.
+"popover.title.addItem" = "Add Media";
+
+// Message on popover that adds items to the queue.
+"popover.message.addItem" = "Select a media type to add to the queue";
+
+// Can't use this AVAsset because one of it's keys failed to load.
+"error.asset_%@_key_%@_failed.description" = "Media \"%@\" failed to load key \"%@\"";
+
+// Can't use this AVAsset because it isn't playable or has protected content.
+"error.asset_%@_not_playable.description" = "Media \"%@\" isn't playable or has protected content";
+
+// Failed to parse the assets manifest JSON.
+"error.json_parse_failed.description" = "Failed to parse the manifest";
+
+// Failed to open the assets manifest JSON.
+"error.json_open_failed.description" = "Failed to open the manifest";
+
+// Default error message when no NSError provided.
+"error.default.description" = "Unknown error";

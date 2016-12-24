@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>PathFinder (OS X).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Pathfinder (iOS).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>A4774EA31B434B2B007C1EB1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4774EB61B434B2B007C1EB1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4774EC11B434B2B007C1EB1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4AA552D1B6ACA85008D3323</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

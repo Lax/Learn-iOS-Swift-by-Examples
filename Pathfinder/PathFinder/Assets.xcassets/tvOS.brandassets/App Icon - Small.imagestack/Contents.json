@@ -1,0 +1,23 @@
+{
+  "layers" : [
+    {
+      "filename" : "Front.imagestacklayer"
+    },
+    {
+      "filename" : "Circle.imagestacklayer"
+    },
+    {
+      "filename" : "Arrows.imagestacklayer"
+    },
+    {
+      "filename" : "Slash.imagestacklayer"
+    },
+    {
+      "filename" : "Back.imagestacklayer"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

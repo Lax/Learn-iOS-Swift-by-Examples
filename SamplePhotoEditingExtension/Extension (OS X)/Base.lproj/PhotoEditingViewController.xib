@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11129.5" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11129.5"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PhotoEditingViewController" customModule="Photo_Edit" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="zKL-ob-AJd" id="x4b-5V-VPq"/>
+                <outlet property="previewImageView" destination="Wq6-PR-EM1" id="Bp3-h1-9FV"/>
+                <outlet property="view" destination="1" id="2"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="387" height="202"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Wq6-PR-EM1">
+                    <rect key="frame" x="100" y="51" width="187" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Cbj-2Q-wMW"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="zn4-Mg-BUI"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="pDO-eT-h5i"/>
+                </imageView>
+                <scrollView wantsLayer="YES" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gN6-yo-wW3">
+                    <rect key="frame" x="287" y="0.0" width="100" height="202"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="xKz-zn-lqL">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="202"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView selectable="YES" id="zKL-ob-AJd">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="804"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="gSl-pI-GDT">
+                                    <size key="itemSize" width="95" height="95"/>
+                                </collectionViewFlowLayout>
+                                <color key="primaryBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="-2" id="hgW-Cl-5UR"/>
+                                    <outlet property="delegate" destination="-2" id="Kvr-em-NHi"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                    </clipView>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="XYj-1S-SU0"/>
+                    </constraints>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="jCf-S3-9o4">
+                        <rect key="frame" x="1" y="144" width="233" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="Fh1-xu-YNY">
+                        <rect key="frame" x="84" y="0.0" width="16" height="202"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="gN6-yo-wW3" secondAttribute="trailing" id="7fj-UJ-21r"/>
+                <constraint firstItem="gN6-yo-wW3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wq6-PR-EM1" secondAttribute="trailing" id="Bju-lm-0VJ"/>
+                <constraint firstAttribute="trailing" secondItem="Wq6-PR-EM1" secondAttribute="trailing" constant="100" id="OKx-xL-L1c"/>
+                <constraint firstItem="Wq6-PR-EM1" firstAttribute="centerY" secondItem="1" secondAttribute="centerY" id="PHd-Qd-gAt"/>
+                <constraint firstItem="Wq6-PR-EM1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1" secondAttribute="leading" id="ULc-Dg-f3S"/>
+                <constraint firstItem="gN6-yo-wW3" firstAttribute="top" secondItem="1" secondAttribute="top" id="W5b-Ls-jo3"/>
+                <constraint firstAttribute="bottom" secondItem="gN6-yo-wW3" secondAttribute="bottom" id="X1D-kV-ykE"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Wq6-PR-EM1" secondAttribute="bottom" id="clZ-jl-M72"/>
+                <constraint firstItem="Wq6-PR-EM1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1" secondAttribute="top" id="esQ-nH-nWb"/>
+                <constraint firstItem="Wq6-PR-EM1" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="jaK-fq-kYM"/>
+            </constraints>
+            <point key="canvasLocation" x="138.5" y="169"/>
+        </customView>
+    </objects>
+</document>

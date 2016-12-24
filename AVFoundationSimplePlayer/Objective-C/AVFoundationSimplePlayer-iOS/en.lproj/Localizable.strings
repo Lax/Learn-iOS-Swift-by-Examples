@@ -1,0 +1,22 @@
+/*
+	<samplecode>
+		<abstract>
+			Localizable strings.
+		</abstract>
+	</samplecode>
+*/
+
+// Alert title for errors.
+"alert.error.title" = "Error";
+
+// OK action on error alert
+"alert.error.actions.OK" = "OK on error alert";
+
+// Can't use this AVAsset because one of it's keys failed to load.
+"error.asset_key_%@_failed.description" = "Media failed to load key \"%@\"";
+
+// Can't use this AVAsset because it isn't playable or has protected content.
+"error.asset_not_playable.description" = "Media isn't playable or has protected content";
+
+// Default error message when no NSError provided.
+"error.default.description" = "Unknown error";

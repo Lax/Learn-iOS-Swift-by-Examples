@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ParameterVocabularies</key>
+	<array>
+		<dict>
+			<key>ParameterNames</key>
+			<array>
+				<string>INStartWorkoutIntent.workoutName</string>
+			</array>
+			<key>ParameterVocabulary</key>
+			<array>
+				<dict>
+					<key>VocabularyItemIdentifier</key>
+					<string>climb</string>
+					<key>VocabularyItemSynonyms</key>
+					<array>
+						<dict>
+							<key>VocabularyItemPhrase</key>
+							<string>Climb</string>
+							<key>VocabularyItemPronunciation</key>
+							<string>klime</string>
+							<key>VocabularyItemExamples</key>
+							<array>
+								<string>start a climb with ascent</string>
+								<string>pause the climb with ascent</string>
+								<string>resume the climb with ascent</string>
+								<string>end the climb with ascent</string>
+								<string>cancel the climb with ascent</string>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>ParameterNames</key>
+			<array>
+				<string>INStartWorkoutIntent.workoutName</string>
+			</array>
+			<key>ParameterVocabulary</key>
+			<array>
+				<dict>
+					<key>VocabularyItemIdentifier</key>
+					<string>boulder</string>
+					<key>VocabularyItemSynonyms</key>
+					<array>
+						<dict>
+							<key>VocabularyItemPhrase</key>
+							<string>Boulder Climb</string>
+							<key>VocabularyItemPronunciation</key>
+							<string>bowlder klime</string>
+							<key>VocabularyItemExamples</key>
+							<array>
+								<string>start a boulder climb with ascent</string>
+							</array>
+						</dict>
+						<dict>
+							<key>VocabularyItemPhrase</key>
+							<string>Boulder Workout</string>
+							<key>VocabularyItemPronunciation</key>
+							<string>bowlder workout</string>
+							<key>VocabularyItemExamples</key>
+							<array>
+								<string>start a boulder workout with ascent</string>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>IntentPhrases</key>
+	<array>
+		<dict>
+			<key>IntentName</key>
+			<string>INStartWorkoutIntent</string>
+			<key>IntentExamples</key>
+			<array>
+				<string>Siri, start a climb with ascent</string>
+				<string>Siri, start a boulder climb with ascent</string>
+				<string>Siri, start a boulder workout with ascent</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

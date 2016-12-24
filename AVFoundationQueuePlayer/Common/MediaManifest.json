@@ -1,0 +1,22 @@
+[
+    {
+        "title" : "Video File",
+        "mediaResourceName" : "ElephantSeals.mov",
+        "thumbnailResourceName" : "LocalVideoThumb.png"
+    },
+    {
+        "title" : "Audio File",
+        "mediaResourceName" : "Drums.m4a",
+        "thumbnailResourceName" : "LocalAudioThumb.png"
+    },
+    {
+        "title" : "HTTP Live Stream",
+        "mediaURL" : "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8",
+        "thumbnailResourceName" : "HLSThumb.png"
+    },
+    {
+        "title" : "Progressive Download",
+        "mediaURL" : "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_Progressive.mov",
+        "thumbnailResourceName" : "ProgressiveThumb.png"
+	}
+]

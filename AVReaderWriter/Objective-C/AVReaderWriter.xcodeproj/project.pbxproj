@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE33EA6D1370DF3100F77FCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE33EA6B1370DF3100F77FCE /* InfoPlist.strings */; };
+		EE33EA701370DF3100F77FCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE33EA6F1370DF3100F77FCE /* main.m */; };
+		EE33EA761370DF3100F77FCE /* AAPLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = EE33EA751370DF3100F77FCE /* AAPLDocument.m */; };
+		EE33EA791370DF3100F77FCE /* AAPLDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE33EA771370DF3100F77FCE /* AAPLDocument.xib */; };
+		EE33EA7C1370DF3100F77FCE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE33EA7A1370DF3100F77FCE /* MainMenu.xib */; };
+		EEB8F96C1399AF67004FEB2E /* AAPLProgressPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB8F96B1399AF67004FEB2E /* AAPLProgressPanelController.m */; };
+		EEB8F96F1399AFA0004FEB2E /* AAPLProgressPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEB8F96E1399AFA0004FEB2E /* AAPLProgressPanel.xib */; };
+		EEDD0D04139D9946008A5566 /* AudioOnly2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDD0D03139D9946008A5566 /* AudioOnly2x.png */; };
+		EEDD0D07139D9A42008A5566 /* ErrorLoading2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEDD0D06139D9A42008A5566 /* ErrorLoading2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3E7D60AB1B1FA25E001EAE8D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		EE33EA5E1370DF3100F77FCE /* AVReaderWriter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVReaderWriter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE33EA6A1370DF3100F77FCE /* AVReaderWriterOSX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AVReaderWriterOSX-Info.plist"; sourceTree = "<group>"; };
+		EE33EA6C1370DF3100F77FCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE33EA6F1370DF3100F77FCE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE33EA741370DF3100F77FCE /* AAPLDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLDocument.h; sourceTree = "<group>"; };
+		EE33EA751370DF3100F77FCE /* AAPLDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAPLDocument.m; sourceTree = "<group>"; };
+		EE33EA781370DF3100F77FCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AAPLDocument.xib; sourceTree = "<group>"; };
+		EE33EA7B1370DF3100F77FCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		EEB8F96A1399AF67004FEB2E /* AAPLProgressPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLProgressPanelController.h; sourceTree = "<group>"; };
+		EEB8F96B1399AF67004FEB2E /* AAPLProgressPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLProgressPanelController.m; sourceTree = "<group>"; };
+		EEB8F96E1399AFA0004FEB2E /* AAPLProgressPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AAPLProgressPanel.xib; sourceTree = "<group>"; };
+		EEDD0D03139D9946008A5566 /* AudioOnly2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AudioOnly2x.png; sourceTree = "<group>"; };
+		EEDD0D06139D9A42008A5566 /* ErrorLoading2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ErrorLoading2x.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE33EA5B1370DF3100F77FCE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE33EA531370DF3100F77FCE = {
+			isa = PBXGroup;
+			children = (
+				3E7D60AB1B1FA25E001EAE8D /* README.md */,
+				EE33EA681370DF3100F77FCE /* AVReaderWriterOSX */,
+				EE33EA5F1370DF3100F77FCE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE33EA5F1370DF3100F77FCE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE33EA5E1370DF3100F77FCE /* AVReaderWriter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE33EA681370DF3100F77FCE /* AVReaderWriterOSX */ = {
+			isa = PBXGroup;
+			children = (
+				EE33EA741370DF3100F77FCE /* AAPLDocument.h */,
+				EE33EA751370DF3100F77FCE /* AAPLDocument.m */,
+				EEB8F96A1399AF67004FEB2E /* AAPLProgressPanelController.h */,
+				EEB8F96B1399AF67004FEB2E /* AAPLProgressPanelController.m */,
+				EEDD0D64139DA9A3008A5566 /* Resources */,
+				EE33EA691370DF3100F77FCE /* Supporting Files */,
+			);
+			path = AVReaderWriterOSX;
+			sourceTree = "<group>";
+		};
+		EE33EA691370DF3100F77FCE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE33EA6A1370DF3100F77FCE /* AVReaderWriterOSX-Info.plist */,
+				EE33EA6B1370DF3100F77FCE /* InfoPlist.strings */,
+				EE33EA6F1370DF3100F77FCE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EEDD0D64139DA9A3008A5566 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EE33EA771370DF3100F77FCE /* AAPLDocument.xib */,
+				EEB8F96E1399AFA0004FEB2E /* AAPLProgressPanel.xib */,
+				EE33EA7A1370DF3100F77FCE /* MainMenu.xib */,
+				EEDD0D03139D9946008A5566 /* AudioOnly2x.png */,
+				EEDD0D06139D9A42008A5566 /* ErrorLoading2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE33EA5D1370DF3100F77FCE /* AVReaderWriterOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE33EA7F1370DF3100F77FCE /* Build configuration list for PBXNativeTarget "AVReaderWriterOSX" */;
+			buildPhases = (
+				EE33EA5A1370DF3100F77FCE /* Sources */,
+				EE33EA5B1370DF3100F77FCE /* Frameworks */,
+				EE33EA5C1370DF3100F77FCE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AVReaderWriterOSX;
+			productName = ReaderWriter;
+			productReference = EE33EA5E1370DF3100F77FCE /* AVReaderWriter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE33EA551370DF3100F77FCE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = EE33EA581370DF3100F77FCE /* Build configuration list for PBXProject "AVReaderWriter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EE33EA531370DF3100F77FCE;
+			productRefGroup = EE33EA5F1370DF3100F77FCE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE33EA5D1370DF3100F77FCE /* AVReaderWriterOSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE33EA5C1370DF3100F77FCE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE33EA6D1370DF3100F77FCE /* InfoPlist.strings in Resources */,
+				EE33EA791370DF3100F77FCE /* AAPLDocument.xib in Resources */,
+				EE33EA7C1370DF3100F77FCE /* MainMenu.xib in Resources */,
+				EEB8F96F1399AFA0004FEB2E /* AAPLProgressPanel.xib in Resources */,
+				EEDD0D04139D9946008A5566 /* AudioOnly2x.png in Resources */,
+				EEDD0D07139D9A42008A5566 /* ErrorLoading2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE33EA5A1370DF3100F77FCE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE33EA701370DF3100F77FCE /* main.m in Sources */,
+				EE33EA761370DF3100F77FCE /* AAPLDocument.m in Sources */,
+				EEB8F96C1399AF67004FEB2E /* AAPLProgressPanelController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EE33EA6B1370DF3100F77FCE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE33EA6C1370DF3100F77FCE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EE33EA771370DF3100F77FCE /* AAPLDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE33EA781370DF3100F77FCE /* en */,
+			);
+			name = AAPLDocument.xib;
+			sourceTree = "<group>";
+		};
+		EE33EA7A1370DF3100F77FCE /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE33EA7B1370DF3100F77FCE /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE33EA7D1370DF3100F77FCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EE33EA7E1370DF3100F77FCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EE33EA801370DF3100F77FCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				INFOPLIST_FILE = "AVReaderWriterOSX/AVReaderWriterOSX-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = AVReaderWriter;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EE33EA811370DF3100F77FCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				INFOPLIST_FILE = "AVReaderWriterOSX/AVReaderWriterOSX-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = AVReaderWriter;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE33EA581370DF3100F77FCE /* Build configuration list for PBXProject "AVReaderWriter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE33EA7D1370DF3100F77FCE /* Debug */,
+				EE33EA7E1370DF3100F77FCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE33EA7F1370DF3100F77FCE /* Build configuration list for PBXNativeTarget "AVReaderWriterOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE33EA801370DF3100F77FCE /* Debug */,
+				EE33EA811370DF3100F77FCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE33EA551370DF3100F77FCE /* Project object */;
+}

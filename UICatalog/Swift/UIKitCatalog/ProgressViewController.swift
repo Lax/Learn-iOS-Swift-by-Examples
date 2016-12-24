@@ -29,13 +29,13 @@ class ProgressViewController: UITableViewController {
         An `NSProgress` object who's `fractionCompleted` is observed using
         KVO to update the `UIProgressView`s' `progress` properties.
     */
-    private let progress = NSProgress(totalUnitCount: 10)
+    fileprivate let progress = Progress(totalUnitCount: 10)
     
     /**
         A repeating timer that, when fired, updates the `NSProgress` object's
         `completedUnitCount` property.
     */
-    private var updateTimer: NSTimer?
+    fileprivate var updateTimer: Timer?
     
     // MARK: - Initialization
     
@@ -43,7 +43,7 @@ class ProgressViewController: UITableViewController {
         super.init(coder: aDecoder)
         
         // Register as an observer of the `NSProgress`'s `fractionCompleted` property.
-        progress.addObserver(self, forKeyPath: "fractionCompleted", options: [.New], context: &progressViewKVOContext)
+        progress.addObserver(self, forKeyPath: "fractionCompleted", options: [.new], context: &progressViewKVOContext)
     }
     
     deinit {
@@ -61,7 +61,7 @@ class ProgressViewController: UITableViewController {
         configureTintedProgressView()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // Reset the completed progress of the `UIProgressView`s.
@@ -74,10 +74,10 @@ class ProgressViewController: UITableViewController {
             a repeating timer to increment it over time.
         */
         progress.completedUnitCount = 0
-        updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ProgressViewController.timerDidFire), userInfo: nil, repeats: true)
+        updateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ProgressViewController.timerDidFire), userInfo: nil, repeats: true)
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         // Stop the timer from firing.
@@ -86,31 +86,31 @@ class ProgressViewController: UITableViewController {
     
     // MARK: - Key Value Observing (KVO)
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String: AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         // Check if this is the KVO notification for our `NSProgress` object.
-        if context == &progressViewKVOContext && keyPath == "fractionCompleted" && object === progress {
+        if context == &progressViewKVOContext && keyPath == "fractionCompleted" && object as AnyObject? === progress {
             // Update the progress views.
             for progressView in progressViews {
                 progressView.setProgress(Float(progress.fractionCompleted), animated: true)
             }
         }
         else {
-            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
     }
 
     // MARK: - Configuration
 
     func configureDefaultStyleProgressView() {
-        defaultStyleProgressView.progressViewStyle = .Default
+        defaultStyleProgressView.progressViewStyle = .default
     }
 
     func configureBarStyleProgressView() {
-        barStyleProgressView.progressViewStyle = .Bar
+        barStyleProgressView.progressViewStyle = .bar
     }
 
     func configureTintedProgressView() {
-        tintedProgressView.progressViewStyle = .Default
+        tintedProgressView.progressViewStyle = .default
 
         tintedProgressView.trackTintColor = UIColor.applicationBlueColor
         tintedProgressView.progressTintColor = UIColor.applicationPurpleColor

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8152.3" systemVersion="14F9" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AAPLViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZE-vw-PHt">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem systemItem="stop" id="Ih0-47-1fe">
+                                        <connections>
+                                            <action selector="revealMapKitTileset:" destination="BYZ-38-t0r" id="BE6-cE-95M"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qAi-Zz-WFD"/>
+                                    <barButtonItem systemItem="refresh" id="r2G-vg-sDZ">
+                                        <connections>
+                                            <action selector="resetCamera:" destination="BYZ-38-t0r" id="Kaa-Cg-KqN"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="yGZ-Hw-ctu"/>
+                                    <barButtonItem style="plain" id="q3h-OY-Lh1">
+                                        <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="OJz-Ek-KAu">
+                                            <rect key="frame" x="531" y="7" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <connections>
+                                                <action selector="toggleDebugVisuals:" destination="BYZ-38-t0r" eventType="valueChanged" id="1oL-w9-gMr"/>
+                                            </connections>
+                                        </switch>
+                                        <connections>
+                                            <action selector="toggleDebugVisuals:" destination="BYZ-38-t0r" id="J4z-1Q-nfK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXu-BP-TPi">
+                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
+                                <animations/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kFo-n0-uwZ"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DXu-BP-TPi" secondAttribute="trailing" id="C7V-Wi-SbD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uZE-vw-PHt" secondAttribute="trailing" constant="-20" id="GPK-9m-eGW"/>
+                            <constraint firstItem="DXu-BP-TPi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Gt4-8Z-nzy"/>
+                            <constraint firstItem="DXu-BP-TPi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aca-bR-yt1"/>
+                            <constraint firstItem="uZE-vw-PHt" firstAttribute="top" secondItem="DXu-BP-TPi" secondAttribute="bottom" id="nEw-EV-Co3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uZE-vw-PHt" secondAttribute="bottom" id="p2G-FS-wVH"/>
+                            <constraint firstItem="uZE-vw-PHt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xkA-rL-qra"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="debugVisualsSwitch" destination="OJz-Ek-KAu" id="Pai-tm-JYd"/>
+                        <outlet property="mapView" destination="DXu-BP-TPi" id="fqa-Wq-N8g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="350" y="547"/>
+        </scene>
+    </scenes>
+</document>

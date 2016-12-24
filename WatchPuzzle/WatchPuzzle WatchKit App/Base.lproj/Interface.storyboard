@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11138" systemVersion="16A195a" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11110"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11056"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchPuzzle_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <sceneKitScene alignment="left" scene="art.scnassets/sample.scn" id="qs4-XW-IwS">
+                            <gestureRecognizers>
+                                <tapGestureRecognizer id="ASd-9z-djZ">
+                                    <precedingGestureRecognizers/>
+                                    <connections>
+                                        <action selector="handleTapWithSender:" destination="AgC-eL-Hgc" id="JWh-J9-MO0"/>
+                                    </connections>
+                                </tapGestureRecognizer>
+                                <panGestureRecognizer id="nFd-7z-s2H">
+                                    <precedingGestureRecognizers/>
+                                    <connections>
+                                        <action selector="handlePanWithPanGesture:" destination="AgC-eL-Hgc" id="OMn-BI-nfw"/>
+                                    </connections>
+                                </panGestureRecognizer>
+                            </gestureRecognizers>
+                        </sceneKitScene>
+                    </items>
+                    <connections>
+                        <outlet property="sceneInterface" destination="qs4-XW-IwS" id="GMU-wT-5qk"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+    </scenes>
+</document>

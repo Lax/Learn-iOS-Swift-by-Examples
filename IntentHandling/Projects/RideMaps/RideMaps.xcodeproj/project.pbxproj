@@ -1,0 +1,786 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC6130DA1D53BAD800601BBE /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6130D91D53BAD800601BBE /* IntentsUI.framework */; };
+		DC6130DD1D53BAD800601BBE /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6130DC1D53BAD800601BBE /* IntentViewController.swift */; };
+		DC6130E01D53BAD800601BBE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6130DE1D53BAD800601BBE /* MainInterface.storyboard */; };
+		DC6130E41D53BAD800601BBE /* RideIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DC6130D71D53BAD800601BBE /* RideIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DC6130E71D53BAD800601BBE /* ListRideOptionsIntentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DC6130CE1D53BAD800601BBE /* ListRideOptionsIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DC7ACBDE1D5E474B006D0EC0 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7ACBDC1D5E474B006D0EC0 /* IntentHandler.swift */; };
+		DC7ACBE91D5E481B006D0EC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7ACBE21D5E481B006D0EC0 /* AppDelegate.swift */; };
+		DC7ACBEA1D5E481B006D0EC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC7ACBE31D5E481B006D0EC0 /* Assets.xcassets */; };
+		DC7ACBEB1D5E481B006D0EC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7ACBE41D5E481B006D0EC0 /* LaunchScreen.storyboard */; };
+		DC7ACBEC1D5E481B006D0EC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7ACBE61D5E481B006D0EC0 /* Main.storyboard */; };
+		DC7ACBEF1D5E49DA006D0EC0 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7ACBEE1D5E49DA006D0EC0 /* Intents.framework */; };
+		DC7ACBF01D5E49DF006D0EC0 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7ACBEE1D5E49DA006D0EC0 /* Intents.framework */; };
+		DC7ACBF11D5E49E4006D0EC0 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7ACBEE1D5E49DA006D0EC0 /* Intents.framework */; };
+		DCE9E60B1D5E428200C214BD /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE9E60A1D5E428200C214BD /* IntentHandler.swift */; };
+		DCE9E60F1D5E428200C214BD /* RequestRideIntentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DCE9E6081D5E428200C214BD /* RequestRideIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DCE9E61A1D5E467C00C214BD /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE9E6191D5E467C00C214BD /* IntentHandler.swift */; };
+		DCE9E61E1D5E467C00C214BD /* GetRideStatusIntentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DCE9E6171D5E467C00C214BD /* GetRideStatusIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC6130E21D53BAD800601BBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC6130AD1D53BAA700601BBE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC6130D61D53BAD800601BBE;
+			remoteInfo = RideIntentUI;
+		};
+		DC6130E51D53BAD800601BBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC6130AD1D53BAA700601BBE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC6130CD1D53BAD800601BBE;
+			remoteInfo = RideIntent;
+		};
+		DCE9E60D1D5E428200C214BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC6130AD1D53BAA700601BBE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCE9E6071D5E428200C214BD;
+			remoteInfo = RequestRideIntentExtension;
+		};
+		DCE9E61C1D5E467C00C214BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC6130AD1D53BAA700601BBE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCE9E6161D5E467C00C214BD;
+			remoteInfo = GetRideStatusIntentExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DC6130EE1D53BAD800601BBE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DC6130E71D53BAD800601BBE /* ListRideOptionsIntentExtension.appex in Embed App Extensions */,
+				DCE9E61E1D5E467C00C214BD /* GetRideStatusIntentExtension.appex in Embed App Extensions */,
+				DCE9E60F1D5E428200C214BD /* RequestRideIntentExtension.appex in Embed App Extensions */,
+				DC6130E41D53BAD800601BBE /* RideIntentUI.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B574C8D81D7B81D700F68E77 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DC6130B51D53BAA700601BBE /* RideMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC6130CE1D53BAD800601BBE /* ListRideOptionsIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ListRideOptionsIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC6130D71D53BAD800601BBE /* RideIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RideIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC6130D91D53BAD800601BBE /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		DC6130DC1D53BAD800601BBE /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		DC6130DF1D53BAD800601BBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DC6130E11D53BAD800601BBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC7ACBDB1D5E474B006D0EC0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ListRideOptionsIntentExtension/Info.plist; sourceTree = SOURCE_ROOT; };
+		DC7ACBDC1D5E474B006D0EC0 /* IntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntentHandler.swift; path = ListRideOptionsIntentExtension/IntentHandler.swift; sourceTree = SOURCE_ROOT; };
+		DC7ACBE21D5E481B006D0EC0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC7ACBE31D5E481B006D0EC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC7ACBE51D5E481B006D0EC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC7ACBE71D5E481B006D0EC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC7ACBE81D5E481B006D0EC0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC7ACBEE1D5E49DA006D0EC0 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		DCE9E6081D5E428200C214BD /* RequestRideIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RequestRideIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCE9E60A1D5E428200C214BD /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		DCE9E60C1D5E428200C214BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCE9E6171D5E467C00C214BD /* GetRideStatusIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GetRideStatusIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCE9E6191D5E467C00C214BD /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		DCE9E61B1D5E467C00C214BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC6130B21D53BAA700601BBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6130CB1D53BAD800601BBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7ACBEF1D5E49DA006D0EC0 /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6130D41D53BAD800601BBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6130DA1D53BAD800601BBE /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE9E6051D5E428200C214BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7ACBF01D5E49DF006D0EC0 /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE9E6141D5E467C00C214BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7ACBF11D5E49E4006D0EC0 /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC6130AC1D53BAA700601BBE = {
+			isa = PBXGroup;
+			children = (
+				B574C8D81D7B81D700F68E77 /* README.md */,
+				DC7ACBE11D5E481B006D0EC0 /* RideMaps */,
+				DC6130CF1D53BAD800601BBE /* ListRideOptionsIntentExtension */,
+				DCE9E6091D5E428200C214BD /* RequestRideIntentExtension */,
+				DCE9E6181D5E467C00C214BD /* GetRideStatusIntentExtension */,
+				DC6130DB1D53BAD800601BBE /* RideIntentUI */,
+				DC6130D81D53BAD800601BBE /* Frameworks */,
+				DC6130B61D53BAA700601BBE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC6130B61D53BAA700601BBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC6130B51D53BAA700601BBE /* RideMaps.app */,
+				DC6130CE1D53BAD800601BBE /* ListRideOptionsIntentExtension.appex */,
+				DC6130D71D53BAD800601BBE /* RideIntentUI.appex */,
+				DCE9E6081D5E428200C214BD /* RequestRideIntentExtension.appex */,
+				DCE9E6171D5E467C00C214BD /* GetRideStatusIntentExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC6130CF1D53BAD800601BBE /* ListRideOptionsIntentExtension */ = {
+			isa = PBXGroup;
+			children = (
+				DC7ACBDC1D5E474B006D0EC0 /* IntentHandler.swift */,
+				DC7ACBDB1D5E474B006D0EC0 /* Info.plist */,
+			);
+			name = ListRideOptionsIntentExtension;
+			path = RideIntent;
+			sourceTree = "<group>";
+		};
+		DC6130D81D53BAD800601BBE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC7ACBEE1D5E49DA006D0EC0 /* Intents.framework */,
+				DC6130D91D53BAD800601BBE /* IntentsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC6130DB1D53BAD800601BBE /* RideIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				DC6130DC1D53BAD800601BBE /* IntentViewController.swift */,
+				DC6130DE1D53BAD800601BBE /* MainInterface.storyboard */,
+				DC6130E11D53BAD800601BBE /* Info.plist */,
+			);
+			path = RideIntentUI;
+			sourceTree = "<group>";
+		};
+		DC7ACBE11D5E481B006D0EC0 /* RideMaps */ = {
+			isa = PBXGroup;
+			children = (
+				DC7ACBE21D5E481B006D0EC0 /* AppDelegate.swift */,
+				DC7ACBE31D5E481B006D0EC0 /* Assets.xcassets */,
+				DC7ACBE41D5E481B006D0EC0 /* LaunchScreen.storyboard */,
+				DC7ACBE61D5E481B006D0EC0 /* Main.storyboard */,
+				DC7ACBE81D5E481B006D0EC0 /* Info.plist */,
+			);
+			path = RideMaps;
+			sourceTree = "<group>";
+		};
+		DCE9E6091D5E428200C214BD /* RequestRideIntentExtension */ = {
+			isa = PBXGroup;
+			children = (
+				DCE9E60A1D5E428200C214BD /* IntentHandler.swift */,
+				DCE9E60C1D5E428200C214BD /* Info.plist */,
+			);
+			path = RequestRideIntentExtension;
+			sourceTree = "<group>";
+		};
+		DCE9E6181D5E467C00C214BD /* GetRideStatusIntentExtension */ = {
+			isa = PBXGroup;
+			children = (
+				DCE9E6191D5E467C00C214BD /* IntentHandler.swift */,
+				DCE9E61B1D5E467C00C214BD /* Info.plist */,
+			);
+			path = GetRideStatusIntentExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC6130B41D53BAA700601BBE /* RideMaps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC6130C71D53BAA700601BBE /* Build configuration list for PBXNativeTarget "RideMaps" */;
+			buildPhases = (
+				DC6130B11D53BAA700601BBE /* Sources */,
+				DC6130B21D53BAA700601BBE /* Frameworks */,
+				DC6130B31D53BAA700601BBE /* Resources */,
+				DC6130EE1D53BAD800601BBE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC6130E31D53BAD800601BBE /* PBXTargetDependency */,
+				DC6130E61D53BAD800601BBE /* PBXTargetDependency */,
+				DCE9E60E1D5E428200C214BD /* PBXTargetDependency */,
+				DCE9E61D1D5E467C00C214BD /* PBXTargetDependency */,
+			);
+			name = RideMaps;
+			productName = RideMaps;
+			productReference = DC6130B51D53BAA700601BBE /* RideMaps.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC6130CD1D53BAD800601BBE /* ListRideOptionsIntentExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC6130EB1D53BAD800601BBE /* Build configuration list for PBXNativeTarget "ListRideOptionsIntentExtension" */;
+			buildPhases = (
+				DC6130CA1D53BAD800601BBE /* Sources */,
+				DC6130CB1D53BAD800601BBE /* Frameworks */,
+				DC6130CC1D53BAD800601BBE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ListRideOptionsIntentExtension;
+			productName = RideIntent;
+			productReference = DC6130CE1D53BAD800601BBE /* ListRideOptionsIntentExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DC6130D61D53BAD800601BBE /* RideIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC6130E81D53BAD800601BBE /* Build configuration list for PBXNativeTarget "RideIntentUI" */;
+			buildPhases = (
+				DC6130D31D53BAD800601BBE /* Sources */,
+				DC6130D41D53BAD800601BBE /* Frameworks */,
+				DC6130D51D53BAD800601BBE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RideIntentUI;
+			productName = RideIntentUI;
+			productReference = DC6130D71D53BAD800601BBE /* RideIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DCE9E6071D5E428200C214BD /* RequestRideIntentExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCE9E6101D5E428200C214BD /* Build configuration list for PBXNativeTarget "RequestRideIntentExtension" */;
+			buildPhases = (
+				DCE9E6041D5E428200C214BD /* Sources */,
+				DCE9E6051D5E428200C214BD /* Frameworks */,
+				DCE9E6061D5E428200C214BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RequestRideIntentExtension;
+			productName = RequestRideIntentExtension;
+			productReference = DCE9E6081D5E428200C214BD /* RequestRideIntentExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DCE9E6161D5E467C00C214BD /* GetRideStatusIntentExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCE9E61F1D5E467C00C214BD /* Build configuration list for PBXNativeTarget "GetRideStatusIntentExtension" */;
+			buildPhases = (
+				DCE9E6131D5E467C00C214BD /* Sources */,
+				DCE9E6141D5E467C00C214BD /* Frameworks */,
+				DCE9E6151D5E467C00C214BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GetRideStatusIntentExtension;
+			productName = GetRideStatusIntentExtension;
+			productReference = DCE9E6171D5E467C00C214BD /* GetRideStatusIntentExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC6130AD1D53BAA700601BBE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Apple, Inc.";
+				TargetAttributes = {
+					DC6130B41D53BAA700601BBE = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					DC6130CD1D53BAD800601BBE = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					DC6130D61D53BAD800601BBE = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					DCE9E6071D5E428200C214BD = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					DCE9E6161D5E467C00C214BD = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DC6130B01D53BAA700601BBE /* Build configuration list for PBXProject "RideMaps" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC6130AC1D53BAA700601BBE;
+			productRefGroup = DC6130B61D53BAA700601BBE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC6130B41D53BAA700601BBE /* RideMaps */,
+				DC6130CD1D53BAD800601BBE /* ListRideOptionsIntentExtension */,
+				DCE9E6071D5E428200C214BD /* RequestRideIntentExtension */,
+				DCE9E6161D5E467C00C214BD /* GetRideStatusIntentExtension */,
+				DC6130D61D53BAD800601BBE /* RideIntentUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC6130B31D53BAA700601BBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7ACBEA1D5E481B006D0EC0 /* Assets.xcassets in Resources */,
+				DC7ACBEC1D5E481B006D0EC0 /* Main.storyboard in Resources */,
+				DC7ACBEB1D5E481B006D0EC0 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6130CC1D53BAD800601BBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6130D51D53BAD800601BBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6130E01D53BAD800601BBE /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE9E6061D5E428200C214BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE9E6151D5E467C00C214BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC6130B11D53BAA700601BBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7ACBE91D5E481B006D0EC0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6130CA1D53BAD800601BBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7ACBDE1D5E474B006D0EC0 /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6130D31D53BAD800601BBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6130DD1D53BAD800601BBE /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE9E6041D5E428200C214BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCE9E60B1D5E428200C214BD /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE9E6131D5E467C00C214BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCE9E61A1D5E467C00C214BD /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC6130E31D53BAD800601BBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC6130D61D53BAD800601BBE /* RideIntentUI */;
+			targetProxy = DC6130E21D53BAD800601BBE /* PBXContainerItemProxy */;
+		};
+		DC6130E61D53BAD800601BBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC6130CD1D53BAD800601BBE /* ListRideOptionsIntentExtension */;
+			targetProxy = DC6130E51D53BAD800601BBE /* PBXContainerItemProxy */;
+		};
+		DCE9E60E1D5E428200C214BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCE9E6071D5E428200C214BD /* RequestRideIntentExtension */;
+			targetProxy = DCE9E60D1D5E428200C214BD /* PBXContainerItemProxy */;
+		};
+		DCE9E61D1D5E467C00C214BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCE9E6161D5E467C00C214BD /* GetRideStatusIntentExtension */;
+			targetProxy = DCE9E61C1D5E467C00C214BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC6130DE1D53BAD800601BBE /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC6130DF1D53BAD800601BBE /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		DC7ACBE41D5E481B006D0EC0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC7ACBE51D5E481B006D0EC0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DC7ACBE61D5E481B006D0EC0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC7ACBE71D5E481B006D0EC0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC6130C51D53BAA700601BBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC6130C61D53BAA700601BBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC6130C81D53BAA700601BBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = RideMaps/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.RideMaps";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DC6130C91D53BAA700601BBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = RideMaps/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.RideMaps";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		DC6130E91D53BAD800601BBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RideIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.RideMaps.RideIntentUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DC6130EA1D53BAD800601BBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RideIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.RideMaps.RideIntentUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		DC6130EC1D53BAD800601BBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ListRideOptionsIntentExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.RideMaps.ListRideOptionsIntentExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DC6130ED1D53BAD800601BBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ListRideOptionsIntentExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.RideMaps.ListRideOptionsIntentExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		DCE9E6111D5E428200C214BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RequestRideIntentExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.RideMaps.RequestRideIntentExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DCE9E6121D5E428200C214BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RequestRideIntentExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.RideMaps.RequestRideIntentExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		DCE9E6201D5E467C00C214BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GetRideStatusIntentExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.RideMaps.GetRideStatusIntentExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DCE9E6211D5E467C00C214BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GetRideStatusIntentExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.RideMaps.GetRideStatusIntentExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC6130B01D53BAA700601BBE /* Build configuration list for PBXProject "RideMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6130C51D53BAA700601BBE /* Debug */,
+				DC6130C61D53BAA700601BBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC6130C71D53BAA700601BBE /* Build configuration list for PBXNativeTarget "RideMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6130C81D53BAA700601BBE /* Debug */,
+				DC6130C91D53BAA700601BBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC6130E81D53BAD800601BBE /* Build configuration list for PBXNativeTarget "RideIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6130E91D53BAD800601BBE /* Debug */,
+				DC6130EA1D53BAD800601BBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC6130EB1D53BAD800601BBE /* Build configuration list for PBXNativeTarget "ListRideOptionsIntentExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6130EC1D53BAD800601BBE /* Debug */,
+				DC6130ED1D53BAD800601BBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCE9E6101D5E428200C214BD /* Build configuration list for PBXNativeTarget "RequestRideIntentExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCE9E6111D5E428200C214BD /* Debug */,
+				DCE9E6121D5E428200C214BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCE9E61F1D5E467C00C214BD /* Build configuration list for PBXNativeTarget "GetRideStatusIntentExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCE9E6201D5E467C00C214BD /* Debug */,
+				DCE9E6211D5E467C00C214BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC6130AD1D53BAA700601BBE /* Project object */;
+}
