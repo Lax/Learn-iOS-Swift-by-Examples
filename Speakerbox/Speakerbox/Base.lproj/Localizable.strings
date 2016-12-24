@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  Speakerbox
+
+  Copyright © 2016 Apple. All rights reserved.
+*/
+
+"APPLICATION_NAME" = "Speakerbox";
+
+"CALL_STATUS_SENDING" = "Dialing…";
+"CALL_STATUS_RINGING" = "Ringing";
+"CALL_STATUS_CONNECTING" = "Connecting…";
+"CALL_STATUS_HELD" = "On Hold";
+"CALL_STATUS_ACTIVE" = "Active";
+
+"TABLE_CELL_EDIT_ACTION_END" = "End";
+
+"DIAL_OPTIONS_NAVIGATION_PROMPT" = "Specify a destination";
+
+"SIMULATE_INCOMING_CALL_NAVIGATION_PROMPT" = "Specify a destination";
+
+"CALL_VIDEO_SWITCH_LABEL" = "Video Call";
+"CALL_DELAY_STEPPER_LABEL" = "Delay Call %.0lf second(s)";
+"DELAY_EXPLANATION_LABEL" = "Delay the call and lock your device to experience an incoming call on the lock screen.";
