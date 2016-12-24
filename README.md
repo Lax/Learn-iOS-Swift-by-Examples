@@ -1,15 +1,12 @@
 # [Swift学习资源](http://blog.liulantao.com/SwiftBeginnersGuide/)
 
-> Swift，一种强大的开源编程语言，
+![Swift](http://images.apple.com/v/swift/b/images/overview/icon_swift_hero_large_2x.png)
 
-> 让大家都能开发出众的 App。
+> Swift，一种强大的开源编程语言，让大家都能开发出众的 App。
 > Swift 是一种强劲而直观的编程语言，它由 Apple 创造，可用来为 iOS、Mac、Apple TV 和 Apple Watch 开发 app。它旨在为开发者提供充分的自由。Swift 易用并且开源，只要有想法，谁都可以创造非凡。
 
 > Swift is a high-performance system programming language. It has a clean and modern syntax, offers seamless access to existing C and Objective-C code and frameworks, and is memory safe by default.
-
 > On December 3, 2015, the Swift language, supporting libraries, debugger, and package manager were published under the Apache 2.0 license with a Runtime Library Exception, and Swift.org was created to host the project.
-
-![Swift](http://images.apple.com/v/swift/b/images/overview/icon_swift_hero_large_2x.png)
 
 苹果公司在WWDC 2014上宣布了他们将会推出一款新的编程语言，面向iOS和OS X系统的开发人员，这个新的语言被命名为Swift。
 
