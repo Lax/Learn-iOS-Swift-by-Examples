@@ -33,39 +33,39 @@ class SliderViewController: UITableViewController {
         defaultSlider.minimumValue = 0
         defaultSlider.maximumValue = 100
         defaultSlider.value = 42
-        defaultSlider.continuous = true
+        defaultSlider.isContinuous = true
 
-        defaultSlider.addTarget(self, action: #selector(SliderViewController.sliderValueDidChange(_:)), forControlEvents: .ValueChanged)
+        defaultSlider.addTarget(self, action: #selector(SliderViewController.sliderValueDidChange(_:)), for: .valueChanged)
     }
 
     func configureTintedSlider() {
         tintedSlider.minimumTrackTintColor = UIColor.applicationBlueColor
         tintedSlider.maximumTrackTintColor = UIColor.applicationPurpleColor
 
-        tintedSlider.addTarget(self, action: #selector(SliderViewController.sliderValueDidChange(_:)), forControlEvents: .ValueChanged)
+        tintedSlider.addTarget(self, action: #selector(SliderViewController.sliderValueDidChange(_:)), for: .valueChanged)
     }
 
     func configureCustomSlider() {
         let leftTrackImage = UIImage(named: "slider_blue_track")
-        customSlider.setMinimumTrackImage(leftTrackImage, forState: .Normal)
+        customSlider.setMinimumTrackImage(leftTrackImage, for: UIControlState())
 
         let rightTrackImage = UIImage(named: "slider_green_track")
-        customSlider.setMaximumTrackImage(rightTrackImage, forState: .Normal)
+        customSlider.setMaximumTrackImage(rightTrackImage, for: UIControlState())
 
         let thumbImage = UIImage(named: "slider_thumb")
-        customSlider.setThumbImage(thumbImage, forState: .Normal)
+        customSlider.setThumbImage(thumbImage, for: UIControlState())
 
         customSlider.minimumValue = 0
         customSlider.maximumValue = 100
-        customSlider.continuous = false
+        customSlider.isContinuous = false
         customSlider.value = 84
 
-        customSlider.addTarget(self, action: #selector(SliderViewController.sliderValueDidChange(_:)), forControlEvents: .ValueChanged)
+        customSlider.addTarget(self, action: #selector(SliderViewController.sliderValueDidChange(_:)), for: .valueChanged)
     }
 
     // MARK: - Actions
 
-    func sliderValueDidChange(slider: UISlider) {
+    func sliderValueDidChange(_ slider: UISlider) {
         NSLog("A slider changed its value: \(slider).")
     }
 }

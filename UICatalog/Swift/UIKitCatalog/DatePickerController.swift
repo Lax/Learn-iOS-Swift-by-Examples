@@ -16,11 +16,11 @@ class DatePickerController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     
     /// A date formatter to format the `date` property of `datePicker`.
-    lazy var dateFormatter: NSDateFormatter = {
-        let dateFormatter = NSDateFormatter()
+    lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
         
-        dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .ShortStyle
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
         
         return dateFormatter
     }()
@@ -36,26 +36,26 @@ class DatePickerController: UIViewController {
     // MARK: - Configuration
 
     func configureDatePicker() {
-        datePicker.datePickerMode = .DateAndTime
+        datePicker.datePickerMode = .dateAndTime
 
         /*
             Set min/max date for the date picker. As an example we will limit the 
             date between now and 7 days from now.
         */
-        let now = NSDate()
+        let now = Date()
         datePicker.minimumDate = now
 
-        let currentCalendar = NSCalendar.currentCalendar()
+        let currentCalendar = Calendar.current
 
-        let dateComponents = NSDateComponents()
+        var dateComponents = DateComponents()
         dateComponents.day = 7
 
-        let sevenDaysFromNow = currentCalendar.dateByAddingComponents(dateComponents, toDate: now, options: [])
+        let sevenDaysFromNow = (currentCalendar as NSCalendar).date(byAdding: dateComponents, to: now, options: [])
         datePicker.maximumDate = sevenDaysFromNow
 
         datePicker.minuteInterval = 2
 
-        datePicker.addTarget(self, action: #selector(DatePickerController.updateDatePickerLabel), forControlEvents: .ValueChanged)
+        datePicker.addTarget(self, action: #selector(DatePickerController.updateDatePickerLabel), for: .valueChanged)
 
         updateDatePickerLabel()
     }
@@ -63,6 +63,6 @@ class DatePickerController: UIViewController {
     // MARK: - Actions
 
     func updateDatePickerLabel() {
-        dateLabel.text = dateFormatter.stringFromDate(datePicker.date)
+        dateLabel.text = dateFormatter.string(from: datePicker.date)
     }
 }

@@ -25,11 +25,11 @@ class StackViewController: UIViewController {
     
     // MARK: - View Life Cycle
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        furtherDetailStackView.hidden = true
-        plusButton.hidden = false
+        furtherDetailStackView.isHidden = true
+        plusButton.isHidden = false
         updateAddRemoveButtons()
     }
     
@@ -37,30 +37,30 @@ class StackViewController: UIViewController {
     
     @IBAction func showFurtherDetail(_: AnyObject) {
         // Animate the changes by performing them in a `UIView` animation block.
-        UIView.animateWithDuration(0.25) {
+        UIView.animate(withDuration: 0.25, animations: {
             // Reveal the further details stack view and hide the plus button.
-            self.furtherDetailStackView.hidden = false
-            self.plusButton.hidden = true
-        }
+            self.furtherDetailStackView.isHidden = false
+            self.plusButton.isHidden = true
+        }) 
     }
     
     @IBAction func hideFurtherDetail(_: AnyObject) {
         // Animate the changes by performing them in a `UIView` animation block.
-        UIView.animateWithDuration(0.25) {
+        UIView.animate(withDuration: 0.25, animations: {
             // Hide the further details stack view and reveal the plus button.
-            self.furtherDetailStackView.hidden = true
-            self.plusButton.hidden = false
-        }
+            self.furtherDetailStackView.isHidden = true
+            self.plusButton.isHidden = false
+        }) 
     }
     
     
     @IBAction func addArrangedSubviewToStack(_: AnyObject) {
         // Create a simple, fixed-size, square view to add to the stack view
         let newViewSize = CGSize(width: 50, height: 50)
-        let newView = UIView(frame: CGRect(origin: CGPointZero, size: newViewSize))
+        let newView = UIView(frame: CGRect(origin: CGPoint.zero, size: newViewSize))
         newView.backgroundColor = randomColor()
-        newView.widthAnchor.constraintEqualToConstant(newViewSize.width).active = true
-        newView.heightAnchor.constraintEqualToConstant(newViewSize.height).active = true
+        newView.widthAnchor.constraint(equalToConstant: newViewSize.width).isActive = true
+        newView.heightAnchor.constraint(equalToConstant: newViewSize.height).isActive = true
         
         /*
             Adding an arranged subview automatically adds it as a child of the
@@ -89,14 +89,14 @@ class StackViewController: UIViewController {
     
     // MARK: - Convenience
     
-    private func updateAddRemoveButtons() {
+    fileprivate func updateAddRemoveButtons() {
         let arrangedSubviewCount = addRemoveExampleStackView.arrangedSubviews.count
         
-        addArrangedViewButton.enabled = arrangedSubviewCount < maximumArrangedSubviewCount
-        removeArrangedViewButton.enabled = arrangedSubviewCount > 0
+        addArrangedViewButton.isEnabled = arrangedSubviewCount < maximumArrangedSubviewCount
+        removeArrangedViewButton.isEnabled = arrangedSubviewCount > 0
     }
     
-    private func randomColor() -> UIColor {
+    fileprivate func randomColor() -> UIColor {
         let red = CGFloat(arc4random_uniform(255)) / 255.0
         let green = CGFloat(arc4random_uniform(255)) / 255.0
         let blue = CGFloat(arc4random_uniform(255)) / 255.0

@@ -35,17 +35,17 @@ class DefaultSearchBarViewController: UIViewController, UISearchBarDelegate {
 
     // MARK: - UISearchBarDelegate
 
-    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         NSLog("The default search selected scope button index changed to \(selectedScope).")
     }
 
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         NSLog("The default search bar keyboard search button was tapped: \(searchBar.text).")
 
         searchBar.resignFirstResponder()
     }
 
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         NSLog("The default search bar cancel button was tapped.")
 
         searchBar.resignFirstResponder()

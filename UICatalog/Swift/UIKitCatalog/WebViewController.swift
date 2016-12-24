@@ -24,17 +24,17 @@ class WebViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegat
         loadAddressURL()
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 
     // MARK: - Convenience
 
     func loadAddressURL() {
-        if let text = addressTextField.text, requestURL = NSURL(string: text) {
-            let request = NSURLRequest(URL: requestURL)
+        if let text = addressTextField.text, let requestURL = URL(string: text) {
+            let request = URLRequest(url: requestURL)
             webView.loadRequest(request)
         }
     }
@@ -42,22 +42,22 @@ class WebViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegat
     // MARK: - Configuration
 
     func configureWebView() {
-        webView.backgroundColor = UIColor.whiteColor()
+        webView.backgroundColor = UIColor.white
         webView.scalesPageToFit = true
-        webView.dataDetectorTypes = .All
+        webView.dataDetectorTypes = .all
     }
 
     // MARK: - UIWebViewDelegate
 
-    func webViewDidStartLoad(webView: UIWebView) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
 
-    func webViewDidFinishLoad(webView: UIWebView) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         // Report the error inside the web view.
         let localizedErrorMessage = NSLocalizedString("An error occured:", comment: "")
 
@@ -65,13 +65,13 @@ class WebViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegat
 
         webView.loadHTMLString(errorHTML, baseURL: nil)
 
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 
     // MARK: - UITextFieldDelegate
 
     /// Dismisses the keyboard when the "Done" button is clicked.
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
 
         loadAddressURL()

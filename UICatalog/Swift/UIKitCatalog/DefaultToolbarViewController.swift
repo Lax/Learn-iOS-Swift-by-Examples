@@ -36,22 +36,22 @@ class DefaultToolbarViewController: UIViewController {
     // MARK: - UIBarButtonItem Creation and Configuration
 
     var trashBarButtonItem: UIBarButtonItem {
-        return UIBarButtonItem(barButtonSystemItem: .Trash, target: self, action: #selector(DefaultToolbarViewController.barButtonItemClicked(_:)))
+        return UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(DefaultToolbarViewController.barButtonItemClicked(_:)))
     }
 
     var flexibleSpaceBarButtonItem: UIBarButtonItem {
-        return UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     }
 
     var customTitleBarButtonItem: UIBarButtonItem {
         let customTitle = NSLocalizedString("Action", comment: "")
 
-        return UIBarButtonItem(title: customTitle, style: .Plain, target: self, action: #selector(DefaultToolbarViewController.barButtonItemClicked(_:)))
+        return UIBarButtonItem(title: customTitle, style: .plain, target: self, action: #selector(DefaultToolbarViewController.barButtonItemClicked(_:)))
     }
 
     // MARK: - Actions
 
-    func barButtonItemClicked(barButtonItem: UIBarButtonItem) {
+    func barButtonItemClicked(_ barButtonItem: UIBarButtonItem) {
         NSLog("A bar button item on the default toolbar was clicked: \(barButtonItem).")
     }
 }

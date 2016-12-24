@@ -25,7 +25,7 @@ class TintedToolbarViewController: UIViewController {
 
     func configureToolbar() {
         // See the `UIBarStyle` enum for more styles, including `.Default`.
-        toolbar.barStyle = .BlackTranslucent
+        toolbar.barStyle = .blackTranslucent
 
         toolbar.tintColor = UIColor.applicationGreenColor
         toolbar.backgroundColor = UIColor.applicationBlueColor
@@ -42,21 +42,21 @@ class TintedToolbarViewController: UIViewController {
     // MARK: - UIBarButtonItem Creation and Configuration
 
     var refreshBarButtonItem: UIBarButtonItem {
-        return UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(TintedToolbarViewController.barButtonItemClicked(_:)))
+        return UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(TintedToolbarViewController.barButtonItemClicked(_:)))
     }
 
     var flexibleSpaceBarButtonItem: UIBarButtonItem {
         // Note that there's no target/action since this represents empty space.
-        return UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     }
 
     var actionBarButtonItem: UIBarButtonItem {
-        return UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(TintedToolbarViewController.barButtonItemClicked(_:)))
+        return UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(TintedToolbarViewController.barButtonItemClicked(_:)))
     }
 
     // MARK: - Actions
 
-    func barButtonItemClicked(barButtonItem: UIBarButtonItem) {
+    func barButtonItemClicked(_ barButtonItem: UIBarButtonItem) {
         NSLog("A bar button item on the tinted toolbar was clicked: \(barButtonItem).")
     }
 }

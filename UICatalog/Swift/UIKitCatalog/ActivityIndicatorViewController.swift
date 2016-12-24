@@ -29,7 +29,7 @@ class ActivityIndicatorViewController: UITableViewController {
     // MARK: - Configuration
 
     func configureGrayActivityIndicatorView() {
-        grayStyleActivityIndicatorView.activityIndicatorViewStyle = .Gray
+        grayStyleActivityIndicatorView.activityIndicatorViewStyle = .gray
         
         grayStyleActivityIndicatorView.startAnimating()
         
@@ -37,7 +37,7 @@ class ActivityIndicatorViewController: UITableViewController {
     }
     
     func configureTintedActivityIndicatorView() {
-        tintedActivityIndicatorView.activityIndicatorViewStyle = .Gray
+        tintedActivityIndicatorView.activityIndicatorViewStyle = .gray
         
         tintedActivityIndicatorView.color = UIColor.applicationPurpleColor
         

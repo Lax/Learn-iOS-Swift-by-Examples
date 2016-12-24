@@ -33,27 +33,27 @@ class CustomSearchBarViewController: UIViewController, UISearchBarDelegate {
 
         // Set the bookmark image for both normal and highlighted states.
         let bookmarkImage = UIImage(named: "bookmark_icon")
-        searchBar.setImage(bookmarkImage, forSearchBarIcon: .Bookmark, state: .Normal)
+        searchBar.setImage(bookmarkImage, for: .bookmark, state: UIControlState())
 
         let bookmarkHighlightedImage = UIImage(named: "bookmark_icon_highlighted")
-        searchBar.setImage(bookmarkHighlightedImage, forSearchBarIcon: .Bookmark, state: .Highlighted)
+        searchBar.setImage(bookmarkHighlightedImage, for: .bookmark, state: .highlighted)
     }
 
     // MARK: - UISearchBarDelegate
 
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         NSLog("The custom search bar keyboard search button was tapped: \(searchBar).")
         
         searchBar.resignFirstResponder()
     }
 
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         NSLog("The custom search bar cancel button was tapped.")
 
         searchBar.resignFirstResponder()
     }
 
-    func searchBarBookmarkButtonClicked(searchBar: UISearchBar) {
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
         NSLog("The custom bookmark button inside the search bar was tapped.")
     }
 }
