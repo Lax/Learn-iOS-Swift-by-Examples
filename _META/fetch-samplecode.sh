@@ -8,7 +8,7 @@ CSV.open('samplecode.csv', 'wb') do |csv|
   JSON.parse(File.open('search_result.json').read)['results'].keep_if {|v|
     v['type'] == 'sample_code'
   }.sort_by {|x| x['title']}.each{|sc|
-    csv << [sc['url'].match('\/samplecode\/([^\/]*)\/')[1], 'https://developer.apple.com' + sc['url'] + 'Introduction/Intro.html']
+    csv << [sc['url'].match('\/samplecode\/([^\/]*)\/')[1], 'https://developer.apple.com' + sc['url'] + 'Introduction/Intro.html', sc['title']]
   }
 end
 "
