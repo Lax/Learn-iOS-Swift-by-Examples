@@ -1,0 +1,23 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "776691BC8E6962E6150B0296245405EC7EC558F3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "776691BC8E6962E6150B0296245405EC7EC558F3" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EE58E738-2418-4F74-AA22-C35ED66B5984",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "776691BC8E6962E6150B0296245405EC7EC558F3" : "footprint-to-swift\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "footprint",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ObjC\/footprint.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.sd.apple.com:iveygman\/footprint-to-swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "776691BC8E6962E6150B0296245405EC7EC558F3"
+    }
+  ]
+}
