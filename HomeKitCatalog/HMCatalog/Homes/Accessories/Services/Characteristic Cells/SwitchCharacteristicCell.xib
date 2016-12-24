@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A178f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SwitchCharacteristicCell" id="KR3-99-3M0" customClass="SwitchCharacteristicCell" customModule="HMCatalog" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KR3-99-3M0" id="a75-D9-Kbw">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6e-Uo-CYy">
+                        <rect key="frame" x="44" y="8" width="268" height="15"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIm-OQ-A3u">
+                        <rect key="frame" x="0.0" y="5" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="qIu-xk-XF0"/>
+                            <constraint firstAttribute="width" constant="44" id="wib-Qc-Zx2"/>
+                        </constraints>
+                        <state key="normal" image="StarNotFavorite"/>
+                        <state key="selected" image="StarFavorite"/>
+                        <connections>
+                            <action selector="didTapFavoriteButton:" destination="KR3-99-3M0" eventType="touchUpInside" id="mvJ-BW-pfa"/>
+                        </connections>
+                    </button>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35n-x9-T91">
+                        <rect key="frame" x="263" y="11" width="51" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="31" id="6QX-Hw-DKe"/>
+                        </constraints>
+                        <connections>
+                            <action selector="didChangeSwitchValue:" destination="KR3-99-3M0" eventType="valueChanged" id="tbC-wi-JP8"/>
+                        </connections>
+                    </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHz-DE-s0i">
+                        <rect key="frame" x="44" y="26" width="214" height="20"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pIm-OQ-A3u" firstAttribute="leading" secondItem="a75-D9-Kbw" secondAttribute="leading" id="2ZC-Cd-QvT"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="GHz-DE-s0i" secondAttribute="bottom" id="AcQ-cW-er2"/>
+                    <constraint firstItem="GHz-DE-s0i" firstAttribute="leading" secondItem="l6e-Uo-CYy" secondAttribute="leading" id="KW9-E3-ewx"/>
+                    <constraint firstItem="pIm-OQ-A3u" firstAttribute="centerY" secondItem="a75-D9-Kbw" secondAttribute="centerY" id="PtN-N2-geS"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="35n-x9-T91" secondAttribute="trailing" id="U3Q-ts-bJz"/>
+                    <constraint firstItem="35n-x9-T91" firstAttribute="trailing" secondItem="l6e-Uo-CYy" secondAttribute="trailing" id="Xsl-Aa-eB5"/>
+                    <constraint firstItem="GHz-DE-s0i" firstAttribute="leading" secondItem="pIm-OQ-A3u" secondAttribute="trailing" id="aBj-bI-hc6"/>
+                    <constraint firstItem="35n-x9-T91" firstAttribute="leading" secondItem="GHz-DE-s0i" secondAttribute="trailing" constant="5" id="npw-fC-Lrm"/>
+                    <constraint firstItem="l6e-Uo-CYy" firstAttribute="top" secondItem="a75-D9-Kbw" secondAttribute="topMargin" id="qnL-uw-ga0"/>
+                    <constraint firstAttribute="centerY" secondItem="35n-x9-T91" secondAttribute="centerY" id="rpL-M7-LYK"/>
+                    <constraint firstItem="GHz-DE-s0i" firstAttribute="top" secondItem="l6e-Uo-CYy" secondAttribute="bottom" constant="3" id="rud-Nm-Rq7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="favoriteButton" destination="pIm-OQ-A3u" id="GKI-ei-bbc"/>
+                <outlet property="favoriteButtonHeightContraint" destination="qIu-xk-XF0" id="Lda-oo-HPi"/>
+                <outlet property="favoriteButtonWidthConstraint" destination="wib-Qc-Zx2" id="pty-Ks-naA"/>
+                <outlet property="typeLabel" destination="l6e-Uo-CYy" id="TsG-l5-SUb"/>
+                <outlet property="valueLabel" destination="GHz-DE-s0i" id="T1Y-xF-PCu"/>
+                <outlet property="valueSwitch" destination="35n-x9-T91" id="UrO-FD-QUu"/>
+            </connections>
+            <point key="canvasLocation" x="669" y="497.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="StarFavorite" width="25" height="25"/>
+        <image name="StarNotFavorite" width="25" height="25"/>
+    </resources>
+</document>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A178f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="75" id="dlO-6Z-2O3" customClass="SliderCharacteristicCell" customModule="HMCatalog" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dlO-6Z-2O3" id="xDz-3H-C4l">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zgu-bB-aWn">
+                        <rect key="frame" x="108" y="31" width="201" height="31"/>
+                        <connections>
+                            <action selector="didChangeSliderValue:" destination="dlO-6Z-2O3" eventType="valueChanged" id="kin-5E-etQ"/>
+                        </connections>
+                    </slider>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5a-CT-yzT">
+                        <rect key="frame" x="0.0" y="15" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="bsw-bd-PkT"/>
+                            <constraint firstAttribute="width" constant="44" id="fUZ-yC-i2O"/>
+                        </constraints>
+                        <state key="normal" image="StarNotFavorite"/>
+                        <state key="selected" image="StarFavorite"/>
+                        <connections>
+                            <action selector="didTapFavoriteButton:" destination="dlO-6Z-2O3" eventType="touchUpInside" id="Y8W-rG-8NT"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZM-x5-5Nk">
+                        <rect key="frame" x="44" y="8" width="261" height="24"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxI-7e-LD9">
+                        <rect key="frame" x="44" y="28" width="56" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="7C1-An-a8f"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tZM-x5-5Nk" firstAttribute="leading" secondItem="y5a-CT-yzT" secondAttribute="trailing" id="7O2-UC-43s"/>
+                    <constraint firstItem="zgu-bB-aWn" firstAttribute="leading" secondItem="RxI-7e-LD9" secondAttribute="trailing" constant="10" id="Aum-VS-J2k"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="RxI-7e-LD9" secondAttribute="bottom" id="KYC-84-yq3"/>
+                    <constraint firstItem="RxI-7e-LD9" firstAttribute="leading" secondItem="tZM-x5-5Nk" secondAttribute="leading" id="SKK-PR-1xS"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="zgu-bB-aWn" secondAttribute="bottom" constant="5" id="W3I-l0-Zak"/>
+                    <constraint firstItem="zgu-bB-aWn" firstAttribute="trailing" secondItem="tZM-x5-5Nk" secondAttribute="trailing" constant="2" id="ayZ-eS-zGk"/>
+                    <constraint firstItem="tZM-x5-5Nk" firstAttribute="top" secondItem="xDz-3H-C4l" secondAttribute="topMargin" id="eeY-rO-xUx"/>
+                    <constraint firstItem="y5a-CT-yzT" firstAttribute="leading" secondItem="xDz-3H-C4l" secondAttribute="leading" id="hL0-p6-ezx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zgu-bB-aWn" secondAttribute="trailing" constant="5" id="kgW-FA-ru8"/>
+                    <constraint firstItem="RxI-7e-LD9" firstAttribute="top" secondItem="tZM-x5-5Nk" secondAttribute="bottom" constant="-4" id="moj-5S-Km2"/>
+                    <constraint firstItem="zgu-bB-aWn" firstAttribute="centerY" secondItem="RxI-7e-LD9" secondAttribute="centerY" constant="-1" id="zPJ-gG-2BU"/>
+                    <constraint firstItem="y5a-CT-yzT" firstAttribute="centerY" secondItem="xDz-3H-C4l" secondAttribute="centerY" id="zYW-R5-3mZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="favoriteButton" destination="y5a-CT-yzT" id="WXq-RR-edf"/>
+                <outlet property="favoriteButtonHeightContraint" destination="bsw-bd-PkT" id="Lz7-WV-tdX"/>
+                <outlet property="favoriteButtonWidthConstraint" destination="fUZ-yC-i2O" id="729-sE-iiV"/>
+                <outlet property="typeLabel" destination="tZM-x5-5Nk" id="7eu-uO-G9x"/>
+                <outlet property="valueLabel" destination="RxI-7e-LD9" id="1Pr-gz-tTb"/>
+                <outlet property="valueSlider" destination="zgu-bB-aWn" id="mc9-C6-Usa"/>
+            </connections>
+            <point key="canvasLocation" x="669" y="542.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="StarFavorite" width="25" height="25"/>
+        <image name="StarNotFavorite" width="25" height="25"/>
+    </resources>
+</document>

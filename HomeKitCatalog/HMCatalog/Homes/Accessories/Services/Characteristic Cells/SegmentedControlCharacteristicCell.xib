@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A178f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SegmentedControlCharacteristicCell" rowHeight="64" id="oEt-UX-TSu" customClass="SegmentedControlCharacteristicCell" customModule="HMCatalog" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oEt-UX-TSu" id="ADi-W2-7Ww">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ENy-PW-l7F">
+                        <rect key="frame" x="44" y="27" width="263" height="26"/>
+                        <segments>
+                            <segment title="First"/>
+                            <segment title="Second"/>
+                        </segments>
+                        <connections>
+                            <action selector="segmentedControlDidChange:" destination="oEt-UX-TSu" eventType="valueChanged" id="MvQ-am-7ZX"/>
+                        </connections>
+                    </segmentedControl>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUu-DS-hHd">
+                        <rect key="frame" x="0.0" y="10" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="l8I-3r-lq5"/>
+                            <constraint firstAttribute="width" constant="44" id="lTL-3T-M2R"/>
+                        </constraints>
+                        <state key="normal" image="StarNotFavorite"/>
+                        <state key="selected" image="StarFavorite"/>
+                        <connections>
+                            <action selector="didTapFavoriteButton:" destination="oEt-UX-TSu" eventType="touchUpInside" id="eqL-ek-E4v"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fm8-d3-Vgc">
+                        <rect key="frame" x="44" y="8" width="263" height="15"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WUu-DS-hHd" firstAttribute="leading" secondItem="ADi-W2-7Ww" secondAttribute="leading" id="3H0-dx-Gte"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ENy-PW-l7F" secondAttribute="trailing" constant="5" id="52K-x4-L5S"/>
+                    <constraint firstItem="fm8-d3-Vgc" firstAttribute="leading" secondItem="WUu-DS-hHd" secondAttribute="trailing" id="RD0-UO-VQI"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ENy-PW-l7F" secondAttribute="bottom" constant="3" id="SMK-cX-3LF"/>
+                    <constraint firstItem="fm8-d3-Vgc" firstAttribute="top" secondItem="ADi-W2-7Ww" secondAttribute="topMargin" id="Y5F-fM-g0g"/>
+                    <constraint firstItem="WUu-DS-hHd" firstAttribute="centerY" secondItem="ADi-W2-7Ww" secondAttribute="centerY" id="ZaQ-BN-C1D"/>
+                    <constraint firstItem="fm8-d3-Vgc" firstAttribute="trailing" secondItem="ENy-PW-l7F" secondAttribute="trailing" id="cWX-90-S8U"/>
+                    <constraint firstItem="ENy-PW-l7F" firstAttribute="top" secondItem="fm8-d3-Vgc" secondAttribute="bottom" constant="4" id="hZc-0o-nK1"/>
+                    <constraint firstItem="fm8-d3-Vgc" firstAttribute="leading" secondItem="ENy-PW-l7F" secondAttribute="leading" id="n3U-1W-1Ef"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="favoriteButton" destination="WUu-DS-hHd" id="qSf-Ro-wQn"/>
+                <outlet property="favoriteButtonHeightContraint" destination="l8I-3r-lq5" id="m8C-tO-FYD"/>
+                <outlet property="favoriteButtonWidthConstraint" destination="lTL-3T-M2R" id="3LW-H0-AAl"/>
+                <outlet property="segmentedControl" destination="ENy-PW-l7F" id="l9I-2H-mOb"/>
+                <outlet property="typeLabel" destination="fm8-d3-Vgc" id="ZcW-8s-GrP"/>
+            </connections>
+            <point key="canvasLocation" x="669" y="535"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="StarFavorite" width="25" height="25"/>
+        <image name="StarNotFavorite" width="25" height="25"/>
+    </resources>
+</document>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A178f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TextCharacteristicCell" id="Rs6-mT-GPl" customClass="TextCharacteristicCell" customModule="HMCatalog" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rs6-mT-GPl" id="qJb-Bt-pXg">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HjB-gL-HbI">
+                        <rect key="frame" x="44" y="8" width="232" height="15"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gIl-q7-Tnk">
+                        <rect key="frame" x="44" y="24" width="232" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="oQp-n7-Md2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                        <connections>
+                            <outlet property="delegate" destination="Rs6-mT-GPl" id="di3-CD-Ib7"/>
+                        </connections>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4W-Tu-WXx">
+                        <rect key="frame" x="0.0" y="5" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="1G2-da-Kf0"/>
+                            <constraint firstAttribute="height" constant="44" id="irh-ek-8Th"/>
+                        </constraints>
+                        <state key="normal" image="StarNotFavorite"/>
+                        <state key="selected" image="StarFavorite"/>
+                        <connections>
+                            <action selector="didTapFavoriteButton:" destination="Rs6-mT-GPl" eventType="touchUpInside" id="Ret-zF-aAn"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="gIl-q7-Tnk" secondAttribute="bottom" id="Dkm-ns-PR0"/>
+                    <constraint firstItem="HjB-gL-HbI" firstAttribute="top" secondItem="qJb-Bt-pXg" secondAttribute="topMargin" id="F3Y-An-AWN"/>
+                    <constraint firstItem="gIl-q7-Tnk" firstAttribute="top" secondItem="HjB-gL-HbI" secondAttribute="bottom" constant="1" id="MnX-CQ-6v0"/>
+                    <constraint firstItem="n4W-Tu-WXx" firstAttribute="centerY" secondItem="qJb-Bt-pXg" secondAttribute="centerY" id="OKZ-hU-gpr"/>
+                    <constraint firstItem="gIl-q7-Tnk" firstAttribute="leading" secondItem="HjB-gL-HbI" secondAttribute="leading" id="P9v-QO-nSg"/>
+                    <constraint firstItem="gIl-q7-Tnk" firstAttribute="centerX" secondItem="qJb-Bt-pXg" secondAttribute="centerX" id="beU-vQ-Qhd"/>
+                    <constraint firstItem="n4W-Tu-WXx" firstAttribute="leading" secondItem="qJb-Bt-pXg" secondAttribute="leading" id="qm6-QR-kzz"/>
+                    <constraint firstItem="gIl-q7-Tnk" firstAttribute="leading" secondItem="n4W-Tu-WXx" secondAttribute="trailing" id="stN-XH-s0C"/>
+                    <constraint firstItem="gIl-q7-Tnk" firstAttribute="trailing" secondItem="HjB-gL-HbI" secondAttribute="trailing" id="uOs-yv-r2r"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="favoriteButton" destination="n4W-Tu-WXx" id="24Y-x1-lql"/>
+                <outlet property="favoriteButtonHeightContraint" destination="irh-ek-8Th" id="Elv-Hk-6Dh"/>
+                <outlet property="favoriteButtonWidthConstraint" destination="1G2-da-Kf0" id="27J-h7-7XL"/>
+                <outlet property="textField" destination="gIl-q7-Tnk" id="o8b-go-TqT"/>
+                <outlet property="typeLabel" destination="HjB-gL-HbI" id="76N-3I-E3x"/>
+            </connections>
+            <point key="canvasLocation" x="837" y="633.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="StarFavorite" width="25" height="25"/>
+        <image name="StarNotFavorite" width="25" height="25"/>
+    </resources>
+</document>
