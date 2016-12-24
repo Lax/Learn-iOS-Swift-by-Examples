@@ -1,0 +1,687 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B51776991CE517C2001C5955 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B51776981CE517C2001C5955 /* Intents.framework */; };
+		B5511C441CD75A2F0084A751 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5511C431CD75A2F0084A751 /* AppDelegate.swift */; };
+		B5511C461CD75A2F0084A751 /* WorkoutsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5511C451CD75A2F0084A751 /* WorkoutsController.swift */; };
+		B5511C491CD75A2F0084A751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5511C471CD75A2F0084A751 /* Main.storyboard */; };
+		B5511C4B1CD75A2F0084A751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5511C4A1CD75A2F0084A751 /* Assets.xcassets */; };
+		B5511C4E1CD75A2F0084A751 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5511C4C1CD75A2F0084A751 /* LaunchScreen.storyboard */; };
+		B5511C5C1CD75A930084A751 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5511C5B1CD75A930084A751 /* Extension.swift */; };
+		B5511C6F1CD75A930084A751 /* AscentIntentsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5511C591CD75A930084A751 /* AscentIntentsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B553C38B1CDF63380084BA9A /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = B553C38A1CDF63380084BA9A /* AppIntentVocabulary.plist */; };
+		B5C39F3B1CED0C9900E93902 /* AscentFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = B5C39F3A1CED0C9900E93902 /* AscentFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5C39F3F1CED0C9900E93902 /* AscentFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C39F381CED0C9900E93902 /* AscentFramework.framework */; };
+		B5C39F401CED0C9900E93902 /* AscentFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5C39F381CED0C9900E93902 /* AscentFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B5C39F4C1CED0CC300E93902 /* NSUserActivity+Ascent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C39F451CED0CC300E93902 /* NSUserActivity+Ascent.swift */; };
+		B5C39F4D1CED0CC300E93902 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C39F461CED0CC300E93902 /* Workout.swift */; };
+		B5C39F4E1CED0CC300E93902 /* Workout+Descriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C39F471CED0CC300E93902 /* Workout+Descriptions.swift */; };
+		B5C39F4F1CED0CC300E93902 /* Workout+DictionaryRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C39F481CED0CC300E93902 /* Workout+DictionaryRepresentation.swift */; };
+		B5C39F501CED0CC300E93902 /* Workout+INStartWorkoutIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C39F491CED0CC300E93902 /* Workout+INStartWorkoutIntent.swift */; };
+		B5C39F511CED0CC300E93902 /* WorkoutHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C39F4A1CED0CC300E93902 /* WorkoutHistory.swift */; };
+		B5C39F521CED0CC300E93902 /* WorkoutHistory+ActiveWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C39F4B1CED0CC300E93902 /* WorkoutHistory+ActiveWorkout.swift */; };
+		B5C39F531CED0D9800E93902 /* AscentFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C39F381CED0C9900E93902 /* AscentFramework.framework */; };
+		B5D7B46F1CE495A200A19023 /* CancelWorkoutIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7B4681CE495A200A19023 /* CancelWorkoutIntentHandler.swift */; };
+		B5D7B4701CE495A200A19023 /* EndWorkoutIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7B4691CE495A200A19023 /* EndWorkoutIntentHandler.swift */; };
+		B5D7B4711CE495A200A19023 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7B46A1CE495A200A19023 /* IntentHandler.swift */; };
+		B5D7B4721CE495A200A19023 /* PauseWorkoutIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7B46B1CE495A200A19023 /* PauseWorkoutIntentHandler.swift */; };
+		B5D7B4731CE495A200A19023 /* ResumeWorkoutIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7B46C1CE495A200A19023 /* ResumeWorkoutIntentHandler.swift */; };
+		B5D7B4741CE495A200A19023 /* StartWorkoutIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7B46D1CE495A200A19023 /* StartWorkoutIntentHandler.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B5511C6D1CD75A930084A751 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5511C381CD75A2F0084A751 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5511C581CD75A930084A751;
+			remoteInfo = AscentIntentsExtension;
+		};
+		B5C39F3D1CED0C9900E93902 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5511C381CD75A2F0084A751 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5C39F371CED0C9900E93902;
+			remoteInfo = AscentFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B5511C761CD75A930084A751 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B5511C6F1CD75A930084A751 /* AscentIntentsExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B59FA6C01CDF4A3500CF6A71 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5C39F441CED0C9900E93902 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B5C39F401CED0C9900E93902 /* AscentFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B51776981CE517C2001C5955 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		B517769A1CE517D1001C5955 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		B52BA4471CE4C455000E6AF1 /* AscentIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AscentIntentsExtension.entitlements; sourceTree = "<group>"; };
+		B5511C401CD75A2F0084A751 /* Ascent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ascent.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5511C431CD75A2F0084A751 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B5511C451CD75A2F0084A751 /* WorkoutsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsController.swift; sourceTree = "<group>"; };
+		B5511C481CD75A2F0084A751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B5511C4A1CD75A2F0084A751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5511C4D1CD75A2F0084A751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B5511C4F1CD75A2F0084A751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5511C591CD75A930084A751 /* AscentIntentsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AscentIntentsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5511C5B1CD75A930084A751 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		B5511C5D1CD75A930084A751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B553C38A1CDF63380084BA9A /* AppIntentVocabulary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppIntentVocabulary.plist; sourceTree = "<group>"; };
+		B553C3CD1CDF7F720084BA9A /* Ascent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Ascent.entitlements; sourceTree = "<group>"; };
+		B574C8D91D7B81E700F68E77 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		B5C39F381CED0C9900E93902 /* AscentFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AscentFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5C39F3A1CED0C9900E93902 /* AscentFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AscentFramework.h; sourceTree = "<group>"; };
+		B5C39F3C1CED0C9900E93902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5C39F451CED0CC300E93902 /* NSUserActivity+Ascent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserActivity+Ascent.swift"; sourceTree = "<group>"; };
+		B5C39F461CED0CC300E93902 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		B5C39F471CED0CC300E93902 /* Workout+Descriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Workout+Descriptions.swift"; sourceTree = "<group>"; };
+		B5C39F481CED0CC300E93902 /* Workout+DictionaryRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Workout+DictionaryRepresentation.swift"; sourceTree = "<group>"; };
+		B5C39F491CED0CC300E93902 /* Workout+INStartWorkoutIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Workout+INStartWorkoutIntent.swift"; sourceTree = "<group>"; };
+		B5C39F4A1CED0CC300E93902 /* WorkoutHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutHistory.swift; sourceTree = "<group>"; };
+		B5C39F4B1CED0CC300E93902 /* WorkoutHistory+ActiveWorkout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WorkoutHistory+ActiveWorkout.swift"; sourceTree = "<group>"; };
+		B5D7B4681CE495A200A19023 /* CancelWorkoutIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelWorkoutIntentHandler.swift; sourceTree = "<group>"; };
+		B5D7B4691CE495A200A19023 /* EndWorkoutIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndWorkoutIntentHandler.swift; sourceTree = "<group>"; };
+		B5D7B46A1CE495A200A19023 /* IntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		B5D7B46B1CE495A200A19023 /* PauseWorkoutIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseWorkoutIntentHandler.swift; sourceTree = "<group>"; };
+		B5D7B46C1CE495A200A19023 /* ResumeWorkoutIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeWorkoutIntentHandler.swift; sourceTree = "<group>"; };
+		B5D7B46D1CE495A200A19023 /* StartWorkoutIntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartWorkoutIntentHandler.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B5511C3D1CD75A2F0084A751 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5C39F3F1CED0C9900E93902 /* AscentFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5511C561CD75A930084A751 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5C39F531CED0D9800E93902 /* AscentFramework.framework in Frameworks */,
+				B51776991CE517C2001C5955 /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5C39F341CED0C9900E93902 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B51776971CE517C2001C5955 /* System Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B517769A1CE517D1001C5955 /* IntentsUI.framework */,
+				B51776981CE517C2001C5955 /* Intents.framework */,
+			);
+			name = "System Frameworks";
+			sourceTree = "<group>";
+		};
+		B5511C371CD75A2F0084A751 = {
+			isa = PBXGroup;
+			children = (
+				B574C8D91D7B81E700F68E77 /* README.md */,
+				B5511C421CD75A2F0084A751 /* Ascent */,
+				B5511C5A1CD75A930084A751 /* AscentIntentsExtension */,
+				B5C39F391CED0C9900E93902 /* AscentFramework */,
+				B5511C411CD75A2F0084A751 /* Products */,
+				B51776971CE517C2001C5955 /* System Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B5511C411CD75A2F0084A751 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B5511C401CD75A2F0084A751 /* Ascent.app */,
+				B5511C591CD75A930084A751 /* AscentIntentsExtension.appex */,
+				B5C39F381CED0C9900E93902 /* AscentFramework.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B5511C421CD75A2F0084A751 /* Ascent */ = {
+			isa = PBXGroup;
+			children = (
+				B5511C431CD75A2F0084A751 /* AppDelegate.swift */,
+				B5511C451CD75A2F0084A751 /* WorkoutsController.swift */,
+				B5511C471CD75A2F0084A751 /* Main.storyboard */,
+				B5511C4A1CD75A2F0084A751 /* Assets.xcassets */,
+				B5511C4C1CD75A2F0084A751 /* LaunchScreen.storyboard */,
+				B5511C4F1CD75A2F0084A751 /* Info.plist */,
+				B553C38A1CDF63380084BA9A /* AppIntentVocabulary.plist */,
+				B553C3CD1CDF7F720084BA9A /* Ascent.entitlements */,
+			);
+			path = Ascent;
+			sourceTree = "<group>";
+		};
+		B5511C5A1CD75A930084A751 /* AscentIntentsExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B5511C5B1CD75A930084A751 /* Extension.swift */,
+				B5D7B46A1CE495A200A19023 /* IntentHandler.swift */,
+				B5D7B46D1CE495A200A19023 /* StartWorkoutIntentHandler.swift */,
+				B5D7B46B1CE495A200A19023 /* PauseWorkoutIntentHandler.swift */,
+				B5D7B46C1CE495A200A19023 /* ResumeWorkoutIntentHandler.swift */,
+				B5D7B4681CE495A200A19023 /* CancelWorkoutIntentHandler.swift */,
+				B5D7B4691CE495A200A19023 /* EndWorkoutIntentHandler.swift */,
+				B5511C5D1CD75A930084A751 /* Info.plist */,
+				B52BA4471CE4C455000E6AF1 /* AscentIntentsExtension.entitlements */,
+			);
+			path = AscentIntentsExtension;
+			sourceTree = "<group>";
+		};
+		B5C39F391CED0C9900E93902 /* AscentFramework */ = {
+			isa = PBXGroup;
+			children = (
+				B5C39F461CED0CC300E93902 /* Workout.swift */,
+				B5C39F471CED0CC300E93902 /* Workout+Descriptions.swift */,
+				B5C39F481CED0CC300E93902 /* Workout+DictionaryRepresentation.swift */,
+				B5C39F491CED0CC300E93902 /* Workout+INStartWorkoutIntent.swift */,
+				B5C39F4A1CED0CC300E93902 /* WorkoutHistory.swift */,
+				B5C39F4B1CED0CC300E93902 /* WorkoutHistory+ActiveWorkout.swift */,
+				B5C39F451CED0CC300E93902 /* NSUserActivity+Ascent.swift */,
+				B5C39F3A1CED0C9900E93902 /* AscentFramework.h */,
+				B5C39F3C1CED0C9900E93902 /* Info.plist */,
+			);
+			path = AscentFramework;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B5C39F351CED0C9900E93902 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5C39F3B1CED0C9900E93902 /* AscentFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B5511C3F1CD75A2F0084A751 /* Ascent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5511C521CD75A2F0084A751 /* Build configuration list for PBXNativeTarget "Ascent" */;
+			buildPhases = (
+				B5511C3C1CD75A2F0084A751 /* Sources */,
+				B5511C3D1CD75A2F0084A751 /* Frameworks */,
+				B5511C3E1CD75A2F0084A751 /* Resources */,
+				B5511C761CD75A930084A751 /* Embed App Extensions */,
+				B59FA6C01CDF4A3500CF6A71 /* Embed Watch Content */,
+				B5C39F441CED0C9900E93902 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5511C6E1CD75A930084A751 /* PBXTargetDependency */,
+				B5C39F3E1CED0C9900E93902 /* PBXTargetDependency */,
+			);
+			name = Ascent;
+			productName = Ascent;
+			productReference = B5511C401CD75A2F0084A751 /* Ascent.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B5511C581CD75A930084A751 /* AscentIntentsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5511C731CD75A930084A751 /* Build configuration list for PBXNativeTarget "AscentIntentsExtension" */;
+			buildPhases = (
+				B5511C551CD75A930084A751 /* Sources */,
+				B5511C561CD75A930084A751 /* Frameworks */,
+				B5511C571CD75A930084A751 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AscentIntentsExtension;
+			productName = AscentIntentsExtension;
+			productReference = B5511C591CD75A930084A751 /* AscentIntentsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B5C39F371CED0C9900E93902 /* AscentFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5C39F411CED0C9900E93902 /* Build configuration list for PBXNativeTarget "AscentFramework" */;
+			buildPhases = (
+				B5C39F331CED0C9900E93902 /* Sources */,
+				B5C39F341CED0C9900E93902 /* Frameworks */,
+				B5C39F351CED0C9900E93902 /* Headers */,
+				B5C39F361CED0C9900E93902 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AscentFramework;
+			productName = AscentFramework;
+			productReference = B5C39F381CED0C9900E93902 /* AscentFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B5511C381CD75A2F0084A751 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Apple;
+				TargetAttributes = {
+					B5511C3F1CD75A2F0084A751 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					B5511C581CD75A930084A751 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					B5C39F371CED0C9900E93902 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B5511C3B1CD75A2F0084A751 /* Build configuration list for PBXProject "Ascent" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B5511C371CD75A2F0084A751;
+			productRefGroup = B5511C411CD75A2F0084A751 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B5511C3F1CD75A2F0084A751 /* Ascent */,
+				B5511C581CD75A930084A751 /* AscentIntentsExtension */,
+				B5C39F371CED0C9900E93902 /* AscentFramework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B5511C3E1CD75A2F0084A751 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5511C4E1CD75A2F0084A751 /* LaunchScreen.storyboard in Resources */,
+				B553C38B1CDF63380084BA9A /* AppIntentVocabulary.plist in Resources */,
+				B5511C4B1CD75A2F0084A751 /* Assets.xcassets in Resources */,
+				B5511C491CD75A2F0084A751 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5511C571CD75A930084A751 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5C39F361CED0C9900E93902 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B5511C3C1CD75A2F0084A751 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5511C461CD75A2F0084A751 /* WorkoutsController.swift in Sources */,
+				B5511C441CD75A2F0084A751 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5511C551CD75A930084A751 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5D7B46F1CE495A200A19023 /* CancelWorkoutIntentHandler.swift in Sources */,
+				B5511C5C1CD75A930084A751 /* Extension.swift in Sources */,
+				B5D7B4701CE495A200A19023 /* EndWorkoutIntentHandler.swift in Sources */,
+				B5D7B4721CE495A200A19023 /* PauseWorkoutIntentHandler.swift in Sources */,
+				B5D7B4731CE495A200A19023 /* ResumeWorkoutIntentHandler.swift in Sources */,
+				B5D7B4741CE495A200A19023 /* StartWorkoutIntentHandler.swift in Sources */,
+				B5D7B4711CE495A200A19023 /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5C39F331CED0C9900E93902 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5C39F511CED0CC300E93902 /* WorkoutHistory.swift in Sources */,
+				B5C39F501CED0CC300E93902 /* Workout+INStartWorkoutIntent.swift in Sources */,
+				B5C39F4F1CED0CC300E93902 /* Workout+DictionaryRepresentation.swift in Sources */,
+				B5C39F4E1CED0CC300E93902 /* Workout+Descriptions.swift in Sources */,
+				B5C39F4C1CED0CC300E93902 /* NSUserActivity+Ascent.swift in Sources */,
+				B5C39F4D1CED0CC300E93902 /* Workout.swift in Sources */,
+				B5C39F521CED0CC300E93902 /* WorkoutHistory+ActiveWorkout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B5511C6E1CD75A930084A751 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5511C581CD75A930084A751 /* AscentIntentsExtension */;
+			targetProxy = B5511C6D1CD75A930084A751 /* PBXContainerItemProxy */;
+		};
+		B5C39F3E1CED0C9900E93902 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5C39F371CED0C9900E93902 /* AscentFramework */;
+			targetProxy = B5C39F3D1CED0C9900E93902 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B5511C471CD75A2F0084A751 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5511C481CD75A2F0084A751 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B5511C4C1CD75A2F0084A751 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5511C4D1CD75A2F0084A751 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B5511C501CD75A2F0084A751 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = lossless;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B5511C511CD75A2F0084A751 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = "respect-asset-catalog";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B5511C531CD75A2F0084A751 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Ascent/Ascent.entitlements;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = Ascent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Ascent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B5511C541CD75A2F0084A751 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Ascent/Ascent.entitlements;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = Ascent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Ascent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		B5511C741CD75A930084A751 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AscentIntentsExtension/AscentIntentsExtension.entitlements;
+				INFOPLIST_FILE = AscentIntentsExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Ascent.AscentIntentsExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B5511C751CD75A930084A751 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AscentIntentsExtension/AscentIntentsExtension.entitlements;
+				INFOPLIST_FILE = AscentIntentsExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Ascent.AscentIntentsExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		B5C39F421CED0C9900E93902 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AscentFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AscentFramework";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B5C39F431CED0C9900E93902 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AscentFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AscentFramework";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B5511C3B1CD75A2F0084A751 /* Build configuration list for PBXProject "Ascent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5511C501CD75A2F0084A751 /* Debug */,
+				B5511C511CD75A2F0084A751 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5511C521CD75A2F0084A751 /* Build configuration list for PBXNativeTarget "Ascent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5511C531CD75A2F0084A751 /* Debug */,
+				B5511C541CD75A2F0084A751 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5511C731CD75A930084A751 /* Build configuration list for PBXNativeTarget "AscentIntentsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5511C741CD75A930084A751 /* Debug */,
+				B5511C751CD75A930084A751 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5C39F411CED0C9900E93902 /* Build configuration list for PBXNativeTarget "AscentFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5C39F421CED0C9900E93902 /* Debug */,
+				B5C39F431CED0C9900E93902 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B5511C381CD75A2F0084A751 /* Project object */;
+}
