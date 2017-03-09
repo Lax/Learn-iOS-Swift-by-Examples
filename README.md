@@ -149,6 +149,7 @@ Swift在iOS 8发布的时候推向市场，用来取代 Objective-C 语言。
 
 *    《[SwiftV课堂](http://www.swiftv.cn/)》 免费Swift学习视频
 *    《[Apple Swift语言基础教程](http://www.jikexueyuan.com/course/92.html)》极客学院
+*    《[专注Swift和Apple Watch开发](http://www.hcxy.me/)》花川学院免费Swift学习视频
 
 
 
