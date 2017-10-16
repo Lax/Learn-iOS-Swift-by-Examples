@@ -1,11 +1,9 @@
 /*
-	Copyright (C) 2017 Apple Inc. All Rights Reserved.
-	See LICENSE.txt for this sample’s licensing information
-	
-	Abstract:
-	Manages app lifecycle  split view.
- */
+See LICENSE.txt for this sample’s licensing information.
 
+Abstract:
+Manages app lifecycle & split view.
+*/
 
 import UIKit
 import Photos
@@ -14,22 +12,22 @@ import Photos
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        #if os(iOS)
-            let navigationController = splitViewController.viewControllers.last! as! UINavigationController
-            navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        #endif
-        splitViewController.delegate = self
+        if let splitViewController = self.window?.rootViewController as? UISplitViewController {
+            #if os(iOS)
+                if let navigationController = splitViewController.viewControllers.last as? UINavigationController {
+                    navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+                }
+            #endif
+            splitViewController.delegate = self
+        }
         return true
     }
 
     // MARK: Split view
 
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
         guard let topAsDetailController = secondaryAsNavController.topViewController as? AssetGridViewController else { return false }
         if topAsDetailController.fetchResult == nil {
@@ -51,4 +49,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         detailNavController.pushViewController(vc, animated: true)
         return true
     }
+
 }

@@ -1,11 +1,9 @@
 /*
-	Copyright (C) 2016 Apple Inc. All Rights Reserved.
-	See LICENSE.txt for this sample’s licensing information
-	
-	Abstract:
-	View controller for camera interface.
-*/
+See LICENSE.txt for this sample’s licensing information.
 
+Abstract:
+View controller for camera interface.
+*/
 @import AVFoundation;
 @import Photos;
 
@@ -29,6 +27,11 @@ typedef NS_ENUM( NSInteger, AVCamCaptureMode ) {
 typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 	AVCamLivePhotoModeOn,
 	AVCamLivePhotoModeOff
+};
+
+typedef NS_ENUM( NSInteger, AVCamDepthDataDeliveryMode ) {
+    AVCamDepthDataDeliveryModeOn,
+    AVCamDepthDataDeliveryModeOff
 };
 
 @interface AVCaptureDeviceDiscoverySession (Utilities)
@@ -76,6 +79,8 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 @property (nonatomic, weak) IBOutlet UIButton *livePhotoModeButton;
 @property (nonatomic) AVCamLivePhotoMode livePhotoMode;
 @property (nonatomic, weak) IBOutlet UILabel *capturingLivePhotoLabel;
+@property (nonatomic, weak) IBOutlet UIButton *depthDataDeliveryButton;
+@property (nonatomic) AVCamDepthDataDeliveryMode depthDataDeliveryMode;
 
 @property (nonatomic) AVCapturePhotoOutput *photoOutput;
 @property (nonatomic) NSMutableDictionary<NSNumber *, AVCamPhotoCaptureDelegate *> *inProgressPhotoCaptureDelegates;
@@ -104,12 +109,13 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 	self.photoButton.enabled = NO;
 	self.livePhotoModeButton.enabled = NO;
 	self.captureModeControl.enabled = NO;
+    self.depthDataDeliveryButton.enabled = NO;
 	
 	// Create the AVCaptureSession.
 	self.session = [[AVCaptureSession alloc] init];
 	
 	// Create a device discovery session.
-	NSArray<AVCaptureDeviceType> *deviceTypes = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeBuiltInDuoCamera];
+	NSArray<AVCaptureDeviceType> *deviceTypes = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeBuiltInDualCamera];
 	self.videoDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:deviceTypes mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionUnspecified];
 	
 	// Set up the preview view.
@@ -276,7 +282,7 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 	// Add video input.
 	
 	// Choose the back dual camera if available, otherwise default to a wide angle camera.
-	AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInDuoCamera mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionBack];
+	AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInDualCamera mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionBack];
 	if ( ! videoDevice ) {
 		// If the back dual camera is not available, default to the back wide angle camera.
 		videoDevice = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInWideAngleCamera mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionBack];
@@ -345,7 +351,11 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 		
 		self.photoOutput.highResolutionCaptureEnabled = YES;
 		self.photoOutput.livePhotoCaptureEnabled = self.photoOutput.livePhotoCaptureSupported;
+        self.photoOutput.depthDataDeliveryEnabled = self.photoOutput.depthDataDeliverySupported;
+        
 		self.livePhotoMode = self.photoOutput.livePhotoCaptureSupported ? AVCamLivePhotoModeOn : AVCamLivePhotoModeOff;
+        self.depthDataDeliveryMode = self.photoOutput.depthDataDeliverySupported ? AVCamDepthDataDeliveryModeOn : AVCamDepthDataDeliveryModeOff;
+        
 		
 		self.inProgressPhotoCaptureDelegates = [NSMutableDictionary dictionary];
 		self.inProgressLivePhotoCapturesCount = 0;
@@ -405,7 +415,6 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 			[self.session beginConfiguration];
 			[self.session removeOutput:self.movieFileOutput];
 			self.session.sessionPreset = AVCaptureSessionPresetPhoto;
-			[self.session commitConfiguration];
 			
 			self.movieFileOutput = nil;
 			
@@ -417,10 +426,22 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 					self.livePhotoModeButton.hidden = NO;
 				} );
 			}
+            
+            if ( self.photoOutput.depthDataDeliverySupported ) {
+                self.photoOutput.depthDataDeliveryEnabled = YES;
+                
+                dispatch_async( dispatch_get_main_queue(), ^{
+                    self.depthDataDeliveryButton.hidden = NO;
+                    self.depthDataDeliveryButton.enabled = YES;
+                } );
+            }
+			
+			[self.session commitConfiguration];
 		} );
 	}
 	else if ( captureModeControl.selectedSegmentIndex == AVCamCaptureModeMovie ) {
 		self.livePhotoModeButton.hidden = YES;
+        self.depthDataDeliveryButton.hidden = YES;
 		
 		dispatch_async( self.sessionQueue, ^{
 			AVCaptureMovieFileOutput *movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
@@ -468,7 +489,7 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 			case AVCaptureDevicePositionUnspecified:
 			case AVCaptureDevicePositionFront:
 				preferredPosition = AVCaptureDevicePositionBack;
-				preferredDeviceType = AVCaptureDeviceTypeBuiltInDuoCamera;
+				preferredDeviceType = AVCaptureDeviceTypeBuiltInDualCamera;
 				break;
 			case AVCaptureDevicePositionBack:
 				preferredPosition = AVCaptureDevicePositionFront;
@@ -523,12 +544,13 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 			}
 			
 			/*
-				Set Live Photo capture enabled if it is supported. When changing cameras, the
-				`livePhotoCaptureEnabled` property of the AVCapturePhotoOutput gets set to NO when
+				Set Live Photo capture and depth data delivery if it is supported. When changing cameras, the
+				`livePhotoCaptureEnabled` and `depthDataDeliveryEnabled` properties of the AVCapturePhotoOutput gets set to NO when
 				a video device is disconnected from the session. After the new video device is
-				added to the session, re-enable Live Photo capture on the AVCapturePhotoOutput if it is supported.
+				added to the session, re-enable Live Photo capture and depth data delivery if they are supported.
 			 */
 			self.photoOutput.livePhotoCaptureEnabled = self.photoOutput.livePhotoCaptureSupported;
+            self.photoOutput.depthDataDeliveryEnabled = self.photoOutput.depthDataDeliverySupported;
 			
 			[self.session commitConfiguration];
 		}
@@ -539,6 +561,8 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 			self.photoButton.enabled = YES;
 			self.livePhotoModeButton.enabled = YES;
 			self.captureModeControl.enabled = YES;
+            self.depthDataDeliveryButton.enabled = self.photoOutput.isDepthDataDeliveryEnabled;
+            self.depthDataDeliveryButton.hidden = !self.photoOutput.depthDataDeliverySupported;
 		} );
 	} );
 }
@@ -595,9 +619,18 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 		AVCaptureConnection *photoOutputConnection = [self.photoOutput connectionWithMediaType:AVMediaTypeVideo];
 		photoOutputConnection.videoOrientation = videoPreviewLayerVideoOrientation;
 		
-		// Capture a JPEG photo with flash set to auto and high resolution photo enabled.
-		AVCapturePhotoSettings *photoSettings = [AVCapturePhotoSettings photoSettings];
-		photoSettings.flashMode = AVCaptureFlashModeAuto;
+		AVCapturePhotoSettings *photoSettings;
+		// Capture HEIF photo when supported, with flash set to auto and high resolution photo enabled.
+		if ( [self.photoOutput.availablePhotoCodecTypes containsObject:AVVideoCodecTypeHEVC] ) {
+			photoSettings = [AVCapturePhotoSettings photoSettingsWithFormat:@{ AVVideoCodecKey : AVVideoCodecTypeHEVC }];
+		}
+		else {
+			photoSettings = [AVCapturePhotoSettings photoSettings];
+		}
+        
+        if ( self.videoDeviceInput.device.isFlashAvailable ) {
+            photoSettings.flashMode = AVCaptureFlashModeAuto;
+        }
 		photoSettings.highResolutionPhotoEnabled = YES;
 		if ( photoSettings.availablePreviewPhotoPixelFormatTypes.count > 0 ) {
 			photoSettings.previewPhotoFormat = @{ (NSString *)kCVPixelBufferPixelFormatTypeKey : photoSettings.availablePreviewPhotoPixelFormatTypes.firstObject };
@@ -607,6 +640,12 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 			NSString *livePhotoMovieFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[livePhotoMovieFileName stringByAppendingPathExtension:@"mov"]];
 			photoSettings.livePhotoMovieFileURL = [NSURL fileURLWithPath:livePhotoMovieFilePath];
 		}
+        
+        if ( self.depthDataDeliveryMode == AVCamDepthDataDeliveryModeOn && self.photoOutput.isDepthDataDeliverySupported ) {
+            photoSettings.depthDataDeliveryEnabled = YES;
+        } else {
+            photoSettings.depthDataDeliveryEnabled = NO;
+        }
 		
 		// Use a separate object for the photo capture delegate to isolate each capture life cycle.
 		AVCamPhotoCaptureDelegate *photoCaptureDelegate = [[AVCamPhotoCaptureDelegate alloc] initWithRequestedPhotoSettings:photoSettings willCapturePhotoAnimation:^{
@@ -616,7 +655,7 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 					self.previewView.videoPreviewLayer.opacity = 1.0;
 				}];
 			} );
-		} capturingLivePhoto:^( BOOL capturing ) {
+		} livePhotoCaptureHandler:^( BOOL capturing ) {
 			/*
 				Because Live Photo captures can overlap, we need to keep track of the
 				number of in progress Live Photo captures to ensure that the
@@ -643,7 +682,7 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 					}
 				} );
 			} );
-		} completed:^( AVCamPhotoCaptureDelegate *photoCaptureDelegate ) {
+		} completionHandler:^( AVCamPhotoCaptureDelegate *photoCaptureDelegate ) {
 			// When the capture is complete, remove a reference to the photo capture delegate so it can be deallocated.
 			dispatch_async( self.sessionQueue, ^{
 				self.inProgressPhotoCaptureDelegates[@(photoCaptureDelegate.requestedPhotoSettings.uniqueID)] = nil;
@@ -675,6 +714,23 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 			}
 		} );
 	} );
+}
+
+- (IBAction)toggleDepthDataDeliveryMode:(UIButton *)depthDataDeliveryButton
+{
+    dispatch_async( self.sessionQueue, ^{
+        self.depthDataDeliveryMode = ( self.depthDataDeliveryMode == AVCamDepthDataDeliveryModeOn ) ? AVCamDepthDataDeliveryModeOff : AVCamDepthDataDeliveryModeOn;
+        AVCamDepthDataDeliveryMode depthDataDeliveryMode = self.depthDataDeliveryMode;
+        
+        dispatch_async( dispatch_get_main_queue(), ^{
+            if ( depthDataDeliveryMode == AVCamDepthDataDeliveryModeOn ) {
+                [self.depthDataDeliveryButton setTitle:NSLocalizedString( @"Depth Data Delivery: On", @"Depth Data mode button on title" ) forState:UIControlStateNormal];
+            }
+            else {
+                [self.depthDataDeliveryButton setTitle:NSLocalizedString( @"Depth Data Delivery: Off", @"Depth Data mode button off title" ) forState:UIControlStateNormal];
+            }
+        } );
+    } );
 }
 
 #pragma mark Recording Movies
@@ -716,6 +772,11 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 			AVCaptureConnection *movieFileOutputConnection = [self.movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
 			movieFileOutputConnection.videoOrientation = videoPreviewLayerVideoOrientation;
 			
+			// Use HEVC codec if supported
+			if ( [self.movieFileOutput.availableVideoCodecTypes containsObject:AVVideoCodecTypeHEVC] ) {
+				[self.movieFileOutput setOutputSettings:@{ AVVideoCodecKey : AVVideoCodecTypeHEVC } forConnection:movieFileOutputConnection];
+			}	
+			
 			// Start recording to a temporary file.
 			NSString *outputFileName = [NSUUID UUID].UUIDString;
 			NSString *outputFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[outputFileName stringByAppendingPathExtension:@"mov"]];
@@ -751,7 +812,7 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 	UIBackgroundTaskIdentifier currentBackgroundRecordingID = self.backgroundRecordingID;
 	self.backgroundRecordingID = UIBackgroundTaskInvalid;
 	
-	dispatch_block_t cleanup = ^{
+	dispatch_block_t cleanUp = ^{
 		if ( [[NSFileManager defaultManager] fileExistsAtPath:outputFileURL.path] ) {
 			[[NSFileManager defaultManager] removeItemAtPath:outputFileURL.path error:NULL];
 		}
@@ -781,16 +842,16 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 					if ( ! success ) {
 						NSLog( @"Could not save movie to photo library: %@", error );
 					}
-					cleanup();
+					cleanUp();
 				}];
 			}
 			else {
-				cleanup();
+				cleanUp();
 			}
 		}];
 	}
 	else {
-		cleanup();
+		cleanUp();
 	}
 	
 	// Enable the Camera and Record buttons to let the user switch camera and start another recording.
@@ -836,7 +897,9 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 		BOOL isSessionRunning = [change[NSKeyValueChangeNewKey] boolValue];
 		BOOL livePhotoCaptureSupported = self.photoOutput.livePhotoCaptureSupported;
 		BOOL livePhotoCaptureEnabled = self.photoOutput.livePhotoCaptureEnabled;
-		
+        BOOL depthDataDeliverySupported = self.photoOutput.depthDataDeliverySupported;
+        BOOL depthDataDeliveryEnabled = self.photoOutput.depthDataDeliveryEnabled;
+        
 		dispatch_async( dispatch_get_main_queue(), ^{
 			// Only enable the ability to change camera if the device has more than one camera.
 			self.cameraButton.enabled = isSessionRunning && ( self.videoDeviceDiscoverySession.uniqueDevicePositionsCount > 1 );
@@ -845,6 +908,8 @@ typedef NS_ENUM( NSInteger, AVCamLivePhotoMode ) {
 			self.captureModeControl.enabled = isSessionRunning;
 			self.livePhotoModeButton.enabled = isSessionRunning && livePhotoCaptureEnabled;
 			self.livePhotoModeButton.hidden = ! ( isSessionRunning && livePhotoCaptureSupported );
+            self.depthDataDeliveryButton.enabled = isSessionRunning && depthDataDeliveryEnabled ;
+            self.depthDataDeliveryButton.hidden = ! ( isSessionRunning && depthDataDeliverySupported );
 		} );
 	}
 	else {

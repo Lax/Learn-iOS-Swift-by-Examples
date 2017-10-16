@@ -22,6 +22,10 @@
 		11E1BB9C1CF1371A0057E18F /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E1BB9A1CF1371A0057E18F /* GridViewCell.swift */; };
 		11E1BB9E1CF137450057E18F /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E1BB9D1CF137450057E18F /* AssetViewController.swift */; };
 		11E1BB9F1CF137450057E18F /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E1BB9D1CF137450057E18F /* AssetViewController.swift */; };
+		E14F743C1ED1502B0087C2DB /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F743B1ED1502B0087C2DB /* AnimatedImageView.swift */; };
+		E14F743D1ED1502B0087C2DB /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F743B1ED1502B0087C2DB /* AnimatedImageView.swift */; };
+		E1AF5AEB1ED5FF80005C4651 /* AnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF5AEA1ED5FF80005C4651 /* AnimatedImage.swift */; };
+		E1AF5AEC1ED5FF80005C4651 /* AnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF5AEA1ED5FF80005C4651 /* AnimatedImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		119E70161CF3CC1700F01BF5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		11E1BB9A1CF1371A0057E18F /* GridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
 		11E1BB9D1CF137450057E18F /* AssetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AssetViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		5C441EDB5058D9EFF915D183 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
+		E14F743B1ED1502B0087C2DB /* AnimatedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedImageView.swift; sourceTree = "<group>"; };
+		E1AF5AEA1ED5FF80005C4651 /* AnimatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImage.swift; sourceTree = "<group>"; };
+		E702C04239D35F96583B09F0 /* SampleCode.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,8 @@
 				118FE1141CEF0525004F2F51 /* iOS */,
 				118FE12E1CEF07DE004F2F51 /* tvOS */,
 				118FE1131CEF0525004F2F51 /* Products */,
+				E27DE9D4F643517367810AD9 /* Configuration */,
+				A6909A21B7977592BFA400D8 /* LICENSE */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,8 +119,27 @@
 				118FE1191CEF0525004F2F51 /* AssetGridViewController.swift */,
 				11E1BB9A1CF1371A0057E18F /* GridViewCell.swift */,
 				11E1BB9D1CF137450057E18F /* AssetViewController.swift */,
+				E1AF5AEA1ED5FF80005C4651 /* AnimatedImage.swift */,
+				E14F743B1ED1502B0087C2DB /* AnimatedImageView.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		A6909A21B7977592BFA400D8 /* LICENSE */ = {
+			isa = PBXGroup;
+			children = (
+				5C441EDB5058D9EFF915D183 /* LICENSE.txt */,
+			);
+			name = LICENSE;
+			path = .;
+			sourceTree = "<group>";
+		};
+		E27DE9D4F643517367810AD9 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				E702C04239D35F96583B09F0 /* SampleCode.xcconfig */,
+			);
+			name = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,12 +186,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					118FE1111CEF0525004F2F51 = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					118FE12C1CEF07DE004F2F51 = {
@@ -221,7 +250,9 @@
 				11E1BB9B1CF1371A0057E18F /* GridViewCell.swift in Sources */,
 				118FE11A1CEF0525004F2F51 /* AssetGridViewController.swift in Sources */,
 				118FE1181CEF0525004F2F51 /* MasterViewController.swift in Sources */,
+				E1AF5AEB1ED5FF80005C4651 /* AnimatedImage.swift in Sources */,
 				118FE1161CEF0525004F2F51 /* AppDelegate.swift in Sources */,
+				E14F743C1ED1502B0087C2DB /* AnimatedImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +264,9 @@
 				11E1BB9C1CF1371A0057E18F /* GridViewCell.swift in Sources */,
 				118FE13D1CEF08A6004F2F51 /* AppDelegate.swift in Sources */,
 				118FE13E1CEF0A0B004F2F51 /* MasterViewController.swift in Sources */,
+				E1AF5AEC1ED5FF80005C4651 /* AnimatedImage.swift in Sources */,
 				118FE13F1CEF0A0B004F2F51 /* AssetGridViewController.swift in Sources */,
+				E14F743D1ED1502B0087C2DB /* AnimatedImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +302,7 @@
 /* Begin XCBuildConfiguration section */
 		118FE1241CEF0525004F2F51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E702C04239D35F96583B09F0 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -282,8 +316,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -305,19 +342,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		118FE1251CEF0525004F2F51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E702C04239D35F96583B09F0 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -331,8 +369,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -348,11 +389,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -360,57 +401,69 @@
 		};
 		118FE1271CEF0525004F2F51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E702C04239D35F96583B09F0 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SamplePhotosApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SamplePhotosApp${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SWIFT_VERSION = 3.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		118FE1281CEF0525004F2F51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E702C04239D35F96583B09F0 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SamplePhotosApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SamplePhotosApp${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SWIFT_VERSION = 3.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 		118FE13A1CEF07DE004F2F51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E702C04239D35F96583B09F0 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = tvOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SamplePhotosApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SamplePhotosApp${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
 		118FE13B1CEF07DE004F2F51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E702C04239D35F96583B09F0 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = tvOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SamplePhotosApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SamplePhotosApp${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
 		};

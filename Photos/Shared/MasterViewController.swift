@@ -1,11 +1,9 @@
 /*
-	Copyright (C) 2017 Apple Inc. All Rights Reserved.
-	See LICENSE.txt for this sample’s licensing information
-	
-	Abstract:
-	Manages the top-level table view, a list of photo collections.
- */
+See LICENSE.txt for this sample’s licensing information.
 
+Abstract:
+Manages the top-level table view, a list of photo collections.
+*/
 
 import UIKit
 import Photos
@@ -37,13 +35,12 @@ class MasterViewController: UITableViewController {
     let sectionLocalizedTitles = ["", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
 
     // MARK: UIViewController / Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addAlbum))
         self.navigationItem.rightBarButtonItem = addButton
-
 
         // Create a PHFetchResult object for each section in the table view.
         let allPhotosOptions = PHFetchOptions()
@@ -65,27 +62,25 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    func addAlbum(_ sender: AnyObject) {
-
+    @objc func addAlbum(_ sender: AnyObject) {
         let alertController = UIAlertController(title: NSLocalizedString("New Album", comment: ""), message: nil, preferredStyle: .alert)
         alertController.addTextField { textField in
             textField.placeholder = NSLocalizedString("Album Name", comment: "")
         }
 
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Create", comment: ""), style: .default) { action in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Create", comment: ""), style: .default) { _ in
             let textField = alertController.textFields!.first!
             if let title = textField.text, !title.isEmpty {
                 // Create a new album with the title entered.
                 PHPhotoLibrary.shared().performChanges({
                     PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: title)
                 }, completionHandler: { success, error in
-                    if !success { print("error creating album: \(error)") }
+                    if !success { print("error creating album: \(String(describing: error))") }
                 })
             }
         })
         self.present(alertController, animated: true, completion: nil)
     }
-
 
     // MARK: Segues
 
@@ -93,7 +88,7 @@ class MasterViewController: UITableViewController {
 
         guard let destination = (segue.destination as? UINavigationController)?.topViewController as? AssetGridViewController
             else { fatalError("unexpected view controller for segue") }
-        let cell = sender as! UITableViewCell
+        guard let cell = sender as? UITableViewCell else { fatalError("unexpected cell for segue") }
 
         destination.title = cell.textLabel?.text
 
@@ -172,8 +167,8 @@ extension MasterViewController: PHPhotoLibraryChangeObserver {
             // Check each of the three top-level fetches for changes.
 
             if let changeDetails = changeInstance.changeDetails(for: allPhotos) {
-                // Update the cached fetch result. 
-                allPhotos = changeDetails.fetchResultAfterChanges 
+                // Update the cached fetch result.
+                allPhotos = changeDetails.fetchResultAfterChanges
                 // (The table row for this one doesn't need updating, it always says "All Photos".)
             }
 
@@ -190,4 +185,3 @@ extension MasterViewController: PHPhotoLibraryChangeObserver {
         }
     }
 }
-

@@ -1,0 +1,645 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		524CC7E41EA966C7008E6547 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524CC7E31EA966C7008E6547 /* AppDelegate.swift */; };
+		524CC7E61EA966C7008E6547 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524CC7E51EA966C7008E6547 /* MasterViewController.swift */; };
+		524CC7EB1EA966C8008E6547 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524CC7E91EA966C8008E6547 /* Main.storyboard */; };
+		524CC7ED1EA966C8008E6547 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 524CC7EC1EA966C8008E6547 /* Assets.xcassets */; };
+		524CC7F01EA966C8008E6547 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524CC7EE1EA966C8008E6547 /* LaunchScreen.storyboard */; };
+		524CC7FB1EA966C8008E6547 /* QuartzDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524CC7FA1EA966C8008E6547 /* QuartzDemoTests.swift */; };
+		524CC8061EA966C8008E6547 /* QuartzDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524CC8051EA966C8008E6547 /* QuartzDemoUITests.swift */; };
+		524CC8161EA97400008E6547 /* QuartzCapJointWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524CC8151EA97400008E6547 /* QuartzCapJointWidthViewController.swift */; };
+		524CC8181EA9741A008E6547 /* QuartzDashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524CC8171EA9741A008E6547 /* QuartzDashViewController.swift */; };
+		524CC81A1EA97438008E6547 /* QuartzLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524CC8191EA97438008E6547 /* QuartzLineView.swift */; };
+		524CC81C1EA9744E008E6547 /* QuartzCapJointWidthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524CC81B1EA9744E008E6547 /* QuartzCapJointWidthView.swift */; };
+		524CC81E1EA97463008E6547 /* QuartzDashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524CC81D1EA97463008E6547 /* QuartzDashView.swift */; };
+		524CC8201EA97497008E6547 /* QuartzView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524CC81F1EA97497008E6547 /* QuartzView.swift */; };
+		52A19F861EC624EA00754AFB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A19F851EC624EA00754AFB /* DetailViewController.swift */; };
+		52CE56F01EAEA08500942966 /* QuartzRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE56EF1EAEA08500942966 /* QuartzRectView.swift */; };
+		52CE56F21EAEA0AE00942966 /* QuartzPolygonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE56F11EAEA0AE00942966 /* QuartzPolygonView.swift */; };
+		52CE56F41EAEA0CA00942966 /* QuartzPolyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE56F31EAEA0CA00942966 /* QuartzPolyViewController.swift */; };
+		52CE56F61EAEA11500942966 /* QuartzEllipseArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE56F51EAEA11500942966 /* QuartzEllipseArcView.swift */; };
+		52CE56F81EAEA14400942966 /* QuartzBezierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE56F71EAEA14400942966 /* QuartzBezierView.swift */; };
+		52CE56FA1EAEA16900942966 /* QuartzImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE56F91EAEA16900942966 /* QuartzImageView.swift */; };
+		52CE56FC1EAEA18300942966 /* QuartzPDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE56FB1EAEA18300942966 /* QuartzPDFView.swift */; };
+		52CE56FE1EAEA19000942966 /* QuartzTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE56FD1EAEA19000942966 /* QuartzTextView.swift */; };
+		52CE57001EAEA1C200942966 /* QuartzPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE56FF1EAEA1C200942966 /* QuartzPatternView.swift */; };
+		52CE57021EAEA1CF00942966 /* QuartzGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE57011EAEA1CF00942966 /* QuartzGradientView.swift */; };
+		52CE57041EAEA1E100942966 /* QuartzGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE57031EAEA1E100942966 /* QuartzGradientViewController.swift */; };
+		52CE57061EAEA20000942966 /* QuartzBlendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE57051EAEA20000942966 /* QuartzBlendingView.swift */; };
+		52CE57081EAEA21200942966 /* QuartzBlendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE57071EAEA21200942966 /* QuartzBlendingViewController.swift */; };
+		52CE570A1EAEA23C00942966 /* QuartzClippingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE57091EAEA23C00942966 /* QuartzClippingView.swift */; };
+		52CE570C1EAEA24E00942966 /* QuartzMaskingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE570B1EAEA24E00942966 /* QuartzMaskingView.swift */; };
+		52CE570E1EAEC23900942966 /* Demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CE570D1EAEC23900942966 /* Demo.png */; };
+		52CE57101EB2A8A700942966 /* Ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CE570F1EB2A8A700942966 /* Ship.png */; };
+		52CE57121EB7A85F00942966 /* Quartz.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 52CE57111EB7A85E00942966 /* Quartz.pdf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		524CC7F71EA966C8008E6547 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524CC7D81EA966C7008E6547 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 524CC7DF1EA966C7008E6547;
+			remoteInfo = QuartzDemo;
+		};
+		524CC8021EA966C8008E6547 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 524CC7D81EA966C7008E6547 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 524CC7DF1EA966C7008E6547;
+			remoteInfo = QuartzDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		303852481EC65CD20042109F /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		524CC7E01EA966C7008E6547 /* QuartzDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuartzDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		524CC7E31EA966C7008E6547 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		524CC7E51EA966C7008E6547 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		524CC7EA1EA966C8008E6547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		524CC7EC1EA966C8008E6547 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		524CC7EF1EA966C8008E6547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		524CC7F11EA966C8008E6547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		524CC7F61EA966C8008E6547 /* QuartzDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuartzDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		524CC7FA1EA966C8008E6547 /* QuartzDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuartzDemoTests.swift; sourceTree = "<group>"; };
+		524CC7FC1EA966C8008E6547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		524CC8011EA966C8008E6547 /* QuartzDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuartzDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		524CC8051EA966C8008E6547 /* QuartzDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuartzDemoUITests.swift; sourceTree = "<group>"; };
+		524CC8071EA966C8008E6547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		524CC8151EA97400008E6547 /* QuartzCapJointWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzCapJointWidthViewController.swift; sourceTree = "<group>"; };
+		524CC8171EA9741A008E6547 /* QuartzDashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzDashViewController.swift; sourceTree = "<group>"; };
+		524CC8191EA97438008E6547 /* QuartzLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzLineView.swift; sourceTree = "<group>"; };
+		524CC81B1EA9744E008E6547 /* QuartzCapJointWidthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzCapJointWidthView.swift; sourceTree = "<group>"; };
+		524CC81D1EA97463008E6547 /* QuartzDashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzDashView.swift; sourceTree = "<group>"; };
+		524CC81F1EA97497008E6547 /* QuartzView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzView.swift; sourceTree = "<group>"; };
+		52A19F851EC624EA00754AFB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		52CE56EF1EAEA08500942966 /* QuartzRectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzRectView.swift; sourceTree = "<group>"; };
+		52CE56F11EAEA0AE00942966 /* QuartzPolygonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzPolygonView.swift; sourceTree = "<group>"; };
+		52CE56F31EAEA0CA00942966 /* QuartzPolyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzPolyViewController.swift; sourceTree = "<group>"; };
+		52CE56F51EAEA11500942966 /* QuartzEllipseArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzEllipseArcView.swift; sourceTree = "<group>"; };
+		52CE56F71EAEA14400942966 /* QuartzBezierView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzBezierView.swift; sourceTree = "<group>"; };
+		52CE56F91EAEA16900942966 /* QuartzImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzImageView.swift; sourceTree = "<group>"; };
+		52CE56FB1EAEA18300942966 /* QuartzPDFView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzPDFView.swift; sourceTree = "<group>"; };
+		52CE56FD1EAEA19000942966 /* QuartzTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzTextView.swift; sourceTree = "<group>"; };
+		52CE56FF1EAEA1C200942966 /* QuartzPatternView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzPatternView.swift; sourceTree = "<group>"; };
+		52CE57011EAEA1CF00942966 /* QuartzGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzGradientView.swift; sourceTree = "<group>"; };
+		52CE57031EAEA1E100942966 /* QuartzGradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzGradientViewController.swift; sourceTree = "<group>"; };
+		52CE57051EAEA20000942966 /* QuartzBlendingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzBlendingView.swift; sourceTree = "<group>"; };
+		52CE57071EAEA21200942966 /* QuartzBlendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzBlendingViewController.swift; sourceTree = "<group>"; };
+		52CE57091EAEA23C00942966 /* QuartzClippingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzClippingView.swift; sourceTree = "<group>"; };
+		52CE570B1EAEA24E00942966 /* QuartzMaskingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuartzMaskingView.swift; sourceTree = "<group>"; };
+		52CE570D1EAEC23900942966 /* Demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Demo.png; sourceTree = "<group>"; };
+		52CE570F1EB2A8A700942966 /* Ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship.png; sourceTree = "<group>"; };
+		52CE57111EB7A85E00942966 /* Quartz.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Quartz.pdf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		524CC7DD1EA966C7008E6547 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524CC7F31EA966C8008E6547 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524CC7FE1EA966C8008E6547 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		524CC7D71EA966C7008E6547 = {
+			isa = PBXGroup;
+			children = (
+				303852481EC65CD20042109F /* ReadMe.md */,
+				524CC7E21EA966C7008E6547 /* QuartzDemo */,
+				524CC7F91EA966C8008E6547 /* QuartzDemoTests */,
+				524CC8041EA966C8008E6547 /* QuartzDemoUITests */,
+				524CC7E11EA966C7008E6547 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		524CC7E11EA966C7008E6547 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				524CC7E01EA966C7008E6547 /* QuartzDemo.app */,
+				524CC7F61EA966C8008E6547 /* QuartzDemoTests.xctest */,
+				524CC8011EA966C8008E6547 /* QuartzDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		524CC7E21EA966C7008E6547 /* QuartzDemo */ = {
+			isa = PBXGroup;
+			children = (
+				524CC7E31EA966C7008E6547 /* AppDelegate.swift */,
+				524CC7E51EA966C7008E6547 /* MasterViewController.swift */,
+				52A19F851EC624EA00754AFB /* DetailViewController.swift */,
+				524CC81F1EA97497008E6547 /* QuartzView.swift */,
+				524CC8191EA97438008E6547 /* QuartzLineView.swift */,
+				524CC81B1EA9744E008E6547 /* QuartzCapJointWidthView.swift */,
+				524CC8151EA97400008E6547 /* QuartzCapJointWidthViewController.swift */,
+				524CC81D1EA97463008E6547 /* QuartzDashView.swift */,
+				524CC8171EA9741A008E6547 /* QuartzDashViewController.swift */,
+				52CE56EF1EAEA08500942966 /* QuartzRectView.swift */,
+				52CE56F11EAEA0AE00942966 /* QuartzPolygonView.swift */,
+				52CE56F31EAEA0CA00942966 /* QuartzPolyViewController.swift */,
+				52CE56F51EAEA11500942966 /* QuartzEllipseArcView.swift */,
+				52CE56F71EAEA14400942966 /* QuartzBezierView.swift */,
+				52CE56F91EAEA16900942966 /* QuartzImageView.swift */,
+				52CE56FB1EAEA18300942966 /* QuartzPDFView.swift */,
+				52CE56FD1EAEA19000942966 /* QuartzTextView.swift */,
+				52CE56FF1EAEA1C200942966 /* QuartzPatternView.swift */,
+				52CE57011EAEA1CF00942966 /* QuartzGradientView.swift */,
+				52CE57031EAEA1E100942966 /* QuartzGradientViewController.swift */,
+				52CE57051EAEA20000942966 /* QuartzBlendingView.swift */,
+				52CE57071EAEA21200942966 /* QuartzBlendingViewController.swift */,
+				52CE57091EAEA23C00942966 /* QuartzClippingView.swift */,
+				52CE570B1EAEA24E00942966 /* QuartzMaskingView.swift */,
+				524CC7E91EA966C8008E6547 /* Main.storyboard */,
+				524CC7EC1EA966C8008E6547 /* Assets.xcassets */,
+				52CE570D1EAEC23900942966 /* Demo.png */,
+				52CE57111EB7A85E00942966 /* Quartz.pdf */,
+				52CE570F1EB2A8A700942966 /* Ship.png */,
+				524CC7EE1EA966C8008E6547 /* LaunchScreen.storyboard */,
+				524CC7F11EA966C8008E6547 /* Info.plist */,
+			);
+			path = QuartzDemo;
+			sourceTree = "<group>";
+		};
+		524CC7F91EA966C8008E6547 /* QuartzDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				524CC7FA1EA966C8008E6547 /* QuartzDemoTests.swift */,
+				524CC7FC1EA966C8008E6547 /* Info.plist */,
+			);
+			path = QuartzDemoTests;
+			sourceTree = "<group>";
+		};
+		524CC8041EA966C8008E6547 /* QuartzDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				524CC8051EA966C8008E6547 /* QuartzDemoUITests.swift */,
+				524CC8071EA966C8008E6547 /* Info.plist */,
+			);
+			path = QuartzDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		524CC7DF1EA966C7008E6547 /* QuartzDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 524CC80A1EA966C8008E6547 /* Build configuration list for PBXNativeTarget "QuartzDemo" */;
+			buildPhases = (
+				524CC7DC1EA966C7008E6547 /* Sources */,
+				524CC7DD1EA966C7008E6547 /* Frameworks */,
+				524CC7DE1EA966C7008E6547 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuartzDemo;
+			productName = QuartzDemo;
+			productReference = 524CC7E01EA966C7008E6547 /* QuartzDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		524CC7F51EA966C8008E6547 /* QuartzDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 524CC80D1EA966C8008E6547 /* Build configuration list for PBXNativeTarget "QuartzDemoTests" */;
+			buildPhases = (
+				524CC7F21EA966C8008E6547 /* Sources */,
+				524CC7F31EA966C8008E6547 /* Frameworks */,
+				524CC7F41EA966C8008E6547 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				524CC7F81EA966C8008E6547 /* PBXTargetDependency */,
+			);
+			name = QuartzDemoTests;
+			productName = QuartzDemoTests;
+			productReference = 524CC7F61EA966C8008E6547 /* QuartzDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		524CC8001EA966C8008E6547 /* QuartzDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 524CC8101EA966C8008E6547 /* Build configuration list for PBXNativeTarget "QuartzDemoUITests" */;
+			buildPhases = (
+				524CC7FD1EA966C8008E6547 /* Sources */,
+				524CC7FE1EA966C8008E6547 /* Frameworks */,
+				524CC7FF1EA966C8008E6547 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				524CC8031EA966C8008E6547 /* PBXTargetDependency */,
+			);
+			name = QuartzDemoUITests;
+			productName = QuartzDemoUITests;
+			productReference = 524CC8011EA966C8008E6547 /* QuartzDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		524CC7D81EA966C7008E6547 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Apple;
+				TargetAttributes = {
+					524CC7DF1EA966C7008E6547 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					524CC7F51EA966C8008E6547 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 8QXX5HQF6B;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 524CC7DF1EA966C7008E6547;
+					};
+					524CC8001EA966C8008E6547 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 8QXX5HQF6B;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 524CC7DF1EA966C7008E6547;
+					};
+				};
+			};
+			buildConfigurationList = 524CC7DB1EA966C7008E6547 /* Build configuration list for PBXProject "QuartzDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 524CC7D71EA966C7008E6547;
+			productRefGroup = 524CC7E11EA966C7008E6547 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				524CC7DF1EA966C7008E6547 /* QuartzDemo */,
+				524CC7F51EA966C8008E6547 /* QuartzDemoTests */,
+				524CC8001EA966C8008E6547 /* QuartzDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		524CC7DE1EA966C7008E6547 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CE570E1EAEC23900942966 /* Demo.png in Resources */,
+				52CE57121EB7A85F00942966 /* Quartz.pdf in Resources */,
+				524CC7F01EA966C8008E6547 /* LaunchScreen.storyboard in Resources */,
+				52CE57101EB2A8A700942966 /* Ship.png in Resources */,
+				524CC7ED1EA966C8008E6547 /* Assets.xcassets in Resources */,
+				524CC7EB1EA966C8008E6547 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524CC7F41EA966C8008E6547 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524CC7FF1EA966C8008E6547 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		524CC7DC1EA966C7008E6547 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CE56FA1EAEA16900942966 /* QuartzImageView.swift in Sources */,
+				52CE56F81EAEA14400942966 /* QuartzBezierView.swift in Sources */,
+				524CC81E1EA97463008E6547 /* QuartzDashView.swift in Sources */,
+				52CE57001EAEA1C200942966 /* QuartzPatternView.swift in Sources */,
+				52CE57041EAEA1E100942966 /* QuartzGradientViewController.swift in Sources */,
+				52CE57081EAEA21200942966 /* QuartzBlendingViewController.swift in Sources */,
+				52CE56F61EAEA11500942966 /* QuartzEllipseArcView.swift in Sources */,
+				52CE56FE1EAEA19000942966 /* QuartzTextView.swift in Sources */,
+				524CC8161EA97400008E6547 /* QuartzCapJointWidthViewController.swift in Sources */,
+				524CC8201EA97497008E6547 /* QuartzView.swift in Sources */,
+				524CC7E61EA966C7008E6547 /* MasterViewController.swift in Sources */,
+				524CC7E41EA966C7008E6547 /* AppDelegate.swift in Sources */,
+				52CE57021EAEA1CF00942966 /* QuartzGradientView.swift in Sources */,
+				52CE570C1EAEA24E00942966 /* QuartzMaskingView.swift in Sources */,
+				524CC8181EA9741A008E6547 /* QuartzDashViewController.swift in Sources */,
+				52A19F861EC624EA00754AFB /* DetailViewController.swift in Sources */,
+				52CE56FC1EAEA18300942966 /* QuartzPDFView.swift in Sources */,
+				52CE57061EAEA20000942966 /* QuartzBlendingView.swift in Sources */,
+				52CE56F41EAEA0CA00942966 /* QuartzPolyViewController.swift in Sources */,
+				524CC81C1EA9744E008E6547 /* QuartzCapJointWidthView.swift in Sources */,
+				524CC81A1EA97438008E6547 /* QuartzLineView.swift in Sources */,
+				52CE56F21EAEA0AE00942966 /* QuartzPolygonView.swift in Sources */,
+				52CE56F01EAEA08500942966 /* QuartzRectView.swift in Sources */,
+				52CE570A1EAEA23C00942966 /* QuartzClippingView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524CC7F21EA966C8008E6547 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524CC7FB1EA966C8008E6547 /* QuartzDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524CC7FD1EA966C8008E6547 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524CC8061EA966C8008E6547 /* QuartzDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		524CC7F81EA966C8008E6547 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 524CC7DF1EA966C7008E6547 /* QuartzDemo */;
+			targetProxy = 524CC7F71EA966C8008E6547 /* PBXContainerItemProxy */;
+		};
+		524CC8031EA966C8008E6547 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 524CC7DF1EA966C7008E6547 /* QuartzDemo */;
+			targetProxy = 524CC8021EA966C8008E6547 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		524CC7E91EA966C8008E6547 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				524CC7EA1EA966C8008E6547 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		524CC7EE1EA966C8008E6547 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				524CC7EF1EA966C8008E6547 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		524CC8081EA966C8008E6547 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		524CC8091EA966C8008E6547 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		524CC80B1EA966C8008E6547 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = QuartzDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.QuartzDemo.QuartzDemo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		524CC80C1EA966C8008E6547 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = QuartzDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.QuartzDemo.QuartzDemo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		524CC80E1EA966C8008E6547 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8QXX5HQF6B;
+				INFOPLIST_FILE = QuartzDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.QuartzDemo.QuartzDemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuartzDemo.app/QuartzDemo";
+			};
+			name = Debug;
+		};
+		524CC80F1EA966C8008E6547 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8QXX5HQF6B;
+				INFOPLIST_FILE = QuartzDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.QuartzDemo.QuartzDemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuartzDemo.app/QuartzDemo";
+			};
+			name = Release;
+		};
+		524CC8111EA966C8008E6547 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 8QXX5HQF6B;
+				INFOPLIST_FILE = QuartzDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.QuartzDemo.QuartzDemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = QuartzDemo;
+			};
+			name = Debug;
+		};
+		524CC8121EA966C8008E6547 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 8QXX5HQF6B;
+				INFOPLIST_FILE = QuartzDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.QuartzDemo.QuartzDemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = QuartzDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		524CC7DB1EA966C7008E6547 /* Build configuration list for PBXProject "QuartzDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				524CC8081EA966C8008E6547 /* Debug */,
+				524CC8091EA966C8008E6547 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		524CC80A1EA966C8008E6547 /* Build configuration list for PBXNativeTarget "QuartzDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				524CC80B1EA966C8008E6547 /* Debug */,
+				524CC80C1EA966C8008E6547 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		524CC80D1EA966C8008E6547 /* Build configuration list for PBXNativeTarget "QuartzDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				524CC80E1EA966C8008E6547 /* Debug */,
+				524CC80F1EA966C8008E6547 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		524CC8101EA966C8008E6547 /* Build configuration list for PBXNativeTarget "QuartzDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				524CC8111EA966C8008E6547 /* Debug */,
+				524CC8121EA966C8008E6547 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 524CC7D81EA966C7008E6547 /* Project object */;
+}

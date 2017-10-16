@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MAq-No-FAD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dL1-fg-Veg">
+            <objects>
+                <navigationController id="MAq-No-FAD" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eOg-W7-670">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Fbm-vK-LDK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ET-5e-kgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-556" y="347"/>
+        </scene>
+        <!--ViewController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="ViewController" customClass="ViewController" customModule="PageControl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dJX-Fg-I4j"/>
+                        <viewControllerLayoutGuide type="bottom" id="IN3-LS-pcW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pj0-4f-1xB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="578"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Fkv-ls-HnT"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Xk5-js-bQ2">
+                                <rect key="frame" x="0.0" y="642" width="375" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="EW4-DQ-Gdk"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="gotoPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y6Y-UI-IYS"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xk5-js-bQ2" firstAttribute="top" secondItem="Pj0-4f-1xB" secondAttribute="bottom" id="7Hb-f2-Eg0"/>
+                            <constraint firstItem="Pj0-4f-1xB" firstAttribute="top" secondItem="dJX-Fg-I4j" secondAttribute="bottom" id="9S4-X0-FKn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xk5-js-bQ2" secondAttribute="trailing" constant="-16" id="9xL-o9-QZl"/>
+                            <constraint firstItem="Pj0-4f-1xB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="cC6-xC-D72"/>
+                            <constraint firstItem="IN3-LS-pcW" firstAttribute="top" secondItem="Xk5-js-bQ2" secondAttribute="bottom" id="iWJ-Yf-1J2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pj0-4f-1xB" secondAttribute="trailing" constant="-16" id="kWL-FJ-Jq0"/>
+                            <constraint firstItem="Xk5-js-bQ2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="u9D-f0-lCk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Page Control" id="ffd-ir-VGp"/>
+                    <connections>
+                        <outlet property="pageControl" destination="Xk5-js-bQ2" id="HIO-S6-Eta"/>
+                        <outlet property="scrollView" destination="Pj0-4f-1xB" id="GeU-at-VuL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="246" y="347"/>
+        </scene>
+    </scenes>
+</document>

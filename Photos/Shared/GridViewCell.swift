@@ -1,11 +1,9 @@
 /*
-	Copyright (C) 2017 Apple Inc. All Rights Reserved.
-	See LICENSE.txt for this sample’s licensing information
-	
-	Abstract:
-	Collection view cell for displaying an asset.
- */
+See LICENSE.txt for this sample’s licensing information.
 
+Abstract:
+Collection view cell for displaying an asset.
+*/
 
 import UIKit
 
@@ -29,7 +27,7 @@ class GridViewCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageView.image = nil
+        thumbnailImage = nil
         livePhotoBadgeImageView.image = nil
     }
 }

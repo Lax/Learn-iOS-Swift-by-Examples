@@ -1,13 +1,13 @@
 /*
-	Copyright (C) 2016 Apple Inc. All Rights Reserved.
-	See LICENSE.txt for this sample’s licensing information
-	
-	Abstract:
-	View controller for camera interface.
+See LICENSE.txt for this sample’s licensing information.
+
+Abstract:
+View controller for camera interface.
 */
 
 import UIKit
 import AVFoundation
+import SafariServices
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, ItemSelectionViewControllerDelegate {
 	// MARK: View Controller Life Cycle
@@ -32,7 +32,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 			access is optional. If audio access is denied, audio is not recorded
 			during movie recording.
 		*/
-		switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
+		switch AVCaptureDevice.authorizationStatus(for: .video) {
 			case .authorized:
 				// The user has previously granted access to the camera.
 				break
@@ -44,7 +44,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 					setup until the access request has completed.
 				*/
 				sessionQueue.suspend()
-				AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { [unowned self] granted in
+				AVCaptureDevice.requestAccess(for: .video, completionHandler: { granted in
 					if !granted {
 						self.setupResult = .notAuthorized
 					}
@@ -66,7 +66,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 			take a long time. We dispatch session setup to the sessionQueue so
 			that the main queue isn't blocked, which keeps the UI responsive.
 		*/
-		sessionQueue.async { [unowned self] in
+		sessionQueue.async {
 			self.configureSession()
 		}
 	}
@@ -74,7 +74,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		sessionQueue.async { [unowned self] in
+		sessionQueue.async {
 			switch self.setupResult {
 				case .success:
 					// Only setup observers and start the session running if setup succeeded.
@@ -83,11 +83,14 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 					self.isSessionRunning = self.session.isRunning
 				
 				case .notAuthorized:
-					DispatchQueue.main.async { [unowned self] in
-						let message = NSLocalizedString("AVCamBarcode doesn't have permission to use the camera, please change privacy settings", comment: "Alert message when the user has denied access to the camera")
+					DispatchQueue.main.async {
+						let changePrivatySetting = "AVCamBarcode doesn't have permission to use the camera, please change privacy settings"
+						let message = NSLocalizedString(changePrivatySetting, comment: "Alert message when the user has denied access to the camera")
 						let	alertController = UIAlertController(title: "AVCamBarcode", message: message, preferredStyle: .alert)
 						alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil))
-						alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Alert button to open Settings"), style: .`default`, handler: { action in
+						alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings",
+						                                                                 comment: "Alert button to open Settings"),
+						                                                                 style: .`default`, handler: { _ in
 							UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
 						}))
 						
@@ -95,8 +98,9 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 					}
 				
 				case .configurationFailed:
-					DispatchQueue.main.async { [unowned self] in
-						let message = NSLocalizedString("Unable to capture media", comment: "Alert message when something goes wrong during capture session configuration")
+					DispatchQueue.main.async {
+						let alertMsg = "Unable to capture media"
+						let message = NSLocalizedString(alertMsg, comment: "Alert message when something goes wrong during capture session configuration")
 						let alertController = UIAlertController(title: "AVCamBarcode", message: message, preferredStyle: .alert)
 						alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil))
 						
@@ -107,7 +111,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		sessionQueue.async { [unowned self] in
+		sessionQueue.async {
 			if self.setupResult == .success {
 				self.session.stopRunning()
 				self.isSessionRunning = self.session.isRunning
@@ -116,31 +120,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 		}
 		
 		super.viewWillDisappear(animated)
-	}
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "SelectMetadataObjectTypes" {
-			let navigationController = segue.destination as! UINavigationController
-			
-			let itemSelectionViewController = navigationController.viewControllers[0] as! ItemSelectionViewController
-			itemSelectionViewController.title = NSLocalizedString("Metadata Object Types", comment: "The title when selecting metadata object types.")
-			itemSelectionViewController.delegate = self
-			itemSelectionViewController.identifier = metadataObjectTypeItemSelectionIdentifier
-			itemSelectionViewController.allItems = metadataOutput.availableMetadataObjectTypes as! [String]
-			itemSelectionViewController.selectedItems = metadataOutput.metadataObjectTypes as! [String]
-			itemSelectionViewController.allowsMultipleSelection = true
-		}
-		else if segue.identifier == "SelectSessionPreset" {
-			let navigationController = segue.destination as! UINavigationController
-			
-			let itemSelectionViewController = navigationController.viewControllers[0] as! ItemSelectionViewController
-			itemSelectionViewController.title = NSLocalizedString("Session Presets", comment: "The title when selecting a session preset.")
-			itemSelectionViewController.delegate = self
-			itemSelectionViewController.identifier = sessionPresetItemSelectionIdentifier
-			itemSelectionViewController.allItems = availableSessionPresets()
-			itemSelectionViewController.selectedItems = [session.sessionPreset]
-			itemSelectionViewController.allowsMultipleSelection = false
-		}
 	}
 	
     override var shouldAutorotate: Bool {
@@ -153,68 +132,24 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 		
 		if let videoPreviewLayerConnection = previewView.videoPreviewLayer.connection {
 			let deviceOrientation = UIDevice.current.orientation
-			guard let newVideoOrientation = deviceOrientation.videoOrientation, deviceOrientation.isPortrait || deviceOrientation.isLandscape else {
+			guard let newVideoOrientation = AVCaptureVideoOrientation(deviceOrientation: deviceOrientation),
+				deviceOrientation.isPortrait || deviceOrientation.isLandscape else {
 				return
 			}
 			
-			let oldSize = view.frame.size
-			let oldVideoOrientation = videoPreviewLayerConnection.videoOrientation
 			videoPreviewLayerConnection.videoOrientation = newVideoOrientation
 			
 			/*
-				When we transition to the new size, we need to adjust the region
-				of interest's origin and size so that it stays anchored relative
-				to the camera.
+				When we transition to a new size, we need to recalculate the preview
+				view's region of interest rect so that it stays in the same
+				position relative to the camera.
 			*/
-			coordinator.animate(alongsideTransition: { [unowned self] context in
+			coordinator.animate(alongsideTransition: { context in
 				
-					let oldRegionOfInterest = self.previewView.regionOfInterest
-					var newRegionOfInterest = CGRect()
-				
-					if oldVideoOrientation == .landscapeRight && newVideoOrientation == .landscapeLeft {
-						newRegionOfInterest.origin.x = oldSize.width - oldRegionOfInterest.origin.x - oldRegionOfInterest.size.width
-						newRegionOfInterest.origin.y = oldRegionOfInterest.origin.y
-						newRegionOfInterest.size.width = oldRegionOfInterest.size.width
-						newRegionOfInterest.size.height = oldRegionOfInterest.size.height
-					}
-					else if oldVideoOrientation == .landscapeRight && newVideoOrientation == .portrait {
-						newRegionOfInterest.origin.x = size.width - oldRegionOfInterest.origin.y - oldRegionOfInterest.size.height
-						newRegionOfInterest.origin.y = oldRegionOfInterest.origin.x
-						newRegionOfInterest.size.width = oldRegionOfInterest.size.height
-						newRegionOfInterest.size.height = oldRegionOfInterest.size.width
-					}
-					else if oldVideoOrientation == .landscapeLeft && newVideoOrientation == .landscapeRight {
-						newRegionOfInterest.origin.x = oldSize.width - oldRegionOfInterest.origin.x - oldRegionOfInterest.size.width
-						newRegionOfInterest.origin.y = oldRegionOfInterest.origin.y
-						newRegionOfInterest.size.width = oldRegionOfInterest.size.width
-						newRegionOfInterest.size.height = oldRegionOfInterest.size.height
-					}
-					else if oldVideoOrientation == .landscapeLeft && newVideoOrientation == .portrait {
-						newRegionOfInterest.origin.x = oldRegionOfInterest.origin.y
-						newRegionOfInterest.origin.y = oldSize.width - oldRegionOfInterest.origin.x - oldRegionOfInterest.size.width
-						newRegionOfInterest.size.width = oldRegionOfInterest.size.height
-						newRegionOfInterest.size.height = oldRegionOfInterest.size.width
-					}
-					else if oldVideoOrientation == .portrait && newVideoOrientation == .landscapeRight {
-						newRegionOfInterest.origin.x = oldRegionOfInterest.origin.y
-						newRegionOfInterest.origin.y = size.height - oldRegionOfInterest.origin.x - oldRegionOfInterest.size.width
-						newRegionOfInterest.size.width = oldRegionOfInterest.size.height
-						newRegionOfInterest.size.height = oldRegionOfInterest.size.width
-					}
-					else if oldVideoOrientation == .portrait && newVideoOrientation == .landscapeLeft {
-						newRegionOfInterest.origin.x = oldSize.height - oldRegionOfInterest.origin.y - oldRegionOfInterest.size.height
-						newRegionOfInterest.origin.y = oldRegionOfInterest.origin.x
-						newRegionOfInterest.size.width = oldRegionOfInterest.size.height
-						newRegionOfInterest.size.height = oldRegionOfInterest.size.width
-					}
-					
+					let newRegionOfInterest = self.previewView.videoPreviewLayer.layerRectConverted(fromMetadataOutputRect: self.metadataOutput.rectOfInterest)
 					self.previewView.setRegionOfInterestWithProposedRegionOfInterest(newRegionOfInterest)
-					
 				},
-				completion: { [unowned self] context in
-					self.sessionQueue.async {
-						self.metadataOutput.rectOfInterest = self.previewView.videoPreviewLayer.metadataOutputRectOfInterest(for: self.previewView.regionOfInterest)
-					}
+				completion: { context in
 					
 					// Remove the old metadata object overlays.
 					self.removeMetadataObjectOverlayLayers()
@@ -235,7 +170,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 	
 	private var isSessionRunning = false
 	
-	private let sessionQueue = DispatchQueue(label: "session queue", attributes: [], target: nil) // Communicate with the session and other session objects on this queue.
+	private let sessionQueue = DispatchQueue(label: "session queue") // Communicate with the session and other session objects on this queue.
 	
 	private var setupResult: SessionSetupResult = .success
 	
@@ -253,22 +188,26 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 		
 		// Add video input.
 		do {
-			var defaultVideoDevice: AVCaptureDevice?
+			let defaultVideoDevice: AVCaptureDevice?
 			
-			// Choose the back dual camera if available, otherwise default to a wide angle camera.
-			if let dualCameraDevice = AVCaptureDevice.defaultDevice(withDeviceType: .builtInDuoCamera, mediaType: AVMediaTypeVideo, position: .back) {
-				defaultVideoDevice = dualCameraDevice
-			}
-			else if let backCameraDevice = AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .back) {
-				// If the back dual camera is not available, default to the back wide angle camera.
+			// Choose the back wide angle camera if available, otherwise default to the front wide angle camera.
+			if let backCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
 				defaultVideoDevice = backCameraDevice
-			}
-			else if let frontCameraDevice = AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .front) {
-				// In some cases where users break their phones, the back wide angle camera is not available. In this case, we should default to the front wide angle camera.
+			} else if let frontCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
+				// Default to the front wide angle camera if the back wide angle camera is unavailable.
 				defaultVideoDevice = frontCameraDevice
+			} else {
+				defaultVideoDevice = nil
 			}
 			
-			let videoDeviceInput = try AVCaptureDeviceInput(device: defaultVideoDevice)
+			guard let videoDevice = defaultVideoDevice else {
+				print("Could not get video device")
+				setupResult = .configurationFailed
+				session.commitConfiguration()
+				return
+			}
+			
+			let videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
 			
 			if session.canAddInput(videoDeviceInput) {
 				session.addInput(videoDeviceInput)
@@ -288,22 +227,20 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 					let statusBarOrientation = UIApplication.shared.statusBarOrientation
 					var initialVideoOrientation: AVCaptureVideoOrientation = .portrait
 					if statusBarOrientation != .unknown {
-						if let videoOrientation = statusBarOrientation.videoOrientation {
+						if let videoOrientation = AVCaptureVideoOrientation(interfaceOrientation: statusBarOrientation) {
 							initialVideoOrientation = videoOrientation
 						}
 					}
 					
-					self.previewView.videoPreviewLayer.connection.videoOrientation = initialVideoOrientation
+					self.previewView.videoPreviewLayer.connection!.videoOrientation = initialVideoOrientation
 				}
-			}
-			else {
+			} else {
 				print("Could not add video device input to the session")
 				setupResult = .configurationFailed
 				session.commitConfiguration()
 				return
 			}
-		}
-		catch {
+		} catch {
 			print("Could not create video device input: \(error)")
 			setupResult = .configurationFailed
 			session.commitConfiguration()
@@ -317,9 +254,25 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 			// Set this view controller as the delegate for metadata objects.
 			metadataOutput.setMetadataObjectsDelegate(self, queue: metadataObjectsQueue)
 			metadataOutput.metadataObjectTypes = metadataOutput.availableMetadataObjectTypes // Use all metadata object types by default.
-			metadataOutput.rectOfInterest = CGRect.zero
-		}
-		else {
+			
+			/*
+				Set an inital rect of interest that is 80% of the view's shortest side
+				and 25% of the longest side. This means that the region of interest will
+				appear in the same spot regardless of whether the app starts in portrait
+				or landscape.
+			*/
+			let width = 0.25
+			let height = 0.8
+			let x = (1.0 - width) / 2.0
+			let y = (1.0 - height) / 2.0
+			let initialRectOfInterest = CGRect(x: x, y: y, width: width, height: height)
+			metadataOutput.rectOfInterest = initialRectOfInterest
+
+			DispatchQueue.main.async {
+				let initialRegionOfInterest = self.previewView.videoPreviewLayer.layerRectConverted(fromMetadataOutputRect: initialRectOfInterest)
+				self.previewView.setRegionOfInterestWithProposedRegionOfInterest(initialRegionOfInterest)
+			}
+		} else {
 			print("Could not add metadata output to the session")
 			setupResult = .configurationFailed
 			session.commitConfiguration()
@@ -335,20 +288,20 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 	
 	@IBOutlet private var sessionPresetsButton: UIButton!
 	
-	private func availableSessionPresets() -> [String] {
-		let allSessionPresets = [AVCaptureSessionPresetPhoto,
-		                         AVCaptureSessionPresetLow,
-		                         AVCaptureSessionPresetMedium,
-		                         AVCaptureSessionPresetHigh,
-		                         AVCaptureSessionPreset352x288,
-		                         AVCaptureSessionPreset640x480,
-		                         AVCaptureSessionPreset1280x720,
-		                         AVCaptureSessionPresetiFrame960x540,
-		                         AVCaptureSessionPresetiFrame1280x720,
-		                         AVCaptureSessionPreset1920x1080,
-		                         AVCaptureSessionPreset3840x2160]
+	private func availableSessionPresets() -> [AVCaptureSession.Preset] {
+		let allSessionPresets: [AVCaptureSession.Preset] = [.photo,
+		                                                    .low,
+		                                                    .medium,
+		                                                    .high,
+		                                                    .cif352x288,
+		                                                    .vga640x480,
+		                                                    .hd1280x720,
+		                                                    .iFrame960x540,
+		                                                    .iFrame1280x720,
+		                                                    .hd1920x1080,
+		                                                    .hd4K3840x2160]
 		
-		var availableSessionPresets = [String]()
+		var availableSessionPresets: [AVCaptureSession.Preset] = []
 		for sessionPreset in allSessionPresets {
 			if session.canSetSessionPreset(sessionPreset) {
 				availableSessionPresets.append(sessionPreset)
@@ -358,13 +311,23 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 		return availableSessionPresets
 	}
 	
+	@IBAction private func selectSessionPreset() {
+		let itemSelectionViewController = ItemSelectionViewController<AVCaptureSession.Preset>(delegate: self,
+		                                                                                       identifier: sessionPresetItemSelectionIdentifier,
+		                                                                                       allItems: availableSessionPresets(),
+		                                                                                       selectedItems: [session.sessionPreset],
+		                                                                                       allowsMultipleSelection: false)
+		
+		presentItemSelectionViewController(itemSelectionViewController)
+	}
+	
 	// MARK: Device Configuration
 	
 	@IBOutlet private var cameraButton: UIButton!
 	
 	@IBOutlet private var cameraUnavailableLabel: UILabel!
 	
-	private let videoDeviceDiscoverySession = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDuoCamera], mediaType: AVMediaTypeVideo, position: .unspecified)!
+	private let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .unspecified)
 	
 	@IBAction private func changeCamera() {
 		metadataObjectTypesButton.isEnabled = false
@@ -375,37 +338,26 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 		// Remove the metadata overlay layers, if any.
 		removeMetadataObjectOverlayLayers()
 		
-		DispatchQueue.main.async { [unowned self] in
+		DispatchQueue.main.async {
 			let currentVideoDevice = self.videoDeviceInput.device
-			let currentPosition = currentVideoDevice!.position
+			let currentPosition = currentVideoDevice.position
 			
-			let preferredPosition: AVCaptureDevicePosition
-			let preferredDeviceType: AVCaptureDeviceType
+			let preferredPosition: AVCaptureDevice.Position
 			
 			switch currentPosition {
 				case .unspecified, .front:
 					preferredPosition = .back
-					preferredDeviceType = .builtInDuoCamera
 				
 				case .back:
 					preferredPosition = .front
-					preferredDeviceType = .builtInWideAngleCamera
 			}
 			
-			let devices = self.videoDeviceDiscoverySession.devices!
-			var newVideoDevice: AVCaptureDevice? = nil
+			let devices = self.videoDeviceDiscoverySession.devices
+			let newVideoDevice = devices.first(where: { $0.position == preferredPosition })
 			
-			// First, look for a device with both the preferred position and device type. Otherwise, look for a device with only the preferred position.
-			if let device = devices.filter({ $0.position == preferredPosition && $0.deviceType == preferredDeviceType }).first {
-				newVideoDevice = device
-			}
-			else if let device = devices.filter({ $0.position == preferredPosition }).first {
-				newVideoDevice = device
-			}
-			
-			if let videoDevice = newVideoDevice {
+            if let videoDevice = newVideoDevice {
 				do {
-					let videoDeviceInput = try AVCaptureDeviceInput.init(device: videoDevice)
+					let videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
 					
 					self.session.beginConfiguration()
 					
@@ -424,13 +376,12 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 						does not support the current session preset.
 					*/
 					let previousSessionPreset = self.session.sessionPreset
-					self.session.sessionPreset = AVCaptureSessionPresetHigh
+					self.session.sessionPreset = .high
 					
 					if self.session.canAddInput(videoDeviceInput) {
 						self.session.addInput(videoDeviceInput)
 						self.videoDeviceInput = videoDeviceInput
-					}
-					else {
+					} else {
 						self.session.addInput(self.videoDeviceInput)
 					}
 					
@@ -440,16 +391,15 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 					}
 					
 					self.session.commitConfiguration()
-				}
-				catch {
+				} catch {
 					print("Error occured while creating video device input: \(error)")
 				}
 			}
 			
-			DispatchQueue.main.async { [unowned self] in
+			DispatchQueue.main.async {
 				self.metadataObjectTypesButton.isEnabled = true
 				self.sessionPresetsButton.isEnabled = true
-				self.cameraButton.isEnabled = self.videoDeviceDiscoverySession.uniqueDevicePositionsCount() > 1
+				self.cameraButton.isEnabled = true
 				self.zoomSlider.isEnabled = true
 				self.zoomSlider.maximumValue = Float(min(self.videoDeviceInput.device.activeFormat.videoMaxZoomFactor, CGFloat(8.0)))
 				self.zoomSlider.value = Float(self.videoDeviceInput.device.videoZoomFactor)
@@ -464,27 +414,75 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 			try videoDeviceInput.device.lockForConfiguration()
 			videoDeviceInput.device.videoZoomFactor = CGFloat(zoomSlider.value)
 			videoDeviceInput.device.unlockForConfiguration()
-		}
-		catch {
+		} catch {
 			print("Could not lock for configuration: \(error)")
 		}
 	}
 	
 	// MARK: KVO and Notifications
 	
-	private var sessionRunningObserveContext = 0
-	
-	private var previewViewRegionOfInterestObserveContext = 0
+	private var keyValueObservations = [NSKeyValueObservation]()
 	
 	private func addObservers() {
-		session.addObserver(self, forKeyPath: "running", options: .new, context: &sessionRunningObserveContext)
+		var keyValueObservation: NSKeyValueObservation
+		
+		keyValueObservation = session.observe(\.isRunning, options: .new) { _, change in
+			guard let isSessionRunning = change.newValue else { return }
+			
+			DispatchQueue.main.async {
+				self.metadataObjectTypesButton.isEnabled = isSessionRunning
+				self.sessionPresetsButton.isEnabled = isSessionRunning
+				self.cameraButton.isEnabled = isSessionRunning && self.videoDeviceDiscoverySession.devices.count > 1
+				self.zoomSlider.isEnabled = isSessionRunning
+				self.zoomSlider.maximumValue = Float(min(self.videoDeviceInput.device.activeFormat.videoMaxZoomFactor, CGFloat(8.0)))
+				self.zoomSlider.value = Float(self.videoDeviceInput.device.videoZoomFactor)
+				
+				/*
+					After the session stops running, remove the metadata object overlays,
+					if any, so that if the view appears again, the previously displayed
+					metadata object overlays are removed.
+				*/
+				if !isSessionRunning {
+					self.removeMetadataObjectOverlayLayers()
+				}
+				
+				/*
+					When the session starts running, the aspect ratio of the video preview may also change if a new session preset was applied.
+					To keep the preview view's region of interest within the visible portion of the video preview, the preview view's region of
+					interest will need to be updated.
+				*/
+				if isSessionRunning {
+					self.previewView.setRegionOfInterestWithProposedRegionOfInterest(self.previewView.regionOfInterest)
+				}
+			}
+		}
+		keyValueObservations.append(keyValueObservation)
+		
 		/*
 			Observe the previewView's regionOfInterest to update the AVCaptureMetadataOutput's
 			rectOfInterest when the user finishes resizing the region of interest.
 		*/
-		previewView.addObserver(self, forKeyPath: "regionOfInterest", options: .new, context: &previewViewRegionOfInterestObserveContext)
+		keyValueObservation = previewView.observe(\.regionOfInterest, options: .new) { _, change in
+			guard let regionOfInterest = change.newValue else { return }
+			
+			DispatchQueue.main.async {
+				// Ensure we are not drawing old metadata object overlays.
+				self.removeMetadataObjectOverlayLayers()
+				
+				// Translate the preview view's region of interest to the metadata output's coordinate system.
+				let metadataOutputRectOfInterest = self.previewView.videoPreviewLayer.metadataOutputRectConverted(fromLayerRect: regionOfInterest)
+				
+				// Update the AVCaptureMetadataOutput with the new region of interest.
+				self.sessionQueue.async {
+					self.metadataOutput.rectOfInterest = metadataOutputRectOfInterest
+				}
+			}
+		}
+		keyValueObservations.append(keyValueObservation)
+	
+		let notificationCenter = NotificationCenter.default
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(sessionRuntimeError), name: Notification.Name("AVCaptureSessionRuntimeErrorNotification"), object: session)
+		notificationCenter.addObserver(self, selector: #selector(sessionRuntimeError), name: .AVCaptureSessionRuntimeError, object: session)
 		
 		/*
 			A session can only run when the app is full screen. It will be interrupted
@@ -493,64 +491,25 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 			interruptions and show a preview is paused message. See the documentation
 			of AVCaptureSessionWasInterruptedNotification for other interruption reasons.
 		*/
-		NotificationCenter.default.addObserver(self, selector: #selector(sessionWasInterrupted), name: Notification.Name("AVCaptureSessionWasInterruptedNotification"), object: session)
-		NotificationCenter.default.addObserver(self, selector: #selector(sessionInterruptionEnded), name: Notification.Name("AVCaptureSessionInterruptionEndedNotification"), object: session)
+		notificationCenter.addObserver(self, selector: #selector(sessionWasInterrupted), name: .AVCaptureSessionWasInterrupted, object: session)
+		notificationCenter.addObserver(self, selector: #selector(sessionInterruptionEnded), name: .AVCaptureSessionInterruptionEnded, object: session)
 	}
 	
 	private func removeObservers() {
-		NotificationCenter.default.removeObserver(self)
+		NotificationCenter.default.removeObserver(self, name: .AVCaptureSessionInterruptionEnded, object: session)
+		NotificationCenter.default.removeObserver(self, name: .AVCaptureSessionWasInterrupted, object: session)
+		NotificationCenter.default.removeObserver(self, name: .AVCaptureSessionRuntimeError, object: session)
 		
-		session.removeObserver(self, forKeyPath: "running", context: &sessionRunningObserveContext)
-		previewView.removeObserver(self, forKeyPath: "regionOfInterest", context: &previewViewRegionOfInterestObserveContext)
-	}
-
-	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-		let newValue = change?[.newKey] as AnyObject?
-		
-		if context == &sessionRunningObserveContext {
-			guard let isSessionRunning = newValue?.boolValue else { return }
-			
-			DispatchQueue.main.async { [unowned self] in
-				self.metadataObjectTypesButton.isEnabled = isSessionRunning
-				self.sessionPresetsButton.isEnabled = isSessionRunning
-				self.cameraButton.isEnabled = isSessionRunning && self.videoDeviceDiscoverySession.uniqueDevicePositionsCount() > 1
-				self.zoomSlider.isEnabled = isSessionRunning
-				self.zoomSlider.maximumValue = Float(min(self.videoDeviceInput.device.activeFormat.videoMaxZoomFactor, CGFloat(8.0)))
-				self.zoomSlider.value = Float(self.videoDeviceInput.device.videoZoomFactor)
-				
-				/*
-					After the session stop running, remove the metadata object overlays,
-					if any, so that if the view appears again, the previously displayed
-					metadata object overlays are removed.
-				*/
-				if !isSessionRunning {
-					self.removeMetadataObjectOverlayLayers()
-				}
-			}
+		for keyValueObservation in keyValueObservations {
+			keyValueObservation.invalidate()
 		}
-		else if context == &previewViewRegionOfInterestObserveContext {
-			guard let regionOfInterest = newValue?.cgRectValue else { return }
-			
-			// Update the AVCaptureMetadataOutput with the new region of interest.
-			sessionQueue.async {
-				// Translate the preview view's region of interest to the metadata output's coordinate system.
-				self.metadataOutput.rectOfInterest = self.previewView.videoPreviewLayer.metadataOutputRectOfInterest(for: regionOfInterest)
-				
-				// Ensure we are not drawing old metadata object overlays.
-				DispatchQueue.main.async { [unowned self] in
-					self.removeMetadataObjectOverlayLayers()
-				}
-			}
-		}
-		else {
-			super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-		}
+		keyValueObservations.removeAll()
 	}
 	
+	@objc
 	func sessionRuntimeError(notification: NSNotification) {
-		guard let errorValue = notification.userInfo?[AVCaptureSessionErrorKey] as? NSError else { return }
+		guard let error = notification.userInfo?[AVCaptureSessionErrorKey] as? AVError else { return }
 		
-        let error = AVError(_nsError: errorValue)
 		print("Capture session runtime error: \(error)")
 		
 		/*
@@ -559,7 +518,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 			to try to resume the session running.
 		*/
 		if error.code == .mediaServicesWereReset {
-			sessionQueue.async { [unowned self] in
+			sessionQueue.async {
 				if self.isSessionRunning {
 					self.session.startRunning()
 					self.isSessionRunning = self.session.isRunning
@@ -568,6 +527,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 		}
  	}
 	
+	@objc
 	func sessionWasInterrupted(notification: NSNotification) {
 		/*
 			In some scenarios we want to enable the user to resume the session running.
@@ -577,10 +537,12 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 			music playback in control center will not automatically resume the session
 			running. Also note that it is not always possible to resume, see `resumeInterruptedSession(_:)`.
 		*/
-		if let userInfoValue = notification.userInfo?[AVCaptureSessionInterruptionReasonKey] as AnyObject?, let reasonIntegerValue = userInfoValue.integerValue, let reason = AVCaptureSessionInterruptionReason(rawValue: reasonIntegerValue) {
+		if let userInfoValue = notification.userInfo?[AVCaptureSessionInterruptionReasonKey] as AnyObject?,
+			let reasonIntegerValue = userInfoValue.integerValue,
+			let reason = AVCaptureSession.InterruptionReason(rawValue: reasonIntegerValue) {
 			print("Capture session was interrupted with reason \(reason)")
 			
-			if reason == AVCaptureSessionInterruptionReason.videoDeviceNotAvailableWithMultipleForegroundApps {
+			if reason == .videoDeviceNotAvailableWithMultipleForegroundApps {
 				// Simply fade-in a label to inform the user that the camera is unavailable.
 				self.cameraUnavailableLabel.isHidden = false
 				self.cameraUnavailableLabel.alpha = 0
@@ -591,14 +553,15 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 		}
 	}
 	
+	@objc
 	func sessionInterruptionEnded(notification: NSNotification) {
 		print("Capture session interruption ended")
 		
 		if cameraUnavailableLabel.isHidden {
 			UIView.animate(withDuration: 0.25,
-				animations: { [unowned self] in
+				animations: {
 					self.cameraUnavailableLabel.alpha = 0
-				}, completion: { [unowned self] finished in
+				}, completion: { _ in
 					self.cameraUnavailableLabel.isHidden = true
 				}
 			)
@@ -608,6 +571,16 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 	// MARK: Drawing Metadata Object Overlay Layers
 	
 	@IBOutlet private var metadataObjectTypesButton: UIButton!
+	
+	@IBAction private func selectMetadataObjectTypes() {
+		let itemSelectionViewController = ItemSelectionViewController<AVMetadataObject.ObjectType>(delegate: self,
+		                                                                                           identifier: metadataObjectTypeItemSelectionIdentifier,
+		                                                                                           allItems: metadataOutput.availableMetadataObjectTypes,
+		                                                                                           selectedItems: metadataOutput.metadataObjectTypes,
+		                                                                                           allowsMultipleSelection: true)
+		
+		presentItemSelectionViewController(itemSelectionViewController)
+	}
 	
 	private class MetadataObjectLayer: CAShapeLayer {
 		var metadataObject: AVMetadataObject?
@@ -633,14 +606,32 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 		metadataObjectOverlayLayer.strokeColor = view.tintColor.withAlphaComponent(0.7).cgColor
 		metadataObjectOverlayLayer.fillColor = view.tintColor.withAlphaComponent(0.3).cgColor
 		
-		if transformedMetadataObject is AVMetadataMachineReadableCodeObject {
-			let barcodeMetadataObject = transformedMetadataObject as! AVMetadataMachineReadableCodeObject
+		if let barcodeMetadataObject = transformedMetadataObject as? AVMetadataMachineReadableCodeObject {
 			
-			let barcodeOverlayPath = barcodeOverlayPathWithCorners(barcodeMetadataObject.corners as! [CFDictionary])
+			let barcodeOverlayPath = barcodeOverlayPathWithCorners(barcodeMetadataObject.corners)
 			metadataObjectOverlayLayer.path = barcodeOverlayPath
 			
 			// If the metadata object has a string value, display it.
-			if barcodeMetadataObject.stringValue.characters.count > 0 {
+			let textLayerString: String?
+			if let stringValue = barcodeMetadataObject.stringValue, !stringValue.characters.isEmpty {
+				textLayerString = stringValue
+			} else if let barcodeDescriptor = barcodeMetadataObject.descriptor {
+				if barcodeDescriptor is CIQRCodeDescriptor {
+					textLayerString = "<QR Code Binary Data Present>"
+				} else if barcodeDescriptor is CIAztecCodeDescriptor {
+					textLayerString = "<Aztec Code Binary Data Present>"
+				} else if barcodeDescriptor is CIPDF417CodeDescriptor {
+					textLayerString = "<PDF417 Code Binary Data Present>"
+				} else if barcodeDescriptor is CIDataMatrixCodeDescriptor {
+					textLayerString = "<Data Matrix Code Binary Data Present>"
+				} else {
+					fatalError("Unexpected barcode descriptor found: \(barcodeDescriptor)")
+				}
+			} else {
+				textLayerString = nil
+			}
+			
+			if let textLayerString = textLayerString {
 				let barcodeOverlayBoundingBox = barcodeOverlayPath.boundingBox
 				
 				let textLayer = CATextLayer()
@@ -649,11 +640,11 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 				textLayer.contentsScale = UIScreen.main.scale
 				textLayer.font = UIFont.boldSystemFont(ofSize: 19).fontName as CFString
 				textLayer.position = CGPoint(x: barcodeOverlayBoundingBox.midX, y: barcodeOverlayBoundingBox.midY)
-				textLayer.string = NSAttributedString(string: barcodeMetadataObject.stringValue, attributes: [
-					NSFontAttributeName : UIFont.boldSystemFont(ofSize: 19),
-				    kCTForegroundColorAttributeName as String : UIColor.white.cgColor,
-				    kCTStrokeWidthAttributeName as String : -5.0,
-				    kCTStrokeColorAttributeName as String : UIColor.black.cgColor])
+				textLayer.string = NSAttributedString(string: textLayerString,
+				                                      attributes: [.font: UIFont.boldSystemFont(ofSize: 19),
+				                                                   .foregroundColor: UIColor.white.cgColor,
+				                                                   .strokeWidth: -5.0,
+				                                                   .strokeColor: UIColor.black.cgColor])
 				textLayer.isWrapped = true
 				
 				// Invert the effect of transform of the video preview so the text is orientated with the interface orientation.
@@ -661,23 +652,20 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 				
 				metadataObjectOverlayLayer.addSublayer(textLayer)
 			}
-		}
-		else if transformedMetadataObject is AVMetadataFaceObject {
-			metadataObjectOverlayLayer.path = CGPath(rect: transformedMetadataObject!.bounds, transform: nil)
+		} else if let faceMetadataObject = transformedMetadataObject as? AVMetadataFaceObject {
+			metadataObjectOverlayLayer.path = CGPath(rect: faceMetadataObject.bounds, transform: nil)
 		}
 		
 		return metadataObjectOverlayLayer
 	}
 	
-	private func barcodeOverlayPathWithCorners(_ corners: [CFDictionary]) -> CGMutablePath {
+	private func barcodeOverlayPathWithCorners(_ corners: [CGPoint]) -> CGMutablePath {
 		let path = CGMutablePath()
 		
-		if !corners.isEmpty {
-			guard let corner = CGPoint(dictionaryRepresentation: corners[0]) else { return path }
+		if let corner = corners.first {
 			path.move(to: corner, transform: .identity)
 			
-			for cornerDictionary in corners {
-				guard let corner = CGPoint(dictionaryRepresentation: cornerDictionary) else { return path }
+			for corner in corners[1..<corners.count] {
 				path.addLine(to: corner)
 			}
 			
@@ -689,7 +677,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 	
 	private var removeMetadataObjectOverlayLayersTimer: Timer?
 	
-	@objc private func removeMetadataObjectOverlayLayers() {
+	@objc
+	private func removeMetadataObjectOverlayLayers() {
 		for sublayer in metadataObjectOverlayLayers {
 			sublayer.removeFromSuperlayer()
 		}
@@ -719,13 +708,15 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 		UITapGestureRecognizer(target: self, action: #selector(CameraViewController.openBarcodeURL(with:)))
 	}()
 	
-	@objc private func openBarcodeURL(with openBarcodeURLGestureRecognizer: UITapGestureRecognizer) {
+	@objc
+	private func openBarcodeURL(with openBarcodeURLGestureRecognizer: UITapGestureRecognizer) {
 		for metadataObjectOverlayLayer in metadataObjectOverlayLayers {
 			if metadataObjectOverlayLayer.path!.contains(openBarcodeURLGestureRecognizer.location(in: previewView), using: .winding, transform: .identity) {
 				if let barcodeMetadataObject = metadataObjectOverlayLayer.metadataObject as? AVMetadataMachineReadableCodeObject {
-					if barcodeMetadataObject.stringValue != nil {
-						if let url = URL(string: barcodeMetadataObject.stringValue), UIApplication.shared.canOpenURL(url) {
-							UIApplication.shared.open(url, options: [:], completionHandler: nil)
+					if let stringValue = barcodeMetadataObject.stringValue {
+						if let url = URL(string: stringValue) {
+							let safariViewController = SFSafariViewController(url: url)
+							present(safariViewController, animated: true, completion: nil)
 						}
 					}
 				}
@@ -735,14 +726,14 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 	
 	// MARK: AVCaptureMetadataOutputObjectsDelegate
 	
-	func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
 		// wait() is used to drop new notifications if old ones are still processing, to avoid queueing up a bunch of stale data.
-		if metadataObjectsOverlayLayersDrawingSemaphore.wait(timeout: DispatchTime.now()) == .success {
-			DispatchQueue.main.async { [unowned self] in
+        if metadataObjectsOverlayLayersDrawingSemaphore.wait(timeout: .now()) == .success {
+			DispatchQueue.main.async {
 				self.removeMetadataObjectOverlayLayers()
 				
 				var metadataObjectOverlayLayers = [MetadataObjectLayer]()
-				for metadataObject in metadataObjects as! [AVMetadataObject] {
+				for metadataObject in metadataObjects {
 					let metadataObjectOverlayLayer = self.createMetadataObjectOverlayWithMetadataObject(metadataObject)
 					metadataObjectOverlayLayers.append(metadataObjectOverlayLayer)
 				}
@@ -760,57 +751,54 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 	
 	let sessionPresetItemSelectionIdentifier = "SessionPreset"
 	
-	func itemSelectionViewController(_ itemSelectionViewController: ItemSelectionViewController, didFinishSelectingItems selectedItems: [String]) {
+	private func presentItemSelectionViewController<Item>(_ itemSelectionViewController: ItemSelectionViewController<Item>) {
+		let navigationController = UINavigationController(rootViewController: itemSelectionViewController)
+		navigationController.navigationBar.barTintColor = .black
+		navigationController.navigationBar.tintColor = view.tintColor
+		present(navigationController, animated: true, completion: nil)
+	}
+	
+	func itemSelectionViewController<Item>(_ itemSelectionViewController: ItemSelectionViewController<Item>, didFinishSelectingItems selectedItems: [Item]) {
 		let identifier = itemSelectionViewController.identifier
 		
 		if identifier == metadataObjectTypeItemSelectionIdentifier {
-			sessionQueue.async { [unowned self] in
-				self.metadataOutput.metadataObjectTypes = selectedItems
+			guard let selectedMetadataObjectTypes = selectedItems as? [AVMetadataObject.ObjectType] else {
+				fatalError("Expected `[AVMetadataObject.ObjectType]` type for selectedItems. Check `selectMetadataObjectTypes()` implementation.")
 			}
-		}
-		else if identifier == sessionPresetItemSelectionIdentifier {
-			sessionQueue.async { [unowned self] in
-				self.session.sessionPreset = selectedItems.first
+			
+			sessionQueue.async {
+				self.metadataOutput.metadataObjectTypes = selectedMetadataObjectTypes
+			}
+		} else if identifier == sessionPresetItemSelectionIdentifier {
+			guard let selectedSessionPreset = selectedItems.first as? AVCaptureSession.Preset else {
+				fatalError("Expected `[AVCaptureSession.Preset]` type for selectedItems. Check `selectSessionPreset()` implementation.")
+			}
+			
+			sessionQueue.async {
+				self.session.sessionPreset = selectedSessionPreset
 			}
 		}
 	}
 }
 
-extension AVCaptureDeviceDiscoverySession
-{
-	func uniqueDevicePositionsCount() -> Int {
-		var uniqueDevicePositions = [AVCaptureDevicePosition]()
-		
-		for device in devices {
-			if !uniqueDevicePositions.contains(device.position) {
-				uniqueDevicePositions.append(device.position)
-			}
+extension AVCaptureVideoOrientation {
+	init?(deviceOrientation: UIDeviceOrientation) {
+		switch deviceOrientation {
+			case .portrait: self = .portrait
+			case .portraitUpsideDown: self = .portraitUpsideDown
+			case .landscapeLeft: self = .landscapeRight
+			case .landscapeRight: self = .landscapeLeft
+			default: return nil
 		}
-		
-		return uniqueDevicePositions.count
 	}
-}
-
-extension UIDeviceOrientation {
-    var videoOrientation: AVCaptureVideoOrientation? {
-        switch self {
-            case .portrait: return .portrait
-            case .portraitUpsideDown: return .portraitUpsideDown
-            case .landscapeLeft: return .landscapeRight
-            case .landscapeRight: return .landscapeLeft
-            default: return nil
-        }
-    }
-}
-
-extension UIInterfaceOrientation {
-    var videoOrientation: AVCaptureVideoOrientation? {
-        switch self {
-            case .portrait: return .portrait
-            case .portraitUpsideDown: return .portraitUpsideDown
-            case .landscapeLeft: return .landscapeLeft
-            case .landscapeRight: return .landscapeRight
-            default: return nil
-        }
-    }
+	
+	init?(interfaceOrientation: UIInterfaceOrientation) {
+		switch interfaceOrientation {
+			case .portrait: self = .portrait
+			case .portraitUpsideDown: self = .portraitUpsideDown
+			case .landscapeLeft: self = .landscapeLeft
+			case .landscapeRight: self = .landscapeRight
+			default: return nil
+		}
+	}
 }

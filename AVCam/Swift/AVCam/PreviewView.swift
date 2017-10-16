@@ -1,18 +1,21 @@
 /*
-	Copyright (C) 2016 Apple Inc. All Rights Reserved.
-	See LICENSE.txt for this sample’s licensing information
-	
-	Abstract:
-	Application preview view.
+See LICENSE.txt for this sample’s licensing information.
+
+Abstract:
+Application preview view.
 */
 
 import UIKit
 import AVFoundation
 
 class PreviewView: UIView {
-	var videoPreviewLayer: AVCaptureVideoPreviewLayer {
-		return layer as! AVCaptureVideoPreviewLayer
-	}
+    var videoPreviewLayer: AVCaptureVideoPreviewLayer {
+        guard let layer = layer as? AVCaptureVideoPreviewLayer else {
+            fatalError("Expected `AVCaptureVideoPreviewLayer` type for layer. Check PreviewView.layerClass implementation.")
+        }
+        
+        return layer
+    }
 	
 	var session: AVCaptureSession? {
 		get {
