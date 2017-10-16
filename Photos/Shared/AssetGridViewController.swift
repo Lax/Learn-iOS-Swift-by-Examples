@@ -1,11 +1,9 @@
 /*
-	Copyright (C) 2017 Apple Inc. All Rights Reserved.
-	See LICENSE.txt for this sample’s licensing information
-	
-	Abstract:
-	Manages the second-level collection view, a grid of photos in a collection (or all photos).
- */
+See LICENSE.txt for this sample’s licensing information.
 
+Abstract:
+Manages the second-level collection view, a grid of photos in a collection (or all photos).
+*/
 
 import UIKit
 import Photos
@@ -53,17 +51,20 @@ class AssetGridViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Determine the size of the thumbnails to request from the PHCachingImageManager
-        let scale = UIScreen.main.scale
-        let cellSize = (collectionViewLayout as! UICollectionViewFlowLayout).itemSize
-        thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
-
         // Add button to the navigation bar if the asset collection supports adding content.
         if assetCollection == nil || assetCollection.canPerform(.addContent) {
             navigationItem.rightBarButtonItem = addButtonItem
         } else {
             navigationItem.rightBarButtonItem = nil
         }
+
+        updateItemSize()
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        updateItemSize()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -74,10 +75,33 @@ class AssetGridViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? AssetViewController
             else { fatalError("unexpected view controller for segue") }
+        guard let cell = sender as? UICollectionViewCell else { fatalError("unexpected sender") }
 
-        let indexPath = collectionView!.indexPath(for: sender as! UICollectionViewCell)!
-        destination.asset = fetchResult.object(at: indexPath.item)
+        if let indexPath = collectionView?.indexPath(for: cell) {
+            destination.asset = fetchResult.object(at: indexPath.item)
+        }
         destination.assetCollection = assetCollection
+    }
+
+    private func updateItemSize() {
+
+        let viewWidth = view.bounds.size.width
+
+        let desiredItemWidth: CGFloat = 100
+        let columns: CGFloat = max(floor(viewWidth / desiredItemWidth), 4)
+        let padding: CGFloat = 1
+        let itemWidth = floor((viewWidth - (columns - 1) * padding) / columns)
+        let itemSize = CGSize(width: itemWidth, height: itemWidth)
+
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.itemSize = itemSize
+            layout.minimumInteritemSpacing = padding
+            layout.minimumLineSpacing = padding
+        }
+
+        // Determine the size of the thumbnails to request from the PHCachingImageManager
+        let scale = UIScreen.main.scale
+        thumbnailSize = CGSize(width: itemSize.width * scale, height: itemSize.height * scale)
     }
 
     // MARK: UICollectionView
@@ -90,20 +114,21 @@ class AssetGridViewController: UICollectionViewController {
         let asset = fetchResult.object(at: indexPath.item)
 
         // Dequeue a GridViewCell.
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GridViewCell.self), for: indexPath) as? GridViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GridViewCell.self),
+                                                            for: indexPath) as? GridViewCell
             else { fatalError("unexpected cell in collection view") }
 
         // Add a badge to the cell if the PHAsset represents a Live Photo.
         if asset.mediaSubtypes.contains(.photoLive) {
             cell.livePhotoBadgeImage = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
         }
-        
+
         // Request an image for the asset from the PHCachingImageManager.
         cell.representedAssetIdentifier = asset.localIdentifier
         imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
             // The cell may have been recycled by the time this handler gets called;
             // set the cell's thumbnail image only if it's still showing the same asset.
-            if cell.representedAssetIdentifier == asset.localIdentifier {
+            if cell.representedAssetIdentifier == asset.localIdentifier && image != nil {
                 cell.thumbnailImage = image
             }
         })
@@ -192,7 +217,7 @@ class AssetGridViewController: UICollectionViewController {
             CGSize(width: 300, height: 400)
         let renderer = UIGraphicsImageRenderer(size: size)
         let image = renderer.image { context in
-            UIColor(hue: CGFloat(arc4random_uniform(100))/100,
+            UIColor(hue: CGFloat(arc4random_uniform(100)) / 100,
                     saturation: 1, brightness: 1, alpha: 1).setFill()
             context.fill(context.format.bounds)
         }
@@ -205,7 +230,7 @@ class AssetGridViewController: UICollectionViewController {
                 addAssetRequest?.addAssets([creationRequest.placeholderForCreatedAsset!] as NSArray)
             }
         }, completionHandler: {success, error in
-            if !success { print("error creating asset: \(error)") }
+            if !success { print("error creating asset: \(String(describing: error))") }
         })
     }
 
@@ -229,13 +254,13 @@ extension AssetGridViewController: PHPhotoLibraryChangeObserver {
                 collectionView.performBatchUpdates({
                     // For indexes to make sense, updates must be in this order:
                     // delete, insert, reload, move
-                    if let removed = changes.removedIndexes, removed.count > 0 {
+                    if let removed = changes.removedIndexes, !removed.isEmpty {
                         collectionView.deleteItems(at: removed.map({ IndexPath(item: $0, section: 0) }))
                     }
-                    if let inserted = changes.insertedIndexes, inserted.count > 0 {
+                    if let inserted = changes.insertedIndexes, !inserted.isEmpty {
                         collectionView.insertItems(at: inserted.map({ IndexPath(item: $0, section: 0) }))
                     }
-                    if let changed = changes.changedIndexes, changed.count > 0 {
+                    if let changed = changes.changedIndexes, !changed.isEmpty {
                         collectionView.reloadItems(at: changed.map({ IndexPath(item: $0, section: 0) }))
                     }
                     changes.enumerateMoves { fromIndex, toIndex in
@@ -251,4 +276,3 @@ extension AssetGridViewController: PHPhotoLibraryChangeObserver {
         }
     }
 }
-

@@ -1,11 +1,9 @@
 /*
-	Copyright (C) 2017 Apple Inc. All Rights Reserved.
-	See LICENSE.txt for this sample’s licensing information
-	
-	Abstract:
-	Displays a single photo, live photo, or video asset and demonstrates simple editing.
- */
+See LICENSE.txt for this sample’s licensing information.
 
+Abstract:
+Displays a single photo, live photo, or video asset and demonstrates simple editing.
+*/
 
 import UIKit
 import Photos
@@ -18,19 +16,21 @@ class AssetViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var livePhotoView: PHLivePhotoView!
+    @IBOutlet weak var animatedImageView: AnimatedImageView!
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var progressView: UIProgressView!
 
     #if os(tvOS)
     @IBOutlet var livePhotoPlayButton: UIBarButtonItem!
     #endif
-    
+
     @IBOutlet var playButton: UIBarButtonItem!
     @IBOutlet var space: UIBarButtonItem!
     @IBOutlet var trashButton: UIBarButtonItem!
     @IBOutlet var favoriteButton: UIBarButtonItem!
 
     fileprivate var playerLayer: AVPlayerLayer!
+    fileprivate var playerLooper: AVPlayerLooper?
     fileprivate var isPlayingHint = false
 
     fileprivate lazy var formatIdentifier = Bundle.main.bundleIdentifier!
@@ -43,6 +43,9 @@ class AssetViewController: UIViewController {
         super.viewDidLoad()
         livePhotoView.delegate = self
         PHPhotoLibrary.shared().register(self)
+
+        livePhotoView.isHidden = true
+        animatedImageView.isHidden = true
     }
 
     deinit {
@@ -52,46 +55,11 @@ class AssetViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Set the appropriate toolbarItems based on the mediaType of the asset.
-        if asset.mediaType == .video {
-            #if os(iOS)
-                toolbarItems = [favoriteButton, space, playButton, space, trashButton]
-                navigationController?.isToolbarHidden = false
-            #elseif os(tvOS)
-                navigationItem.leftBarButtonItems = [playButton, favoriteButton, trashButton]
-            #endif
-        } else {
-            #if os(iOS)
-                // In iOS, present both stills and Live Photos the same way, because
-                // PHLivePhotoView provides the same gesture-based UI as in Photos app.
-                toolbarItems = [favoriteButton, space, trashButton]
-                navigationController?.isToolbarHidden = false
-            #elseif os(tvOS)
-                // In tvOS, PHLivePhotoView doesn't do playback gestures,
-                // so add a play button for Live Photos.
-                if asset.mediaSubtypes.contains(.photoLive) {
-                    navigationItem.leftBarButtonItems = [favoriteButton, trashButton]
-                } else {
-                    navigationItem.leftBarButtonItems = [livePhotoPlayButton, favoriteButton, trashButton]
-                }
-            #endif
-        }
-        
-        // Enable editing buttons if the asset can be edited.
-        editButton.isEnabled = asset.canPerform(.content)
-        favoriteButton.isEnabled = asset.canPerform(.properties)
-        favoriteButton.title = asset.isFavorite ? "♥︎" : "♡"
-        
-        // Enable the trash button if the asset can be deleted.
-        if assetCollection != nil {
-            trashButton.isEnabled = assetCollection.canPerform(.removeContent)
-        } else {
-            trashButton.isEnabled = asset.canPerform(.delete)
-        }
+        updateToolbars()
 
         // Make sure the view layout happens before requesting an image sized to fit the view.
         view.layoutIfNeeded()
-        updateImage()
+        updateContent()
     }
 
     // MARK: UI Actions
@@ -130,10 +98,10 @@ class AssetViewController: UIViewController {
 
     #if os(tvOS)
     @IBAction func playLivePhoto(_ sender: Any) {
-        livePhotoView.startPlayback(with: .full)
+    livePhotoView.startPlayback(with: .full)
     }
     #endif
-    
+
     @IBAction func play(_ sender: AnyObject) {
         if playerLayer != nil {
             // An AVPlayerLayer has already been created for this asset; just play it.
@@ -150,16 +118,24 @@ class AssetViewController: UIViewController {
             }
 
             // Request an AVPlayerItem for the displayed PHAsset and set up a layer for playing it.
-            PHImageManager.default().requestPlayerItem(forVideo: asset, options: options, resultHandler: { playerItem, info in
+            PHImageManager.default().requestPlayerItem(forVideo: asset, options: options, resultHandler: { playerItem, _ in
                 DispatchQueue.main.sync {
-                    guard self.playerLayer == nil else { return }
+                    guard self.playerLayer == nil && playerItem != nil else { return }
 
                     // Create an AVPlayer and AVPlayerLayer with the AVPlayerItem.
-                    let player = AVPlayer(playerItem: playerItem)
+                    let player: AVPlayer
+                    if self.asset.playbackStyle == .videoLooping {
+                        let queuePlayer = AVQueuePlayer(playerItem: playerItem)
+                        self.playerLooper = AVPlayerLooper(player: queuePlayer, templateItem: playerItem!)
+                        player = queuePlayer
+                    } else {
+                        player = AVPlayer(playerItem: playerItem)
+                    }
+
                     let playerLayer = AVPlayerLayer(player: player)
-                    
+
                     // Configure the AVPlayerLayer and add it to the view.
-                    playerLayer.videoGravity = AVLayerVideoGravityResizeAspect
+                    playerLayer.videoGravity = AVLayerVideoGravity.resizeAspect
                     playerLayer.frame = self.view.layer.bounds
                     self.view.layer.addSublayer(playerLayer)
 
@@ -174,14 +150,14 @@ class AssetViewController: UIViewController {
     }
 
     @IBAction func removeAsset(_ sender: AnyObject) {
-        let completion = { (success: Bool, error: Error?) -> () in
+        let completion = { (success: Bool, error: Error?) -> Void in
             if success {
                 PHPhotoLibrary.shared().unregisterChangeObserver(self)
                 DispatchQueue.main.sync {
                     _ = self.navigationController!.popViewController(animated: true)
                 }
             } else {
-                print("can't remove asset: \(error)")
+                print("can't remove asset: \(String(describing: error))")
             }
         }
 
@@ -210,7 +186,7 @@ class AssetViewController: UIViewController {
                     sender.title = self.asset.isFavorite ? "♥︎" : "♡"
                 }
             } else {
-                print("can't set favorite: \(error)")
+                print("can't set favorite: \(String(describing: error))")
             }
         })
     }
@@ -223,12 +199,98 @@ class AssetViewController: UIViewController {
                       height: imageView.bounds.height * scale)
     }
 
-    func updateImage() {
-        if asset.mediaSubtypes.contains(.photoLive) {
+    func updateContent() {
+        switch asset.playbackStyle {
+        case .unsupported:
+            let alertController = UIAlertController(title: NSLocalizedString("Unsupported Format", comment:""), message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+
+        case .image:
+            updateStillImage()
+
+        case .livePhoto:
             updateLivePhoto()
-        } else {
-            updateStaticImage()
+
+        case .imageAnimated:
+            updateAnimatedImage()
+
+        case .video:
+            updateStillImage() // as a placeholder until play is tapped
+
+        case .videoLooping:
+            play(self)
         }
+    }
+
+    func updateToolbars() {
+
+        // Enable editing buttons if the asset can be edited.
+        editButton.isEnabled = asset.canPerform(.content) && asset.playbackStyle != .imageAnimated
+        favoriteButton.isEnabled = asset.canPerform(.properties)
+        favoriteButton.title = asset.isFavorite ? "♥︎" : "♡"
+
+        // Enable the trash button if the asset can be deleted.
+        if assetCollection != nil {
+            trashButton.isEnabled = assetCollection.canPerform(.removeContent)
+        } else {
+            trashButton.isEnabled = asset.canPerform(.delete)
+        }
+
+        // Set the appropriate toolbarItems based on the playbackStyle of the asset.
+        if asset.playbackStyle == .video {
+            #if os(iOS)
+                toolbarItems = [favoriteButton, space, playButton, space, trashButton]
+                navigationController?.isToolbarHidden = false
+            #elseif os(tvOS)
+                navigationItem.leftBarButtonItems = [playButton, favoriteButton, trashButton]
+            #endif
+        } else {
+            #if os(iOS)
+                // In iOS, present both stills and Live Photos the same way, because
+                // PHLivePhotoView provides the same gesture-based UI as in Photos app.
+                toolbarItems = [favoriteButton, space, trashButton]
+                navigationController?.isToolbarHidden = false
+            #elseif os(tvOS)
+                // In tvOS, PHLivePhotoView doesn't do playback gestures,
+                // so add a play button for Live Photos.
+                if asset.playbackStyle == .livePhoto {
+                    navigationItem.leftBarButtonItems = [livePhotoPlayButton, favoriteButton, trashButton]
+                } else {
+                    navigationItem.leftBarButtonItems = [favoriteButton, trashButton]
+                }
+            #endif
+        }
+    }
+
+    func updateStillImage() {
+        // Prepare the options to pass when fetching the (photo, or video preview) image.
+        let options = PHImageRequestOptions()
+        options.deliveryMode = .highQualityFormat
+        options.isNetworkAccessAllowed = true
+        options.progressHandler = { progress, _, _, _ in
+            // Handler might not be called on the main queue, so re-dispatch for UI work.
+            DispatchQueue.main.sync {
+                self.progressView.progress = Float(progress)
+            }
+        }
+
+        self.progressView.isHidden = false
+        PHImageManager.default().requestImage(for: asset,
+                                              targetSize: targetSize,
+                                              contentMode: .aspectFit,
+                                              options: options,
+                                              resultHandler: { image, _ in
+            // Hide the progress view now the request has completed.
+            self.progressView.isHidden = true
+
+            // If successful, show the image view and display the image.
+            guard let image = image else { return }
+
+            // Now that we have the image, show it.
+            self.imageView.isHidden = false
+            self.imageView.image = image
+        })
     }
 
     func updateLivePhoto() {
@@ -243,8 +305,13 @@ class AssetViewController: UIViewController {
             }
         }
 
+        self.progressView.isHidden = false
         // Request the live photo for the asset from the default PHImageManager.
-        PHImageManager.default().requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: options, resultHandler: { livePhoto, info in
+        PHImageManager.default().requestLivePhoto(for: asset,
+                                                  targetSize: targetSize,
+                                                  contentMode: .aspectFit,
+                                                  options: options,
+                                                  resultHandler: { livePhoto, _ in
             // Hide the progress view now the request has completed.
             self.progressView.isHidden = true
 
@@ -253,6 +320,7 @@ class AssetViewController: UIViewController {
 
             // Now that we have the Live Photo, show it.
             self.imageView.isHidden = true
+            self.animatedImageView.isHidden = true
             self.livePhotoView.isHidden = false
             self.livePhotoView.livePhoto = livePhoto
 
@@ -265,10 +333,11 @@ class AssetViewController: UIViewController {
         })
     }
 
-    func updateStaticImage() {
+    func updateAnimatedImage() {
         // Prepare the options to pass when fetching the (photo, or video preview) image.
         let options = PHImageRequestOptions()
         options.deliveryMode = .highQualityFormat
+        options.version = .original
         options.isNetworkAccessAllowed = true
         options.progressHandler = { progress, _, _, _ in
             // Handler might not be called on the main queue, so re-dispatch for UI work.
@@ -277,18 +346,22 @@ class AssetViewController: UIViewController {
             }
         }
 
-        PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: options, resultHandler: { image, _ in
+        self.progressView.isHidden = false
+        PHImageManager.default().requestImageData(for: asset, options: options) { (data, _, _, _) in
             // Hide the progress view now the request has completed.
             self.progressView.isHidden = true
 
             // If successful, show the image view and display the image.
-            guard let image = image else { return }
+            guard let data = data else { return }
 
-            // Now that we have the image, show it.
+            let animatedImage = AnimatedImage(data: data)
+
             self.livePhotoView.isHidden = true
-            self.imageView.isHidden = false
-            self.imageView.image = image
-        })
+            self.imageView.isHidden = true
+            self.animatedImageView.isHidden = false
+            self.animatedImageView.animatedImage = animatedImage
+            self.animatedImageView.isPlaying = true
+        }
     }
 
     // MARK: Asset editing
@@ -298,12 +371,12 @@ class AssetViewController: UIViewController {
             let request = PHAssetChangeRequest(for: self.asset)
             request.revertAssetContentToOriginal()
         }, completionHandler: { success, error in
-            if !success { print("can't revert asset: \(error)") }
+            if !success { print("can't revert asset: \(String(describing: error))") }
         })
     }
 
     // Returns a filter-applier function for the named filter, to be passed as a UIAlertAction handler
-    func getFilter(_ filterName: String) -> (UIAlertAction) -> () {
+    func getFilter(_ filterName: String) -> (UIAlertAction) -> Void {
         func applyFilter(_: UIAlertAction) {
             // Set up a handler to make sure we can handle prior edits.
             let options = PHContentEditingInputRequestOptions()
@@ -325,8 +398,8 @@ class AssetViewController: UIViewController {
                                                           data: filterName.data(using: .utf8)!)
 
                     /* NOTE:
-                     This app's filter UI is fire-and-forget. That is, the user picks a filter, 
-                     and the app applies it and outputs the saved asset immediately. There's 
+                     This app's filter UI is fire-and-forget. That is, the user picks a filter,
+                     and the app applies it and outputs the saved asset immediately. There's
                      no UI state for having chosen but not yet committed an edit. This means
                      there's no role for reading adjustment data -- you do that to resume
                      in-progress edits, and this sample app has no notion of "in-progress".
@@ -341,7 +414,7 @@ class AssetViewController: UIViewController {
                     output.adjustmentData = adjustmentData
 
                     // Select a filtering function for the asset's media type.
-                    let applyFunc: (String, PHContentEditingInput, PHContentEditingOutput, @escaping () -> ()) -> ()
+                    let applyFunc: (String, PHContentEditingInput, PHContentEditingOutput, @escaping () -> Void) -> Void
                     if self.asset.mediaSubtypes.contains(.photoLive) {
                         applyFunc = self.applyLivePhotoFilter
                     } else if self.asset.mediaType == .image {
@@ -357,7 +430,7 @@ class AssetViewController: UIViewController {
                             let request = PHAssetChangeRequest(for: self.asset)
                             request.contentEditingOutput = output
                         }, completionHandler: { success, error in
-                            if !success { print("can't edit asset: \(error)") }
+                            if !success { print("can't edit asset: \(String(describing: error))") }
                         })
                     })
                 }
@@ -366,7 +439,7 @@ class AssetViewController: UIViewController {
         return applyFilter
     }
 
-    func applyPhotoFilter(_ filterName: String, input: PHContentEditingInput, output: PHContentEditingOutput, completion: () -> ()) {
+    func applyPhotoFilter(_ filterName: String, input: PHContentEditingInput, output: PHContentEditingOutput, completion: () -> Void) {
 
         // Load the full size image.
         guard let inputImage = CIImage(contentsOf: input.fullSizeImageURL!)
@@ -380,14 +453,14 @@ class AssetViewController: UIViewController {
         // Write the edited image as a JPEG.
         do {
             try self.ciContext.writeJPEGRepresentation(of: outputImage,
-               to: output.renderedContentURL, colorSpace: inputImage.colorSpace!, options: [:])
+                                                       to: output.renderedContentURL, colorSpace: inputImage.colorSpace!, options: [:])
         } catch let error {
             fatalError("can't apply filter to image: \(error)")
         }
         completion()
     }
 
-    func applyLivePhotoFilter(_ filterName: String, input: PHContentEditingInput, output: PHContentEditingOutput, completion: @escaping () -> ()) {
+    func applyLivePhotoFilter(_ filterName: String, input: PHContentEditingInput, output: PHContentEditingOutput, completion: @escaping () -> Void) {
 
         // This app filters assets only for output. In an app that previews
         // filters while editing, create a livePhotoContext early and reuse it
@@ -402,12 +475,12 @@ class AssetViewController: UIViewController {
             if success {
                 completion()
             } else {
-                print("can't output live photo")
+                print("can't output live photo, error:\(String(describing: error))")
             }
         }
     }
 
-    func applyVideoFilter(_ filterName: String, input: PHContentEditingInput, output: PHContentEditingOutput, completion: @escaping () -> ()) {
+    func applyVideoFilter(_ filterName: String, input: PHContentEditingInput, output: PHContentEditingOutput, completion: @escaping () -> Void) {
         // Load AVAsset to process from input.
         guard let avAsset = input.audiovisualAsset
             else { fatalError("can't get AV asset to edit") }
@@ -423,7 +496,7 @@ class AssetViewController: UIViewController {
         // Export the video composition to the output URL.
         guard let export = AVAssetExportSession(asset: avAsset, presetName: AVAssetExportPresetHighestQuality)
             else { fatalError("can't set up AV export session") }
-        export.outputFileType = AVFileTypeQuickTimeMovie
+        export.outputFileType = AVFileType.mov
         export.outputURL = output.renderedContentURL
         export.videoComposition = composition
         export.exportAsynchronously(completionHandler: completion)
@@ -437,16 +510,18 @@ extension AssetViewController: PHPhotoLibraryChangeObserver {
         DispatchQueue.main.sync {
             // Check if there are changes to the asset we're displaying.
             guard let details = changeInstance.changeDetails(for: asset) else { return }
+            guard let assetAfterChanges = details.objectAfterChanges as? PHAsset else { return }
 
             // Get the updated asset.
-            asset = details.objectAfterChanges as! PHAsset
+            asset = assetAfterChanges
 
             // If the asset's content changed, update the image and stop any video playback.
             if details.assetContentChanged {
-                updateImage()
+                updateContent()
 
                 playerLayer?.removeFromSuperlayer()
                 playerLayer = nil
+                playerLooper = nil
             }
         }
     }
