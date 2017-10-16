@@ -1,27 +1,45 @@
 /*
-	Copyright (C) 2016 Apple Inc. All Rights Reserved.
-	See LICENSE.txt for this sample’s licensing information
-	
-	Abstract:
-	View controller for selecting items.
+See LICENSE.txt for this sample’s licensing information.
+
+Abstract:
+View controller for selecting items.
 */
 
 import UIKit
 
 protocol ItemSelectionViewControllerDelegate: class {
-	func itemSelectionViewController(_ itemSelectionViewController: ItemSelectionViewController, didFinishSelectingItems selectedItems: [String])
+	func itemSelectionViewController<Item>(_ itemSelectionViewController: ItemSelectionViewController<Item>, didFinishSelectingItems selectedItems: [Item])
 }
 
-class ItemSelectionViewController: UITableViewController {
+class ItemSelectionViewController<Item: Equatable & RawRepresentable>: UITableViewController {
 	weak var delegate: ItemSelectionViewControllerDelegate?
 	
-	var identifier = ""
+	let identifier: String
 	
-	var allItems = [String]()
+	let allItems: [Item]
 	
-	var selectedItems = [String]()
+	var selectedItems: [Item]
 	
-	var allowsMultipleSelection = false
+	let allowsMultipleSelection: Bool
+	
+	private let itemCellIdentifier = "Item"
+	
+	init(delegate: ItemSelectionViewControllerDelegate, identifier: String, allItems: [Item], selectedItems: [Item], allowsMultipleSelection: Bool) {
+		self.delegate = delegate
+		self.identifier = identifier
+		self.allItems = allItems
+		self.selectedItems = selectedItems
+		self.allowsMultipleSelection = allowsMultipleSelection
+		
+		super.init(style: .grouped)
+		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+		tableView.register(UITableViewCell.self, forCellReuseIdentifier: itemCellIdentifier)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("`ItemSelectionViewController` cannot be initialized with `init(coder:)`")
+	}
 	
 	@IBAction private func done() {
 		// Notify the delegate that selecting items is finished.
@@ -36,14 +54,13 @@ class ItemSelectionViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let item = allItems[indexPath.row]
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Item", for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: itemCellIdentifier, for: indexPath)
 		cell.tintColor = UIColor.black
-		cell.textLabel?.text = item
+		cell.textLabel?.text = "\(item.rawValue)"
 		
 		if selectedItems.contains(item) {
 			cell.accessoryType = .checkmark
-		}
-		else {
+		} else {
 			cell.accessoryType = .none
 		}
 		
@@ -62,21 +79,18 @@ class ItemSelectionViewController: UITableViewController {
 			
 			if selectedItems.contains(item) {
 				selectedItems = selectedItems.filter({ $0 != item })
-			}
-			else {
+			} else {
 				selectedItems.append(item)
 			}
 			
 			tableView.deselectRow(at: indexPath, animated: true)
 			tableView.reloadRows(at: [indexPath], with: .automatic)
-		}
-		else {
+		} else {
 			let indexPathsToReload: [IndexPath]
-			if selectedItems.count > 0 {
-				indexPathsToReload = [indexPath, IndexPath(row: allItems.index(of: selectedItems[0])!, section: 0)]
-			}
-			else {
+			if selectedItems.isEmpty {
 				indexPathsToReload = [indexPath]
+			} else {
+				indexPathsToReload = [indexPath, IndexPath(row: allItems.index(of: selectedItems[0])!, section: 0)]
 			}
 			
 			selectedItems = [allItems[indexPath.row]]

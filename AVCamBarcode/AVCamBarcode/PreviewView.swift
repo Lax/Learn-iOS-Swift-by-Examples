@@ -1,9 +1,8 @@
 /*
-	Copyright (C) 2016 Apple Inc. All Rights Reserved.
-	See LICENSE.txt for this sample’s licensing information
-	
-	Abstract:
-	Application preview view.
+See LICENSE.txt for this sample’s licensing information.
+
+Abstract:
+Application preview view.
 */
 
 import UIKit
@@ -44,19 +43,21 @@ class PreviewView: UIView, UIGestureRecognizerDelegate {
 		regionOfInterestOutline.strokeColor = UIColor.yellow.cgColor
 		layer.addSublayer(regionOfInterestOutline)
 		
-		topLeftControl.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: regionOfInterestControlDiameter, height: regionOfInterestControlDiameter)).cgPath
+		let controlRect = CGRect(x: 0, y: 0, width: regionOfInterestControlDiameter, height: regionOfInterestControlDiameter)
+		
+		topLeftControl.path = UIBezierPath(ovalIn: controlRect).cgPath
 		topLeftControl.fillColor = UIColor.white.cgColor
 		layer.addSublayer(topLeftControl)
 		
-		topRightControl.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: regionOfInterestControlDiameter, height: regionOfInterestControlDiameter)).cgPath
+		topRightControl.path = UIBezierPath(ovalIn: controlRect).cgPath
 		topRightControl.fillColor = UIColor.white.cgColor
 		layer.addSublayer(topRightControl)
 		
-		bottomLeftControl.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: regionOfInterestControlDiameter, height: regionOfInterestControlDiameter)).cgPath
+		bottomLeftControl.path = UIBezierPath(ovalIn: controlRect).cgPath
 		bottomLeftControl.fillColor = UIColor.white.cgColor
 		layer.addSublayer(bottomLeftControl)
 		
-		bottomRightControl.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: regionOfInterestControlDiameter, height: regionOfInterestControlDiameter)).cgPath
+		bottomRightControl.path = UIBezierPath(ovalIn: controlRect).cgPath
 		bottomRightControl.fillColor = UIColor.white.cgColor
 		layer.addSublayer(bottomRightControl)
 		
@@ -65,21 +66,20 @@ class PreviewView: UIView, UIGestureRecognizerDelegate {
 			view so that the region of interest can be resized and moved. If you
 			would like to have a fixed region of interest that cannot be resized
 			or moved, do not add the following gesture recognizer. You will simply
-			need to set the region of interest once in
-			`observeValue(forKeyPath:, of:, change:, context:)`.
+			need to set the region of interest once.
 		*/
 		resizeRegionOfInterestGestureRecognizer.delegate = self
 		addGestureRecognizer(resizeRegionOfInterestGestureRecognizer)
 	}
 	
-	deinit {
-        session?.removeObserver(self, forKeyPath: "running", context: &sessionRunningObserveContext)
-	}
-	
 	// MARK: AV capture properties
 	
 	var videoPreviewLayer: AVCaptureVideoPreviewLayer {
-		return layer as! AVCaptureVideoPreviewLayer
+		guard let layer = layer as? AVCaptureVideoPreviewLayer else {
+			fatalError("Expected `AVCaptureVideoPreviewLayer` type for layer. Check PreviewView.layerClass implementation.")
+		}
+		
+		return layer
 	}
 	
 	var session: AVCaptureSession? {
@@ -87,14 +87,7 @@ class PreviewView: UIView, UIGestureRecognizerDelegate {
 			return videoPreviewLayer.session
 		}
 		
-		set{
-			if let newValue = newValue {
-				newValue.addObserver(self, forKeyPath: "running", options: .new, context: &sessionRunningObserveContext)
-			}
-			else {
-				session?.removeObserver(self, forKeyPath: "running", context: &sessionRunningObserveContext)
-			}
-			
+		set {
 			videoPreviewLayer.session = newValue
 		}
 	}
@@ -145,17 +138,16 @@ class PreviewView: UIView, UIGestureRecognizerDelegate {
 		When a user is resizing the region of interest in `resizeRegionOfInterestWithGestureRecognizer()`,
 		the KVO notification will be triggered when the resizing is finished.
 	*/
-	private(set) var regionOfInterest = CGRect.null
+	@objc private(set) var regionOfInterest = CGRect.null
 	
 	/**
 		Updates the region of interest with a proposed region of interest ensuring
 		the new region of interest is within the bounds of the video preview. When
 		a new region of interest is set, the region of interest is redrawn.
 	*/
-	func setRegionOfInterestWithProposedRegionOfInterest(_ proposedRegionOfInterest: CGRect)
-	{
+	func setRegionOfInterestWithProposedRegionOfInterest(_ proposedRegionOfInterest: CGRect) {
 		// We standardize to ensure we have positive widths and heights with an origin at the top left.
-		let videoPreviewRect = videoPreviewLayer.rectForMetadataOutputRect(ofInterest: CGRect(x: 0, y: 0, width: 1, height: 1)).standardized
+		let videoPreviewRect = videoPreviewLayer.layerRectConverted(fromMetadataOutputRect: CGRect(x: 0, y: 0, width: 1, height: 1)).standardized
 		
 		/*
 			Intersect the video preview view with the view's frame to only get
@@ -232,7 +224,8 @@ class PreviewView: UIView, UIGestureRecognizerDelegate {
 		UIPanGestureRecognizer(target: self, action: #selector(PreviewView.resizeRegionOfInterestWithGestureRecognizer(_:)))
 	}()
 		
-	@objc func resizeRegionOfInterestWithGestureRecognizer(_ resizeRegionOfInterestGestureRecognizer: UIPanGestureRecognizer) {
+	@objc
+	func resizeRegionOfInterestWithGestureRecognizer(_ resizeRegionOfInterestGestureRecognizer: UIPanGestureRecognizer) {
 		let touchLocation = resizeRegionOfInterestGestureRecognizer.location(in: resizeRegionOfInterestGestureRecognizer.view)
 		let oldRegionOfInterest = regionOfInterest
 		
@@ -241,7 +234,7 @@ class PreviewView: UIView, UIGestureRecognizerDelegate {
 				willChangeValue(forKey: "regionOfInterest")
 				
 				/*
-					When the gesture begins, save the corner that is closes to
+					When the gesture begins, save the corner that is closest to
 					the resize region of interest gesture recognizer's touch location.
 				*/
 				currentControlCorner = cornerOfRect(oldRegionOfInterest, closestToPointWithinTouchThreshold: touchLocation)
@@ -266,11 +259,10 @@ class PreviewView: UIView, UIGestureRecognizerDelegate {
 							plane that is not out of bounds.
 						*/
 						let normalizedRect = CGRect(x: 0, y: 0, width: 1, height: 1)
-						if !normalizedRect.contains(videoPreviewLayer.captureDevicePointOfInterest(for: touchLocation)) {
+						if !normalizedRect.contains(videoPreviewLayer.captureDevicePointConverted(fromLayerPoint: touchLocation)) {
 							if touchLocation.x < regionOfInterest.minX || touchLocation.x > regionOfInterest.maxX {
 								newRegionOfInterest.origin.y += translation.y
-							}
-							else if touchLocation.y < regionOfInterest.minY || touchLocation.y > regionOfInterest.maxY {
+							} else if touchLocation.y < regionOfInterest.minY || touchLocation.y > regionOfInterest.maxY {
 								newRegionOfInterest.origin.x += translation.x
 							}
 						}
@@ -350,46 +342,6 @@ class PreviewView: UIView, UIGestureRecognizerDelegate {
 		return closestCorner
 	}
 	
-	// MARK: KVO
-	
-	var sessionRunningObserveContext = 0
-	
-	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-		if context == &sessionRunningObserveContext {
-			let newValue = change?[.newKey] as AnyObject?
-			guard let isSessionRunning = newValue?.boolValue else { return }
-			
-			DispatchQueue.main.async { [unowned self] in
-				/*
-					If the region of interest view's region of interest has not
-					been initialized yet, let's set an inital region of interest
-					that is 80% of the shortest side by 25% of the longest side
-					and centered in the root view.
-				*/
-				if self.regionOfInterest.isNull {
-					let width = min(self.frame.width, self.frame.height) * 0.8
-					let height = max(self.frame.width, self.frame.height) * 0.25
-					
-					let newRegionOfInterest = self.frame.insetBy(dx: self.frame.midX - width / 2.0, dy: self.frame.midY - height / 2.0)
-					self.setRegionOfInterestWithProposedRegionOfInterest(newRegionOfInterest)
-				}
-				
-				/*
-					If the region of interest view's region of interest has not
-					been initialized yet, let's set an inital region of interest
-					that is 80% of the shortest side by 25% of the longest side
-					and centered in the root view.
-				*/
-				if isSessionRunning {
-					self.setRegionOfInterestWithProposedRegionOfInterest(self.regionOfInterest)
-				}
-			}
-		}
-		else {
-			super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-		}
-	}
-	
 	// MARK: UIView
 	
     override class var layerClass: AnyClass {
@@ -411,10 +363,15 @@ class PreviewView: UIView, UIGestureRecognizerDelegate {
 		
 		regionOfInterestOutline.path = CGPath(rect: regionOfInterest, transform: nil)
 		
-		topLeftControl.position = CGPoint(x: regionOfInterest.origin.x - regionOfInterestControlRadius, y: regionOfInterest.origin.y - regionOfInterestControlRadius)
-		topRightControl.position = CGPoint(x: regionOfInterest.origin.x + regionOfInterest.size.width - regionOfInterestControlRadius, y: regionOfInterest.origin.y - regionOfInterestControlRadius)
-		bottomLeftControl.position = CGPoint(x: regionOfInterest.origin.x - regionOfInterestControlRadius, y: regionOfInterest.origin.y + regionOfInterest.size.height - regionOfInterestControlRadius)
-		bottomRightControl.position = CGPoint(x: regionOfInterest.origin.x + regionOfInterest.size.width - regionOfInterestControlRadius, y: regionOfInterest.origin.y + regionOfInterest.size.height - regionOfInterestControlRadius)
+		let left = regionOfInterest.origin.x - regionOfInterestControlRadius
+		let right = regionOfInterest.origin.x + regionOfInterest.size.width - regionOfInterestControlRadius
+		let top = regionOfInterest.origin.y - regionOfInterestControlRadius
+		let bottom = regionOfInterest.origin.y + regionOfInterest.size.height - regionOfInterestControlRadius
+		
+		topLeftControl.position = CGPoint(x: left, y: top)
+		topRightControl.position = CGPoint(x: right, y: top)
+		bottomLeftControl.position = CGPoint(x: left, y: bottom)
+		bottomRightControl.position = CGPoint(x: right, y: bottom)
 		
 		CATransaction.commit()
 	}
