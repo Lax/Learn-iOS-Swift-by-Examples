@@ -1,0 +1,333 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		164354CE1B8F816A004AEC75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164354CD1B8F816A004AEC75 /* AppDelegate.swift */; };
+		164354D01B8F816A004AEC75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164354CF1B8F816A004AEC75 /* ViewController.swift */; };
+		164354D31B8F816A004AEC75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164354D11B8F816A004AEC75 /* Main.storyboard */; };
+		164354D51B8F816A004AEC75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 164354D41B8F816A004AEC75 /* Assets.xcassets */; };
+		164354D81B8F816A004AEC75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164354D61B8F816A004AEC75 /* LaunchScreen.storyboard */; };
+		169961181B8F82810003605A /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169961161B8F82810003605A /* Line.swift */; };
+		169961191B8F82810003605A /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169961171B8F82810003605A /* CanvasView.swift */; };
+		16D6FEAB1B97CD0100A2D1E6 /* ReticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D6FEAA1B97CD0100A2D1E6 /* ReticleView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		164354CA1B8F816A004AEC75 /* TouchCanvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchCanvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		164354CD1B8F816A004AEC75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		164354CF1B8F816A004AEC75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		164354D21B8F816A004AEC75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		164354D41B8F816A004AEC75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		164354D71B8F816A004AEC75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		164354D91B8F816A004AEC75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1647561B1B9921060039F559 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		169961161B8F82810003605A /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		169961171B8F82810003605A /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		16D6FEAA1B97CD0100A2D1E6 /* ReticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReticleView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		164354C71B8F816A004AEC75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		164354C11B8F816A004AEC75 = {
+			isa = PBXGroup;
+			children = (
+				1647561B1B9921060039F559 /* README.md */,
+				164354CC1B8F816A004AEC75 /* TouchCanvas */,
+				164354CB1B8F816A004AEC75 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		164354CB1B8F816A004AEC75 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				164354CA1B8F816A004AEC75 /* TouchCanvas.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		164354CC1B8F816A004AEC75 /* TouchCanvas */ = {
+			isa = PBXGroup;
+			children = (
+				164354D11B8F816A004AEC75 /* Main.storyboard */,
+				164354D61B8F816A004AEC75 /* LaunchScreen.storyboard */,
+				164354CD1B8F816A004AEC75 /* AppDelegate.swift */,
+				164354CF1B8F816A004AEC75 /* ViewController.swift */,
+				169961171B8F82810003605A /* CanvasView.swift */,
+				16D6FEAA1B97CD0100A2D1E6 /* ReticleView.swift */,
+				169961161B8F82810003605A /* Line.swift */,
+				164354D41B8F816A004AEC75 /* Assets.xcassets */,
+				164354D91B8F816A004AEC75 /* Info.plist */,
+			);
+			path = TouchCanvas;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		164354C91B8F816A004AEC75 /* TouchCanvas */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 164354DC1B8F816A004AEC75 /* Build configuration list for PBXNativeTarget "TouchCanvas" */;
+			buildPhases = (
+				164354C61B8F816A004AEC75 /* Sources */,
+				164354C71B8F816A004AEC75 /* Frameworks */,
+				164354C81B8F816A004AEC75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TouchCanvas;
+			productName = TouchCanvas;
+			productReference = 164354CA1B8F816A004AEC75 /* TouchCanvas.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		164354C21B8F816A004AEC75 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Apple, Inc.";
+				TargetAttributes = {
+					164354C91B8F816A004AEC75 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 8QXX5HQF6B;
+						LastSwiftMigration = 0800;
+					};
+				};
+			};
+			buildConfigurationList = 164354C51B8F816A004AEC75 /* Build configuration list for PBXProject "TouchCanvas" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 164354C11B8F816A004AEC75;
+			productRefGroup = 164354CB1B8F816A004AEC75 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				164354C91B8F816A004AEC75 /* TouchCanvas */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		164354C81B8F816A004AEC75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				164354D81B8F816A004AEC75 /* LaunchScreen.storyboard in Resources */,
+				164354D51B8F816A004AEC75 /* Assets.xcassets in Resources */,
+				164354D31B8F816A004AEC75 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		164354C61B8F816A004AEC75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				169961181B8F82810003605A /* Line.swift in Sources */,
+				16D6FEAB1B97CD0100A2D1E6 /* ReticleView.swift in Sources */,
+				164354D01B8F816A004AEC75 /* ViewController.swift in Sources */,
+				164354CE1B8F816A004AEC75 /* AppDelegate.swift in Sources */,
+				169961191B8F82810003605A /* CanvasView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		164354D11B8F816A004AEC75 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				164354D21B8F816A004AEC75 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		164354D61B8F816A004AEC75 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				164354D71B8F816A004AEC75 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		164354DA1B8F816A004AEC75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		164354DB1B8F816A004AEC75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		164354DD1B8F816A004AEC75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8QXX5HQF6B;
+				INFOPLIST_FILE = TouchCanvas/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.TouchCanvas";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		164354DE1B8F816A004AEC75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8QXX5HQF6B;
+				INFOPLIST_FILE = TouchCanvas/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.TouchCanvas";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		164354C51B8F816A004AEC75 /* Build configuration list for PBXProject "TouchCanvas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				164354DA1B8F816A004AEC75 /* Debug */,
+				164354DB1B8F816A004AEC75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		164354DC1B8F816A004AEC75 /* Build configuration list for PBXNativeTarget "TouchCanvas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				164354DD1B8F816A004AEC75 /* Debug */,
+				164354DE1B8F816A004AEC75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 164354C21B8F816A004AEC75 /* Project object */;
+}
