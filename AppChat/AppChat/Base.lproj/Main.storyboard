@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.11" systemVersion="15F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KxG-EO-L4l">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.9"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="9SA-Mf-wTW">
+            <objects>
+                <navigationController id="KxG-EO-L4l" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v8m-ia-bY8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8f4-oE-Jp8" kind="relationship" relationship="rootViewController" id="IJm-Oc-yQ1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0V8-dC-09h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-170.79022226486086" y="-24.7376311844078"/>
+        </scene>
+        <!--AppChat-->
+        <scene sceneID="Jdk-Is-YOt">
+            <objects>
+                <tableViewController id="8f4-oE-Jp8" customClass="ChatTableViewController" customModule="AppChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="CnS-wC-uIv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatTableViewCell" textLabel="7wi-9Z-osP" detailTextLabel="R6b-P1-aL8" imageView="iQY-My-G5N" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="ytM-2q-vAP" customClass="ChatTableViewCell" customModule="AppChat" customModuleProvider="target">
+                                <frame key="frameInset" minY="92" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ytM-2q-vAP" id="7hR-oH-DS1">
+                                    <frame key="frameInset" width="375" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Chat from Lexi Torres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7wi-9Z-osP">
+                                            <frame key="frameInset" minX="89" minY="12" width="164" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="0 seconds ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R6b-P1-aL8">
+                                            <frame key="frameInset" minX="89" minY="33" width="83" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="ProfilePhoto-LexiTorres.jpg" id="iQY-My-G5N">
+                                            <frame key="frameInset" minX="15" width="59" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="6Ly-0W-3A4" kind="show" id="ap3-1g-PXW"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8f4-oE-Jp8" id="1KR-Jd-c4V"/>
+                            <outlet property="delegate" destination="8f4-oE-Jp8" id="NP8-Ka-Cad"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="AppChat" id="G6L-ny-A5r">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="1te-Ba-I01">
+                            <connections>
+                                <action selector="createNewChat:" destination="8f4-oE-Jp8" id="AHQ-bG-wIY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EbV-HZ-cHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="705.74115139352" y="-24.737631184407899"/>
+        </scene>
+        <!--Chat from Lexi Torres-->
+        <scene sceneID="Nui-V1-r0A">
+            <objects>
+                <viewController storyboardIdentifier="ChatDetailViewController" title="Chat from Lexi Torres" id="6Ly-0W-3A4" customClass="ChatDetailViewController" customModule="AppChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rsn-nU-D9B"/>
+                        <viewControllerLayoutGuide type="bottom" id="BII-8g-BtT"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="XeI-cs-E9s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChatImage-1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mtk-x2-k5n"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mtk-x2-k5n" firstAttribute="height" secondItem="XeI-cs-E9s" secondAttribute="height" id="7hK-Hk-frI"/>
+                            <constraint firstItem="mtk-x2-k5n" firstAttribute="centerX" secondItem="XeI-cs-E9s" secondAttribute="centerX" id="XDv-Xn-WSh"/>
+                            <constraint firstItem="mtk-x2-k5n" firstAttribute="centerY" secondItem="XeI-cs-E9s" secondAttribute="centerY" id="aYZ-DC-Mwt"/>
+                            <constraint firstItem="mtk-x2-k5n" firstAttribute="width" secondItem="XeI-cs-E9s" secondAttribute="width" id="yEV-mq-SoK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="mtk-x2-k5n" id="jEs-ba-19u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ifq-Db-X5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1621.5999999999999" y="-25.637181409295355"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ChatImage-1.jpg" width="1667" height="2500"/>
+        <image name="ProfilePhoto-LexiTorres.jpg" width="440" height="440"/>
+    </resources>
+</document>

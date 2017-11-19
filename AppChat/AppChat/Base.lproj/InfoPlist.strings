@@ -1,0 +1,13 @@
+/*
+ <samplecode>
+ <abstract>
+ Localized strings used in the Info.plist file.
+ </abstract>
+ </samplecode>
+ */
+
+"NSContactsUsageDescription" = "AppChat will try to match your friends with the contacts on your device.";
+
+"NSCameraUsageDescription" = "AppChat uses the camera to take photos for chats.";
+
+"SHORTCUT_TITLE_NEWCHAT" = "New Chat";
