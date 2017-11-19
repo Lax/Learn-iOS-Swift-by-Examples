@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13122.13" systemVersion="17A274" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.13"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TransientUIViewController-->
+        <scene sceneID="lsD-jq-9yG">
+            <objects>
+                <customObject id="SOC-OX-ybn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="TransientUIViewController" id="BJj-AK-Or5" userLabel="TransientUIViewController" customClass="TransientUIViewController" customModule="AccessibilityUIExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <customView key="view" id="dwZ-oK-hjx">
+                        <rect key="frame" x="0.0" y="0.0" width="203" height="74"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <view translatesAutoresizingMaskIntoConstraints="NO" id="pbi-oj-x7p" userLabel="TransientUITriggerView" customClass="TransientUITriggerView" customModule="AccessibilityUIExamples" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="6" width="203" height="68"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3H4-1p-CN6">
+                                        <rect key="frame" x="36" y="47" width="131" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="This is page %i of %i" id="Uqv-6b-7dV">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LD7-WV-jmG" userLabel="Transient View">
+                                        <rect key="frame" x="5" y="6" width="192" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WdK-Wx-J7K">
+                                                <rect key="frame" x="95" y="-2" width="93" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lz8-1u-BjV">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="pressNextPageButton:" target="BJj-AK-Or5" id="xFx-cI-D7w"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7FG-4x-aOg">
+                                                <rect key="frame" x="4" y="-2" width="93" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SDa-Uq-1m5">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="pressPreviousPageButton:" target="BJj-AK-Or5" id="Rg5-fN-Hh6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="203" id="PS1-hv-Zjs"/>
+                                    <constraint firstAttribute="height" constant="68" id="oU4-XN-kAt"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="transientView" destination="LD7-WV-jmG" id="Quk-uc-9yl"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pbi-oj-x7p" firstAttribute="top" secondItem="dwZ-oK-hjx" secondAttribute="top" id="SyC-Bj-AaU"/>
+                            <constraint firstItem="pbi-oj-x7p" firstAttribute="leading" secondItem="dwZ-oK-hjx" secondAttribute="leading" id="U3D-Fr-rBj"/>
+                        </constraints>
+                    </customView>
+                    <connections>
+                        <outlet property="nextPageButton" destination="WdK-Wx-J7K" id="cLz-Bb-4QE"/>
+                        <outlet property="pageTextField" destination="3H4-1p-CN6" id="Qq3-ls-COc"/>
+                        <outlet property="previousPageButton" destination="7FG-4x-aOg" id="wQ4-Zw-zFE"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="409.5" y="930"/>
+        </scene>
+    </scenes>
+</document>

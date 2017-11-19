@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CustomSliderViewController-->
+        <scene sceneID="lsD-jq-9yG">
+            <objects>
+                <customObject id="SOC-OX-ybn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="CustomSliderViewController" id="BJj-AK-Or5" userLabel="CustomSliderViewController" customClass="CustomSliderViewController" customModule="AccessibilityUIExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ugI-Pl-CNw">
+                        <rect key="frame" x="0.0" y="0.0" width="191" height="140"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2eb-kD-cpF" customClass="CustomSliderView" customModule="AccessibilityUIExamples" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="20" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c84-3Z-snL" customClass="CustomSliderView" customModule="AccessibilityUIExamples" customModuleProvider="target">
+                                <rect key="frame" x="28" y="60" width="163" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
+                        </subviews>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="532.5" y="1084"/>
+        </scene>
+    </scenes>
+</document>

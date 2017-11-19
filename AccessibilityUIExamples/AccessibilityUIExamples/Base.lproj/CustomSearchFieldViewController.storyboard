@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CustomSearchFieldViewController-->
+        <scene sceneID="lsD-jq-9yG">
+            <objects>
+                <customObject id="SOC-OX-ybn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="CustomSearchFieldViewController" id="BJj-AK-Or5" userLabel="CustomSearchFieldViewController" customClass="CustomSearchFieldViewController" customModule="AccessibilityUIExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ugI-Pl-CNw">
+                        <rect key="frame" x="0.0" y="0.0" width="267" height="22"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltm-uh-mjc" customClass="CustomSearchField" customModule="AccessibilityUIExamples" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="267" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="266.9999998910597" id="2lI-cm-czh"/>
+                                </constraints>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Type a word" bezelStyle="round" id="hei-JM-di4">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </searchFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="BJj-AK-Or5" id="UbC-5d-QnD"/>
+                                </connections>
+                            </searchField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Ltm-uh-mjc" firstAttribute="top" secondItem="ugI-Pl-CNw" secondAttribute="top" id="1NU-1Y-HEN"/>
+                            <constraint firstItem="Ltm-uh-mjc" firstAttribute="leading" secondItem="ugI-Pl-CNw" secondAttribute="leading" id="7gv-FG-e6M"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchField" destination="Ltm-uh-mjc" id="mg9-JN-Ki1"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="570.5" y="1025"/>
+        </scene>
+    </scenes>
+</document>

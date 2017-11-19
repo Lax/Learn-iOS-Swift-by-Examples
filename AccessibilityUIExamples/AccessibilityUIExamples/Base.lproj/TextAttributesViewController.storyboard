@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13168.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13168.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TextAttributesViewController-->
+        <scene sceneID="lsD-jq-9yG">
+            <objects>
+                <customObject id="SOC-OX-ybn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="TextAttributesViewController" id="BJj-AK-Or5" userLabel="TextAttributesViewController" customClass="TextAttributesViewController" customModule="AccessibilityUIExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ugI-Pl-CNw">
+                        <rect key="frame" x="0.0" y="0.0" width="412" height="206"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dn7-1Z-Wt1">
+                                <rect key="frame" x="0.0" y="0.0" width="307" height="206"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" ambiguous="YES" id="tWg-0h-8tp">
+                                    <rect key="frame" x="1" y="1" width="305" height="204"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView ambiguous="YES" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="PhU-6A-UM3" customClass="TextAttributesTextView" customModule="AccessibilityUIExamples" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="305" height="204"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="305" height="204"/>
+                                            <size key="maxSize" width="6604" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="553-tZ-D6R">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="FsM-rS-dCH">
+                                    <rect key="frame" x="290" y="1" width="16" height="204"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fr-9t-FHp" customClass="LinesView" customModule="AccessibilityUIExamples" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="412" height="206"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ABs-hg-Elf">
+                                        <rect key="frame" x="312" y="172" width="88" height="14"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Eggplant again?" id="4tj-rC-TCJ">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RCg-os-xxJ">
+                                        <rect key="frame" x="306" y="7" width="102" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Buy Apple Pie" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vx1-ma-aiF">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="buyApplePie:" target="BJj-AK-Or5" id="v1Z-QT-A14"/>
+                                        </connections>
+                                    </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6v-g7-O0i">
+                                        <rect key="frame" x="313" y="115" width="92" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="I'll pick some up after work!" id="5qT-3b-Ouf">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                            </customView>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="attributedTextView" destination="PhU-6A-UM3" id="eLD-XX-m8y"/>
+                        <outlet property="broccoliAnnotation" destination="Y6v-g7-O0i" id="J9F-No-ber"/>
+                        <outlet property="buyButton" destination="RCg-os-xxJ" id="FHn-RG-n97"/>
+                        <outlet property="eggPlantAnnotation" destination="ABs-hg-Elf" id="LZt-hy-RVp"/>
+                        <outlet property="linesView" destination="8fr-9t-FHp" id="i1c-98-7Pj"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="682" y="965"/>
+        </scene>
+    </scenes>
+</document>

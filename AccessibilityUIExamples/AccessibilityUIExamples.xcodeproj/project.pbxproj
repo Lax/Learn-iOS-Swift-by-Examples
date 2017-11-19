@@ -1,0 +1,1204 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5316A19B1EF983DF0020DE20 /* TextAttributesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316A1991EF983DF0020DE20 /* TextAttributesViewController.swift */; };
+		5316A19C1EF983DF0020DE20 /* TextAttributesTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316A19A1EF983DF0020DE20 /* TextAttributesTextView.swift */; };
+		5316A1A31EF9840B0020DE20 /* CustomRotorsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316A1A11EF9840B0020DE20 /* CustomRotorsTextView.swift */; };
+		5316A1A41EF9840B0020DE20 /* CustomRotorsTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5316A1A21EF9840B0020DE20 /* CustomRotorsTextViewController.swift */; };
+		5316C4801F26678D00EBE410 /* TextAttributesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C812511F26669900065A95 /* TextAttributesViewController.storyboard */; };
+		5316C4811F2667A600EBE410 /* CustomRotorsTextViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C394011F26658900E50220 /* CustomRotorsTextViewController.storyboard */; };
+		531E929C1EA92F1F008BFD2A /* CustomOutlineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531E929A1EA92F1F008BFD2A /* CustomOutlineViewController.storyboard */; };
+		531E929E1EA92F27008BFD2A /* CustomOutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531E929D1EA92F27008BFD2A /* CustomOutlineViewController.swift */; };
+		531E92A01EA93005008BFD2A /* CustomOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531E929F1EA93005008BFD2A /* CustomOutlineView.swift */; };
+		531E92A51EAE4AB4008BFD2A /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531E92A31EAE4AB4008BFD2A /* CustomTableViewController.swift */; };
+		531E92A81EAE4C2E008BFD2A /* CustomTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531E92A61EAE4C2E008BFD2A /* CustomTableViewController.storyboard */; };
+		532604191E9E9E73006D203E /* ImageViewLayerImageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 532604171E9E9E73006D203E /* ImageViewLayerImageViewController.storyboard */; };
+		5326041C1E9E9E77006D203E /* ImageViewSubclassViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5326041A1E9E9E77006D203E /* ImageViewSubclassViewController.storyboard */; };
+		5326041F1E9E9E7B006D203E /* ViewImageSubclassViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5326041D1E9E9E7B006D203E /* ViewImageSubclassViewController.storyboard */; };
+		532604211E9E9FD0006D203E /* ImageViewSubclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532604201E9E9FD0006D203E /* ImageViewSubclass.swift */; };
+		532604231E9EAB83006D203E /* ViewImageSubclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532604221E9EAB83006D203E /* ViewImageSubclass.swift */; };
+		533F734C1EDDCAD5006E15DD /* CustomRotorsElementViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 533F734A1EDDCAD5006E15DD /* CustomRotorsElementViewController.storyboard */; };
+		53558C771EA029470040915B /* CustomCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53558C751EA029470040915B /* CustomCheckBoxView.swift */; };
+		53558C781EA029470040915B /* CustomCheckBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53558C761EA029470040915B /* CustomCheckBoxViewController.swift */; };
+		53558C7B1EA029670040915B /* CustomCheckBoxViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53558C791EA029670040915B /* CustomCheckBoxViewController.storyboard */; };
+		53558C7E1EA032C50040915B /* CustomCheckBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53558C7D1EA032C50040915B /* CustomCheckBoxView.m */; };
+		535DA2021E9C42160038B30A /* ThreePositionSwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535DA2001E9C42160038B30A /* ThreePositionSwitchViewController.swift */; };
+		535DA2031E9C42160038B30A /* TwoPositionSwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535DA2011E9C42160038B30A /* TwoPositionSwitchViewController.swift */; };
+		535DA2081E9C427F0038B30A /* ThreePositionSwitchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535DA2041E9C427F0038B30A /* ThreePositionSwitchViewController.storyboard */; };
+		535DA2091E9C427F0038B30A /* TwoPositionSwitchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535DA2061E9C427F0038B30A /* TwoPositionSwitchViewController.storyboard */; };
+		535DA20C1E9D3A7E0038B30A /* ThreePositionSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535DA20A1E9D3A7E0038B30A /* ThreePositionSwitchView.swift */; };
+		535DA20D1E9D3A7E0038B30A /* TwoPositionSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535DA20B1E9D3A7E0038B30A /* TwoPositionSwitchView.swift */; };
+		535DA2101E9D3CA50038B30A /* ThreePositionSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 535DA20F1E9D3CA50038B30A /* ThreePositionSwitchView.m */; };
+		535E1BA41ED892D60079E03B /* CustomRotorsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535E1BA31ED892C30079E03B /* CustomRotorsContainerView.swift */; };
+		535E1BAB1ED8A5AB0079E03B /* CustomRotorsElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535E1BAA1ED8A27F0079E03B /* CustomRotorsElementViewController.swift */; };
+		5360947C1EB3A5E200253327 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536094771EB3A5E200253327 /* AppDelegate.swift */; };
+		5360947D1EB3A5E200253327 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536094781EB3A5E200253327 /* Character.swift */; };
+		5360947E1EB3A5E200253327 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536094791EB3A5E200253327 /* Example.swift */; };
+		5360947F1EB3A5E200253327 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360947A1EB3A5E200253327 /* SplitViewController.swift */; };
+		536094801EB3A5E200253327 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360947B1EB3A5E200253327 /* WindowController.swift */; };
+		536094841EB3A5F200253327 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536094821EB3A5F200253327 /* MasterViewController.swift */; };
+		536094881EB3A5FB00253327 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536094861EB3A5FB00253327 /* DetailViewController.swift */; };
+		5369240B1E9EADAB006CDDC9 /* ImageViewLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5369240A1E9EADAB006CDDC9 /* ImageViewLayerView.swift */; };
+		5369240E1E9EAEE3006CDDC9 /* CustomImageLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5369240C1E9EAEE3006CDDC9 /* CustomImageLayer.swift */; };
+		5369240F1E9EAEE3006CDDC9 /* CustomTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5369240D1E9EAEE3006CDDC9 /* CustomTextLayer.swift */; };
+		536924181E9EC91C006CDDC9 /* CustomRadioButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536924171E9EC91C006CDDC9 /* CustomRadioButtonsViewController.swift */; };
+		5369241B1E9EC925006CDDC9 /* CustomRadioButtonsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 536924191E9EC925006CDDC9 /* CustomRadioButtonsViewController.storyboard */; };
+		5369241D1E9EC97F006CDDC9 /* CustomRadioButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5369241C1E9EC97F006CDDC9 /* CustomRadioButtonsView.swift */; };
+		5377F8321E92C3400030A3B2 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 5377F82C1E92C3400030A3B2 /* Credits.rtf */; };
+		5377F8331E92C3400030A3B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5377F82E1E92C3400030A3B2 /* InfoPlist.strings */; };
+		5377F8341E92C3400030A3B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5377F8301E92C3400030A3B2 /* Localizable.strings */; };
+		5377F8371E92C3470030A3B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5377F8351E92C3470030A3B2 /* Main.storyboard */; };
+		5377F83E1E9404440030A3B2 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377F83D1E9404440030A3B2 /* ButtonViewController.swift */; };
+		5377F8421E9404A20030A3B2 /* ButtonViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5377F8401E9404A20030A3B2 /* ButtonViewController.storyboard */; };
+		5377F8441E9404FA0030A3B2 /* ButtonWithImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377F8431E9404FA0030A3B2 /* ButtonWithImageViewController.swift */; };
+		5377F8471E94051A0030A3B2 /* ButtonWithImageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5377F8451E94051A0030A3B2 /* ButtonWithImageViewController.storyboard */; };
+		5377F84B1E9406180030A3B2 /* ButtonSubclassViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5377F8481E9406180030A3B2 /* ButtonSubclassViewController.storyboard */; };
+		5377F84C1E9406180030A3B2 /* ButtonSubclassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377F84A1E9406180030A3B2 /* ButtonSubclassViewController.swift */; };
+		5377F8501E9406DE0030A3B2 /* ButtonViewSubclassViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5377F84D1E9406DE0030A3B2 /* ButtonViewSubclassViewController.storyboard */; };
+		5377F8511E9406DE0030A3B2 /* ButtonViewSubclassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377F84F1E9406DE0030A3B2 /* ButtonViewSubclassViewController.swift */; };
+		5377F8531E9407520030A3B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5377F8521E9407520030A3B2 /* Images.xcassets */; };
+		5377F8551E9407AE0030A3B2 /* ButtonBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377F8541E9407AE0030A3B2 /* ButtonBaseViewController.swift */; };
+		5377F8571E941EA10030A3B2 /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377F8561E941EA10030A3B2 /* CustomButtonView.swift */; };
+		5377F8591E9420550030A3B2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377F8581E9420550030A3B2 /* CustomButton.swift */; };
+		537A3D161E9584680079DF26 /* CoreTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537A3D131E9584680079DF26 /* CoreTextViewController.swift */; };
+		537A3D171E9584680079DF26 /* CoreTextColumnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537A3D141E9584680079DF26 /* CoreTextColumnViewController.swift */; };
+		537A3D181E9584680079DF26 /* ProtectedTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537A3D151E9584680079DF26 /* ProtectedTextViewController.swift */; };
+		537A3D1B1E95851E0079DF26 /* ProtectedTextViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537A3D191E95851E0079DF26 /* ProtectedTextViewController.storyboard */; };
+		537A3D1E1E9585270079DF26 /* CoreTextViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537A3D1C1E9585270079DF26 /* CoreTextViewController.storyboard */; };
+		537A3D211E95852C0079DF26 /* CoreTextColumnViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537A3D1F1E95852C0079DF26 /* CoreTextColumnViewController.storyboard */; };
+		537A3D231E958B7D0079DF26 /* CoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537A3D221E958B7D0079DF26 /* CoreTextView.swift */; };
+		537A3D2F1E96D6F40079DF26 /* CoreTextColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537A3D2E1E96D6F40079DF26 /* CoreTextColumnView.swift */; };
+		5384A21E1ECBD3F400A1D425 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5384A21C1ECBD3F400A1D425 /* Shaders.metal */; };
+		5384A21F1ECBD3F400A1D425 /* StepperAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5384A21D1ECBD3F400A1D425 /* StepperAssets.xcassets */; };
+		53A36F661EDDD12500FC1AC3 /* CustomRotorsElementLoadingToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A36F631EDDCCE300FC1AC3 /* CustomRotorsElementLoadingToken.swift */; };
+		53A4D6A61EA1338C003BE1BD /* CustomSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4D6A31EA1338C003BE1BD /* CustomSliderViewController.swift */; };
+		53A4D6A91EA13412003BE1BD /* CustomSliderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A4D6A71EA13412003BE1BD /* CustomSliderViewController.storyboard */; };
+		53A4D6AD1EA14582003BE1BD /* CustomLayoutAreaViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A4D6AB1EA14582003BE1BD /* CustomLayoutAreaViewController.storyboard */; };
+		53A4D6AF1EA14587003BE1BD /* CustomLayoutAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4D6AE1EA14587003BE1BD /* CustomLayoutAreaViewController.swift */; };
+		53A4D6B91EA146ED003BE1BD /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4D6B71EA146ED003BE1BD /* CustomSliderView.swift */; };
+		53A4D6BE1EA146F5003BE1BD /* CustomLayoutAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4D6BC1EA146F5003BE1BD /* CustomLayoutAreaView.swift */; };
+		53B4D2941EB28450001D6C49 /* CustomLayoutAreaView+Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B4D2931EB28450001D6C49 /* CustomLayoutAreaView+Measurements.swift */; };
+		53BFC89B1EAFA4F1002BD873 /* OutlineViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BFC89A1EAFA4F1002BD873 /* OutlineViewNode.swift */; };
+		53BFC89D1EAFAA5D002BD873 /* LayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BFC89C1EAFAA5D002BD873 /* LayoutItem.swift */; };
+		53BFC8A11EAFB2C1002BD873 /* CustomStepperViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53BFC89F1EAFB2C1002BD873 /* CustomStepperViewController.storyboard */; };
+		53BFC8A41EAFB2C9002BD873 /* CustomStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BFC8A21EAFB2C9002BD873 /* CustomStepperView.swift */; };
+		53BFC8A51EAFB2C9002BD873 /* CustomStepperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BFC8A31EAFB2C9002BD873 /* CustomStepperViewController.swift */; };
+		53BFC8A91EAFB40C002BD873 /* TransientUIViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53BFC8A71EAFB40C002BD873 /* TransientUIViewController.storyboard */; };
+		53BFC8AC1EAFB411002BD873 /* TransientUITriggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BFC8AA1EAFB411002BD873 /* TransientUITriggerView.swift */; };
+		53BFC8AD1EAFB411002BD873 /* TransientUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BFC8AB1EAFB411002BD873 /* TransientUIViewController.swift */; };
+		53BFC8B11EAFB787002BD873 /* CustomSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BFC8AF1EAFB787002BD873 /* CustomSearchField.swift */; };
+		53BFC8B21EAFB787002BD873 /* CustomSearchFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BFC8B01EAFB787002BD873 /* CustomSearchFieldViewController.swift */; };
+		53BFC8B51EAFB7D7002BD873 /* CustomSearchFieldViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53BFC8B31EAFB7D7002BD873 /* CustomSearchFieldViewController.storyboard */; };
+		53BFC8B71EAFCBE4002BD873 /* CustomOutlineViewAccessibilityRowElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BFC8B61EAFCBE4002BD873 /* CustomOutlineViewAccessibilityRowElement.swift */; };
+		53D0F60F1EAE7E6F0068AA00 /* CustomTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D0F60D1EAE7E6F0068AA00 /* CustomTableView.m */; };
+		53D0F6101EAE7E6F0068AA00 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D0F60E1EAE7E6F0068AA00 /* CustomTableView.swift */; };
+		53DC95E71E9819ED007A877A /* CoreTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DC95E61E9819ED007A877A /* CoreTextView.m */; };
+		53DC95E91E981E21007A877A /* ButtonImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DC95E81E981E21007A877A /* ButtonImages.swift */; };
+		53DC95ED1E981E7D007A877A /* CoreTextColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DC95EC1E981E7D007A877A /* CoreTextColumnView.m */; };
+		53EE131D1F4B63C400309A84 /* TwoPositionSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EE131C1F4B63C400309A84 /* TwoPositionSwitchView.m */; };
+		53F0327B1ED88C4000194500 /* CustomRotorsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F0327A1ED88C3A00194500 /* CustomRotorsPageView.swift */; };
+		53F655D91EA9D02B0021EBD0 /* CustomOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F655D81EA9D02B0021EBD0 /* CustomOutlineView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3E6EADA61F5EF241005A1E0B /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		5316A1991EF983DF0020DE20 /* TextAttributesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAttributesViewController.swift; sourceTree = "<group>"; };
+		5316A19A1EF983DF0020DE20 /* TextAttributesTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAttributesTextView.swift; sourceTree = "<group>"; };
+		5316A1A11EF9840B0020DE20 /* CustomRotorsTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomRotorsTextView.swift; path = TextView/CustomRotorsTextView.swift; sourceTree = "<group>"; };
+		5316A1A21EF9840B0020DE20 /* CustomRotorsTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomRotorsTextViewController.swift; path = TextView/CustomRotorsTextViewController.swift; sourceTree = "<group>"; };
+		531E929B1EA92F1F008BFD2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CustomOutlineViewController.storyboard; sourceTree = "<group>"; };
+		531E929D1EA92F27008BFD2A /* CustomOutlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomOutlineViewController.swift; path = AccessibilityUIExamples/Outline/CustomOutlineViewController.swift; sourceTree = "<group>"; };
+		531E929F1EA93005008BFD2A /* CustomOutlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomOutlineView.swift; path = AccessibilityUIExamples/Outline/CustomOutlineView.swift; sourceTree = "<group>"; };
+		531E92A31EAE4AB4008BFD2A /* CustomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableViewController.swift; path = AccessibilityUIExamples/Table/CustomTableViewController.swift; sourceTree = "<group>"; };
+		531E92A71EAE4C2E008BFD2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CustomTableViewController.storyboard; sourceTree = "<group>"; };
+		532604181E9E9E73006D203E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/ImageViewLayerImageViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		5326041B1E9E9E77006D203E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/ImageViewSubclassViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		5326041E1E9E9E7B006D203E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/ViewImageSubclassViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		532604201E9E9FD0006D203E /* ImageViewSubclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewSubclass.swift; sourceTree = "<group>"; };
+		532604221E9EAB83006D203E /* ViewImageSubclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewImageSubclass.swift; sourceTree = "<group>"; };
+		5331BA3A1C5BDA2900D4C784 /* AccessibilityUIExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibilityUIExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		533F734B1EDDCAD5006E15DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CustomRotorsElementViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		53558C751EA029470040915B /* CustomCheckBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCheckBoxView.swift; path = AccessibilityUIExamples/Checkbox/CustomCheckBoxView.swift; sourceTree = "<group>"; };
+		53558C761EA029470040915B /* CustomCheckBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCheckBoxViewController.swift; path = AccessibilityUIExamples/Checkbox/CustomCheckBoxViewController.swift; sourceTree = "<group>"; };
+		53558C7A1EA029670040915B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CustomCheckBoxViewController.storyboard; sourceTree = "<group>"; };
+		53558C7D1EA032C50040915B /* CustomCheckBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCheckBoxView.m; path = AccessibilityUIExamples/Checkbox/CustomCheckBoxView.m; sourceTree = "<group>"; };
+		535DA2001E9C42160038B30A /* ThreePositionSwitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThreePositionSwitchViewController.swift; path = AccessibilityUIExamples/Switches/ThreePositionSwitchViewController.swift; sourceTree = "<group>"; };
+		535DA2011E9C42160038B30A /* TwoPositionSwitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwoPositionSwitchViewController.swift; path = AccessibilityUIExamples/Switches/TwoPositionSwitchViewController.swift; sourceTree = "<group>"; };
+		535DA2051E9C427F0038B30A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/ThreePositionSwitchViewController.storyboard; sourceTree = "<group>"; };
+		535DA2071E9C427F0038B30A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/TwoPositionSwitchViewController.storyboard; sourceTree = "<group>"; };
+		535DA20A1E9D3A7E0038B30A /* ThreePositionSwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThreePositionSwitchView.swift; path = AccessibilityUIExamples/Switches/ThreePositionSwitchView.swift; sourceTree = "<group>"; };
+		535DA20B1E9D3A7E0038B30A /* TwoPositionSwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwoPositionSwitchView.swift; path = AccessibilityUIExamples/Switches/TwoPositionSwitchView.swift; sourceTree = "<group>"; };
+		535DA20F1E9D3CA50038B30A /* ThreePositionSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreePositionSwitchView.m; path = AccessibilityUIExamples/Switches/ThreePositionSwitchView.m; sourceTree = "<group>"; };
+		535E1BA31ED892C30079E03B /* CustomRotorsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRotorsContainerView.swift; sourceTree = "<group>"; };
+		535E1BAA1ED8A27F0079E03B /* CustomRotorsElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRotorsElementViewController.swift; sourceTree = "<group>"; };
+		536094771EB3A5E200253327 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AccessibilityUIExamples/Application/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		536094781EB3A5E200253327 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Character.swift; path = AccessibilityUIExamples/Application/Character.swift; sourceTree = SOURCE_ROOT; };
+		536094791EB3A5E200253327 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Example.swift; path = AccessibilityUIExamples/Application/Example.swift; sourceTree = SOURCE_ROOT; };
+		5360947A1EB3A5E200253327 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewController.swift; path = AccessibilityUIExamples/Application/SplitViewController.swift; sourceTree = SOURCE_ROOT; };
+		5360947B1EB3A5E200253327 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WindowController.swift; path = AccessibilityUIExamples/Application/WindowController.swift; sourceTree = SOURCE_ROOT; };
+		536094821EB3A5F200253327 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = AccessibilityUIExamples/Application/MasterViewController.swift; sourceTree = SOURCE_ROOT; };
+		536094861EB3A5FB00253327 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = AccessibilityUIExamples/Application/DetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		5369240A1E9EADAB006CDDC9 /* ImageViewLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewLayerView.swift; sourceTree = "<group>"; };
+		5369240C1E9EAEE3006CDDC9 /* CustomImageLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageLayer.swift; sourceTree = "<group>"; };
+		5369240D1E9EAEE3006CDDC9 /* CustomTextLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextLayer.swift; sourceTree = "<group>"; };
+		536924171E9EC91C006CDDC9 /* CustomRadioButtonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomRadioButtonsViewController.swift; path = AccessibilityUIExamples/RadioButtons/CustomRadioButtonsViewController.swift; sourceTree = "<group>"; };
+		5369241A1E9EC925006CDDC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CustomRadioButtonsViewController.storyboard; sourceTree = "<group>"; };
+		5369241C1E9EC97F006CDDC9 /* CustomRadioButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomRadioButtonsView.swift; path = AccessibilityUIExamples/RadioButtons/CustomRadioButtonsView.swift; sourceTree = "<group>"; };
+		5377F8171E92B9450030A3B2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5377F82B1E92C3270030A3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = AccessibilityUIExamples/Info.plist; sourceTree = "<group>"; };
+		5377F82D1E92C3400030A3B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = AccessibilityUIExamples/en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		5377F82F1E92C3400030A3B2 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = AccessibilityUIExamples/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5377F8311E92C3400030A3B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = AccessibilityUIExamples/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5377F8361E92C3470030A3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5377F83D1E9404440030A3B2 /* ButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonViewController.swift; path = AccessibilityUIExamples/Buttons/ButtonViewController.swift; sourceTree = SOURCE_ROOT; };
+		5377F8411E9404A20030A3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/ButtonViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		5377F8431E9404FA0030A3B2 /* ButtonWithImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonWithImageViewController.swift; path = AccessibilityUIExamples/Buttons/ButtonWithImageViewController.swift; sourceTree = SOURCE_ROOT; };
+		5377F8461E94051A0030A3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/ButtonWithImageViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		5377F8491E9406180030A3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/ButtonSubclassViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		5377F84A1E9406180030A3B2 /* ButtonSubclassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonSubclassViewController.swift; path = AccessibilityUIExamples/Buttons/ButtonSubclassViewController.swift; sourceTree = SOURCE_ROOT; };
+		5377F84E1E9406DE0030A3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/ButtonViewSubclassViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		5377F84F1E9406DE0030A3B2 /* ButtonViewSubclassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonViewSubclassViewController.swift; path = AccessibilityUIExamples/Buttons/ButtonViewSubclassViewController.swift; sourceTree = SOURCE_ROOT; };
+		5377F8521E9407520030A3B2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AccessibilityUIExamples/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		5377F8541E9407AE0030A3B2 /* ButtonBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonBaseViewController.swift; path = AccessibilityUIExamples/Buttons/ButtonBaseViewController.swift; sourceTree = SOURCE_ROOT; };
+		5377F8561E941EA10030A3B2 /* CustomButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButtonView.swift; path = AccessibilityUIExamples/Buttons/CustomButtonView.swift; sourceTree = SOURCE_ROOT; };
+		5377F8581E9420550030A3B2 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = AccessibilityUIExamples/Buttons/CustomButton.swift; sourceTree = SOURCE_ROOT; };
+		537A3D131E9584680079DF26 /* CoreTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextViewController.swift; sourceTree = "<group>"; };
+		537A3D141E9584680079DF26 /* CoreTextColumnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextColumnViewController.swift; sourceTree = "<group>"; };
+		537A3D151E9584680079DF26 /* ProtectedTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtectedTextViewController.swift; sourceTree = "<group>"; };
+		537A3D1A1E95851E0079DF26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/ProtectedTextViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		537A3D1D1E9585270079DF26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CoreTextViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		537A3D201E95852C0079DF26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CoreTextColumnViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		537A3D221E958B7D0079DF26 /* CoreTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextView.swift; sourceTree = "<group>"; };
+		537A3D2E1E96D6F40079DF26 /* CoreTextColumnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTextColumnView.swift; sourceTree = "<group>"; };
+		5384A21C1ECBD3F400A1D425 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = Shaders.metal; path = AccessibilityUIExamples/Stepper/Shaders.metal; sourceTree = "<group>"; };
+		5384A21D1ECBD3F400A1D425 /* StepperAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = StepperAssets.xcassets; path = AccessibilityUIExamples/Stepper/StepperAssets.xcassets; sourceTree = "<group>"; };
+		5384A2201ECBD4A600A1D425 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "AccessibilityUIExamples/Stepper/Bridging-Header.h"; sourceTree = "<group>"; };
+		5384A2211ECBD4C800A1D425 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShaderTypes.h; path = AccessibilityUIExamples/Stepper/ShaderTypes.h; sourceTree = "<group>"; };
+		53A36F631EDDCCE300FC1AC3 /* CustomRotorsElementLoadingToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRotorsElementLoadingToken.swift; sourceTree = "<group>"; };
+		53A4D6A31EA1338C003BE1BD /* CustomSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSliderViewController.swift; path = AccessibilityUIExamples/Slider/CustomSliderViewController.swift; sourceTree = "<group>"; };
+		53A4D6A81EA13412003BE1BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CustomSliderViewController.storyboard; sourceTree = "<group>"; };
+		53A4D6AC1EA14582003BE1BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CustomLayoutAreaViewController.storyboard; sourceTree = "<group>"; };
+		53A4D6AE1EA14587003BE1BD /* CustomLayoutAreaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomLayoutAreaViewController.swift; path = AccessibilityUIExamples/LayoutArea/CustomLayoutAreaViewController.swift; sourceTree = "<group>"; };
+		53A4D6B71EA146ED003BE1BD /* CustomSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSliderView.swift; path = AccessibilityUIExamples/Slider/CustomSliderView.swift; sourceTree = "<group>"; };
+		53A4D6BC1EA146F5003BE1BD /* CustomLayoutAreaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomLayoutAreaView.swift; path = AccessibilityUIExamples/LayoutArea/CustomLayoutAreaView.swift; sourceTree = "<group>"; };
+		53B4D2931EB28450001D6C49 /* CustomLayoutAreaView+Measurements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CustomLayoutAreaView+Measurements.swift"; path = "AccessibilityUIExamples/LayoutArea/CustomLayoutAreaView+Measurements.swift"; sourceTree = "<group>"; };
+		53BFC89A1EAFA4F1002BD873 /* OutlineViewNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutlineViewNode.swift; path = AccessibilityUIExamples/Outline/OutlineViewNode.swift; sourceTree = "<group>"; };
+		53BFC89C1EAFAA5D002BD873 /* LayoutItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutItem.swift; path = AccessibilityUIExamples/LayoutArea/LayoutItem.swift; sourceTree = "<group>"; };
+		53BFC8A01EAFB2C1002BD873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CustomStepperViewController.storyboard; sourceTree = "<group>"; };
+		53BFC8A21EAFB2C9002BD873 /* CustomStepperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomStepperView.swift; path = AccessibilityUIExamples/Stepper/CustomStepperView.swift; sourceTree = "<group>"; };
+		53BFC8A31EAFB2C9002BD873 /* CustomStepperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomStepperViewController.swift; path = AccessibilityUIExamples/Stepper/CustomStepperViewController.swift; sourceTree = "<group>"; };
+		53BFC8A81EAFB40C002BD873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/TransientUIViewController.storyboard; sourceTree = "<group>"; };
+		53BFC8AA1EAFB411002BD873 /* TransientUITriggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransientUITriggerView.swift; path = AccessibilityUIExamples/TransientUI/TransientUITriggerView.swift; sourceTree = "<group>"; };
+		53BFC8AB1EAFB411002BD873 /* TransientUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransientUIViewController.swift; path = AccessibilityUIExamples/TransientUI/TransientUIViewController.swift; sourceTree = "<group>"; };
+		53BFC8AF1EAFB787002BD873 /* CustomSearchField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSearchField.swift; path = AccessibilityUIExamples/SearchField/CustomSearchField.swift; sourceTree = "<group>"; };
+		53BFC8B01EAFB787002BD873 /* CustomSearchFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSearchFieldViewController.swift; path = AccessibilityUIExamples/SearchField/CustomSearchFieldViewController.swift; sourceTree = "<group>"; };
+		53BFC8B41EAFB7D7002BD873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CustomSearchFieldViewController.storyboard; sourceTree = "<group>"; };
+		53BFC8B61EAFCBE4002BD873 /* CustomOutlineViewAccessibilityRowElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomOutlineViewAccessibilityRowElement.swift; path = AccessibilityUIExamples/Outline/CustomOutlineViewAccessibilityRowElement.swift; sourceTree = "<group>"; };
+		53C394021F26658900E50220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/CustomRotorsTextViewController.storyboard; sourceTree = "<group>"; };
+		53C812521F26669900065A95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AccessibilityUIExamples/Base.lproj/TextAttributesViewController.storyboard; sourceTree = "<group>"; };
+		53D0F60D1EAE7E6F0068AA00 /* CustomTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableView.m; path = AccessibilityUIExamples/Table/CustomTableView.m; sourceTree = "<group>"; };
+		53D0F60E1EAE7E6F0068AA00 /* CustomTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableView.swift; path = AccessibilityUIExamples/Table/CustomTableView.swift; sourceTree = "<group>"; };
+		53DC95E61E9819ED007A877A /* CoreTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextView.m; sourceTree = "<group>"; };
+		53DC95E81E981E21007A877A /* ButtonImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonImages.swift; path = AccessibilityUIExamples/Buttons/ButtonImages.swift; sourceTree = SOURCE_ROOT; };
+		53DC95EC1E981E7D007A877A /* CoreTextColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextColumnView.m; sourceTree = "<group>"; };
+		53EE131C1F4B63C400309A84 /* TwoPositionSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoPositionSwitchView.m; path = AccessibilityUIExamples/Switches/TwoPositionSwitchView.m; sourceTree = "<group>"; };
+		53F0327A1ED88C3A00194500 /* CustomRotorsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRotorsPageView.swift; sourceTree = "<group>"; };
+		53F655D81EA9D02B0021EBD0 /* CustomOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomOutlineView.m; path = AccessibilityUIExamples/Outline/CustomOutlineView.m; sourceTree = "<group>"; };
+		CFE5C121B89EB0B6D4CAD42D /* SampleCode.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5331BA371C5BDA2900D4C784 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E262E4AAC3DDE5814DDCCFD /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				CFE5C121B89EB0B6D4CAD42D /* SampleCode.xcconfig */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		3E6EADA51F5EF22C005A1E0B /* LICENSE */ = {
+			isa = PBXGroup;
+			children = (
+				3E6EADA61F5EF241005A1E0B /* LICENSE.txt */,
+			);
+			name = LICENSE;
+			sourceTree = "<group>";
+		};
+		5310BDED1ED77A3100FA1BA6 /* CustomRotors */ = {
+			isa = PBXGroup;
+			children = (
+				5310BDF61ED77A3100FA1BA6 /* ElementView */,
+				5316A1A01EF983FE0020DE20 /* TextView */,
+			);
+			name = CustomRotors;
+			path = AccessibilityUIExamples/CustomRotors;
+			sourceTree = "<group>";
+		};
+		5310BDF61ED77A3100FA1BA6 /* ElementView */ = {
+			isa = PBXGroup;
+			children = (
+				535E1BAA1ED8A27F0079E03B /* CustomRotorsElementViewController.swift */,
+				53A36F631EDDCCE300FC1AC3 /* CustomRotorsElementLoadingToken.swift */,
+				53F0327A1ED88C3A00194500 /* CustomRotorsPageView.swift */,
+				535E1BA31ED892C30079E03B /* CustomRotorsContainerView.swift */,
+				533F734A1EDDCAD5006E15DD /* CustomRotorsElementViewController.storyboard */,
+			);
+			path = ElementView;
+			sourceTree = "<group>";
+		};
+		5316A1981EF983CA0020DE20 /* TextAttributes */ = {
+			isa = PBXGroup;
+			children = (
+				5316A1991EF983DF0020DE20 /* TextAttributesViewController.swift */,
+				5316A19A1EF983DF0020DE20 /* TextAttributesTextView.swift */,
+				53C812511F26669900065A95 /* TextAttributesViewController.storyboard */,
+			);
+			name = TextAttributes;
+			sourceTree = "<group>";
+		};
+		5316A1A01EF983FE0020DE20 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				5316A1A21EF9840B0020DE20 /* CustomRotorsTextViewController.swift */,
+				5316A1A11EF9840B0020DE20 /* CustomRotorsTextView.swift */,
+				53C394011F26658900E50220 /* CustomRotorsTextViewController.storyboard */,
+			);
+			name = TextView;
+			sourceTree = "<group>";
+		};
+		531E92991EA92F12008BFD2A /* Outline */ = {
+			isa = PBXGroup;
+			children = (
+				531E929D1EA92F27008BFD2A /* CustomOutlineViewController.swift */,
+				531E929F1EA93005008BFD2A /* CustomOutlineView.swift */,
+				53BFC8B61EAFCBE4002BD873 /* CustomOutlineViewAccessibilityRowElement.swift */,
+				53BFC89A1EAFA4F1002BD873 /* OutlineViewNode.swift */,
+				53F655D81EA9D02B0021EBD0 /* CustomOutlineView.m */,
+				531E929A1EA92F1F008BFD2A /* CustomOutlineViewController.storyboard */,
+			);
+			name = Outline;
+			sourceTree = "<group>";
+		};
+		531E92A11EAE4AA7008BFD2A /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				531E92A31EAE4AB4008BFD2A /* CustomTableViewController.swift */,
+				53D0F60E1EAE7E6F0068AA00 /* CustomTableView.swift */,
+				53D0F60D1EAE7E6F0068AA00 /* CustomTableView.m */,
+				531E92A61EAE4C2E008BFD2A /* CustomTableViewController.storyboard */,
+			);
+			name = Table;
+			sourceTree = "<group>";
+		};
+		532604071E9E9C96006D203E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5326040E1E9E9D96006D203E /* NSImageView Subclass */,
+				5326040F1E9E9DB0006D203E /* NSView Subclass */,
+				532604101E9E9DC2006D203E /* CALayer Subclass */,
+			);
+			name = Images;
+			path = AccessibilityUIExamples/Images;
+			sourceTree = "<group>";
+		};
+		5326040E1E9E9D96006D203E /* NSImageView Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				532604201E9E9FD0006D203E /* ImageViewSubclass.swift */,
+				5326041A1E9E9E77006D203E /* ImageViewSubclassViewController.storyboard */,
+			);
+			name = "NSImageView Subclass";
+			sourceTree = "<group>";
+		};
+		5326040F1E9E9DB0006D203E /* NSView Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				532604221E9EAB83006D203E /* ViewImageSubclass.swift */,
+				5326041D1E9E9E7B006D203E /* ViewImageSubclassViewController.storyboard */,
+			);
+			name = "NSView Subclass";
+			sourceTree = "<group>";
+		};
+		532604101E9E9DC2006D203E /* CALayer Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				5369240A1E9EADAB006CDDC9 /* ImageViewLayerView.swift */,
+				5369240C1E9EAEE3006CDDC9 /* CustomImageLayer.swift */,
+				5369240D1E9EAEE3006CDDC9 /* CustomTextLayer.swift */,
+				532604171E9E9E73006D203E /* ImageViewLayerImageViewController.storyboard */,
+			);
+			name = "CALayer Subclass";
+			sourceTree = "<group>";
+		};
+		5331BA311C5BDA2900D4C784 = {
+			isa = PBXGroup;
+			children = (
+				5377F8171E92B9450030A3B2 /* README.md */,
+				5331BA3C1C5BDA2900D4C784 /* AccessibilityUIExamples */,
+				5377F83F1E9404490030A3B2 /* Buttons */,
+				537A3D121E9584680079DF26 /* Text */,
+				535DA1FF1E9C420A0038B30A /* Switches */,
+				532604071E9E9C96006D203E /* Images */,
+				536924161E9EC90A006CDDC9 /* Radio Buttons */,
+				53558C741EA028E60040915B /* Checkbox */,
+				53A4D69F1EA1337B003BE1BD /* Slider */,
+				53A4D6AA1EA1456F003BE1BD /* LayoutArea */,
+				531E92991EA92F12008BFD2A /* Outline */,
+				531E92A11EAE4AA7008BFD2A /* Table */,
+				53BFC89E1EAFB2B4002BD873 /* Stepper */,
+				53BFC8A61EAFB397002BD873 /* Transient UI */,
+				5310BDED1ED77A3100FA1BA6 /* CustomRotors */,
+				53BFC8AE1EAFB48A002BD873 /* SearchField */,
+				5331BA4D1C5BDA8000D4C784 /* Supporting Files */,
+				5331BA3B1C5BDA2900D4C784 /* Products */,
+				2E262E4AAC3DDE5814DDCCFD /* Configuration */,
+				3E6EADA51F5EF22C005A1E0B /* LICENSE */,
+			);
+			sourceTree = "<group>";
+		};
+		5331BA3B1C5BDA2900D4C784 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5331BA3A1C5BDA2900D4C784 /* AccessibilityUIExamples.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5331BA3C1C5BDA2900D4C784 /* AccessibilityUIExamples */ = {
+			isa = PBXGroup;
+			children = (
+				536094771EB3A5E200253327 /* AppDelegate.swift */,
+				5360947B1EB3A5E200253327 /* WindowController.swift */,
+				5360947A1EB3A5E200253327 /* SplitViewController.swift */,
+				536094821EB3A5F200253327 /* MasterViewController.swift */,
+				536094861EB3A5FB00253327 /* DetailViewController.swift */,
+				536094781EB3A5E200253327 /* Character.swift */,
+				536094791EB3A5E200253327 /* Example.swift */,
+			);
+			name = AccessibilityUIExamples;
+			sourceTree = "<group>";
+		};
+		5331BA4D1C5BDA8000D4C784 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5377F82B1E92C3270030A3B2 /* Info.plist */,
+				5377F82C1E92C3400030A3B2 /* Credits.rtf */,
+				5377F8351E92C3470030A3B2 /* Main.storyboard */,
+				5377F82E1E92C3400030A3B2 /* InfoPlist.strings */,
+				5377F8301E92C3400030A3B2 /* Localizable.strings */,
+				5377F8521E9407520030A3B2 /* Images.xcassets */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		53558C741EA028E60040915B /* Checkbox */ = {
+			isa = PBXGroup;
+			children = (
+				53558C761EA029470040915B /* CustomCheckBoxViewController.swift */,
+				53558C751EA029470040915B /* CustomCheckBoxView.swift */,
+				53558C7D1EA032C50040915B /* CustomCheckBoxView.m */,
+				53558C791EA029670040915B /* CustomCheckBoxViewController.storyboard */,
+			);
+			name = Checkbox;
+			sourceTree = "<group>";
+		};
+		535DA1FF1E9C420A0038B30A /* Switches */ = {
+			isa = PBXGroup;
+			children = (
+				535DA2141E9D40B90038B30A /* TwoPosition */,
+				535DA2151E9D40C40038B30A /* ThreePosition */,
+			);
+			name = Switches;
+			sourceTree = "<group>";
+		};
+		535DA2141E9D40B90038B30A /* TwoPosition */ = {
+			isa = PBXGroup;
+			children = (
+				535DA2011E9C42160038B30A /* TwoPositionSwitchViewController.swift */,
+				535DA20B1E9D3A7E0038B30A /* TwoPositionSwitchView.swift */,
+				53EE131C1F4B63C400309A84 /* TwoPositionSwitchView.m */,
+				535DA2061E9C427F0038B30A /* TwoPositionSwitchViewController.storyboard */,
+			);
+			name = TwoPosition;
+			sourceTree = "<group>";
+		};
+		535DA2151E9D40C40038B30A /* ThreePosition */ = {
+			isa = PBXGroup;
+			children = (
+				535DA2001E9C42160038B30A /* ThreePositionSwitchViewController.swift */,
+				535DA20A1E9D3A7E0038B30A /* ThreePositionSwitchView.swift */,
+				535DA20F1E9D3CA50038B30A /* ThreePositionSwitchView.m */,
+				535DA2041E9C427F0038B30A /* ThreePositionSwitchViewController.storyboard */,
+			);
+			name = ThreePosition;
+			sourceTree = "<group>";
+		};
+		536924161E9EC90A006CDDC9 /* Radio Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				536924171E9EC91C006CDDC9 /* CustomRadioButtonsViewController.swift */,
+				5369241C1E9EC97F006CDDC9 /* CustomRadioButtonsView.swift */,
+				536924191E9EC925006CDDC9 /* CustomRadioButtonsViewController.storyboard */,
+			);
+			name = "Radio Buttons";
+			sourceTree = "<group>";
+		};
+		5377F83F1E9404490030A3B2 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				53DC95E81E981E21007A877A /* ButtonImages.swift */,
+				5377F8541E9407AE0030A3B2 /* ButtonBaseViewController.swift */,
+				5377F85A1E94208C0030A3B2 /* Button */,
+				5377F85B1E94209A0030A3B2 /* ButtonImage */,
+				5377F85C1E9420A50030A3B2 /* ButtonSubclass */,
+				5377F85D1E9420B20030A3B2 /* ButtonViewSubclass */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		5377F85A1E94208C0030A3B2 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				5377F83D1E9404440030A3B2 /* ButtonViewController.swift */,
+				5377F8401E9404A20030A3B2 /* ButtonViewController.storyboard */,
+			);
+			name = Button;
+			sourceTree = "<group>";
+		};
+		5377F85B1E94209A0030A3B2 /* ButtonImage */ = {
+			isa = PBXGroup;
+			children = (
+				5377F8431E9404FA0030A3B2 /* ButtonWithImageViewController.swift */,
+				5377F8451E94051A0030A3B2 /* ButtonWithImageViewController.storyboard */,
+			);
+			name = ButtonImage;
+			sourceTree = "<group>";
+		};
+		5377F85C1E9420A50030A3B2 /* ButtonSubclass */ = {
+			isa = PBXGroup;
+			children = (
+				5377F84A1E9406180030A3B2 /* ButtonSubclassViewController.swift */,
+				5377F8581E9420550030A3B2 /* CustomButton.swift */,
+				5377F8481E9406180030A3B2 /* ButtonSubclassViewController.storyboard */,
+			);
+			name = ButtonSubclass;
+			sourceTree = "<group>";
+		};
+		5377F85D1E9420B20030A3B2 /* ButtonViewSubclass */ = {
+			isa = PBXGroup;
+			children = (
+				5377F84F1E9406DE0030A3B2 /* ButtonViewSubclassViewController.swift */,
+				5377F8561E941EA10030A3B2 /* CustomButtonView.swift */,
+				5377F84D1E9406DE0030A3B2 /* ButtonViewSubclassViewController.storyboard */,
+			);
+			name = ButtonViewSubclass;
+			sourceTree = "<group>";
+		};
+		537A3D121E9584680079DF26 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				537A3D2C1E96D69A0079DF26 /* Protected */,
+				537A3D2D1E96D6A30079DF26 /* CoreText */,
+				53DC95EA1E981E49007A877A /* CoreTextColumn */,
+				5316A1981EF983CA0020DE20 /* TextAttributes */,
+			);
+			name = Text;
+			path = AccessibilityUIExamples/Text;
+			sourceTree = SOURCE_ROOT;
+		};
+		537A3D2C1E96D69A0079DF26 /* Protected */ = {
+			isa = PBXGroup;
+			children = (
+				537A3D151E9584680079DF26 /* ProtectedTextViewController.swift */,
+				537A3D191E95851E0079DF26 /* ProtectedTextViewController.storyboard */,
+			);
+			name = Protected;
+			sourceTree = "<group>";
+		};
+		537A3D2D1E96D6A30079DF26 /* CoreText */ = {
+			isa = PBXGroup;
+			children = (
+				537A3D131E9584680079DF26 /* CoreTextViewController.swift */,
+				537A3D221E958B7D0079DF26 /* CoreTextView.swift */,
+				53DC95E61E9819ED007A877A /* CoreTextView.m */,
+				537A3D1C1E9585270079DF26 /* CoreTextViewController.storyboard */,
+			);
+			name = CoreText;
+			sourceTree = "<group>";
+		};
+		53A4D69F1EA1337B003BE1BD /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				53A4D6A31EA1338C003BE1BD /* CustomSliderViewController.swift */,
+				53A4D6B71EA146ED003BE1BD /* CustomSliderView.swift */,
+				53A4D6A71EA13412003BE1BD /* CustomSliderViewController.storyboard */,
+			);
+			name = Slider;
+			sourceTree = "<group>";
+		};
+		53A4D6AA1EA1456F003BE1BD /* LayoutArea */ = {
+			isa = PBXGroup;
+			children = (
+				53A4D6AE1EA14587003BE1BD /* CustomLayoutAreaViewController.swift */,
+				53A4D6BC1EA146F5003BE1BD /* CustomLayoutAreaView.swift */,
+				53B4D2931EB28450001D6C49 /* CustomLayoutAreaView+Measurements.swift */,
+				53BFC89C1EAFAA5D002BD873 /* LayoutItem.swift */,
+				53A4D6AB1EA14582003BE1BD /* CustomLayoutAreaViewController.storyboard */,
+			);
+			name = LayoutArea;
+			sourceTree = "<group>";
+		};
+		53BFC89E1EAFB2B4002BD873 /* Stepper */ = {
+			isa = PBXGroup;
+			children = (
+				5384A2201ECBD4A600A1D425 /* Bridging-Header.h */,
+				5384A2211ECBD4C800A1D425 /* ShaderTypes.h */,
+				53BFC8A31EAFB2C9002BD873 /* CustomStepperViewController.swift */,
+				53BFC8A21EAFB2C9002BD873 /* CustomStepperView.swift */,
+				53BFC89F1EAFB2C1002BD873 /* CustomStepperViewController.storyboard */,
+				5384A21C1ECBD3F400A1D425 /* Shaders.metal */,
+				5384A21D1ECBD3F400A1D425 /* StepperAssets.xcassets */,
+			);
+			name = Stepper;
+			sourceTree = "<group>";
+		};
+		53BFC8A61EAFB397002BD873 /* Transient UI */ = {
+			isa = PBXGroup;
+			children = (
+				53BFC8AB1EAFB411002BD873 /* TransientUIViewController.swift */,
+				53BFC8AA1EAFB411002BD873 /* TransientUITriggerView.swift */,
+				53BFC8A71EAFB40C002BD873 /* TransientUIViewController.storyboard */,
+			);
+			name = "Transient UI";
+			sourceTree = "<group>";
+		};
+		53BFC8AE1EAFB48A002BD873 /* SearchField */ = {
+			isa = PBXGroup;
+			children = (
+				53BFC8B01EAFB787002BD873 /* CustomSearchFieldViewController.swift */,
+				53BFC8AF1EAFB787002BD873 /* CustomSearchField.swift */,
+				53BFC8B31EAFB7D7002BD873 /* CustomSearchFieldViewController.storyboard */,
+			);
+			name = SearchField;
+			sourceTree = "<group>";
+		};
+		53DC95EA1E981E49007A877A /* CoreTextColumn */ = {
+			isa = PBXGroup;
+			children = (
+				537A3D141E9584680079DF26 /* CoreTextColumnViewController.swift */,
+				537A3D2E1E96D6F40079DF26 /* CoreTextColumnView.swift */,
+				53DC95EC1E981E7D007A877A /* CoreTextColumnView.m */,
+				537A3D1F1E95852C0079DF26 /* CoreTextColumnViewController.storyboard */,
+			);
+			name = CoreTextColumn;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5331BA391C5BDA2900D4C784 /* AccessibilityUIExamples */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5331BA491C5BDA2900D4C784 /* Build configuration list for PBXNativeTarget "AccessibilityUIExamples" */;
+			buildPhases = (
+				5331BA361C5BDA2900D4C784 /* Sources */,
+				5331BA371C5BDA2900D4C784 /* Frameworks */,
+				5331BA381C5BDA2900D4C784 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AccessibilityUIExamples;
+			productName = CloudPhotos;
+			productReference = 5331BA3A1C5BDA2900D4C784 /* AccessibilityUIExamples.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5331BA321C5BDA2900D4C784 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Apple;
+				TargetAttributes = {
+					5331BA391C5BDA2900D4C784 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeamName = "";
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 5331BA351C5BDA2900D4C784 /* Build configuration list for PBXProject "AccessibilityUIExamples" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5331BA311C5BDA2900D4C784;
+			productRefGroup = 5331BA3B1C5BDA2900D4C784 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5331BA391C5BDA2900D4C784 /* AccessibilityUIExamples */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5331BA381C5BDA2900D4C784 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5377F8531E9407520030A3B2 /* Images.xcassets in Resources */,
+				531E929C1EA92F1F008BFD2A /* CustomOutlineViewController.storyboard in Resources */,
+				535DA2091E9C427F0038B30A /* TwoPositionSwitchViewController.storyboard in Resources */,
+				53A4D6AD1EA14582003BE1BD /* CustomLayoutAreaViewController.storyboard in Resources */,
+				5316C4811F2667A600EBE410 /* CustomRotorsTextViewController.storyboard in Resources */,
+				5384A21F1ECBD3F400A1D425 /* StepperAssets.xcassets in Resources */,
+				535DA2081E9C427F0038B30A /* ThreePositionSwitchViewController.storyboard in Resources */,
+				53BFC8B51EAFB7D7002BD873 /* CustomSearchFieldViewController.storyboard in Resources */,
+				537A3D211E95852C0079DF26 /* CoreTextColumnViewController.storyboard in Resources */,
+				5369241B1E9EC925006CDDC9 /* CustomRadioButtonsViewController.storyboard in Resources */,
+				53BFC8A91EAFB40C002BD873 /* TransientUIViewController.storyboard in Resources */,
+				531E92A81EAE4C2E008BFD2A /* CustomTableViewController.storyboard in Resources */,
+				5377F8501E9406DE0030A3B2 /* ButtonViewSubclassViewController.storyboard in Resources */,
+				5377F84B1E9406180030A3B2 /* ButtonSubclassViewController.storyboard in Resources */,
+				53BFC8A11EAFB2C1002BD873 /* CustomStepperViewController.storyboard in Resources */,
+				5377F8321E92C3400030A3B2 /* Credits.rtf in Resources */,
+				533F734C1EDDCAD5006E15DD /* CustomRotorsElementViewController.storyboard in Resources */,
+				5377F8471E94051A0030A3B2 /* ButtonWithImageViewController.storyboard in Resources */,
+				53A4D6A91EA13412003BE1BD /* CustomSliderViewController.storyboard in Resources */,
+				532604191E9E9E73006D203E /* ImageViewLayerImageViewController.storyboard in Resources */,
+				5377F8341E92C3400030A3B2 /* Localizable.strings in Resources */,
+				5326041F1E9E9E7B006D203E /* ViewImageSubclassViewController.storyboard in Resources */,
+				5377F8331E92C3400030A3B2 /* InfoPlist.strings in Resources */,
+				53558C7B1EA029670040915B /* CustomCheckBoxViewController.storyboard in Resources */,
+				5316C4801F26678D00EBE410 /* TextAttributesViewController.storyboard in Resources */,
+				5377F8371E92C3470030A3B2 /* Main.storyboard in Resources */,
+				5377F8421E9404A20030A3B2 /* ButtonViewController.storyboard in Resources */,
+				537A3D1B1E95851E0079DF26 /* ProtectedTextViewController.storyboard in Resources */,
+				5326041C1E9E9E77006D203E /* ImageViewSubclassViewController.storyboard in Resources */,
+				537A3D1E1E9585270079DF26 /* CoreTextViewController.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5331BA361C5BDA2900D4C784 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53DC95ED1E981E7D007A877A /* CoreTextColumnView.m in Sources */,
+				536094841EB3A5F200253327 /* MasterViewController.swift in Sources */,
+				535DA2101E9D3CA50038B30A /* ThreePositionSwitchView.m in Sources */,
+				536094801EB3A5E200253327 /* WindowController.swift in Sources */,
+				5316A19B1EF983DF0020DE20 /* TextAttributesViewController.swift in Sources */,
+				5377F83E1E9404440030A3B2 /* ButtonViewController.swift in Sources */,
+				53BFC8A41EAFB2C9002BD873 /* CustomStepperView.swift in Sources */,
+				532604211E9E9FD0006D203E /* ImageViewSubclass.swift in Sources */,
+				537A3D161E9584680079DF26 /* CoreTextViewController.swift in Sources */,
+				5360947D1EB3A5E200253327 /* Character.swift in Sources */,
+				5369240F1E9EAEE3006CDDC9 /* CustomTextLayer.swift in Sources */,
+				53BFC8B71EAFCBE4002BD873 /* CustomOutlineViewAccessibilityRowElement.swift in Sources */,
+				535E1BAB1ED8A5AB0079E03B /* CustomRotorsElementViewController.swift in Sources */,
+				5369240B1E9EADAB006CDDC9 /* ImageViewLayerView.swift in Sources */,
+				536924181E9EC91C006CDDC9 /* CustomRadioButtonsViewController.swift in Sources */,
+				53BFC89D1EAFAA5D002BD873 /* LayoutItem.swift in Sources */,
+				53A4D6BE1EA146F5003BE1BD /* CustomLayoutAreaView.swift in Sources */,
+				5360947F1EB3A5E200253327 /* SplitViewController.swift in Sources */,
+				5377F8441E9404FA0030A3B2 /* ButtonWithImageViewController.swift in Sources */,
+				53D0F60F1EAE7E6F0068AA00 /* CustomTableView.m in Sources */,
+				532604231E9EAB83006D203E /* ViewImageSubclass.swift in Sources */,
+				5316A19C1EF983DF0020DE20 /* TextAttributesTextView.swift in Sources */,
+				531E92A51EAE4AB4008BFD2A /* CustomTableViewController.swift in Sources */,
+				5377F8571E941EA10030A3B2 /* CustomButtonView.swift in Sources */,
+				5369241D1E9EC97F006CDDC9 /* CustomRadioButtonsView.swift in Sources */,
+				5369240E1E9EAEE3006CDDC9 /* CustomImageLayer.swift in Sources */,
+				53BFC8AD1EAFB411002BD873 /* TransientUIViewController.swift in Sources */,
+				53558C771EA029470040915B /* CustomCheckBoxView.swift in Sources */,
+				535DA2021E9C42160038B30A /* ThreePositionSwitchViewController.swift in Sources */,
+				5360947C1EB3A5E200253327 /* AppDelegate.swift in Sources */,
+				5360947E1EB3A5E200253327 /* Example.swift in Sources */,
+				5316A1A31EF9840B0020DE20 /* CustomRotorsTextView.swift in Sources */,
+				536094881EB3A5FB00253327 /* DetailViewController.swift in Sources */,
+				53F655D91EA9D02B0021EBD0 /* CustomOutlineView.m in Sources */,
+				535DA2031E9C42160038B30A /* TwoPositionSwitchViewController.swift in Sources */,
+				53BFC8A51EAFB2C9002BD873 /* CustomStepperViewController.swift in Sources */,
+				53BFC8AC1EAFB411002BD873 /* TransientUITriggerView.swift in Sources */,
+				53F0327B1ED88C4000194500 /* CustomRotorsPageView.swift in Sources */,
+				53EE131D1F4B63C400309A84 /* TwoPositionSwitchView.m in Sources */,
+				5377F8511E9406DE0030A3B2 /* ButtonViewSubclassViewController.swift in Sources */,
+				53D0F6101EAE7E6F0068AA00 /* CustomTableView.swift in Sources */,
+				53A4D6B91EA146ED003BE1BD /* CustomSliderView.swift in Sources */,
+				53A36F661EDDD12500FC1AC3 /* CustomRotorsElementLoadingToken.swift in Sources */,
+				535DA20D1E9D3A7E0038B30A /* TwoPositionSwitchView.swift in Sources */,
+				537A3D231E958B7D0079DF26 /* CoreTextView.swift in Sources */,
+				5377F84C1E9406180030A3B2 /* ButtonSubclassViewController.swift in Sources */,
+				53BFC89B1EAFA4F1002BD873 /* OutlineViewNode.swift in Sources */,
+				53A4D6AF1EA14587003BE1BD /* CustomLayoutAreaViewController.swift in Sources */,
+				53558C781EA029470040915B /* CustomCheckBoxViewController.swift in Sources */,
+				5377F8551E9407AE0030A3B2 /* ButtonBaseViewController.swift in Sources */,
+				53BFC8B11EAFB787002BD873 /* CustomSearchField.swift in Sources */,
+				537A3D181E9584680079DF26 /* ProtectedTextViewController.swift in Sources */,
+				53A4D6A61EA1338C003BE1BD /* CustomSliderViewController.swift in Sources */,
+				5377F8591E9420550030A3B2 /* CustomButton.swift in Sources */,
+				537A3D2F1E96D6F40079DF26 /* CoreTextColumnView.swift in Sources */,
+				5316A1A41EF9840B0020DE20 /* CustomRotorsTextViewController.swift in Sources */,
+				5384A21E1ECBD3F400A1D425 /* Shaders.metal in Sources */,
+				53DC95E91E981E21007A877A /* ButtonImages.swift in Sources */,
+				537A3D171E9584680079DF26 /* CoreTextColumnViewController.swift in Sources */,
+				53558C7E1EA032C50040915B /* CustomCheckBoxView.m in Sources */,
+				535E1BA41ED892D60079E03B /* CustomRotorsContainerView.swift in Sources */,
+				531E929E1EA92F27008BFD2A /* CustomOutlineViewController.swift in Sources */,
+				53B4D2941EB28450001D6C49 /* CustomLayoutAreaView+Measurements.swift in Sources */,
+				531E92A01EA93005008BFD2A /* CustomOutlineView.swift in Sources */,
+				535DA20C1E9D3A7E0038B30A /* ThreePositionSwitchView.swift in Sources */,
+				53BFC8B21EAFB787002BD873 /* CustomSearchFieldViewController.swift in Sources */,
+				53DC95E71E9819ED007A877A /* CoreTextView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		531E929A1EA92F1F008BFD2A /* CustomOutlineViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				531E929B1EA92F1F008BFD2A /* Base */,
+			);
+			name = CustomOutlineViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		531E92A61EAE4C2E008BFD2A /* CustomTableViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				531E92A71EAE4C2E008BFD2A /* Base */,
+			);
+			name = CustomTableViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		532604171E9E9E73006D203E /* ImageViewLayerImageViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				532604181E9E9E73006D203E /* Base */,
+			);
+			name = ImageViewLayerImageViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		5326041A1E9E9E77006D203E /* ImageViewSubclassViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5326041B1E9E9E77006D203E /* Base */,
+			);
+			name = ImageViewSubclassViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		5326041D1E9E9E7B006D203E /* ViewImageSubclassViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5326041E1E9E9E7B006D203E /* Base */,
+			);
+			name = ViewImageSubclassViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		533F734A1EDDCAD5006E15DD /* CustomRotorsElementViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				533F734B1EDDCAD5006E15DD /* Base */,
+			);
+			name = CustomRotorsElementViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		53558C791EA029670040915B /* CustomCheckBoxViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53558C7A1EA029670040915B /* Base */,
+			);
+			name = CustomCheckBoxViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		535DA2041E9C427F0038B30A /* ThreePositionSwitchViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				535DA2051E9C427F0038B30A /* Base */,
+			);
+			name = ThreePositionSwitchViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		535DA2061E9C427F0038B30A /* TwoPositionSwitchViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				535DA2071E9C427F0038B30A /* Base */,
+			);
+			name = TwoPositionSwitchViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		536924191E9EC925006CDDC9 /* CustomRadioButtonsViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5369241A1E9EC925006CDDC9 /* Base */,
+			);
+			name = CustomRadioButtonsViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		5377F82C1E92C3400030A3B2 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5377F82D1E92C3400030A3B2 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		5377F82E1E92C3400030A3B2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5377F82F1E92C3400030A3B2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5377F8301E92C3400030A3B2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5377F8311E92C3400030A3B2 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		5377F8351E92C3470030A3B2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5377F8361E92C3470030A3B2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5377F8401E9404A20030A3B2 /* ButtonViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5377F8411E9404A20030A3B2 /* Base */,
+			);
+			name = ButtonViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		5377F8451E94051A0030A3B2 /* ButtonWithImageViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5377F8461E94051A0030A3B2 /* Base */,
+			);
+			name = ButtonWithImageViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		5377F8481E9406180030A3B2 /* ButtonSubclassViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5377F8491E9406180030A3B2 /* Base */,
+			);
+			name = ButtonSubclassViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		5377F84D1E9406DE0030A3B2 /* ButtonViewSubclassViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5377F84E1E9406DE0030A3B2 /* Base */,
+			);
+			name = ButtonViewSubclassViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		537A3D191E95851E0079DF26 /* ProtectedTextViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				537A3D1A1E95851E0079DF26 /* Base */,
+			);
+			name = ProtectedTextViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		537A3D1C1E9585270079DF26 /* CoreTextViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				537A3D1D1E9585270079DF26 /* Base */,
+			);
+			name = CoreTextViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		537A3D1F1E95852C0079DF26 /* CoreTextColumnViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				537A3D201E95852C0079DF26 /* Base */,
+			);
+			name = CoreTextColumnViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		53A4D6A71EA13412003BE1BD /* CustomSliderViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53A4D6A81EA13412003BE1BD /* Base */,
+			);
+			name = CustomSliderViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		53A4D6AB1EA14582003BE1BD /* CustomLayoutAreaViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53A4D6AC1EA14582003BE1BD /* Base */,
+			);
+			name = CustomLayoutAreaViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		53BFC89F1EAFB2C1002BD873 /* CustomStepperViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53BFC8A01EAFB2C1002BD873 /* Base */,
+			);
+			name = CustomStepperViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		53BFC8A71EAFB40C002BD873 /* TransientUIViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53BFC8A81EAFB40C002BD873 /* Base */,
+			);
+			name = TransientUIViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		53BFC8B31EAFB7D7002BD873 /* CustomSearchFieldViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53BFC8B41EAFB7D7002BD873 /* Base */,
+			);
+			name = CustomSearchFieldViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		53C394011F26658900E50220 /* CustomRotorsTextViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53C394021F26658900E50220 /* Base */,
+			);
+			name = CustomRotorsTextViewController.storyboard;
+			sourceTree = SOURCE_ROOT;
+		};
+		53C812511F26669900065A95 /* TextAttributesViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53C812521F26669900065A95 /* Base */,
+			);
+			name = TextAttributesViewController.storyboard;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5331BA471C5BDA2900D4C784 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFE5C121B89EB0B6D4CAD42D /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5331BA481C5BDA2900D4C784 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFE5C121B89EB0B6D4CAD42D /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5331BA4A1C5BDA2900D4C784 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFE5C121B89EB0B6D4CAD42D /* SampleCode.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = AccessibilityUIExamples/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AccessibilityUIExamples${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AccessibilityUIExamples/Stepper/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		5331BA4B1C5BDA2900D4C784 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFE5C121B89EB0B6D4CAD42D /* SampleCode.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = AccessibilityUIExamples/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AccessibilityUIExamples${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AccessibilityUIExamples/Stepper/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5331BA351C5BDA2900D4C784 /* Build configuration list for PBXProject "AccessibilityUIExamples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5331BA471C5BDA2900D4C784 /* Debug */,
+				5331BA481C5BDA2900D4C784 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5331BA491C5BDA2900D4C784 /* Build configuration list for PBXNativeTarget "AccessibilityUIExamples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5331BA4A1C5BDA2900D4C784 /* Debug */,
+				5331BA4B1C5BDA2900D4C784 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5331BA321C5BDA2900D4C784 /* Project object */;
+}

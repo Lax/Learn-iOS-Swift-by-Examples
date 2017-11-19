@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13115" systemVersion="17A251a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13115"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CustomStepperViewController-->
+        <scene sceneID="lsD-jq-9yG">
+            <objects>
+                <customObject id="SOC-OX-ybn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="CustomStepperViewController" id="BJj-AK-Or5" userLabel="CustomStepperViewController" customClass="CustomStepperViewController" customModule="AccessibilityUIExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ugI-Pl-CNw">
+                        <rect key="frame" x="0.0" y="0.0" width="185" height="72"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H5M-ew-1dy">
+                                <rect key="frame" x="48" y="24" width="135" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="131" id="amR-Lv-oIg"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Volume: 100%" id="2uz-M8-0Kc">
+                                    <font key="font" metaFont="system" size="20"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="z8n-Uw-fSF" customClass="CustomStepperView" customModule="AccessibilityUIExamples" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="K9V-t5-cjf"/>
+                                    <constraint firstAttribute="height" constant="72" id="cbD-1i-9yl"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="z8n-Uw-fSF" firstAttribute="leading" secondItem="ugI-Pl-CNw" secondAttribute="leading" id="5xB-E7-o8Z"/>
+                            <constraint firstItem="z8n-Uw-fSF" firstAttribute="top" secondItem="ugI-Pl-CNw" secondAttribute="top" id="VT8-4s-QMz"/>
+                            <constraint firstItem="H5M-ew-1dy" firstAttribute="centerY" secondItem="z8n-Uw-fSF" secondAttribute="centerY" id="cIN-kd-TW3"/>
+                            <constraint firstItem="H5M-ew-1dy" firstAttribute="leading" secondItem="z8n-Uw-fSF" secondAttribute="trailing" constant="8" symbolic="YES" id="qm9-0j-23W"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="customStepper" destination="z8n-Uw-fSF" id="Nnv-Mg-VM7"/>
+                        <outlet property="volumeLevel" destination="H5M-ew-1dy" id="WJL-pW-CDd"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="386" y="1030"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ButtonWithImageViewController-->
+        <scene sceneID="lsD-jq-9yG">
+            <objects>
+                <customObject id="SOC-OX-ybn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="ButtonWithImageViewController" id="BJj-AK-Or5" userLabel="ButtonWithImageViewController" customClass="ButtonWithImageViewController" customModule="AccessibilityUIExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ugI-Pl-CNw">
+                        <rect key="frame" x="0.0" y="0.0" width="129" height="72"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dew-wf-5RT">
+                                <rect key="frame" x="-2" y="54" width="133" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Press Count" id="eRL-Qq-S9b">
+                                    <font key="font" metaFont="system" size="14"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RiL-hx-058">
+                                <rect key="frame" x="0.0" y="0.0" width="129" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="CustomButtonUp" imagePosition="overlaps" alignment="center" alternateImage="CustomButtonDown" imageScaling="proportionallyDown" inset="2" id="Us2-lu-vZk">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <accessibility description="Play"/>
+                                <connections>
+                                    <action selector="pressButton:" target="BJj-AK-Or5" id="wh0-Wd-c3Z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="RiL-hx-058" id="YIl-wj-I5J"/>
+                        <outlet property="pressCountTextField" destination="dew-wf-5RT" id="UeH-1j-HhH"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="429.5" y="904"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CustomButtonDown" width="129" height="46"/>
+        <image name="CustomButtonUp" width="129" height="46"/>
+    </resources>
+</document>

@@ -1,0 +1,168 @@
+/*
+See LICENSE folder for this sample’s licensing information.
+
+Abstract:
+Localized strings for this application.
+*/
+
+// Buttons
+"Buttons" = "Buttons";
+
+"NSButton" = "NSButton";
+"NSButtonDescription" = "An example of a standard NSButton with a title. This example highlights one of many cases where no work needs to be done to provide accessibility information.";
+
+"NSButton with image" = "NSButton with image";
+"NSButtonWithImageDescription" = "An example of a standard NSButton with an image. This example shows how to add an accessibility description using Interface Builder.";
+
+"NSButton subclass" = "NSButton subclass";
+"NSButtonSubclassDescription" = "An example of a custom button that sublasses NSButton. This example shows how to add accessibility information to a custom subclass of NSButton to create an accessible button.";
+
+"NSView subclass" = "NSView subclass";
+"NSViewSubclassButtonDescription" = "An example of a custom button that sublasses NSView. This example shows how to add accessibility information to a custom subclass of NSView to create an accessible button.";
+
+// Text
+"Text" = "Text";
+
+"Protected title" = "Protected";
+"ProtectedDescription" = "An example of a subclass of NSTextField that can dynamically limit its content from being accessed via Accessibility API.";
+
+"CoreText title" = "CoreText";
+"CoreTextDescription" = "An example of an NSView that does drawing using CoreText. This example shows how to add accessibility information to a custom subclass of NSView to create an accessible static text field.";
+
+"Columns title" = "Columns";
+"ColumnDescription" = "An example of an NSView that does drawing using CoreText. This example shows how to add accessibility information to a custom subclass of NSView to create an accessible static text field with line-by-line navigation.  Click on it to change the column count.";
+
+// Text attributes
+"Text Attributes title" = "Text Attributes";
+"TextAttributesDescription" = "An example to add various accessibility text attributes. \n1. Custom: header, 2. List: vegetables\n3. Annotations: Label on \"mini eggplant tacos\", label at the last position of \"broccoli\", and button at the first position of \"apple pie\".";
+
+"header" = "header";
+"1.\t" = "1.\t";
+"2.\t" = "2.\t";
+"3.\t" = "3.\t";
+"Dinner Menu\n\n" = "Dinner Menu\n\n";
+"Mini Eggplant Tacos\n\nPasta Primavera with:\ncarrots\nzucchini\nbroccoli\n\nApple Pie" = "Mini Eggplant Tacos\n\nPasta Primavera with:\ncarrots\nzucchini\nbroccoli\n\nApple Pie";
+"\nApple Pie" = "\nApple Pie";
+"Mini Eggplant Tacos" = "Mini Eggplant Tacos";
+"broccoli" = "broccoli";
+"Apple" = "Apple";
+
+// Switches
+"Switches" = "Switches";
+
+"TwoPositionTitle" = "Two Position";
+
+"TwoPositionDescription" = "An example of a two position switch that subclasses NSSlider. This example shows how to change the accessibility representation of a NSControl UI to match the visual representation.";
+
+"ThreePositionTitle" = "Three Position";
+"ThreePositionDescription" = "An example of a three-position switch that subclasses NSView. This example shows how to create an accessible switch using faux UI elements for controls that are not backed by an NSView.";
+
+"off" = "off";
+"on" = "on";
+"auto" = "auto";
+"Switch" = "switch";
+"A three position switch with off, on, and auto options." = "A three position switch with off, on, and auto options.";
+
+// Images
+"Images" = "Images";
+
+"NSImageViewSubclassDescription" = "An example of a custom image that subclasses NSImageView. This example shows how to add accessibility information to a custom subclass of NSImageView to create an accessible image.";
+"NSViewSubclassImageDescription" = "An example of a custom image that subclasses NSView. This shows an accessible image using Accessibility API.";
+"CALayerSubclassImageDescription" = "An example of custom image and text label using CALayer. This shows an accessible image and text using Accessibility APIs";
+
+"displayed text for the RedDot image" = "Red Dot";
+
+// Other Elements
+"Other Elements" = "Other Elements";
+
+// Radio Group
+"RadioButtonDescription" = "An example of a custom radio button that subclasses NSView. This example shows how to add accessibility information to a custom subclass of NSView to create an accessible radio button.";
+"Choice one" = "Choice one";
+"Choice two" = "Choice two";
+"Choice three" = "Choice three";
+
+// Checkbox
+"CheckboxDescription" = "An example of a custom checkbox that subclasses NSView. This example shows how to add accessibility information to a custom subclass of NSView to create an accessible checkbox.";
+
+"Hello World" = "Hello World";
+
+// Slider
+"Y Value" = "Y Value";
+"X Value" = "X Value";
+
+"SliderDescription" = "An example of a custom slider that subclasses NSView. This example shows how to add accessibility information to a custom subclass of NSView to create an accessible slider.";
+
+// Layout Area
+"Rectangles" = "Rectangles";
+"Rectangle A" = "Rectangle A";
+"Rectangle B" = "Rectangle B";
+
+"LayoutAreaDescription" = "An example of a custom layout area that subclasses NSView.  This example shows how to add accessibility information to a custom subclass of NSView to create an accessible layout area.";
+"OutlineDescription" = "An example of a custom outline that subclasses NSView. This example shows how to add accessibility information to a custom subclass of NSView to create an accessible outline.";
+"TableDescription" = "An example of a custom table that subclasses NSView. This example shows how to add accessibility information to a custom subclass of NSView to create an accessible table.";
+"StepperDescription" = "An example of a custom stepper that subclasses NSOpenGLView. This example shows how to create an accessible stepper using faux UI elements for controls that are not backed by an NSView.";
+"TransientUIDescription" = "An example of an NSView that shows and hides its subviews based on mouse entered and exited events";
+"SearchFieldDescription" = "An example demonstrating adding accessibility to an NSSearchFieldCell subclass that shows how to use the NSAccessibilitySharedFocusElementsAttribute";
+
+// Outline
+"OutlineNodeDescriptionFormatter" = "%1$@ Depth:%2$li Name:\"%3$@\"";
+
+"Semi Metal" = "Semi Metal";
+"Noble Gas" = "Noble Gas";
+"Boron" = "Boron";
+"Silicon" = "Silicon";
+"Helium" = "Helium";
+"Neon" = "Neon";
+
+"chemical property" = "chemical property";
+
+// Table
+"Table" = "Table";
+"Basic Table" = "Basic Table";
+"ColumnFormatter" = "Col %i";
+"RowFormatter" = "Row %i";
+"CellFormatter" = "Cell %i";
+
+// Transient UI
+"PageCountFormatter" = "This is page %@ of %@";
+
+// SearchField
+"Search menu" = "Search Menu";
+"Recent Searches" = "Recent Searches";
+"No Recent Searches" = "No Recent Searches";
+"Recents" = "Recents";
+"Clear" = "Clear";
+"Seattle" = "Seattle";
+"Seesaw" = "Seesaw";
+"Selfie" = "Selfie";
+"Serial" = "Serial";
+
+// Stepper
+"volume" = "volume";
+"VolumeFormatter" = "Volume: %@";
+"Adjusts the volume" = "Adjusts the volume";
+
+// Custom Rotors
+"Custom Rotors group name" = "Custom Rotors";
+
+// Element Rotors
+"ElementRotorsDescription" = "An example showing how to expose the buttons and text as searchable items for custom rotor.";
+"Element Rotors" = "Element Rotors";
+"Fruit to Color" = "Fruit to Color";
+"Page 1" = "Page 1";
+"Page 2" = "Page 2";
+"Page 3" = "Page 3";
+
+// Text Rotors
+"Text Rotors" = "Text Rotors";
+"TextRotorsDescription" = "Make text attributes as searchable items. Focus on the text: 1) type ctrl-option-u, then left/right arrows to view the custom rotors (Vocabulary, Alice's Thoughts, Misspelled), 2) set insertion point to beginning, ctrl-option-f to bring up the VoiceOver search field and type either 'dream' or 'falling into the well'.";
+
+// Other Misc Content
+"PressCountFormatter" = "Press count: %@";
+
+"Play" = "Play";
+"Increase press count." = "Increase press count.";
+
+"Hello World" = "Hello World";
+
+"LongSampleText" = "Apple designs Macs, the best personal computers in the world, along with macOS, iLife, iWork and professional software. Apple leads the digital music revolution with its iPods and iTunes online store. Apple has reinvented the mobile phone with its revolutionary iPhone and App Store, and is defining the future of mobile media and computing devices with iPad.";

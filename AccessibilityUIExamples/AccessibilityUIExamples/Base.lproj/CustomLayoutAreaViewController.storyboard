@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CustomLayoutAreaViewController-->
+        <scene sceneID="hKU-qV-ATb">
+            <objects>
+                <viewController storyboardIdentifier="CustomLayoutAreaViewController" id="c52-Xj-hbh" userLabel="CustomLayoutAreaViewController" customClass="CustomLayoutAreaViewController" customModule="AccessibilityUIExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="9EN-CY-y63">
+                        <rect key="frame" x="0.0" y="0.0" width="399" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ftc-aO-6sZ" customClass="CustomLayoutAreaView" customModule="AccessibilityUIExamples" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="399" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ftc-aO-6sZ" firstAttribute="leading" secondItem="9EN-CY-y63" secondAttribute="leading" id="4A8-j3-LFF"/>
+                            <constraint firstAttribute="bottom" secondItem="ftc-aO-6sZ" secondAttribute="bottom" id="63A-5W-S0X"/>
+                            <constraint firstAttribute="trailing" secondItem="ftc-aO-6sZ" secondAttribute="trailing" id="Ppn-iQ-aFG"/>
+                            <constraint firstItem="ftc-aO-6sZ" firstAttribute="top" secondItem="9EN-CY-y63" secondAttribute="top" id="d5n-Bq-Vh3"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="kDp-1D-6wp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="528.5" y="714"/>
+        </scene>
+    </scenes>
+</document>

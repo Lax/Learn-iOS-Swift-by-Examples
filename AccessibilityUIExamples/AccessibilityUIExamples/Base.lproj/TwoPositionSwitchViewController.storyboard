@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TwoPositionSwitchViewController-->
+        <scene sceneID="lsD-jq-9yG">
+            <objects>
+                <customObject id="SOC-OX-ybn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="TwoPositionSwitchViewController" id="BJj-AK-Or5" userLabel="TwoPositionSwitchViewController" customClass="TwoPositionSwitchViewController" customModule="AccessibilityUIExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ugI-Pl-CNw">
+                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="OMH-67-oTP">
+                                <rect key="frame" x="28" y="0.0" width="133" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="GZY-QK-bt8"/>
+                                    <constraint firstAttribute="width" constant="133" id="xek-DQ-L1O"/>
+                                </constraints>
+                            </customView>
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AT4-bZ-0e2">
+                                <rect key="frame" x="167" y="7" width="22" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="On" id="blX-l5-vNz">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgP-9C-XFw">
+                                <rect key="frame" x="-2" y="7" width="24" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Off" id="RVY-OU-sDj">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="OMH-67-oTP" firstAttribute="top" secondItem="ugI-Pl-CNw" secondAttribute="top" constant="-1" id="Oxe-2l-tef"/>
+                            <constraint firstItem="OMH-67-oTP" firstAttribute="centerY" secondItem="AT4-bZ-0e2" secondAttribute="centerY" id="ag5-Ym-FO2"/>
+                            <constraint firstItem="AT4-bZ-0e2" firstAttribute="leading" secondItem="OMH-67-oTP" secondAttribute="trailing" constant="8" symbolic="YES" id="e4v-8c-CPi"/>
+                            <constraint firstItem="OMH-67-oTP" firstAttribute="leading" secondItem="ugI-Pl-CNw" secondAttribute="leading" constant="28" id="ebE-Zd-tSF"/>
+                            <constraint firstItem="OMH-67-oTP" firstAttribute="leading" secondItem="mgP-9C-XFw" secondAttribute="trailing" constant="8" symbolic="YES" id="oyK-7l-RqI"/>
+                            <constraint firstItem="OMH-67-oTP" firstAttribute="centerY" secondItem="mgP-9C-XFw" secondAttribute="centerY" id="p2T-2N-Wig"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="placeHolderView" destination="OMH-67-oTP" id="7Yl-VO-Hih"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="530.5" y="1029"/>
+        </scene>
+    </scenes>
+</document>

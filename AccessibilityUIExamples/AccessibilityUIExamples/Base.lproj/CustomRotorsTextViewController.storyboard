@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13168.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13168.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CustomRotorsTextViewController-->
+        <scene sceneID="lsD-jq-9yG">
+            <objects>
+                <customObject id="SOC-OX-ybn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="CustomRotorsTextViewController" id="BJj-AK-Or5" userLabel="CustomRotorsTextViewController" customClass="CustomRotorsTextViewController" customModule="AccessibilityUIExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ugI-Pl-CNw">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="260"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAx-Qa-OEk">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="260"/>
+                                <clipView key="contentView" id="Wi6-Ui-3KE">
+                                    <rect key="frame" x="1" y="1" width="238" height="258"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="WaL-5a-fOP" customClass="CustomRotorsTextView" customModule="AccessibilityUIExamples" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="238" height="258"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="238" height="258"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="mR7-eb-Kz6">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="geh-Px-FZ9">
+                                    <rect key="frame" x="223" y="1" width="16" height="258"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="hAx-Qa-OEk" firstAttribute="top" secondItem="ugI-Pl-CNw" secondAttribute="top" id="8Yn-if-Yxy"/>
+                            <constraint firstAttribute="bottom" secondItem="hAx-Qa-OEk" secondAttribute="bottom" id="Jye-11-dkl"/>
+                            <constraint firstAttribute="trailing" secondItem="hAx-Qa-OEk" secondAttribute="trailing" id="wcH-FB-RFq"/>
+                            <constraint firstItem="hAx-Qa-OEk" firstAttribute="leading" secondItem="ugI-Pl-CNw" secondAttribute="leading" id="x0X-VF-oZA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="WaL-5a-fOP" id="hPN-yY-fXw"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="403" y="892"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13122.13" systemVersion="17A274" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.13"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ThreePositionSwitchViewController-->
+        <scene sceneID="lsD-jq-9yG">
+            <objects>
+                <customObject id="SOC-OX-ybn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="ThreePositionSwitchViewController" id="BJj-AK-Or5" userLabel="ThreePositionSwitchViewController" customClass="ThreePositionSwitchViewController" customModule="AccessibilityUIExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ugI-Pl-CNw">
+                        <rect key="frame" x="0.0" y="0.0" width="133" height="86"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="zwu-DI-0wO" customClass="ThreePositionSwitchView" customModule="AccessibilityUIExamples" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="133" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="133" id="0a5-a7-zbf"/>
+                                    <constraint firstAttribute="height" constant="31" id="91A-Iw-xae"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeSwitchValue:" target="BJj-AK-Or5" id="joF-sG-TJm"/>
+                                </connections>
+                            </customView>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yA7-zr-odT">
+                                <rect key="frame" x="56" y="32" width="22" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="On" id="MAm-ag-eia">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PAd-BZ-yib">
+                                <rect key="frame" x="-2" y="32" width="24" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Off" id="yxh-ws-njA">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cwv-DU-mpu">
+                                <rect key="frame" x="102" y="32" width="33" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Auto" id="eju-Nb-xkK">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n8v-Gd-Mdi">
+                                <rect key="frame" x="27" y="57" width="79" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="OFF" id="h3U-C7-ctb">
+                                    <font key="font" metaFont="systemBold" size="24"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="zwu-DI-0wO" firstAttribute="leading" secondItem="ugI-Pl-CNw" secondAttribute="leading" id="0OO-RY-SyC"/>
+                            <constraint firstItem="zwu-DI-0wO" firstAttribute="top" secondItem="ugI-Pl-CNw" secondAttribute="top" constant="55" id="nFs-AD-fp9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currentValueLabel" destination="n8v-Gd-Mdi" id="RXe-n5-uhC"/>
+                        <outlet property="threePositionSwitch" destination="zwu-DI-0wO" id="RCY-zU-Y1J"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="503.5" y="1057"/>
+        </scene>
+    </scenes>
+</document>
