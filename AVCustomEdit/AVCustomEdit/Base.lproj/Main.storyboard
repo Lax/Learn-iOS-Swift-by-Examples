@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zqv-ms-sly">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Set Transition-->
+        <scene sceneID="cQf-q4-bTK">
+            <objects>
+                <tableViewController storyboardIdentifier="SetTransition" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hK5-T4-Y3O" customClass="APLTransitionTypeController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="bottomRight" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="peN-6s-Smd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Transition Type" id="03n-gJ-NNV" userLabel="Transition Type">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="y1J-7g-6DP" userLabel="Diagonal Wipe Cell">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y1J-7g-6DP" id="6Q0-Fq-Ysw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Diagonal Wipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWS-hc-hRA">
+                                                    <rect key="frame" x="26" y="11" width="111" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="SD0-Lc-5TZ">
+                                        <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SD0-Lc-5TZ" id="2km-Z1-HS5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cross Dissolve" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57q-9k-XtT">
+                                                    <rect key="frame" x="26" y="11" width="113" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="hK5-T4-Y3O" id="rJI-4S-Gtc"/>
+                            <outlet property="delegate" destination="hK5-T4-Y3O" id="LhS-Jd-PyM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Set Transition" id="ObX-XZ-je8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="VlX-ua-QCn">
+                            <connections>
+                                <action selector="transitionSelected" destination="hK5-T4-Y3O" id="FXh-kP-Eb6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="260"/>
+                    <connections>
+                        <outlet property="crossDissolveCell" destination="SD0-Lc-5TZ" id="xBk-UO-j5W"/>
+                        <outlet property="diagonalWipeCell" destination="y1J-7g-6DP" id="aDJ-7p-ZhI"/>
+                        <outlet property="view" destination="peN-6s-Smd" id="ddh-iO-AS6"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mlF-3Y-ftF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1721" y="37"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KdE-ag-KAV">
+            <objects>
+                <viewController id="Zqv-ms-sly" customClass="APLViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B56-kt-yBK"/>
+                        <viewControllerLayoutGuide type="bottom" id="hkv-SX-DTD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rDL-2U-HVS" customClass="APLPlayerView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9sf-ej-zNC">
+                                <rect key="frame" x="113" y="592" width="150" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="V5u-0E-2BV">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <barButtonItem systemItem="play" id="7hs-KH-yvj" userLabel="Play Pause button">
+                                        <connections>
+                                            <action selector="togglePlayPause:" destination="Zqv-ms-sly" id="7Tk-p0-1bF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="oZi-Im-Gmp">
+                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="0VJ-oU-g6m" userLabel="Scrubber">
+                                            <rect key="frame" x="43" y="6.5" width="88" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="scrub:" destination="Zqv-ms-sly" eventType="valueChanged" id="SYA-EZ-1ei"/>
+                                            </connections>
+                                        </slider>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="3WO-6f-D13"/>
+                                    <barButtonItem title="Set Transition" id="elH-Lw-egn" userLabel="Transition Button">
+                                        <connections>
+                                            <segue destination="hK5-T4-Y3O" kind="popoverPresentation" identifier="Transition" popoverAnchorBarButtonItem="elH-Lw-egn" id="ydg-ju-lSH">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Export" id="EBT-HE-m9B" userLabel="Export Button">
+                                        <connections>
+                                            <action selector="exportToMovie:" destination="Zqv-ms-sly" id="O5F-kc-AHS"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFo-8g-VYJ" userLabel="Current Time Label">
+                                <rect key="frame" x="139" y="634" width="47" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5nK-iq-uBj"/>
+                    <connections>
+                        <outlet property="currentTimeLabel" destination="AFo-8g-VYJ" id="vdL-uI-9wO"/>
+                        <outlet property="exportButton" destination="EBT-HE-m9B" id="ZPn-2L-rbA"/>
+                        <outlet property="exportProgressView" destination="9sf-ej-zNC" id="90i-xy-stv"/>
+                        <outlet property="playPauseButton" destination="7hs-KH-yvj" id="qGR-pt-eac"/>
+                        <outlet property="playerView" destination="rDL-2U-HVS" id="wdo-vI-mlo"/>
+                        <outlet property="scrubber" destination="0VJ-oU-g6m" id="WXz-KM-JjL"/>
+                        <outlet property="toolbar" destination="V5u-0E-2BV" id="Sea-gB-46h"/>
+                        <outlet property="transitionButton" destination="elH-Lw-egn" id="Of9-si-WzV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xA-Fx-vgE" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="G9z-1l-V9R"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="37.331334332833585"/>
+        </scene>
+    </scenes>
+</document>
