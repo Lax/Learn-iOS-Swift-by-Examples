@@ -1,0 +1,1648 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 47;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		164896B51C92635A00AB781D /* InstrumentDemoExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 164896B31C9262AC00AB781D /* InstrumentDemoExtension.m */; };
+		1688EA161C7BD27B0008B611 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1688EA141C7BD08F0008B611 /* Images.xcassets */; };
+		241A2F921EC4DCDF0071617E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241A2F911EC4DCDF0071617E /* AudioToolbox.framework */; };
+		2B4A917F1C75408E00F61BDD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4A917B1C75403100F61BDD /* AVFoundation.framework */; };
+		2B4A91801C75409B00F61BDD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4A917D1C75403E00F61BDD /* AudioToolbox.framework */; };
+		2B4A91821C7541AC00F61BDD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4A917B1C75403100F61BDD /* AVFoundation.framework */; };
+		301C50751BD988A90095C100 /* InstrumentDemoViewController+AUAudioUnitFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A10C891B9517A50081EA80 /* InstrumentDemoViewController+AUAudioUnitFactory.swift */; };
+		306CFC8B1C5815010028386F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 306CFC8A1C5815010028386F /* AppDelegate.m */; };
+		306CFC8E1C5815010028386F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 306CFC8D1C5815010028386F /* main.m */; };
+		306CFC911C5815010028386F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 306CFC901C5815010028386F /* ViewController.m */; };
+		306CFC931C5815010028386F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 306CFC921C5815010028386F /* Assets.xcassets */; };
+		306CFC961C5815010028386F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 306CFC941C5815010028386F /* Main.storyboard */; };
+		306CFC9B1C58169F0028386F /* SimplePlayEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91236D871B08F66200734C5E /* SimplePlayEngine.swift */; };
+		306CFCC31C582FB60028386F /* InstrumentDemoFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 306CFCBE1C582E0A0028386F /* InstrumentDemoFramework.framework */; };
+		306CFCC91C5830520028386F /* InstrumentDemoFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 306CFCBE1C582E0A0028386F /* InstrumentDemoFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		306CFCCD1C5830C20028386F /* InstrumentDemoViewController+AUAudioUnitFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 306CFCCA1C5830C20028386F /* InstrumentDemoViewController+AUAudioUnitFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		306CFCCE1C5830C20028386F /* InstrumentDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 306CFCCB1C5830C20028386F /* InstrumentDemoViewController.m */; };
+		306CFCCF1C5830C20028386F /* InstrumentDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 306CFCCC1C5830C20028386F /* InstrumentDemoViewController.xib */; };
+		306CFCD21C5833380028386F /* DSPKernel.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 92A10CA71B951C660081EA80 /* DSPKernel.hpp */; };
+		306CFCD31C5833420028386F /* DSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92A10CA81B951C660081EA80 /* DSPKernel.mm */; };
+		306CFCD51C5833500028386F /* BufferedAudioBus.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 92A10CA61B951C660081EA80 /* BufferedAudioBus.hpp */; };
+		306CFCD71C5833810028386F /* InstrumentDemoFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 306CFCA21C582B140028386F /* InstrumentDemoFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		306CFCEB1C5842300028386F /* InstrumentDemoFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 306CFCBE1C582E0A0028386F /* InstrumentDemoFramework.framework */; };
+		306CFCED1C58473E0028386F /* InstrumentDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 306CFCCC1C5830C20028386F /* InstrumentDemoViewController.xib */; };
+		306CFCF11C5848320028386F /* InstrumentDemoAppExtension.appex in CopyFiles */ = {isa = PBXBuildFile; fileRef = 306CFCE61C5841E40028386F /* InstrumentDemoAppExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		92A10CE81B9521B00081EA80 /* InstrumentDemoFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A10CE11B9521B00081EA80 /* InstrumentDemoFramework.framework */; };
+		92A10CE91B9521B00081EA80 /* InstrumentDemoFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92A10CE11B9521B00081EA80 /* InstrumentDemoFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		92A10D001B9521F50081EA80 /* InstrumentDemoAppExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 92A10CF21B9521F50081EA80 /* InstrumentDemoAppExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		92A10D051B9527D10081EA80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A10C841B9517A50081EA80 /* ViewController.swift */; };
+		92A10D061B9528480081EA80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A10C7B1B9517A50081EA80 /* AppDelegate.swift */; };
+		92A10D081B95285A0081EA80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A10C7D1B9517A50081EA80 /* LaunchScreen.storyboard */; };
+		92A10D091B95286B0081EA80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A10C7F1B9517A50081EA80 /* Main.storyboard */; };
+		92A10D0D1B95288E0081EA80 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A10C861B9517A50081EA80 /* MainInterface.storyboard */; };
+		92A10D131B9528B20081EA80 /* InstrumentDemoFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 92A10C911B9517A50081EA80 /* InstrumentDemoFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92A10D141B9528B60081EA80 /* InstrumentDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A10C921B9517A50081EA80 /* InstrumentDemoViewController.swift */; };
+		92A10D181B95291B0081EA80 /* DSPKernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92A10CA81B951C660081EA80 /* DSPKernel.mm */; };
+		92A10D191B9529200081EA80 /* DSPKernel.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 92A10CA71B951C660081EA80 /* DSPKernel.hpp */; };
+		92A10D1C1B9529250081EA80 /* BufferedAudioBus.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 92A10CA61B951C660081EA80 /* BufferedAudioBus.hpp */; };
+		92A10D1F1B952A1F0081EA80 /* SimplePlayEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91236D871B08F66200734C5E /* SimplePlayEngine.swift */; };
+		92A10D201B966CE30081EA80 /* InstrumentDemoFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A10CE11B9521B00081EA80 /* InstrumentDemoFramework.framework */; };
+		B5234C851CA0966600902296 /* InstrumentDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = B5234C821CA0966600902296 /* InstrumentDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5234C861CA0966600902296 /* InstrumentDemo.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5234C831CA0966600902296 /* InstrumentDemo.mm */; };
+		B5234C8C1CA096B200902296 /* InstrumentDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = B5234C891CA096B200902296 /* InstrumentDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5234C8D1CA096B200902296 /* InstrumentDemo.mm in Sources */ = {isa = PBXBuildFile; fileRef = B5234C8A1CA096B200902296 /* InstrumentDemo.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		306CFCC61C5830200028386F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91D3DA0C1B023C03008FFFBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 306CFCAB1C582E0A0028386F;
+			remoteInfo = InstrumentDemoFrameworkOSX;
+		};
+		306CFCE81C5841F90028386F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91D3DA0C1B023C03008FFFBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 306CFCAB1C582E0A0028386F;
+			remoteInfo = InstrumentDemoFrameworkOSX;
+		};
+		306CFCEE1C5848070028386F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91D3DA0C1B023C03008FFFBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 306CFCD81C5841E40028386F;
+			remoteInfo = InstrumentDemoAppExtensionOSX;
+		};
+		92A10CE61B9521B00081EA80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91D3DA0C1B023C03008FFFBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92A10CE01B9521B00081EA80;
+			remoteInfo = InstrumentDemoFramework;
+		};
+		92A10CFE1B9521F50081EA80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91D3DA0C1B023C03008FFFBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92A10CF11B9521F50081EA80;
+			remoteInfo = InstrumentDemoAppExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		306CFCC81C5830470028386F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				306CFCC91C5830520028386F /* InstrumentDemoFramework.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		306CFCF01C58481F0028386F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				306CFCF11C5848320028386F /* InstrumentDemoAppExtension.appex in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10CED1B9521B00081EA80 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				92A10CE91B9521B00081EA80 /* InstrumentDemoFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10D041B9521F50081EA80 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				92A10D001B9521F50081EA80 /* InstrumentDemoAppExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		164896B31C9262AC00AB781D /* InstrumentDemoExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstrumentDemoExtension.m; sourceTree = "<group>"; };
+		1654C7751C7BEDE300C43BF4 /* InstrumentDemoAppExtensionOSX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = InstrumentDemoAppExtensionOSX.entitlements; sourceTree = "<group>"; };
+		1688EA141C7BD08F0008B611 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		241A2F8C1EC4DC6E0071617E /* InstrumentDemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstrumentDemoApp.entitlements; sourceTree = "<group>"; };
+		241A2F901EC4DCDF0071617E /* InstrumentDemoAppExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstrumentDemoAppExtension.entitlements; sourceTree = "<group>"; };
+		241A2F911EC4DCDF0071617E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		2B4A917B1C75403100F61BDD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		2B4A917D1C75403E00F61BDD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		306CFC871C5815010028386F /* InstrumentDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstrumentDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		306CFC891C5815010028386F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		306CFC8A1C5815010028386F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		306CFC8D1C5815010028386F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		306CFC8F1C5815010028386F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		306CFC901C5815010028386F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		306CFC921C5815010028386F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		306CFC951C5815010028386F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		306CFC971C5815010028386F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		306CFCA21C582B140028386F /* InstrumentDemoFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstrumentDemoFramework.h; sourceTree = "<group>"; };
+		306CFCBE1C582E0A0028386F /* InstrumentDemoFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InstrumentDemoFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		306CFCC01C582F300028386F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		306CFCCA1C5830C20028386F /* InstrumentDemoViewController+AUAudioUnitFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "InstrumentDemoViewController+AUAudioUnitFactory.h"; sourceTree = "<group>"; };
+		306CFCCB1C5830C20028386F /* InstrumentDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstrumentDemoViewController.m; sourceTree = "<group>"; };
+		306CFCCC1C5830C20028386F /* InstrumentDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstrumentDemoViewController.xib; sourceTree = "<group>"; };
+		306CFCE61C5841E40028386F /* InstrumentDemoAppExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InstrumentDemoAppExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		306CFCF21C584C2A0028386F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = OSX/InstrumentDemoAppExtension/Info.plist; sourceTree = SOURCE_ROOT; };
+		3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = ../Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		91236D871B08F66200734C5E /* SimplePlayEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePlayEngine.swift; sourceTree = "<group>"; };
+		91B6ED7C1B137FFF0001FCE7 /* drumLoop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = drumLoop.caf; sourceTree = "<group>"; };
+		92A10C7B1B9517A50081EA80 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92A10C7E1B9517A50081EA80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92A10C801B9517A50081EA80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		92A10C811B9517A50081EA80 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92A10C841B9517A50081EA80 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92A10C871B9517A50081EA80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		92A10C881B9517A50081EA80 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92A10C891B9517A50081EA80 /* InstrumentDemoViewController+AUAudioUnitFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InstrumentDemoViewController+AUAudioUnitFactory.swift"; sourceTree = "<group>"; };
+		92A10C8E1B9517A50081EA80 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92A10C911B9517A50081EA80 /* InstrumentDemoFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstrumentDemoFramework.h; sourceTree = "<group>"; };
+		92A10C921B9517A50081EA80 /* InstrumentDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentDemoViewController.swift; sourceTree = "<group>"; };
+		92A10CA61B951C660081EA80 /* BufferedAudioBus.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BufferedAudioBus.hpp; sourceTree = "<group>"; };
+		92A10CA71B951C660081EA80 /* DSPKernel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DSPKernel.hpp; sourceTree = "<group>"; };
+		92A10CA81B951C660081EA80 /* DSPKernel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DSPKernel.mm; sourceTree = "<group>"; };
+		92A10CC51B9521320081EA80 /* InstrumentDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstrumentDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92A10CE11B9521B00081EA80 /* InstrumentDemoFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InstrumentDemoFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92A10CF21B9521F50081EA80 /* InstrumentDemoAppExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InstrumentDemoAppExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5234C821CA0966600902296 /* InstrumentDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstrumentDemo.h; sourceTree = "<group>"; };
+		B5234C831CA0966600902296 /* InstrumentDemo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InstrumentDemo.mm; sourceTree = "<group>"; };
+		B5234C841CA0966600902296 /* InstrumentDSPKernel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InstrumentDSPKernel.hpp; sourceTree = "<group>"; };
+		B5234C891CA096B200902296 /* InstrumentDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstrumentDemo.h; sourceTree = "<group>"; };
+		B5234C8A1CA096B200902296 /* InstrumentDemo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InstrumentDemo.mm; sourceTree = "<group>"; };
+		B5234C8B1CA096B200902296 /* InstrumentDSPKernel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InstrumentDSPKernel.hpp; sourceTree = "<group>"; };
+		D021845EDC386CC37AB8B5C7 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		306CFC841C5815010028386F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				306CFCC31C582FB60028386F /* InstrumentDemoFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		306CFCB11C582E0A0028386F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B4A91821C7541AC00F61BDD /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		306CFCDD1C5841E40028386F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				306CFCEB1C5842300028386F /* InstrumentDemoFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10CC21B9521320081EA80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A10CE81B9521B00081EA80 /* InstrumentDemoFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10CDD1B9521B00081EA80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B4A917F1C75408E00F61BDD /* AVFoundation.framework in Frameworks */,
+				2B4A91801C75409B00F61BDD /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10CEF1B9521F50081EA80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A10D201B966CE30081EA80 /* InstrumentDemoFramework.framework in Frameworks */,
+				241A2F921EC4DCDF0071617E /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1654C7781C7D0E4300C43BF4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1654C7751C7BEDE300C43BF4 /* InstrumentDemoAppExtensionOSX.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		241A2F8D1EC4DC6E0071617E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				241A2F911EC4DCDF0071617E /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		306CFC881C5815010028386F /* InstrumentDemoApp */ = {
+			isa = PBXGroup;
+			children = (
+				306CFC891C5815010028386F /* AppDelegate.h */,
+				306CFC8A1C5815010028386F /* AppDelegate.m */,
+				306CFC8F1C5815010028386F /* ViewController.h */,
+				306CFC901C5815010028386F /* ViewController.m */,
+				306CFC921C5815010028386F /* Assets.xcassets */,
+				306CFC941C5815010028386F /* Main.storyboard */,
+				306CFC971C5815010028386F /* Info.plist */,
+				306CFC8C1C5815010028386F /* Supporting Files */,
+			);
+			name = InstrumentDemoApp;
+			path = OSX/InstrumentDemoApp;
+			sourceTree = "<group>";
+		};
+		306CFC8C1C5815010028386F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				306CFC8D1C5815010028386F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		306CFCA11C582B140028386F /* InstrumentDemoFramework */ = {
+			isa = PBXGroup;
+			children = (
+				B5234C881CA0968A00902296 /* Shared */,
+				306CFCA21C582B140028386F /* InstrumentDemoFramework.h */,
+				306CFCCA1C5830C20028386F /* InstrumentDemoViewController+AUAudioUnitFactory.h */,
+				306CFCCB1C5830C20028386F /* InstrumentDemoViewController.m */,
+				306CFCCC1C5830C20028386F /* InstrumentDemoViewController.xib */,
+				306CFCC01C582F300028386F /* Info.plist */,
+			);
+			name = InstrumentDemoFramework;
+			path = OSX/InstrumentDemoFramework;
+			sourceTree = "<group>";
+		};
+		306CFCEC1C5842610028386F /* InstrumentDemoExtension */ = {
+			isa = PBXGroup;
+			children = (
+				164896B31C9262AC00AB781D /* InstrumentDemoExtension.m */,
+				306CFCF21C584C2A0028386F /* Info.plist */,
+				1654C7781C7D0E4300C43BF4 /* Supporting Files */,
+			);
+			name = InstrumentDemoExtension;
+			path = OSX/InstrumentDemoAppExtension;
+			sourceTree = "<group>";
+		};
+		30AEE0F81BA3510D00302EB1 /* Instrument (iOS) */ = {
+			isa = PBXGroup;
+			children = (
+				92A10C7A1B9517A50081EA80 /* InstrumentDemoApp */,
+				92A10C8A1B9517A50081EA80 /* InstrumentDemoFramework */,
+				92A10C851B9517A50081EA80 /* InstrumentDemoAppExtension */,
+			);
+			name = "Instrument (iOS)";
+			sourceTree = "<group>";
+		};
+		30AEE0F91BA3513800302EB1 /* Instrument (OS X) */ = {
+			isa = PBXGroup;
+			children = (
+				306CFC881C5815010028386F /* InstrumentDemoApp */,
+				306CFCA11C582B140028386F /* InstrumentDemoFramework */,
+				306CFCEC1C5842610028386F /* InstrumentDemoExtension */,
+			);
+			name = "Instrument (OS X)";
+			sourceTree = "<group>";
+		};
+		91236D861B08F64600734C5E /* SimplePlayEngine */ = {
+			isa = PBXGroup;
+			children = (
+				91236D871B08F66200734C5E /* SimplePlayEngine.swift */,
+				91B6ED7C1B137FFF0001FCE7 /* drumLoop.caf */,
+			);
+			name = SimplePlayEngine;
+			path = ../Shared;
+			sourceTree = SOURCE_ROOT;
+		};
+		9152BF2B1B0958E500D8C6A4 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				2B4A917B1C75403100F61BDD /* AVFoundation.framework */,
+				2B4A917D1C75403E00F61BDD /* AudioToolbox.framework */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		91D3DA0B1B023C03008FFFBB = {
+			isa = PBXGroup;
+			children = (
+				241A2F901EC4DCDF0071617E /* InstrumentDemoAppExtension.entitlements */,
+				241A2F8C1EC4DC6E0071617E /* InstrumentDemoApp.entitlements */,
+				30AEE0F81BA3510D00302EB1 /* Instrument (iOS) */,
+				30AEE0F91BA3513800302EB1 /* Instrument (OS X) */,
+				92A10CA51B951C660081EA80 /* Shared Framework Code */,
+				91236D861B08F64600734C5E /* SimplePlayEngine */,
+				9152BF2B1B0958E500D8C6A4 /* Frameworks and Libraries */,
+				91D3DA171B023C1E008FFFBB /* Products */,
+				241A2F8D1EC4DC6E0071617E /* Frameworks */,
+				C7F2B323173F4FABD0EC125D /* Configuration */,
+				DD2F06354F4533FFBFB88DB7 /* LICENSE */,
+			);
+			sourceTree = "<group>";
+		};
+		91D3DA171B023C1E008FFFBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92A10CC51B9521320081EA80 /* InstrumentDemoApp.app */,
+				92A10CE11B9521B00081EA80 /* InstrumentDemoFramework.framework */,
+				92A10CF21B9521F50081EA80 /* InstrumentDemoAppExtension.appex */,
+				306CFC871C5815010028386F /* InstrumentDemoApp.app */,
+				306CFCBE1C582E0A0028386F /* InstrumentDemoFramework.framework */,
+				306CFCE61C5841E40028386F /* InstrumentDemoAppExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92A10C7A1B9517A50081EA80 /* InstrumentDemoApp */ = {
+			isa = PBXGroup;
+			children = (
+				92A10C7B1B9517A50081EA80 /* AppDelegate.swift */,
+				92A10C841B9517A50081EA80 /* ViewController.swift */,
+				1688EA141C7BD08F0008B611 /* Images.xcassets */,
+				92A10C7F1B9517A50081EA80 /* Main.storyboard */,
+				92A10C7D1B9517A50081EA80 /* LaunchScreen.storyboard */,
+				92A10C811B9517A50081EA80 /* Info.plist */,
+			);
+			name = InstrumentDemoApp;
+			path = iOS/InstrumentDemoApp;
+			sourceTree = SOURCE_ROOT;
+		};
+		92A10C851B9517A50081EA80 /* InstrumentDemoAppExtension */ = {
+			isa = PBXGroup;
+			children = (
+				92A10C891B9517A50081EA80 /* InstrumentDemoViewController+AUAudioUnitFactory.swift */,
+				92A10C861B9517A50081EA80 /* MainInterface.storyboard */,
+				92A10C881B9517A50081EA80 /* Info.plist */,
+			);
+			name = InstrumentDemoAppExtension;
+			path = iOS/InstrumentDemoAppExtension;
+			sourceTree = SOURCE_ROOT;
+		};
+		92A10C8A1B9517A50081EA80 /* InstrumentDemoFramework */ = {
+			isa = PBXGroup;
+			children = (
+				B5234C811CA0963600902296 /* Shared */,
+				92A10C921B9517A50081EA80 /* InstrumentDemoViewController.swift */,
+				92A10C911B9517A50081EA80 /* InstrumentDemoFramework.h */,
+				92A10C8E1B9517A50081EA80 /* Info.plist */,
+			);
+			name = InstrumentDemoFramework;
+			path = iOS/InstrumentDemoFramework;
+			sourceTree = SOURCE_ROOT;
+		};
+		92A10CA51B951C660081EA80 /* Shared Framework Code */ = {
+			isa = PBXGroup;
+			children = (
+				92A10CA61B951C660081EA80 /* BufferedAudioBus.hpp */,
+				92A10CA71B951C660081EA80 /* DSPKernel.hpp */,
+				92A10CA81B951C660081EA80 /* DSPKernel.mm */,
+			);
+			name = "Shared Framework Code";
+			path = ../Shared;
+			sourceTree = SOURCE_ROOT;
+		};
+		B5234C811CA0963600902296 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B5234C821CA0966600902296 /* InstrumentDemo.h */,
+				B5234C831CA0966600902296 /* InstrumentDemo.mm */,
+				B5234C841CA0966600902296 /* InstrumentDSPKernel.hpp */,
+			);
+			name = Shared;
+			path = ../../Shared;
+			sourceTree = "<group>";
+		};
+		B5234C881CA0968A00902296 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B5234C891CA096B200902296 /* InstrumentDemo.h */,
+				B5234C8A1CA096B200902296 /* InstrumentDemo.mm */,
+				B5234C8B1CA096B200902296 /* InstrumentDSPKernel.hpp */,
+			);
+			name = Shared;
+			path = ../../Shared;
+			sourceTree = "<group>";
+		};
+		C7F2B323173F4FABD0EC125D /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		DD2F06354F4533FFBFB88DB7 /* LICENSE */ = {
+			isa = PBXGroup;
+			children = (
+				D021845EDC386CC37AB8B5C7 /* LICENSE.txt */,
+			);
+			name = LICENSE;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		306CFCB41C582E0A0028386F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5234C8C1CA096B200902296 /* InstrumentDemo.h in Headers */,
+				306CFCD71C5833810028386F /* InstrumentDemoFramework.h in Headers */,
+				306CFCD21C5833380028386F /* DSPKernel.hpp in Headers */,
+				306CFCD51C5833500028386F /* BufferedAudioBus.hpp in Headers */,
+				306CFCCD1C5830C20028386F /* InstrumentDemoViewController+AUAudioUnitFactory.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10CDE1B9521B00081EA80 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A10D1C1B9529250081EA80 /* BufferedAudioBus.hpp in Headers */,
+				92A10D131B9528B20081EA80 /* InstrumentDemoFramework.h in Headers */,
+				B5234C851CA0966600902296 /* InstrumentDemo.h in Headers */,
+				92A10D191B9529200081EA80 /* DSPKernel.hpp in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		306CFC861C5815010028386F /* OSXInstrumentDemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 306CFC981C5815010028386F /* Build configuration list for PBXNativeTarget "OSXInstrumentDemoApp" */;
+			buildPhases = (
+				306CFC831C5815010028386F /* Sources */,
+				306CFC841C5815010028386F /* Frameworks */,
+				306CFC851C5815010028386F /* Resources */,
+				306CFCC81C5830470028386F /* CopyFiles */,
+				306CFCF01C58481F0028386F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				306CFCEF1C5848070028386F /* PBXTargetDependency */,
+				306CFCC71C5830200028386F /* PBXTargetDependency */,
+			);
+			name = OSXInstrumentDemoApp;
+			productName = InstrumentDemoAppOSX;
+			productReference = 306CFC871C5815010028386F /* InstrumentDemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		306CFCAB1C582E0A0028386F /* OSXInstrumentDemoFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 306CFCBB1C582E0A0028386F /* Build configuration list for PBXNativeTarget "OSXInstrumentDemoFramework" */;
+			buildPhases = (
+				306CFCAC1C582E0A0028386F /* Sources */,
+				306CFCB11C582E0A0028386F /* Frameworks */,
+				306CFCB41C582E0A0028386F /* Headers */,
+				306CFCB91C582E0A0028386F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OSXInstrumentDemoFramework;
+			productName = FilterDemoFrameworkOSX;
+			productReference = 306CFCBE1C582E0A0028386F /* InstrumentDemoFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		306CFCD81C5841E40028386F /* OSXInstrumentDemoAppExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 306CFCE31C5841E40028386F /* Build configuration list for PBXNativeTarget "OSXInstrumentDemoAppExtension" */;
+			buildPhases = (
+				306CFCDB1C5841E40028386F /* Sources */,
+				306CFCDD1C5841E40028386F /* Frameworks */,
+				306CFCE11C5841E40028386F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				306CFCE91C5841F90028386F /* PBXTargetDependency */,
+			);
+			name = OSXInstrumentDemoAppExtension;
+			productName = FilterDemoAppExtensionOSX;
+			productReference = 306CFCE61C5841E40028386F /* InstrumentDemoAppExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		92A10CC41B9521320081EA80 /* iOSInstrumentDemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92A10CD91B9521320081EA80 /* Build configuration list for PBXNativeTarget "iOSInstrumentDemoApp" */;
+			buildPhases = (
+				92A10CC11B9521320081EA80 /* Sources */,
+				92A10CC21B9521320081EA80 /* Frameworks */,
+				92A10CC31B9521320081EA80 /* Resources */,
+				92A10CED1B9521B00081EA80 /* Embed Frameworks */,
+				92A10D041B9521F50081EA80 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92A10CE71B9521B00081EA80 /* PBXTargetDependency */,
+				92A10CFF1B9521F50081EA80 /* PBXTargetDependency */,
+			);
+			name = iOSInstrumentDemoApp;
+			productName = InstrumentDemoApp;
+			productReference = 92A10CC51B9521320081EA80 /* InstrumentDemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		92A10CE01B9521B00081EA80 /* iOSInstrumentDemoFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92A10CEA1B9521B00081EA80 /* Build configuration list for PBXNativeTarget "iOSInstrumentDemoFramework" */;
+			buildPhases = (
+				92A10CDC1B9521B00081EA80 /* Sources */,
+				92A10CDD1B9521B00081EA80 /* Frameworks */,
+				92A10CDE1B9521B00081EA80 /* Headers */,
+				92A10CDF1B9521B00081EA80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSInstrumentDemoFramework;
+			productName = InstrumentDemoFramework;
+			productReference = 92A10CE11B9521B00081EA80 /* InstrumentDemoFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		92A10CF11B9521F50081EA80 /* iOSInstrumentDemoAppExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92A10D011B9521F50081EA80 /* Build configuration list for PBXNativeTarget "iOSInstrumentDemoAppExtension" */;
+			buildPhases = (
+				92A10CEE1B9521F50081EA80 /* Sources */,
+				92A10CEF1B9521F50081EA80 /* Frameworks */,
+				92A10CF01B9521F50081EA80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSInstrumentDemoAppExtension;
+			productName = InstrumentDemoAppExtension;
+			productReference = 92A10CF21B9521F50081EA80 /* InstrumentDemoAppExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		91D3DA0C1B023C03008FFFBB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Apple;
+				TargetAttributes = {
+					306CFC861C5815010028386F = {
+						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0900;
+					};
+					306CFCAB1C582E0A0028386F = {
+						LastSwiftMigration = 0900;
+					};
+					306CFCD81C5841E40028386F = {
+						LastSwiftMigration = 0900;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					92A10CC41B9521320081EA80 = {
+						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0900;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+						};
+					};
+					92A10CE01B9521B00081EA80 = {
+						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
+					};
+					92A10CF11B9521F50081EA80 = {
+						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0900;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 91D3DA0F1B023C03008FFFBB /* Build configuration list for PBXProject "Instrument" */;
+			compatibilityVersion = "Xcode 6.3";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 91D3DA0B1B023C03008FFFBB;
+			productRefGroup = 91D3DA171B023C1E008FFFBB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92A10CC41B9521320081EA80 /* iOSInstrumentDemoApp */,
+				92A10CE01B9521B00081EA80 /* iOSInstrumentDemoFramework */,
+				92A10CF11B9521F50081EA80 /* iOSInstrumentDemoAppExtension */,
+				306CFC861C5815010028386F /* OSXInstrumentDemoApp */,
+				306CFCAB1C582E0A0028386F /* OSXInstrumentDemoFramework */,
+				306CFCD81C5841E40028386F /* OSXInstrumentDemoAppExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		306CFC851C5815010028386F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				306CFC931C5815010028386F /* Assets.xcassets in Resources */,
+				306CFC961C5815010028386F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		306CFCB91C582E0A0028386F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				306CFCCF1C5830C20028386F /* InstrumentDemoViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		306CFCE11C5841E40028386F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				306CFCED1C58473E0028386F /* InstrumentDemoViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10CC31B9521320081EA80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1688EA161C7BD27B0008B611 /* Images.xcassets in Resources */,
+				92A10D091B95286B0081EA80 /* Main.storyboard in Resources */,
+				92A10D081B95285A0081EA80 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10CDF1B9521B00081EA80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10CF01B9521F50081EA80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A10D0D1B95288E0081EA80 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		306CFC831C5815010028386F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				306CFC911C5815010028386F /* ViewController.m in Sources */,
+				306CFC8E1C5815010028386F /* main.m in Sources */,
+				306CFC8B1C5815010028386F /* AppDelegate.m in Sources */,
+				306CFC9B1C58169F0028386F /* SimplePlayEngine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		306CFCAC1C582E0A0028386F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5234C8D1CA096B200902296 /* InstrumentDemo.mm in Sources */,
+				306CFCD31C5833420028386F /* DSPKernel.mm in Sources */,
+				306CFCCE1C5830C20028386F /* InstrumentDemoViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		306CFCDB1C5841E40028386F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				164896B51C92635A00AB781D /* InstrumentDemoExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10CC11B9521320081EA80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A10D061B9528480081EA80 /* AppDelegate.swift in Sources */,
+				92A10D051B9527D10081EA80 /* ViewController.swift in Sources */,
+				92A10D1F1B952A1F0081EA80 /* SimplePlayEngine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10CDC1B9521B00081EA80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A10D181B95291B0081EA80 /* DSPKernel.mm in Sources */,
+				92A10D141B9528B60081EA80 /* InstrumentDemoViewController.swift in Sources */,
+				B5234C861CA0966600902296 /* InstrumentDemo.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92A10CEE1B9521F50081EA80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				301C50751BD988A90095C100 /* InstrumentDemoViewController+AUAudioUnitFactory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		306CFCC71C5830200028386F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 306CFCAB1C582E0A0028386F /* OSXInstrumentDemoFramework */;
+			targetProxy = 306CFCC61C5830200028386F /* PBXContainerItemProxy */;
+		};
+		306CFCE91C5841F90028386F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 306CFCAB1C582E0A0028386F /* OSXInstrumentDemoFramework */;
+			targetProxy = 306CFCE81C5841F90028386F /* PBXContainerItemProxy */;
+		};
+		306CFCEF1C5848070028386F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 306CFCD81C5841E40028386F /* OSXInstrumentDemoAppExtension */;
+			targetProxy = 306CFCEE1C5848070028386F /* PBXContainerItemProxy */;
+		};
+		92A10CE71B9521B00081EA80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92A10CE01B9521B00081EA80 /* iOSInstrumentDemoFramework */;
+			targetProxy = 92A10CE61B9521B00081EA80 /* PBXContainerItemProxy */;
+		};
+		92A10CFF1B9521F50081EA80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92A10CF11B9521F50081EA80 /* iOSInstrumentDemoAppExtension */;
+			targetProxy = 92A10CFE1B9521F50081EA80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		306CFC941C5815010028386F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				306CFC951C5815010028386F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		92A10C7D1B9517A50081EA80 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92A10C7E1B9517A50081EA80 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		92A10C7F1B9517A50081EA80 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92A10C801B9517A50081EA80 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		92A10C861B9517A50081EA80 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92A10C871B9517A50081EA80 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		306CFC991C5815010028386F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = InstrumentOSXIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = OSX/InstrumentDemoApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoAppOSX${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_NAME = InstrumentDemoApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		306CFC9A1C5815010028386F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = InstrumentOSXIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = OSX/InstrumentDemoApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoAppOSX${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_NAME = InstrumentDemoApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		306CFCBC1C582E0A0028386F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = OSX/InstrumentDemoFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoFrameworkOSX${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_NAME = InstrumentDemoFramework;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		306CFCBD1C582E0A0028386F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = OSX/InstrumentDemoFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoFrameworkOSX${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_NAME = InstrumentDemoFramework;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		306CFCE41C5841E40028386F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = OSX/InstrumentDemoAppExtension/InstrumentDemoAppExtensionOSX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = OSX/InstrumentDemoAppExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoAppOSX${SAMPLE_CODE_DISAMBIGUATOR}.InstrumentDemoAppExtensionOSX";
+				PRODUCT_NAME = InstrumentDemoAppExtension;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		306CFCE51C5841E40028386F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = OSX/InstrumentDemoAppExtension/InstrumentDemoAppExtensionOSX.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = OSX/InstrumentDemoAppExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoAppOSX${SAMPLE_CODE_DISAMBIGUATOR}.InstrumentDemoAppExtensionOSX";
+				PRODUCT_NAME = InstrumentDemoAppExtension;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		91D3DA101B023C03008FFFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		91D3DA111B023C03008FFFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		92A10CDA1B9521320081EA80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = InstrumentiOSAppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = iOS/InstrumentDemoApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoApp${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_NAME = InstrumentDemoApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		92A10CDB1B9521320081EA80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = InstrumentiOSAppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = iOS/InstrumentDemoApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoApp${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_NAME = InstrumentDemoApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92A10CEB1B9521B00081EA80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = iOS/InstrumentDemoFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoFramework${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_NAME = InstrumentDemoFramework;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		92A10CEC1B9521B00081EA80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = iOS/InstrumentDemoFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoFramework${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_NAME = InstrumentDemoFramework;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		92A10D021B9521F50081EA80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = InstrumentDemoAppExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = iOS/InstrumentDemoAppExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoApp${SAMPLE_CODE_DISAMBIGUATOR}.InstrumentDemoAppExtensionv2";
+				PRODUCT_NAME = InstrumentDemoAppExtension;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92A10D031B9521F50081EA80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD6CDF84186755C5D5CD378 /* SampleCode.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = InstrumentDemoAppExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = iOS/InstrumentDemoAppExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InstrumentDemoApp${SAMPLE_CODE_DISAMBIGUATOR}.InstrumentDemoAppExtensionv2";
+				PRODUCT_NAME = InstrumentDemoAppExtension;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		306CFC981C5815010028386F /* Build configuration list for PBXNativeTarget "OSXInstrumentDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				306CFC991C5815010028386F /* Debug */,
+				306CFC9A1C5815010028386F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		306CFCBB1C582E0A0028386F /* Build configuration list for PBXNativeTarget "OSXInstrumentDemoFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				306CFCBC1C582E0A0028386F /* Debug */,
+				306CFCBD1C582E0A0028386F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		306CFCE31C5841E40028386F /* Build configuration list for PBXNativeTarget "OSXInstrumentDemoAppExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				306CFCE41C5841E40028386F /* Debug */,
+				306CFCE51C5841E40028386F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91D3DA0F1B023C03008FFFBB /* Build configuration list for PBXProject "Instrument" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91D3DA101B023C03008FFFBB /* Debug */,
+				91D3DA111B023C03008FFFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92A10CD91B9521320081EA80 /* Build configuration list for PBXNativeTarget "iOSInstrumentDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92A10CDA1B9521320081EA80 /* Debug */,
+				92A10CDB1B9521320081EA80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92A10CEA1B9521B00081EA80 /* Build configuration list for PBXNativeTarget "iOSInstrumentDemoFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92A10CEB1B9521B00081EA80 /* Debug */,
+				92A10CEC1B9521B00081EA80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92A10D011B9521F50081EA80 /* Build configuration list for PBXNativeTarget "iOSInstrumentDemoAppExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92A10D021B9521F50081EA80 /* Debug */,
+				92A10D031B9521F50081EA80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 91D3DA0C1B023C03008FFFBB /* Project object */;
+}
