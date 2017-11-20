@@ -1,0 +1,43 @@
+.DS_Store
+
+# Xcode
+build/*
+*/build/*
+*/**/build/*
+*.mode1
+*.pbxuser
+*.perspective
+!default.perspectivev3
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xcworkspace
+!default.xcworkspace
+xcuserdata
+profile
+*.moved-aside
+
+# Generated files
+VersionX-revision.h
+
+# build products
+build/
+*.[oa]
+
+# version control files
+.hg
+.svn
+CVS
+
+# automatic backup files
+*~.nib
+*.swp
+*~
+*(Autosaved).rtfd/
+Backup[ ]of[ ]*.pages/
+Backup[ ]of[ ]*.key/
+Backup[ ]of[ ]*.numbers/
