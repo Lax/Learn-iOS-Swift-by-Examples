@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016 Apple Inc. All Rights Reserved.
+    Copyright (C) 2017 Apple Inc. All Rights Reserved.
     See LICENSE.txt for this sample’s licensing information
     
     Abstract:
@@ -14,17 +14,18 @@ class ShortcutsTableViewController: UITableViewController {
     /// Pre-defined shortcuts; retrieved from the Info.plist, lazily.
     lazy var staticShortcuts: [UIApplicationShortcutItem] = {
         // Obtain the `UIApplicationShortcutItems` array from the Info.plist. If unavailable, there are no static shortcuts.
-        guard let shortcuts = NSBundle.mainBundle().infoDictionary?["UIApplicationShortcutItems"] as? [[String: NSObject]] else { return [] }
+        guard let shortcuts = Bundle.main.infoDictionary?["UIApplicationShortcutItems"] as? [[String: NSObject]] else { return [] }
         
         // Use `flatMap(_:)` to process each dictionary into a `UIApplicationShortcutItem`, if possible.
         let shortcutItems = shortcuts.flatMap { shortcut -> [UIApplicationShortcutItem] in
-            // The `UIApplicationShortcutItemType` and `UIApplicationShortcutItemTitle` keys are required to successfully create a `UIApplicationShortcutItem`.            
+            // The `UIApplicationShortcutItemType` and `UIApplicationShortcutItemTitle` keys are
+			// required to successfully create a `UIApplicationShortcutItem`.
             guard let shortcutType = shortcut["UIApplicationShortcutItemType"] as? String,
                 let shortcutTitle = shortcut["UIApplicationShortcutItemTitle"] as? String else { return [] }
 
             // Get the localized title.
             var localizedShortcutTitle = shortcutTitle
-            if let localizedTitle = NSBundle.mainBundle().localizedInfoDictionary?[shortcutTitle] as? String {
+            if let localizedTitle = Bundle.main.localizedInfoDictionary?[shortcutTitle] as? String {
                 localizedShortcutTitle = localizedTitle
             }
 
@@ -34,11 +35,15 @@ class ShortcutsTableViewController: UITableViewController {
             */
             var localizedShortcutSubtitle: String?
             if let shortcutSubtitle = shortcut["UIApplicationShortcutItemSubtitle"] as? String {
-                localizedShortcutSubtitle = NSBundle.mainBundle().localizedInfoDictionary?[shortcutSubtitle] as? String
+                localizedShortcutSubtitle = Bundle.main.localizedInfoDictionary?[shortcutSubtitle] as? String
             }
 
             return [
-                UIApplicationShortcutItem(type: shortcutType, localizedTitle: localizedShortcutTitle, localizedSubtitle: localizedShortcutSubtitle, icon: nil, userInfo: nil)
+                UIApplicationShortcutItem(type: shortcutType,
+										  localizedTitle: localizedShortcutTitle,
+										  localizedSubtitle: localizedShortcutSubtitle,
+										  icon: nil,
+										  userInfo: nil)
             ]
         }
         
@@ -46,34 +51,33 @@ class ShortcutsTableViewController: UITableViewController {
     }()
     
     /// Shortcuts defined by the application and modifiable based on application state.
-    lazy var dynamicShortcuts = UIApplication.sharedApplication().shortcutItems ?? []
+    lazy var dynamicShortcuts = UIApplication.shared.shortcutItems ?? []
     
     // MARK: - UITableViewDataSource
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return ["Static", "Dynamic"][section]
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? staticShortcuts.count : dynamicShortcuts.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellID", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
         
         let shortcut: UIApplicationShortcutItem
 
         if indexPath.section == 0 {
             // Static shortcuts (cannot be edited).
             shortcut = staticShortcuts[indexPath.row]
-            cell.accessoryType = .None
-            cell.selectionStyle = .None
-        }
-        else {
+            cell.accessoryType = .none
+            cell.selectionStyle = .none
+        } else {
             // Dynamic shortcuts.
             shortcut = dynamicShortcuts[indexPath.row]
         }
@@ -86,17 +90,17 @@ class ShortcutsTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Supply the `shortcutItem` matching the selected row from the data source.
         if segue.identifier == "ShowShortcutDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow,
-                  let controller = segue.destinationViewController as? ShortcutDetailViewController else { return }
+                  let controller = segue.destination as? ShortcutDetailViewController else { return }
 
             controller.shortcutItem = dynamicShortcuts[indexPath.row]
         }
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         // Block navigating to detail view controller for static shortcuts (which are not editable).
         guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return false }
         
@@ -106,9 +110,9 @@ class ShortcutsTableViewController: UITableViewController {
     // MARK: - Actions
     
     // Unwind segue action called when the user taps 'Done' after navigating to the detail controller.
-    @IBAction func done(sender: UIStoryboardSegue) {
+    @IBAction func done(_ sender: UIStoryboardSegue) {
         // Obtain the edited shortcut from our source view controller.
-        guard let sourceViewController = sender.sourceViewController as? ShortcutDetailViewController,
+        guard let sourceViewController = sender.source as? ShortcutDetailViewController,
               let selected = tableView.indexPathForSelectedRow,
               let updatedShortcutItem = sourceViewController.shortcutItem else { return }
         
@@ -116,11 +120,11 @@ class ShortcutsTableViewController: UITableViewController {
         dynamicShortcuts[selected.row] = updatedShortcutItem
         
         // Update the application's `shortcutItems`.
-        UIApplication.sharedApplication().shortcutItems = dynamicShortcuts
+        UIApplication.shared.shortcutItems = dynamicShortcuts
         
-        tableView.reloadRowsAtIndexPaths([selected], withRowAnimation: .Automatic)
+        tableView.reloadRows(at: [selected], with: .automatic)
     }
     
     // Unwind segue action called when the user taps 'Cancel' after navigating to the detail controller.
-    @IBAction func cancel(sender: UIStoryboardSegue) {}
+    @IBAction func cancel(_ sender: UIStoryboardSegue) {}
 }

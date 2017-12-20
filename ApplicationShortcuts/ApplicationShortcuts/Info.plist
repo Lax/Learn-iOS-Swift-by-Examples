@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
+	<string>1.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -32,7 +32,7 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>shortcutTitle1</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).First</string>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).first</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
 				<key>firstShorcutKey1</key>
@@ -47,7 +47,7 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>shortcutTitle2</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).Second</string>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).second</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
 				<key>secondShortcutKey1</key>
