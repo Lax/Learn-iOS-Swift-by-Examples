@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11129.6" systemVersion="15E65" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055.3"/>
+    </dependencies>
+    <scenes>
+        <!--ConfigurationInterfaceController-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="ConfigurationInterfaceController" id="AgC-eL-Hgc" customClass="ConfigurationInterfaceController" customModule="SpeedySloth_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Activity Type" id="JbE-ls-T0G">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
+                        <picker height="38" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="Cvl-Np-0ix">
+                            <connections>
+                                <action selector="activityTypePickerSelectedItemChangedWithValue:" destination="AgC-eL-Hgc" id="7sX-Cj-WaB"/>
+                            </connections>
+                        </picker>
+                        <label alignment="left" text="Location Type" id="w0Y-gV-pKv">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
+                        <picker height="38" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="yQ9-Eh-8Xr"/>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Start" id="wLU-pX-ZjH">
+                            <connections>
+                                <action selector="didTapStartButton" destination="AgC-eL-Hgc" id="4LV-Ng-rNA"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="activityTypePicker" destination="Cvl-Np-0ix" id="vlU-Fd-CBb"/>
+                        <outlet property="locationTypePicker" destination="yQ9-Eh-8Xr" id="lei-VH-pKM"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="171" y="141"/>
+        </scene>
+        <!--WorkoutInterfaceController-->
+        <scene sceneID="n0q-AO-fFK">
+            <objects>
+                <controller identifier="WorkoutInterfaceController" id="3AD-3g-W6O" customClass="WorkoutInterfaceController" customModule="SpeedySloth_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Label" id="ADM-9Z-RsX">
+                            <color key="textColor" red="1" green="0.97880674710000004" blue="0.13324607359999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <label alignment="left" text="Label" id="OIZ-b9-Zi2">
+                            <color key="textColor" red="1" green="0.041046944600000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <label alignment="left" text="Label" id="Eao-ZG-tZX">
+                            <color key="textColor" red="0.0" green="0.56638695100000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <label width="136" alignment="left" alpha="0.0" text="Marker Saved!" textAlignment="right" id="oVG-L9-p0W">
+                            <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <group width="1" alignment="left" id="7cE-B0-MCY">
+                            <items>
+                                <button width="0.5" alignment="left" title="Pause" id="0xt-7N-diW">
+                                    <connections>
+                                        <action selector="didTapPauseResumeButton" destination="3AD-3g-W6O" id="4MJ-Sw-PnG"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" alignment="left" title="Marker" id="Pnp-Yb-J7c">
+                                    <connections>
+                                        <action selector="didTapMarkerButton" destination="3AD-3g-W6O" id="vcd-Gk-GC5"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <button width="1" alignment="right" verticalAlignment="bottom" title="Stop" id="bgZ-vR-fSL">
+                            <connections>
+                                <action selector="didTapStopButton" destination="3AD-3g-W6O" id="eGL-Yc-XKR"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="caloriesLabel" destination="OIZ-b9-Zi2" id="RPQ-VI-hyp"/>
+                        <outlet property="distanceLabel" destination="Eao-ZG-tZX" id="Jhc-Sb-uhp"/>
+                        <outlet property="durationLabel" destination="ADM-9Z-RsX" id="eke-aD-t4Y"/>
+                        <outlet property="markerLabel" destination="oVG-L9-p0W" id="4O7-ts-UvL"/>
+                        <outlet property="pauseResumeButton" destination="0xt-7N-diW" id="C9y-rl-7ER"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="375" y="152"/>
+        </scene>
+        <!--SummaryInterfaceController-->
+        <scene sceneID="tRq-Ml-cM9">
+            <objects>
+                <controller identifier="SummaryInterfaceController" id="JTE-42-caD" customClass="SummaryInterfaceController" customModule="SpeedySloth_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Label" id="cl2-ui-nNn"/>
+                        <label alignment="left" text="Label" id="Kt7-je-LHa">
+                            <color key="textColor" red="1" green="0.97880674707302084" blue="0.13324607364832664" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <label alignment="left" text="Label" id="d7l-ho-0Yo">
+                            <color key="textColor" red="1" green="0.041046944598614132" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <label alignment="left" text="Label" id="Wng-ib-fyp">
+                            <color key="textColor" red="0.0" green="0.56638695098710379" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Done" id="s3l-fi-rwP">
+                            <connections>
+                                <action selector="didTapDoneButton" destination="JTE-42-caD" id="Yea-GW-2eW"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="caloriesLabel" destination="d7l-ho-0Yo" id="xaX-zb-yfm"/>
+                        <outlet property="distanceLabel" destination="Wng-ib-fyp" id="u0g-FN-J8a"/>
+                        <outlet property="durationLabel" destination="Kt7-je-LHa" id="2RK-GS-5yy"/>
+                        <outlet property="workoutLabel" destination="cl2-ui-nNn" id="C4V-Te-6qe"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="580" y="152"/>
+        </scene>
+    </scenes>
+</document>
