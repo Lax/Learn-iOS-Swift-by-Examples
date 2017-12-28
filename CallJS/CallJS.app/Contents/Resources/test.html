@@ -1,0 +1,148 @@
+<html>
+<!--
+     File: test.html
+ Abstract: Test page loaded into the sample's WebView
+ for running JavaScripts.
+  Version: 1.1
+ 
+ Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
+ Inc. ("Apple") in consideration of your agreement to the following
+ terms, and your use, installation, modification or redistribution of
+ this Apple software constitutes acceptance of these terms.  If you do
+ not agree with these terms, please do not use, install, modify or
+ redistribute this Apple software.
+ 
+ In consideration of your agreement to abide by the following terms, and
+ subject to these terms, Apple grants you a personal, non-exclusive
+ license, under Apple's copyrights in this original Apple software (the
+ "Apple Software"), to use, reproduce, modify and redistribute the Apple
+ Software, with or without modifications, in source and/or binary forms;
+ provided that if you redistribute the Apple Software in its entirety and
+ without modifications, you must retain this notice and the following
+ text and disclaimers in all such redistributions of the Apple Software.
+ Neither the name, trademarks, service marks or logos of Apple Inc. may
+ be used to endorse or promote products derived from the Apple Software
+ without specific prior written permission from Apple.  Except as
+ expressly stated in this notice, no other rights or licenses, express or
+ implied, are granted by Apple herein, including but not limited to any
+ patent rights that may be infringed by your derivative works or by other
+ works in which the Apple Software may be incorporated.
+ 
+ The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
+ MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+ THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
+ FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
+ OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
+ 
+ IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
+ OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
+ MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
+ AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
+ STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+ Copyright (C) 2011 Apple Inc. All Rights Reserved.
+ 
+-->
+<head>
+<title>HTML Example File</title>
+<script type="text/javascript" language="JavaScript1.4"><!--
+
+	/* SampleFunction is called from Objective-C with two parameters
+	gathered from the UI. */
+function SampleFunction( parameterOne, parameterTwo ) {
+		/* put the values we received in parameters into the two spans */
+	document.getElementById('one').innerText = parameterOne;
+	document.getElementById('two').innerText = parameterTwo;
+	return 'done!';
+}
+	
+	/* DoLogAction calls the console.setscript method
+	with a copy of the text from the inputValue field. */
+function DoLogAction() {
+	if ( console ) {
+		/* calls our Objective-C console logging function */
+		console.log("message: " + document.getElementById('inputValue').value);
+	}
+}
+
+	/* DoSetScriptTextAction calls the console.setscript method
+	with a copy of the text from the scriptText field. */
+function DoSetScriptTextAction() {
+	if ( console ) {
+			/* calls our Objective-C function for setting the script text.  we display the
+			result returned from the call in the 'status' span. */
+		document.getElementById('status').innerText =
+			console.setscript(document.getElementById('scriptText').value);
+	}
+}
+
+// -->
+</script>
+</head>
+<body>
+
+<table border="1" cellpadding="4"><tr><td valign="top">
+		
+		<!-- the values in these spans are set by the SampleFunction function
+		that we call from Objective-C -->
+	<p>Set by our two parameter JavaScript function:<BR>
+	P1: '<span id="one">not set</span>'<BR>
+	P2: '<span id="two">not set</span>'</p>
+
+</td><td valign="top">
+
+	
+		<!-- After loading the html and just before we start running JavaScripts
+		on the page, we install a console object on the window that implements
+		a log() method in Objective-C code.  The log button in this section
+		calls the DoLogAction function that calls through to our Objective-C logging
+		method.  -->
+	<form>
+	<p>Call our console.log() method<BR>
+	Text: 
+	<input style="100" type=text id="inputValue" value="LOG MESSAGE TEXT"> 
+	<input type=button value="LOG" onClick="DoLogAction();"><BR>
+	(view results in the run log)</P>
+	</form>
+
+</td></tr>
+<tr><td colspan="2" valign="top">
+
+		<!-- After loading the html and just before we start running JavaScripts
+		on the page, we install a console object on the window that implements
+		a setscript() method in Objective-C code.  The log button in this section
+		calls the DoSetScriptTextAction function that calls through to
+		our Objective-C method that receives some text to display in the
+		JavaScript field.  -->
+	<form>
+	<p>Call our console.setscript() method to set the script text above:</p>
+	<textarea style="width: 100%" id="scriptText" rows=5 cols=24>
+	/* test program */
+alert("hello world!"); /* printed to the run log */
+
+	/* tinker with the shared value */
+console.report(); /* report initial shared value */
+console.sharedValue = "running"; /* set to a new value */
+console.report(); /* report the shared value */
+console.sharedValue = "all done";
+console.report(); /* report the final shared value */
+
+	/* log a message to the console */
+console.log("message: " + document.getElementById('inputValue').value);
+
+	/* return a result */
+return "finished!";
+	</textarea>
+	<input type=button value="Call console.setscript()" onClick="DoSetScriptTextAction();">
+	<p>status: <span id="status">not set</span></p>
+	</form>
+	
+</td></tr>
+</table>
+
+</body>
+</html>
+
