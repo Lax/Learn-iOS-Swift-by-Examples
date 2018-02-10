@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		53868F921E5E2812002FF831 /* ATMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53868F911E5E2812002FF831 /* ATMainWindowController.m */; };
+		53DE7FDE1E5BAFEF00E7FCF0 /* ATApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DE7FDD1E5BAFEE00E7FCF0 /* ATApplicationController.m */; };
+		53DE7FE11E5BAFFE00E7FCF0 /* ATSampleWindowRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DE7FE01E5BAFFE00E7FCF0 /* ATSampleWindowRowView.m */; };
+		53DE7FE41E5BB01A00E7FCF0 /* ATDesktopEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DE7FE31E5BB01A00E7FCF0 /* ATDesktopEntity.m */; };
+		53DE7FE71E5BB02100E7FCF0 /* ATColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DE7FE61E5BB02100E7FCF0 /* ATColorView.m */; };
+		53DE7FEA1E5BB04000E7FCF0 /* ATBasicTableViewWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DE7FE81E5BB04000E7FCF0 /* ATBasicTableViewWindow.xib */; };
+		53DE7FED1E5BB04B00E7FCF0 /* ATBasicTableViewWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DE7FEC1E5BB04B00E7FCF0 /* ATBasicTableViewWindowController.m */; };
+		53DE7FF21E5BB05800E7FCF0 /* ATColorTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DE7FEE1E5BB05800E7FCF0 /* ATColorTable.xib */; };
+		53DE7FF31E5BB05800E7FCF0 /* ATComplexTableViewWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DE7FF01E5BB05800E7FCF0 /* ATComplexTableViewWindow.xib */; };
+		53DE7FF61E5BB06800E7FCF0 /* ATTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DE7FF51E5BB06800E7FCF0 /* ATTableCellView.m */; };
+		53DE7FF91E5BB07300E7FCF0 /* ATComplexTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DE7FF81E5BB07300E7FCF0 /* ATComplexTableViewController.m */; };
+		53DE7FFC1E5BB08000E7FCF0 /* ATColorTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DE7FFB1E5BB08000E7FCF0 /* ATColorTableController.m */; };
+		53DE7FFF1E5BB08900E7FCF0 /* ATObjectTableRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DE7FFE1E5BB08900E7FCF0 /* ATObjectTableRowView.m */; };
+		53DE80021E5BB09400E7FCF0 /* ATComplexOutlineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DE80011E5BB09400E7FCF0 /* ATComplexOutlineController.m */; };
+		53DE80051E5BB09C00E7FCF0 /* ATComplexOutlineWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DE80031E5BB09C00E7FCF0 /* ATComplexOutlineWindow.xib */; };
+		53DE80081E5BB0A700E7FCF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DE80061E5BB0A700E7FCF0 /* main.m */; };
+		53DE800B1E5BB0AD00E7FCF0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DE80091E5BB0AD00E7FCF0 /* MainMenu.xib */; };
+		53DE800D1E5BB0BA00E7FCF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53DE800C1E5BB0BA00E7FCF0 /* Images.xcassets */; };
+		53DE80121E5BB0F700E7FCF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 53DE80101E5BB0F700E7FCF0 /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		530AD8E61E5BB48C00FAC825 /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		53868F901E5E2812002FF831 /* ATMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATMainWindowController.h; path = TableViewPlayground/ATMainWindowController.h; sourceTree = "<group>"; };
+		53868F911E5E2812002FF831 /* ATMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATMainWindowController.m; path = TableViewPlayground/ATMainWindowController.m; sourceTree = "<group>"; };
+		53D763661E5BB714003C72C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TableViewPlayground/Base.lproj/ATBasicTableViewWindow.xib; sourceTree = "<group>"; };
+		53D763671E5BB714003C72C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TableViewPlayground/Base.lproj/ATColorTable.xib; sourceTree = "<group>"; };
+		53D763681E5BB714003C72C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TableViewPlayground/Base.lproj/ATComplexTableViewWindow.xib; sourceTree = "<group>"; };
+		53D763691E5BB714003C72C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TableViewPlayground/Base.lproj/ATComplexOutlineWindow.xib; sourceTree = "<group>"; };
+		53D7636A1E5BB714003C72C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TableViewPlayground/Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		53DE7FDC1E5BAFEE00E7FCF0 /* ATApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATApplicationController.h; path = TableViewPlayground/ATApplicationController.h; sourceTree = "<group>"; };
+		53DE7FDD1E5BAFEE00E7FCF0 /* ATApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATApplicationController.m; path = TableViewPlayground/ATApplicationController.m; sourceTree = "<group>"; };
+		53DE7FDF1E5BAFFE00E7FCF0 /* ATSampleWindowRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATSampleWindowRowView.h; path = TableViewPlayground/ATSampleWindowRowView.h; sourceTree = "<group>"; };
+		53DE7FE01E5BAFFE00E7FCF0 /* ATSampleWindowRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATSampleWindowRowView.m; path = TableViewPlayground/ATSampleWindowRowView.m; sourceTree = "<group>"; };
+		53DE7FE21E5BB01A00E7FCF0 /* ATDesktopEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATDesktopEntity.h; path = TableViewPlayground/ATDesktopEntity.h; sourceTree = "<group>"; };
+		53DE7FE31E5BB01A00E7FCF0 /* ATDesktopEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATDesktopEntity.m; path = TableViewPlayground/ATDesktopEntity.m; sourceTree = "<group>"; };
+		53DE7FE51E5BB02100E7FCF0 /* ATColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATColorView.h; path = TableViewPlayground/ATColorView.h; sourceTree = "<group>"; };
+		53DE7FE61E5BB02100E7FCF0 /* ATColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATColorView.m; path = TableViewPlayground/ATColorView.m; sourceTree = "<group>"; };
+		53DE7FEB1E5BB04B00E7FCF0 /* ATBasicTableViewWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATBasicTableViewWindowController.h; path = TableViewPlayground/ATBasicTableViewWindowController.h; sourceTree = "<group>"; };
+		53DE7FEC1E5BB04B00E7FCF0 /* ATBasicTableViewWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATBasicTableViewWindowController.m; path = TableViewPlayground/ATBasicTableViewWindowController.m; sourceTree = "<group>"; };
+		53DE7FF41E5BB06800E7FCF0 /* ATTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATTableCellView.h; path = TableViewPlayground/ATTableCellView.h; sourceTree = "<group>"; };
+		53DE7FF51E5BB06800E7FCF0 /* ATTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATTableCellView.m; path = TableViewPlayground/ATTableCellView.m; sourceTree = "<group>"; };
+		53DE7FF71E5BB07300E7FCF0 /* ATComplexTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATComplexTableViewController.h; path = TableViewPlayground/ATComplexTableViewController.h; sourceTree = "<group>"; };
+		53DE7FF81E5BB07300E7FCF0 /* ATComplexTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATComplexTableViewController.m; path = TableViewPlayground/ATComplexTableViewController.m; sourceTree = "<group>"; };
+		53DE7FFA1E5BB08000E7FCF0 /* ATColorTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATColorTableController.h; path = TableViewPlayground/ATColorTableController.h; sourceTree = "<group>"; };
+		53DE7FFB1E5BB08000E7FCF0 /* ATColorTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATColorTableController.m; path = TableViewPlayground/ATColorTableController.m; sourceTree = "<group>"; };
+		53DE7FFD1E5BB08900E7FCF0 /* ATObjectTableRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATObjectTableRowView.h; path = TableViewPlayground/ATObjectTableRowView.h; sourceTree = "<group>"; };
+		53DE7FFE1E5BB08900E7FCF0 /* ATObjectTableRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATObjectTableRowView.m; path = TableViewPlayground/ATObjectTableRowView.m; sourceTree = "<group>"; };
+		53DE80001E5BB09400E7FCF0 /* ATComplexOutlineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATComplexOutlineController.h; path = TableViewPlayground/ATComplexOutlineController.h; sourceTree = "<group>"; };
+		53DE80011E5BB09400E7FCF0 /* ATComplexOutlineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATComplexOutlineController.m; path = TableViewPlayground/ATComplexOutlineController.m; sourceTree = "<group>"; };
+		53DE80061E5BB0A700E7FCF0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TableViewPlayground/main.m; sourceTree = "<group>"; };
+		53DE800C1E5BB0BA00E7FCF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TableViewPlayground/Images.xcassets; sourceTree = "<group>"; };
+		53DE800E1E5BB0EC00E7FCF0 /* TableViewPlayground-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "TableViewPlayground-Info.plist"; path = "TableViewPlayground/TableViewPlayground-Info.plist"; sourceTree = "<group>"; };
+		53DE80111E5BB0F700E7FCF0 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = TableViewPlayground/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* TableViewPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* TableViewPlayground.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* AnimatedTableView */ = {
+			isa = PBXGroup;
+			children = (
+				530AD8E61E5BB48C00FAC825 /* ReadMe.md */,
+				53FBD5D91E689198005E7EA6 /* Application */,
+				53FBD5DA1E6891B9005E7EA6 /* MainWindow */,
+				9DAE33031097571400BB95A7 /* Basic TableView Window */,
+				9DD1743B108F7332006E27B5 /* Complex TableView Window */,
+				9DD17742108F7E25006E27B5 /* Complex OutlineView Window */,
+				9DDE9BA30FA1255F00BE4471 /* Model */,
+				9DDE9BA40FA1257400BE4471 /* Shared Views */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = AnimatedTableView;
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				53DE800C1E5BB0BA00E7FCF0 /* Images.xcassets */,
+				53DE80091E5BB0AD00E7FCF0 /* MainMenu.xib */,
+				53DE800E1E5BB0EC00E7FCF0 /* TableViewPlayground-Info.plist */,
+				53DE80101E5BB0F700E7FCF0 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		53FBD5D91E689198005E7EA6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				53DE80061E5BB0A700E7FCF0 /* main.m */,
+				53DE7FDC1E5BAFEE00E7FCF0 /* ATApplicationController.h */,
+				53DE7FDD1E5BAFEE00E7FCF0 /* ATApplicationController.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		53FBD5DA1E6891B9005E7EA6 /* MainWindow */ = {
+			isa = PBXGroup;
+			children = (
+				53868F901E5E2812002FF831 /* ATMainWindowController.h */,
+				53868F911E5E2812002FF831 /* ATMainWindowController.m */,
+				53DE7FDF1E5BAFFE00E7FCF0 /* ATSampleWindowRowView.h */,
+				53DE7FE01E5BAFFE00E7FCF0 /* ATSampleWindowRowView.m */,
+			);
+			name = MainWindow;
+			sourceTree = "<group>";
+		};
+		9DAE33031097571400BB95A7 /* Basic TableView Window */ = {
+			isa = PBXGroup;
+			children = (
+				53DE7FEB1E5BB04B00E7FCF0 /* ATBasicTableViewWindowController.h */,
+				53DE7FEC1E5BB04B00E7FCF0 /* ATBasicTableViewWindowController.m */,
+				9DAE3307109758AB00BB95A7 /* Resources */,
+			);
+			name = "Basic TableView Window";
+			sourceTree = "<group>";
+		};
+		9DAE3307109758AB00BB95A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				53DE7FE81E5BB04000E7FCF0 /* ATBasicTableViewWindow.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9DD1743B108F7332006E27B5 /* Complex TableView Window */ = {
+			isa = PBXGroup;
+			children = (
+				53DE7FF71E5BB07300E7FCF0 /* ATComplexTableViewController.h */,
+				53DE7FF81E5BB07300E7FCF0 /* ATComplexTableViewController.m */,
+				53DE7FF41E5BB06800E7FCF0 /* ATTableCellView.h */,
+				53DE7FF51E5BB06800E7FCF0 /* ATTableCellView.m */,
+				53DE7FFA1E5BB08000E7FCF0 /* ATColorTableController.h */,
+				53DE7FFB1E5BB08000E7FCF0 /* ATColorTableController.m */,
+				53DE7FFD1E5BB08900E7FCF0 /* ATObjectTableRowView.h */,
+				53DE7FFE1E5BB08900E7FCF0 /* ATObjectTableRowView.m */,
+				9DD17500108F750D006E27B5 /* Resources */,
+			);
+			name = "Complex TableView Window";
+			sourceTree = "<group>";
+		};
+		9DD17500108F750D006E27B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				53DE7FEE1E5BB05800E7FCF0 /* ATColorTable.xib */,
+				53DE7FF01E5BB05800E7FCF0 /* ATComplexTableViewWindow.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9DD17742108F7E25006E27B5 /* Complex OutlineView Window */ = {
+			isa = PBXGroup;
+			children = (
+				53DE80001E5BB09400E7FCF0 /* ATComplexOutlineController.h */,
+				53DE80011E5BB09400E7FCF0 /* ATComplexOutlineController.m */,
+				9DD17743108F7E3B006E27B5 /* Resources */,
+			);
+			name = "Complex OutlineView Window";
+			sourceTree = "<group>";
+		};
+		9DD17743108F7E3B006E27B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				53DE80031E5BB09C00E7FCF0 /* ATComplexOutlineWindow.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9DDE9BA30FA1255F00BE4471 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53DE7FE21E5BB01A00E7FCF0 /* ATDesktopEntity.h */,
+				53DE7FE31E5BB01A00E7FCF0 /* ATDesktopEntity.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9DDE9BA40FA1257400BE4471 /* Shared Views */ = {
+			isa = PBXGroup;
+			children = (
+				53DE7FE51E5BB02100E7FCF0 /* ATColorView.h */,
+				53DE7FE61E5BB02100E7FCF0 /* ATColorView.m */,
+			);
+			name = "Shared Views";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* TableViewPlayground */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "TableViewPlayground" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TableViewPlayground;
+			productInstallPath = "$(HOME)/Applications";
+			productName = AnimatedTableView;
+			productReference = 8D1107320486CEB800E47090 /* TableViewPlayground.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TableViewPlayground" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Base,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* AnimatedTableView */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* TableViewPlayground */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53DE80121E5BB0F700E7FCF0 /* InfoPlist.strings in Resources */,
+				53DE800D1E5BB0BA00E7FCF0 /* Images.xcassets in Resources */,
+				53DE7FEA1E5BB04000E7FCF0 /* ATBasicTableViewWindow.xib in Resources */,
+				53DE7FF21E5BB05800E7FCF0 /* ATColorTable.xib in Resources */,
+				53DE7FF31E5BB05800E7FCF0 /* ATComplexTableViewWindow.xib in Resources */,
+				53DE80051E5BB09C00E7FCF0 /* ATComplexOutlineWindow.xib in Resources */,
+				53DE800B1E5BB0AD00E7FCF0 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53DE7FDE1E5BAFEF00E7FCF0 /* ATApplicationController.m in Sources */,
+				53DE7FF61E5BB06800E7FCF0 /* ATTableCellView.m in Sources */,
+				53DE7FFF1E5BB08900E7FCF0 /* ATObjectTableRowView.m in Sources */,
+				53DE7FFC1E5BB08000E7FCF0 /* ATColorTableController.m in Sources */,
+				53DE7FE41E5BB01A00E7FCF0 /* ATDesktopEntity.m in Sources */,
+				53868F921E5E2812002FF831 /* ATMainWindowController.m in Sources */,
+				53DE7FED1E5BB04B00E7FCF0 /* ATBasicTableViewWindowController.m in Sources */,
+				53DE7FE71E5BB02100E7FCF0 /* ATColorView.m in Sources */,
+				53DE7FF91E5BB07300E7FCF0 /* ATComplexTableViewController.m in Sources */,
+				53DE7FE11E5BAFFE00E7FCF0 /* ATSampleWindowRowView.m in Sources */,
+				53DE80081E5BB0A700E7FCF0 /* main.m in Sources */,
+				53DE80021E5BB09400E7FCF0 /* ATComplexOutlineController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		53DE7FE81E5BB04000E7FCF0 /* ATBasicTableViewWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53D763661E5BB714003C72C2 /* Base */,
+			);
+			name = ATBasicTableViewWindow.xib;
+			sourceTree = "<group>";
+		};
+		53DE7FEE1E5BB05800E7FCF0 /* ATColorTable.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53D763671E5BB714003C72C2 /* Base */,
+			);
+			name = ATColorTable.xib;
+			sourceTree = "<group>";
+		};
+		53DE7FF01E5BB05800E7FCF0 /* ATComplexTableViewWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53D763681E5BB714003C72C2 /* Base */,
+			);
+			name = ATComplexTableViewWindow.xib;
+			sourceTree = "<group>";
+		};
+		53DE80031E5BB09C00E7FCF0 /* ATComplexOutlineWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53D763691E5BB714003C72C2 /* Base */,
+			);
+			name = ATComplexOutlineWindow.xib;
+			sourceTree = "<group>";
+		};
+		53DE80091E5BB0AD00E7FCF0 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53D7636A1E5BB714003C72C2 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		53DE80101E5BB0F700E7FCF0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53DE80111E5BB0F700E7FCF0 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "TableViewPlayground/TableViewPlayground-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.TableViewPlayground";
+				PRODUCT_NAME = TableViewPlayground;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "TableViewPlayground/TableViewPlayground-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.TableViewPlayground";
+				PRODUCT_NAME = TableViewPlayground;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "TableViewPlayground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TableViewPlayground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
