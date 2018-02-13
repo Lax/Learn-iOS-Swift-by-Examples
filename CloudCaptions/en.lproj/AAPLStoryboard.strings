@@ -1,0 +1,21 @@
+
+/* Class = "IBUIBarButtonItem"; title = "Cancel"; ObjectID = "8Ia-YK-13N"; */
+"8Ia-YK-13N.title" = "Cancel";
+
+/* Class = "IBUITextField"; placeholder = "Space Separated Tags"; ObjectID = "EjA-aa-lAU"; */
+"EjA-aa-lAU.placeholder" = "Space Separated Tags";
+
+/* Class = "IBUIBarButtonItem"; title = "Cancel"; ObjectID = "iQn-s1-sXg"; */
+"iQn-s1-sXg.title" = "Cancel";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "lkL-ap-nxu"; */
+"lkL-ap-nxu.text" = "";
+
+/* Class = "IBUINavigationItem"; title = "CloudCaptions"; ObjectID = "nHB-7H-Ipf"; */
+"nHB-7H-Ipf.title" = "CloudCaptions";
+
+/* Class = "IBUIBarButtonItem"; title = "Post"; ObjectID = "pe6-MO-LSe"; */
+"pe6-MO-LSe.title" = "Post";
+
+/* Class = "IBUINavigationItem"; title = "Select Image"; ObjectID = "rdz-Jv-Gpi"; */
+"rdz-Jv-Gpi.title" = "Select Image";

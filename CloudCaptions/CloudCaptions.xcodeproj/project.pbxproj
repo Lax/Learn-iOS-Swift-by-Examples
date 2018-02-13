@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E706D1891991661600A2424F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E706D1881991661600A2424F /* Localizable.strings */; };
+		E70AFCB719807EDB00547B8A /* AAPLPostManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E70AFCB519807EDB00547B8A /* AAPLPostManager.h */; };
+		E70AFCB819807EDB00547B8A /* AAPLPostManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E70AFCB619807EDB00547B8A /* AAPLPostManager.m */; };
+		E713840119A51E7B002B350E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E713840019A51E7B002B350E /* CloudKit.framework */; };
+		E73AA20A1975F79C00B6CDC9 /* AAPLSubscriptionController.h in Headers */ = {isa = PBXBuildFile; fileRef = E73AA2081975F79C00B6CDC9 /* AAPLSubscriptionController.h */; };
+		E73AA20B1975F79C00B6CDC9 /* AAPLSubscriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73AA2091975F79C00B6CDC9 /* AAPLSubscriptionController.m */; };
+		E7C94A4C19905E5B00914E02 /* AAPLStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7C94A4719905E5B00914E02 /* AAPLStoryboard.storyboard */; };
+		E7C94A4D19905E5B00914E02 /* AAPLStoryboard.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7C94A4A19905E5B00914E02 /* AAPLStoryboard.strings */; };
+		E7D7E41C193F740D00F455FF /* AAPLExistingImageCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = E7D7E402193F740D00F455FF /* AAPLExistingImageCollectionView.h */; };
+		E7D7E41D193F740D00F455FF /* AAPLExistingImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D7E403193F740D00F455FF /* AAPLExistingImageCollectionView.m */; };
+		E7D7E41E193F740D00F455FF /* AAPLExistingImageCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E7D7E404193F740D00F455FF /* AAPLExistingImageCollectionViewCell.h */; };
+		E7D7E41F193F740D00F455FF /* AAPLExistingImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D7E405193F740D00F455FF /* AAPLExistingImageCollectionViewCell.m */; };
+		E7D7E420193F740D00F455FF /* AAPLExistingImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E7D7E406193F740D00F455FF /* AAPLExistingImageViewController.h */; };
+		E7D7E421193F740D00F455FF /* AAPLExistingImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D7E407193F740D00F455FF /* AAPLExistingImageViewController.m */; };
+		E7D7E422193F740D00F455FF /* AAPLImage.h in Headers */ = {isa = PBXBuildFile; fileRef = E7D7E408193F740D00F455FF /* AAPLImage.h */; };
+		E7D7E423193F740D00F455FF /* AAPLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D7E409193F740D00F455FF /* AAPLImage.m */; };
+		E7D7E424193F740D00F455FF /* AAPLPost.h in Headers */ = {isa = PBXBuildFile; fileRef = E7D7E40A193F740D00F455FF /* AAPLPost.h */; };
+		E7D7E425193F740D00F455FF /* AAPLPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D7E40B193F740D00F455FF /* AAPLPost.m */; };
+		E7D7E426193F740D00F455FF /* AAPLPostTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E7D7E40C193F740D00F455FF /* AAPLPostTableViewCell.h */; };
+		E7D7E427193F740D00F455FF /* AAPLPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D7E40D193F740D00F455FF /* AAPLPostTableViewCell.m */; };
+		E7D7E42A193F740D00F455FF /* AAPLSubmitPostViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E7D7E410193F740D00F455FF /* AAPLSubmitPostViewController.h */; };
+		E7D7E42B193F740D00F455FF /* AAPLSubmitPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D7E411193F740D00F455FF /* AAPLSubmitPostViewController.m */; };
+		E7D7E42C193F740D00F455FF /* AAPLTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E7D7E412193F740D00F455FF /* AAPLTableViewController.h */; };
+		E7D7E42D193F740D00F455FF /* AAPLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D7E413193F740D00F455FF /* AAPLTableViewController.m */; };
+		E7D7E42E193F740D00F455FF /* AAPLAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E7D7E414193F740D00F455FF /* AAPLAppDelegate.h */; };
+		E7D7E42F193F740D00F455FF /* AAPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D7E415193F740D00F455FF /* AAPLAppDelegate.m */; };
+		E7D7E432193F740D00F455FF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D7E419193F740D00F455FF /* Images.xcassets */; };
+		E7D7E434193F740D00F455FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D7E41B193F740D00F455FF /* main.m */; };
+		E7D8BEBE1977366100BE2AAD /* CloudCaptions.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = E7D8BEBD1977366100BE2AAD /* CloudCaptions.entitlements */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E706D1881991661600A2424F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = SOURCE_ROOT; };
+		E70AFCB519807EDB00547B8A /* AAPLPostManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLPostManager.h; sourceTree = "<group>"; };
+		E70AFCB619807EDB00547B8A /* AAPLPostManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLPostManager.m; sourceTree = "<group>"; };
+		E713840019A51E7B002B350E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		E718F0CF193F824200B418EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CloudCaptions/Info.plist; sourceTree = "<group>"; };
+		E73AA2081975F79C00B6CDC9 /* AAPLSubscriptionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSubscriptionController.h; sourceTree = "<group>"; };
+		E73AA2091975F79C00B6CDC9 /* AAPLSubscriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSubscriptionController.m; sourceTree = "<group>"; };
+		E76EC7A6192D3D4100FFB105 /* CloudCaptions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudCaptions.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7C94A4819905E5B00914E02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AAPLStoryboard.storyboard; sourceTree = "<group>"; };
+		E7C94A4B19905E5B00914E02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = AAPLStoryboard.strings; sourceTree = "<group>"; };
+		E7D7E402193F740D00F455FF /* AAPLExistingImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLExistingImageCollectionView.h; sourceTree = "<group>"; };
+		E7D7E403193F740D00F455FF /* AAPLExistingImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLExistingImageCollectionView.m; sourceTree = "<group>"; };
+		E7D7E404193F740D00F455FF /* AAPLExistingImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLExistingImageCollectionViewCell.h; sourceTree = "<group>"; };
+		E7D7E405193F740D00F455FF /* AAPLExistingImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLExistingImageCollectionViewCell.m; sourceTree = "<group>"; };
+		E7D7E406193F740D00F455FF /* AAPLExistingImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLExistingImageViewController.h; sourceTree = "<group>"; };
+		E7D7E407193F740D00F455FF /* AAPLExistingImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLExistingImageViewController.m; sourceTree = "<group>"; };
+		E7D7E408193F740D00F455FF /* AAPLImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLImage.h; sourceTree = "<group>"; };
+		E7D7E409193F740D00F455FF /* AAPLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLImage.m; sourceTree = "<group>"; };
+		E7D7E40A193F740D00F455FF /* AAPLPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLPost.h; sourceTree = "<group>"; };
+		E7D7E40B193F740D00F455FF /* AAPLPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLPost.m; sourceTree = "<group>"; };
+		E7D7E40C193F740D00F455FF /* AAPLPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLPostTableViewCell.h; sourceTree = "<group>"; };
+		E7D7E40D193F740D00F455FF /* AAPLPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLPostTableViewCell.m; sourceTree = "<group>"; };
+		E7D7E410193F740D00F455FF /* AAPLSubmitPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSubmitPostViewController.h; sourceTree = "<group>"; };
+		E7D7E411193F740D00F455FF /* AAPLSubmitPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSubmitPostViewController.m; sourceTree = "<group>"; };
+		E7D7E412193F740D00F455FF /* AAPLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTableViewController.h; sourceTree = "<group>"; };
+		E7D7E413193F740D00F455FF /* AAPLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLTableViewController.m; sourceTree = "<group>"; };
+		E7D7E414193F740D00F455FF /* AAPLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLAppDelegate.h; sourceTree = "<group>"; };
+		E7D7E415193F740D00F455FF /* AAPLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLAppDelegate.m; sourceTree = "<group>"; };
+		E7D7E419193F740D00F455FF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E7D7E41B193F740D00F455FF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CloudCaptions/main.m; sourceTree = "<group>"; };
+		E7D8BEBD1977366100BE2AAD /* CloudCaptions.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CloudCaptions.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E76EC7A2192D3D4100FFB105 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E713840119A51E7B002B350E /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E76EC79C192D3D4100FFB105 = {
+			isa = PBXGroup;
+			children = (
+				E713840019A51E7B002B350E /* CloudKit.framework */,
+				E7D7E401193F740D00F455FF /* CloudCaptions */,
+				E76EC7A7192D3D4100FFB105 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E76EC7A7192D3D4100FFB105 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E76EC7A6192D3D4100FFB105 /* CloudCaptions.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E7C94A4619905E5B00914E02 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				E7C94A4719905E5B00914E02 /* AAPLStoryboard.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = SOURCE_ROOT;
+		};
+		E7C94A4919905E5B00914E02 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				E706D1881991661600A2424F /* Localizable.strings */,
+				E7C94A4A19905E5B00914E02 /* AAPLStoryboard.strings */,
+			);
+			path = en.lproj;
+			sourceTree = SOURCE_ROOT;
+		};
+		E7D7E401193F740D00F455FF /* CloudCaptions */ = {
+			isa = PBXGroup;
+			children = (
+				E7C94A4619905E5B00914E02 /* Base.lproj */,
+				E7C94A4919905E5B00914E02 /* en.lproj */,
+				E7D7E414193F740D00F455FF /* AAPLAppDelegate.h */,
+				E7D7E415193F740D00F455FF /* AAPLAppDelegate.m */,
+				E7D8BEBD1977366100BE2AAD /* CloudCaptions.entitlements */,
+				E7D7E437193F744800F455FF /* Controllers */,
+				E7D7E436193F744300F455FF /* Views */,
+				E7D7E435193F743600F455FF /* Models */,
+				E7D7E419193F740D00F455FF /* Images.xcassets */,
+				E7D7E438193F748900F455FF /* Supporting Files */,
+			);
+			path = CloudCaptions;
+			sourceTree = "<group>";
+		};
+		E7D7E435193F743600F455FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E7D7E408193F740D00F455FF /* AAPLImage.h */,
+				E7D7E409193F740D00F455FF /* AAPLImage.m */,
+				E7D7E40A193F740D00F455FF /* AAPLPost.h */,
+				E7D7E40B193F740D00F455FF /* AAPLPost.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E7D7E436193F744300F455FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E7D7E402193F740D00F455FF /* AAPLExistingImageCollectionView.h */,
+				E7D7E403193F740D00F455FF /* AAPLExistingImageCollectionView.m */,
+				E7D7E404193F740D00F455FF /* AAPLExistingImageCollectionViewCell.h */,
+				E7D7E405193F740D00F455FF /* AAPLExistingImageCollectionViewCell.m */,
+				E7D7E40C193F740D00F455FF /* AAPLPostTableViewCell.h */,
+				E7D7E40D193F740D00F455FF /* AAPLPostTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E7D7E437193F744800F455FF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7D7E406193F740D00F455FF /* AAPLExistingImageViewController.h */,
+				E7D7E407193F740D00F455FF /* AAPLExistingImageViewController.m */,
+				E7D7E410193F740D00F455FF /* AAPLSubmitPostViewController.h */,
+				E7D7E411193F740D00F455FF /* AAPLSubmitPostViewController.m */,
+				E7D7E412193F740D00F455FF /* AAPLTableViewController.h */,
+				E7D7E413193F740D00F455FF /* AAPLTableViewController.m */,
+				E73AA2081975F79C00B6CDC9 /* AAPLSubscriptionController.h */,
+				E73AA2091975F79C00B6CDC9 /* AAPLSubscriptionController.m */,
+				E70AFCB519807EDB00547B8A /* AAPLPostManager.h */,
+				E70AFCB619807EDB00547B8A /* AAPLPostManager.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E7D7E438193F748900F455FF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E718F0CF193F824200B418EB /* Info.plist */,
+				E7D7E41B193F740D00F455FF /* main.m */,
+			);
+			name = "Supporting Files";
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E76EC7A3192D3D4100FFB105 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7D7E422193F740D00F455FF /* AAPLImage.h in Headers */,
+				E7D7E420193F740D00F455FF /* AAPLExistingImageViewController.h in Headers */,
+				E7D7E424193F740D00F455FF /* AAPLPost.h in Headers */,
+				E7D7E426193F740D00F455FF /* AAPLPostTableViewCell.h in Headers */,
+				E70AFCB719807EDB00547B8A /* AAPLPostManager.h in Headers */,
+				E7D7E41E193F740D00F455FF /* AAPLExistingImageCollectionViewCell.h in Headers */,
+				E7D7E42A193F740D00F455FF /* AAPLSubmitPostViewController.h in Headers */,
+				E7D7E41C193F740D00F455FF /* AAPLExistingImageCollectionView.h in Headers */,
+				E73AA20A1975F79C00B6CDC9 /* AAPLSubscriptionController.h in Headers */,
+				E7D7E42C193F740D00F455FF /* AAPLTableViewController.h in Headers */,
+				E7D7E42E193F740D00F455FF /* AAPLAppDelegate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E76EC7A5192D3D4100FFB105 /* CloudCaptions */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E76EC7CC192D3D4100FFB105 /* Build configuration list for PBXNativeTarget "CloudCaptions" */;
+			buildPhases = (
+				E76EC7A1192D3D4100FFB105 /* Sources */,
+				E76EC7A2192D3D4100FFB105 /* Frameworks */,
+				E76EC7A3192D3D4100FFB105 /* Headers */,
+				E76EC7A4192D3D4100FFB105 /* Resources */,
+				E744C47019A402A8009708D8 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CloudCaptions;
+			productName = CloudCaptions;
+			productReference = E76EC7A6192D3D4100FFB105 /* CloudCaptions.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E76EC79D192D3D4100FFB105 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Apple;
+				TargetAttributes = {
+					E76EC7A5192D3D4100FFB105 = {
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = E76EC7A0192D3D4100FFB105 /* Build configuration list for PBXProject "CloudCaptions" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E76EC79C192D3D4100FFB105;
+			productRefGroup = E76EC7A7192D3D4100FFB105 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E76EC7A5192D3D4100FFB105 /* CloudCaptions */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E76EC7A4192D3D4100FFB105 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E706D1891991661600A2424F /* Localizable.strings in Resources */,
+				E7C94A4D19905E5B00914E02 /* AAPLStoryboard.strings in Resources */,
+				E7D8BEBE1977366100BE2AAD /* CloudCaptions.entitlements in Resources */,
+				E7D7E432193F740D00F455FF /* Images.xcassets in Resources */,
+				E7C94A4C19905E5B00914E02 /* AAPLStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E744C47019A402A8009708D8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "BUNDLE_IDENTIFIER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleIdentifier\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/Info.plist\")\nif [[ $BUNDLE_IDENTIFIER == com.apple.* ]]\nthen\necho \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.APP/Info.plist:1: error: Change your bundle identifier to use your own CloudKit container\"\nexit -1\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E76EC7A1192D3D4100FFB105 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7D7E421193F740D00F455FF /* AAPLExistingImageViewController.m in Sources */,
+				E7D7E41D193F740D00F455FF /* AAPLExistingImageCollectionView.m in Sources */,
+				E7D7E425193F740D00F455FF /* AAPLPost.m in Sources */,
+				E7D7E41F193F740D00F455FF /* AAPLExistingImageCollectionViewCell.m in Sources */,
+				E7D7E423193F740D00F455FF /* AAPLImage.m in Sources */,
+				E7D7E42B193F740D00F455FF /* AAPLSubmitPostViewController.m in Sources */,
+				E73AA20B1975F79C00B6CDC9 /* AAPLSubscriptionController.m in Sources */,
+				E7D7E42D193F740D00F455FF /* AAPLTableViewController.m in Sources */,
+				E7D7E427193F740D00F455FF /* AAPLPostTableViewCell.m in Sources */,
+				E7D7E434193F740D00F455FF /* main.m in Sources */,
+				E7D7E42F193F740D00F455FF /* AAPLAppDelegate.m in Sources */,
+				E70AFCB819807EDB00547B8A /* AAPLPostManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E7C94A4719905E5B00914E02 /* AAPLStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7C94A4819905E5B00914E02 /* Base */,
+			);
+			name = AAPLStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		E7C94A4A19905E5B00914E02 /* AAPLStoryboard.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7C94A4B19905E5B00914E02 /* en */,
+			);
+			name = AAPLStoryboard.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E76EC7CA192D3D4100FFB105 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				AXLE_ENABLE_DEBUG_INFO = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E76EC7CB192D3D4100FFB105 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				AXLE_ENABLE_DEBUG_INFO = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E76EC7CD192D3D4100FFB105 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = CloudCaptions/CloudCaptions.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = CloudCaptions/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = CloudCaptions;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E76EC7CE192D3D4100FFB105 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = CloudCaptions/CloudCaptions.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = CloudCaptions/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = CloudCaptions;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E76EC7A0192D3D4100FFB105 /* Build configuration list for PBXProject "CloudCaptions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E76EC7CA192D3D4100FFB105 /* Debug */,
+				E76EC7CB192D3D4100FFB105 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E76EC7CC192D3D4100FFB105 /* Build configuration list for PBXNativeTarget "CloudCaptions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E76EC7CD192D3D4100FFB105 /* Debug */,
+				E76EC7CE192D3D4100FFB105 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E76EC79D192D3D4100FFB105 /* Project object */;
+}
