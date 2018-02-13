@@ -1,0 +1,346 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08DDFE1A18F301600089609B /* AAPLKeychainTestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DDFE1818F301600089609B /* AAPLKeychainTestsViewController.m */; };
+		08F2F41118FC07510014A20F /* AAPLLocalAuthenticationTestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F2F40F18FC07510014A20F /* AAPLLocalAuthenticationTestsViewController.m */; };
+		08F2F41518FC0E7B0014A20F /* AAPLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F2F41418FC0E7B0014A20F /* AAPLTest.m */; };
+		08F2F41D18FD3BC00014A20F /* auth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F2F41B18FD3BC00014A20F /* auth@2x.png */; };
+		08F2F41E18FD3BC00014A20F /* keychain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F2F41C18FD3BC00014A20F /* keychain@2x.png */; };
+		08F592EC18E9BBA5006D0BF2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08F592EA18E9BBA5006D0BF2 /* InfoPlist.strings */; };
+		08F592EE18E9BBA5006D0BF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F592ED18E9BBA5006D0BF2 /* main.m */; };
+		08F592F218E9BBA5006D0BF2 /* AAPLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F592F118E9BBA5006D0BF2 /* AAPLAppDelegate.m */; };
+		3E70696D1B1D461900246648 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E70696C1B1D461900246648 /* LaunchScreen.storyboard */; };
+		BC138D1D1923D49D0034B31E /* AAPLBasicTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC138D1C1923D49D0034B31E /* AAPLBasicTestViewController.m */; };
+		BC5D1D9A1924B7A600702976 /* KeychainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC5D1D991924B7A600702976 /* KeychainStoryboard.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08DDFE1718F301600089609B /* AAPLKeychainTestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLKeychainTestsViewController.h; sourceTree = "<group>"; };
+		08DDFE1818F301600089609B /* AAPLKeychainTestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLKeychainTestsViewController.m; sourceTree = "<group>"; };
+		08F2F40E18FC07510014A20F /* AAPLLocalAuthenticationTestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLLocalAuthenticationTestsViewController.h; sourceTree = "<group>"; };
+		08F2F40F18FC07510014A20F /* AAPLLocalAuthenticationTestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLLocalAuthenticationTestsViewController.m; sourceTree = "<group>"; };
+		08F2F41318FC0E7B0014A20F /* AAPLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTest.h; sourceTree = "<group>"; };
+		08F2F41418FC0E7B0014A20F /* AAPLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLTest.m; sourceTree = "<group>"; };
+		08F2F41B18FD3BC00014A20F /* auth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "auth@2x.png"; sourceTree = "<group>"; };
+		08F2F41C18FD3BC00014A20F /* keychain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keychain@2x.png"; sourceTree = "<group>"; };
+		08F592E518E9BBA5006D0BF2 /* KeychainTouchID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeychainTouchID.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		08F592E918E9BBA5006D0BF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08F592EB18E9BBA5006D0BF2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		08F592ED18E9BBA5006D0BF2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		08F592EF18E9BBA5006D0BF2 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		08F592F018E9BBA5006D0BF2 /* AAPLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLAppDelegate.h; sourceTree = "<group>"; };
+		08F592F118E9BBA5006D0BF2 /* AAPLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAPLAppDelegate.m; sourceTree = "<group>"; };
+		3E70696C1B1D461900246648 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3ED14FD21B1593E10069A9DF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BC138D1B1923D49D0034B31E /* AAPLBasicTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLBasicTestViewController.h; sourceTree = "<group>"; };
+		BC138D1C1923D49D0034B31E /* AAPLBasicTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLBasicTestViewController.m; sourceTree = "<group>"; };
+		BC5D1D991924B7A600702976 /* KeychainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KeychainStoryboard.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		08F592E218E9BBA5006D0BF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08F2F41618FD35640014A20F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				08F2F41B18FD3BC00014A20F /* auth@2x.png */,
+				08F2F41C18FD3BC00014A20F /* keychain@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		08F592DC18E9BBA5006D0BF2 = {
+			isa = PBXGroup;
+			children = (
+				3ED14FD21B1593E10069A9DF /* README.md */,
+				08F592E718E9BBA5006D0BF2 /* KeychainTouchID */,
+				08F592E618E9BBA5006D0BF2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		08F592E618E9BBA5006D0BF2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08F592E518E9BBA5006D0BF2 /* KeychainTouchID.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		08F592E718E9BBA5006D0BF2 /* KeychainTouchID */ = {
+			isa = PBXGroup;
+			children = (
+				08F592F018E9BBA5006D0BF2 /* AAPLAppDelegate.h */,
+				08F592F118E9BBA5006D0BF2 /* AAPLAppDelegate.m */,
+				08F2F41318FC0E7B0014A20F /* AAPLTest.h */,
+				08F2F41418FC0E7B0014A20F /* AAPLTest.m */,
+				BC138D1B1923D49D0034B31E /* AAPLBasicTestViewController.h */,
+				BC138D1C1923D49D0034B31E /* AAPLBasicTestViewController.m */,
+				08F2F40E18FC07510014A20F /* AAPLLocalAuthenticationTestsViewController.h */,
+				08F2F40F18FC07510014A20F /* AAPLLocalAuthenticationTestsViewController.m */,
+				08DDFE1718F301600089609B /* AAPLKeychainTestsViewController.h */,
+				08DDFE1818F301600089609B /* AAPLKeychainTestsViewController.m */,
+				BC5D1D991924B7A600702976 /* KeychainStoryboard.storyboard */,
+				3E70696C1B1D461900246648 /* LaunchScreen.storyboard */,
+				08F2F41618FD35640014A20F /* Resources */,
+				08F592E818E9BBA5006D0BF2 /* Supporting Files */,
+			);
+			path = KeychainTouchID;
+			sourceTree = "<group>";
+		};
+		08F592E818E9BBA5006D0BF2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				08F592E918E9BBA5006D0BF2 /* Info.plist */,
+				08F592EA18E9BBA5006D0BF2 /* InfoPlist.strings */,
+				08F592ED18E9BBA5006D0BF2 /* main.m */,
+				08F592EF18E9BBA5006D0BF2 /* Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		08F592E418E9BBA5006D0BF2 /* KeychainTouchID */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08F5930F18E9BBA5006D0BF2 /* Build configuration list for PBXNativeTarget "KeychainTouchID" */;
+			buildPhases = (
+				08F592E118E9BBA5006D0BF2 /* Sources */,
+				08F592E218E9BBA5006D0BF2 /* Frameworks */,
+				08F592E318E9BBA5006D0BF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KeychainTouchID;
+			productName = KeychainTouchID;
+			productReference = 08F592E518E9BBA5006D0BF2 /* KeychainTouchID.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08F592DD18E9BBA5006D0BF2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "";
+				TargetAttributes = {
+					08F592E418E9BBA5006D0BF2 = {
+            CreatedOnToolsVersion = 8.0;
+					};
+				};
+			};
+			buildConfigurationList = 08F592E018E9BBA5006D0BF2 /* Build configuration list for PBXProject "KeychainTouchID" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 08F592DC18E9BBA5006D0BF2;
+			productRefGroup = 08F592E618E9BBA5006D0BF2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				08F592E418E9BBA5006D0BF2 /* KeychainTouchID */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		08F592E318E9BBA5006D0BF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08F2F41E18FD3BC00014A20F /* keychain@2x.png in Resources */,
+				08F592EC18E9BBA5006D0BF2 /* InfoPlist.strings in Resources */,
+				BC5D1D9A1924B7A600702976 /* KeychainStoryboard.storyboard in Resources */,
+				08F2F41D18FD3BC00014A20F /* auth@2x.png in Resources */,
+				3E70696D1B1D461900246648 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08F592E118E9BBA5006D0BF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08DDFE1A18F301600089609B /* AAPLKeychainTestsViewController.m in Sources */,
+				08F2F41518FC0E7B0014A20F /* AAPLTest.m in Sources */,
+				08F2F41118FC07510014A20F /* AAPLLocalAuthenticationTestsViewController.m in Sources */,
+				BC138D1D1923D49D0034B31E /* AAPLBasicTestViewController.m in Sources */,
+				08F592F218E9BBA5006D0BF2 /* AAPLAppDelegate.m in Sources */,
+				08F592EE18E9BBA5006D0BF2 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		08F592EA18E9BBA5006D0BF2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				08F592EB18E9BBA5006D0BF2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		08F5930D18E9BBA5006D0BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = lossless;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		08F5930E18E9BBA5006D0BF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPRESSION = "respect-asset-catalog";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		08F5931018E9BBA5006D0BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = KeychainTouchID/Prefix.pch;
+				INFOPLIST_FILE = KeychainTouchID/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = KeychainTouchID;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		08F5931118E9BBA5006D0BF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = KeychainTouchID/Prefix.pch;
+				INFOPLIST_FILE = KeychainTouchID/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = KeychainTouchID;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		08F592E018E9BBA5006D0BF2 /* Build configuration list for PBXProject "KeychainTouchID" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08F5930D18E9BBA5006D0BF2 /* Debug */,
+				08F5930E18E9BBA5006D0BF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08F5930F18E9BBA5006D0BF2 /* Build configuration list for PBXNativeTarget "KeychainTouchID" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08F5931018E9BBA5006D0BF2 /* Debug */,
+				08F5931118E9BBA5006D0BF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08F592DD18E9BBA5006D0BF2 /* Project object */;
+}

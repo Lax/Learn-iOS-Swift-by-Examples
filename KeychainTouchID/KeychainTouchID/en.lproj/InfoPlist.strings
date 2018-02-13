@@ -1,0 +1,4 @@
+/* Localized versions of Info.plist keys */
+
+"CFBundleDisplayName" = "Keychain Demo";
+"CFBundleName" = "Keychain Demo";
