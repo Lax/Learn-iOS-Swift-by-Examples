@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mpu-gp-ECv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Table Search-->
+        <scene sceneID="iB1-fs-lSk">
+            <objects>
+                <tableViewController id="VNu-yS-PhO" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZEs-tw-jfE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="VNu-yS-PhO" id="jbO-QO-MRr"/>
+                            <outlet property="delegate" destination="VNu-yS-PhO" id="Dxl-iD-rVg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Table Search" id="bC7-FH-Jej"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXb-8k-lSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="220" y="185"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jn5-or-hCA">
+            <objects>
+                <navigationController id="Mpu-gp-ECv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="2Sw-zp-sGN">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="VNu-yS-PhO" kind="relationship" relationship="rootViewController" id="dqI-iU-Jca"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6AH-lD-SC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-551" y="185"/>
+        </scene>
+    </scenes>
+</document>
