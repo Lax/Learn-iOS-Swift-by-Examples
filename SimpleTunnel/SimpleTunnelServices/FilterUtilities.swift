@@ -11,89 +11,89 @@ import NetworkExtension
 
 /// Content Filter actions.
 public enum FilterRuleAction : Int, CustomStringConvertible {
-	case Block = 1
-	case Allow = 2
-	case NeedMoreRulesAndBlock = 3
-	case NeedMoreRulesAndAllow = 4
-	case NeedMoreRulesFromDataAndBlock = 5
-	case NeedMoreRulesFromDataAndAllow = 6
-	case ExamineData = 7
-	case RedirectToSafeURL = 8
-	case Remediate = 9
+	case block = 1
+	case allow = 2
+	case needMoreRulesAndBlock = 3
+	case needMoreRulesAndAllow = 4
+	case needMoreRulesFromDataAndBlock = 5
+	case needMoreRulesFromDataAndAllow = 6
+	case examineData = 7
+	case redirectToSafeURL = 8
+	case remediate = 9
 
 	public var description: String {
 		switch self {
-		case .Block: return "Block"
-		case .ExamineData: return "Examine Data"
-		case .NeedMoreRulesAndAllow: return "Ask for more rules, then allow"
-		case .NeedMoreRulesAndBlock: return "Ask for more rules, then block"
-		case .NeedMoreRulesFromDataAndAllow: return "Ask for more rules, examine data, then allow"
-		case .NeedMoreRulesFromDataAndBlock: return "Ask for more rules, examine data, then block"
-		case .RedirectToSafeURL: return "Redirect"
-		case .Remediate: return "Remediate"
-		case .Allow: return "Allow"
+		case .block: return "Block"
+		case .examineData: return "Examine Data"
+		case .needMoreRulesAndAllow: return "Ask for more rules, then allow"
+		case .needMoreRulesAndBlock: return "Ask for more rules, then block"
+		case .needMoreRulesFromDataAndAllow: return "Ask for more rules, examine data, then allow"
+		case .needMoreRulesFromDataAndBlock: return "Ask for more rules, examine data, then block"
+		case .redirectToSafeURL: return "Redirect"
+		case .remediate: return "Remediate"
+		case .allow: return "Allow"
 		}
 	}
 }
 
 /// A class containing utility properties and functions for Content Filtering.
-public class FilterUtilities {
+open class FilterUtilities {
 
 	// MARK: Properties
 
 	/// A reference to the SimpleTunnel user defaults.
-	public static let defaults = NSUserDefaults(suiteName: "group.com.example.apple-samplecode.SimpleTunnel")
+	open static let defaults = UserDefaults(suiteName: "group.com.example.apple-samplecode.SimpleTunnel")
 
 	// MARK: Initializers
 
 	/// Get rule parameters for a flow from the SimpleTunnel user defaults.
-	public class func getRule(flow: NEFilterFlow) -> (FilterRuleAction, String, [String: AnyObject]) {
+	open class func getRule(_ flow: NEFilterFlow) -> (FilterRuleAction, String, [String: AnyObject]) {
 		let hostname = FilterUtilities.getFlowHostname(flow)
 
-		guard !hostname.isEmpty else { return (.Allow, hostname, [:]) }
+		guard !hostname.isEmpty else { return (.allow, hostname, [:]) }
 
-		guard let hostNameRule = defaults?.objectForKey("rules")?.objectForKey(hostname) as? [String: AnyObject] else {
+		guard let hostNameRule = (defaults?.object(forKey: "rules") as AnyObject).object(forKey: hostname) as? [String: AnyObject] else {
 			simpleTunnelLog("\(hostname) is set for NO RULES")
-			return (.Allow, hostname, [:])
+			return (.allow, hostname, [:])
 		}
 
 		guard let ruleTypeInt = hostNameRule["kRule"] as? Int,
-			ruleType = FilterRuleAction(rawValue: ruleTypeInt)
-			else { return (.Allow, hostname, [:]) }
+			let ruleType = FilterRuleAction(rawValue: ruleTypeInt)
+			else { return (.allow, hostname, [:]) }
 
 		return (ruleType, hostname, hostNameRule)
 	}
 
 	/// Get the hostname from a browser flow.
-	public class func getFlowHostname(flow: NEFilterFlow) -> String {
+	open class func getFlowHostname(_ flow: NEFilterFlow) -> String {
 		guard let browserFlow : NEFilterBrowserFlow = flow as? NEFilterBrowserFlow,
-			url = browserFlow.URL,
-			hostname = url.host
-			where flow is NEFilterBrowserFlow
+			let url = browserFlow.url,
+			let hostname = url.host
+			, flow is NEFilterBrowserFlow
 			else { return "" }
 		return hostname
 	}
 
 	/// Download a fresh set of rules from the rules server.
-	public class func fetchRulesFromServer(serverAddress: String?) {
+	open class func fetchRulesFromServer(_ serverAddress: String?) {
 		simpleTunnelLog("fetch rules called")
 
 		guard serverAddress != nil else { return }
 		simpleTunnelLog("Fetching rules from \(serverAddress)")
 
-		guard let infoURL = NSURL(string: "http://\(serverAddress!)/rules/") else { return }
+		guard let infoURL = URL(string: "http://\(serverAddress!)/rules/") else { return }
 		simpleTunnelLog("Rules url is \(infoURL)")
 
 		let content: String
 		do {
-			content = try String(contentsOfURL: infoURL, encoding: NSUTF8StringEncoding)
+			content = try String(contentsOf: infoURL, encoding: String.Encoding.utf8)
 		}
 		catch {
 			simpleTunnelLog("Failed to fetch the rules from \(infoURL)")
 			return
 		}
 
-		let contentArray = content.componentsSeparatedByString("<br/>")
+		let contentArray = content.components(separatedBy: "<br/>")
 		simpleTunnelLog("Content array is \(contentArray)")
 		var urlRules = [String: [String: AnyObject]]()
 
@@ -101,7 +101,7 @@ public class FilterUtilities {
 			if rule.isEmpty {
 				continue
 			}
-			let ruleArray = rule.componentsSeparatedByString(" ")
+			let ruleArray = rule.components(separatedBy: " ")
 
 			guard !ruleArray.isEmpty else { continue }
 
@@ -128,10 +128,10 @@ public class FilterUtilities {
 
 
 			urlRules[urlString] = [
-				"kRule" : actionString,
-				"kRedirectKey" : redirectKey,
-				"kRemediateKey" : remediateKey,
-				"kRemediateButtonKey" : remediateButtonKey,
+				"kRule" : actionString as AnyObject,
+				"kRedirectKey" : redirectKey as AnyObject,
+				"kRemediateKey" : remediateKey as AnyObject,
+				"kRemediateButtonKey" : remediateButtonKey as AnyObject,
 			]
 		}
 		defaults?.setValue(urlRules, forKey:"rules")

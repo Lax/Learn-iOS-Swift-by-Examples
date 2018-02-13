@@ -16,12 +16,12 @@ import SimpleTunnelServices
 extension NEVPNStatus: CustomStringConvertible {
     public var description: String {
         switch self {
-        	case .Disconnected: return "Disconnected"
-        	case .Invalid: return "Invalid"
-        	case .Connected: return "Connected"
-        	case .Connecting: return "Connecting"
-        	case .Disconnecting: return "Disconnecting"
-        	case .Reasserting: return "Reconnecting"
+        	case .disconnected: return "Disconnected"
+        	case .invalid: return "Invalid"
+        	case .connected: return "Connected"
+        	case .connecting: return "Connecting"
+        	case .disconnecting: return "Disconnecting"
+        	case .reasserting: return "Reconnecting"
         }
     }
 }
@@ -41,38 +41,38 @@ class StatusViewController: UITableViewController {
 	@IBOutlet weak var statusLabel: UILabel!
 
 	/// The target VPN configuration.
-	var targetManager = NEVPNManager.sharedManager()
+	var targetManager = NEVPNManager.shared()
 
 	// MARK: UIViewController
 
 	/// Handle the event where the view is being displayed.
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		// Initialize the UI
-		enabledSwitch.on = targetManager.enabled
-		startStopToggle.on = (targetManager.connection.status != .Disconnected && targetManager.connection.status != .Invalid)
+		enabledSwitch.isOn = targetManager.isEnabled
+		startStopToggle.isOn = (targetManager.connection.status != .disconnected && targetManager.connection.status != .invalid)
 		statusLabel.text = targetManager.connection.status.description
 		navigationItem.title = targetManager.localizedDescription
 
 		// Register to be notified of changes in the status.
-		NSNotificationCenter.defaultCenter().addObserverForName(NEVPNStatusDidChangeNotification, object: targetManager.connection, queue: NSOperationQueue.mainQueue(), usingBlock: { notification in
+		NotificationCenter.default.addObserver(forName: NSNotification.Name.NEVPNStatusDidChange, object: targetManager.connection, queue: OperationQueue.main, using: { notification in
 			self.statusLabel.text = self.targetManager.connection.status.description
-			self.startStopToggle.on = (self.targetManager.connection.status != .Disconnected && self.targetManager.connection.status != .Disconnecting && self.targetManager.connection.status != .Invalid)
+			self.startStopToggle.isOn = (self.targetManager.connection.status != .disconnected && self.targetManager.connection.status != .disconnecting && self.targetManager.connection.status != .invalid)
 		})
 
 		// Disable the start/stop toggle if the configuration is not enabled.
-		startStopToggle.enabled = enabledSwitch.on
+		startStopToggle.isEnabled = enabledSwitch.isOn
 
 		// Send a simple IPC message to the provider, handle the response.
 		if let session = targetManager.connection as? NETunnelProviderSession,
-			message = "Hello Provider".dataUsingEncoding(NSUTF8StringEncoding)
-			where targetManager.connection.status != .Invalid
+			let message = "Hello Provider".data(using: String.Encoding.utf8)
+			, targetManager.connection.status != .invalid
 		{
 			do {
 				try session.sendProviderMessage(message) { response in
 					if response != nil {
-						let responseString = NSString(data: response!, encoding: NSUTF8StringEncoding)
+						let responseString = NSString(data: response!, encoding: String.Encoding.utf8.rawValue)
 						simpleTunnelLog("Received response from the provider: \(responseString)")
 					} else {
 						simpleTunnelLog("Got a nil response from the provider")
@@ -85,33 +85,33 @@ class StatusViewController: UITableViewController {
 	}
 
 	/// Handle the event where the view is being hidden.
-	override func viewWillDisappear(animated: Bool) {
+	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 
 		// Stop watching for status change notifications.
-		NSNotificationCenter.defaultCenter().removeObserver(self, name: NEVPNStatusDidChangeNotification, object: targetManager.connection)
+		NotificationCenter.default.removeObserver(self, name: NSNotification.Name.NEVPNStatusDidChange, object: targetManager.connection)
 	}
 
 	/// Handle the user toggling the "enabled" switch.
-	@IBAction func enabledToggled(sender: AnyObject) {
-		targetManager.enabled = enabledSwitch.on
-		targetManager.saveToPreferencesWithCompletionHandler { error in
+	@IBAction func enabledToggled(_ sender: AnyObject) {
+		targetManager.isEnabled = enabledSwitch.isOn
+		targetManager.saveToPreferences { error in
 			guard error == nil else {
-				self.enabledSwitch.on = self.targetManager.enabled
-				self.startStopToggle.enabled = self.enabledSwitch.on
+				self.enabledSwitch.isOn = self.targetManager.isEnabled
+				self.startStopToggle.isEnabled = self.enabledSwitch.isOn
 				return
 			}
 			
-			self.targetManager.loadFromPreferencesWithCompletionHandler { error in
-				self.enabledSwitch.on = self.targetManager.enabled
-				self.startStopToggle.enabled = self.enabledSwitch.on
+			self.targetManager.loadFromPreferences { error in
+				self.enabledSwitch.isOn = self.targetManager.isEnabled
+				self.startStopToggle.isEnabled = self.enabledSwitch.isOn
 			}
 		}
 	}
 
 	/// Handle the user toggling the "VPN" switch.
-	@IBAction func startStopToggled(sender: AnyObject) {
-		if targetManager.connection.status == .Disconnected || targetManager.connection.status == .Invalid {
+	@IBAction func startStopToggled(_ sender: AnyObject) {
+		if targetManager.connection.status == .disconnected || targetManager.connection.status == .invalid {
 			do {
 				try targetManager.connection.startVPNTunnel()
 			}

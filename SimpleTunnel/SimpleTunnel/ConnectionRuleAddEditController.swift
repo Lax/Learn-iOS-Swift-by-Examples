@@ -15,8 +15,8 @@ import NetworkExtension
 extension NEEvaluateConnectionRuleAction: CustomStringConvertible {
 	public var description: String {
 		switch self {
-			case .ConnectIfNeeded: return "Connect If Needed"
-			case .NeverConnect: return "Never Connect"
+			case .connectIfNeeded: return "Connect If Needed"
+			case .neverConnect: return "Never Connect"
 		}
 	}
 }
@@ -39,10 +39,10 @@ class ConnectionRuleAddEditController: ConfigurationParametersViewController {
 	@IBOutlet weak var requiredURLProbeCell: TextFieldCell!
 
 	/// The connection rule being edited or added.
-	var targetRule = NEEvaluateConnectionRule(matchDomains: [], andAction: .ConnectIfNeeded)
+	var targetRule = NEEvaluateConnectionRule(matchDomains: [], andAction: .connectIfNeeded)
 
 	/// A block to execute when the user is finished editing the connection rule.
-	var addRuleHandler: NEEvaluateConnectionRule -> Void = { rule in return }
+	var addRuleHandler: (NEEvaluateConnectionRule) -> Void = { rule in return }
 
 	// MARK: UIViewController
 
@@ -59,7 +59,7 @@ class ConnectionRuleAddEditController: ConfigurationParametersViewController {
 
 		requiredURLProbeCell.valueChanged = {
 			if let enteredText = self.requiredURLProbeCell.textField.text {
-				self.targetRule.probeURL = NSURL(string: enteredText)
+				self.targetRule.probeURL = URL(string: enteredText)
 			}
 			else {
 				self.targetRule.probeURL = nil
@@ -68,7 +68,7 @@ class ConnectionRuleAddEditController: ConfigurationParametersViewController {
 	}
 
 	/// Handle the event when the view is being displayed.
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
 		tableView.reloadData()
@@ -83,13 +83,13 @@ class ConnectionRuleAddEditController: ConfigurationParametersViewController {
 	}
 
 	/// Set up the destination view controller for a segue away from this view controller.
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		guard let identifier = segue.identifier else { return }
 
 		switch identifier {
 			case "edit-use-dns-servers":
 				// The user tapped on the Use DNS Servers table cell.
-				guard let stringListController = segue.destinationViewController as? StringListController else { break }
+				guard let stringListController = segue.destination as? StringListController else { break }
 
 				stringListController.setTargetStrings(targetRule.useDNSServers, title: "Use DNS Servers", addTitle: "Add a server address...") { newAddresses in
 					self.targetRule.useDNSServers = newAddresses
@@ -97,11 +97,11 @@ class ConnectionRuleAddEditController: ConfigurationParametersViewController {
 
 			case "edit-connection-rule-action":
 				// The user tapped on the Action table cell.
-				guard let enumController = segue.destinationViewController as? EnumPickerController else { break }
+				guard let enumController = segue.destination as? EnumPickerController else { break }
 
-				let enumValues: [NEEvaluateConnectionRuleAction] = [ .ConnectIfNeeded, .NeverConnect, ],
+				let enumValues: [NEEvaluateConnectionRuleAction] = [ .connectIfNeeded, .neverConnect, ],
 					stringValues = enumValues.flatMap { $0.description },
-					currentSelection = enumValues.indexOf { $0 == targetRule.action }
+					currentSelection = enumValues.index { $0 == targetRule.action }
 
 				enumController.setValues(stringValues, title: "Action", currentSelection: currentSelection) { newRow in
 					let newAction = enumValues[newRow]
@@ -116,7 +116,7 @@ class ConnectionRuleAddEditController: ConfigurationParametersViewController {
 
 			case "edit-connection-rule-match-domains":
 				// The user tapped on the Match Domains table cell.
-				guard let stringListController = segue.destinationViewController as? StringListController else { break }
+				guard let stringListController = segue.destination as? StringListController else { break }
 
 				stringListController.setTargetStrings(targetRule.matchDomains, title: "Match Domains", addTitle: "Add a domain...") { newStrings in
 					let newRule = NEEvaluateConnectionRule(matchDomains: newStrings, andAction: self.targetRule.action)
@@ -133,19 +133,19 @@ class ConnectionRuleAddEditController: ConfigurationParametersViewController {
 	// MARK: Interface
 
 	/// Set the target connection rule, the title of the view, and the block to execute when the user if finished editing the rule.
-	func setTargetRule(rule: NEEvaluateConnectionRule?, title: String, saveHandler: (NEEvaluateConnectionRule) -> Void) {
+	func setTargetRule(_ rule: NEEvaluateConnectionRule?, title: String, saveHandler: @escaping (NEEvaluateConnectionRule) -> Void) {
 		if let newRule = rule {
 			targetRule = newRule
 		} else {
-			targetRule = NEEvaluateConnectionRule(matchDomains: [], andAction: .ConnectIfNeeded)
+			targetRule = NEEvaluateConnectionRule(matchDomains: [], andAction: .connectIfNeeded)
 		}
 		navigationItem.title = title
 		addRuleHandler = saveHandler
 	}
 
 	/// Handle the user tapping on the "Done" button.
-	@IBAction func saveTargetRule(sender: AnyObject) {
+	@IBAction func saveTargetRule(_ sender: AnyObject) {
 		addRuleHandler(targetRule)
-		performSegueWithIdentifier("save-connection-rule", sender: sender)
+		performSegue(withIdentifier: "save-connection-rule", sender: sender)
 	}
 }

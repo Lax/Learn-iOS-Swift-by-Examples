@@ -27,17 +27,17 @@ class ListViewController: UITableViewController {
 
 	/// The type of table view cell accessory image to display for each item in the list.
 	var listAccessoryType: UITableViewCellAccessoryType {
-		return .None
+		return .none
 	}
 
 	/// The type of table view cell accessory image to display for each item in the list while the list is being edited.
 	var listEditingAccessoryType: UITableViewCellAccessoryType {
-		return .None
+		return .none
 	}
 
 	/// The type of selection feedback to display items in the list.
 	var listCellSelectionStyle: UITableViewCellSelectionStyle {
-		return .Default
+		return .default
 	}
 
 	/// The text to display in the "add a new item" cell.
@@ -52,7 +52,7 @@ class ListViewController: UITableViewController {
 	}
 
 	init() {
-		super.init(style: .Grouped)
+		super.init(style: .grouped)
 	}
 
 	// MARK: UIViewController
@@ -61,42 +61,42 @@ class ListViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		if isAlwaysEditing {
-			tableView.editing = true
+			tableView.isEditing = true
 		}
 		else {
-			navigationItem.rightBarButtonItem = editButtonItem()
+			navigationItem.rightBarButtonItem = editButtonItem
 		}
 	}
 
 	/// Handle the event of the view being displayed.
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
 	}
 
 	/// Prepare for a segue away from this view controller.
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		guard let cell = sender as? UITableViewCell,
-			indexPath = tableView.indexPathForCell(cell)
+			let indexPath = tableView.indexPath(for: cell)
 			else { return }
 
-		listSetupSegue(segue, forItemAtIndex: indexPath.row)
+		listSetupSegue(segue, forItemAtIndex: (indexPath as NSIndexPath).row)
 	}
 
 	// MARK: UITableView
 
 	/// Enable editing mode on the UITableView.
-	override func setEditing(editing: Bool, animated: Bool) {
+	override func setEditing(_ editing: Bool, animated: Bool) {
 		super.setEditing(editing, animated: animated)
 
 		if isAddEnabled {
 			// Insert or delete the last row in the table (i.e., the "add a new item" row).
-			let indexPath = NSIndexPath(forItem: listCount, inSection: 0)
+			let indexPath = IndexPath(item: listCount, section: 0)
 			if editing {
-				tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Bottom)
+				tableView.insertRows(at: [indexPath], with: .bottom)
 			}
 			else {
-				tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Bottom)
+				tableView.deleteRows(at: [indexPath], with: .bottom)
 			}
 		}
 	}
@@ -104,41 +104,41 @@ class ListViewController: UITableViewController {
 	// MARK: UITableViewDataSource
 
 	/// Always returns 1.
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
 
 	/// Returns the number of items in the list, incremented by 1 if the list is in edit mode.
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		var count = listCount
-		if tableView.editing {
+		if tableView.isEditing {
 			count += 1
 		}
 		return count
 	}
 
 	/// Returns a cell displaying details about the item at the given index path.
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		var cell = UITableViewCell()
-		if indexPath.item < listCount {
+		if (indexPath as NSIndexPath).item < listCount {
 			// Return a cell containing details about an item in the list.
-			if let itemCell = tableView.dequeueReusableCellWithIdentifier("item-cell") {
+			if let itemCell = tableView.dequeueReusableCell(withIdentifier: "item-cell") {
 				cell = itemCell
-				cell.textLabel?.text = listTextForItemAtIndex(indexPath.row)
+				cell.textLabel?.text = listTextForItemAtIndex((indexPath as NSIndexPath).row)
 				cell.accessoryType = listAccessoryType
 				cell.editingAccessoryType = listEditingAccessoryType
-				cell.imageView?.image = listImageForItemAtIndex(indexPath.row)
+				cell.imageView?.image = listImageForItemAtIndex((indexPath as NSIndexPath).row)
 			}
 		}
-		else if tableView.editing && indexPath.item == listCount {
+		else if tableView.isEditing && (indexPath as NSIndexPath).item == listCount {
 			// The list is in edit mode, return the appropriate "add" cell.
 			if addCell != nil {
 				cell = addCell!
 			}
-			else if let addButtonCell = tableView.dequeueReusableCellWithIdentifier("add-button") {
+			else if let addButtonCell = tableView.dequeueReusableCell(withIdentifier: "add-button") {
 				cell = addButtonCell
 				cell.textLabel?.text = listAddButtonText
-				cell.editingAccessoryType = .None
+				cell.editingAccessoryType = .none
 			}
 		}
 
@@ -146,16 +146,16 @@ class ListViewController: UITableViewController {
 	}
 
 	/// Always returns true, all cells can be edited in the list
-	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 		return true
 	}
 
 	/// Make changes to the list per the given editing style and target row.
-	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		switch editingStyle {
-		case .Delete:
-			listRemoveItemAtIndex(indexPath.row)
-			tableView.deleteRowsAtIndexPaths([ indexPath ], withRowAnimation: .Bottom)
+		case .delete:
+			listRemoveItemAtIndex((indexPath as NSIndexPath).row)
+			tableView.deleteRows(at: [ indexPath ], with: .bottom)
 		default:
 			break
 		}
@@ -164,37 +164,37 @@ class ListViewController: UITableViewController {
 	// MARK: UITableViewDelegate
 
 	/// Return the editing style for a row in the table. Returns "Delete" editing style for all items except for the last item, which uses the "Insert" style.
-	override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-		if indexPath.item < listCount {
-			return .Delete
+	override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+		if (indexPath as NSIndexPath).item < listCount {
+			return .delete
 		}
 		else {
-			return .Insert
+			return .insert
 		}
 	}
 
 	// MARK: Interface 
 
 	/// Prepare to segue away from this view controller as the result of the user tapping on an item in the list.
-	func listSetupSegue(segue: UIStoryboardSegue, forItemAtIndex index: Int) {
+	func listSetupSegue(_ segue: UIStoryboardSegue, forItemAtIndex index: Int) {
 	}
 
 	/// Insert a new item into the list.
-	func listInsertItemAtIndex(index: Int) {
-		tableView.insertRowsAtIndexPaths([ NSIndexPath(forRow: index, inSection: 0) ], withRowAnimation: .Bottom)
+	func listInsertItemAtIndex(_ index: Int) {
+		tableView.insertRows(at: [ IndexPath(row: index, section: 0) ], with: .bottom)
 	}
 
 	/// Get the text to display for an item in the list.
-	func listTextForItemAtIndex(index: Int) -> String {
+	func listTextForItemAtIndex(_ index: Int) -> String {
 		return ""
 	}
 
 	/// Get the image to display for an item in the list.
-	func listImageForItemAtIndex(index: Int) -> UIImage? {
+	func listImageForItemAtIndex(_ index: Int) -> UIImage? {
 		return nil
 	}
 
 	/// Remove an item from the list.
-	func listRemoveItemAtIndex(index: Int) {
+	func listRemoveItemAtIndex(_ index: Int) {
 	}
 }

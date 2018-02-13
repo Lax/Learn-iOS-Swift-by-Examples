@@ -15,7 +15,7 @@ class OnDemandRuleListController: ListViewController {
 	// MARK: Properties
 
 	/// The VPN configuration containing the Connect On Demand rules.
-	var targetManager: NEVPNManager = NEVPNManager.sharedManager()
+	var targetManager: NEVPNManager = NEVPNManager.shared()
 
 	/// The text to display in the list's "add new item" row.
 	override var listAddButtonText: String {
@@ -29,12 +29,12 @@ class OnDemandRuleListController: ListViewController {
 
 	/// Returns UITableViewCellAccessoryType.DetailButton
 	override var listAccessoryType: UITableViewCellAccessoryType {
-		return .DetailButton
+		return .detailButton
 	}
 
 	/// Returns UITableViewCellAccessoryType.DetailButton
 	override var listEditingAccessoryType: UITableViewCellAccessoryType {
-		return .DetailButton
+		return .detailButton
 	}
 
 	// MARK: UIViewController
@@ -49,15 +49,15 @@ class OnDemandRuleListController: ListViewController {
 	// MARK: Interface
 
 	/// Handle unwind segues to this view controller.
-	@IBAction func handleUnwind(sender: UIStoryboardSegue) {
+	@IBAction func handleUnwind(_ sender: UIStoryboardSegue) {
 	}
 
 	// MARK: ListViewController
 
 	/// Set up the destination view controller of a segue away from this view controller.
-	override func listSetupSegue(segue: UIStoryboardSegue, forItemAtIndex index: Int) {
+	override func listSetupSegue(_ segue: UIStoryboardSegue, forItemAtIndex index: Int) {
 		guard let identifier = segue.identifier,
-			ruleAddEditController = segue.destinationViewController as? OnDemandRuleAddEditController
+			let ruleAddEditController = segue.destination as? OnDemandRuleAddEditController
 			else { return }
 
 		switch identifier {
@@ -83,12 +83,12 @@ class OnDemandRuleListController: ListViewController {
 	}
 
 	/// Return a description of the rule at the given index in the list.
-	override func listTextForItemAtIndex(index: Int) -> String {
+	override func listTextForItemAtIndex(_ index: Int) -> String {
 		return targetManager.onDemandRules?[index].action.description ?? ""
 	}
 
 	/// Remove a rule from the list.
-	override func listRemoveItemAtIndex(index: Int) {
-		targetManager.onDemandRules?.removeAtIndex(index)
+	override func listRemoveItemAtIndex(_ index: Int) {
+		targetManager.onDemandRules?.remove(at: index)
 	}
 }

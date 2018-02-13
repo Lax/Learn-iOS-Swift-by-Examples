@@ -19,49 +19,49 @@ class ConfigurationParametersViewController: UITableViewController {
 	// MARK: UITableViewDataSource
 
 	/// Returns the number of sections in the table (always 1).
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
 
 	/// Returns the number of cells currently in the cells list.
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return cells.count
 	}
 
 	/// Returns the cell at the given index in the cells list.
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		return cells[indexPath.row]
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		return cells[(indexPath as NSIndexPath).row]
 	}
 
 	// MARK: Interface
 
 	/// Insert or remove cells into the cells list per the current value of a SwitchCell object.
-	func updateCellsWithDependentsOfCell(cell: SwitchCell) {
+	func updateCellsWithDependentsOfCell(_ cell: SwitchCell) {
 		if let indexPath = getIndexPathOfCell(cell)
-			where !cell.dependentCells.isEmpty
+			, !cell.dependentCells.isEmpty
 		{
-			let index = indexPath.row + 1
+			let index = (indexPath as NSIndexPath).row + 1
 			if cell.isOn {
-				cells.insertContentsOf(cell.dependentCells, at: index)
+				cells.insert(contentsOf: cell.dependentCells, at: index)
 			}
 			else {
 				let removeRange = index..<(index + cell.dependentCells.count)
-				cells.removeRange(removeRange)
+				cells.removeSubrange(removeRange)
 			}
 		}
 	}
 
 	/// Return the index of a given cell in the cells list.
-	func getIndexPathOfCell(cell: UITableViewCell) -> NSIndexPath? {
-		if let row = cells.indexOf({ $0 == cell }) {
-			return NSIndexPath(forRow: row, inSection: 0)
+	func getIndexPathOfCell(_ cell: UITableViewCell) -> IndexPath? {
+		if let row = cells.index(where: { $0 == cell }) {
+			return IndexPath(row: row, section: 0)
 		}
 		return nil
 	}
 
 	/// Construct a description string for a list of items, given a description of a single item.
-	func getDescriptionForListValue(listValue: [AnyObject]?, itemDescription: String, placeHolder: String = "Optional") -> String {
-		if let list = listValue where !list.isEmpty {
+	func getDescriptionForListValue(_ listValue: [AnyObject]?, itemDescription: String, placeHolder: String = "Optional") -> String {
+		if let list = listValue , !list.isEmpty {
 			return "\(list.count) \(itemDescription)" + (list.count > 1 ? "s" : "")
 		} else {
 			return placeHolder
@@ -69,10 +69,10 @@ class ConfigurationParametersViewController: UITableViewController {
 	}
 
 	/// Construct a description string for a list of strings, given a description of a single string.
-	func getDescriptionForStringList(stringList: [String]?, itemDescription: String, placeHolder: String = "Optional") -> String {
-		if let list = stringList where !list.isEmpty {
+	func getDescriptionForStringList(_ stringList: [String]?, itemDescription: String, placeHolder: String = "Optional") -> String {
+		if let list = stringList , !list.isEmpty {
             
-			return (list.count <= 3 ? list.joinWithSeparator(", ") : "\(list.count) \(itemDescription)s")
+			return (list.count <= 3 ? list.joined(separator: ", ") : "\(list.count) \(itemDescription)s")
 		} else {
 			return placeHolder
 		}

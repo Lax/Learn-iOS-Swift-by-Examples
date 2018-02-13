@@ -33,7 +33,7 @@ class ProxyServerAddEditController: ConfigurationParametersViewController {
 	var targetServer = NEProxyServer(address: "", port: 0)
 
 	/// The block to call when the user taps on the "Done" button.
-	var saveChangesCallback: NEProxyServer -> Void = { server in return }
+	var saveChangesCallback: (NEProxyServer) -> Void = { server in return }
 
 	// MARK: UIViewController
 
@@ -58,7 +58,7 @@ class ProxyServerAddEditController: ConfigurationParametersViewController {
 	}
 
 	/// Handle the event when the view is being displayed.
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		tableView.reloadData()
@@ -73,18 +73,18 @@ class ProxyServerAddEditController: ConfigurationParametersViewController {
 	// MARK: Interface
 
 	/// Set the NEProxyServer object to modify, the title of the view, and a block to call when the user is done modify the proxy server settings.
-	func setTargetServer(server: NEProxyServer?, title: String, saveHandler: NEProxyServer -> Void) {
+	func setTargetServer(_ server: NEProxyServer?, title: String, saveHandler: @escaping (NEProxyServer) -> Void) {
 		targetServer = server ?? NEProxyServer(address: "", port: 0)
 		navigationItem.title = title
 		saveChangesCallback = saveHandler
 	}
 
 	/// Gather all of the inputs from the user and call saveChangesCallback. This function is called when the user taps on the "Done" button.
-	@IBAction func saveProxyServer(sender: AnyObject) {
+	@IBAction func saveProxyServer(_ sender: AnyObject) {
 		guard let address = addressCell.textField.text,
-			portString = portCell.textField.text,
-			port = Int(portString)
-			where !address.isEmpty && !portString.isEmpty
+			let portString = portCell.textField.text,
+			let port = Int(portString)
+			, !address.isEmpty && !portString.isEmpty
 			else { return }
 
 		let result = NEProxyServer(address: address, port: port)
@@ -93,6 +93,6 @@ class ProxyServerAddEditController: ConfigurationParametersViewController {
 		result.authenticationRequired = authenticationSwitchCell.isOn
 		saveChangesCallback(result)
 		// Go back to the main proxy settings view.
-		performSegueWithIdentifier("save-proxy-server-settings", sender: sender)
+		performSegue(withIdentifier: "save-proxy-server-settings", sender: sender)
 	}
 }

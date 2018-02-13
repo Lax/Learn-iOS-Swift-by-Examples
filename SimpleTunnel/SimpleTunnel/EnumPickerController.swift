@@ -26,12 +26,12 @@ class EnumPickerController: UIViewController, UIPickerViewDataSource, UIPickerVi
 	var enumTitle: String?
 
 	/// A block to execute when the selected value changes.
-	var selectionChangeHandler: Int -> Void = { newRow in return }
+	var selectionChangeHandler: (Int) -> Void = { newRow in return }
 
 	// MARK: Interface
 
 	/// Set the enum values to display, the title of the view, the index of the currently-selected value, and a block to execute when the selected value changes.
-	func setValues(values: [String], title: String, currentSelection: Int?, selectionChanged: (Int) -> Void) {
+	func setValues(_ values: [String], title: String, currentSelection: Int?, selectionChanged: @escaping (Int) -> Void) {
 		enumValues = values
 		enumTitle = title
 		currentValue = currentSelection
@@ -41,7 +41,7 @@ class EnumPickerController: UIViewController, UIPickerViewDataSource, UIPickerVi
 	// MARK: UIViewController
 
 	/// Handle the event when the view is being displayed.
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		navigationItem.title = enumTitle
 
@@ -54,24 +54,24 @@ class EnumPickerController: UIViewController, UIPickerViewDataSource, UIPickerVi
 	// MARK: UIPickerViewDataSource
 
 	/// Return the number of components in the picker, always returns 1.
-	func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1
 	}
 
 	/// Returns the number of enum values.
-	func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return enumValues.count ?? 0
+	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+		return enumValues.count 
 	}
 
 	// MARK: UIPickerViewDelegate
 
 	/// Returns the enum value at the given row.
-	func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+	func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
 		return NSAttributedString(string: enumValues[row])
 	}
 
 	/// Handle the user selecting a value in the picker.
-	func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		selectionChangeHandler(row)
 	}
 }

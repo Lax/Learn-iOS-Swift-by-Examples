@@ -18,13 +18,13 @@ class ProxyAutoConfigScriptController: UIViewController {
 	@IBOutlet weak var scriptText: UITextView!
 
 	/// The block to call when the user taps on the "Done" button.
-	var saveScriptCallback: String? -> Void = { script in return }
+	var saveScriptCallback: (String?) -> Void = { script in return }
 
 	// MARK: Interface
 
 	/// Call the saveScriptCallback and transition back to the proxy settings view.
-	@IBAction func saveScript(sender: AnyObject) {
+	@IBAction func saveScript(_ sender: AnyObject) {
 		saveScriptCallback(scriptText.text)
-		performSegueWithIdentifier("save-proxy-script", sender: sender)
+		performSegue(withIdentifier: "save-proxy-script", sender: sender)
 	}
 }

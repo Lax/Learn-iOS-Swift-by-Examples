@@ -24,12 +24,12 @@ class ConnectionRuleListController: ListViewController {
 
 	/// Returns UITableViewCellAccessoryType.DetailButton.
 	override var listAccessoryType: UITableViewCellAccessoryType {
-		return .DetailButton
+		return .detailButton
 	}
 
 	/// Returns UITableViewCellAccessoryType.DetailButton.
 	override var listEditingAccessoryType: UITableViewCellAccessoryType {
-		return .DetailButton
+		return .detailButton
 	}
 
 	/// The text to display in the "add a new item" table cell.
@@ -49,9 +49,9 @@ class ConnectionRuleListController: ListViewController {
 	// MARK: ListViewController
 
 	/// Set up the destination view controller for a segue triggered by the user tapping on a cell.
-	override func listSetupSegue(segue: UIStoryboardSegue, forItemAtIndex index: Int) {
+	override func listSetupSegue(_ segue: UIStoryboardSegue, forItemAtIndex index: Int) {
 		guard let identifier = segue.identifier,
-			ruleAddEditController = segue.destinationViewController as? ConnectionRuleAddEditController
+			let ruleAddEditController = segue.destination as? ConnectionRuleAddEditController
 			else { return }
 
 		switch identifier {
@@ -74,18 +74,18 @@ class ConnectionRuleListController: ListViewController {
 	}
 
 	/// Return the description of the rule at the given index in the list.
-	override func listTextForItemAtIndex(index: Int) -> String {
+	override func listTextForItemAtIndex(_ index: Int) -> String {
 		return targetRule.connectionRules?[index].action.description ?? ""
 	}
 
 	/// Remove the rule at the given index in the list.
-	override func listRemoveItemAtIndex(index: Int) {
-		targetRule.connectionRules?.removeAtIndex(index)
+	override func listRemoveItemAtIndex(_ index: Int) {
+		targetRule.connectionRules?.remove(at: index)
 	}
 
 	// MARK: Interface
 
 	/// Handle an unwind segue back to this view controller.
-	@IBAction func handleUnwind(sender: UIStoryboardSegue) {
+	@IBAction func handleUnwind(_ sender: UIStoryboardSegue) {
 	}
 }

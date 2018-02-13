@@ -15,7 +15,7 @@ class DataExtension: NEFilterDataProvider {
 	// MARK: Properties
 
 	/// A record of where in a particular flow the filter is looking.
-	var flowOffSetMapping = [NSURL: Int]()
+	var flowOffSetMapping = [URL: Int]()
 
 	/// The list of flows that should be blocked after fetching new rules.
 	var blockNeedRules = [String]()
@@ -26,8 +26,8 @@ class DataExtension: NEFilterDataProvider {
 	// MARK: NEFilterDataProvider
 
 	/// Handle a new flow of data.
-	override func handleNewFlow(flow: NEFilterFlow) -> NEFilterNewFlowVerdict {
-		var result = NEFilterNewFlowVerdict.allowVerdict()
+	override func handleNewFlow(_ flow: NEFilterFlow) -> NEFilterNewFlowVerdict {
+		var result = NEFilterNewFlowVerdict.allow()
 
 		simpleTunnelLog("handleNewFlow called for flow: \(flow)")
 
@@ -35,37 +35,37 @@ class DataExtension: NEFilterDataProvider {
 		let (ruleType, hostname, hostNameRule) = FilterUtilities.getRule(flow)
 
 		switch ruleType {
-			case .Block:
+			case .block:
 				simpleTunnelLog("\(hostname) is set to be blocked")
-				result = NEFilterNewFlowVerdict.dropVerdict()
+				result = NEFilterNewFlowVerdict.drop()
 
-			case .Remediate:
+			case .remediate:
 				simpleTunnelLog("\(hostname) is set for remediation")
 				if let remediationKey = hostNameRule["kRemediateKey"], let remediateButtonKey = hostNameRule["kRemediateButtonKey"] {
-					result = NEFilterNewFlowVerdict.remediateVerdictWithRemediationURLMapKey(remediationKey as! String, remediationButtonTextMapKey: remediateButtonKey as! String)
+					result = NEFilterNewFlowVerdict.remediateVerdict(withRemediationURLMapKey: remediationKey as! String, remediationButtonTextMapKey: remediateButtonKey as! String)
 				}
 				else {
-					result = NEFilterNewFlowVerdict.remediateVerdictWithRemediationURLMapKey("Remediate1", remediationButtonTextMapKey: "RemediateButton1")
+					result = NEFilterNewFlowVerdict.remediateVerdict(withRemediationURLMapKey: "Remediate1", remediationButtonTextMapKey: "RemediateButton1")
 				}
 
-			case .Allow:
+			case .allow:
 				simpleTunnelLog("\(hostname) is set to be Allowed")
-				result = NEFilterNewFlowVerdict.allowVerdict()
+				result = NEFilterNewFlowVerdict.allow()
 
-			case .RedirectToSafeURL:
+			case .redirectToSafeURL:
 				simpleTunnelLog("\(hostname) is set to the redirected")
 				if let redirectKey = hostNameRule["kRedirectKey"] {
 					simpleTunnelLog("redirect key is \(redirectKey)")
-					result = NEFilterNewFlowVerdict.URLAppendStringVerdictWithMapKey(redirectKey as! String)
+					result = NEFilterNewFlowVerdict.urlAppendStringVerdict(withMapKey: redirectKey as! String)
 				}
 				else {
 					simpleTunnelLog("Falling back to default redirect key")
-					result = NEFilterNewFlowVerdict.URLAppendStringVerdictWithMapKey("SafeYes")
+					result = NEFilterNewFlowVerdict.urlAppendStringVerdict(withMapKey: "SafeYes")
 				}
 
-			case .NeedMoreRulesAndBlock, .NeedMoreRulesAndAllow, .NeedMoreRulesFromDataAndAllow, .NeedMoreRulesFromDataAndBlock:
+			case .needMoreRulesAndBlock, .needMoreRulesAndAllow, .needMoreRulesFromDataAndAllow, .needMoreRulesFromDataAndBlock:
 				simpleTunnelLog("Setting the need rules verdict")
-				result = NEFilterNewFlowVerdict.needRulesVerdict()
+				result = NEFilterNewFlowVerdict.needRules()
 
 			default:
 				simpleTunnelLog("rule number \(ruleType) doesn't match with the current ruleset")
@@ -76,57 +76,57 @@ class DataExtension: NEFilterDataProvider {
 	}
 
 	/// Filter an inbound chunk of data.
-	override func handleInboundDataFromFlow(flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: NSData) -> NEFilterDataVerdict {
-		var result = NEFilterDataVerdict.allowVerdict()
+	override func handleInboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: Data) -> NEFilterDataVerdict {
+		var result = NEFilterDataVerdict.allow()
 		simpleTunnelLog("handleInboundDataFromFlow called for flow \(flow)")
 
 		// Look for a matching rule in the current set of rules.
 		let (ruleType, hostname, hostNameRule) = FilterUtilities.getRule(flow)
 
 		switch ruleType {
-			case .Block:
+			case .block:
 				simpleTunnelLog("\(hostname) is set to be blocked")
 
-			case .NeedMoreRulesAndBlock:
+			case .needMoreRulesAndBlock:
 				simpleTunnelLog("\(hostname) is set to need rules and blocked")
 
-			case .NeedMoreRulesAndAllow:
+			case .needMoreRulesAndAllow:
 				simpleTunnelLog("\(hostname) is set to need rules and allow")
 
-			case .NeedMoreRulesFromDataAndAllow:
+			case .needMoreRulesFromDataAndAllow:
 				simpleTunnelLog("\(hostname) is set to need rules and let the data provider allow")
-				if let hostnameIndex = allowNeedRules.indexOf(hostname) {
-					allowNeedRules.removeAtIndex(hostnameIndex)
+				if let hostnameIndex = allowNeedRules.index(of: hostname) {
+					allowNeedRules.remove(at: hostnameIndex)
 					simpleTunnelLog("Allowing \(hostname) since need rules response returned")
 				}
 				else {
 					allowNeedRules.append(hostname)
 					simpleTunnelLog("Need rules verdict set")
-					result = NEFilterDataVerdict.needRulesVerdict()
+					result = NEFilterDataVerdict.needRules()
 				}
 
-			case .NeedMoreRulesFromDataAndBlock:
+			case .needMoreRulesFromDataAndBlock:
 				simpleTunnelLog("\(hostname) is set to need rules and let the data provider block")
-				if let hostnameIndex = blockNeedRules.indexOf(hostname) {
-					blockNeedRules.removeAtIndex(hostnameIndex)
+				if let hostnameIndex = blockNeedRules.index(of: hostname) {
+					blockNeedRules.remove(at: hostnameIndex)
 					simpleTunnelLog("Blocking \(hostname) since need rules response returned")
-					result = NEFilterDataVerdict.dropVerdict()
+					result = NEFilterDataVerdict.drop()
 				}
 				else {
 					blockNeedRules.append(hostname)
-					result = NEFilterDataVerdict.needRulesVerdict()
+					result = NEFilterDataVerdict.needRules()
 				}
 
-			case .ExamineData:
+			case .examineData:
 				simpleTunnelLog("\(hostname) is set to check for more data")
 
-			case .RedirectToSafeURL:
+			case .redirectToSafeURL:
 				simpleTunnelLog("\(hostname) is set for URL redirection")
 
-			case .Remediate:
+			case .remediate:
 				simpleTunnelLog("\(hostname) is set for remediation")
 				if let remediationKey = hostNameRule["kRemediationKey"] as? String {
-					result = NEFilterDataVerdict.remediateVerdictWithRemediationURLMapKey(remediationKey, remediationButtonTextMapKey: remediationKey)
+					result = NEFilterDataVerdict.remediateVerdict(withRemediationURLMapKey: remediationKey, remediationButtonTextMapKey: remediationKey)
 				}
 
 			default:
@@ -137,43 +137,43 @@ class DataExtension: NEFilterDataProvider {
 	}
 
 	/// Handle the event where all of the inbound data for a flow has been filtered.
-	override func handleInboundDataCompleteForFlow(flow: NEFilterFlow) -> NEFilterDataVerdict {
-		var result = NEFilterDataVerdict.allowVerdict()
+	override func handleInboundDataComplete(for flow: NEFilterFlow) -> NEFilterDataVerdict {
+		var result = NEFilterDataVerdict.allow()
 		simpleTunnelLog("handleInboundDataCompleteForFlow called for \(flow)")
 
 		// Look for a matching rule in the current set of rules.
 		let (ruleType, hostname, hostNameRule) = FilterUtilities.getRule(flow)
 
 		switch ruleType {
-			case .Block:
+			case .block:
 				simpleTunnelLog("\(hostname) is set to be blocked")
 
-			case .NeedMoreRulesAndBlock:
+			case .needMoreRulesAndBlock:
 				simpleTunnelLog("\(hostname) is set to need rules and blocked")
 
-			case .NeedMoreRulesAndAllow:
+			case .needMoreRulesAndAllow:
 				simpleTunnelLog("\(hostname) is set to need rules and allow")
 
-			case .NeedMoreRulesFromDataAndAllow:
+			case .needMoreRulesFromDataAndAllow:
 				simpleTunnelLog("\(hostname) is set to need rules and let the data provider allow")
 
-			case .NeedMoreRulesFromDataAndBlock:
+			case .needMoreRulesFromDataAndBlock:
 				simpleTunnelLog("\(hostname) is set to need rules and let the data provider block")
 
-			case .ExamineData:
+			case .examineData:
 				simpleTunnelLog("\(hostname) is set to check for more data")
 				if let dataComplete = hostNameRule["kDataComplete"]?.boolValue {
-					result = dataComplete ? NEFilterDataVerdict.allowVerdict() : NEFilterDataVerdict.dropVerdict()
+					result = dataComplete ? NEFilterDataVerdict.allow() : NEFilterDataVerdict.drop()
 					simpleTunnelLog("\(result.description) for \(hostname)")
 				}
 
-			case .RedirectToSafeURL:
+			case .redirectToSafeURL:
 				simpleTunnelLog("\(hostname) is set for URL redirection")
 
-			case .Remediate:
+			case .remediate:
 				simpleTunnelLog("\(hostname) is set for remediation")
 				if let remediationKey = hostNameRule["kRemediationKey"] as? String {
-					result = NEFilterDataVerdict.remediateVerdictWithRemediationURLMapKey(remediationKey, remediationButtonTextMapKey: remediationKey)
+					result = NEFilterDataVerdict.remediateVerdict(withRemediationURLMapKey: remediationKey, remediationButtonTextMapKey: remediationKey)
 				}
 			
 			default:
@@ -184,57 +184,57 @@ class DataExtension: NEFilterDataProvider {
 	}
 
 	/// Filter an outbound chunk of data.
-	override func handleOutboundDataFromFlow(flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: NSData) -> NEFilterDataVerdict {
-		var result = NEFilterDataVerdict.allowVerdict()
+	override func handleOutboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: Data) -> NEFilterDataVerdict {
+		var result = NEFilterDataVerdict.allow()
 		simpleTunnelLog("handleOutboundDataFromFlow called for \(flow)")
 
 		// Look for a matching rule in the current set of rules.
 		let (ruleType, hostname, hostNameRule) = FilterUtilities.getRule(flow)
 
 		switch ruleType {
-			case .Block:
+			case .block:
 				simpleTunnelLog("\(hostname) is set to be blocked")
-			case .NeedMoreRulesAndBlock:
+			case .needMoreRulesAndBlock:
 				simpleTunnelLog("\(hostname) is set to need rules and blocked")
 
-			case .NeedMoreRulesAndAllow:
+			case .needMoreRulesAndAllow:
 				simpleTunnelLog("\(hostname) is set to need rules and allow")
 
-			case .NeedMoreRulesFromDataAndAllow:
+			case .needMoreRulesFromDataAndAllow:
 				simpleTunnelLog("\(hostname) is set to need rules and let the data provider allow")
-				if let hostnameIndex = allowNeedRules.indexOf(hostname) {
-					allowNeedRules.removeAtIndex(hostnameIndex)
+				if let hostnameIndex = allowNeedRules.index(of: hostname) {
+					allowNeedRules.remove(at: hostnameIndex)
 					simpleTunnelLog("Allowing \(hostname) since need rules response returned")
-					result = NEFilterDataVerdict.allowVerdict()
+					result = NEFilterDataVerdict.allow()
 				}
 				else {
 					allowNeedRules.append(hostname)
 					simpleTunnelLog("Need rules verdict set")
-					result = NEFilterDataVerdict.needRulesVerdict()
+					result = NEFilterDataVerdict.needRules()
 				}
 
-			case .NeedMoreRulesFromDataAndBlock:
+			case .needMoreRulesFromDataAndBlock:
 				simpleTunnelLog("\(hostname) is set to need rules and let the data provider block")
-				if let hostnameIndex = blockNeedRules.indexOf(hostname) {
-					blockNeedRules.removeAtIndex(hostnameIndex)
+				if let hostnameIndex = blockNeedRules.index(of: hostname) {
+					blockNeedRules.remove(at: hostnameIndex)
 					simpleTunnelLog("Blocking \(hostname) since need rules response returned")
-					result = NEFilterDataVerdict.dropVerdict()
+					result = NEFilterDataVerdict.drop()
 				}
 				else {
 					blockNeedRules.append(hostname)
-					result = NEFilterDataVerdict.needRulesVerdict()
+					result = NEFilterDataVerdict.needRules()
 				}
 
-			case .ExamineData:
+			case .examineData:
 				simpleTunnelLog("\(hostname) is set to check for more data")
 
-			case .RedirectToSafeURL:
+			case .redirectToSafeURL:
 				simpleTunnelLog("\(hostname) is set for URL redirection")
 
-			case .Remediate:
+			case .remediate:
 				simpleTunnelLog("\(hostname) is set for remediation")
 				if let remediationKey = hostNameRule["kRemediationKey"] as! String? {
-					return NEFilterDataVerdict.remediateVerdictWithRemediationURLMapKey(remediationKey, remediationButtonTextMapKey: remediationKey)
+					return NEFilterDataVerdict.remediateVerdict(withRemediationURLMapKey: remediationKey, remediationButtonTextMapKey: remediationKey)
 				}
 
 			default:
@@ -245,55 +245,55 @@ class DataExtension: NEFilterDataProvider {
 	}
 
 	/// Handle the event where all of the outbound data for a flow has been filtered.
-	override func handleOutboundDataCompleteForFlow(flow: NEFilterFlow) -> NEFilterDataVerdict {
-		var result = NEFilterDataVerdict.allowVerdict()
+	override func handleOutboundDataComplete(for flow: NEFilterFlow) -> NEFilterDataVerdict {
+		var result = NEFilterDataVerdict.allow()
 		simpleTunnelLog("handleOutboundDataCompleteForFlow called for \(flow)")
 
 		// Look for a matching rule in the current set of rules.
 		let (ruleType, hostname, hostNameRule) = FilterUtilities.getRule(flow)
 
 		switch ruleType {
-			case .Block:
+			case .block:
 				simpleTunnelLog("\(hostname) is set to be blocked")
 
-			case .NeedMoreRulesAndBlock:
+			case .needMoreRulesAndBlock:
 				simpleTunnelLog("\(hostname) is set to need rules and blocked")
 
-			case .NeedMoreRulesAndAllow:
+			case .needMoreRulesAndAllow:
 				simpleTunnelLog("\(hostname) is set to need rules and allow")
 
-			case .NeedMoreRulesFromDataAndAllow:
+			case .needMoreRulesFromDataAndAllow:
 				simpleTunnelLog("\(hostname) is set to need rules and let the data provider allow")
-				if let hostnameIndex = allowNeedRules.indexOf(hostname) {
-					allowNeedRules.removeAtIndex(hostnameIndex)
+				if let hostnameIndex = allowNeedRules.index(of: hostname) {
+					allowNeedRules.remove(at: hostnameIndex)
 					simpleTunnelLog("Allowing \(hostname) since need rules response returned")
-					result = NEFilterDataVerdict.allowVerdict()
+					result = NEFilterDataVerdict.allow()
 				}
 				else {
 					allowNeedRules.append(hostname)
 					simpleTunnelLog("Need rules verdict set")
-					result = NEFilterDataVerdict.needRulesVerdict()
+					result = NEFilterDataVerdict.needRules()
 				}
 
-			case .NeedMoreRulesFromDataAndBlock:
+			case .needMoreRulesFromDataAndBlock:
 				simpleTunnelLog("\(hostname) is set to need rules and let the data provider block")
-				if let hostnameIndex = blockNeedRules.indexOf(hostname) {
-					blockNeedRules.removeAtIndex(hostnameIndex)
+				if let hostnameIndex = blockNeedRules.index(of: hostname) {
+					blockNeedRules.remove(at: hostnameIndex)
 					simpleTunnelLog("Blocking \(hostname) since need rules response returned")
-					return NEFilterDataVerdict.dropVerdict()
+					return NEFilterDataVerdict.drop()
 				}
 				else {
 					blockNeedRules.append(hostname)
-					result = NEFilterDataVerdict.needRulesVerdict()
+					result = NEFilterDataVerdict.needRules()
 				}
 
-			case .ExamineData:
+			case .examineData:
 				simpleTunnelLog("\(hostname) is set to check for more data")
-				if let maxPeekBytes = hostNameRule["kMaxPeekBytes"]?.integerValue,
-					maxPassBytes = hostNameRule["kMaxPassBytes"]?.integerValue,
-					peekInterval = hostNameRule["kPeekInterval"]?.integerValue,
-					url = flow.URL,
-					peekOffset = flowOffSetMapping[url]
+				if let maxPeekBytes = (hostNameRule["kMaxPeekBytes"] as! NSNumber?)?.intValue,
+					let maxPassBytes = (hostNameRule["kMaxPassBytes"] as! NSNumber?)?.intValue,
+					let peekInterval = (hostNameRule["kPeekInterval"] as! NSNumber?)?.intValue,
+					let url = flow.url,
+					let peekOffset = flowOffSetMapping[url]
 				{
 					simpleTunnelLog("peek offset is \(peekOffset)")
 					let newPeekOffset = peekOffset + peekInterval
@@ -306,13 +306,13 @@ class DataExtension: NEFilterDataProvider {
 					result = NEFilterDataVerdict(passBytes: dataPassBytes, peekBytes: dataPeekBytes)
 				}
 
-			case .RedirectToSafeURL:
+			case .redirectToSafeURL:
 				simpleTunnelLog("\(hostname) is set for URL redirection")
 
-			case .Remediate:
+			case .remediate:
 				simpleTunnelLog("\(hostname) is set for remediation")
 				if let remediationKey = hostNameRule["kRemediationKey"] as? String {
-					result = NEFilterDataVerdict.remediateVerdictWithRemediationURLMapKey(remediationKey, remediationButtonTextMapKey: remediationKey)
+					result = NEFilterDataVerdict.remediateVerdict(withRemediationURLMapKey: remediationKey, remediationButtonTextMapKey: remediationKey)
 				}
 			
 			default:
@@ -323,9 +323,9 @@ class DataExtension: NEFilterDataProvider {
 	}
 
 	/// Handle the user tapping on the "Request Access" link in the block page.
-	override func handleRemediationForFlow(flow: NEFilterFlow) -> NEFilterRemediationVerdict {
+	override func handleRemediation(for flow: NEFilterFlow) -> NEFilterRemediationVerdict {
 		simpleTunnelLog("handleRemediationForFlow called: Allow verdict")
 
-		return NEFilterRemediationVerdict.allowVerdict()
+		return NEFilterRemediationVerdict.allow()
 	}
 }

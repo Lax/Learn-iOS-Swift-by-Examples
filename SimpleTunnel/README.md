@@ -45,7 +45,7 @@ The SimpleTunnel OS X products require OS X 11.0 or newer.
 
 ### Build
 
-SimpleTunnel requires Xcode 7.0 or newer.
+SimpleTunnel requires Xcode 8.0 or newer.
 The SimpleTunnel iOS targets require the iOS 9.0 SDK or newer.
 The SimpleTunnel OS X targets require the OS X 11.0 SDK or newer.
 

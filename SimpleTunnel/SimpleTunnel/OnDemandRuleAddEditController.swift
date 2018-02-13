@@ -15,10 +15,10 @@ import NetworkExtension
 extension NEOnDemandRuleAction: CustomStringConvertible {
 	public var description: String {
 		switch self {
-			case .Connect: return "Connect"
-			case .Disconnect: return "Disconnect"
-			case .Ignore: return "Maintain"
-			case .EvaluateConnection: return "Evaluate Connection"
+			case .connect: return "Connect"
+			case .disconnect: return "Disconnect"
+			case .ignore: return "Maintain"
+			case .evaluateConnection: return "Evaluate Connection"
 		}
 	}
 }
@@ -27,9 +27,9 @@ extension NEOnDemandRuleAction: CustomStringConvertible {
 extension NEOnDemandRuleInterfaceType: CustomStringConvertible {
 	public var description: String {
 		switch self {
-			case .Any: return "Any"
-			case .WiFi: return "Wi-Fi"
-			case .Cellular: return "Cellular"
+			case .any: return "Any"
+			case .wiFi: return "Wi-Fi"
+			case .cellular: return "Cellular"
 			default: return ""
 		}
 	}
@@ -65,7 +65,7 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 	var targetRule: NEOnDemandRule = NEOnDemandRuleEvaluateConnection()
 
 	/// The block to execute when the user finishes editing the rule.
-	var addRuleHandler: NEOnDemandRule -> Void = { rule in return }
+	var addRuleHandler: (NEOnDemandRule) -> Void = { rule in return }
 
 	// MARK: UIViewController
 
@@ -86,7 +86,7 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 
 		URLProbeCell.valueChanged = {
 			if let enteredText = self.URLProbeCell.textField.text {
-				self.targetRule.probeURL = NSURL(string: enteredText)
+				self.targetRule.probeURL = URL(string: enteredText)
 			}
 			else {
 				self.targetRule.probeURL = nil
@@ -95,7 +95,7 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 	}
 
 	/// Handle the event when the view is being displayed.
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		tableView.reloadData()
@@ -106,13 +106,13 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 
 		actionCell.detailTextLabel?.text = targetRule.action.description
 
-		DNSSearchDomainsCell.detailTextLabel?.text = getDescriptionForStringList(targetRule.DNSSearchDomainMatch, itemDescription: "domain")
+		DNSSearchDomainsCell.detailTextLabel?.text = getDescriptionForStringList(targetRule.dnsSearchDomainMatch, itemDescription: "domain")
 
-		DNSServersCell.detailTextLabel?.text = getDescriptionForStringList(targetRule.DNSServerAddressMatch, itemDescription: "server")
+		DNSServersCell.detailTextLabel?.text = getDescriptionForStringList(targetRule.dnsServerAddressMatch, itemDescription: "server")
 
 		interfaceTypeCell.detailTextLabel?.text = targetRule.interfaceTypeMatch.description
 
-		SSIDsCell.detailTextLabel?.text = getDescriptionForStringList(targetRule.SSIDMatch, itemDescription: "SSID")
+		SSIDsCell.detailTextLabel?.text = getDescriptionForStringList(targetRule.ssidMatch, itemDescription: "SSID")
 
 		if let evaluateRule = targetRule as? NEOnDemandRuleEvaluateConnection {
 			connectionRulesCell.detailTextLabel?.text = getDescriptionForListValue(evaluateRule.connectionRules, itemDescription: "rule", placeHolder: "Required")
@@ -122,25 +122,25 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 	}
 
 	/// Set up the destination view controller of a segue away from this view controller.
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		guard let identifier = segue.identifier else { return }
 
 		switch identifier {
 			case "edit-ssids":
 				// The user tapped on the SSIDs cell.
-				guard let stringListController = segue.destinationViewController as? StringListController else { break }
+				guard let stringListController = segue.destination as? StringListController else { break }
 
-				stringListController.setTargetStrings(targetRule.SSIDMatch, title: "Match SSIDs", addTitle: "Add a SSID...") { newSSIDs in
-					self.targetRule.SSIDMatch = newSSIDs
+				stringListController.setTargetStrings(targetRule.ssidMatch, title: "Match SSIDs", addTitle: "Add a SSID...") { newSSIDs in
+					self.targetRule.ssidMatch = newSSIDs
 				}
 
 			case "edit-interface-type-match":
 				// The user tapped on the Interface Type cell.
-				guard let enumController = segue.destinationViewController as? EnumPickerController else { break }
+				guard let enumController = segue.destination as? EnumPickerController else { break }
 
-				let enumValues: [NEOnDemandRuleInterfaceType] = [ .Any, .WiFi, .Cellular ],
+				let enumValues: [NEOnDemandRuleInterfaceType] = [ .any, .wiFi, .cellular ],
 					stringValues = enumValues.flatMap { $0.description },
-					currentSelection = enumValues.indexOf { $0 == targetRule.interfaceTypeMatch }
+					currentSelection = enumValues.index { $0 == targetRule.interfaceTypeMatch }
 
 				enumController.setValues(stringValues, title: "Interface Type", currentSelection: currentSelection) { newRow in
 					self.targetRule.interfaceTypeMatch = enumValues[newRow]
@@ -148,27 +148,27 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 
 			case "edit-dns-servers":
 				// The user tapped on the DNS Servers cell.
-				guard let stringListController = segue.destinationViewController as? StringListController else { break }
+				guard let stringListController = segue.destination as? StringListController else { break }
 
-				stringListController.setTargetStrings(targetRule.DNSServerAddressMatch, title: "Match DNS Servers", addTitle: "Add a server address...") { newAddresses in
-					self.targetRule.DNSServerAddressMatch = newAddresses
+				stringListController.setTargetStrings(targetRule.dnsServerAddressMatch, title: "Match DNS Servers", addTitle: "Add a server address...") { newAddresses in
+					self.targetRule.dnsServerAddressMatch = newAddresses
 				}
 
 			case "edit-dns-search-domains":
 				// The user tapped on the DNS Search Domains cell.
-				guard let stringListController = segue.destinationViewController as? StringListController else { break }
+				guard let stringListController = segue.destination as? StringListController else { break }
 
-				stringListController.setTargetStrings(targetRule.DNSSearchDomainMatch, title: "Match DNS Search Domains", addTitle: "Add a search domain...") { newStrings in
-					self.targetRule.DNSSearchDomainMatch = newStrings
+				stringListController.setTargetStrings(targetRule.dnsSearchDomainMatch, title: "Match DNS Search Domains", addTitle: "Add a search domain...") { newStrings in
+					self.targetRule.dnsSearchDomainMatch = newStrings
 				}
 
 			case "edit-on-demand-action":
 				// The user tapped on the Action cell.
-				guard let enumController = segue.destinationViewController as? EnumPickerController else { break }
+				guard let enumController = segue.destination as? EnumPickerController else { break }
 
-				let enumValues: [NEOnDemandRuleAction] = [ .EvaluateConnection, .Disconnect, .Connect, .Ignore ],
+				let enumValues: [NEOnDemandRuleAction] = [ .evaluateConnection, .disconnect, .connect, .ignore ],
 					stringValues = enumValues.flatMap { $0.description },
-					currentSelection = enumValues.indexOf { $0 == targetRule.action }
+					currentSelection = enumValues.index { $0 == targetRule.action }
 
 				enumController.setValues(stringValues, title: "Action", currentSelection: currentSelection) { newRow in
 					self.changeTargetRuleType(enumValues[newRow])
@@ -176,8 +176,8 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 
 			case "edit-connection-rules":
 				// The user tapped on the Connection Rules cell.
-				guard let connRuleListController = segue.destinationViewController as? ConnectionRuleListController,
-					rule = targetRule as? NEOnDemandRuleEvaluateConnection
+				guard let connRuleListController = segue.destination as? ConnectionRuleListController,
+					let rule = targetRule as? NEOnDemandRuleEvaluateConnection
 					else { break }
 
 				if rule.connectionRules == nil {
@@ -192,7 +192,7 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 	}
 
 	/// Set the target rule to add or edit, the title of the view, and the block to execute when the user is finished editing the rule.
-	func setTargetRule(rule: NEOnDemandRule?, title: String, saveRuleHandler: (NEOnDemandRule) -> Void) {
+	func setTargetRule(_ rule: NEOnDemandRule?, title: String, saveRuleHandler: @escaping (NEOnDemandRule) -> Void) {
 		if let newRule = rule {
 			// Edit a copy of the given rule.
 			targetRule = newRule.copy() as! NEOnDemandRule
@@ -204,28 +204,28 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 	}
 
 	/// Set the target rule to a new rule with all the same match conditions as the current target rule, but with a different action.
-	func changeTargetRuleType(newAction: NEOnDemandRuleAction) {
+	func changeTargetRuleType(_ newAction: NEOnDemandRuleAction) {
 		guard targetRule.action != newAction else { return }
 		let newRule: NEOnDemandRule
 
 		switch newAction {
-			case .EvaluateConnection:
+			case .evaluateConnection:
 				newRule = NEOnDemandRuleEvaluateConnection()
 
-			case .Connect:
+			case .connect:
 				newRule = NEOnDemandRuleConnect()
 
-			case .Disconnect:
+			case .disconnect:
 				newRule = NEOnDemandRuleDisconnect()
 
-			case .Ignore:
+			case .ignore:
 				newRule = NEOnDemandRuleIgnore()
 		}
 
-		newRule.DNSSearchDomainMatch = targetRule.DNSSearchDomainMatch
-		newRule.DNSServerAddressMatch = targetRule.DNSServerAddressMatch
+		newRule.dnsSearchDomainMatch = targetRule.dnsSearchDomainMatch
+		newRule.dnsServerAddressMatch = targetRule.dnsServerAddressMatch
 		newRule.interfaceTypeMatch = targetRule.interfaceTypeMatch
-		newRule.SSIDMatch = targetRule.SSIDMatch
+		newRule.ssidMatch = targetRule.ssidMatch
 		newRule.probeURL = targetRule.probeURL
 
 		targetRule = newRule
@@ -239,25 +239,25 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 
 		if let rulesIndexPath = self.getIndexPathOfCell(connectionRulesCell) {
 			// The connection rules cell is being displayed. If the action is not "Evaluate Connection", then remove the connection rules cell.
-			if targetRule.action != .EvaluateConnection {
-				cells.removeAtIndex(rulesIndexPath.row)
-				self.tableView.deleteRowsAtIndexPaths([ rulesIndexPath ], withRowAnimation: .Bottom)
+			if targetRule.action != .evaluateConnection {
+				cells.remove(at: (rulesIndexPath as NSIndexPath).row)
+				self.tableView.deleteRows(at: [ rulesIndexPath ], with: .bottom)
 			}
 		} else {
 			// The connection rules cell is not being displayed. If the action is "Evaluate Connection", then insert the connection rules cell.
-			if targetRule.action == .EvaluateConnection {
-				cells.insert(connectionRulesCell, atIndex: actionIndexPath.row + 1)
-				let indexPaths = [ NSIndexPath(forRow: actionIndexPath.row + 1, inSection: actionIndexPath.section) ]
-				self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Bottom)
+			if targetRule.action == .evaluateConnection {
+				cells.insert(connectionRulesCell, at: (actionIndexPath as NSIndexPath).row + 1)
+				let indexPaths = [ IndexPath(row: (actionIndexPath as NSIndexPath).row + 1, section: (actionIndexPath as NSIndexPath).section) ]
+				self.tableView.insertRows(at: indexPaths, with: .bottom)
 			}
 		}
 	}
 
 	/// Handle the user tapping on the "Done" button.
-	@IBAction func saveTargetRule(sender: AnyObject) {
+	@IBAction func saveTargetRule(_ sender: AnyObject) {
 		addRuleHandler(targetRule)
 
 		// Transition back to the Connect On Demand rule list view.
-		self.performSegueWithIdentifier("save-on-demand-rule", sender: sender)
+		self.performSegue(withIdentifier: "save-on-demand-rule", sender: sender)
 	}
 }

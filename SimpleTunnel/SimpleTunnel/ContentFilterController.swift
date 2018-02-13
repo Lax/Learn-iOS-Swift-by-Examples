@@ -38,35 +38,35 @@ class ContentFilterController: UITableViewController {
 
 	/// Handle the event where the view is loaded into memory.
 	override func viewDidLoad() {
-		FilterUtilities.defaults?.addObserver(self, forKeyPath: "rules", options: NSKeyValueObservingOptions.Initial, context:&rulesContext)
+		FilterUtilities.defaults?.addObserver(self, forKeyPath: "rules", options: NSKeyValueObservingOptions.initial, context:&rulesContext)
 
 		statusCell.valueChanged = {
-			if self.statusCell.isOn && NEFilterManager.sharedManager().providerConfiguration == nil {
+			if self.statusCell.isOn && NEFilterManager.shared().providerConfiguration == nil {
 				let newConfiguration = NEFilterProviderConfiguration()
 				newConfiguration.username = "TestUser"
 				newConfiguration.organization = "Acme Inc."
 				newConfiguration.filterBrowsers = true
 				newConfiguration.filterSockets = true
 				newConfiguration.serverAddress = self.rulesServerCell.textField.text ?? "my.great.filter.server"
-				NEFilterManager.sharedManager().providerConfiguration = newConfiguration
+				NEFilterManager.shared().providerConfiguration = newConfiguration
 			}
-			NEFilterManager.sharedManager().enabled = self.statusCell.isOn
-			NEFilterManager.sharedManager().saveToPreferencesWithCompletionHandler { error in
+			NEFilterManager.shared().isEnabled = self.statusCell.isOn
+			NEFilterManager.shared().saveToPreferences { error in
 				if let saveError = error {
 					simpleTunnelLog("Failed to save the filter configuration: \(saveError)")
 					self.statusCell.isOn = false
 					return
 				}
-				self.rulesServerCell.textField.text = NEFilterManager.sharedManager().providerConfiguration?.serverAddress
-				FilterUtilities.defaults?.setValue(NEFilterManager.sharedManager().providerConfiguration?.serverAddress, forKey: "serverAddress")
+				self.rulesServerCell.textField.text = NEFilterManager.shared().providerConfiguration?.serverAddress
+				FilterUtilities.defaults?.setValue(NEFilterManager.shared().providerConfiguration?.serverAddress, forKey: "serverAddress")
 			}
 		}
 
 		rulesServerCell.valueChanged = {
-			guard let serverIPAddress = self.rulesServerCell.textField.text where !serverIPAddress.isEmpty else { return }
+			guard let serverIPAddress = self.rulesServerCell.textField.text , !serverIPAddress.isEmpty else { return }
 
-			NEFilterManager.sharedManager().providerConfiguration?.serverAddress = serverIPAddress
-			NEFilterManager.sharedManager().saveToPreferencesWithCompletionHandler { error in
+			NEFilterManager.shared().providerConfiguration?.serverAddress = serverIPAddress
+			NEFilterManager.shared().saveToPreferences { error in
 				if let saveError = error {
 					simpleTunnelLog("Failed to save the filter configuration: \(saveError)")
 					return
@@ -78,17 +78,17 @@ class ContentFilterController: UITableViewController {
 	}
 
 	/// Handle the event where the view is loaded into memory.
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		NEFilterManager.sharedManager().loadFromPreferencesWithCompletionHandler { error in
+		NEFilterManager.shared().loadFromPreferences { error in
 			if let loadError = error {
 				simpleTunnelLog("Failed to load the filter configuration: \(loadError)")
 				self.statusCell.isOn = false
 				return
 			}
 
-			self.statusCell.isOn = NEFilterManager.sharedManager().enabled
-			self.rulesServerCell.textField.text = NEFilterManager.sharedManager().providerConfiguration?.serverAddress
+			self.statusCell.isOn = NEFilterManager.shared().isEnabled
+			self.rulesServerCell.textField.text = NEFilterManager.shared().providerConfiguration?.serverAddress
 
 			self.reloadRules()
 		}
@@ -97,23 +97,23 @@ class ContentFilterController: UITableViewController {
 	// MARK: NSObject
 
 	/// Handle changes to the rules
-	override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
 		if context == &rulesContext && keyPath == "rules" {
 			reloadRules()
 		} else {
-			super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+			super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
 		}
 	}
 
 	// MARK: UITableViewDataSource
 
 	/// Return the number of sections to display.
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	override func numberOfSections(in tableView: UITableView) -> Int {
 		return !currentRules.isEmpty ? 2 : 1
 	}
 
 	/// Return the number of rows in a section.
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		switch section {
 			case 0: return 2
 			case 1: return currentRules.count
@@ -122,12 +122,12 @@ class ContentFilterController: UITableViewController {
 	}
 
 	/// Return the cell for given index path.
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		if indexPath.section == 0 {
-			return indexPath.row == 0 ? statusCell : rulesServerCell
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		if (indexPath as NSIndexPath).section == 0 {
+			return (indexPath as NSIndexPath).row == 0 ? statusCell : rulesServerCell
 		}
-		else if let cell = tableView.dequeueReusableCellWithIdentifier("rule-cell") {
-			let (hostString, actionString) = currentRules[indexPath.row]
+		else if let cell = tableView.dequeueReusableCell(withIdentifier: "rule-cell") {
+			let (hostString, actionString) = currentRules[(indexPath as NSIndexPath).row]
 			cell.textLabel?.text = hostString
 			cell.detailTextLabel?.text = actionString
 			return cell
@@ -138,7 +138,7 @@ class ContentFilterController: UITableViewController {
 	}
 
 	/// Return the title for a section in the table.
-	override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		return section == 1 ? "Current Rules" : nil
 	}
 
@@ -148,11 +148,11 @@ class ContentFilterController: UITableViewController {
 	func reloadRules() {
 		currentRules = [(String, String)]()
 
-		guard let rules = FilterUtilities.defaults?.objectForKey("rules") as? [String : [String : AnyObject]] else { return }
+		guard let rules = FilterUtilities.defaults?.object(forKey: "rules") as? [String : [String : AnyObject]] else { return }
 
 		for (hostname, ruleInfo) in rules {
 			guard let ruleActionNum = ruleInfo["kRule"] as? Int,
-				ruleAction = FilterRuleAction(rawValue: ruleActionNum)
+				let ruleAction = FilterRuleAction(rawValue: ruleActionNum)
 				else { continue }
 
 			currentRules.append((hostname as String, ruleAction.description))
@@ -161,8 +161,8 @@ class ContentFilterController: UITableViewController {
 	}
 
 	/// Download a new set of filtering rules from the server.
-	@IBAction func fetchRulesButtonTouchUpInside(sender: UIButton) {
-		FilterUtilities.fetchRulesFromServer(NEFilterManager.sharedManager().providerConfiguration?.serverAddress)
+	@IBAction func fetchRulesButtonTouchUpInside(_ sender: UIButton) {
+		FilterUtilities.fetchRulesFromServer(NEFilterManager.shared().providerConfiguration?.serverAddress)
 		reloadRules()
 	}
 

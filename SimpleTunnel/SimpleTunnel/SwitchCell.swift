@@ -23,19 +23,19 @@ class SwitchCell: UITableViewCell {
 	var dependentCells = [UITableViewCell]()
 
 	/// A block to call to get the index path of this cell int its containing table.
-	var getIndexPath: (Void -> NSIndexPath?)?
+	var getIndexPath: ((Void) -> IndexPath?)?
 
 	/// A block to call when the value of the switch changes.
-	var valueChanged: (Void -> Void)?
+	var valueChanged: ((Void) -> Void)?
 
 	/// A boolean that toggles the switch.
 	var isOn: Bool {
 		get {
-			return toggle.on
+			return toggle.isOn
 		}
 		set (newValue) {
-			let changed = toggle.on != newValue
-			toggle.on = newValue
+			let changed = toggle.isOn != newValue
+			toggle.isOn = newValue
 			if changed {
 				handleValueChanged()
 			}
@@ -45,7 +45,7 @@ class SwitchCell: UITableViewCell {
 	// MARK: Interface
 
 	/// Handle the user toggling the switch.
-	@IBAction func toggled(sender: AnyObject) {
+	@IBAction func toggled(_ sender: AnyObject) {
 		handleValueChanged()
 	}
 
@@ -56,19 +56,19 @@ class SwitchCell: UITableViewCell {
 		guard let switchIndexPath = getIndexPath?() else { return }
 
 		guard dependentCells.count > 0 else { return }
-		var indexPaths = [NSIndexPath]()
+		var indexPaths = [IndexPath]()
 
 		// Create index paths for the dependent cells based on the index path of this cell.
 		for row in 1...dependentCells.count {
-			indexPaths.append(NSIndexPath(forRow: switchIndexPath.row + row, inSection: switchIndexPath.section))
+			indexPaths.append(IndexPath(row: (switchIndexPath as NSIndexPath).row + row, section: (switchIndexPath as NSIndexPath).section))
 		}
 
 		guard !indexPaths.isEmpty else { return }
 
-		if toggle.on {
-			tableViewController.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Bottom)
+		if toggle.isOn {
+			tableViewController.tableView.insertRows(at: indexPaths, with: .bottom)
 		} else {
-			tableViewController.tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Bottom)
+			tableViewController.tableView.deleteRows(at: indexPaths, with: .bottom)
 		}
 	}
 }
