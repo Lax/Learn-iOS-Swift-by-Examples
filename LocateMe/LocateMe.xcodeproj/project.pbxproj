@@ -1,0 +1,366 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E09C7321988458400CF3C1A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E09C7311988458400CF3C1A /* CoreLocation.framework */; };
+		1EBBAF07198816700085CEAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBBAF06198816700085CEAC /* Foundation.framework */; };
+		1EBBAF09198816700085CEAC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBBAF08198816700085CEAC /* CoreGraphics.framework */; };
+		1EBBAF0B198816700085CEAC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBBAF0A198816700085CEAC /* UIKit.framework */; };
+		5337818B19A7AE2A00C91CA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5337818019A7AE2A00C91CA8 /* AppDelegate.m */; };
+		5337818C19A7AE2A00C91CA8 /* CLLocation+Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5337818219A7AE2A00C91CA8 /* CLLocation+Strings.m */; };
+		5337818D19A7AE2A00C91CA8 /* GetLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5337818419A7AE2A00C91CA8 /* GetLocationViewController.m */; };
+		5337818E19A7AE2A00C91CA8 /* LocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5337818619A7AE2A00C91CA8 /* LocationDetailViewController.m */; };
+		5337818F19A7AE2A00C91CA8 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5337818819A7AE2A00C91CA8 /* SetupViewController.m */; };
+		5337819019A7AE2A00C91CA8 /* TrackLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5337818A19A7AE2A00C91CA8 /* TrackLocationViewController.m */; };
+		5337819219A7AE3A00C91CA8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5337819119A7AE3A00C91CA8 /* Images.xcassets */; };
+		5337819519A7AE4A00C91CA8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5337819319A7AE4A00C91CA8 /* Localizable.strings */; };
+		5337819919A7AE5900C91CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5337819719A7AE5900C91CA8 /* Main.storyboard */; };
+		5337819B19A7AE6000C91CA8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5337819A19A7AE6000C91CA8 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1E09C7311988458400CF3C1A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1EBBAF03198816700085CEAC /* LocateMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocateMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EBBAF06198816700085CEAC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1EBBAF08198816700085CEAC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1EBBAF0A198816700085CEAC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5337817F19A7AE2A00C91CA8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = LocateMe/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		5337818019A7AE2A00C91CA8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = LocateMe/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		5337818119A7AE2A00C91CA8 /* CLLocation+Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CLLocation+Strings.h"; path = "LocateMe/CLLocation+Strings.h"; sourceTree = SOURCE_ROOT; };
+		5337818219A7AE2A00C91CA8 /* CLLocation+Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CLLocation+Strings.m"; path = "LocateMe/CLLocation+Strings.m"; sourceTree = SOURCE_ROOT; };
+		5337818319A7AE2A00C91CA8 /* GetLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetLocationViewController.h; path = LocateMe/GetLocationViewController.h; sourceTree = SOURCE_ROOT; };
+		5337818419A7AE2A00C91CA8 /* GetLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetLocationViewController.m; path = LocateMe/GetLocationViewController.m; sourceTree = SOURCE_ROOT; };
+		5337818519A7AE2A00C91CA8 /* LocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationDetailViewController.h; path = LocateMe/LocationDetailViewController.h; sourceTree = SOURCE_ROOT; };
+		5337818619A7AE2A00C91CA8 /* LocationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationDetailViewController.m; path = LocateMe/LocationDetailViewController.m; sourceTree = SOURCE_ROOT; };
+		5337818719A7AE2A00C91CA8 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetupViewController.h; path = LocateMe/SetupViewController.h; sourceTree = SOURCE_ROOT; };
+		5337818819A7AE2A00C91CA8 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetupViewController.m; path = LocateMe/SetupViewController.m; sourceTree = SOURCE_ROOT; };
+		5337818919A7AE2A00C91CA8 /* TrackLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackLocationViewController.h; path = LocateMe/TrackLocationViewController.h; sourceTree = SOURCE_ROOT; };
+		5337818A19A7AE2A00C91CA8 /* TrackLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackLocationViewController.m; path = LocateMe/TrackLocationViewController.m; sourceTree = SOURCE_ROOT; };
+		5337819119A7AE3A00C91CA8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = LocateMe/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		5337819419A7AE4A00C91CA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = LocateMe/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
+		5337819619A7AE5200C91CA8 /* LocateMe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "LocateMe-Info.plist"; path = "LocateMe/LocateMe-Info.plist"; sourceTree = SOURCE_ROOT; };
+		5337819819A7AE5900C91CA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = LocateMe/en.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		5337819A19A7AE6000C91CA8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = LocateMe/main.m; sourceTree = SOURCE_ROOT; };
+		5337819C19A7AE6500C91CA8 /* LocateMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "LocateMe-Prefix.pch"; path = "LocateMe/LocateMe-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		53D8249F19A7E670006EE82D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1EBBAF00198816700085CEAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E09C7321988458400CF3C1A /* CoreLocation.framework in Frameworks */,
+				1EBBAF09198816700085CEAC /* CoreGraphics.framework in Frameworks */,
+				1EBBAF0B198816700085CEAC /* UIKit.framework in Frameworks */,
+				1EBBAF07198816700085CEAC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1EBBAEFA198816700085CEAC = {
+			isa = PBXGroup;
+			children = (
+				53D8249F19A7E670006EE82D /* README.md */,
+				1EBBAF0C198816700085CEAC /* LocateMe */,
+				1EBBAF05198816700085CEAC /* Frameworks */,
+				1EBBAF04198816700085CEAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1EBBAF04198816700085CEAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1EBBAF03198816700085CEAC /* LocateMe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1EBBAF05198816700085CEAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E09C7311988458400CF3C1A /* CoreLocation.framework */,
+				1EBBAF06198816700085CEAC /* Foundation.framework */,
+				1EBBAF08198816700085CEAC /* CoreGraphics.framework */,
+				1EBBAF0A198816700085CEAC /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1EBBAF0C198816700085CEAC /* LocateMe */ = {
+			isa = PBXGroup;
+			children = (
+				5337817F19A7AE2A00C91CA8 /* AppDelegate.h */,
+				5337818019A7AE2A00C91CA8 /* AppDelegate.m */,
+				5337818719A7AE2A00C91CA8 /* SetupViewController.h */,
+				5337818819A7AE2A00C91CA8 /* SetupViewController.m */,
+				5337818319A7AE2A00C91CA8 /* GetLocationViewController.h */,
+				5337818419A7AE2A00C91CA8 /* GetLocationViewController.m */,
+				5337818919A7AE2A00C91CA8 /* TrackLocationViewController.h */,
+				5337818A19A7AE2A00C91CA8 /* TrackLocationViewController.m */,
+				5337818519A7AE2A00C91CA8 /* LocationDetailViewController.h */,
+				5337818619A7AE2A00C91CA8 /* LocationDetailViewController.m */,
+				5337818119A7AE2A00C91CA8 /* CLLocation+Strings.h */,
+				5337818219A7AE2A00C91CA8 /* CLLocation+Strings.m */,
+				1EEED35D19A67CA800F8FE7F /* Resources */,
+				1EBBAF0D198816700085CEAC /* Supporting Files */,
+			);
+			name = LocateMe;
+			path = blah;
+			sourceTree = "<group>";
+		};
+		1EBBAF0D198816700085CEAC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5337819A19A7AE6000C91CA8 /* main.m */,
+				5337819C19A7AE6500C91CA8 /* LocateMe-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1EEED35D19A67CA800F8FE7F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5337819119A7AE3A00C91CA8 /* Images.xcassets */,
+				5337819319A7AE4A00C91CA8 /* Localizable.strings */,
+				5337819719A7AE5900C91CA8 /* Main.storyboard */,
+				5337819619A7AE5200C91CA8 /* LocateMe-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1EBBAF02198816700085CEAC /* LocateMe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EBBAF38198816700085CEAC /* Build configuration list for PBXNativeTarget "LocateMe" */;
+			buildPhases = (
+				1EBBAEFF198816700085CEAC /* Sources */,
+				1EBBAF00198816700085CEAC /* Frameworks */,
+				1EBBAF01198816700085CEAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocateMe;
+			productName = blah;
+			productReference = 1EBBAF03198816700085CEAC /* LocateMe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1EBBAEFB198816700085CEAC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = blah;
+			};
+			buildConfigurationList = 1EBBAEFE198816700085CEAC /* Build configuration list for PBXProject "LocateMe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1EBBAEFA198816700085CEAC;
+			productRefGroup = 1EBBAF04198816700085CEAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1EBBAF02198816700085CEAC /* LocateMe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1EBBAF01198816700085CEAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5337819919A7AE5900C91CA8 /* Main.storyboard in Resources */,
+				5337819219A7AE3A00C91CA8 /* Images.xcassets in Resources */,
+				5337819519A7AE4A00C91CA8 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1EBBAEFF198816700085CEAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5337818E19A7AE2A00C91CA8 /* LocationDetailViewController.m in Sources */,
+				5337818B19A7AE2A00C91CA8 /* AppDelegate.m in Sources */,
+				5337818C19A7AE2A00C91CA8 /* CLLocation+Strings.m in Sources */,
+				5337818D19A7AE2A00C91CA8 /* GetLocationViewController.m in Sources */,
+				5337818F19A7AE2A00C91CA8 /* SetupViewController.m in Sources */,
+				5337819B19A7AE6000C91CA8 /* main.m in Sources */,
+				5337819019A7AE2A00C91CA8 /* TrackLocationViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5337819319A7AE4A00C91CA8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5337819419A7AE4A00C91CA8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		5337819719A7AE5900C91CA8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5337819819A7AE5900C91CA8 /* en */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1EBBAF36198816700085CEAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1EBBAF37198816700085CEAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1EBBAF39198816700085CEAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LocateMe/LocateMe-Prefix.pch";
+				INFOPLIST_FILE = "LocateMe/LocateMe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = LocateMe;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1EBBAF3A198816700085CEAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LocateMe/LocateMe-Prefix.pch";
+				INFOPLIST_FILE = "LocateMe/LocateMe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = LocateMe;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1EBBAEFE198816700085CEAC /* Build configuration list for PBXProject "LocateMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EBBAF36198816700085CEAC /* Debug */,
+				1EBBAF37198816700085CEAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1EBBAF38198816700085CEAC /* Build configuration list for PBXNativeTarget "LocateMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EBBAF39198816700085CEAC /* Debug */,
+				1EBBAF3A198816700085CEAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1EBBAEFB198816700085CEAC /* Project object */;
+}
