@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.14" systemVersion="16A201o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="D5V-KB-hKq">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Setup-->
+        <scene sceneID="aOq-4i-ihX">
+            <objects>
+                <viewController id="ChF-nm-JaS" customClass="SetupViewController" customModule="VideoLooper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cvb-Wa-a0y"/>
+                        <viewControllerLayoutGuide type="bottom" id="MxT-BO-kn3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ohr-h8-l86">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Media file:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brr-g5-hsg">
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k54-Gz-sMK">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="jtI-25-6st"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loop count:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKj-Cm-paV">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BdF-ci-3pT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="6AB-Sl-Gfl"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wv4-Wc-RPl">
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Play with AVQueuePlayer"/>
+                                <connections>
+                                    <segue destination="PLc-3K-Ea4" kind="show" identifier="QueuePlayerLooper" id="g5H-rS-wg0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2K-ic-Civ">
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Play with AVPlayerLooper"/>
+                                <connections>
+                                    <segue destination="PLc-3K-Ea4" kind="show" identifier="PlayerLooper" id="nMa-Mk-3CX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="k54-Gz-sMK" firstAttribute="leading" secondItem="Ohr-h8-l86" secondAttribute="leading" id="7YR-Ox-jhf"/>
+                            <constraint firstItem="BdF-ci-3pT" firstAttribute="leading" secondItem="Ohr-h8-l86" secondAttribute="leading" id="7iV-Fz-9Sy"/>
+                            <constraint firstAttribute="trailing" secondItem="k54-Gz-sMK" secondAttribute="trailing" id="C6g-iQ-OGh"/>
+                            <constraint firstItem="brr-g5-hsg" firstAttribute="leading" secondItem="Ohr-h8-l86" secondAttribute="leadingMargin" id="KaI-FA-fal"/>
+                            <constraint firstAttribute="trailing" secondItem="BdF-ci-3pT" secondAttribute="trailing" id="MJE-Zn-IYZ"/>
+                            <constraint firstItem="KKj-Cm-paV" firstAttribute="top" secondItem="k54-Gz-sMK" secondAttribute="bottom" constant="20" id="WLv-ng-VrZ"/>
+                            <constraint firstItem="MxT-BO-kn3" firstAttribute="top" secondItem="b2K-ic-Civ" secondAttribute="bottom" constant="20" id="Zco-f9-qVj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="brr-g5-hsg" secondAttribute="trailing" id="a82-iK-Shy"/>
+                            <constraint firstItem="k54-Gz-sMK" firstAttribute="top" secondItem="brr-g5-hsg" secondAttribute="bottom" constant="8" id="duA-R3-Glw"/>
+                            <constraint firstItem="b2K-ic-Civ" firstAttribute="top" secondItem="wv4-Wc-RPl" secondAttribute="bottom" constant="8" id="fMf-ZB-Nj3"/>
+                            <constraint firstItem="wv4-Wc-RPl" firstAttribute="leading" secondItem="Ohr-h8-l86" secondAttribute="leadingMargin" id="iZn-iE-3fp"/>
+                            <constraint firstItem="b2K-ic-Civ" firstAttribute="trailing" secondItem="Ohr-h8-l86" secondAttribute="trailingMargin" id="jjy-T4-wyC"/>
+                            <constraint firstItem="BdF-ci-3pT" firstAttribute="top" secondItem="KKj-Cm-paV" secondAttribute="bottom" constant="8" id="kuL-JN-RMt"/>
+                            <constraint firstItem="b2K-ic-Civ" firstAttribute="leading" secondItem="Ohr-h8-l86" secondAttribute="leadingMargin" id="sPQ-hd-CaO"/>
+                            <constraint firstItem="brr-g5-hsg" firstAttribute="top" secondItem="cvb-Wa-a0y" secondAttribute="bottom" constant="8" id="tdh-YV-5jv"/>
+                            <constraint firstItem="wv4-Wc-RPl" firstAttribute="trailing" secondItem="Ohr-h8-l86" secondAttribute="trailingMargin" id="wRM-PA-6tB"/>
+                            <constraint firstItem="KKj-Cm-paV" firstAttribute="trailing" secondItem="Ohr-h8-l86" secondAttribute="trailingMargin" id="xiE-Mz-Gmd"/>
+                            <constraint firstItem="KKj-Cm-paV" firstAttribute="leading" secondItem="Ohr-h8-l86" secondAttribute="leadingMargin" id="xsa-0Z-GF9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Setup" id="EiU-gR-hnq"/>
+                    <connections>
+                        <outlet property="filePicker" destination="k54-Gz-sMK" id="MxR-Zv-FTE"/>
+                        <outlet property="loopCountPicker" destination="BdF-ci-3pT" id="ewp-WI-uIh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n5u-qO-ELZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="532.5" y="525"/>
+        </scene>
+        <!--Looper-->
+        <scene sceneID="ov5-mi-e3n">
+            <objects>
+                <viewController title="Looper" id="PLc-3K-Ea4" customClass="LooperViewController" customModule="VideoLooper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mRp-QN-yqD"/>
+                        <viewControllerLayoutGuide type="bottom" id="rIk-ze-hGw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gJP-xf-QCl">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zmk-l3-eGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1408" y="525"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nge-rO-yPI">
+            <objects>
+                <navigationController id="D5V-KB-hKq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zll-qC-6JD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ChF-nm-JaS" kind="relationship" relationship="rootViewController" id="yJa-aZ-uql"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aql-kK-ou2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-231" y="525"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="g5H-rS-wg0"/>
+    </inferredMetricsTieBreakers>
+</document>
