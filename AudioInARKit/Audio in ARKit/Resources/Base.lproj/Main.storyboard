@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7dh-A0-qGE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14087.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7dh-A0-qGE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13171"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14075.4"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,9 +23,8 @@
                                     <outlet property="delegate" destination="7dh-A0-qGE" id="6YV-aS-dot"/>
                                 </connections>
                             </arscnView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-Fg-DbF">
-                                <rect key="frame" x="16" y="626" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7q-Fg-DbF">
+                                <rect key="frame" x="16" y="627" width="343" height="0.0"/>
                                 <color key="tintColor" red="0.20970137799999999" green="0.18353630239999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText"/>
                                 <color key="highlightedColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -33,10 +33,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="top" secondItem="BrB-h1-WRS" secondAttribute="top" constant="20" id="6az-Zm-SM4"/>
+                            <constraint firstItem="Y7q-Fg-DbF" firstAttribute="leading" secondItem="j4x-To-S6n" secondAttribute="leading" constant="16" id="Lgt-wd-QDn"/>
                             <constraint firstAttribute="trailing" secondItem="BrB-h1-WRS" secondAttribute="trailing" id="OWR-vj-YmO"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="loo-cG-myf" secondAttribute="leading" id="U47-u3-i38"/>
+                            <constraint firstItem="j4x-To-S6n" firstAttribute="trailing" secondItem="Y7q-Fg-DbF" secondAttribute="trailing" constant="16" id="Y3o-Qc-54E"/>
+                            <constraint firstItem="j4x-To-S6n" firstAttribute="bottom" secondItem="Y7q-Fg-DbF" secondAttribute="bottom" constant="40" id="cn9-py-3Of"/>
                             <constraint firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="xmO-pC-5vS"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="j4x-To-S6n"/>
                     </view>
                     <connections>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="sgr-g8-kdG"/>
