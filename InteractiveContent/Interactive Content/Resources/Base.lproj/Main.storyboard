@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14087.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14075.4"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="InteractiveContent" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q5b-AE-4YO"/>
+                        <viewControllerLayoutGuide type="bottom" id="yOu-ko-Ap9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g6s-WP-k1x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWB-rg-gCm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BSk-Yy-3Kf" appends="YES" id="dXe-cF-kRh"/>
+                                    <outletCollection property="gestureRecognizers" destination="Kzh-Mr-b2v" appends="YES" id="hK9-bI-gRA"/>
+                                </connections>
+                            </arscnView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpl-Gl-M7g">
+                                <rect key="frame" x="37" y="587" width="300" height="30"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nqR-jk-w8n">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ir-Z7-zT9">
+                                            <rect key="frame" x="129" y="5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.1554286859" green="0.1554286859" blue="0.1554286859" alpha="0.74780607876712324" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4Ir-Z7-zT9" firstAttribute="centerY" secondItem="nqR-jk-w8n" secondAttribute="centerY" id="acf-FM-6C2"/>
+                                        <constraint firstItem="4Ir-Z7-zT9" firstAttribute="centerX" secondItem="nqR-jk-w8n" secondAttribute="centerX" id="uto-AM-5gU"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0T7-24-RFp"/>
+                                    <constraint firstAttribute="width" constant="300" id="VH5-rJ-XAr"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yOu-ko-Ap9" firstAttribute="top" secondItem="dpl-Gl-M7g" secondAttribute="bottom" constant="50" id="WQB-0a-xJZ"/>
+                            <constraint firstItem="yWB-rg-gCm" firstAttribute="height" secondItem="g6s-WP-k1x" secondAttribute="height" id="g1H-0L-Qq5"/>
+                            <constraint firstItem="yWB-rg-gCm" firstAttribute="centerX" secondItem="g6s-WP-k1x" secondAttribute="centerX" id="tG3-et-TYO"/>
+                            <constraint firstItem="yWB-rg-gCm" firstAttribute="width" secondItem="g6s-WP-k1x" secondAttribute="width" id="x8g-xN-QDs"/>
+                            <constraint firstItem="yWB-rg-gCm" firstAttribute="centerY" secondItem="g6s-WP-k1x" secondAttribute="centerY" id="xzQ-Gg-Tf4"/>
+                            <constraint firstItem="dpl-Gl-M7g" firstAttribute="centerX" secondItem="g6s-WP-k1x" secondAttribute="centerX" id="yAD-U7-1Mg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="4Ir-Z7-zT9" id="p7W-Wl-Wty"/>
+                        <outlet property="sceneView" destination="yWB-rg-gCm" id="ZpQ-hU-u0O"/>
+                        <outlet property="toast" destination="dpl-Gl-M7g" id="x7H-v3-8SR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BSk-Yy-3Kf">
+                    <connections>
+                        <action selector="didTap:" destination="BV1-FR-VrT" id="HxZ-6P-ZrL"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Kzh-Mr-b2v">
+                    <connections>
+                        <action selector="didPan:" destination="BV1-FR-VrT" id="gz2-W3-H2V"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>

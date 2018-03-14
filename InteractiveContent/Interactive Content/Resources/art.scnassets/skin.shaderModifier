@@ -1,0 +1,20 @@
+/*
+ <samplecode>
+ <abstract>
+ A sample and blend shader.
+ </abstract>
+ </samplecode>
+ */
+#pragma arguments
+float blendFactor;
+texture2d sparseTexture;
+float3 skinColorFromEnvironment;
+
+#pragma body
+constexpr sampler sparseSampler(coord::normalized, address::clamp_to_zero, filter::linear);
+float4 texelToMerge = sparseTexture.sample(sparseSampler, _surface.diffuseTexcoord);
+_surface.diffuse = mix(_surface.diffuse, texelToMerge, blendFactor);
+
+float alpha = _surface.diffuse.a;
+_surface.diffuse.rgb += skinColorFromEnvironment * (1.0 - alpha);
+_surface.diffuse.a = 1.0;
