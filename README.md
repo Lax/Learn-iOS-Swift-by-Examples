@@ -38,7 +38,7 @@ Swift在iOS 8发布的时候推向市场，用来取代 Objective-C 语言。
 
 * The Swift Programming Language - The Definitive Book
     - [Online Version](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html)
-    - ePub（[官方](https://swift.org/documentation/TheSwiftProgrammingLanguage(Swift4).epub)）
+    - ePub（[官方](https://docs.swift.org/swift-book/TheSwiftProgrammingLanguageSwift5.epub)）
     - [iBooks Store](https://itunes.apple.com/us/book-series/swift-programming-series/id888896989?mt=11)
 * App Development with Swift
     -  [iBooks Store](https://itunes.apple.com/us/book/app-development-with-swift/id1118575552?mt=11)
