@@ -221,3 +221,7 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 
 ### 讨论区
 *    【iOS开发者-开始Swift】QQ交流群32958950 申请时请说明身份。
+
+---
+
+[![Stargazers over time](https://starchart.cc/Lax/iOS-Swift-Demos.svg)](https://starchart.cc/Lax/iOS-Swift-Demos)
