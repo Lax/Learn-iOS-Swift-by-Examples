@@ -1,4 +1,4 @@
-# [Swift学习资源](http://blog.liulantao.com/SwiftBeginnersGuide/)
+# [Swift 学习资源](http://blog.liulantao.com/SwiftBeginnersGuide/)
 
 ![Swift](http://images.apple.com/v/swift/b/images/overview/icon_swift_hero_large_2x.png)
 
@@ -224,4 +224,4 @@ Apple同时发布了3个示例程序，用于初窥Swift开发的项目。
 
 ---
 
-[![Stargazers over time](https://starchart.cc/Lax/iOS-Swift-Demos.svg)](https://starchart.cc/Lax/iOS-Swift-Demos)
+[![Stargazers over time](https://starchart.cc/Lax/Learn-iOS-Swift-by-Examples.svg)](https://starchart.cc/Lax/Learn-iOS-Swift-by-Examples)
