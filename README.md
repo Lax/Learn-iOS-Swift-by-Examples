@@ -1,6 +1,6 @@
-# [Swift 学习资源](http://blog.liulantao.com/SwiftBeginnersGuide/)
+![Learn-iOS-Swift-by-Examples](https://socialify.git.ci/Lax/Learn-iOS-Swift-by-Examples/image?description=1&descriptionEditable=%E7%B2%BE%E5%BF%83%E6%94%B6%E9%9B%86%E5%B9%B6%E5%88%86%E7%B1%BB%E6%95%B4%E7%90%86%E7%9A%84Swift%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90&font=Source%20Code%20Pro&forks=1&language=1&logo=http%3A%2F%2Fimages.apple.com%2Fv%2Fswift%2Fb%2Fimages%2Foverview%2Ficon_swift_hero_large_2x.png&owner=1&pattern=Floating%20Cogs&stargazers=1&theme=Light)
 
-![Swift](http://images.apple.com/v/swift/b/images/overview/icon_swift_hero_large_2x.png)
+# [Swift 学习资源](http://blog.liulantao.com/SwiftBeginnersGuide/)
 
 > Swift，一种强大的开源编程语言，让大家都能开发出众的 App。
 > Swift 是一种强劲而直观的编程语言，它由 Apple 创造，可用来为 iOS、Mac、Apple TV 和 Apple Watch 开发 app。它旨在为开发者提供充分的自由。Swift 易用并且开源，只要有想法，谁都可以创造非凡。
